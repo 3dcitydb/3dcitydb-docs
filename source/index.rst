@@ -53,6 +53,7 @@ Contents:
    :caption: Miscellaneous
    
    changelog
+   contributors
    references
    3dcitydb-tum
    3dcitydb-vcs
