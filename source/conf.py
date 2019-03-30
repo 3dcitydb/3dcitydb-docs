@@ -53,8 +53,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = '3dcitydb-docs'
-copyright = '2019, Felix Kunde'
-author = 'Felix Kunde'
+copyright = '2019, 3DCityDB Team'
+author = '3DCityDB Team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
