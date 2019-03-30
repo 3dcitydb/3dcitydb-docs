@@ -1,39 +1,32 @@
-# 3dcitydb-docs
+3dcitydb-docs
+#############
 
-3D City Database for CityGML
-
-**Version 4.0**
-
-**Documentation**
-
-**2019**
+**3D City Database for CityGML**
 
 |image0|
+-  Geobasisdaten: © Stadtvermessung Frankfurt am Main
+-  IDAC Ltd, UK.
+-  Chair of Geoinformatics, Technische Universität München. Image
+      created based on master thesis work of Matthias Körner, jointly
+      supervised with HTW Dresden
+-  3D City Model of Berlin © Berlin partner GmbH
 
-|image1|
-
-| |image2|\ |image3|
-| **The images on the cover page were provided by:**
+|image3|
 
 -  Chair of Photogrammetry and Remote Sensing & Chair of Cartography,
       Technische Universität München
 
--  Geobasisdaten: © Stadtvermessung Frankfurt am Main
-
--  IDAC Ltd, UK.
+|image2|
 
 -  virtualcitySYSTEMS GmbH, Berlin, Germany
 
--  Chair of Geoinformatics, Technische Universität München. Image
-      created based on master thesis work of Matthias Körner, jointly
-      supervised with HTW Dresden
-
--  3D City Model of Berlin © Berlin partner GmbH
+|image1|
 
 -  M.O.S.S. Computer Grafik Systeme GmbH, Taufkirchen, Germany
 
+
 Versions of software packages
-=============================
+-----------------------------
 
 This documentation covers the following versions of the 3D City Database
 and its tools.
