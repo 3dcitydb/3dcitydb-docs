@@ -102,3 +102,7 @@ form to buildings. The software is implemented in Java and directly
 connects to the 3DCityDB. It has been employed to estimate the solar
 potentials in the official Energy Atlas of the city of Helsinki,
 Finland.
+
+.. |image225| image:: media/image235.jpg
+   :width: 6.3in
+   :height: 3.48194in
