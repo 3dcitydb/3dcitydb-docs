@@ -106,8 +106,7 @@ and POI information, see
 http://www.businesslocationcenter.de/wab/maps/main/.
 
 .. |image226| image:: media/image236.png
-   :width: 1.34653in
-   :height: 1.84375in
+   :width: 100
 .. |3DGDI_EN_2015| image:: media/image237.png
    :width: 5.19792in
    :height: 2.125in
