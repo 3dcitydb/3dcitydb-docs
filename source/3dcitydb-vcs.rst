@@ -1,7 +1,7 @@
 3DCityDB @ virtualcitySYSTEMS
 =============================
 
-|image226|\ virtualcitySYSTEMS [30]_ has successfully applied the 3D
+|image226| virtualcitySYSTEMS [30]_ has successfully applied the 3D
 City Database in customer projects worldwide and also funded its
 development. With the Open Source database at the core,
 virtualcitySYSTEMS also offers a *3D Spatial Data Infrastructure*
@@ -106,10 +106,13 @@ and POI information, see
 http://www.businesslocationcenter.de/wab/maps/main/.
 
 .. |image226| image:: media/image236.png
-   :width: 100
+   :scale: 40%
+   :align: top
+
 .. |3DGDI_EN_2015| image:: media/image237.png
    :width: 5.19792in
    :height: 2.125in
+   
 .. |image228| image:: media/image238.png
    :width: 4.5067in
    :height: 2.5375in
