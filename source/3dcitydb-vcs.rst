@@ -104,3 +104,13 @@ Berlin Economic atlas shown above is a 3D web map application that
 displays the entire city model and combines the 3D objects with business
 and POI information, see
 http://www.businesslocationcenter.de/wab/maps/main/.
+
+.. |image226| image:: media/image236.png
+   :width: 1.34653in
+   :height: 1.84375in
+.. |3DGDI_EN_2015| image:: media/image237.png
+   :width: 5.19792in
+   :height: 2.125in
+.. |image228| image:: media/image238.png
+   :width: 4.5067in
+   :height: 2.5375in
