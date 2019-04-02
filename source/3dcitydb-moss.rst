@@ -89,3 +89,10 @@ novaFACTORY 3D Pro module for automatic recognition of building roofs
 from photogrammetric raw data. This raw data will be supplied
 automatically and the 3D City Database will be updated automatically
 when production data are approved.
+
+.. |visualisation heating demand Rotterdam| image:: media/image239.png
+   :width: 3.58371in
+   :height: 2.15in
+.. |image230| image:: media/image240.png
+   :width: 4.65806in
+   :height: 2.36667in
