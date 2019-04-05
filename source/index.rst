@@ -10,7 +10,6 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :caption: First Steps
 
    intro/index
 
@@ -18,7 +17,6 @@ Contents:
 
 .. toctree::
    :maxdepth: 3
-   :caption: 3D City Database
    
    3dcitydb/index
 
@@ -26,7 +24,6 @@ Contents:
 
 .. toctree::
    :maxdepth: 3
-   :caption: Importer-Exporter
 
    impexp/index
 
@@ -34,7 +31,6 @@ Contents:
    
 .. toctree::
    :maxdepth: 2
-   :caption: Web Feature Service
    
    wfs/index
 
@@ -42,7 +38,6 @@ Contents:
    
 .. toctree::
    :maxdepth: 2
-   :caption: Web Map
    
    webmap/index
 
@@ -50,7 +45,6 @@ Contents:
    
 .. toctree::
    :maxdepth: 2
-   :caption: Miscellaneous
    
    changelog
    contributors
