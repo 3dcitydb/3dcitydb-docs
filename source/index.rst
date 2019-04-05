@@ -41,17 +41,13 @@ Contents:
    
    webmap/index
 
-.. _misc:
+.. _references:
    
 .. toctree::
    :maxdepth: 2
    
+   references/index
    changelog
-   contributors
-   references
-   3dcitydb-tum
-   3dcitydb-vcs
-   3dcitydb-moss
    
    
 Indices and tables
