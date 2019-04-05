@@ -14,9 +14,9 @@ integration workflows these inputs have been moved to batch (Windows)
 and shell scripts (UNIX/Linux/macOS). The following table provides an
 overview of the different shell scripts:
 
-========================== ====== ===== ==========================================================================================================
+========================== ====== ===== ====================================================================================
 File                       Oracle PgSQL Explanation
-========================== ====== ===== ==========================================================================================================
+========================== ====== ===== ====================================================================================
 CONNECTION_DETAILS         x      x     Sets database credentials
 CREATE_DB                  x      x     Runs all scripts for creating the relational schema of the 3DCityDB incl. user-defined types and functions
 CREATE_SCHEMA                     x     Creates an additional 3DCityDB instance in a separate schema within the same database
@@ -27,7 +27,7 @@ MIGRATION/ GRANT_ACCESS_V2 x            Grants access on a 3DCityDB v2 to a v4 u
 GRANT_ACCESS               x      x     Grants read-only of read-write access on the 3DCityDB for a given user
 MIGRATION/ MIGRATE_DB      x      x     Starts the migration process from an older version
 REVOKE_ACCESS              x      x     Revokes access rights for a given user
-========================== ====== ===== ==========================================================================================================
+========================== ====== ===== ====================================================================================
 
 Table 19: Overview of all shell scripts within 3dcitydb/oracle or
 3dcitydb/postgresql folder.
@@ -39,11 +39,15 @@ check whether execution permission is set for the starter script. Change
 to the installation folder and enter the following to make the starter
 script executable for the owner of the file, e.g.:
 
-chmod u+x CREATE_DB.sh
+.. code:: bash
+   
+   chmod u+x CREATE_DB.sh
 
 Afterwards, simply run the shell script by typing:
 
-./CREATE_DB.sh
+.. code:: bash
+   
+   ./CREATE_DB.sh
 
 .. note::
    The **database connection details need to be set** in the
@@ -58,13 +62,14 @@ The SQLScripts directory contains four subfolders:
 
 Includes SQL files about the logical (tables, constraints) and physical
 (datatypes, indexes) database schema of the 3D City Database exported
-from the schema modelling tools JDeveloper (Oracle) or pgModeler
-(PostgreSQL) (with minor changes). INSERT statements for the prefilled
-lookup tables OBJECTCLASS and AGGREGATION_INFO as well as converter
-functions between table names and objectclass IDs can be found in the
-OBJECTCLASS subfolder. Because of PostgreSQL’s way to handle database
-schemas the SCHEMA folder contains a few more scripts with stored
-procedures. See next chapter for more details.
+from the schema modelling tools `JDeveloper <https://www.oracle.com/technetwork/developer-tools/jdev/overview/index.html>`_ (Oracle) or `pgModeler <https://pgmodeler.io/>`_ (PostgreSQL) (with
+minor changes). INSERT statements for the prefilled lookup tables
+`OBJECTCLASS` and `AGGREGATION_INFO` as well as converter functions
+between table names and objectclass IDs can be found in the OBJECTCLASS
+subfolder. Because of PostgreSQL’s way to handle database schemas the
+SCHEMA folder contains a few more scripts with stored procedures. See
+chapter :doc:`Working with multiple database schemas <../3dcitydb/multi-schema>`
+for more details.
 
 **CITYDB_PKG**
 
@@ -72,15 +77,17 @@ Contains scripts that create database objects and stored procedures
 mainly to be used by the Importer/Exporter application. They are written
 in PL/SQL (Oracle) or PL/pgSQL (PostgreSQL) and grouped by the type of
 operation (data manipulation, maintenance etc.). The APIs are introduced
-in chapter 4.
+in :doc:`Stored Procedures <../3dcitydb/sproc/index>` chapter.
 
 **UTIL**
 
 This folder assembles different database management utilities:
 
--  Grant and revoke read rights to and from the 3D City Database.
+-  :doc:`Grant and revoke read rights <../3dcitydb/multi-schema#read-and-write-access-to-a-schema>`
+   to and from the 3D City Database.
 
--  Create additional database schemas with a 3D City Database layout
+-  :doc:`Create <../3dcitydb/multi-schema#create-and-address-database-schemas>`
+   additional database schemas with a 3D City Database layout
    (PostgreSQL-only)
 
 -  Enable or disable versioning (execution can be time-consuming)
@@ -91,5 +98,5 @@ This folder assembles different database management utilities:
 **MIGRATION**
 
 Provides a migration path from previous releases to the newest version.
-See chapter 3.4 for more details. This folder will also include upgrade
-scripts for upcoming minor releases.
+See :doc:`Upgrade <upgrade>` chapter for more details. This folder will
+also include upgrade scripts for upcoming minor releases.
