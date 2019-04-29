@@ -102,6 +102,7 @@ is accelerated since 3D graphics hardware supports the scene graph
 concept. Furthermore, the usage of different shape versions of objects
 is facilitated, e.g. different seasons, since only the library objects
 have to be exchanged.
+
 .. |image4| image:: media/image14.png
    :width: 6.10416in
    :height: 2.16666in

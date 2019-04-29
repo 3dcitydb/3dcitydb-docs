@@ -76,6 +76,7 @@ Importer/Exporter shall not be able to accidentically invoke them
 through an SQL query, then it is **strongly recommended** that the user
 may only connect to the 3DCityDB instance via a *read-only user* (cf.
 chapter 3.4.2).
+
 .. |image84| image:: media/image95.png
    :width: 5.51181in
    :height: 1.18232in

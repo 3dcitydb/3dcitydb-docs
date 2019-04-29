@@ -37,6 +37,7 @@ the preferences are remembered on restart. Via the Project menu
 available from the menu bar of the Importer/Exporter, the preferences
 can optionally be stored in or loaded from user-defined config files
 (cf. chapter 5.1).
+
 .. |image95| image:: media/image105.png
    :width: 5in
    :height: 4.35406in
