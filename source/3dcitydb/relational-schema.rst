@@ -224,3 +224,7 @@ This way, the dependencies between the registered ADE application
 schemas can be directly read from the 3DCityDB database schema to
 facilitate the database administration process, i.e. the registration
 and deregistration of multiple CityGML ADEs within a 3DCityDB instance.
+
+.. |image30| image:: media/image40.png
+   :width: 6.29921in
+   :height: 3.49339in

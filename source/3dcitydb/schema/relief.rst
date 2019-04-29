@@ -92,3 +92,7 @@ value domains:
       or 3 (optimized rectangle))
 
    -  PostGIS: *Polygon Z*
+
+.. |image49| image:: media/image60.png
+   :width: 6.1706in
+   :height: 4.68125in

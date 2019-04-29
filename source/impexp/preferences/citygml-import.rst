@@ -652,3 +652,47 @@ and gml:id caches respectively temporary XLink information (default:
    memory before being submitted to the database. Thus, the
    Importer/Exporter might run out of memory if the batch size is too high.
    After a batch is submitted, the transaction is committed.
+
+.. |image96| image:: media/image106.png
+   :width: 4.44792in
+   :height: 4.08412in
+
+.. |image97| image:: media/image107.png
+   :width: 3.85827in
+   :height: 3.61755in
+
+.. |image98| image:: media/image108.png
+   :width: 3.85827in
+   :height: 3.62563in
+
+.. |image99| image:: media/image109.png
+   :width: 3.89764in
+   :height: 3.09336in
+
+.. |image100| image:: media/image110.png
+   :width: 3.85827in
+   :height: 3.06212in
+
+.. |image101| image:: media/image111.png
+   :width: 3.85827in
+   :height: 3.06212in
+
+.. |image102| image:: media/image112.png
+   :width: 3.85827in
+   :height: 3.06212in
+
+.. |image103| image:: media/image113.png
+   :width: 3.85827in
+   :height: 3.06212in
+
+.. |image104| image:: media/image114.png
+   :width: 4.44882in
+   :height: 2.92076in
+
+.. |image105| image:: media/image115.png
+   :width: 3.92593in
+   :height: 2.72306in
+
+.. |image106| image:: media/image116.png
+   :width: 3.88542in
+   :height: 4.77754in

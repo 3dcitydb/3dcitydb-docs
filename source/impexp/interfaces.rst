@@ -127,3 +127,7 @@ Finally, the Help menu gives access to an Info dialog and the Read Me
 file shipped with the Importer/Exporter. Amongst other information, the
 Info dialog displays the official *version and build number* of the
 Importer/Exporter.
+
+.. |image63| image:: media/image74.png
+   :width: 6.3in
+   :height: 4.07639in

@@ -97,3 +97,47 @@ the current loaded layers, the camera perspective etc. The created scene
 link can be stored as a browser bookmark or favorite and can also be
 sent e.g. by email to friends, colleagues, project partners etc. When
 they open the link, the same scene will open in their browsers.
+
+.. |image208| image:: media/image218.PNG
+   :width: 6.29683in
+   :height: 4.6562in
+
+.. |image209| image:: media/image219.PNG
+   :width: 6.30338in
+   :height: 4.04884in
+
+.. |image210| image:: media/image220.png
+   :width: 6.3in
+   :height: 4.16181in
+
+.. |image211| image:: media/image221.PNG
+   :width: 6.3in
+   :height: 4.19333in
+
+.. |image212| image:: media/image222.PNG
+   :width: 6.3in
+   :height: 4.2in
+
+.. |image213| image:: media/image223.PNG
+   :width: 6.3in
+   :height: 4.20667in
+
+.. |image214| image:: media/image224.PNG
+   :width: 6.3in
+   :height: 4.20667in
+
+.. |image215| image:: media/image225.PNG
+   :width: 6.3in
+   :height: 4.19333in
+
+.. |image216| image:: media/image226.png
+   :width: 6.3in
+   :height: 4.42361in
+
+.. |image217| image:: media/image227.PNG
+   :width: 6.29834in
+   :height: 4.20556in
+
+.. |image218| image:: media/image228.PNG
+   :width: 6.3in
+   :height: 3.7in

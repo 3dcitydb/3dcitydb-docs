@@ -115,3 +115,7 @@ element. The mapping is defined by associated classes of
 -  *TexCoordGen* when using a common 3x4 transformation matrix from
    world space to texture space, specified by the attribute
    *worldToTexture.*
+
+.. |image7| image:: media/image17.png
+   :width: 5.51695in
+   :height: 6.248in

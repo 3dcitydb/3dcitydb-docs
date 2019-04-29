@@ -186,3 +186,15 @@ database operation in chapter 5.2.2).
    *CityGML feature* from an input file *already exists* in the database.
    Thus, if an import is executed twice on the same dataset, all CityGML
    features contained in the dataset will be imported twice.
+
+.. |image76| image:: media/image87.png
+   :width: 4.5748in
+   :height: 6.46937in
+
+.. |image77| image:: media/image88.png
+   :width: 6.3in
+   :height: 4.74236in
+
+.. |C:\devel\java\impexp-oss\resources\jar\resources\img\common\bbox_paste.png| image:: media/image89.png
+   :width: 0.16667in
+   :height: 0.16667in

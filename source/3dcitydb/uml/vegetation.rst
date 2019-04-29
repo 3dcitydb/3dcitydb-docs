@@ -45,3 +45,11 @@ geometry in each LoD. Whereas a *SolitaryVegetationObject* is associated
 with the \_\ *Geometry* class representing an arbitrary GML geometry (by
 the relation *lodXGeometry*), a *PlantCover* is restricted to be either
 a *MultiSolid* or a *MultiSurface*.
+
+.. |vegetation1| image:: media/image36.png
+   :width: 3.6in
+   :height: 2.7in
+
+.. |image27| image:: media/image37.png
+   :width: 6.3in
+   :height: 2.39583in

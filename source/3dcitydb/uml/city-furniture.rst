@@ -42,3 +42,7 @@ In order to specify the exact intersection of the DTM with the 3D
 geometry of a city furniture object, the latter can have a
 *TerrainIntersectionCurve* (TIC) for each LoD. This allows for ensuring
 a smooth transition between the DTM and the city furniture object.
+
+.. |image16| image:: media/image26.png
+   :width: 5.85838in
+   :height: 2.9434in

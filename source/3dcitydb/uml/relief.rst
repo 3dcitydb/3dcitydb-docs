@@ -48,3 +48,11 @@ polygons
 In the simplest and most frequent case, the validity polygon of a grid
 corresponds exactly with its Bounding box, i.e. the spatial extent of
 the grid.
+
+.. |image17| image:: media/image27.png
+   :width: 6.29931in
+   :height: 4.04306in
+
+.. |DTM_1| image:: media/image28.png
+   :width: 2.89565in
+   :height: 2.6in

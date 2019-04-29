@@ -16,3 +16,7 @@ table SURFACE_GEOMETRY, as a point- or line-typed object
 LODx_IMPLICIT_REP_ID, LODx_IMPLICIT_REF_POINT,
 LODx_IMPLICIT_TRANSFORMATION with 1 ≤ x ≤ 4). Optionally terrain
 intersection curves can be stored for city furniture objects.
+
+.. |image48| image:: media/image59.png
+   :width: 5.63412in
+   :height: 6.6389in

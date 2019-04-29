@@ -467,3 +467,67 @@ way to provide valid settings is as follows:
    Importer/Exporter contains all the classes required for reading and
    writing a config file. Once you have the JAR file on your classpath, use
    the class org.citydb.config.ConfigUtil as starting point.
+
+.. |image133| image:: media/image143.png
+   :width: 3.85827in
+   :height: 2.39568in
+
+.. |image134| image:: media/image144.png
+   :width: 3.85827in
+   :height: 2.84947in
+
+.. |image135| image:: media/image145.png
+   :width: 3.85827in
+   :height: 3.41809in
+
+.. |image136| image:: media/image146.png
+   :width: 3.85827in
+   :height: 2.3825in
+
+.. |image137| image:: media/image147.png
+   :width: 3.85827in
+   :height: 3.62393in
+
+.. |image138| image:: media/image148.png
+   :width: 3.85827in
+   :height: 2.4918in
+
+.. |image139| image:: media/image149.png
+   :width: 2.18518in
+   :height: 0.95872in
+
+.. |image140| image:: media/image150.png
+   :width: 5.28302in
+   :height: 0.83333in
+
+.. |image141| image:: media/image151.png
+   :width: 5.42913in
+   :height: 4.08681in
+
+.. |C:\devel\java\impexp\resources\jar\resources\img\map\waypoint_precise.png| image:: media/image152.png
+   :width: 0.18542in
+   :height: 0.18542in
+
+.. |C:\devel\java\impexp\resources\jar\resources\img\map\waypoint_reverse.png| image:: media/image153.png
+   :width: 0.21003in
+   :height: 0.19468in
+
+.. |image144| image:: media/image154.png
+   :width: 5.42913in
+   :height: 4.0904in
+
+.. |image145| image:: media/image155.png
+   :width: 2.63806in
+   :height: 2.44444in
+
+.. |C:\devel\java\impexp\resources\jar\resources\img\common\bbox_copy.png| image:: media/image79.png
+   :width: 0.16667in
+   :height: 0.16667in
+
+.. |C:\devel\java\impexp\resources\jar\resources\img\common\bbox_paste.png| image:: media/image89.png
+   :width: 0.16667in
+   :height: 0.16667in
+
+.. |image148| image:: media/image156.png
+   :width: 3.85827in
+   :height: 3.17354in

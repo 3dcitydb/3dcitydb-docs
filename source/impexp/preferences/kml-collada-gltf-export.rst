@@ -1151,3 +1151,67 @@ export parameters. However, some rules apply for almost all cases:
       valid Goole Elevation API key: *absolute* altitude mode, *generic
       attribute “GE_LoDn_zOffset”,* and *call Google's elevation API
       when no data is available*.
+
+.. |image115| image:: media/image125.png
+   :width: 5.11811in
+   :height: 5.2174in
+
+.. |image116| image:: media/image126.png
+   :width: 4.72441in
+   :height: 7.21316in
+
+.. |image117| image:: media/image127.png
+   :width: 5.6036in
+   :height: 3.46387in
+
+.. |image118| image:: media/image128.png
+   :width: 5.27928in
+   :height: 3.65766in
+
+.. |image119| image:: media/image129.png
+   :width: 4.72441in
+   :height: 7.21316in
+
+.. |image120| image:: media/image130.png
+   :width: 4.72441in
+   :height: 3.02775in
+
+.. |image121| image:: media/image131.png
+   :width: 4.72441in
+   :height: 3.02566in
+
+.. |image122| image:: media/image132.png
+   :width: 4.72441in
+   :height: 2.96265in
+
+.. |image123| image:: media/image133.png
+   :width: 5.41339in
+   :height: 3.96337in
+
+.. |Pergamonmuseum_2| image:: media/image134.png
+   :width: 5.88696in
+   :height: 5.53913in
+
+.. |image125| image:: media/image135.png
+   :width: 5.9384in
+   :height: 5.69565in
+
+.. |image126| image:: media/image136.png
+   :width: 5.41339in
+   :height: 3.96337in
+
+.. |kirche_relative| image:: media/image137.jpeg
+   :width: 5.42019in
+   :height: 4.34587in
+
+.. |kirche_relative_points| image:: media/image138.jpeg
+   :width: 5.90551in
+   :height: 4.48856in
+
+.. |kirche_absolute_without_grounding| image:: media/image139.png
+   :width: 5.90551in
+   :height: 3.75926in
+
+.. |kirche_absolute_without_grounding| image:: media/image140.jpeg
+   :width: 5.90551in
+   :height: 3.75926in

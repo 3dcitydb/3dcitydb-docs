@@ -31,3 +31,11 @@ Figure 54: Graphical database client connected to the 3D City Database
    citydb-objclass
    citydb-delete
    citydb-envelope
+
+.. |image60| image:: media/image71.png
+   :width: 1.9912in
+   :height: 2.45in
+
+.. |image61| image:: media/image72.png
+   :width: 1.64967in
+   :height: 2.63561in

@@ -70,3 +70,7 @@ performing an upgrade, as mentioned in the migration chapter** **3.5.**
 During an upgrade check the output messages of the script for errors and
 warnings. The process should finish the message “3D City Database
 upgrade complete”.
+
+.. |image59| image:: media/image70.PNG
+   :width: 4.51876in
+   :height: 1.79921in

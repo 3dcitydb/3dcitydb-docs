@@ -73,3 +73,11 @@ name [4] will be listed on the *BaseLayerPicker* widget. You can use the
 state and check the loaded terrain data. Clicking on the *Remove Terrain
 layer* button [6], the terrain layer will be removed and substituted
 with the *WGS84 Ellipsoid* terrain layer.
+
+.. |image206| image:: media/image216.PNG
+   :width: 6.3in
+   :height: 4.18in
+
+.. |image207| image:: media/image217.PNG
+   :width: 6.29502in
+   :height: 4.21667in

@@ -313,3 +313,11 @@ used to rebuild *OrientableSurface* in the following way:
 
 Like with the IS_XLINK flag, the Importer/Exporter tool provides a
 reference implementation of the IS_REVERSE flag.
+
+.. |image34| image:: media/image44.png
+   :width: 6.3in
+   :height: 2.99702in
+
+.. |image35| image:: media/image45.png
+   :width: 1.49583in
+   :height: 1.59097in

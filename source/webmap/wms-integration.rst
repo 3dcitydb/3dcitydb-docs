@@ -75,3 +75,11 @@ state and check the added WMS layer. Clicking on the *Remove WMS layer*
 button [6], the WMS layer will be removed and substituted with the *Bing
 Maps Aerial* that is the first item listed on the *BaseLayerPicker*
 widget.
+
+.. |image204| image:: media/image214.PNG
+   :width: 6.30119in
+   :height: 4.14517in
+
+.. |image205| image:: media/image215.PNG
+   :width: 6.3026in
+   :height: 4.07502in

@@ -103,3 +103,7 @@ or want to contribute, please submit an Github issue or pull request.
 ..
 
    https://github.com/tum-gis/3dcitydb-docker-compose
+
+.. |image224| image:: media/image234.png
+   :width: 1.29921in
+   :height: 1.59142in

@@ -67,3 +67,7 @@ README.txt                     A brief information about the application
 ================= ============ ==============================================================================================
 
 Table 18: Contents of the installation directory.
+
+.. |image57| image:: media/image68.png
+   :width: 4.58268in
+   :height: 3.39205in

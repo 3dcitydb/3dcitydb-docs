@@ -67,3 +67,11 @@ transport, airplanes, bicycles, or pedestrians and in
 *AuxiliaryTrafficAreas*, which are of minor importance for
 transportation purposes, for example road markings, green spaces or
 flower tubs.
+
+.. |image21| image:: media/image31.png
+   :width: 4.32222in
+   :height: 2.78056in
+
+.. |image22| image:: media/image32.png
+   :width: 6.3in
+   :height: 3.02847in

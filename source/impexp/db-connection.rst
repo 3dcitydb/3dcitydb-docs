@@ -68,3 +68,11 @@ This information can be requested from a connected 3D City Database at
 any time using the *Info* button on the Database tab. Upon successful
 connection, the description of the active connection is moreover
 displayed in the title bar of the application window.
+
+.. |image64| image:: media/image75.png
+   :width: 4.29167in
+   :height: 4.39671in
+
+.. |image65| image:: media/image76.png
+   :width: 5.07292in
+   :height: 2.20248in

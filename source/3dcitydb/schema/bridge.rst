@@ -72,3 +72,7 @@ the building schema are the following:
    Their concrete numbers depend on the ADE registration (cf. section
    6.3.3.1). Like openings of building, bridge openings can have
    addresses assigned to it.
+
+.. |image47| image:: media/image58.png
+   :width: 9.84065in
+   :height: 9.0579in

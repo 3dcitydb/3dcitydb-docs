@@ -267,3 +267,43 @@ whether the ADE is fully supported, or some user action is required.
 |image75|
 
 Figure 65: ADE metadata dialog.
+
+.. |image66| image:: media/image77.png
+   :width: 5.01042in
+   :height: 1.30833in
+
+.. |image67| image:: media/image78.png
+   :width: 4.37402in
+   :height: 2.03513in
+
+.. |C:\devel\java\impexp-oss\resources\jar\resources\img\common\bbox_copy.png| image:: media/image79.png
+   :width: 0.16667in
+   :height: 0.16667in
+
+.. |C:\devel\java\impexp-oss\resources\jar\resources\img\common\map_select.png| image:: media/image80.png
+   :width: 0.16667in
+   :height: 0.16667in
+
+.. |image70| image:: media/image81.png
+   :width: 6.3in
+   :height: 4.74236in
+
+.. |image71| image:: media/image82.png
+   :width: 5.08333in
+   :height: 1.68225in
+
+.. |image72| image:: media/image83.png
+   :width: 4.55208in
+   :height: 2.16716in
+
+.. |image73| image:: media/image84.png
+   :width: 5.52426in
+   :height: 1.95833in
+
+.. |image74| image:: media/image85.png
+   :width: 5.65625in
+   :height: 1.87893in
+
+.. |image75| image:: media/image86.png
+   :width: 3.88542in
+   :height: 3.59761in

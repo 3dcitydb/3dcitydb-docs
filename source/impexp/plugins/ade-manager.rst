@@ -417,3 +417,67 @@ for the ADE import.
 |image180|
 
 Figure 150: Console window showing a summary of ADE export
+
+.. |image165| image:: media/image173.png
+   :width: 5.11811in
+   :height: 3.77596in
+
+.. |image166| image:: media/image174.png
+   :width: 6.3in
+   :height: 6.92708in
+
+.. |image167| image:: media/image175.png
+   :width: 2.63308in
+   :height: 2.10417in
+
+.. |image168| image:: media/image176.png
+   :width: 6.3in
+   :height: 2.25972in
+
+.. |image169| image:: media/image177.png
+   :width: 6.3in
+   :height: 2.45625in
+
+.. |image170| image:: media/image178.png
+   :width: 2.9375in
+   :height: 2.7731in
+
+.. |image171| image:: media/image179.png
+   :width: 4.75in
+   :height: 3.11914in
+
+.. |image172| image:: media/image180.png
+   :width: 6.29694in
+   :height: 3.46512in
+
+.. |image173| image:: media/image181.jpg
+   :width: 5.51181in
+   :height: 3.60313in
+
+.. |image174| image:: media/image182.png
+   :width: 2.35347in
+   :height: 3.95715in
+
+.. |image175| image:: media/image183.png
+   :width: 6.3in
+   :height: 3.52083in
+
+.. |image176| image:: media/image184.png
+   :width: 6.3in
+   :height: 3.36458in
+
+.. |image177| image:: media/image185.png
+   :width: 6.3in
+   :height: 7.14931in
+
+.. |image178| image:: media/image186.png
+   :width: 4.0279in
+   :height: 2.25in
+
+.. |image179| image:: media/image187.png
+   :width: 6.3in
+   :height: 4.32778in
+
+.. |image180| image:: media/image188.png
+   :width: 6.3in
+   :height: 4.17917in

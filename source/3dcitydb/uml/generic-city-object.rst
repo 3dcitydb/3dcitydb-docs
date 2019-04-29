@@ -55,3 +55,7 @@ For example, if a city wall (e.g., the Great Wall of China) should be
 represented as a *GenericCityObject,* a smooth transition between the
 DTM and the road on the city wall would have to be ensured (in order to
 avoid unrealistic bumps).
+
+.. |image19| image:: media/image29.png
+   :width: 6.3in
+   :height: 3.63472in

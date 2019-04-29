@@ -88,3 +88,15 @@ floor (*FloorSurface*), ceiling (*CeilingSurface*), and interior walls
 in control areas, can be represented in the CityGML tunnel model with
 the class *TunnelFurniture*. A *TunnelFurniture* may have the attributes
 *class, function* and *usage*.
+
+.. |image23| image:: media/image33.png
+   :width: 4.90831in
+   :height: 2.66667in
+
+.. |image24| image:: media/image34.png
+   :width: 6.29931in
+   :height: 7.09236in
+
+.. |image25| image:: media/image35.png
+   :width: 5.48148in
+   :height: 3.92545in

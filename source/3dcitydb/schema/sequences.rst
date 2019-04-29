@@ -16,3 +16,7 @@ version as the corresponding table does not exist.
 |image56|
 
 Figure 50: Overview of all sequences used in 3DCityDB
+
+.. |image56| image:: media/image67.png
+   :width: 6.3in
+   :height: 5.85278in
