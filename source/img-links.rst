@@ -10,7 +10,9 @@
 .. |image3| image:: media/image13.jpeg
    :width: 0.96747in
    :height: 0.50979in
-.. |image4| image:: media/image14.emf
+.. |image4| image:: media/image14.png
+   :width: 6.10416in
+   :height: 2.16666in
 .. |image5| image:: media/image15.png
    :width: 6.26702in
    :height: 5.94783in
@@ -80,13 +82,13 @@
 .. |image27| image:: media/image37.png
    :width: 6.3in
    :height: 2.39583in
-.. |image28| image:: media/image38.wmf
+.. |image28| image:: media/image38.png
    :width: 3.54792in
    :height: 2.08681in
 .. |image29| image:: media/image39.png
    :width: 6.3in
    :height: 2.61528in
-.. |image30| image:: media/image40.EMF
+.. |image30| image:: media/image40.png
    :width: 6.29921in
    :height: 3.49339in
 .. |image31| image:: media/image41.png
@@ -98,10 +100,10 @@
 .. |image33| image:: media/image43.png
    :width: 6.29921in
    :height: 5.52144in
-.. |image34| image:: media/image44.emf
+.. |image34| image:: media/image44.png
    :width: 6.3in
    :height: 2.99702in
-.. |image35| image:: media/image45.emf
+.. |image35| image:: media/image45.png
    :width: 1.49583in
    :height: 1.59097in
 .. |image36| image:: media/image46.png
@@ -251,8 +253,6 @@
 .. |image84| image:: media/image95.png
    :width: 5.51181in
    :height: 1.18232in
-.. |image85| image:: media/image96.png
-.. |image86| image:: media/image96.png
 .. |image87| image:: media/image97.png
    :width: 5.56648in
    :height: 6.37826in
@@ -451,7 +451,7 @@
 .. |image152| image:: media/image160.PNG
    :width: 4.71099in
    :height: 4.63648in
-.. |image153| image:: media/image161.emf
+.. |image153| image:: media/image161.png
    :width: 5.96111in
    :height: 2.53153in
 .. |image154| image:: media/image162.png

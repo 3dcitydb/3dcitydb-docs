@@ -33,7 +33,7 @@ table provides a brief summary overview.
 
 Table 37: Summery overview of the KML/COLLADA/glTF export preferences.
 
-|image85| |image86| |image87|
+|image87|
 
 Figure 71: The KML/COLLADA/glTF Export tab allowing for exporting
 KML/COLLADA/glTF models from the 3DCityDB.
