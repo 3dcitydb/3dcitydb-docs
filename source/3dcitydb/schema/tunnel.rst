@@ -64,6 +64,6 @@ differences to the building schema are the following:
 -  In contrast to the building model tunnels and tunnel openings do not
    have addresses.
 
-.. |image53| image:: media/image64.png
+.. |image53| image:: ../../media/image64.png
    :width: 10.31169in
    :height: 9.13115in

@@ -316,34 +316,34 @@ and *page factors* of the gml:id caches for features and geometries. The
 meaning of the values is identical to the Resource preferences for
 CityGML imports. So please refer to chapter 5.6.1.10 for more details.
 
-.. |image107| image:: media/image117.png
+.. |image107| image:: ../../media/image117.png
    :width: 3.85827in
    :height: 2.69764in
 
-.. |image108| image:: media/image118.png
+.. |image108| image:: ../../media/image118.png
    :width: 3.85827in
    :height: 3.28667in
 
-.. |image109| image:: media/image119.png
+.. |image109| image:: ../../media/image119.png
    :width: 3.85827in
    :height: 2.69764in
 
-.. |image110| image:: media/image120.png
+.. |image110| image:: ../../media/image120.png
    :width: 3.85827in
    :height: 2.69764in
 
-.. |image111| image:: media/image121.png
+.. |image111| image:: ../../media/image121.png
    :width: 4.08268in
    :height: 2.77804in
 
-.. |image112| image:: media/image122.png
+.. |image112| image:: ../../media/image122.png
    :width: 3.85827in
    :height: 3.20587in
 
-.. |image113| image:: media/image123.png
+.. |image113| image:: ../../media/image123.png
    :width: 3.85827in
    :height: 2.73719in
 
-.. |image114| image:: media/image124.png
+.. |image114| image:: ../../media/image124.png
    :width: 3.85827in
    :height: 3.2518in

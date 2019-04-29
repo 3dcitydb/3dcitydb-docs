@@ -113,10 +113,10 @@ and should be stored along with other attributes of that feature.
 
 Figure 30: Database schema of the CityGML core elements
 
-.. |envelope_basis_3f| image:: media/image42.png
+.. |envelope_basis_3f| image:: ../../media/image42.png
    :width: 4.24528in
    :height: 2.31241in
 
-.. |image33| image:: media/image43.png
+.. |image33| image:: ../../media/image43.png
    :width: 6.29921in
    :height: 5.52144in

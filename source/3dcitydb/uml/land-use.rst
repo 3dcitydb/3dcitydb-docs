@@ -23,6 +23,6 @@ required to have 3D coordinate values. It must be a GML3 *MultiSurface*,
 which might be assigned appearance properties like material
 (*X3DMaterial*) and texture (\_*Abstract­Texture* and its subclasses).
 
-.. |image20| image:: media/image30.png
+.. |image20| image:: ../../media/image30.png
    :width: 4.60448in
    :height: 1.94848in

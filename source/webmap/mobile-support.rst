@@ -84,22 +84,22 @@ HTTPS since Google Chrome 50. Therefore, make sure the client is called
 from a secured page (via SSL/HTTPS). Additionally, permission to
 retrieve current orientation and location must be granted by the user.
 
-.. |image219| image:: media/image229.PNG
+.. |image219| image:: ../media/image229.PNG
    :width: 2.73236in
    :height: 4.86021in
 
-.. |image220| image:: media/image230.PNG
+.. |image220| image:: ../media/image230.PNG
    :width: 2.87402in
    :height: 5.11164in
 
-.. |image221| image:: media/image231.PNG
+.. |image221| image:: ../media/image231.PNG
    :width: 2.87402in
    :height: 5.11219in
 
-.. |image222| image:: media/image232.png
+.. |image222| image:: ../media/image232.png
    :width: 3.7037in
    :height: 1.15434in
 
-.. |image223| image:: media/image233.PNG
+.. |image223| image:: ../media/image233.PNG
    :width: 3.03478in
    :height: 5.39815in

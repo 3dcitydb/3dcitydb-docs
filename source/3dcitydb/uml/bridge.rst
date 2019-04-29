@@ -92,18 +92,18 @@ LOD4.
 
 Figure 12: UML diagram of bridge model
 
-.. |image12| image:: media/image22.png
+.. |image12| image:: ../../media/image22.png
    :width: 4.12264in
    :height: 1.96701in
 
-.. |image13| image:: media/image23.png
+.. |image13| image:: ../../media/image23.png
    :width: 5.51181in
    :height: 2.8431in
 
-.. |image14| image:: media/image24.png
+.. |image14| image:: ../../media/image24.png
    :width: 4.72441in
    :height: 2.58121in
 
-.. |image15| image:: media/image25.png
+.. |image15| image:: ../../media/image25.png
    :width: 6.29931in
    :height: 7.85486in

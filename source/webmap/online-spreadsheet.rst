@@ -216,30 +216,30 @@ Figure 165: Screenshot showing how to hide a KML/glTF data layer
 Figure 166: Screenshot showing how to remove a KML/glTF data layer from
 the 3D web client
 
-.. |image197| image:: media/image203.png
+.. |image197| image:: ../media/image203.png
    :width: 5.21875in
    :height: 3.42974in
 
-.. |image198| image:: media/image172.png
+.. |image198| image:: ../media/image172.png
    :width: 6.11813in
    :height: 3.94792in
 
-.. |image199| image:: media/image209.PNG
+.. |image199| image:: ../media/image209.PNG
    :width: 6.3in
    :height: 4.15333in
 
-.. |image200| image:: media/image210.png
+.. |image200| image:: ../media/image210.png
    :width: 6.3in
    :height: 3.976in
 
-.. |image201| image:: media/image211.PNG
+.. |image201| image:: ../media/image211.PNG
    :width: 6.3079in
    :height: 3.11458in
 
-.. |image202| image:: media/image212.PNG
+.. |image202| image:: ../media/image212.PNG
    :width: 6.30709in
    :height: 4.35167in
 
-.. |image203| image:: media/image213.PNG
+.. |image203| image:: ../media/image213.PNG
    :width: 6.30625in
    :height: 3.77083in

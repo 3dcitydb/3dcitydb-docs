@@ -116,6 +116,6 @@ element. The mapping is defined by associated classes of
    world space to texture space, specified by the attribute
    *worldToTexture.*
 
-.. |image7| image:: media/image17.png
+.. |image7| image:: ../../media/image17.png
    :width: 5.51695in
    :height: 6.248in

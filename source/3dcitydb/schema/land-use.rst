@@ -10,6 +10,6 @@ established by the foreign keys LODx_MULTI_SURFACE_ID, where 0 ≤ x ≤ 4.
 
 Figure 45: LandUse database schema
 
-.. |image51| image:: media/image62.png
+.. |image51| image:: ../../media/image62.png
    :width: 5.35486in
    :height: 4.98148in

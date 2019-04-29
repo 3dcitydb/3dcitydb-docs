@@ -63,10 +63,10 @@ adjust a *WaterBody* or *WaterSurface* to the surrounding DTM. The rings
 defining the *WaterSurface* polygons implicitly delineate the
 intersection of the water body with the terrain or basin.
 
-.. |image28| image:: media/image38.png
+.. |image28| image:: ../../media/image38.png
    :width: 3.54792in
    :height: 2.08681in
 
-.. |image29| image:: media/image39.png
+.. |image29| image:: ../../media/image39.png
    :width: 6.3in
    :height: 2.61528in

@@ -554,6 +554,6 @@ Listing 9: Logging settings in the WFS config.xml file.
    log file in case the file size grows over a certain limit. So make sure
    you configure log rotation on your server.
 
-.. |image182| image:: media/image189.png
+.. |image182| image:: ../media/image189.png
    :width: 3.95312in
    :height: 2.75699in

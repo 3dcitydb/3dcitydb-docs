@@ -199,22 +199,22 @@ window also offers a *Cancel* button that lets a user abort the export
 process. The separate steps of the export process as well as possible
 error messages are reported to the console window.
 
-.. |image79| image:: media/image90.png
+.. |image79| image:: ../media/image90.png
    :width: 4.87795in
    :height: 6.45608in
 
-.. |image80| image:: media/image91.png
+.. |image80| image:: ../media/image91.png
    :width: 5.17391in
    :height: 3.23198in
 
-.. |image81| image:: media/image92.png
+.. |image81| image:: ../media/image92.png
    :width: 0.1875in
    :height: 0.1875in
 
-.. |image82| image:: media/image93.png
+.. |image82| image:: ../media/image93.png
    :width: 0.18681in
    :height: 0.18681in
 
-.. |image83| image:: media/image94.png
+.. |image83| image:: ../media/image94.png
    :width: 0.18681in
    :height: 0.18681in

@@ -35,6 +35,6 @@ geometry is restricted to a *MultiSurface* or (and this is unique for
 foreign keys LODx_MULTI_SURFACE_ID (with 1 ≤x ≤ 4) and
 LODx_MULTI_SOLID_ID which refer to the SURFACE_GEOMETRY table.
 
-.. |image54| image:: media/image65.png
+.. |image54| image:: ../../media/image65.png
    :width: 6.13958in
    :height: 7.0463in

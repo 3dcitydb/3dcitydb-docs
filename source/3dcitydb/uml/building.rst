@@ -101,14 +101,14 @@ represented in the CityGML building model with the class
 *BuildingFurniture*. A *BuildingFurniture* may have the attributes
 *class*, *function,* and *usage*.
 
-.. |image9| image:: media/image19.png
+.. |image9| image:: ../../media/image19.png
    :width: 5.0849in
    :height: 2.13945in
 
-.. |image10| image:: media/image20.png
+.. |image10| image:: ../../media/image20.png
    :width: 6.27707in
    :height: 7.43396in
 
-.. |image11| image:: media/image21.png
+.. |image11| image:: ../../media/image21.png
    :width: 5.78302in
    :height: 2.34483in

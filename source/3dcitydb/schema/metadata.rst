@@ -97,6 +97,6 @@ columns MIN_OCCURS and MAX_OCCURS. In case of a 0..\* relationship where
 the value of the multiplicity end is unbounded, the value in the column
 MAX_OCCURS shall be set NULL.
 
-.. |image31| image:: media/image41.png
+.. |image31| image:: ../../media/image41.png
    :width: 6.29931in
    :height: 7.53293in

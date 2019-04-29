@@ -72,6 +72,6 @@ select those with the same ROOT_GENATTRIB_ID.
 The next available ID for the table CITYOBJECT_GENERICATTRIB is provided
 by the sequence CITYOBJECT_GENERICATT_SEQ.
 
-.. |image50| image:: media/image61.png
+.. |image50| image:: ../../media/image61.png
    :width: 5.30706in
    :height: 6.24138in

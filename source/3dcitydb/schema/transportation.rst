@@ -50,6 +50,6 @@ keys LODx_MULTI_SURFACE_ID (with 1 ≤ x ≤ 4).
 
 Figure 46: Transportation database schema
 
-.. |image52| image:: media/image63.png
+.. |image52| image:: ../../media/image63.png
    :width: 5.60014in
    :height: 5.14783in

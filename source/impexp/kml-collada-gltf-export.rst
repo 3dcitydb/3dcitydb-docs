@@ -436,34 +436,34 @@ surface borders are noticeable everywhere
 
 Figure 78: The same scene rendered in OpenGL mode
 
-.. |image87| image:: media/image97.png
+.. |image87| image:: ../media/image97.png
    :width: 5.56648in
    :height: 6.37826in
 
-.. |image88| image:: media/image98.png
+.. |image88| image:: ../media/image98.png
    :width: 6.29797in
    :height: 3.80165in
 
-.. |display_styles| image:: media/image99.png
+.. |display_styles| image:: ../media/image99.png
    :width: 5.89583in
    :height: 5.52083in
 
-.. |image90| image:: media/image100.png
+.. |image90| image:: ../media/image100.png
    :width: 5.84653in
    :height: 3.13043in
 
-.. |image91| image:: media/image101.png
+.. |image91| image:: ../media/image101.png
    :width: 6.05618in
    :height: 3.51887in
 
-.. |image92| image:: media/image102.png
+.. |image92| image:: ../media/image102.png
    :width: 5.11426in
    :height: 3.8in
 
-.. |image93| image:: media/image103.png
+.. |image93| image:: ../media/image103.png
    :width: 5.11811in
    :height: 4.19727in
 
-.. |image94| image:: media/image104.png
+.. |image94| image:: ../media/image104.png
    :width: 5.11811in
    :height: 4.36694in

@@ -242,38 +242,38 @@ Figure 38: Images for georeferenced textures (The image
 the building both in LoD1 and LoD2 within the winter theme (a),
 *ground_summer.png* within the summer theme (b))
 
-.. |image36| image:: media/image46.png
+.. |image36| image:: ../../media/image46.png
    :width: 6.29921in
    :height: 5.33656in
 
-.. |BuildingAppearance| image:: media/image47.png
+.. |BuildingAppearance| image:: ../../media/image47.png
    :width: 6.21736in
    :height: 1.73056in
 
-.. |LoD1-2| image:: media/image48.png
+.. |LoD1-2| image:: ../../media/image48.png
    :width: 5.03472in
    :height: 1.99097in
 
-.. |image39| image:: media/image49.png
+.. |image39| image:: ../../media/image49.png
    :width: 3.75472in
    :height: 3.26415in
 
-.. |image40| image:: media/image51.png
+.. |image40| image:: ../../media/image51.png
    :width: 0.60417in
    :height: 0.72917in
 
-.. |image41| image:: media/image52.png
+.. |image41| image:: ../../media/image52.png
    :width: 1.575in
    :height: 0.78056in
 
-.. |image42| image:: media/image53.png
+.. |image42| image:: ../../media/image53.png
    :width: 1.58333in
    :height: 0.79167in
 
-.. |image43| image:: media/image54.png
+.. |image43| image:: ../../media/image54.png
    :width: 2.3125in
    :height: 1.72917in
 
-.. |image44| image:: media/image55.png
+.. |image44| image:: ../../media/image55.png
    :width: 2.3125in
    :height: 1.72917in

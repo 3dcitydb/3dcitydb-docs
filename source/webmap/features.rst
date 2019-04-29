@@ -172,38 +172,38 @@ Sharing) to get around the cross-domain restrictions.
    datasets [14]_. This is supported in 3DCityDB Web Map Client version
    1.6.0 or later.
 
-.. |image188| image:: media/image195.png
+.. |image188| image:: ../media/image195.png
    :width: 6.17557in
    :height: 4.21538in
 
-.. |image189| image:: media/image196.png
+.. |image189| image:: ../media/image196.png
    :width: 0.18444in
    :height: 0.15678in
 
-.. |image190| image:: media/image196.png
+.. |image190| image:: ../media/image196.png
    :width: 0.18444in
    :height: 0.15678in
 
-.. |image191| image:: media/image197.png
+.. |image191| image:: ../media/image197.png
    :width: 4.2128in
    :height: 2.4564in
 
-.. |image192| image:: media/image198.png
+.. |image192| image:: ../media/image198.png
    :width: 0.18182in
    :height: 0.18768in
 
-.. |image193| image:: media/image199.png
+.. |image193| image:: ../media/image199.png
    :width: 0.18683in
    :height: 0.18898in
 
-.. |image194| image:: media/image200.png
+.. |image194| image:: ../media/image200.png
    :width: 6.29498in
    :height: 5.22917in
 
-.. |image195| image:: media/image201.png
+.. |image195| image:: ../media/image201.png
    :width: 0.15972in
    :height: 0.15972in
 
-.. |image196| image:: media/image202.png
+.. |image196| image:: ../media/image202.png
    :width: 6.29774in
    :height: 3.48542in

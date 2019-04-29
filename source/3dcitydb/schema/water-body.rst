@@ -43,6 +43,6 @@ associated surface geometry, the foreign keys LODx_SURFACE_ID (with 2 ≤x
 
 Figure 49: WaterBody database schema
 
-.. |image55| image:: media/image66.png
+.. |image55| image:: ../../media/image66.png
    :width: 6.42634in
    :height: 5.95858in

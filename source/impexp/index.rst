@@ -28,6 +28,6 @@ the *Apache License, Version 2.0*. See the LICENSE.txt file shipped with
 the software for more details. For a copy of the Apache License, Version
 2.0, please visit http://www.apache.org/licenses/.
 
-.. |image62| image:: media/image73.png
+.. |image62| image:: ../media/image73.png
    :width: 0.97014in
    :height: 0.34583in

@@ -286,10 +286,10 @@ and bridge openings.
 The next available ID for the table ADDRESS is provided by the sequence
 ADDRESS_SEQ.
 
-.. |image45| image:: media/image56.png
+.. |image45| image:: ../../media/image56.png
    :width: 9.94218in
    :height: 9.24514in
 
-.. |summer_roofoverhang_last| image:: media/image57.png
+.. |summer_roofoverhang_last| image:: ../../media/image57.png
    :width: 3.03704in
    :height: 2.01149in

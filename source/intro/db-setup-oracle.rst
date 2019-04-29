@@ -129,6 +129,6 @@ CREATE_DB. Similar to CREATE_DB, you need to provide the license option
 stored in the 3D City Database schema. The database user will, however,
 not be deleted.
 
-.. |image58| image:: media/image69.png
+.. |image58| image:: ../media/image69.png
    :width: 5.43246in
    :height: 6.01852in

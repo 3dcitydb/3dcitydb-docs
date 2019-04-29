@@ -37,6 +37,6 @@ the “\ *hits*\ ” value for the *resultType* attribute in order to only
 receive the number of features matching your query instead of the
 features themselves (cf. chapter 7.4.6).
 
-.. |image183| image:: media/image190.png
+.. |image183| image:: ../media/image190.png
    :width: 5.42953in
    :height: 4.58446in

@@ -109,6 +109,6 @@ from the member’s geometries. The parent association linking a
 hierarchical groupings. This concept is used, for example, to represent
 storeys in buildings. See Figure 5 for the simplified UML diagram.
 
-.. |image8| image:: media/image18.png
+.. |image8| image:: ../../media/image18.png
    :width: 6.3in
    :height: 4.55556in

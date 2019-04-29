@@ -96,10 +96,10 @@ before using this CRS as target reference system for CityGML exports
 
 .. _general-preferences-1:
 
-.. |image131| image:: media/image141.png
+.. |image131| image:: ../../media/image141.png
    :width: 3.94271in
    :height: 3.5985in
 
-.. |image132| image:: media/image142.png
+.. |image132| image:: ../../media/image142.png
    :width: 3.94094in
    :height: 3.59689in
