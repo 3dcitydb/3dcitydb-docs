@@ -10,7 +10,7 @@ extracting 3D city model data.
    :maxdepth: 2
 
    interfaces
-   db-connections
+   db-connection
    db-operations
    citygml-import
    citygml-export
