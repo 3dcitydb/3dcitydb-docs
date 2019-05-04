@@ -29,7 +29,7 @@ you can use the Importer/Exporter tool to connect to the 3D City Database
 instance that you want to upgrade. Starting from v3.0.0 the version
 string is printed to the console window after the connection has been
 successfully established as shown below (see also chapter about
-:doc:`Managing connections <../impexp/db-connection.html#managing-and-establishing-database-connections>`_).
+:doc:`Managing connections <../impexp/db-connection).
 
 |image59|
 
