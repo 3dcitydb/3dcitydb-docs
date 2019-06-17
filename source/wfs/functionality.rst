@@ -118,7 +118,7 @@ types, the WFS can also support feature types defined in a CityGML ADE.
 This requires a corresponding ADE extension to be installed for the WFS
 and to be registered with the 3DCityDB instance.
 
-*.. note::
+.. note::
    Appearance* properties of CityGML features such as textures or
    color information are *currently not supported* by the WFS
    implementation and thus will not be included in a response document.
@@ -187,11 +187,12 @@ depends on the configuration of the WFS in the config.xml settings file
 The following XML snippet shows an XML encoding of a GetCapabilities
 operation.
 
-| <?xml version="1.0" encoding="UTF-8"?>
-| <wfs:GetCapabilities service="WFS"
+.. code-block:: xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <wfs:GetCapabilities service="WFS"
   xmlns:wfs="http://www.opengis.net/wfs/2.0"
-| xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-| xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/wfs/2.0
   http://schemas.opengis.net/wfs/2.0/wfs.xsd"/>
 
 Listing 10: Example GetCapabilities operation.
@@ -219,10 +220,11 @@ Listing 11: Supported XML attributes of a GetCapabilities operation.
 As alternative to XML encoding, the GetCapabilities operation may also
 be invoked through a KVP-encoded HTTP GET request.
 
-   | http[s]://[host][:port]/[context_path]/wfs?
-   | SERVICE=WFS&
-   | REQUEST=GetCapabilities&
-   | ACCEPTVERSIONS=2.0.0,2.0.2
+.. code-block:: http
+   http[s]://[host][:port]/[context_path]/wfs?
+   SERVICE=WFS&
+   REQUEST=GetCapabilities&
+   ACCEPTVERSIONS=2.0.0,2.0.2
 
 The SERVICE parameter is also mandatory for the KVP-encoded request. In
 addition, the ACCEPTVERSIONS parameter can be used for version number
@@ -247,12 +249,13 @@ The following example shows a valid DescribeFeatureType operation
 requesting the XML Schema definition of the CityGML 1.0 *Building*
 feature type.
 
-| <?xml version="1.0" encoding="UTF-8"?>
-| <wfs:DescribeFeatureType service="WFS" version="2.0.0"
-| xmlns:wfs="http://www.opengis.net/wfs/2.0"
-| xmlns:bldg="http://www.opengis.net/citygml/building/1.0">
-| <wfs:TypeName>bldg:Building</wfs:TypeName>
-| </wfs:DescribeFeatureType>
+.. code-block:: xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <wfs:DescribeFeatureType service="WFS" version="2.0.0"
+  xmlns:wfs="http://www.opengis.net/wfs/2.0"
+  xmlns:bldg="http://www.opengis.net/citygml/building/1.0">
+  <wfs:TypeName>bldg:Building</wfs:TypeName>
+  </wfs:DescribeFeatureType>
 
 Listing 12: Example DescribeFeatureType operation.
 
@@ -281,11 +284,12 @@ element is omitted, then the CityGML base schema is returned by the WFS.
 The DescribeFeatureType operation can alternatively be invoked through
 HTTP GET with key-value pairs.
 
-   | http[s]://[host][:port]/[context_path]/wfs?
-   | SERVICE=WFS&
-   | VERSION=2.0.2&
-   | REQUEST=DescribeFeatureType&
-   | TYPENAME=tran:Road
+.. code-block:: http
+   http[s]://[host][:port]/[context_path]/wfs?
+   SERVICE=WFS&
+   VERSION=2.0.2&
+   REQUEST=DescribeFeatureType&
+   TYPENAME=tran:Road
 
 The following KVP parameters are supported.
 
@@ -331,9 +335,10 @@ used in a subsequent DescribeStoredQuery operation to receive the
 details of a specific stored query form the WFS server. The following
 listing presents an example ListStoredQuery operation.
 
-| <?xml version="1.0" encoding="UTF-8"?>
-| <wfs:ListStoredQueries service="WFS" version="2.0.0"
-| xmlns:wfs="http://www.opengis.net/wfs/2.0"/>
+.. code-block:: xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <wfs:ListStoredQueries service="WFS" version="2.0.0"
+  xmlns:wfs="http://www.opengis.net/wfs/2.0"/>
 
 Listing 15: Example ListStoredQuery operation.
 
@@ -352,10 +357,11 @@ Listing 16: Supported XML attributes of a ListStoredQuery operation.
 
 The corresponding KVP-encoded request is shown below.
 
-   | http[s]://[host][:port]/[context_path]/wfs?
-   | SERVICE=WFS&
-   | VERSION=2.0.0&
-   | REQUEST=ListStoredQueries
+.. code-block:: http
+   http[s]://[host][:port]/[context_path]/wfs?
+   SERVICE=WFS&
+   VERSION=2.0.0&
+   REQUEST=ListStoredQueries
 
 The following KVP parameters can be used when invoking the
 ListStoredQueries operation.
@@ -379,11 +385,12 @@ The DescribeStoredQuery operation is used to provide the details of one
 or more stored queries offered by the server. The following listing
 exemplifies a DescribeStoredQuery request.
 
-| <?xml version="1.0" encoding="UTF-8"?>
-| <wfs:DescribeStoredQueries service="WFS" version="2.0.0"
-| xmlns:wfs="http://www.opengis.net/wfs/2.0">
-| <wfs:StoredQueryId>http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById</wfs:StoredQueryId>
-| </wfs:DescribeStoredQueries>
+.. code-block:: xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <wfs:DescribeStoredQueries service="WFS" version="2.0.0"
+  xmlns:wfs="http://www.opengis.net/wfs/2.0">
+  <wfs:StoredQueryId>http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById</wfs:StoredQueryId>
+  </wfs:DescribeStoredQueries>
 
 Listing 18: Example DescribeStoredQuery operation.
 
@@ -396,32 +403,33 @@ the <wfs:StoredQueryId> element is omitted, a description of all stored
 queries available at the WFS server is returned to the client. The above
 request will produce a response similar to the following listing.
 
-| <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-| <wfs:DescribeStoredQueriesResponse
+.. code-block:: xml
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <wfs:DescribeStoredQueriesResponse
   xmlns:fes="http://www.opengis.net/fes/2.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:wfs="http://www.opengis.net/wfs/2.0">
-| <wfs:StoredQueryDescription
+  <wfs:StoredQueryDescription
   id="http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById">
-| <wfs:Title xml:lang="en">Get feature by identifier</wfs:Title>
-| <wfs:Abstract xml:lang="en">Retrieves a feature by its
+  <wfs:Title xml:lang="en">Get feature by identifier</wfs:Title>
+  <wfs:Abstract xml:lang="en">Retrieves a feature by its
   gml:id.</wfs:Abstract>
-| <wfs:Parameter name="id" type="xs:string">
-| <wfs:Title xml:lang="en">Identifier</wfs:Title>
-| <wfs:Abstract xml:lang="en">The gml:id of the feature to be
+  <wfs:Parameter name="id" type="xs:string">
+  <wfs:Title xml:lang="en">Identifier</wfs:Title>
+  <wfs:Abstract xml:lang="en">The gml:id of the feature to be
   retrieved.</wfs:Abstract>
-| </wfs:Parameter>
-| <wfs:QueryExpressionText returnFeatureTypes=""
+  </wfs:Parameter>
+  <wfs:QueryExpressionText returnFeatureTypes=""
   language="urn:ogc:def:queryLanguage:OGC-WFS::WFS_QueryExpression"
   isPrivate="false">
-| <wfs:Query typeNames="schema-element(core:_CityObject)">
-| <fes:Filter>
-| <fes:ResourceId rid="${id}"/>
-| </fes:Filter>
-| </wfs:Query>
-| </wfs:QueryExpressionText>
-| </wfs:StoredQueryDescription>
-| </wfs:DescribeStoredQueriesResponse>
+  <wfs:Query typeNames="schema-element(core:_CityObject)">
+  <fes:Filter>
+  <fes:ResourceId rid="${id}"/>
+  </fes:Filter>
+  </wfs:Query>
+  </wfs:QueryExpressionText>
+  </wfs:StoredQueryDescription>
+  </wfs:DescribeStoredQueriesResponse>
 
 Listing 19: Example response to a DescribeStoredQuery request.
 
@@ -454,11 +462,12 @@ Listing 20: Supported XML attributes of a DescribeStoredQuery operation.
 
 A KVP-encoded DescribeStoredQueries request is shown below.
 
-   | http[s]://[host][:port]/[context_path]/wfs?
-   | SERVICE=WFS&
-   | VERSION=2.0.2&
-   | REQUEST=DescribeStoredQueries&
-   | STOREDQUERY_ID=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fquery%2FOGC-WFS%2F0%2FGetFeatureById
+.. code-block:: http
+   http[s]://[host][:port]/[context_path]/wfs?
+   SERVICE=WFS&
+   VERSION=2.0.2&
+   REQUEST=DescribeStoredQueries&
+   STOREDQUERY_ID=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fquery%2FOGC-WFS%2F0%2FGetFeatureById
 
 The supported KVP parameters are listed in the following table.
 
@@ -490,14 +499,15 @@ A valid GetFeature operation is shown below. The gml:id of the city
 object that shall be returned by the WFS is passed as parameter to the
 GetFeatureById stored query.
 
-| <?xml version="1.0" encoding="UTF-8"?>
-| <wfs:GetFeature service="WFS" version="2.0.0"
+.. code-block:: xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <wfs:GetFeature service="WFS" version="2.0.0"
   xmlns:wfs="http://www.opengis.net/wfs/2.0">
-| <wfs:StoredQuery
+  <wfs:StoredQuery
   id="http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById">
-| <wfs:Parameter name="id">ID_0815</wfs:Parameter>
-| </wfs:StoredQuery>
-| </wfs:GetFeature>
+  <wfs:Parameter name="id">ID_0815</wfs:Parameter>
+  </wfs:StoredQuery>
+  </wfs:GetFeature>
 
 Listing 22: Example GetFeature operation.
 
@@ -508,16 +518,17 @@ in case no matching city object was found in the 3D City Database.
 A single GetFeature operation can also be used to request more than one
 feature.
 
-| <?xml version="1.0" encoding="UTF-8"?>
-| <wfs:GetFeature service="WFS" version="2.0.0"
+.. code-block:: xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <wfs:GetFeature service="WFS" version="2.0.0"
   xmlns:wfs="http://www.opengis.net/wfs/2.0">
-| <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
-| <wfs:Parameter name="id">first gml:id</wfs:Parameter>
-| </wfs:StoredQuery>
-| <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
-| <wfs:Parameter name="id">second gml:id</wfs:Parameter>
-| </wfs:StoredQuery>
-| </wfs:GetFeature>
+  <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
+  <wfs:Parameter name="id">first gml:id</wfs:Parameter>
+  </wfs:StoredQuery>
+  <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
+  <wfs:Parameter name="id">second gml:id</wfs:Parameter>
+  </wfs:StoredQuery>
+  </wfs:GetFeature>
 
 Listing 23: Example GetFeature operation requesting for two city
 objects.
@@ -545,12 +556,13 @@ Listing 24: Supported XML attributes of a GetFeature operation.
 
 A KVP-encoded GetFeature request is shown below.
 
-   | http[s]://[host][:port]/[context_path]/wfs?
-   | SERVICE=WFS&
-   | VERSION=2.0.2&
-   | REQUEST=GetFeature&
-   | STOREDQUERY_ID=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fquery%2FOGC-WFS%2F0%2FGetFeatureById&
-   | ID=ID_0815
+.. code-block:: http
+   http[s]://[host][:port]/[context_path]/wfs?
+   SERVICE=WFS&
+   VERSION=2.0.2&
+   REQUEST=GetFeature&
+   STOREDQUERY_ID=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fquery%2FOGC-WFS%2F0%2FGetFeatureById&
+   ID=ID_0815
 
 Note that the last parameter ID in the above request is not a WFS
 parameter but instead is required by the invoked stored query (see also
