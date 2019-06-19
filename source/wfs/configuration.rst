@@ -41,25 +41,27 @@ The *database* settings define the *connection parameters* for
 connecting to the 3D City Database instance the WFS service should give
 access to. The contents of the <database> element are shown below.
 
-| <database>
-| <connection
-| initialSize="10"
-| maxActive="100"
-| maxIdle="50"
-| minIdle="0"
-| suspectTimeout="60"
-| timeBetweenEvictionRunsMillis="30000"
-| minEvictableIdleTimeMillis="60000">
-| <description/>
-| <type>PostGIS</type>
-| <server/>
-| <port>5432</port>
-| <sid/>
-| <schema/>
-| <user/>
-| <password/>
-| </connection>
-| </database>
+.. code-block:: xml
+
+   <database>
+     <connection
+      initialSize="10"
+      maxActive="100"
+      maxIdle="50"
+      minIdle="0"
+      suspectTimeout="60"
+      timeBetweenEvictionRunsMillis="30000"
+      minEvictableIdleTimeMillis="60000">
+       <description/>
+       <type>PostGIS</type>
+       <server/>
+       <port>5432</port>
+       <sid/>
+       <schema/>
+       <user/>
+       <password/>
+     </connection>
+   </database>
 
 Listing 1: Database settings in the WFS config.xml file.
 
@@ -133,19 +135,21 @@ Note that the metadata is copied to the *capabilities* document “as is”.
 Thus, the WFS implementation neither performs a consistency check nor
 validates the provided metadata.
 
-| <capabilities>
-| <owsMetadata>
-| <ows:ServiceIdentification>
-| <ows:Title>3D City Database Web Feature Service</ows:Title>
-| <ows:ServiceType>WFS</ows:ServiceType>
-| <ows:ServiceTypeVersion>2.0.0</ows:ServiceTypeVersion>
-| </ows:ServiceIdentification>
-| <ows:ServiceProvider>
-| <ows:ProviderName/>
-| <ows:ServiceContact/>
-| </ows:ServiceProvider>
-| </owsMetadata>
-| </capabilities>
+.. code-block:: xml
+
+   <capabilities>
+     <owsMetadata>
+       <ows:ServiceIdentification>
+         <ows:Title>3D City Database Web Feature Service</ows:Title>
+         <ows:ServiceType>WFS</ows:ServiceType>
+         <ows:ServiceTypeVersion>2.0.0</ows:ServiceTypeVersion>
+       </ows:ServiceIdentification>
+       <ows:ServiceProvider>
+         <ows:ProviderName/>
+         <ows:ServiceContact/>
+       </ows:ServiceProvider>
+     </owsMetadata>
+   </capabilities>
 
 Listing 2: Service metadata settings in the WFS config.xml file.
 
@@ -188,32 +192,33 @@ below. In this example, CityGML *Building* and *Road* objects are
 available from the WFS service. In addition, a third feature type
 *IndustrialBuilding* coming from a CityGML ADE is advertised.
 
-| <featureTypes>
-| <featureType>
-| <name>Building</name>
-| <ows:WGS84BoundingBox>
-| <ows:LowerCorner>-180 -90</ows:LowerCorner>
-| <ows:UpperCorner>180 90</ows:UpperCorner>
-| </ows:WGS84BoundingBox>
-| </featureType>
-| <featureType>
-| <name>Road</name>
-| <ows:WGS84BoundingBox>
-| <ows:LowerCorner>-180 -90</ows:LowerCorner>
-| <ows:UpperCorner>180 90</ows:UpperCorner>
-| </ows:WGS84BoundingBox>
-| </featureType>
-| <adeFeatureType>
-| <name
-  namespaceURI="http://www.citygml.org/ade/TestADE/1.0">IndustrialBuilding</name>
-| <ows:WGS84BoundingBox>
-| <ows:LowerCorner>-180 -90</ows:LowerCorner>
-| <ows:UpperCorner>180 90</ows:UpperCorner>
-| </ows:WGS84BoundingBox>
-| </adeFeatureType>
-| <version isDefault="true">2.0</version>
-| <version>1.0</version>
-| </featureTypes>
+.. code-block:: xml
+
+   <featureTypes>
+     <featureType>
+       <name>Building</name>
+       <ows:WGS84BoundingBox>
+         <ows:LowerCorner>-180 -90</ows:LowerCorner>
+         <ows:UpperCorner>180 90</ows:UpperCorner>
+       </ows:WGS84BoundingBox>
+     </featureType>
+     <featureType>
+       <name>Road</name>
+       <ows:WGS84BoundingBox>
+         <ows:LowerCorner>-180 -90</ows:LowerCorner>
+         <ows:UpperCorner>180 90</ows:UpperCorner>
+       </ows:WGS84BoundingBox>
+     </featureType>
+     <adeFeatureType>
+       <name namespaceURI="http://www.citygml.org/ade/TestADE/1.0">IndustrialBuilding</name>
+       <ows:WGS84BoundingBox>
+         <ows:LowerCorner>-180 -90</ows:LowerCorner>
+         <ows:UpperCorner>180 90</ows:UpperCorner>
+       </ows:WGS84BoundingBox>
+     </adeFeatureType>
+     <version isDefault="true">2.0</version>
+     <version>1.0</version>
+   </featureTypes>
 
 Listing 3: Advertised feature types in the WFS config.xml file.
 
@@ -259,19 +264,21 @@ Operations settings
 The *operations* settings are used to define the operation-specific
 behavior of the WFS.
 
-| <operations>
-| <requestEncoding>
-| <method>KVP+XML</method>
-| <useXMLValidation>true</useXMLValidation>
-| </requestEncoding>
-| <exportCityDBMetadata>false</exportCityDBMetadata>
-| <GetFeature>
-| <outputFormats>
-| <outputFormat name="application/gml+xml; version=3.1"/>
-| <outputFormat name="application/json"/>
-| </outputFormats>
-| </GetFeature>
-| </operations>
+.. code-block:: xml
+
+   <operations>
+     <requestEncoding>
+       <method>KVP+XML</method>
+       <useXMLValidation>true</useXMLValidation>
+     </requestEncoding>
+     <exportCityDBMetadata>false</exportCityDBMetadata>
+     <GetFeature>
+       <outputFormats>
+         <outputFormat name="application/gml+xml; version=3.1"/>
+         <outputFormat name="application/json"/>
+       </outputFormats>
+     </GetFeature>
+   </operations>
 
 Listing 4: Operations settings in the WFS config.xml file.
 
@@ -315,11 +322,13 @@ The *postprocessing* settings allow for specifying XSLT transformations
 that are applied on the CityGML data of a WFS response before sending
 the response to the client.
 
-| <postProcessing>
-| <xslTransformation isEnabled="true">
-| <stylesheet>AdV-coordinates-formatter.xsl</stylesheet>
-| </xslTransformation>
-| </postProcessing>
+.. code-block:: xml
+
+   <postProcessing>
+     <xslTransformation isEnabled="true">
+       <stylesheet>AdV-coordinates-formatter.xsl</stylesheet>
+     </xslTransformation>
+   </postProcessing>
 
 Listing 5: Postprocessing settings in the WFS config.xml file.
 
@@ -361,12 +370,14 @@ Server settings
 *Server-specific* settings are available through the <server> element in
 the config.xml file.
 
-| <server>
-| <externalServiceURL>http://yourserver.org/citydb-wfs</externalServiceURL>
-| <maxParallelRequests>30</maxParallelRequests>
-| <waitTimeout>60</waitTimeout>
-| <enableCORS>true</enableCORS>
-| </server>
+.. code-block:: xml
+
+   <server>
+     <externalServiceURL>http://yourserver.org/citydb-wfs</externalServiceURL>
+     <maxParallelRequests>30</maxParallelRequests>
+     <waitTimeout>60</waitTimeout>
+     <enableCORS>true</enableCORS>
+   </server>
 
 Listing 6: Server settings in the WFS config.xml file.
 
@@ -433,9 +444,11 @@ Alternatively, the *cache* settings available through the <uidCache>
 element let a user choose to store the temporary information in the
 *local file system* instead.
 
-| <uidCache>
-| <mode>local</mode>
-| </uidCache>
+.. code-block:: xml
+
+   <uidCache>
+     <mode>local</mode>
+   </uidCache>
 
 Listing 7: Cache settings in the WFS config.xml file.
 
@@ -460,14 +473,16 @@ Constraints settings
 The <constraints> element of the config.xml allows for defining
 constraints on dedicated WFS operations.
 
-| <constraints>
-| <countDefault>10</countDefault>
-| <stripGeometry>false</stripGeometry>
-| <lodFilter mode="and" searchMode="depth" searchDepth="2">
-| <lod>2</lod>
-| <lod>3</lod>
-| </lodFilter>
-| </constraints>
+.. code-block:: xml
+
+   <constraints>
+     <countDefault>10</countDefault>
+     <stripGeometry>false</stripGeometry>
+     <lodFilter mode="and" searchMode="depth" searchDepth="2">
+       <lod>2</lod>
+       <lod>3</lod>
+     </lodFilter>
+   </constraints>
 
 Listing 8: Security settings in the WFS config.xml file.
 
@@ -539,12 +554,14 @@ simply include the <console> child element as well. The <console>
 element also provides a *logLevel* attribute to define the severity
 level.
 
-| <logging>
-| <console logLevel="info"/>
-| <file logLevel="info">
-| <fileName>path/to/your/wfs.log</fileName>
-| </file>
-| </logging>
+.. code-block:: xml
+
+   <logging>
+     <console logLevel="info"/>
+     <file logLevel="info">
+       <fileName>path/to/your/wfs.log</fileName>
+     </file>
+   </logging>
 
 Listing 9: Logging settings in the WFS config.xml file.
 

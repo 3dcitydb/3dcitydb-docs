@@ -6,7 +6,9 @@ is mainly meant to test the functionality of the server. The client is
 automatically installed with the server and is available at the
 following URL (cf. chapter 7.4.1.2 for details):
 
-http[s]://[host][:port]/[context_path]/wfsclient
+.. code-block:: http
+
+   http[s]://[host][:port]/[context_path]/wfsclient
 
 The screenshot below shows the user interface of the client rendered in
 a standard web browser.

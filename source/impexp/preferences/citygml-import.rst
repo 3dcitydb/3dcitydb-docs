@@ -107,111 +107,61 @@ currently does not support arbitrary xAL fragments but is tailored to
 the parsing of following two xAL templates that are taken from the
 CityGML specification.
 
-<bldg:Building>
+.. code-block:: xml
 
-…
-
-<bldg:address>
-
-<Address>
-
-<xalAddress>
-
-<!-- Bussardweg 7, 76356 Weingarten, Germany -->
-
-<xAL:AddressDetails>
-
-<xAL:Country>
-
-<xAL:CountryName>Germany</xAL:CountryName>
-
-<xAL:Locality Type="City">
-
-<xAL:LocalityName>Weingarten</xAL:LocalityName>
-
-<xAL:Thoroughfare Type="Street">
-
-<xAL:ThoroughfareNumber>7</xAL:ThoroughfareNumber>
-
-<xAL:ThoroughfareName>Bussardweg</xAL:ThoroughfareName>
-
-</xAL:Thoroughfare>
-
-<xAL:PostalCode>
-
-<xAL:PostalCodeNumber>76356</xAL:PostalCodeNumber>
-
-</xAL:PostalCode>
-
-</xAL:Locality>
-
-</xAL:Country>
-
-</xAL:AddressDetails>
-
-</xalAddress>
-
-</Address>
-
-</bldg:address>
-
-</bldg:Building>
-
-<bldg:Building>
-
-…
-
-<bldg:address>
-
-<Address>
-
-<xalAddress>
-
-<!-- 46 Brynmaer Road Battersea LONDON, SW11 4EW United Kingdom -->
-
-<xAL:AddressDetails>
-
-<xAL:Country>
-
-<xAL:CountryName>United Kingdom</xAL:CountryName>
-
-<xAL:Locality Type="City">
-
-<xAL:LocalityName>LONDON</xAL:LocalityName>
-
-<xAL:DependentLocality Type="District">
-
-<xAL:DependentLocalityName>Battersea</xAL:DependentLocalityName>
-
-<xAL:Thoroughfare>
-
-<xAL:ThoroughfareNumber>46</xAL:ThoroughfareNumber>
-
-<xAL:ThoroughfareName>Brynmaer Road</xAL:ThoroughfareName>
-
-</xAL:Thoroughfare>
-
-</xAL:DependentLocality>
-
-<xAL:PostalCode>
-
-<xAL:PostalCodeNumber>SW11 4EW</xAL:PostalCodeNumber>
-
-</xAL:PostalCode>
-
-</xAL:Locality>
-
-</xAL:Country>
-
-</xAL:AddressDetails>
-
-</xalAddress>
-
-</Address>
-
-</bldg:address>
-
-</bldg:Building>
+   <bldg:Building>
+     …
+     <bldg:address>
+       <Address>
+         <xalAddress>
+           <!-- Bussardweg 7, 76356 Weingarten, Germany -->
+           <xAL:AddressDetails>
+             <xAL:Country>
+               <xAL:CountryName>Germany</xAL:CountryName>
+               <xAL:Locality Type="City">
+                 <xAL:LocalityName>Weingarten</xAL:LocalityName>
+                 <xAL:Thoroughfare Type="Street">
+                   <xAL:ThoroughfareNumber>7</xAL:ThoroughfareNumber>
+                   <xAL:ThoroughfareName>Bussardweg</xAL:ThoroughfareName>
+                 </xAL:Thoroughfare>
+                 <xAL:PostalCode>
+                   <xAL:PostalCodeNumber>76356</xAL:PostalCodeNumber>
+                 </xAL:PostalCode>
+               </xAL:Locality>
+             </xAL:Country>
+           </xAL:AddressDetails>
+         </xalAddress>
+       </Address>
+     </bldg:address>
+   </bldg:Building>
+   <bldg:Building>
+     …
+     <bldg:address>
+       <Address>
+         <xalAddress>
+           <!-- 46 Brynmaer Road Battersea LONDON, SW11 4EW United Kingdom -->
+           <xAL:AddressDetails>
+             <xAL:Country>
+               <xAL:CountryName>United Kingdom</xAL:CountryName>
+               <xAL:Locality Type="City">
+                 <xAL:LocalityName>LONDON</xAL:LocalityName>
+                 <xAL:DependentLocality Type="District">
+                   <xAL:DependentLocalityName>Battersea</xAL:DependentLocalityName>
+                   <xAL:Thoroughfare>
+                     <xAL:ThoroughfareNumber>46</xAL:ThoroughfareNumber>
+                     <xAL:ThoroughfareName>Brynmaer Road</xAL:ThoroughfareName>
+                   </xAL:Thoroughfare>
+                 </xAL:DependentLocality>
+                 <xAL:PostalCode>
+                   <xAL:PostalCodeNumber>SW11 4EW</xAL:PostalCodeNumber>
+                 </xAL:PostalCode>
+               </xAL:Locality>
+             </xAL:Country>
+           </xAL:AddressDetails>
+         </xalAddress>
+       </Address>
+     </bldg:address>
+   </bldg:Building>
 
 Figure 82: xAL fragments supported by the Importer/Exporter.
 

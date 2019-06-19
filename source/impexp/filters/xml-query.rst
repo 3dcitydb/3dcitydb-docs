@@ -54,18 +54,20 @@ the <export> element has to be set to *false*.
 The listing below shows an excerpt of a config file using an XML export
 query.
 
-| <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-| <project xmlns="http://www.3dcitydb.org/importer-exporter/config">
-| <database>
-| … database connection details go here …
-| </database>
-| <export useSimpleQuery="false">
-| … copy your query here …
-| <query>
-| <typeNames>
-| <typeName>bldg:Building</typeName>
-| </typeNames>
-| </query>
-| … provide more export settings here …
-| </export>
-| </project>
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+   <project xmlns="http://www.3dcitydb.org/importer-exporter/config">
+     <database>
+       … database connection details go here …
+     </database>
+     <export useSimpleQuery="false">
+       … copy your query here …
+       <query>
+         <typeNames>
+           <typeName>bldg:Building</typeName>
+         </typeNames>
+       </query>
+       … provide more export settings here …
+     </export>
+   </project>

@@ -59,7 +59,9 @@ The *service URL* or service endpoint is the location where the 3D City
 Database WFS can be accessed by a client application over a local
 network or the internet. This URL is typically composed as follows:
 
-http[s]://[host][:port]/[context_path]/wfs
+.. code-block:: http
+
+   http[s]://[host][:port]/[context_path]/wfs
 
 The actual URL depends on the servlet container and your network
 configuration. Please ask your network administrator for the *protocol*
@@ -191,10 +193,10 @@ operation.
 
    <?xml version="1.0" encoding="UTF-8"?>
    <wfs:GetCapabilities service="WFS"
-   xmlns:wfs="http://www.opengis.net/wfs/2.0"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.opengis.net/wfs/2.0
-   http://schemas.opengis.net/wfs/2.0/wfs.xsd"/>
+    xmlns:wfs="http://www.opengis.net/wfs/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+    http://schemas.opengis.net/wfs/2.0/wfs.xsd"/>
 
 Listing 10: Example GetCapabilities operation.
 
@@ -255,9 +257,9 @@ feature type.
 
    <?xml version="1.0" encoding="UTF-8"?>
    <wfs:DescribeFeatureType service="WFS" version="2.0.0"
-   xmlns:wfs="http://www.opengis.net/wfs/2.0"
-   xmlns:bldg="http://www.opengis.net/citygml/building/1.0">
-   <wfs:TypeName>bldg:Building</wfs:TypeName>
+    xmlns:wfs="http://www.opengis.net/wfs/2.0"
+    xmlns:bldg="http://www.opengis.net/citygml/building/1.0">
+     <wfs:TypeName>bldg:Building</wfs:TypeName>
    </wfs:DescribeFeatureType>
 
 Listing 12: Example DescribeFeatureType operation.
@@ -340,9 +342,10 @@ details of a specific stored query form the WFS server. The following
 listing presents an example ListStoredQuery operation.
 
 .. code-block:: xml
-  <?xml version="1.0" encoding="UTF-8"?>
-  <wfs:ListStoredQueries service="WFS" version="2.0.0"
-  xmlns:wfs="http://www.opengis.net/wfs/2.0"/>
+
+   <?xml version="1.0" encoding="UTF-8"?>
+   <wfs:ListStoredQueries service="WFS" version="2.0.0"
+    xmlns:wfs="http://www.opengis.net/wfs/2.0"/>
 
 Listing 15: Example ListStoredQuery operation.
 
@@ -394,8 +397,8 @@ exemplifies a DescribeStoredQuery request.
   
    <?xml version="1.0" encoding="UTF-8"?>
    <wfs:DescribeStoredQueries service="WFS" version="2.0.0"
-   xmlns:wfs="http://www.opengis.net/wfs/2.0">
-   <wfs:StoredQueryId>http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById</wfs:StoredQueryId>
+    xmlns:wfs="http://www.opengis.net/wfs/2.0">
+     <wfs:StoredQueryId>http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById</wfs:StoredQueryId>
    </wfs:DescribeStoredQueries>
 
 Listing 18: Example DescribeStoredQuery operation.
@@ -413,29 +416,26 @@ request will produce a response similar to the following listing.
   
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <wfs:DescribeStoredQueriesResponse
-   xmlns:fes="http://www.opengis.net/fes/2.0"
-   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-   xmlns:wfs="http://www.opengis.net/wfs/2.0">
-   <wfs:StoredQueryDescription
-   id="http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById">
-   <wfs:Title xml:lang="en">Get feature by identifier</wfs:Title>
-   <wfs:Abstract xml:lang="en">Retrieves a feature by its
-   gml:id.</wfs:Abstract>
-   <wfs:Parameter name="id" type="xs:string">
-   <wfs:Title xml:lang="en">Identifier</wfs:Title>
-   <wfs:Abstract xml:lang="en">The gml:id of the feature to be
-   retrieved.</wfs:Abstract>
-   </wfs:Parameter>
-   <wfs:QueryExpressionText returnFeatureTypes=""
-   language="urn:ogc:def:queryLanguage:OGC-WFS::WFS_QueryExpression"
-   isPrivate="false">
-   <wfs:Query typeNames="schema-element(core:_CityObject)">
-   <fes:Filter>
-   <fes:ResourceId rid="${id}"/>
-   </fes:Filter>
-   </wfs:Query>
-   </wfs:QueryExpressionText>
-   </wfs:StoredQueryDescription>
+    xmlns:fes="http://www.opengis.net/fes/2.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:wfs="http://www.opengis.net/wfs/2.0">
+     <wfs:StoredQueryDescription id="http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById">
+       <wfs:Title xml:lang="en">Get feature by identifier</wfs:Title>
+       <wfs:Abstract xml:lang="en">Retrieves a feature by its gml:id.</wfs:Abstract>
+       <wfs:Parameter name="id" type="xs:string">
+         <wfs:Title xml:lang="en">Identifier</wfs:Title>
+         <wfs:Abstract xml:lang="en">The gml:id of the feature to be retrieved.</wfs:Abstract>
+       </wfs:Parameter>
+       <wfs:QueryExpressionText returnFeatureTypes=""
+        language="urn:ogc:def:queryLanguage:OGC-WFS::WFS_QueryExpression"
+        isPrivate="false">
+         <wfs:Query typeNames="schema-element(core:_CityObject)">
+           <fes:Filter>
+             <fes:ResourceId rid="${id}"/>
+           </fes:Filter>
+         </wfs:Query>
+       </wfs:QueryExpressionText>
+     </wfs:StoredQueryDescription>
    </wfs:DescribeStoredQueriesResponse>
 
 Listing 19: Example response to a DescribeStoredQuery request.
@@ -511,11 +511,10 @@ GetFeatureById stored query.
   
    <?xml version="1.0" encoding="UTF-8"?>
    <wfs:GetFeature service="WFS" version="2.0.0"
-   xmlns:wfs="http://www.opengis.net/wfs/2.0">
-   <wfs:StoredQuery
-   id="http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById">
-   <wfs:Parameter name="id">ID_0815</wfs:Parameter>
-   </wfs:StoredQuery>
+    xmlns:wfs="http://www.opengis.net/wfs/2.0">
+     <wfs:StoredQuery id="http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById">
+       <wfs:Parameter name="id">ID_0815</wfs:Parameter>
+     </wfs:StoredQuery>
    </wfs:GetFeature>
 
 Listing 22: Example GetFeature operation.
@@ -531,13 +530,13 @@ feature.
 
    <?xml version="1.0" encoding="UTF-8"?>
    <wfs:GetFeature service="WFS" version="2.0.0"
-   xmlns:wfs="http://www.opengis.net/wfs/2.0">
-   <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
-   <wfs:Parameter name="id">first gml:id</wfs:Parameter>
-   </wfs:StoredQuery>
-   <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
-   <wfs:Parameter name="id">second gml:id</wfs:Parameter>
-   </wfs:StoredQuery>
+    xmlns:wfs="http://www.opengis.net/wfs/2.0">
+     <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
+       <wfs:Parameter name="id">first gml:id</wfs:Parameter>
+     </wfs:StoredQuery>
+     <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
+       <wfs:Parameter name="id">second gml:id</wfs:Parameter>
+     </wfs:StoredQuery>
    </wfs:GetFeature>
 
 Listing 23: Example GetFeature operation requesting for two city
