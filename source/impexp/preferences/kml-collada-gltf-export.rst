@@ -21,7 +21,7 @@ tiling options, can be set under the preferences tab, node
 Figure 100: General settings for the KML/COLLADA/glTF export.
 
 Create glTF model
-""""""""""""""""'
+"""""""""""""""""
 
 In addition to COLLADA models, the Importer/Exporter can also create
 glTF models for efficient loading and rendering of 3D contents on
@@ -71,7 +71,7 @@ visualization of individual city object.
    https://github.com/KhronosGroup/glTF website.
 
 Export in kmz format
-"""""""""""""""""""'
+""""""""""""""""""""
 
 Determines in which format single files and tiled exports should be
 written: kmz when selected, kml when not. Whatever format is chosen, the
@@ -100,7 +100,7 @@ bounding box is four times thicker than the borders of any single tile
 in a tiled export.
 
 Show tile borders
-""""""""""""""""'
+"""""""""""""""""
 
 Specifies whether the borders of the single tiles in a tiled export will
 be shown or not.
@@ -116,7 +116,7 @@ not be perfectly square or have exactly the side length fed into this
 field.
 
 Each CityObject in an own region
-"""""""""""""""""""""""""""""""'
+""""""""""""""""""""""""""""""""
 
 The visibility of the objects exported can be further fine-tuned by this
 option. While the visibility settings on the main *KML/COLLADA/glTF
@@ -252,7 +252,7 @@ All settings in this menu are grouped according to the display form they
 relate to.
 
 Footprint and extruded display options
-"""""""""""""""""""""""""""""""""""""'
+""""""""""""""""""""""""""""""""""""""
 
 In this section the fill and line colors can be selected. Additionally,
 it can be chosen whether the displayed objects should be highlighted
@@ -464,7 +464,7 @@ becomes particularly noticeable for models exported from a LoD3 basis
 upwards. The highlighting and grouping options are mutually exclusive.
 
 GenericCityObject
-""""""""""""""""'
+"""""""""""""""""
 
 As previously stated: in addition to the standard support for surface
 and solid geometry exports, other geometry types like point and line for
@@ -667,7 +667,7 @@ Rules for simple expressions
    different <3DCityDB> expressions must be placed next to each other.
 
 Special keywords in simple expressions
-"""""""""""""""""""""""""""""""""""""'
+""""""""""""""""""""""""""""""""""""""
 
 -  The balloon template files have several additional placeholders for
    object-specific content, called SPECIAL_KEYWORDS. They refer to data
