@@ -119,7 +119,7 @@ be saved in a text file. Path will be specified by the *Save* dialog.
 ============================================================================================================================================================================================================================================================================================
 
 New Column dialog
-""""""""""""""""'
+"""""""""""""""""
 
 By clicking on the *Add* button the *New Column* dialog will be shown
 (Figure 131). Using the *New Column* dialog, it is possible to define a
@@ -147,7 +147,7 @@ city object. For each specific column:
    static values and expressions.
 
 Rules for Column’s Content field
-"""""""""""""""""""""""""""""""'
+""""""""""""""""""""""""""""""""
 
 -  Expressions are coded in the following form:
 
@@ -184,7 +184,7 @@ Rules for Column’s Content field
       in the same column.
 
 How to use the New Column dialog
-"""""""""""""""""""""""""""""""'
+""""""""""""""""""""""""""""""""
 
 Title and content of each column should be specified. On the left hand
 side of the New Column dialog, tables of the 3D City Database and their
@@ -205,7 +205,7 @@ After filling all necessary fields click on the *Insert Column* button.
 A new column will be created and added to the manually created template.
 
 Examples for Column’s Content
-""""""""""""""""""""""""""""'
+"""""""""""""""""""""""""""""
 
 ==============
 ADDRESS/STREET
@@ -274,7 +274,7 @@ CITYOBJECT_GENERICATTRIB/REALVAL[ATTRNAME = 'SOLAR_SUM_INVEST']EUR
 .. _gui-column-template:
 
 Rules for Columns’ Template file
-"""""""""""""""""""""""""""""""'
+""""""""""""""""""""""""""""""""
 
 Rules for the template file are simple. A template file contains a list
 of columns and their description. It may be edited by hand or by saving

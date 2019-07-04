@@ -109,7 +109,7 @@ or gml:name
 .. _literals:
 
 Literals and geometric values
-""""""""""""""""""""""""""""'
+"""""""""""""""""""""""""""""
 
 Literals are explicitly stated values that are evaluated against a
 *valueReference*. The type of the literal value must match the type of
@@ -183,7 +183,7 @@ A 2D polygon with hole:
 .. _operators:
 
 Comparison operators
-"""""""""""""""""""'
+""""""""""""""""""""
 
 A comparison operator is used to form expressions that evaluate the
 mathematical comparison between two arguments. The following binary
@@ -282,7 +282,7 @@ is used below to find all buildings having between 10 and 20 storeys.
 .. _spatial:
 
 Spatial operators
-""""""""""""""""'
+"""""""""""""""""
 
 A spatial operator determines whether its geometric arguments satisfy
 the stated spatial relationship. The following operators are supported:
@@ -374,7 +374,7 @@ lacks a unit definition, meter is used as default value.
 .. _logical:
 
 Logical operators
-""""""""""""""""'
+"""""""""""""""""
 
 A logical operator can be used to combine one or more conditional
 expressions. The logical operator <and> evaluates to true if all the

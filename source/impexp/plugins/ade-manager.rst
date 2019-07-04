@@ -99,7 +99,7 @@ as well as a Java API for reading and writing a valid schema-mapping
 files can be found in the Github repository [6]_.
 
 Registration of a Test ADE
-"""""""""""""""""""""""""'
+""""""""""""""""""""""""""
 
 The *TestADE* is an artificial CityGML ADE which is intended to be used
 for testing and demonstrating how to use the citygml4j and 3DCityDB
@@ -271,7 +271,7 @@ Figure 142: AGG graph editor for defining model transformation rules for
 the ADE Manager Plugin
 
 Transformation of the TestADE
-""""""""""""""""""""""""""""'
+"""""""""""""""""""""""""""""
 
 The XML schema definition file of the TestADE is located under the path
 “\ *test-ade-citygml4j\src\main\resources\org\citygml\ade\test\schema\CityGML-TestADE.xsd*\ ”.
