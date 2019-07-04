@@ -21,7 +21,7 @@ tiling options, can be set under the preferences tab, node
 Figure 100: General settings for the KML/COLLADA/glTF export.
 
 Create glTF model
-'''''''''''''''''
+""""""""""""""""'
 
 In addition to COLLADA models, the Importer/Exporter can also create
 glTF models for efficient loading and rendering of 3D contents on
@@ -71,7 +71,7 @@ visualization of individual city object.
    https://github.com/KhronosGroup/glTF website.
 
 Export in kmz format
-''''''''''''''''''''
+"""""""""""""""""""'
 
 Determines in which format single files and tiled exports should be
 written: kmz when selected, kml when not. Whatever format is chosen, the
@@ -91,7 +91,7 @@ exclusive. A warning message will be displayed when the user trys to
 choose the both.
 
 Show bounding box borders
-'''''''''''''''''''''''''
+"""""""""""""""""""""""""
 
 When exporting a region of interest via the bounding box option in the
 KML/COLLADA/glTF Export tab, this checkbox specifies whether the borders
@@ -100,13 +100,13 @@ bounding box is four times thicker than the borders of any single tile
 in a tiled export.
 
 Show tile borders
-'''''''''''''''''
+""""""""""""""""'
 
 Specifies whether the borders of the single tiles in a tiled export will
 be shown or not.
 
 Tile side length for automatic tiling
-'''''''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""""""""
 
 Applies only to automatically tiled exports and sets the approximate
 square size of the tiles. Since the Bounding Box settings in the
@@ -116,7 +116,7 @@ not be perfectly square or have exactly the side length fed into this
 field.
 
 Each CityObject in an own region
-''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""'
 
 The visibility of the objects exported can be further fine-tuned by this
 option. While the visibility settings on the main *KML/COLLADA/glTF
@@ -171,7 +171,7 @@ refreshed. This field is only active and its value is only applied when
 *view refresh mode* is onStop.
 
 Write JSON file
-'''''''''''''''
+"""""""""""""""
 
 After exporting some cityobjects in KML/COLLADA/glTF you may need to
 include them into websites or somehow embed them into HTML. When working
@@ -191,24 +191,18 @@ This JSON file has the same name as the so-called master file and is
 located in the same folder. Its contents can be used for indexed search
 of any object in the whole KML/COLLADA/glTF export.
 
-   JSON file example:
+.. code-block:: json
 
    {
-
-   "BLDG_0003000b0013fe1f": {
-
-   "envelope": [13.411962, 52.51966, 13.41277, 52.520091],
-
-   "tile": [1, 1]},
-
-   […]
-
-   "BLDG_00030009007f8007": {
-
-   "envelope": [13.406815, 52.51559, 13.40714, 52.51578],
-
-   "tile": [0, 0]}
-
+      "BLDG_0003000b0013fe1f": {
+         "envelope": [13.411962, 52.51966, 13.41277, 52.520091],
+         "tile": [1, 1]
+      },
+      ...
+      "BLDG_00030009007f8007": {
+         "envelope": [13.406815, 52.51559, 13.40714, 52.51578],
+         "tile": [0, 0]
+      }
    }
 
 The JSON file can automatically be turned into JSONP (JSON with padding)
@@ -258,7 +252,7 @@ All settings in this menu are grouped according to the display form they
 relate to.
 
 Footprint and extruded display options
-''''''''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""""""""'
 
 In this section the fill and line colors can be selected. Additionally,
 it can be chosen whether the displayed objects should be highlighted
@@ -284,7 +278,7 @@ there are three options available for LoD0 geometry export:
    exported if none of the roofprint geometries are found.
 
 Geometry display options
-''''''''''''''''''''''''
+""""""""""""""""""""""""
 
 This parameter section distinguishes between roof and wall surfaces and
 allows the user to color them independently. The alpha value affects the
@@ -309,7 +303,7 @@ style. For a detailed explanation of the highlighting mechanism see the
 following section.
 
 COLLADA/glTF display options
-''''''''''''''''''''''''''''
+""""""""""""""""""""""""""""
 
 These parameters control the export of COLLADA and glTF models. The
 first option addresses the fact that sometimes objects may contain
@@ -470,7 +464,7 @@ becomes particularly noticeable for models exported from a LoD3 basis
 upwards. The highlighting and grouping options are mutually exclusive.
 
 GenericCityObject
-'''''''''''''''''
+""""""""""""""""'
 
 As previously stated: in addition to the standard support for surface
 and solid geometry exports, other geometry types like point and line for
@@ -632,7 +626,7 @@ and <3DCityDB> placeholders for object-specific content. These
 placeholders follow several elementary rules.
 
 Rules for simple expressions
-''''''''''''''''''''''''''''
+""""""""""""""""""""""""""""
 
 -  Expressions begin with <3DCityDB> and end with </3DCityDB>.
    Expressions are not case-sensitive.
@@ -673,7 +667,7 @@ Rules for simple expressions
    different <3DCityDB> expressions must be placed next to each other.
 
 Special keywords in simple expressions
-''''''''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""""""""'
 
 -  The balloon template files have several additional placeholders for
    object-specific content, called SPECIAL_KEYWORDS. They refer to data
@@ -737,7 +731,7 @@ Special keywords in simple expressions
    further Importer/Exporter releases.
 
 Examples for simple expressions
-'''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""
 
    | <3DCityDB>ADDRESS/STREET</3DCityDB>
    | returns the content of the STREET column on the ADDRESS table for
@@ -792,7 +786,7 @@ all generic attributes along with their values is one of them) iterative
 expressions were conceived.
 
 Rules for iterative expressions
-'''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""
 
 -  | Iterative expressions will adopt the form:
       | <3DCityDB>FOREACH
@@ -823,7 +817,7 @@ Rules for iterative expressions
 -  No nesting of FOREACH statements is allowed.
 
 Examples for iterative expressions
-''''''''''''''''''''''''''''''''''
+""""""""""""""""""""""""""""""""""
 
 Listing of generic attributes and their values:
 
@@ -870,7 +864,7 @@ objects may be necessary.
 Figure 111: Altitude/Terrain settings.
 
 Use original z-Coordinates without transformation
-'''''''''''''''''''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
 Depending on the spatial database used, the transformation of the
 original coordinates to WGS84 will include transformation of the
@@ -899,7 +893,7 @@ the first time, so it is recommended to remember its status
 (z-coordinate transformation on or off) for all future exports.
 
 Altitude mode
-'''''''''''''
+"""""""""""""
 
 Allows the user to choose between *relative* (to the ground),
 interpreting the altitude as a value in meters above the terrain, or
@@ -953,7 +947,7 @@ along the z-axis until they match the ground.
    relative height above the ground.
 
 Altitude offset
-'''''''''''''''
+"""""""""""""""
 
 A value, positive or negative, can be added to the z coordinates of all
 geometries in one export in order to place them higher or lower over the

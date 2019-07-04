@@ -42,7 +42,7 @@ over the respective icon image. The *url* parameter points to the URL of
 the web server folder where the terrain data are stored.
 
 Usage example
-'''''''''''''
+"""""""""""""
 
 In this example, a high-resolution (0.5m) Digital Terrain Model provided
 by the Vorarlberg State Government will be added to the 3D web client.

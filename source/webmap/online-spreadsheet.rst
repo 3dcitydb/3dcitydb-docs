@@ -159,7 +159,7 @@ course be increased to achieve a better viewing experience depending on
 the hardware you use.
 
 Usage example
-'''''''''''''
+"""""""""""""
 
 In this example, a tiled KML dataset containing around 8000 LoD1
 buildings in the Manhattan district of New York City (NYC) will be

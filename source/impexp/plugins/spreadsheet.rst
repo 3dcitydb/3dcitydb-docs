@@ -97,7 +97,7 @@ when clicking on the *New* button. This part will also be shown when
 clicking on the *Edit* button after a template file is selected.
 
 Create a new template
-'''''''''''''''''''''
+"""""""""""""""""""""
 
 Click on the *New* button to access the part for creating a template
 (marked in Figure 130). To add a new column click on the *Add* button
@@ -119,7 +119,7 @@ be saved in a text file. Path will be specified by the *Save* dialog.
 ============================================================================================================================================================================================================================================================================================
 
 New Column dialog
-'''''''''''''''''
+""""""""""""""""'
 
 By clicking on the *Add* button the *New Column* dialog will be shown
 (Figure 131). Using the *New Column* dialog, it is possible to define a
@@ -147,7 +147,7 @@ city object. For each specific column:
    static values and expressions.
 
 Rules for Column’s Content field
-''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""'
 
 -  Expressions are coded in the following form:
 
@@ -184,7 +184,7 @@ Rules for Column’s Content field
       in the same column.
 
 How to use the New Column dialog
-''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""'
 
 Title and content of each column should be specified. On the left hand
 side of the New Column dialog, tables of the 3D City Database and their
@@ -205,7 +205,7 @@ After filling all necessary fields click on the *Insert Column* button.
 A new column will be created and added to the manually created template.
 
 Examples for Column’s Content
-'''''''''''''''''''''''''''''
+""""""""""""""""""""""""""""'
 
 ==============
 ADDRESS/STREET
@@ -274,7 +274,7 @@ CITYOBJECT_GENERICATTRIB/REALVAL[ATTRNAME = 'SOLAR_SUM_INVEST']EUR
 .. _gui-column-template:
 
 Rules for Columns’ Template file
-''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""'
 
 Rules for the template file are simple. A template file contains a list
 of columns and their description. It may be edited by hand or by saving
@@ -304,7 +304,7 @@ a manually created template.
    by means of the column’s content
 
 Example for Template File
-'''''''''''''''''''''''''
+"""""""""""""""""""""""""
 
 Sample template file:
 
@@ -344,14 +344,14 @@ In this GUI section, the feature class of city objects and their origin
 specified.
 
 Feature Classes
-'''''''''''''''
+"""""""""""""""
 
 City objects of the selected feature class(es) will be exported. Click
 on the edit button (marked by 1 in Figure 133) to insert or remove a
 feature class.
 
 Versioning
-''''''''''
+""""""""""
 
 Oracle's Workspace Manager enables storing of different versions of the
 database as named workspaces. The export process will use the specified
@@ -373,7 +373,7 @@ Figure 133: Click on the *edit* button (marked by 1) to add or remove a CityGML 
 ==============================================================================================================================================
 
 Bounding Box
-''''''''''''
+""""""""""""
 
 Use the bounding box section to select an area of interest from which
 the selected features contained should be exported. Insert lower left
@@ -392,7 +392,7 @@ computer, or directly into an online spreadsheet hosted in a cloud
 service.
 
 CSV/XLSX File
-'''''''''''''
+"""""""""""""
 
 A CSV/XLSX file is supported by most spreadsheet applications. It can be
 easily imported into a local spreadsheet processing program like
@@ -424,7 +424,7 @@ and select one from a list.
    files to the cloud.
 
 Example: Uploading XLSX file to Google Fusion Table
-'''''''''''''''''''''''''''''''''''''''''''''''''''
+"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Here is a step-by-step guide for uploading a XLSX file to the Google
 Fusion Tables which a cloud-based web application that allows for
