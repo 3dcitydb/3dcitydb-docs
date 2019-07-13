@@ -51,20 +51,21 @@ use the starter script in the *bin* subfolder.
 The installation directory contains the following subfolders:
 
 .. table:: Contents of the installation directory
+   :widths: auto
 
-    ================= ============ ==============================================================================================
-    **Folder**        **Optional** **Explanation**
-    3dcitydb          **x**        **Contains all SQL scripts and stored procedures for operating the 3DCityDB**
-    3d-web-map-client **x**        **Contains a ZIP archive containing all files required to install the 3D Web Map Client on a web server**
-    ade-extensions                 **Contains extension packages to support CityGML ADEs.** ADE extensions only must be copied to this directory to make them available in the program.
-    bin                            **Platform-specific starter scripts to launch the Importer/Exporter. For instance, under Windows, double-click on 3DCityDB-Importer-Exporter.bat to run the program**
-    contribs                       **Third-party tools required by the Importer/Exporter (e.g. collada2gltf converter binaries)**
-    lib                            Contains all libraries required by the Importer/Exporter
-    licence                        Contains the license documents for Importer/Exporter
-    manual            x            Contains the documentation for the **3DCityDB and the tools**
-    plugins                        Contains plugins of the Importer/Exporter. Plugins only have to be copied to this directory to make them available in the program.
-    samples           x            Contains CityGML and KML/COLLADA test datasets
-    templates                      Contains HTML templates for information balloons for KML/COLLADA exports, a selection of coordinate reference systems in the form of XML documents, and example XSLT stylesheets to be used in imports and exports.
-    uninstaller                    Contains a JAR executable that uninstalls the Importer/Exporter
-    README.txt                     A brief information about the application
-    ================= ============ ==============================================================================================
+   ================= ============ ==============================================================================================
+   **Folder**        **Optional** **Explanation**
+   3dcitydb          **x**        **Contains all SQL scripts and stored procedures for operating the 3DCityDB**
+   3d-web-map-client **x**        **Contains a ZIP archive containing all files required to install the 3D Web Map Client on a web server**
+   ade-extensions                 **Contains extension packages to support CityGML ADEs.** ADE extensions only must be copied to this directory to make them available in the program.
+   bin                            **Platform-specific starter scripts to launch the Importer/Exporter. For instance, under Windows, double-click on 3DCityDB-Importer-Exporter.bat to run the program**
+   contribs                       **Third-party tools required by the Importer/Exporter (e.g. collada2gltf converter binaries)**
+   lib                            Contains all libraries required by the Importer/Exporter
+   licence                        Contains the license documents for Importer/Exporter
+   manual            x            Contains the documentation for the **3DCityDB and the tools**
+   plugins                        Contains plugins of the Importer/Exporter. Plugins only have to be copied to this directory to make them available in the program.
+   samples           x            Contains CityGML and KML/COLLADA test datasets
+   templates                      Contains HTML templates for information balloons for KML/COLLADA exports, a selection of coordinate reference systems in the form of XML documents, and example XSLT stylesheets to be used in imports and exports.
+   uninstaller                    Contains a JAR executable that uninstalls the Importer/Exporter
+   README.txt                     A brief information about the application
+   ================= ============ ==============================================================================================
