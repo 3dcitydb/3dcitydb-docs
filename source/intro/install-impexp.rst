@@ -46,6 +46,8 @@ use the starter script in the *bin* subfolder.
 
 The installation directory contains the following subfolders:
 
+.. table:: Contents of the installation directory
+
 ================= ============ ==============================================================================================
 **Folder**        **Optional** **Explanation**
 3dcitydb          **x**        **Contains all SQL scripts and stored procedures for operating the 3DCityDB**
@@ -62,8 +64,6 @@ templates                      Contains HTML templates for information balloons 
 uninstaller                    Contains a JAR executable that uninstalls the Importer/Exporter
 README.txt                     A brief information about the application
 ================= ============ ==============================================================================================
-
-Table 18: Contents of the installation directory.
 
 .. |image57| figure:: ../media/image68.png
    :width: 4.58268in
