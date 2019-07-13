@@ -51,7 +51,7 @@ use the starter script in the *bin* subfolder.
 The installation directory contains the following subfolders:
 
 .. table:: Contents of the installation directory
-   :widths: auto
+   :align: left
 
    ================= ============ ==============================================================================================
    **Folder**        **Optional** **Explanation**
