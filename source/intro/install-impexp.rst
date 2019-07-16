@@ -7,16 +7,17 @@ http://www.3dcitydb.org or from the GitHub
 and save it to your local file system. The installer is shipped as an
 executable Java Archive (JAR) file. To run the installation wizard,
 simply double-click on the *3DCityDB-Importer-Exporter-4.1.0-Setup.jar*
-file.
+file. After accepting the license agreement and specifying an installation
+directory, you can choose the software packages to be installed.
 
-|image57|
+.. figure:: ../media/image68.png
+   :width: 4.58268in
+   :height: 3.39205in
 
-Figure 51: Installation wizard of Import/Export tool (Step 5).
+   Installation wizard of Import/Export tool (Step 5).
 
-After accepting the license agreement and specifying an installation
-directory, you can choose the software packages to be installed. It is
-recommended to at least select the packages ‘\ *3D City Database*\ ’ and
-‘\ *Documentation’*. The ‘\ *3D City Database*\ ’ package contains all
+It is recommended to at least select the packages ‘\ *3D City Database*\ ’
+and ‘\ *Documentation’*. The ‘\ *3D City Database*\ ’ package contains all
 :doc:`SQL scripts <3dcitydb-scripts>` that are required for setting
 up an instance of the 3D City Database on your spatial database system.
 Please refer to the step-by-step guide for :doc:`Oracle <db-setup-oracle>`
@@ -49,25 +50,21 @@ use the starter script in the *bin* subfolder.
 
 The installation directory contains the following subfolders:
 
-================= ============ ==============================================================================================
-**Folder**        **Optional** **Explanation**
-3dcitydb          **x**        **Contains all SQL scripts and stored procedures for operating the 3DCityDB**
-3d-web-map-client **x**        **Contains a ZIP archive containing all files required to install the 3D Web Map Client on a web server**
-ade-extensions                 **Contains extension packages to support CityGML ADEs.** ADE extensions only must be copied to this directory to make them available in the program.
-bin                            **Platform-specific starter scripts to launch the Importer/Exporter. For instance, under Windows, double-click on 3DCityDB-Importer-Exporter.bat to run the program**
-contribs                       **Third-party tools required by the Importer/Exporter (e.g. collada2gltf converter binaries)**
-lib                            Contains all libraries required by the Importer/Exporter
-licence                        Contains the license documents for Importer/Exporter
-manual            x            Contains the documentation for the **3DCityDB and the tools**
-plugins                        Contains plugins of the Importer/Exporter. Plugins only have to be copied to this directory to make them available in the program.
-samples           x            Contains CityGML and KML/COLLADA test datasets
-templates                      Contains HTML templates for information balloons for KML/COLLADA exports, a selection of coordinate reference systems in the form of XML documents, and example XSLT stylesheets to be used in imports and exports.
-uninstaller                    Contains a JAR executable that uninstalls the Importer/Exporter
-README.txt                     A brief information about the application
-================= ============ ==============================================================================================
+.. table:: Contents of the installation directory
 
-Table 18: Contents of the installation directory.
-
-.. |image57| image:: ../media/image68.png
-   :width: 4.58268in
-   :height: 3.39205in
+   ================= ============ ==============================================================================================
+   **Folder**        **Optional** **Explanation**
+   3dcitydb          **x**        **Contains all SQL scripts and stored procedures for operating the 3DCityDB**
+   3d-web-map-client **x**        **Contains a ZIP archive containing all files required to install the 3D Web Map Client on a web server**
+   ade-extensions                 **Contains extension packages to support CityGML ADEs.** ADE extensions only must be copied to this directory to make them available in the program.
+   bin                            **Platform-specific starter scripts to launch the Importer/Exporter. For instance, under Windows, double-click on 3DCityDB-Importer-Exporter.bat to run the program**
+   contribs                       **Third-party tools required by the Importer/Exporter (e.g. collada2gltf converter binaries)**
+   lib                            Contains all libraries required by the Importer/Exporter
+   licence                        Contains the license documents for Importer/Exporter
+   manual            x            Contains the documentation for the **3DCityDB and the tools**
+   plugins                        Contains plugins of the Importer/Exporter. Plugins only have to be copied to this directory to make them available in the program.
+   samples           x            Contains CityGML and KML/COLLADA test datasets
+   templates                      Contains HTML templates for information balloons for KML/COLLADA exports, a selection of coordinate reference systems in the form of XML documents, and example XSLT stylesheets to be used in imports and exports.
+   uninstaller                    Contains a JAR executable that uninstalls the Importer/Exporter
+   README.txt                     A brief information about the application
+   ================= ============ ==============================================================================================
