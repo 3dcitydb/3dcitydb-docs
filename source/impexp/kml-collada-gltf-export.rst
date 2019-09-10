@@ -14,7 +14,7 @@ and Cesium etc.
    the CityGML content must be imported into the database first and then
    exported into the KML/COLLADA/glTF format.
 
-The *KML/COLLADA/glTF Export* tab shown in Figure 71 collects all
+The *KML/COLLADA/glTF Export* tab shown in :numref:`pic_kml_collada_gltf_export_main_gui` collects all
 parameters required for the export in a similar fashion as for a CityGML
 export (see the previous chapter). In addition, more fine-grained
 preference settings affecting the KML/COLLADA/glTF export are available
@@ -23,20 +23,22 @@ these settings before starting the export process. A full documentation
 of the export preferences is available in chapter 5.6.3. The following
 table provides a brief summary overview.
 
-================================= ====================================================================================================================================================================================================================================
-**Preference name**               **Description**
-*General Preference*              **Some common settings of the exported files**
-*Rendering Preferences*           **Defines the look of the KML/COLLADA/glTF exports when visualized in the virtual globes (e.g. Cesium, Google Earth, NASA World Wind, ESRI ArcGlobe). Each of the top-level feature categories has its own Rendering settings here**
-*Information Balloon Preferences* **KML offers the possibility of enriching its placemark elements with information bubbles, so-called balloons. They can be specified here**
-*Altitude/Terrain Preferences*    **Controls the way through which the exported datasets to be perfectly displayed in the Earth browser**
-================================= ====================================================================================================================================================================================================================================
+.. table:: Summary overview of the KML/COLLADA/glTF export preferences
+   :name: tab_kml_collada_gltf_export_preferences_
+   :widths: auto
 
-Table 37: Summery overview of the KML/COLLADA/glTF export preferences.
+   ================================= ====================================================================================================================================================================================================================================
+   **Preference name**               **Description**
+   *General Preference*              *Some common settings of the exported files*
+   *Rendering Preferences*           *Defines the look of the KML/COLLADA/glTF exports when visualized in the virtual globes (e.g. Cesium, Google Earth, NASA World Wind, ESRI ArcGlobe). Each of the top-level feature categories has its own Rendering settings here*
+   *Information Balloon Preferences* *KML offers the possibility of enriching its placemark elements with information bubbles, so-called balloons. They can be specified here*
+   *Altitude/Terrain Preferences*    *Controls the way through which the exported datasets to be perfectly displayed in the Earth browser*
+   ================================= ====================================================================================================================================================================================================================================
 
-|image87|
+.. figure:: /media/kml_collada_gltf_export_main_gui.png
+   :name: pic_kml_collada_gltf_export_main_gui
 
-Figure 71: The KML/COLLADA/glTF Export tab allowing for exporting
-KML/COLLADA/glTF models from the 3DCityDB.
+   The KML/COLLADA/glTF Export tab allowing for exporting KML/COLLADA/glTF models from the 3DCityDB
 
 **Output file selection.** Type the filename directly into the text
 field or activate the file dialog provided by the operating system after
@@ -84,7 +86,7 @@ export:
 
 -  **no tiling**\ *:* as the name implies, no tiling takes place. Just a
    single tile holding all the exported objects is exported. This is
-   only advisable when the resulting file is at most 10 Mb in size.
+   only advisable when the resulting file is at most 10 MB in size.
 
 -  **automatic**\ *:* the area enclosed by the bounding box will be
    exported in tiles having roughly the side length set on the
@@ -110,16 +112,16 @@ and all the tile files that belongs to the same row are stored in a
 separate subfolder named by their corresponding row number. The
 numbering of both rows and columns should start with 0. All those
 subfolders are in turn stored in a folder named “Tiles”. This
-hierarchical directory structure (cf. Figure 72) ensures that the
+hierarchical directory structure (cf. :numref:`pic_kml_collada_gltf_export_hierarchical_directory`) ensures that the
 exported tile files are distributed over different subfolders in order
 to avoid putting all tile files into a single folder which may result in
 significant performance issues at least under MS Windows operating
-systems.
+systems. 
 
-|image88|
+.. figure:: /media/image98.png
+   :name: pic_kml_collada_gltf_export_hierarchical_directory
 
-Figure 72: Example: hierarchical directory structure for export of 2x3
-tiles
+   Example: hierarchical directory structure for export of 2x3 tiles
 
 **Export from level of detail.** The Level of Detail as defined by the
 CityGML specification should be used as basis information for the
@@ -163,7 +165,7 @@ will be shown when visualizing the exported dataset in earth browsers.
 -  **COLLADA/glTF**\ *:* shows the detailed geometry in COLLADA and glTF
    formats including support for textures. The Appearance/Theme combo
    box below allows choosing from all possible appearance themes (as
-   defined in the CityGML specification [**Gröger et al. 2012**])
+   defined in the CityGML specification [Gröger et al. 2012])
    available in the currently connected 3DCityDB instance. The list is
    workspace- and timestamp sensitive and will be filled on demand when
    clicking on the *fetch* button. Default value is *none*, which
@@ -171,10 +173,10 @@ will be shown when visualizing the exported dataset in earth browsers.
    settings in the preference tab (*KML/COLLADA/glTF Export* node,
    *Rendering* subnode).
 
-|display_styles|
+.. figure:: /media/image99.png
+   :name: pic_kml_collada_gltf_export_same_building_many_views
 
-Figure 73: The same building displayed as (top down and left to right)
-footprint, extruded, geometry, COLLADA
+   Example: The same building displayed as (top down and left to right) footprint, extruded, geometry, COLLADA
 
 .. note::
    For Oracle, the *Footprint* and *Extruded* display forms
@@ -185,7 +187,7 @@ footprint, extruded, geometry, COLLADA
    observe the Oracle license and not to use the *Footprint* and *Extruded*
    display forms under Oracle 10g/11g *Locator*. This restriction does not
    hold for the Oracle *Spatial* license option. Likewise, starting from
-   Oracle 12c, SDO_AGGR_UNION is also available for *Locator*.
+   Oracle 12c, ``SDO_AGGR_UNION`` is also available for *Locator*.
 
 Depending on the chosen level of detail, some display form checkboxes
 will become enabled or disabled, depending on whether the level of
@@ -197,13 +199,13 @@ specifying the selected display form. This applies for both tiled and
 untiled exports.
 
 With the visibility field next to each display form the user can control
-the KML element <minLodPixels>, see [Wilson 2008]: measurement in screen
+the KML element ``<minLodPixels>``, see [Wilson 2008]: measurement in screen
 pixels that represents the minimum limit of the visibility range for a
-given <Region>. A <Region> is in the generated tiled exports equivalent
-to a tile. The <maxLodPixels> value is identical to the <minLodPixels>
+given <Region>. A ``<Region>`` is in the generated tiled exports equivalent
+to a tile. The ``<maxLodPixels>`` value is identical to the ``<minLodPixels>``
 of the next visible display form, so that display forms are seamlessly
 switched when the viewer zooms in or out. The last visible display form
-has a <maxLodPixels> value of -1, that is, visible to infinite size.
+has a ``<maxLodPixels>`` value of -1, that is, visible to infinite size.
 Visibility ranges can start at a value of 0 (they do not have to,
 though). Please note that the region size in pixels depends on the
 chosen tile size. Thus, if the tile size is reduced also the visibility
@@ -243,17 +245,16 @@ automatically disabled.
    such, it must be done before the CityGML contents are imported into
    the database at all.
 
-|image90|
+.. figure:: /media/image100.png
+   :name: pic_kml_collada_gltf_export_same_building_many_views
 
-Figure 74: Example for exported CityGML top-level features (building,
-bridge, tunnel, water, vegetation, transportation etc.) displayed as
-KML/COLLADA
+   Example for exported CityGML top-level features (building, bridge, tunnel, water, vegetation, transportation etc.) displayed as KML/COLLADA
 
 **KML/COLLADA/glTF export.** Having completed all settings, the
 KML/COLLADA/glTF data export is triggered with the *Export* button at
-the bottom of the dialog (cf. Figure 71). If a database connection has
+the bottom of the dialog (cf. :numref:`pic_kml_collada_gltf_export_main_gui`). If a database connection has
 not been established manually beforehand, the currently selected entry
-on the Database tab is used to connect to the 3D City Database. Progress
+on the *Database* tab is used to connect to the 3D City Database. Progress
 information is displayed within a separate status window. This status
 window also offers a *Cancel* button that lets a user abort the export
 process. The separate steps of the export process as well as possible
@@ -261,46 +262,33 @@ error messages are reported to the console window.
 
 After having completed the export, multiple files along with the *Tiles*
 folder will be written to the prespecified output location. One of them
-is called *master KML file* which contains a list of <NetworkLink>
+is called *master KML file* which contains a list of ``<NetworkLink>``
 elements pointing to every exported tile files stored in the *Tiles*
 folder. This KML file can therefore be directly opened in Google Earth
 for viewing and exploring the exported KML/COLLADA models. In addition,
 for each selected display form (*Footprint*, *Extruded*, *Geometry*, and
-*COLLADA/glTF*), a JSON formatted file called *master JSON file* is
+*COLLADA/glTF*), a JSON formatted file called *Master JSON file* is
 created and its contents should look like the following example:
 
-   Master JSON file example:
+**Master JSON file example:**
+
+.. code-block:: json
 
    {
-
-   "version": "1.0.0",
-
-   "layername": "NYC_Buildings",
-
-   "fileextension": ".kmz",
-
-   "displayform": "extruded",
-
-   "minLodPixels": 140,
-
-   "maxLodPixels": -1,
-
-   "colnum": 29,
-
-   "rownum": 23,
-
-   "bbox":{
-
-   "xmin": -74.0209007,
-
-   "xmax": -73.9707756,
-
-   "ymin": 40.6996416,
-
-   "ymax": 40.7295678
-
-   }
-
+      "version": "1.0.0",
+      "layername": "NYC_Buildings",
+      "fileextension": ".kmz",
+      "displayform": "extruded",
+      "minLodPixels": 140,
+      "maxLodPixels": -1,
+      "colnum": 29,
+      "rownum": 23,
+      "bbox": {
+         "xmin": -74.0209007,
+         "xmax": -73.9707756,
+         "ymin": 40.6996416,
+         "ymax": 40.7295678
+      }
    }
 
 As the name of each JSON parameter implies, this JSON file contains the
@@ -309,23 +297,23 @@ be seen as a kind of metadata allowing applications to interpret the
 contents of the exported datasets. For example, the length and width (in
 WGS84) of each tile can be determined using the following formulas:
 
-*TileWidth = (bbox.xmax – bbox.xmin) / colnum*
+:math:`TileWidth = (bbox.xmax – bbox.xmin) / colnum`
 
-*TileLength = (bbox.ymax – bbox.ymin) / rownum*
+:math:`TileLength = (bbox.ymax – bbox.ymin) / rownum`
 
 With these two calculated values, applications are also able to use the
 following formulas to rapidly retrieve the row and column number of the
 tile in which a given point lies:
 
-*ColumnNumber = floor ((X – bbox.xmin) / TileWidth)*
+:math:`ColumnNumber = floor ((X – bbox.xmin) / TileWidth)`
 
-*RowNumber = floor ((Y – bbox.ymin) / TileLength)*
+:math:`RowNumber = floor ((Y – bbox.ymin) / TileLength)`
 
 where *X* and *Y* denote the WGS84 coordinates of the given point.
 
 Further, if a bounding box is given, which is formed by a lower-left
 corner and an upper-right corner and their row and column numbers are
-expressed as (*R1, C1*) and (*R2, C2*) respectively, all those tiles
+expressed as *(R1, C1)* and *(R2, C2)* respectively, all those tiles
 that intersect with the given bounding box can be found iteratively, as
 their row and column numbers must fulfil the following conditions:
 
@@ -354,13 +342,13 @@ specification, could be even though modeled using the CityGML’s Generics
 module where each *GenricCityObject* object may represent a node or an
 edge of the network model.
 
-|image91|
+.. figure:: /media/image101.png
+   :name: pic_kml_collada_gltf_export_tum_vis
 
-Figure 75: Visualization of the network model of the building interior
-of Technical University Munich (TUM)
+   Visualization of the network model of the building interior of Technical University Munich (TUM)
 
 Depending on the chosen Level of Detail, the point and curve geometries
-of *GenricCityObject* objects are exported, along with their surface and
+of *GenericCityObject* objects are exported, along with their surface and
 solid geometries, into the output KML/KMZ file whose filename is
 enhanced with a suffix denoting the selected display form (e.g.
 *Footprint*, *Extruded*, *Geometry*, or *COLLADA/glTF).*
@@ -386,8 +374,8 @@ example the balloon template file was changed) by choosing the
 to delete and load them again or shutdown or restart the Earth browser.
 
 For best performance, cache options ("*Tools*", "*Options*", "*Cache*")
-should be set to their maximum values, 1024MB for memory cache size,
-2000MB for disk cache. Actual maximums may be lower depending on the
+should be set to their maximum values, 1024 MB for memory cache size,
+2000 MB for disk cache. Actual maximums may be lower depending on the
 computer's hardware.
 
 Google Earth enables showing the terrain layer by default for realistic
@@ -423,47 +411,18 @@ sent from the based-web frontend.
    Mode can be achieved by clicking on *Tools*, *Options* entry, *3D View*
    Tab.
 
-|image92|
+.. figure:: /media/image102.png
+   :name: pic_kml_collada_gltf_export_google_earth_settings
 
-Figure 76: Setting the Graphics Mode in Google Earth
+   Setting the Graphics Mode in Google Earth
 
-|image93|
+.. figure:: /media/image103.png
+   :name: pic_kml_collada_gltf_export_google_earth_settings
 
-Figure 77: KML/COLLADA models rendered with DirectX, highlighting
-surface borders are noticeable everywhere
+   KML/COLLADA models rendered with DirectX, highlighting surface borders are noticeable everywhere
 
-|image94|
+.. figure:: /media/image104.png
+   :name: pic_kml_collada_gltf_export_google_earth_settings
 
-Figure 78: The same scene rendered in OpenGL mode
+   The same scene rendered in OpenGL mode
 
-.. |image87| image:: ../media/image97.png
-   :width: 5.56648in
-   :height: 6.37826in
-
-.. |image88| image:: ../media/image98.png
-   :width: 6.29797in
-   :height: 3.80165in
-
-.. |display_styles| image:: ../media/image99.png
-   :width: 5.89583in
-   :height: 5.52083in
-
-.. |image90| image:: ../media/image100.png
-   :width: 5.84653in
-   :height: 3.13043in
-
-.. |image91| image:: ../media/image101.png
-   :width: 6.05618in
-   :height: 3.51887in
-
-.. |image92| image:: ../media/image102.png
-   :width: 5.11426in
-   :height: 3.8in
-
-.. |image93| image:: ../media/image103.png
-   :width: 5.11811in
-   :height: 4.19727in
-
-.. |image94| image:: ../media/image104.png
-   :width: 5.11811in
-   :height: 4.36694in
