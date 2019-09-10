@@ -5,6 +5,8 @@
    :maxdepth: 2
 
    introduction
+   main-features
+   system-design-decisions
    history
    data-modelling
    uml/index
