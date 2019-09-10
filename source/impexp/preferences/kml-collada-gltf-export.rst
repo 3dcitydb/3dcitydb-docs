@@ -16,9 +16,10 @@ Some common features of the exported files, especially those related to
 tiling options, can be set under the preferences tab, node
 *KML/COLLADA/glTF Export*, subnode *General*.
 
-|image115|
+.. figure:: /media/image125.png
+   :name: pic_kml_collada_gltf_preferences_general
 
-Figure 100: General settings for the KML/COLLADA/glTF export.
+   General settings for the KML/COLLADA/glTF export  
 
 Create glTF model
 """""""""""""""""
@@ -1145,10 +1146,6 @@ export parameters. However, some rules apply for almost all cases:
       valid Goole Elevation API key: *absolute* altitude mode, *generic
       attribute “GE_LoDn_zOffset”,* and *call Google's elevation API
       when no data is available*.
-
-.. |image115| image:: ../../media/image125.png
-   :width: 5.11811in
-   :height: 5.2174in
 
 .. |image116| image:: ../../media/image126.png
    :width: 4.72441in
