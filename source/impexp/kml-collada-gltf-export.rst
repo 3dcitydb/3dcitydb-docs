@@ -246,7 +246,7 @@ automatically disabled.
    the database at all.
 
 .. figure:: /media/image100.png
-   :name: pic_kml_collada_gltf_export_same_building_many_views
+   :name: pic_kml_collada_gltf_export_citygml_top_level
 
    Example for exported CityGML top-level features (building, bridge, tunnel, water, vegetation, transportation etc.) displayed as KML/COLLADA
 
@@ -417,12 +417,12 @@ sent from the based-web frontend.
    Setting the Graphics Mode in Google Earth
 
 .. figure:: /media/image103.png
-   :name: pic_kml_collada_gltf_export_google_earth_settings
+   :name: pic_kml_collada_gltf_export_directx
 
    KML/COLLADA models rendered with DirectX, highlighting surface borders are noticeable everywhere
 
 .. figure:: /media/image104.png
-   :name: pic_kml_collada_gltf_export_google_earth_settings
+   :name: pic_kml_collada_gltf_export_opengl
 
    The same scene rendered in OpenGL mode
 

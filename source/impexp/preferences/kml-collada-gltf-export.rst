@@ -132,42 +132,38 @@ Envelope.
    are opened with Google Earth (Pro). The Cesium-based 3D web client will
    silently ignore this setting.
 
-Following the KML Specification [Wilson 2008], each KML <Region> is
-defined inside a KML <NetworkLink> and has an associated KML<Link>
+Following the KML Specification [Wilson 2008], each KML ``<Region>`` is
+defined inside a KML ``<NetworkLink>`` and has an associated KML ``<Link>``
 pointing to a file. This implies when this option is chosen a subfolder
 is created for each object exported, identified by the object’s gmlId.
 The object’s subfolder will contain any KML/COLLADA/glTF files needed
 for the visualization of the object in the Earth browser. This folder
 structure (which can contain a large number of subfolders) is required
-for the KML <Region> visibility mechanism to work.
+for the KML ``<Region>`` visibility mechanism to work.
 
 When active, the parameters affecting the visibility of the object’s KML
-<Region> can be set through the following related fields.
+``<Region>`` can be set through the following related fields.
 
 The field *visible from* determines from which size on screen the
-object’s KML <Region> becomes visible, regardless of the visibility
+object’s KML ``<Region>`` becomes visible, regardless of the visibility
 value of the containing tile, if any. Since this value is the same for
 every single object and they have all different envelope sizes a good
 average value should be chosen.
 
-The field *view refresh mode* specifies how the KML <Link> corresponding
-to the KML <Region> is refreshed when the geographic view changes. May
+The field *view refresh mode* specifies how the KML ``<Link>`` corresponding
+to the KML ``<Region>`` is refreshed when the geographic view changes. May
 be one of the following:
 
 -  **never** - ignore changes in the geographic view.
 
--  **onRequest** - refresh the content of the KML <Region> only when the
-      user explicitly requests it.
+-  **onRequest** - refresh the content of the KML ``<Region>`` only when the user explicitly requests it.
 
--  **onStop -** refresh the content of the KML <Region> *n* seconds
-      after movement stops, where *n* is specified in the field *view
-      refresh time*.
+-  **onStop -** refresh the content of the KML ``<Region>`` *n* seconds after movement stops, where *n* is specified in the field *view refresh time*.
 
--  **onRegion** - refresh the content of the KML <Region> when it
-      becomes active.
+-  **onRegion** - refresh the content of the KML ``<Region>`` when it becomes active.
 
 As stated above, the field *view refresh time* specifies how many
-seconds after movement stops the content of the KML <Region> must be
+seconds after movement stops the content of the KML ``<Region>`` must be
 refreshed. This field is only active and its value is only applied when
 *view refresh mode* is onStop.
 
@@ -244,10 +240,10 @@ or simpler. An exceptional case is *GenricCityObject* which can be
 exported into point or line geometries, and the corresponding settings
 will be explained at the end of this section.
 
-|image116|
+.. figure:: /media/image126.png
+   :name: pic_kml_collada_gltf_preferences_rendering
 
-Figure 101: Rendering settings for the KML/COLLADA/glTF *Building*
-export.
+   Rendering settings for the KML/COLLADA/glTF *Building* export
 
 All settings in this menu are grouped according to the display form they
 relate to.
@@ -263,7 +259,7 @@ the transparency of all colors equally: 0 results in transparent
 (invisible) colors, 255 in completely opaque ones. A click on any color
 box opens a color choice dialog.
 
-As defined in the CityGML specification [**Gröger et al. 2012**] CityGML
+As defined in the CityGML specification [Gröger et al. 2012] CityGML
 version 2.0.0 allows LoD0 representation (footprint and roofprint
 representations) for buildings and building parts. If LoD0 in the Level
 of Export setting on the main *KML/COLLADA/glTF Export* tab is selected,
@@ -327,7 +323,7 @@ can be illuminated with a shading effect in 3D scenes and therefore
 provides a better visual representation of the 3D object which has a
 constant color throughout its surfaces. If this option is not activated,
 this 3D object will be rendered as a solid geometry without any visual
-distinction of its boundary surfaces (cf. Figure 102). However, when
+distinction of its boundary surfaces (cf. :numref:`pic_kml_collada_gltf_preferences_rendering_comparison`). However, when
 exporting textured 3D models, the shading effect is not relevant, since
 the texture information can already provide a sophisticated visual
 effect.
@@ -337,11 +333,12 @@ effect.
    option *Generate surface normal* by default for all (top-level)
    features if such information is available.
 
-|image117|
+.. figure:: /media/image127.png
+   :name: pic_kml_collada_gltf_preferences_rendering_comparison
 
-Figure 102: Comparison of the different visual effects of the same 3D
-model with (the left figure) and without (the right figure) surface
-normals
+   Comparison of the different visual effects of the same 
+   3D model with (the left figure) and without (the right figure) 
+   surface normals
 
 Surface textures can be stored in an image file, or grouped into large
 canvases containing all images clustered together so-called texture
@@ -420,7 +417,7 @@ transparent) to 255 (completely opaque).
 
 .. note::
    This setting only takes effect if none of the appearance themes
-   (as defined in the CityGML specification [**Gröger et al. 2012**]) is
+   (as defined in the CityGML specification [Gröger et al. 2012]) is
    selected or available in the currently connected 3DCityDB instance.
 
 Buildings can be put together in groups into a single model/placemark.
@@ -451,10 +448,11 @@ alpha value of 140 (hard-coded), becoming instantly visible, creating
 this model placemark highlighted feel. The displacement distance for the
 exploded highlighting surfaces can be set here. Default value is 0.75m.
 
-|image118|
+.. figure:: /media/image128.png
+   :name: pic_kml_collada_gltf_preferences_rendering_collada
 
-Figure 103: Object exported in the COLLADA display form being
-highlighted on mouseOver
+   Object exported in the COLLADA display form being
+   highlighted on mouseOver
 
 This highlighting mechanism only works in Google Earth and has an
 important side effect: the model's polygons will be loaded and displayed
@@ -477,10 +475,11 @@ subnode “\ *Surface and Solid*\ ” has similar settings illustrated in
 the previous section, only the settings within the subnode “\ *Point and
 Curve*\ ” will be explained in the following paragraphs.
 
-|image119|
 
-Figure 104: Rendering settings for point and curve geometry exports for
-*GenericCityObject*.
+.. figure:: /media/image129.png
+   :name: pic_kml_collada_gltf_preferences_rendering_point
+
+   Rendering settings for point and curve geometry exports for *GenericCityObject*
 
 The field *Altitude mode* specifies how the Z-coordinates (altitude) of
 the exported point geometries are interpreted by the earth browser.
@@ -490,13 +489,9 @@ Possible value may be one of the following options:
    in meters according to the vertical reference system (EGM96 geoid in
    KML).
 
--  **relative**: the altitude is interpreted as a value in meters above
-      the terrain. The absolute height value can be determined by adding
-      the attitude to the elevation of the point.
+-  **relative**: the altitude is interpreted as a value in meters above the terrain. The absolute height value can be determined by adding the attitude to the elevation of the point.
 
--  **clamp to ground**\ *:* the altitude will be ignored and the point
-      geometry will be always clamp to the ground regardless of whether
-      the terrain layer is activated or not.
+-  **clamp to ground**: the altitude will be ignored and the point geometry will be always clamp to the ground regardless of whether the terrain layer is activated or not.
 
 Three setting options are available which allow user to choose a more
 appropriate display form for point geometry on the 3D map:
@@ -510,20 +505,17 @@ appropriate display form for point geometry on the 3D map:
    highlighting is enabled, further settings can be made for the
    thickness and color properties of the highlighting geometry.
 
-|image120|
+.. figure:: /media/image130.png
+   :name: pic_kml_collada_gltf_preferences_cross
 
-Figure 105: An exported point geometry object displayed as a cross-line.
+   An exported point geometry object displayed as a cross-line
 
--  **Icon**: An alternative way for displaying point geometry in the
-      earth browser is to use the KML’s native point placemark that can
-      be represented with an icon in a user-defined color. The size of
-      the icon can be determined with the help of the *Scale* option,
-      where the default value is 1.0 (no scaling) which can give a
-      fairly good perception.
+-  **Icon**: An alternative way for displaying point geometry in the      earth browser is to use the KML’s native point placemark that can      be represented with an icon in a user-defined color. The size of      the icon can be determined with the help of the *Scale* option,      where the default value is 1.0 (no scaling) which can give a      fairly good perception.
 
-|image121|
+.. figure:: /media/image131.png
+   :name: pic_kml_collada_gltf_preferences_point
 
-Figure 106: An exported point geometry object displayed as an icon.
+   An exported point geometry object displayed as an icon
 
 -  **Cube**\ *:* Another possibility of representing the point geometry
    is to use a small solid particle whose central point should be
@@ -532,9 +524,10 @@ Figure 106: An exported point geometry object displayed as an icon.
    highlighting effect can also be adjusted to achieve an optimal visual
    effect.
 
-|image122|
+.. figure:: /media/image132.png
+   :name: pic_kml_collada_gltf_preferences_cube
 
-Figure 107: An exported point geometry object displayed as a small cube.
+   An exported point geometry object displayed as a small cube
 
 The rendering settings for the export of curve geometry objects can be
 configured in a similar manner as those of point geometry with the
@@ -568,7 +561,7 @@ the display form in which the objects is exported.
 .. note::
    If you want to use the 3DCityDB-Web-Map-Client (see chapter 8
    for more details) to visualize the exported datasets (KML/glTF models),
-   the options (the both checkboxes shown in Figure 108) for creating
+   the options (the both checkboxes shown in :numref:`pic_kml_collada_gltf_preferences_balloon_building`) for creating
    information balloons shall be deactivated, since the
    3DCityDB-Web-Map-Client does not provide support for showing information
    balloons. In stead, it utilizes the online spreadsheet (Google Fusion
@@ -585,9 +578,10 @@ geometry object can also has its own individual balloon settings. The
 following example is set around *Building* balloons but it applies
 exactly the same for all feature classes.
 
-|image123|
+.. figure:: /media/image133.png
+   :name: pic_kml_collada_gltf_preferences_balloon_building
 
-Figure 108: *Building* Balloon settings.
+   *Building* Balloon settings
 
 The contents of the balloon can be taken from a generic attribute called
 *Balloon_Content* associated individually to each city object in the
@@ -596,7 +590,7 @@ an external HTML file as a template, or a combination of both:
 individually and uniformly set, the *Balloon_Content* attribute
 (individually) having priority over the external HTML template file
 (uniform). A few Balloon HTML template files can be found after software
-installation in the subfolder templates/balloons of the installation
+installation in the subfolder ``templates/balloons`` of the installation
 directory.
 
 The balloons can be included in the doc.kml file generated at export, or
@@ -604,16 +598,16 @@ they can be put into individual files (one for each object) written
 together into a "balloon" directory. This makes later adaption work
 easier if some post-processing (manual or not) is required. When balloon
 contents are put into a separate file for each exported object, access
-to local files and personal data must be granted in Google Earth (Tools
-Options General) for the balloons to show.
+to local files and personal data must be granted in Google Earth (Tools ->
+Options -> General) for the balloons to show.
 
 The balloon contents do not need to be static. They can contain
 references to the data belonging to the city object they relate to.
 These references will be dynamically resolved (i.e.: the actual value
 for the current object will be put in their place) at export time in a
 way similar to how Active Server Pages (ASP) [Microsoft, 2015] work.
-Placeholders embedded in the HTML template, beginning with <3DCityDB>
-and ending with </3DCityDB> tags, will be replaced in the resulting
+Placeholders embedded in the HTML template, beginning with ``<3DCityDB>``
+and ending with ``</3DCityDB>`` tags, will be replaced in the resulting
 balloon with the dynamically determined value(s). The HTML balloon
 templates can also include JavaScript code.
 
@@ -623,39 +617,39 @@ generic attribute or from an external file.
 
 **Balloon template format.** As previously stated, a balloon template
 consists of ordinary HTML, which may or may not contain JavaScript code
-and <3DCityDB> placeholders for object-specific content. These
+and ``<3DCityDB>`` placeholders for object-specific content. These
 placeholders follow several elementary rules.
 
 Rules for simple expressions
 """"""""""""""""""""""""""""
 
--  Expressions begin with <3DCityDB> and end with </3DCityDB>.
+-  Expressions begin with ``<3DCityDB>`` and end with ``</3DCityDB>``.
    Expressions are not case-sensitive.
 
--  Expressions are coded in the form "TABLE/[AGGREGATION FUNCTION]
-   COLUMN [CONDITION]". Aggregation function and condition are optional.
+-  Expressions are coded in the form ``"TABLE/[AGGREGATION FUNCTION]
+   COLUMN [CONDITION]"``. Aggregation function and condition are optional.
    When present they must be written in square brackets (they belong to
    the syntax). These expressions represent an alternative coding of a
-   SQL select statement: SELECT [AGGREGATION FUNCTION] COLUMN FROM TABLE
-   [WHERE condition]. Tables refer to the underlying 3DCityDB table
+   SQL select statement: ``SELECT [AGGREGATION FUNCTION] COLUMN FROM TABLE
+   [WHERE condition]``. Tables refer to the underlying 3DCityDB table
    structure (see chapter 2.3.2 for details).
 
 -  Each expression will only return those entries relevant to the city
    object being currently exported. That means an implicit condition
-   clause somewhat like "TABLE.CITYOBJECT_ID = CITYOBJECT.ID" is always
+   clause somewhat like ``"TABLE.CITYOBJECT_ID = CITYOBJECT.ID"`` is always
    considered and does not need to be explicitly written.
 
 -  Results will be interpreted and printed in HTML as lists separated by
    commas. Lists with only one element are the most likely, but not
    exclusively possible, outcome. When only interested in the first
    result of a list the aggregation function FIRST should be used. Other
-   possible aggregation functions are LAST, MAX, MIN, AVG, SUM and
-   COUNT.
+   possible aggregation functions are ``LAST``, ``MAX``, ``MIN``, ``AVG``, ``SUM`` and
+   ``COUNT``.
 
 -  Conditions can be defined by a simple number (meaning which element
    from the result list must be taken) or a column name (that must exist
    in underlying 3DCityDB table structure) a comparison operator and a
-   value. For instance: [2] or [NAME = 'abc'].
+   value. For instance: ``[2]`` or ``[NAME = 'abc']``.
 
 -  Invalid results will be silently discarded. Valid results will be
    delivered exactly as stored in the 3DCityDB tables. Later changes on
@@ -665,13 +659,13 @@ Rules for simple expressions
 -  All elements in the result list are always of the same type (the type
    of the corresponding table column in the underlying 3DCityDB). If
    different result types must be placed next to each other, then
-   different <3DCityDB> expressions must be placed next to each other.
+   different ``<3DCityDB>`` expressions must be placed next to each other.
 
 Special keywords in simple expressions
 """"""""""""""""""""""""""""""""""""""
 
 -  The balloon template files have several additional placeholders for
-   object-specific content, called SPECIAL_KEYWORDS. They refer to data
+   object-specific content, called ``SPECIAL_KEYWORDS``. They refer to data
    that is not retrieved “as is” in a single step from a table in the
    3DCityDB but has to undergo some processing steps (not achievable by
    simple JavaScript means) in order to calculate the final value before
@@ -685,48 +679,33 @@ Special keywords in simple expressions
 
 -  Expressions for special keywords are not case-sensitive. Their syntax
    is similar to ordinary simple expressions, start and end are marked
-   by <3DCityDB> and </3DCityDB> tags, the table name must be
-   SPECIAL_KEYWORDS (a non-existing table in the 3DCityDB), and the
+   by ``<3DCityDB>`` and ``</3DCityDB>`` tags, the table name must be
+   ``SPECIAL_KEYWORDS`` (a non-existing table in the 3DCityDB), and the
    column name must be one of the following:
 
-..
 
-   *CENTROID_WGS84 (coordinates of the object’s centroid in WGS84 in the
-   following order: longitude, latitude, altitude)*
+.. table:: 
+   :widths: auto
 
-   *CENTROID_WGS84_LAT (latitude of the object’s centroid in WGS84)*
-
-   *CENTROID_WGS84_LON (longitude of the object’s centroid in WGS84)*
-
-   *BBOX_WGS84_LAT_MIN (minimum latitude value of the object’s envelope
-   in WGS84)*
-
-   *BBOX_WGS84_LAT_MAX (maximum latitude value of the object’s envelope
-   in WGS84)*
-
-   *BBOX_WGS84_LON_MIN (minimum longitude value of the object’s envelope
-   in WGS84)*
-
-   *BBOX_WGS84_LON_MAX (maximum longitude value of the object’s envelope
-   in WGS84)*
-
-   *BBOX_WGS84_HEIGHT_MIN (minimum height value of the object’s envelope
-   in WGS84)*
-
-   *BBOX_WGS84_HEIGHT_MAX (maximum height value of the object’s envelope
-   in WGS84)*
-
-   *BBOX_WGS84_LAT_LON (all four latitude and longitude values of the
-   object’s envelope in WGS84)*
-
-   *BBOX_WGS84_LON_LAT (all four longitude and latitude values of the
-   object’s envelope in WGS84)*
+   ===========================      =============================================================================================================================
+   ``CENTROID_WGS84``               coordinates of the object’s centroid in WGS84 in the  following order: longitude, latitude, altitude 
+   ``CENTROID_WGS84_LAT``           latitude of the object’s centroid in WGS84
+   ``CENTROID_WGS84_LON``           longitude of the object’s centroid in WGS84
+   ``BBOX_WGS84_LAT_MIN``           minimum latitude value of the object’s envelope   in WGS84
+   ``BBOX_WGS84_LAT_MAX``           maximum latitude value of the object’s envelope   in WGS84
+   ``BBOX_WGS84_LON_MIN``           minimum longitude value of the object’s envelope   in WGS84
+   ``BBOX_WGS84_LON_MAX``           maximum longitude value of the object’s envelope   in WGS84
+   ``BBOX_WGS84_HEIGHT_MIN``        minimum height value of the object’s envelope   in WGS84
+   ``BBOX_WGS84_HEIGHT_MAX``        maximum height value of the object’s envelope   in WGS84
+   ``BBOX_WGS84_LAT_LON``           all four latitude and longitude values of the   object’s envelope in WGS84
+   ``BBOX_WGS84_LON_LAT``           all four longitude and latitude values of the   object’s envelope in WGS84
+   ===========================      =============================================================================================================================
 
 -  No aggregation functions or conditions are allowed for
-   SPECIAL_KEYWORDS. If present they will be interpreted as part of the
+   ``SPECIAL_KEYWORDS``. If present they will be interpreted as part of the
    keyword and therefore not recognized.
 
--  The SPECIAL_KEYWORDS list is also visible and available in its
+-  The ``SPECIAL_KEYWORDS`` list is also visible and available in its
    current state in the updated version of the *Spreadsheet Generator
    Plugin* (see the following section). The list can be extended in
    further Importer/Exporter releases.
@@ -734,50 +713,42 @@ Special keywords in simple expressions
 Examples for simple expressions
 """""""""""""""""""""""""""""""
 
-   | <3DCityDB>ADDRESS/STREET</3DCityDB>
-   | returns the content of the STREET column on the ADDRESS table for
-     this city object.
-   | <3DCityDB>BUILDING/NAME</3DCityDB>
-   | returns the content of the NAME column on the BUILDING table for
-     this city object.
-   | <3DCityDB>CITYOBJECT_GENERICATTRIB/ATTRNAME</3DCityDB>
-   | returns the names of all existing generic attributes for this city
-     object. The names will be separated by commas.
-   | <3DCityDB>CITYOBJECT_GENERICATTRIB/REALVAL [ATTRNAME =
-     'H_Trauf_Min']</3DCityDB>
-   | returns the value (of the REALVAL column) of the generic attribute
-     with attrname H_Trauf_Min for this city object.
-   | <3DCityDB>APPEARANCE/[COUNT]THEME</3DCityDB>
-   | returns the number of appearance themes for this city object.
-   | <3DCityDB>APPEARANCE/THEME[0]</3DCityDB>
-   | returns the first appearance for this city object.
-   | <3DCityDB>SPECIAL_KEYWORDS/CENTROID_WGS84_LON</3DCityDB>
-   | returns the *longitude value of this city object’s centroid
-     longitude in WGS84*.
+* ``<3DCityDB>ADDRESS/STREET</3DCityDB>`` returns the content of the STREET column on the ADDRESS table for this city object.
 
-<3DCityDB> simple expressions can be used not only for generating text
+* ``<3DCityDB>BUILDING/NAME</3DCityDB>`` returns the content of the NAME column on the BUILDING table for this city object.
+
+* ``<3DCityDB>CITYOBJECT_GENERICATTRIB/ATTRNAME</3DCityDB>`` returns the names of all existing generic attributes for this city object. The names will be separated by commas.
+
+* ``<3DCityDB>CITYOBJECT_GENERICATTRIB/REALVAL [ATTRNAME = 'H_Trauf_Min']</3DCityDB>`` returns the value (of the REALVAL column) of the generic attribute with attribute name ``H_Trauf_Min`` for this city object.
+
+* ``<3DCityDB>APPEARANCE/[COUNT]THEME</3DCityDB>`` returns the number of appearance themes for this city object.
+
+* ``<3DCityDB>APPEARANCE/THEME[0]</3DCityDB>`` returns the first appearance for this city object.
+
+* ``<3DCityDB>SPECIAL_KEYWORDS/CENTROID_WGS84_LON</3DCityDB>`` returns the *longitude value of this city object’s centroid longitude in WGS84*.
+
+``<3DCityDB>`` simple expressions can be used not only for generating text
 in the balloons, but any valid HTML content, like clickable hyperlinks:
 
-   | <a href="<3DCityDB>EXTERNAL_REFERENCE/URI</3DCityDB>"> click here
-     for more information</a>
-   | returns a hyperlink to the object's external reference,
+* ``<a href="<3DCityDB>EXTERNAL_REFERENCE/URI</3DCityDB>"> click here for more information</a>`` returns a hyperlink to the object's external reference
 
 or embedded images:
 
-<img src= "<3DCityDB>CITYOBJECT_GENERICATTRIB/URIVAL
-[ATTRNAME='Illustration']</3DCityDB>" width=400>
+.. code-block:: xml
+
+   <img src= "<3DCityDB>CITYOBJECT_GENERICATTRIB/URIVAL[ATTRNAME='Illustration']</3DCityDB>" width=400>
 
 This last example produces, for instance, in the case of the Pergamon
 Museum in Berlin:
 
-   <img src="`http://upload.wikimedia.org/wikipedia/commons/d/
-   d1/FrisoaltarPergamo.jpg <http://upload.wikimedia.org/wikipedia/commons/d/d1/FrisoaltarPergamo.jpg>`__"
-   width=400>
+.. code-block:: xml
 
-|Pergamonmuseum_2|
+   <img src="http://upload.wikimedia.org/wikipedia/commons/d/d1/FrisoaltarPergamo.jpg <http://upload.wikimedia.org/wikipedia/commons/d/d1/FrisoaltarPergamo.jpg>" width=400>
 
-Figure 109: Dynamically generated balloon containing an embedded image
-(image taken from Wikimedia).
+.. figure:: /media/image134.png
+   :name: pic_kml_collada_gltf_preferences_balloon_generated
+
+   Dynamically generated balloon containing an embedded image (image taken from Wikimedia)
 
 Simple expressions are sufficient for most use cases, when only a single
 value or a list of values from a single column is needed. However,
@@ -789,67 +760,71 @@ expressions were conceived.
 Rules for iterative expressions
 """""""""""""""""""""""""""""""
 
--  | Iterative expressions will adopt the form:
-      | <3DCityDB>FOREACH
-      | TABLE/COLUMN[,COLUMN][,COLUMN][...][,COLUMN][CONDITION]
-      | </3DCityDB>
-      | [...]
-      | HTML and JavaScript code (column content will be referred to as
-        %1, %2, etc. and follow the columns order in the FOREACH line.
-        %0 is reserved for displaying the current row number)
-      | [...]
-      | <3DCityDB>END FOREACH</3DCityDB>
+-  Iterative expressions will adopt the form:
+
+   .. code-block:: xml
+
+      <3DCityDB>FOREACH 
+            TABLE/COLUMN[,COLUMN][,COLUMN][...][,COLUMN][CONDITION]
+      </3DCityDB>
+      [...]
+      
+
+   HTML and JavaScript code (column content will be referred to as %1, %2, etc. and follow the columns order in the FOREACH line. %0 is reserved for displaying the current row number)
+   
+   .. code-block:: xml
+
+      [...]
+      <3DCityDB>END FOREACH</3DCityDB>
 
 -  No aggregation functions are allowed for iterative expressions. The
    amount of columns is free, but they must belong to the same table.
    Condition is optional. Implicit condition (data must be related to
    the current city object) applies as for simple expressions.
 
--  FOREACH means truly "for each". No skipping is possible. If skipping
+-  ``FOREACH`` means truly "for each". No skipping is possible. If skipping
    at display time is needed it must be achieved by JavaScript means.
 
 -  The generated HTML will have as many repetitions of the HTML code
-   between the FOREACH and END FOREACH tags as lines the query result
+   between the ``FOREACH`` and ``END FOREACH`` tags as lines the query result
    has.
 
--  No inclusion of simple expressions or SPECIAL_KEYWORDS between
-   FOREACH and END FOREACH tags is allowed.
+-  No inclusion of simple expressions or ``SPECIAL_KEYWORDS`` between
+   ``FOREACH`` and ``END FOREACH`` tags is allowed.
 
--  No nesting of FOREACH statements is allowed.
+-  No nesting of ``FOREACH`` statements is allowed.
 
 Examples for iterative expressions
 """"""""""""""""""""""""""""""""""
 
 Listing of generic attributes and their values:
 
-   | <script type="text/javascript">
-   | function ga_value_as_tooltip(attrname, datatype, strval,
-   | intval, realval)
-   | {
-   | document.write("<span title=\"");
-   | switch (datatype) {
-   | case "1": document.write(strval);
-   | break;
-   | case "2": document.write(intval);
-   | break;
-   | case "3": document.write(realval);
-   | break;
-   | default: document.write("unknown");
-   | };
-   | document.write("\">" + attrname + "</span>");
-   | }
-   | <3DCityDB>FOREACH
-   | CITYOBJECT_GENERICATTRIB/ATTRNAME,DATATYPE,STRVAL,
-   | INTVAL,REALVAL</3DCityDB>
-   | ga_value_as_tooltip("%1", "%2", "%3", "%4", "%5");
-   | <3DCityDB>END FOREACH</3DCityDB>
-   | </script>
+.. code-block:: javascript
 
-|image125|
+      <script type="text/javascript">
+            function ga_value_as_tooltip(attrname, datatype, strval, intval, realval) {
+                  document.write("<span title=\"");
+                  switch (datatype) {
+                        case "1": document.write(strval);
+                              break;
+                        case "2": document.write(intval);
+                              break;
+                        case "3": document.write(realval);
+                              break;
+                        default: document.write("unknown");
+                  };
+                  document.write("\">" + attrname + "</span>");
+            }
+            <3DCityDB>FOREACH
+                  CITYOBJECT_GENERICATTRIB/ATTRNAME,DATATYPE,STRVAL,INTVAL,REALVAL</3DCityDB>
+                  ga_value_as_tooltip("%1", "%2", "%3", "%4", "%5");
+            <3DCityDB>END FOREACH</3DCityDB>
+      </script>
 
-Figure 110: Model placemark with dynamic balloon contents showing the
-list of generic attributes.
+.. figure:: /media/image135.png
+   :name: pic_kml_collada_gltf_preferences_balloon_dynamic
 
+   Model placemark with dynamic balloon contents showing the list of generic attributes
 
 .. _altitude:
 
@@ -860,16 +835,17 @@ In order to ensure a perfect display of the exported datasets in the
 Earth browser, some adjustments on the z coordinate for the exported 3D
 objects may be necessary.
 
-|image126|
+.. figure:: /media/image136.png
+   :name: pic_kml_collada_gltf_preferences_terrain
 
-Figure 111: Altitude/Terrain settings.
+   Altitude/Terrain settings
 
 Use original z-Coordinates without transformation
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 Depending on the spatial database used, the transformation of the
 original coordinates to WGS84 will include transformation of the
-z-coordinates (PostGIS >= 2.0 or Oracle >= 11g) or not (Oracle 10g). To
+z-coordinates (PostGIS starting from version 2.0 or Oracle starting from version 11g) or not (Oracle 10g). To
 make sure only the planimetric (x,y) and not the z-coordinates are
 transformed this checkbox must be selected. This is useful when the used
 terrain model is different from Google Earth’s and the z-coordinates are
@@ -877,13 +853,13 @@ known to fit perfectly in that terrain model.
 
 Another positive side-effect of this option is that *GE_LoDn_zOffset*
 attribute values (explained in the following section) calculated for
-Oracle 10g keep being valid when imported into PostGIS >= 2.0 or Oracle
->= 11g. Otherwise, when switching database versions and not making use
+Oracle 10g keep being valid when imported into PostGIS starting from version 2.0 or Oracle
+starting from version 11g. Otherwise, when switching database versions and not making use
 of this option, *GE_LoDn_zOffset* values must be recalculated again.
 
 *GE_LoDn_zOffset* attribute values calculated for Oracle 10g are
 consistent for all KML/COLLADA/glTF exports from Oracle 10g. The same
-applies to PostGIS >= 2.0 or Oracle >= 11g. Only cross-usage
+applies to PostGIS starting from version 2.0 or Oracle starting from version 11g. Only cross-usage
 (calculation in one version, export from the other) creates
 inconsistencies that can be solved by turning z-coordinate
 transformation off.
@@ -913,9 +889,10 @@ objects stored in a 3DCityDB usually have values bigger than 0, so
 choosing this altitude mode will often result in exports hovering over
 the ground.
 
-|kirche_relative|
+.. figure:: /media/image137.jpeg
+   :name: pic_kml_collada_gltf_preferences_terrain_example
 
-Figure 112: Possible export result with relative altitude mode.
+   Possible export result with relative altitude mode
 
 When *absolute* altitude mode is chosen, the z-coordinates of the
 exports represent the vertical distance from the vertical datum - the
@@ -994,7 +971,7 @@ attribute "GE_LoDn_zOffset"* shall be selected. Here the
 calculated by the Importer/Exporter if not available. This calculation
 uses data returned by Google's Elevation API [Google Elevation API,
 2015]. After completing the calculation, the results will be stored in
-the CITYOBJECT_GENERICATTRIB table of the 3DCityDB for future use.
+the ``CITYOBJECT_GENERICATTRIB`` table of the 3DCityDB for future use.
 
 .. note::
    Starting from July 2018, an Elevation API key is required in
@@ -1038,20 +1015,20 @@ manual adjustment of the value in the 3DCityDB is needed. After the
 content of *GE_LoDn_zOffset* has been fine-tuned to a proper value it
 should be persistently stored in the database.
 
-|kirche_relative_points|
+.. figure:: /media/image138.jpeg
+   :name: pic_kml_collada_gltf_preferences_terrain_example_relative
 
-Figure 113: Points sent to Google's Elevation API for calculation of the
-zOffset.
+   Points sent to Google's Elevation API for calculation of the zOffset
 
-|kirche_absolute_without_grounding|
+.. figure:: /media/image139.png
+   :name: pic_kml_collada_gltf_preferences_terrain_example_absolute_without_grounding
 
-Figure 114: Export with *absolute* altitude mode and *no offset*.
+   Export with *absolute* altitude mode and *no offset*
 
-|kirche_absolute_without_grounding|
+.. figure:: /media/image140.jpeg
+   :name: pic_kml_collada_gltf_preferences_terrain_example_absolute_with_grounding
 
-Figure 115: Export with *absolute* altitude mode and use of
-*GE_LoDn_zOffset*.
-
+   Export with *absolute* altitude mode and use of *GE_LoDn_zOffset*
 
 .. _recommendations:
 
@@ -1063,146 +1040,86 @@ results may vary greatly in aesthetic and loading performance.
 Experimenting will be required in most cases for a fine-tuning of the
 export parameters. However, some rules apply for almost all cases:
 
--  kmz format use is recommended when the files will be accessed over a
+-     kmz format use is recommended when the files will be accessed over a
       network and the selected display form is *Footprint*, *Extruded*,
       or *Geometry.* In case of glTF-export, only kml format is allowed.
 
--  Visibility values for the different display forms should be increased
+-     Visibility values for the different display forms should be increased
       in steps of around one third of the tile side length.
 
--  Visibility from 0 pixels (always visible) should be avoided,
+-     Visibility from 0 pixels (always visible) should be avoided,
       especially for large or complex exports, because otherwise the
       Earth browser will immediately load all data at once since it all
       must be visible.
 
--  Tile side length (whether tiling is *automatic* or *manual*) should
+-     Tile side length (whether tiling is *automatic* or *manual*) should
       be chosen so that the resulting tile files are smaller than 10MB.
       When single files are bigger than that Google Earth gets
       unresponsive. For densely urbanized areas, where many placemarks
       are crimped together a tile side length value between 50 and 100m
       should be used.
 
--  When not exporting in the *COLLADA/glTF* display form, files will
+-     When not exporting in the *COLLADA/glTF* display form, files will
       seldom reach this 10MB size, but Earth browser will also become
       unresponsive if the file loaded contains a lot of polygons, so do
       not use too large tiles for *footprint*, *extruded* or *geometry*
       exports even if the resulting files are comparatively small.
 
--  Do not choose too small tile sizes, many of them may become visible
+-     Do not choose too small tile sizes, many of them may become visible
       at the same time and render the tiling advantage useless.
 
--  Using texture atlas generation when producing *COLLADA/glTF* display
+-     Using texture atlas generation when producing *COLLADA/glTF* display
       form exports always results in faster model loading times.
 
--  From all texture atlas generating algorithms, *BASIC* is the fastest
+-     From all texture atlas generating algorithms, *BASIC* is the fastest
       (shortest generation time), *TPIM* the most efficient (highest
       used area/total atlas size ratio).
 
--  Texture images can often be scaled down to 0.2 - 0.5 without
+-     Texture images can often be scaled down to 0.2 - 0.5 without
       noticeable quality loss. This depends, of course, on the quality
       of the original textures.
 
--  Highlighting puts the same polygons twice in the resulting export
+-     Highlighting puts the same polygons twice in the resulting export
       files, one for the buildings themselves, one for their
       highlighting. This has a negative impact on the viewing
       performance. The more complex the buildings are the worse the
       impact. When highlighting is enabled for exports based on a
       CityGML LoD3 or higher Google Earth may become quite slow.
 
--  If you want to use the 3DCityDB-Web-Map-Client to visualize the
+-     If you want to use the 3DCityDB-Web-Map-Client to visualize the
       exported datasets, options for creating highlighting geometries
       should not be chosen, since the highlighting functionality is
       already well-supported by the 3DCityDB-Web-Map-Client which
       requires no extra highlighting geometries.
 
--  The 3DCityDB-Web-Map-Client allows for on-the-fly activating and
-   deactivating shadow visualization of 3D objects exported in the glTF
-   format. However, this functionality is currently not available when
-   viewing KML models exported in the *Footprint*, *Extruded*, and
-   *Geometry* display forms.
+-     The 3DCityDB-Web-Map-Client allows for on-the-fly activating and
+      deactivating shadow visualization of 3D objects exported in the glTF
+      format. However, this functionality is currently not available when
+      viewing KML models exported in the *Footprint*, *Extruded*, and
+      *Geometry* display forms.
 
--  Balloon generation is slightly more efficient when a single template
+-     Balloon generation is slightly more efficient when a single template
       file is applied for all exported objects.
 
--  When exporting in the *Footprint* or *Extruded* display forms, the
-   *altitude/terrain* settings will be silently ignored by the
-   KML/COLLADA/glTF-Exporter which will instead internally applies the
-   appropriate altitude models to the exported objects to ensure that
-   they will be properly placed on the ground in Earth browsers.
-   However, when exporting in the *Geometry* or *COLLADA/glTF* display
-   forms, the *altitude/terrain* settings must be properly adapted
-   regarding the Earth browsers to be used.
+-     When exporting in the *Footprint* or *Extruded* display forms, the
+      *altitude/terrain* settings will be silently ignored by the
+      KML/COLLADA/glTF-Exporter which will instead internally applies the
+      appropriate altitude models to the exported objects to ensure that
+      they will be properly placed on the ground in Earth browsers.
+      However, when exporting in the *Geometry* or *COLLADA/glTF* display
+      forms, the *altitude/terrain* settings must be properly adapted
+      regarding the Earth browsers to be used.
 
--  In most cases, the combination of the *relative* altitude mode with
+-     In most cases, the combination of the *relative* altitude mode with
       the *Move each object to bottom height* *0* altitude offset allows
       for a proper grounding and displaying of the objects in Earth
       browsers. However, when using the Cesium-based
       3DCityDB-Web-Map-Client, its default WGS84 ellipsoid terrain model
       must be activated.
 
--  When using the *absolute* z-coordinates and displaying the exported
+-     When using the *absolute* z-coordinates and displaying the exported
       datasets together with terrain layer in Google Earth, you need to
       choose the following combination of settings, should you have a
       valid Goole Elevation API key: *absolute* altitude mode, *generic
       attribute “GE_LoDn_zOffset”,* and *call Google's elevation API
       when no data is available*.
-
-.. |image116| image:: ../../media/image126.png
-   :width: 4.72441in
-   :height: 7.21316in
-
-.. |image117| image:: ../../media/image127.png
-   :width: 5.6036in
-   :height: 3.46387in
-
-.. |image118| image:: ../../media/image128.png
-   :width: 5.27928in
-   :height: 3.65766in
-
-.. |image119| image:: ../../media/image129.png
-   :width: 4.72441in
-   :height: 7.21316in
-
-.. |image120| image:: ../../media/image130.png
-   :width: 4.72441in
-   :height: 3.02775in
-
-.. |image121| image:: ../../media/image131.png
-   :width: 4.72441in
-   :height: 3.02566in
-
-.. |image122| image:: ../../media/image132.png
-   :width: 4.72441in
-   :height: 2.96265in
-
-.. |image123| image:: ../../media/image133.png
-   :width: 5.41339in
-   :height: 3.96337in
-
-.. |Pergamonmuseum_2| image:: ../../media/image134.png
-   :width: 5.88696in
-   :height: 5.53913in
-
-.. |image125| image:: ../../media/image135.png
-   :width: 5.9384in
-   :height: 5.69565in
-
-.. |image126| image:: ../../media/image136.png
-   :width: 5.41339in
-   :height: 3.96337in
-
-.. |kirche_relative| image:: ../../media/image137.jpeg
-   :width: 5.42019in
-   :height: 4.34587in
-
-.. |kirche_relative_points| image:: ../../media/image138.jpeg
-   :width: 5.90551in
-   :height: 4.48856in
-
-.. |kirche_absolute_without_grounding| image:: ../../media/image139.png
-   :width: 5.90551in
-   :height: 3.75926in
-
-.. |kirche_absolute_without_grounding| image:: ../../media/image140.jpeg
-   :width: 5.90551in
-   :height: 3.75926in
