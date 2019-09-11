@@ -33,7 +33,7 @@ If you haven't checked the “Spreadsheet Generator Plugin” box during the
 installation process, it is also possible to install the SPSHG later.
 Following simple steps will guide you through the install process:
 
--  Download the SPSHG plugin zip file from the `official website of the 3D City Database <www.3dcitydb.org>`_.
+-  Download the SPSHG plugin zip file from the `official website of the 3D City Database <https://www.3dcitydb.org>`_.
 
 -  Open the folder that contains your locally installed instance of the
    *Importer/Exporter version 3.3.0* (the installation directory).
