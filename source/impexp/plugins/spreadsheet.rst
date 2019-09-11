@@ -24,7 +24,7 @@ with the 3DCityDB Importer/Exporter tool. During the Installation of the
 Import/Export tool, the wizard will ask you if you want to install
 Spreadsheet Generator Plugin like in the following figure:
 
-.. figure:: /media/image157.png
+.. figure:: /media/image157.PNG
    :name: pic_plugin_spreadsheet_installation
 
    Installation wizard of the Import/Export tool
