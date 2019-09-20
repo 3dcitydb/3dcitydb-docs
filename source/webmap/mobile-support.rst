@@ -64,7 +64,7 @@ user's current location and orientation (see :numref:`3d_web_client_mobile_symbo
    "First-person View" mode: periodically shows the user's current
    orientation and position.
 
-.. figure:: /media/image232.PNG
+.. figure:: /media/image232.png
    :name: 3d_web_client_mobile_symbols
    :scale: 30 %
    :align: center
