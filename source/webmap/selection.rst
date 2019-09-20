@@ -25,7 +25,7 @@ Once the demo was opened in your web browser, you may need to use the
 *Geocoder* widget to zoom the Earth map to the building object with the
 GMLID “\ **BLDG_0003000b0009a940**\ ”.
 
-.. figure:: /media/image218.png
+.. figure:: /media/image218.PNG
     :name: 3d_web_client_dtm_gui_numbers
 
     By clicking on a building object it will automatically be
@@ -50,7 +50,7 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     different view perspectives, e.g. Google 2D map view, Google Streetview,
     and Bing Maps oblique view
 
-.. figure:: /media/image221.png
+.. figure:: /media/image221.PNG
     :name: 3d_web_client_object_group
     
     A group of building objects can be interactively selected by
