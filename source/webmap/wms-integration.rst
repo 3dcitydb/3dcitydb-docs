@@ -8,11 +8,12 @@ remove arbitrary number of WMS layers. The widget panel [1] (marked in
 the following figure) can be expanded and collapsed by clicking on the
 *Add WMS-Layer* button on the widget panel.
 
-|image204|
-
-Figure 167: The input panel [1] for adding a new WMS layer and the
-BaseLayerPicker widget [2] where the added WMS layers will be listed
-together with the per default available imagery layers
+.. figure:: /media/3d_web_client_wms.png
+   :name: 3d_web_client_wms
+   
+   The input panel [1] for adding a new WMS layer and the
+   ``BaseLayerPicker`` widget [2] where the added WMS layers will be listed
+   together with the per default available imagery layers
 
 A user-defined name for labelling the WMS layer has to be firstly
 specified via the *name(*)* input field. In addition, the *iconUrl*
@@ -45,26 +46,23 @@ Government*\  [18]_ will be added to and displayed in the 3D web client.
 The following parameter values should be entered into the corresponding
 input fields:
 
--  **name**: Vorarlberg_Aerial_Photography
+.. table::
+   :widths: auto
 
--  **iconUrl**:
-   http://cdn.flaggenplatz.de/media/catalog/product/all/4489b.gif
+   ================================= ==========================================================================
+    **name**                             Vorarlberg_Aerial_Photography
+    **iconUrl**                         http://cdn.flaggenplatz.de/media/catalog/product/all/4489b.gif
+    **tootip**                          Vorarlberg Aerial Photography taken during the winter 2015
+    **url**                             http://vogis.cnv.at/mapserver/mapserv
+    **layers**                          wi2015_20cm
+    **additionalParameters**            map=i_luftbilder_r_wms.map
+    **proxyUrl**                        /proxy/
+   ================================= ==========================================================================
 
--  **tootip**: Vorarlberg Aerial Photography taken during the winter
-   2015
+.. figure:: /media/3d_web_client_wms_gui.png
+   :name: 3d_web_client_wms_gui
 
--  **url**: http://vogis.cnv.at/mapserver/mapserv
-
--  **layers**: wi2015_20cm
-
--  **additionalParameters**: map=i_luftbilder_r_wms.map
-
--  **proxyUrl**: /proxy/
-
-|image205|
-
-Figure 168: Example showing how to add a new WMS layer to the 3D web
-client
+   Example showing how to add a new WMS layer to the 3D web client
 
 As shown in the figure above, once the parameter settings have been
 completed, the WMS layer can be loaded by clicking on the *Add WMS

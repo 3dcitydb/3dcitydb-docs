@@ -25,78 +25,90 @@ Once the demo was opened in your web browser, you may need to use the
 *Geocoder* widget to zoom the Earth map to the building object with the
 GMLID “\ **BLDG_0003000b0009a940**\ ”.
 
-|image208|
+.. figure:: /media/image218.png
+    :name: 3d_web_client_dtm_gui_numbers
 
-Figure 171: By clicking on a building object it will automatically be
-highlighted and its attribute information will be queried from a Google
-Fusion Table and displayed in tabular form on the right side of the 3D
-web client
+    By clicking on a building object it will automatically be
+    highlighted and its attribute information will be queried from a Google
+    Fusion Table and displayed in tabular form on the right side of the 3D
+    web client
 
-|image209|
 
-Figure 172: By clicking on the dropdown list *Show the selected object
-in External Maps*, the user can select one of the given options to
-explore the selected building object in the chosen mapping application
-which will be opened in a new browser window or tab
+.. figure:: /media/3d_web_client_object_external_maps.png
+    :name: 3d_web_client_object_external_maps
 
-|image210|
+    By clicking on the dropdown list *Show the selected object
+    in External Maps*, the user can select one of the given options to
+    explore the selected building object in the chosen mapping application
+    which will be opened in a new browser window or tab
 
-Figure 173: If the option *DualMaps* has been chosen, the selected
-building will be shown in a so-called mash-up web application linking
-different view perspectives, e.g. Google 2D map view, Google Streetview,
-and Bing Maps oblique view
+.. figure:: /media/image220.png
+    :name: 3d_web_client_object_dual_maps
+    
+    If the option *DualMaps* has been chosen, the selected
+    building will be shown in a so-called mash-up web application linking
+    different view perspectives, e.g. Google 2D map view, Google Streetview,
+    and Bing Maps oblique view
 
-|image211|
+.. figure:: /media/image221.png
+    :name: 3d_web_client_object_group
+    
+    A group of building objects can be interactively selected by
+    Ctrl-clicking. Deactivating the selection of a certain building object
+    can be done by Ctrl-clicking on it again
 
-Figure 174: A group of building objects can be interactively selected by
-Ctrl-clicking. Deactivating the selection of a certain building object
-can be done by Ctrl-clicking on it again
+.. figure:: /media/3d_web_client_object_highlight_and_hide.png
+    :name: 3d_web_client_object_highlight_and_hide
+    
+    The selected building objects can be hidden by clicking on
+    the button *Hide selected Objects.* The GMLIDs of the selected
+    (highlighted) and hidden building objects can be explored by clicking
+    the drop-down buttons *Choose highlighted Object* and *Choose hidden
+    Object* respectively
 
-|image212|
+.. figure:: /media/3d_web_client_object_show_hidden.png
+    :name: 3d_web_client_object_show_hidden
+    
+    The hidden objects can be shown on the 3D web client again
+    by clicking on the button *Show Hidden Objects*
 
-Figure 175: The selected building objects can be hidden by clicking on
-the button *Hide selected Objects.* The GMLIDs of the selected
-(highlighted) and hidden building objects can be explored by clicking
-the drop-down buttons *Choose highlighted Object* and *Choose hidden
-Object* respectively
+.. figure:: /media/3d_web_client_object_clear_highlighting.png
+    :name: 3d_web_client_object_clear_highlighting
 
-|image213|
+    The objects selection and along with the highlighting effect
+    can be deactivated by clicking on the button *Clear Highlighting*
 
-Figure 176: The hidden objects can be shown on the 3D web client again
-by clicking on the button *Show Hidden Objects*
+.. figure:: /media/3d_web_client_object_print_view.png
+    :name: 3d_web_client_object_print_view
 
-|image214|
+    A screenshot of the current view can be created directly
+    within the 3D web client by clicking on the button *Create Screenshot*
+    or *Print current view*
 
-Figure 177: The objects selection and along with the highlighting effect
-can be deactivated by clicking on the button *Clear Highlighting*
+.. figure:: /media/image226.png
+    :name: 3d_web_client_object_print_view_options
+    
+    Once the button *Print current view* has been clicked on, a
+    printer settings dialog (differs for different web browsers) will appear
+    giving a preview of the screenshot file to be printed
 
-|image215|
+.. figure:: /media/3d_web_client_object_shadow.png
+    :name: 3d_web_client_object_shadow
+    
+    Shadow visualization of the 3D city models can also be
+    activated and deactivated by clicking the *Toggle Shadows* button
 
-Figure 178: A screenshot of the current view can be created directly
-within the 3D web client by clicking on the button *Create Screenshot*
-or *Print current view*
-
-|image216|
-
-Figure 179: Once the button *Print current view* has been clicked on, a
-printer settings dialog (differs for different web browsers) will appear
-giving a preview of the screenshot file to be printed
-
-|image217|
-
-Figure 180: Shadow visualization of the 3D city models can also be
-activated and deactivated by clicking the *Toggle Shadows* button
-
-|image218|
-
-Figure 181: It is possible to create a scene link saving the current
-status of the 3D web client by clicking on the *Generate Scene Link*
-button. This scene link encodes the information about the title of the
-web site, activation status of the shadow visualization, parameters of
-the current loaded layers, the camera perspective etc. The created scene
-link can be stored as a browser bookmark or favorite and can also be
-sent e.g. by email to friends, colleagues, project partners etc. When
-they open the link, the same scene will open in their browsers.
+.. figure:: /media/3d_web_client_object_scene_link.png
+    :name: 3d_web_client_object_scene_link
+    
+    It is possible to create a scene link saving the current
+    status of the 3D web client by clicking on the *Generate Scene Link*
+    button. This scene link encodes the information about the title of the
+    web site, activation status of the shadow visualization, parameters of
+    the current loaded layers, the camera perspective etc. The created scene
+    link can be stored as a browser bookmark or favorite and can also be
+    sent e.g. by email to friends, colleagues, project partners etc. When
+    they open the link, the same scene will open in their browsers.
 
 .. |image208| image:: ../media/image218.PNG
    :width: 6.29683in

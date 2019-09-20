@@ -26,7 +26,8 @@ https://github.com/3dcitydb/3dcitydb-web-map/releases
 The extracted contents of the zip file should look something like the
 screenshot below.
 
-|image185|
+.. figure:: /media/image192.png
+   :name: pic_3d_web_map_installation
 
 The 3D web client comes with a lightweight JavaSript-based HTTP server
 (the file with the name “\ *server*\ ”) that is mainly meant to test the
@@ -42,29 +43,19 @@ environment on your operating system and navigate to the folder where
 the *server.js* file is located, then simply run the following command
 to launch the server:
 
-node server.js
+``node server.js``
 
-|image186|
-
-Figure 154: Example of running the JavaScript-based web server
+.. figure:: /media/image193.png
+   :name: pic_3d_web_map_installation_nodejs
+   
+   Example of running the JavaScript-based web server
 
 Now, the 3D web client is available via the URL below and its user
 interface should look like in the following figure:
 
 http://localhost:8000/3dwebclient/index.html
 
-|image187|
-
-Figure 155: User interface of the 3D web client
-
-.. |image185| image:: ../media/image192.png
-   :width: 2.1405in
-   :height: 2.08631in
-
-.. |image186| image:: ../media/image193.png
-   :width: 5.50972in
-   :height: 1.78512in
-
-.. |image187| image:: ../media/image194.png
-   :width: 6.29343in
-   :height: 3.79339in
+.. figure:: /media/image194.png
+   :name: pic_3d_web_map_installation_default
+   
+   User interface of the 3D web client
