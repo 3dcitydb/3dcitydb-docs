@@ -1,61 +1,64 @@
 Data Modelling and Database Design
 ==================================
 
-**In this section the slightly simplified data model with respect to
+In this section the slightly simplified data model with respect to
 CityGML is described at the conceptual level using UML class diagrams.
 These diagrams form the basis for the implementation-dependent
 realization of the model with a relational database system which is
-presented in section** **2.3. However, UML diagrams may also form the
-basis for other implementations e.g. for the definition of an exchange
-format based on XML or GML. The UML diagrams of the 3D city model are
-depicted in section** **2.2.**
+presented in :doc:`database schema <schema/index>` section.
+However, UML diagrams may also form the basis for other implementations
+e.g. for the definition of an exchange format based on XML or GML. The
+UML diagrams of the 3D city model are depicted in
+:doc:`UML sub chapter <uml/index.rst>`.
 
 Simplification compared to CityGML 2.0.0
 ----------------------------------------
 
 CityGML is a common information model for 3D urban objects and provides
 a comprehensive and extensible representation of the objects. It is
-explained in detail in the CityGML specification [Gröger et al. 2008,
-Gröger et al. 2012] and [Kolbe 2009]. An analysis of the previous
-versions of the 3D City Database indicated that for the data collected
-and processed a less complex schema is sufficient. Using a simplified
-schema usually allows improving system performance. Therefore, the first
-task was related to database design aspects with respect to adjusting
-the comprehensive CityGML features. As result a simplified database
-schema was generated, allowing an optimized workflow and guaranteeing
-efficient processing time. The related UML-diagrams were discussed and
-coordinated with the project partners and translated into the relational
-schema. Based on this work the SQL scripts for setting up the Oracle and
-PostgreSQL database schema were generated. Please note, that all test
-CityGML datasets (versions 1.0.0 and 2.0.0) from the CityGML homepage
-(and others) can be stored and managed without restrictions with this
-simplified database schema.
+explained in detail in the CityGML specification [GKCN08]_, [GKNH12]_
+and [KOLB09]_. An analysis of the previous versions of the 3D City
+Database indicated that for the data collected and processed a less
+complex schema is sufficient. Using a simplified schema usually allows
+improving system performance. Therefore, the first task was related to
+database design aspects with respect to adjusting the comprehensive
+CityGML features.
 
-Multiplicities, cardinalities and recursions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+As result a simplified database schema was generated, allowing an
+optimized workflow and guaranteeing efficient processing time. The
+related UML-diagrams were discussed and coordinated with the project
+partners and translated into the relational schema. Based on this work
+the SQL scripts for setting up the Oracle and PostgreSQL database
+schema were generated.
 
-Simplifications with respect to the CityGML specification were made as
-follows:
+.. note::
 
--  **Multiplicities of attributes**
+   All test CityGML datasets (versions 1.0.0 and 2.0.0) from the CityGML
+   homepage (and others) can be stored and managed without restrictions
+   with this simplified database schema.
+
+Multiplicities of attributes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Attributes with a variable amount of occurrences (*) are substituted by
 a data type enabling the storage of arbitrary values (e.g. data type
-String with a predefined separator) or by an array with a predefined
+`String` with a predefined separator) or by an array with a predefined
 amount of elements representing the number of objects that participate
-in the association. This means that object attributes can be stored in a
-single column.
+in the association. This means that object attributes can be stored in
+a single column.
 
--  **Cardinalities and types of relationships**
+Cardinalities and types of relationships
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 n:m relations require an additional table in the database. This table
 consists of the primary keys of both elements’ tables which form a
-composite primary key. If the relation can be restricted to a 1:n or n:1
-relationship the additional table can be avoided. Therefore, all n:m
-relations in CityGML were checked for a more restrictive definition.
-This results in simplified cardinalities and relations.
+composite primary key. If the relation can be restricted to a `1:n` or
+`n:1` relationship the additional table can be avoided. Therefore, all
+`n:m` relations in CityGML were checked for a more restrictive
+definition. This results in simplified cardinalities and relations.
 
--  **Simplified treatment of recursions**
+Simplified treatment of recursions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Some recursive relations are used in the CityGML data model. Recursive
 database queries may cause high cost, especially if the amount of
@@ -91,11 +94,23 @@ Simplified design of GML geometry classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Spatial properties of features are represented by objects of GML3’s
-geometry model based on the ISO 19107 standard ‘Spatial Schema’ [Herring
-2001], representing 3D geometry according to the well-known Boundary
-Representation (B-Rep, cf. [Foley et al. 1995]). Actually only a subset
+geometry model based on the ISO 19107 standard *Spatial Schema*
+[HERR01]_, representing 3D geometry according to the well-known
+Boundary Representation (B-Rep, cf. [FDFH95]_). Actually only a subset
 of the GML3 geometry package is used. Moreover, for 2D and 3D
 surface-based geometry types a simpler but equally powerful model is
 used: These geometries are stored as polygons, which are aggregated to
 *MultiSurfaces*, *CompositeSurfaces*, *TriangulatedSurfaces*, *Solids*,
 *MultiSolids*, as well as *CompositeSolids*.
+
+.. rubric:: References
+
+.. [FDFH95] Foley, J., van Dam, A,. Feiner, S., Hughes, J. (1995): Computer Graphics: Principles and Practice. Addison Wesley, 2nd Ed.
+
+.. [GKCN08] Gröger G., Kolbe, T. H., Czerwinski, A., Nagel C. (2008): OpenGIS® City Geography Markup Language (CityGML) Encoding Standard, Version 1.0.0. Open Geospatial Consortium, Doc. No. 08-007r1: http://portal.opengeospatial.org/files/?artifact_id=28802
+
+.. [GKNH12] Gröger G., Kolbe, T. H., Nagel C., Häfele, K. H. (2012): OpenGIS® City Geography Markup Language (CityGML) Encoding Standard, Version 2.0.0. Open Geospatial Consortium, Doc. No. 12-019: http://portal.opengeospatial.org/files/?artifact_id=28802
+
+.. [HERR01] Herring, J. (2001): *The OpenGIS Abstract Specification, Topic 1: Feature Geometry (ISO 19107 Spatial Schema)*. OGC Document Number 01-101
+
+.. [KOLB09] Kolbe, T. H. (2009): Representing and Exchanging 3D City Models with CityGML. In: Lee, J., Zlatanova, S. (eds.): Proceedings of the 3rd International Workshop on 3D Geo-Information 2008 in Seoul, South Korea. Lecture Notes in Geoinformation & Cartography, Springer Verlag, 2009. Weblink (accessed September 2018): http://mediatum.ub.tum.de/doc/1145752/947446.pdf
