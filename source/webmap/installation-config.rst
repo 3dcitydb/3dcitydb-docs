@@ -43,7 +43,9 @@ environment on your operating system and navigate to the folder where
 the *server.js* file is located, then simply run the following command
 to launch the server:
 
-``node server.js``
+.. code:: bash
+
+    node server.js
 
 .. figure:: /media/image193.png
    :name: pic_3d_web_map_installation_nodejs
