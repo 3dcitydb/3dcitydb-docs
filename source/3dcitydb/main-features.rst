@@ -156,23 +156,6 @@ for reading/writing the ADE contents from/into the ADE database tables is
 provided (see above). An implementation of a full, transactional WFS is
 commercially available from one of the development partners, see Appendix C.
 
--  **Support of different kinds of multi-representations: Levels of
-   detail, different appearances, (and with Oracle RDBMS only) planning
-   versions and history: Every geoobject as well as the DTM can be
-   represented in five different resolution or fidelity steps (Levels of
-   Detail, LOD). With increasing LOD, objects do not only obtain a more
-   precise and finer geometry, but do also gain a thematic refinement.**
-
-**Different appearance data may be stored for each city object.
-Appearance relates to any surface-based theme, e.g. infrared radiation
-or noise pollution, not just visual properties. Consequently, data
-provided by appearances can be used as input for both presentation and
-analysis of virtual 3D city models. The database supports feature
-appearances for an arbitrary number of themes per city model. Each LOD
-of a feature can have individual appearances. Appearances can represent
-– among others – textures and georeferenced textures. All texture images
-can be stored in the database.**
-
 Docker support
 ~~~~~~~~~~~~~~
 
@@ -243,6 +226,23 @@ Features inherited from CityGML
    point, and break line DTM components, but not for raster based DTMs.
    GeoRaster data would have to be imported and exported using other
    tools from e.g. Oracle, ESRI, or Safe Software.
+
+-  **Support of different kinds of multi-representations**: Levels of
+   detail, different appearances, (and with Oracle RDBMS only) planning
+   versions and history: Every geoobject as well as the DTM can be
+   represented in five different resolution or fidelity steps (Levels of
+   Detail, LOD). With increasing LOD, objects do not only obtain a more
+   precise and finer geometry, but do also gain a thematic refinement.
+
+-  **Different appearance data may be stored for each city object**:
+   Appearance relates to any surface-based theme, e.g. infrared radiation
+   or noise pollution, not just visual properties. Consequently, data
+   provided by appearances can be used as input for both presentation and
+   analysis of virtual 3D city models. The database supports feature
+   appearances for an arbitrary number of themes per city model. Each LOD
+   of a feature can have individual appearances. Appearances can represent
+   – among others – textures and georeferenced textures. All texture images
+   can be stored in the database.
 
 -  **Representation of generic and prototypical 3D objects:** Generic
    objects enable the storage of 3D geoobjects that are not explicitly
