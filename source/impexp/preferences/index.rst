@@ -6,9 +6,10 @@ Export and Database tabs of the operations window, more preferences
 affecting the separate operations of the Importer/Exporter are available
 on the Preferences tab shown below.
 
-|image95|
+.. figure:: /media/preferences_main_gui.png
+   :name: pic_preferences_main_gui
 
-Figure 79: The preferences dialog.
+   The preferences dialog 
 
 The preferences are structured in a tree view [1] on the left side of
 the dialog with the following main nodes:
@@ -37,7 +38,3 @@ the preferences are remembered on restart. Via the Project menu
 available from the menu bar of the Importer/Exporter, the preferences
 can optionally be stored in or loaded from user-defined config files
 (cf. chapter 5.1).
-
-.. |image95| image:: ../../media/image105.png
-   :width: 5in
-   :height: 4.35406in

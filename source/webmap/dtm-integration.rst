@@ -26,11 +26,13 @@ The input panel [1] on the 3D web client for adding and removing terrain
 layers can be expanded and collapsed by clicking on the *Add
 Terrain-Layer* button.
 
-|image206|
 
-Figure 169: The input panel [1] for adding a new terrain layer and the
-BaseLayerPicker widget [2] where the added terrain layers will be listed
-together with the per default available base layers
+.. figure:: /media/3d_web_client_dtm_gui.png
+    :name: 3d_web_client_dtm_gui
+
+    The input panel [1] for adding a new terrain layer and the
+    BaseLayerPicker widget [2] where the added terrain layers will be listed
+    together with the per default available base layers
 
 For adding a new terrain layer, the input fields *name(*)*,
 *iconUrl(*)*, and *tooltip(*)* in the input panel [1] have to be filled
@@ -50,20 +52,20 @@ This terrain data was created in *heightmap* format using the open
 source tool *Cesium Terrain Builder*. Here, the following parameter
 values should be entered into the corresponding input fields:
 
--  **name**: Vorarlberg_DTM
+.. table::
+   :widths: auto
 
--  **iconUrl**:
-   https://cdn.flaggenplatz.de/media/catalog/product/all/4489b.gif
+   ================================= =====================================================================================
+    **name**:                           Vorarlberg_DTM
+    **iconUrl**                         https://cdn.flaggenplatz.de/media/catalog/product/all/4489b.gif
+    **tootip**                          Digital Terrain Model of Vorarlberg
+    **url**                             https://www.3dcitydb.org/3dcitydb/fileadmin/mydata/Vorarlberg_Demo/Vorarlberg_DTM
+   ================================= =====================================================================================
 
--  **tootip**: Digital Terrain Model of Vorarlberg
+.. figure:: /media/3d_web_client_dtm_gui_numbers.png
+    :name: 3d_web_client_dtm_gui_numbers
 
--  **url**:
-   https://www.3dcitydb.org/3dcitydb/fileadmin/mydata/Vorarlberg_Demo/Vorarlberg_DTM
-
-|image207|
-
-Figure 170: Example showing how to add a new terrain layer to the 3D web
-client
+    Example showing how to add a new terrain layer to the 3D web client
 
 As shown in the figure above, once the parameter settings have been
 completed, the terrain layer can be loaded by clicking on the *Add

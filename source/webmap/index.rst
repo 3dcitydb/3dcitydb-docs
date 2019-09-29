@@ -39,13 +39,10 @@ the web.
    selection
    mobile-support
 
+.. figure:: /media/image191.png
+   :name: pic_3d_web_map_railway
 
-|image184|
+   Screenshot showing the example of displaying different
+   CityGML top-level features (building, bridge, tunnel, water, vegetation,
+   transportation etc.) in glTF format in the 3D web client
 
-Figure 153: Screenshot showing the example of displaying different
-CityGML top-level features (building, bridge, tunnel, water, vegetation,
-transportation etc.) in glTF format in the 3D web client
-
-.. |image184| image:: ../media/image191.png
-   :width: 6.31463in
-   :height: 4.03602in

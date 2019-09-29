@@ -18,21 +18,23 @@ semantic 3D city models by means of querying the thematic data of the
 selected city object. The corresponding system architecture is
 illustrated in the following figure.
 
-|image197|
+.. figure:: /media/3d_web_map_overview.png
+   :name: pic_3d_web_map_overview
+   
+   Coupling an online spreadsheet with a 3D visualization model
+   (i.e. a KML/glTF visualization model) in the cloud [Herreruela et al.
+   2012]
 
-Figure 160: Coupling an online spreadsheet with a 3D visualization model
-(i.e. a KML/glTF visualization model) in the cloud [Herreruela et al.
-2012].
-
-|image198|
-
-Figure 161: Example of an online spreadsheet (Google Fusion Table)
+.. figure:: /media/image172.png
+   :name: pic_3d_web_map_example_google_fusion
+   
+   Example of an online spreadsheet (Google Fusion Table)
 
 Similar to the structure of a database table, the first row of the
 online spreadsheet defines the attribute names, and the further rows
 store the respective attribute values for each 3D object. The logical
 links between the 3D models and the respective rows are established via
-a specific column within the spreadsheet, namely the GMLID column, which
+a specific column within the spreadsheet, namely the ``GMLID`` column, which
 contains the unique identifiers of the 3D objects. Each further column
 is used to represent one attribute of the 3D object. By using the freely
 available Google Drive application, all users having access to the
@@ -48,7 +50,7 @@ models again.
 In order to add a KML/glTF data layer along with its linked online
 spreadsheet to the 3D web client, the parameters must be properly
 specified (some of which are optional) on the corresponding input panel
-[1] (cf. Figure 162) which can be expanded and collapsed by clicking on
+[1] (cf. :numref:`pic_3d_web_map_example_toolbox`) which can be expanded and collapsed by clicking on
 the *Add / Configure Layer* button.
 
 .. note::
@@ -59,11 +61,12 @@ the *Add / Configure Layer* button.
    parameter name with the suffix “(*)” denotes that this parameter is
    mandatory; otherwise it is optional.
 
-|image199|
-
-Figure 162: The input panel [1] for adding a new KML/glTF data layer and
-the extended Geocoder widget [2] allowing to search a 3D object also by
-its gmlId
+.. figure:: /media/3d_web_map_toolbox.png
+   :name: pic_3d_web_map_example_toolbox
+   
+   The input panel [1] for adding a new KML/glTF data layer and
+   the extended ``Geocoder`` widget [2] allowing to search a 3D object also by
+   its gmlId
 
 First of all, the web link of the master JSON file (cf. section 5.5)
 holding the relevant meta-information of this data layer has to be
@@ -122,10 +125,11 @@ will be loaded and displayed; otherwise it will be hidden from display
 and unloaded. Of course, all data tiles lying outside of the view
 frustum are unloaded and invisible anyway.
 
-|image200|
+.. figure:: /media/image210.png
+   :name: pic_3d_web_map_example_tilesize
 
-Figure 163: Efficient determination of which data tiles should be loaded
-according to the user-defined visibility range in screen pixel
+   Efficient determination of which data tiles should be loaded
+   according to the user-defined visibility range in screen pixel
 
 Loading massive amounts of data tiles often result in poor performance
 of the 3D web client or even memory overload of the web browser. This
@@ -170,24 +174,19 @@ on the basis of datasets provided by the NYC Open Data Portal [17]_. The
 following parameter values should be entered into the corresponding
 input fields:
 
--  **url**:
-   https://www.3dcitydb.org/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf_collada_MasterJSON.json
+.. table::
+   :widths: auto
 
--  **name**: NYC_Manhattan_Buildings
-
--  **thematicDataUrl**:
-   https://www.google.com/fusiontables/DataSource?docid=1iG6_vYe7JGTNAUwFw7TpD8EMO-iQe6gSpa6MJlCF
-
--  **cityobjectsJsonUrl**:
-   https://www.3dcitydb.org/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf.json
-
--  **minLodPixels**: 100
-
--  **maxLodPixels**: -1
-
--  **maxSizeOfCachedTiles**: 200
-
--  **maxCountOfVisibleTiles**: 200
+   ================================= ====================================================================================================================================================================================================================================
+   **url**                              https://www.3dcitydb.org/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf_collada_MasterJSON.json
+   **name**                             NYC_Manhattan_Buildings
+   **thematicDataUrl**                  https://www.google.com/fusiontables/DataSource?docid=1iG6_vYe7JGTNAUwFw7TpD8EMO-iQe6gSpa6MJlCF
+   **cityobjectsJsonUrl**               https://www.3dcitydb.org/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf.json
+   **minLodPixels**                     100
+   **maxLodPixels**                     -1
+   **maxSizeOfCachedTiles**             200
+   **maxCountOfVisibleTiles**           200
+   ================================= ====================================================================================================================================================================================================================================
 
 After clicking on *Add layer*, a data layer will be loaded into the 3D
 web client and the corresponding layer name *NYC_Manhattan_Buildings*
@@ -197,24 +196,27 @@ The parameter values of the data layer (its radio button must be
 activated) can be changed and applied at any time by clicking on the
 *Save layer settings* button.
 
-|image201|
-
-Figure 164: Screenshot showing how to add a new KML/glTF data layer into
-the 3D web client
+.. figure:: /media/3d_web_map_screenshot_kml_gltf.png
+   :name: pic_3d_web_map_screenshot_kml_gltf
+   
+   Screenshot showing how to add a new KML/glTF data layer into
+   the 3D web client
 
 Users are also able to control the visibility of the selected data
 layers by deactivating its checkbox or clicking on the *Remove selected
 layer* button to completely remove it from the 3D web client (cf. the
 following two screenshots)
 
-|image202|
+.. figure:: /media/3d_web_map_layer_box.png
+   :name: pic_3d_web_map_screenshot_kml_gltf
+   
+   Screenshot showing how to hide a KML/glTF data layer
 
-Figure 165: Screenshot showing how to hide a KML/glTF data layer
-
-|image203|
-
-Figure 166: Screenshot showing how to remove a KML/glTF data layer from
-the 3D web client
+.. figure:: /media/3d_web_map_layer_remove.png
+   :name: 3d_web_map_layer_remove
+   
+   Screenshot showing how to remove a KML/glTF data layer from
+   the 3D web client
 
 .. |image197| image:: ../media/image203.png
    :width: 5.21875in
