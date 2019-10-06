@@ -112,7 +112,7 @@ buttons to modify listed columns on the table and their order. By
 pressing the *Save* button, manually created (or adapted) templates will
 be saved in a text file. Path will be specified by the *Save* dialog.
 
-.. figure:: /media/image160.png
+.. figure:: /media/image160.PNG
    :name: pic_plugin_spreadsheet_template
 
    The *New Column* dialog. Fill the *Column's title*, *Column's content* fields and click on the *Insert Column* button to add it to the list of columns. The *Comment* field is optional. When written to a template file its content serves informational purposes only
