@@ -441,20 +441,6 @@ for the ADE import.
    export configuration and a summary of the ADE export process is shown
    in the figure below:
 
-.. |emPlaneWaveSetupWin| figure:: ../../media/image173.png
-   :scale: 100 %
-   :alt: image 1
-
-   Setup window for the Electromagnetic Plane Wave example.
-
-Please see the figure :numref:`emPlaneWaveSetupWin2`
-
-.. _emPlaneWaveSetupWin2:
-.. figure:: ../../media/image174.png
-   :scale: 100 %
-   :alt: image 1
-
-   Setup window for the Electromagnetic Plane Wave example2.
 
 .. |image165| image:: ../../media/image173.png
    :width: 5.11811in
