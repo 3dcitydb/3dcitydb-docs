@@ -8,7 +8,7 @@ The ADE Manager is a plugin for the 3D City Database Importer/Exporter
 and allows to dynamically extend a 3D City Database (3DCityDB) instance
 to facilitate the storage and management of CityGML Application Domain
 Extensions (ADE). It is implemented based on the Open Source Attributed
-Graph Grammar (AGG) [5]_ transformation engine for realizing the
+Graph Grammar (AGG) [AGG2019]_ transformation engine for realizing the
 automatic transformation from an XML application schema (XSD) to a
 compact relational database schema (including tables, indexes, and
 constraints etc.) for a given CityGML ADE. In addition, an XML-based
@@ -17,7 +17,6 @@ the relevant meta-information about the derived database schema as well
 as the explicit mapping relationships between the source and target
 schemas and allows developers to implement applications for managing and
 processing the ADE data contents stored in a 3DCityDB instance.
-
 
 .. _install:
 
@@ -30,23 +29,24 @@ tool. During the Installation of the Import/Export tool, the wizard will
 ask you if you want to install the ADE Manager Plugin (cf. the following
 figure):
 
-|image165|
+.. figure:: ../../media/ade_manager_plugin_gui_installation.png
+   :name: ade_manager_plugin_gui_installation
+   :scale: 100 %
 
-Figure 135: GUI wizard for prompting the installation of ADE Manager
-Plugin
+   GUI wizard for prompting the installation of ADE Manager Plugin
 
 If the users haven’t checked the “\ *ADE Manager Plugin*\ ” box during
 the installation process, it is also possible to install the plugin
 later. The installation steps are very similar to those operation steps
 for installing the Spreadsheet Generator Plugin. For more details,
-please refer to the section 6.2.2. Once the Import/Export tool and ADE
+please refer to :numref:`spreadsheet_plugin_install`. Once the Import/Export tool and ADE
 Manager Plugin have been successfully installed, the user interface of
 the ADE Manager Plugin should look like the figure below:
 
-|image166|
+.. figure:: ../../media/ade_manager_plugin_user_interface.png
+   :name: ade_manager_plugin_user_interface
 
-Figure 136: User interface of the ADE Manager Plugin
-
+   User interface of the ADE Manager Plugin
 
 .. _gui:
 
@@ -62,15 +62,16 @@ The first part is mainly used for registering CityGML ADEs into a
 ADE-specific database objects such as feature tables, foreign key
 contstraints, sequences, simple and spatial indexes are added to the
 existing 3DCityDB database schema. Also, the metatdata tables (cf.
-chapter 2.3.3.1) are populated with the meta-information about the
+:numref:`schema_metadata_model`) are populated with the meta-information about the
 registered ADE. To run the ADE registration process, the input files
 required by the ADE Manager Plugin must be strictly organized according
 to the following folder structure.
 
-|image167|
+.. figure:: ../../media/ade_manager_plugin_input_folder_structure.png
+   :name: ade_manager_plugin_input_folder_structure
+   :width: 3.3in
 
-Figure 137: Specific folder structure of the input files required by ADE
-Manager plugin for ADE registration
+   Specific folder structure of the required input files for ADE registration
 
 The input folder must comprise at least two mandatory subfolders namely
 *3dcitydb* and *schema-mapping*. The first subfolder *3dcitydb* further
@@ -96,7 +97,7 @@ ADE datasets. The Importer/Exporter also uses a schema-mapping file for
 mapping the elements of the CityGML XML schemas to tables and columns of
 the 3DCityDB core schema. This mapping file, its XML Schema definition
 as well as a Java API for reading and writing a valid schema-mapping
-files can be found in the Github repository [6]_.
+files can be found in the Github repository [3DCI2019a]_ .
 
 Registration of a Test ADE
 """"""""""""""""""""""""""
@@ -112,7 +113,7 @@ ADEs such as the Energy ADE and the UtilityNetwork ADE. A central
 repository containing the TestADE’s UML data model, XML schema
 definition file, database schema, schema-mapping file as well as the
 Java classes for reading and writing ADE datasets is hosted in the
-3DCityDB’s Github website [7]_.
+3DCityDB’s Github website [3DCI2019b]_.
 
 The input SQL and schema-mapping files for ADE registration are located
 under the relative path
@@ -123,9 +124,11 @@ the local path of the input folder. After connecting to the target
 3DCityDB instance, the ADE registration process can be started by
 clicking on the **Register ADE** button.
 
-|image168|
+.. figure:: ../../media/ade_manager_plugin_gui_ade_registration.png
+   :name: ade_manager_plugin_gui_ade_registration
 
-Figure 138: Dialog panel for registering CityGML ADEs
+   Dialog panel for registering CityGML ADEs
+
 
 While performing the ADE registration process, the ADE database schema
 will be firstly created, and the metadata information will be written to
@@ -136,10 +139,10 @@ registered, a list of all ADEs registered in the 3DCityDB instance along
 with their relevant meta-information is shown on the ADE information
 panel (cf. the following figure).
 
-|image169|
+.. figure:: ../../media/ade_manager_plugin_list_registered_ades.png
+   :name: ade_manager_plugin_list_registered_ades
 
-Figure 139: GUI panel for displaying the relevant meta-information of
-all the registered ADEs
+   GUI panel for displaying the relevant meta-information of registered ADEs
 
 The users may also use a database client application like pgAdmin
 (PostgreSQL) and SQLDeveloper (Oracle) to check whether the ADE database
@@ -148,9 +151,11 @@ with the characters “\ *test\_*\ ” and the new delete and envelope
 functions/procedures should have the prefix “\ *del_test\_*\ ” and
 “\ *env_test\_*\ ” respectively.
 
-|image170|
+.. figure:: ../../media/ade_manager_plugin_tables_pgadmin.png
+   :name: ade_manager_plugin_tables_pgadmin
+   :width: 3.5in
 
-Figure 140: Exploration of the newly created ADE tables using pgAdmin
+   Exploration of the newly created ADE tables using pgAdmin
 
 When connecting to another 3DCityDB instance, the users may click on the
 *Fetch ADEs* button to update the contents in the meta-information panel
@@ -163,11 +168,10 @@ the *Install* button or save it to a SQL file. This gives the developers
 the possibility to modify the script functions and to install them via
 the database client applications e.g. pgAdmin and SQLDeveloper.
 
-|image171|
+.. figure:: ../../media/ade_manager_plugin_show_install_scripts.png
+   :name: ade_manager_plugin_show_install_scripts
 
-Figure 141: Dialog window for showing and installing newly generated
-database stored functions/procedures
-
+   Dialog window for showing and installing newly generated database stored functions/procedures
 
 .. _ade-transformation:
 
@@ -189,61 +193,84 @@ model by adding a few specific *taggedValues* (cf. the table below)
 which can be automatically translated and encoded into the
 <xs:annotation> elements in XML schema.
 
-================================ ================================================================================================================================
-**1. Top-level feature classes**
-================================ ================================================================================================================================
-taggedValue                      topLevel (true \| false)
-Description                      This taggedValue allows for determining whether an ADE feature class is top-level or not
-Example                          <element name=\ *"IndustrialBuilding"* substitutionGroup=\ *"bldg:_AbstractBuilding"* type=\ *"TestADE:IndustrialBuildingType"*>
-                                
-| Of using <xs:annotation>       <annotation>
-| in XML-Schema                 
-                                 <appinfo>
-                                
-                                 <taggedValue xmlns=\ *"http://www.interactive-instruments.de/ShapeChange/AppInfo"* tag=\ *"topLevel"*>true</taggedValue>
-                                
-                                 </appinfo>
-                                
-                                 </annotation>
-                                
-                                 </element>
-================================ ================================================================================================================================
+.. list-table:: Tagging top-level feature classes
 
-========================================= =============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-**2. Muliplicity of ADE Hook Properties**
-========================================= =============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-taggedValue                               minOccurs und maxOccurs (Integer value \| „unbounded")
-Description                               The combiniation of the two taggedValues allows for determining the multiplicity information of each ADE hook property. In UML model, this multiplicity information can be explicitly specified but it is lost in the XML schema, because every ADE hook property is hard-encoded with a multiplicity of [0..*] in the XML schema. Since the current version (2.5.1) of the ShapeChange tool is still not able to read the multiplicity of the hook properties from the UML model directly, the two taggedValues are hence required although they provide the redundant multiplicity information in UML model
-Example                                   <element name=\ *"ownerName"* substitutionGroup=\ *"bldg:_GenericApplicationPropertyOfAbstractBuilding"* type=\ *"string"*>
-                                         
-| Of using <xs:annotation>                <annotation>
-| in XML-Schema                          
-                                          <appinfo>
-                                         
-                                          <taggedValue xmlns=\ *"http://www.interactive-instruments.de/ShapeChange/AppInfo"* tag=\ *"maxOccurs"*>1</taggedValue>
-                                         
-                                          </appinfo>
-                                         
-                                          </annotation>
-                                         
-                                          </element>
-**3. Relationship type between classes** 
-taggedValue                               relationType (association \|aggregation \| composition)
-Description                               An enumeration attribute allowing to distinguish the three relationships between two associated classes. This meta-information is also lost while mapping UML -> XML schema, because the XML schema doesn’t support the distinguishment between the three relation types. This taggedValue is also redundant from the view of UML, but required when using ShapeChange
-Example                                   <element maxOccurs=\ *"unbounded"* minOccurs=\ *"0"* name=\ *"boundedBy"* type=\ *"bldg:BoundarySurfacePropertyType"*>
-                                         
-| Of using xs:annotation                  <annotation>
-| in XML-Schema                          
-                                          <appinfo>
-                                         
-                                          <taggedValue xmlns=\ *"http://www.interactive-instruments.de/ShapeChange/AppInfo"* tag=\ *"relationType"*>composition</taggedValue>
-                                         
-                                          </appinfo>
-                                         
-                                          </annotation>
-                                         
-                                          </element>
-========================================= =============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+   * - | taggedValue
+     - | :code:`topLevel` (true \| false)
+   * - | Description
+     - | This taggedValue allows determining whether an ADE feature class is top-level or not
+   * - | Example
+       | Of using
+       | <xs:annotation>
+       | in XML-Schema
+     - .. code-block:: XML
+
+        <element name="IndustrialBuilding" substitutionGroup="bldg:_AbstractBuilding"
+          type="TestADE:IndustrialBuildingType">
+          <annotation>
+            <appinfo>
+              <taggedValue tag="topLevel">true</taggedValue>
+            </appinfo>
+          </annotation>
+        </element>
+
+
+.. list-table:: Tagging the Multiplicity of ADE Hook Properties
+
+   * - | taggedValue
+     - | :code:`minOccurs` and :code:`maxOccurs` (Integer value \| „unbounded")
+   * - | Description
+     - | The combiniation of the two taggedValues allows for determining the
+       | multiplicity information of each ADE hook property. In UML model, this
+       | multiplicity information can be explicitly specified but it is lost in
+       | the XML schema, because every ADE hook property is hard-encoded with a
+       | multiplicity of [0..*] in the XML schema. Since the current version
+       | (2.5.1) of the ShapeChange tool is still not able to read the multiplicity
+       | of the hook properties from the UML model directly, the two taggedValues
+       | are hence required although they provide the redundant multiplicity
+       | information in UML model
+   * - | Example
+       | Of using
+       | <xs:annotation>
+       | in XML-Schema
+     - .. code-block:: XML
+
+        <element name="ownerName"
+          substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding"
+          type="string">
+          <annotation>
+            <appinfo>
+              <taggedValue tag="maxOccurs">1</taggedValue>
+            </appinfo>
+          </annotation>
+        </element>
+
+
+.. list-table:: Tagging the relationship type between classes
+
+   * - | taggedValue
+     - | :code:`relationType` (association \|aggregation \| composition)
+   * - | Description
+     - | An enumeration attribute allowing to distinguish the three relationships
+       | between two associated classes. This meta-information is also lost while
+       | mapping UML -> XML schema, because the XML schema doesn’t support the
+       | distinguishment between the three relation types. This taggedValue is also
+       | redundant from the view of UML, but required when using ShapeChange
+   * - | Example
+       | Of using
+       | <xs:annotation>
+       | in XML-Schema
+     - .. code-block:: XML
+
+        <element maxOccurs="unbounded" minOccurs="0" name="boundedBy"
+          type="bldg:BoundarySurfacePropertyType">
+          <annotation>
+            <appinfo>
+              <taggedValue tag="relationType">composition</taggedValue>
+            </appinfo>
+          </annotation>
+        </element>
+
 
 The realization of the model transformation process is mainly based on
 the concept of “\ *Graph Transformation*\ ” and implemented using the
@@ -414,9 +441,20 @@ for the ADE import.
    export configuration and a summary of the ADE export process is shown
    in the figure below:
 
-|image180|
+.. |emPlaneWaveSetupWin| figure:: ../../media/image173.png
+   :scale: 100 %
+   :alt: image 1
 
-Figure 150: Console window showing a summary of ADE export
+   Setup window for the Electromagnetic Plane Wave example.
+
+Please see the figure :numref:`emPlaneWaveSetupWin2`
+
+.. _emPlaneWaveSetupWin2:
+.. figure:: ../../media/image174.png
+   :scale: 100 %
+   :alt: image 1
+
+   Setup window for the Electromagnetic Plane Wave example2.
 
 .. |image165| image:: ../../media/image173.png
    :width: 5.11811in

@@ -1,3 +1,5 @@
+.. _schema_metadata_model:
+
 Metadata Model
 ^^^^^^^^^^^^^^
 

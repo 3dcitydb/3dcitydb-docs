@@ -1,7 +1,14 @@
 References
 ==========
 
-3DCityDB Homepage, http://www.3dcitydb.org/ (accessed September 2018).
+.. [AGG2019] AGG Homepage, http://www.user.tu-berlin.de/o.runge/agg (accessed October 2019).
+
+.. [3DCI2019] 3DCityDB Homepage, http://www.3dcitydb.org/ (accessed October 2019).
+
+.. [3DCI2019a] 3DCityDB Schema-Mapping API, https://github.com/3dcitydb/importer-exporter/tree/master/impexp-core/src/main/java/org/citydb/database/schema (accessed October 2019).
+
+.. [3DCI2019b] 3DCityDB TestADE repository, https://github.com/3dcitydb/extension-test-ade (accessed October 2019).
+
 
 Active Server Pages Reference, Microsoft, Weblink (accessed September
 2018): http://msdn.microsoft.com/en-us/library/ms526064.aspx

@@ -96,7 +96,7 @@ Simplified design of GML geometry classes
 Spatial properties of features are represented by objects of GML3’s
 geometry model based on the ISO 19107 standard *Spatial Schema*
 [HERR01]_, representing 3D geometry according to the well-known
-Boundary Representation (B-Rep, cf. [FDFH95]_). Actually only a subset
+Boundary Representation (B-Rep, cf. [FDFH95]_). Actually [3DCityDB]_ only a subset
 of the GML3 geometry package is used. Moreover, for 2D and 3D
 surface-based geometry types a simpler but equally powerful model is
 used: These geometries are stored as polygons, which are aggregated to

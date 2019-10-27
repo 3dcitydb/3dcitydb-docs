@@ -14,7 +14,7 @@ graphing tools, are applicable to the exported data from a 3D City
 Database instance.
 
 
-.. _install:
+.. _spreadsheet_plugin_install:
 
 Plugin installation
 ~~~~~~~~~~~~~~~~~~~
