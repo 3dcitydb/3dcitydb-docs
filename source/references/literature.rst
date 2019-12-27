@@ -157,6 +157,8 @@ lat/lon GmbH. Weblink
 https://www.businesslocationcenter.de/imperia/md/content/3d/dokumentation_3d_geo_db_berlin.pdf
 (accessed September 2018).
 
+.. [SHAP2019] ShapeChange Homepage, https://shapechange.net/ (accessed October 2019).
+
 Stadler, A., Nagel, C., König, G., Kolbe, T. H. (2009): *Making
 interoperability persistent: A 3D geo database based on CityGML.* In:
 Lee, J., Zlatanova, S. (eds.): Proceedings of the 3rd International
@@ -192,7 +194,7 @@ Geoinformationssysteme 2016 – Beiträge zur 3. Münchner GI-Runde, 24.-25.
 2. 2016, Wichmann Verlag, Berlin. Weblink (accessed September 2018):
 http://mediatum.ub.tum.de/doc/1296408/547142.pdf
 
-Yao, Z., Kolbe, T. H. (2017): *Dynamically Extending Spatial Databases
+.. [YaKo2017] Yao, Z., Kolbe, T. H. (2017): *Dynamically Extending Spatial Databases
 to support CityGML Application Domain Extensions using Graph
 Transformations*. In: Kersten, T.P. (ed.): Beitrag zur 37.
 Wissenschaftlich-Technische Jahrestagung der DGPF. Deutsche Gesellschaft

@@ -48,10 +48,10 @@ the ADE Manager Plugin should look like the figure below:
 
    User interface of the ADE Manager Plugin
 
-.. _gui:
-
 User Interface
 ~~~~~~~~~~~~~~
+
+.. _ade_manager_plugin_registration:
 
 ADE Registration
 ^^^^^^^^^^^^^^^^
@@ -186,7 +186,7 @@ However, a notable issue is that some relevant meta-information about an
 ADE are usually missing in its XML schema, since they cannot be encoded
 using the native syntax of the XML schema and will be lost while
 deriving the XML schema from its ADE’s UML model (e.g. when using a
-transformation tool like ‘ShapeChange’ [8]_). Moreover, some certain
+transformation tool like ‘ShapeChange’ (cf. [SHAP2019]_). Moreover, some certain
 kinds of meta-information can even not be represented in the UML model.
 A good model-driven solution for solving this issue is to extend the UML
 model by adding a few specific *taggedValues* (cf. the table below)
@@ -278,7 +278,7 @@ Open Source graph transformation engine AGG. It comes with a graphical
 editor (a runnable jar file *AggV21Build.jar* in the folder lib) that
 allows users to define an arbitrary number of graph-structured
 transformation rules for mapping complex object-oriented models onto a
-compact relational database models (cf. [Yao & Kolbe 2017]). While
+compact relational database models (cf. [YaKo2017]_). While
 developing the ADE Manager Plugin, around 50 mapping rules have been
 designed, which can also be modified by developers for customizing the
 model transformation behaviour. The workspace file containing the
@@ -292,10 +292,10 @@ future, for some ADEs we may publish complete ADE packages on the
 3DCityDB github pages as Open Source. Some will be commercially
 available from the 3DCityDB development partners.
 
-|image172|
+.. figure:: ../../media/ade_manager_plugin_AGG_user_interface.png
+   :name: ade_manager_plugin_AGG_user_interface
 
-Figure 142: AGG graph editor for defining model transformation rules for
-the ADE Manager Plugin
+   AGG graph editor for defining model transformation rules for the ADE Manager Plugin
 
 Transformation of the TestADE
 """""""""""""""""""""""""""""
@@ -303,34 +303,34 @@ Transformation of the TestADE
 The XML schema definition file of the TestADE is located under the path
 “\ *test-ade-citygml4j\src\main\resources\org\citygml\ade\test\schema\CityGML-TestADE.xsd*\ ”.
 It can be selected or entered using a file chooser dialog window by
-clicking on the *Browse* button in the input panel (cf. [1] in Figure
-143). After entering the path of the XML schema and clicking on the
+clicking on the *Browse* button in the input panel (cf. [1] in
+:numref:`ade_manager_plugin_schema_transform_GUI`). After entering the path of the XML schema and clicking on the
 button *Read XML Schema*, the XML schema file will be read and parsed.
 All namespaces (except the GML and CityGML namespaces) included in the
-the XML schema file will be listed on the left panel [2]. The namespace
+the XML schema file will be listed on the left panel (cf. [2] in
+:numref:`ade_manager_plugin_schema_transform_GUI`). The namespace
 “\ *http://www.citygml.org/ade/TestADE/1.0*\ ” of the target ADE shall
 be selected and its background will be highlighted with blue color. In
 the next step, some additional relevant meta-information for the ADE
-must be specified in the panel (see [3] in Figure 143) and will be
+must be specified in the panel (cf. [3] in :numref:`ade_manager_plugin_schema_transform_GUI`) and will be
 written into the output schema-mapping file. More details about the
-meaning of the individual metadata attribute are described in the
-section 2.3.3.1. In the last step, the path for the output files should
+meaning of the individual metadata attribute are described in
+:numref:`schema_metadata_model`. In the last step, the path for the output files should
 be specified and the *Transform* button can be clicked to start the
 transformation process.
 
 The entire transformation process should take just a few seconds, since
 the TestADE has a rather simple structure with only 10 classes and data
 types. The output files are exactly organized according to the specific
-folder structure described in the section 6.3.3.1. A full example of the
+folder structure described in :numref:`ade_manager_plugin_registration`. A full example of the
 output files is located under the path *“test-ade-citydb\resources*\ ”
 which can be directly used as the input folder for performing the ADE
 registration into a 3DCityDB instance.
 
-|image173|
+.. figure:: ../../media/ade_manager_plugin_schema_transform_GUI.png
+   :name: ade_manager_plugin_schema_transform_GUI
 
-Figure 143: GUI panel for transforming XML schema to 3DCityDB database
-schema and schema-mapping file
-
+   GUI panel for transforming XML schema to 3DCityDB database schema and schema-mapping file
 
 .. _extend-impexp:
 
@@ -360,10 +360,10 @@ the Import/Export tool with ADE extensions is presented.
 -  Copy the **extension-test-ade** folder into the **ade-extension**
    folder. The folder structure should look like below.
 
-|image174|
+.. figure:: ../../media/ade_manager_plugin_impexp_folder_structure.png
+   :name: ade_manager_plugin_impexp_folder_structure
 
-Figure 144: Folder structure of the Import/Export tool with ADE
-extensions
+   Folder structure of the Import/Export tool with ADE extensions
 
 -  Start the Import/Export tool. The JAR files in the
    *extension-test-ade/lib* folder along with the schema-mapping file in
@@ -383,42 +383,44 @@ for supporting the TestADE, while the connected 3DCityDB instance is
 still not. Therefore, the next step is to use the ADE Manager plugin to
 complete the ADE registration and database schema creation.
 
-|image175|
+.. figure:: ../../media/ade_manager_plugin_impexp_support_status_no.png
+   :name: ade_manager_plugin_impexp_support_status_no
 
-Figure 145: User interface for checking the status of ADE support of
-database and Import/Export tool
+   User interface for checking the status of ADE support of database and Import/Export tool
 
 -  Activate the ADE Manager Plugin and follow the operation steps
-   described in the section 6.3.3.1.
+   described in :numref:`ade_manager_plugin_registration`.
 
 -  Reconnect the TestADE database again. The ADE status panel should be
    updated like the figure below.
 
-|image176|
+.. figure:: ../../media/ade_manager_plugin_impexp_support_status_yes.png
+   :name: ade_manager_plugin_impexp_support_status_yes
 
-Figure 146: Status indicating the full support of database and
-Import/Export tool
+   Status indicating the full support of database and Import/Export tool
 
 -  To test the Import/Export function, open the Import panel and the
    select the ADE datasets which are located under the path
-   “\ *resources\datasets\\*\ ”
+   “\ *resources\\datasets\\*\ ”
 
 It is possible to use the filter options of the CityGML import panel to
 import a subset of the ADE datasets. For example, if the the **Feature
 classes** filter is used (cf. the figure below), only TestADE feature
 objects will be imported.
 
-|image177|
+.. figure:: ../../media/ade_manager_plugin_citygml_import_filter.png
+   :name: ade_manager_plugin_citygml_import_filter
 
-Figure 147: Import of ADE dataset using Feature Class filter
+   Import of ADE dataset using Feature Class filter
 
 A summary of the ADE import process is printed in the console window
 like the following screenshot:
 
-|image178|
+.. figure:: ../../media/ade_manager_plugin_citygml_import_summary.png
+   :name: ade_manager_plugin_citygml_import_summary
+   :width: 4.5in
 
-Figure 148: Console window displaying the summary of the ADE import
-process
+   Console window displaying the summary of the ADE import process
 
 -  Activate the **Database** panel and activate the **Database report**
    subpanel.
@@ -426,82 +428,22 @@ process
 -  Click on the **Generate database report** button to generate a
    statistic of the data contents stored in the ADE tables.
 
-|image179|
+.. figure:: ../../media/ade_manager_plugin_database_report.png
+   :name: ade_manager_plugin_database_report
 
-Figure 149: Console window showing a statistic of the ADE tables
+   Console window showing a statistic of the ADE tables
 
 The operation steps for performing ADE export are very similar to those
 for the ADE import.
 
 -  Activate the **Export** panel and configure the filter options e.g.
-   activate the **Feature class** filter and choose the “\ **TestADE”
-   **
+   activate the **Feature class** filter and choose the **TestADE**
 
 -  Click on the **Export** button to start the export process. The
    export configuration and a summary of the ADE export process is shown
    in the figure below:
 
+.. figure:: ../../media/ade_manager_plugin_citygml_export_summary.png
+   :name: ade_manager_plugin_citygml_export_summary
 
-.. |image165| image:: ../../media/image173.png
-   :width: 5.11811in
-   :height: 3.77596in
-
-.. |image166| image:: ../../media/image174.png
-   :width: 6.3in
-   :height: 6.92708in
-
-.. |image167| image:: ../../media/image175.png
-   :width: 2.63308in
-   :height: 2.10417in
-
-.. |image168| image:: ../../media/image176.png
-   :width: 6.3in
-   :height: 2.25972in
-
-.. |image169| image:: ../../media/image177.png
-   :width: 6.3in
-   :height: 2.45625in
-
-.. |image170| image:: ../../media/image178.png
-   :width: 2.9375in
-   :height: 2.7731in
-
-.. |image171| image:: ../../media/image179.png
-   :width: 4.75in
-   :height: 3.11914in
-
-.. |image172| image:: ../../media/image180.png
-   :width: 6.29694in
-   :height: 3.46512in
-
-.. |image173| image:: ../../media/image181.jpg
-   :width: 5.51181in
-   :height: 3.60313in
-
-.. |image174| image:: ../../media/image182.png
-   :width: 2.35347in
-   :height: 3.95715in
-
-.. |image175| image:: ../../media/image183.png
-   :width: 6.3in
-   :height: 3.52083in
-
-.. |image176| image:: ../../media/image184.png
-   :width: 6.3in
-   :height: 3.36458in
-
-.. |image177| image:: ../../media/image185.png
-   :width: 6.3in
-   :height: 7.14931in
-
-.. |image178| image:: ../../media/image186.png
-   :width: 4.0279in
-   :height: 2.25in
-
-.. |image179| image:: ../../media/image187.png
-   :width: 6.3in
-   :height: 4.32778in
-
-.. |image180| image:: ../../media/image188.png
-   :width: 6.3in
-   :height: 4.17917in
+   Console window showing a summary of ADE export
