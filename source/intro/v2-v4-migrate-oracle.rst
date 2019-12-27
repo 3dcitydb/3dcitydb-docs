@@ -31,15 +31,16 @@ practice.
 The migration script transfers data from a user schema with the v2.1.0
 installation to another user schema that has to contain the 3D City
 Database schema v4.0. Install the new version like it is described in
-chapter 3.3 if not done so yet.
+:numref:`first_step_3dcitydb_installation_oracle` and :numref:`first_step_3dcitydb_installation_postgis`
+if not done so yet.
 
 **Step 3 – Grant select on v2.1.0 schema to v4.0 schema**
 
-**The migration process requires that the user with the v4.0 schema can
+The migration process requires that the user with the v4.0 schema can
 access the user schema with the v2.1.0 version. Therefore, run the
-GRANT_ACCESS_V2 shell script (see chapter** **3.3.1) as the V2 user.
+GRANT_ACCESS_V2 shell script (see :numref:`3dcitydb_shell_scripts`) as the V2 user.
 When executed the user is requested to type in the schema name for the
-3D City Database v4.0 instance.**
+3D City Database v4.0 instance.
 
 **Step 4 – Run MIGRATE_DB**
 
@@ -89,13 +90,13 @@ report of the schema that contains the 2.1 instance of the 3D City
 Database (done with the previous version of the Import/Export tool).
 **Verify that**
 
--  **no city objects are missing (do a database report),**
+-  no city objects are missing (do a database report),
 
--  **indexes and foreign keys got activated again,**
+-  indexes and foreign keys got activated again,
 
--  **relations between features and attributes are correct, and**
+-  relations between features and attributes are correct, and
 
--  **exports look correct inside a viewer application.**
+-  exports look correct inside a viewer application.
 
 **Step 8 – Drop the deprecated v2.x schema**
 

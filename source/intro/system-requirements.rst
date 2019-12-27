@@ -14,7 +14,7 @@ Database requires spatial data support provided either through the
 Oracle *Spatial* or *Locator* extension. It is highly recommended to
 install available patches to avoid unexpected errors and to benefit from
 the latest functionality. For Oracle 10g R2, at least patch set
-10.2.0.4.0 is required for using the KML/COLLADA/glTF export
+``10.2.0.4.0`` is required for using the KML/COLLADA/glTF export
 capabilities.
 
 **PostgreSQL**
@@ -28,7 +28,7 @@ by the default command-line-based client interface of the DBMS – which
 is **SQL*Plus** for Oracle and **psql** for PostgreSQL. The scripts
 include meta commands specific to these clients and would not work
 properly when using a different client software. So please make sure
-SQL*Plus or psql is installed on the machine from where you want to
+**SQL*Plus** or **psql** is installed on the machine from where you want to
 setup the 3D City Database.
 
 Importer/Exporter Tool
@@ -61,4 +61,4 @@ The Importer/Exporter runs with 1 GB of main memory per default. This
 setting should be reasonable on most platforms and for most
 import/export procedures. If required, you can *manually* adapt the main
 memory limits in the starter script of the program. Please refer to
-chapter 5.1 for more details.
+:numref:`impexp_interface` for more details.

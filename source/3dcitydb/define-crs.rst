@@ -1,3 +1,5 @@
+.. _3dcitydb_crs_definition:
+
 Definition of the CRS for a 3D City Database instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

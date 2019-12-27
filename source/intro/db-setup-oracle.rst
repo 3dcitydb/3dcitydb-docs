@@ -1,3 +1,5 @@
+.. _first_step_3dcitydb_installation_oracle:
+
 Installation steps on Oracle Databases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -23,25 +25,23 @@ the SQLPLUSBIN variable. The other parameters should be obvious to
 Oracle users. Here is an example how the complete CONNECTION_DETAILS can
 look like:
 
-SQLPLUSBIN= C:\Oracle\instantclient_11_2
+.. code:: bash
 
-HOST=localhost
+    SQLPLUSBIN= C:\\Oracle\\instantclient_11_2
+    HOST=localhost
+    PORT=1521
+    SID=orcl
+    USERNAME=citydb_v4
 
-PORT=1521
-
-SID=orcl
-
-USERNAME=citydb_v4
-
-Note, that the scripts to grant or revoke read access require SYSDBA
-privileges. You can specify a SYSDBA user in the CONNECTION_DETAILS
-script under an additional parameter called SYSDBA_USERNAME.
+.. note::
+    The scripts to grant or revoke read access require SYSDBA
+    privileges. You can specify a SYSDBA user in the CONNECTION_DETAILS
+    script under an additional parameter called SYSDBA_USERNAME.
 
 **Step 3 - Execute the CREATE_DB script:**
 
 As soon as the database credentials are defined run the CREATE_DB script
-– located in the same folder as CONNECTION_DETAILS (see also chapter
-3.3.1).
+– located in the same folder as CONNECTION_DETAILS (see also :numref:`3dcitydb_shell_scripts`).
 
 **Step 4 - Define the coordinate reference system**
 
@@ -63,10 +63,10 @@ are three prompts in total to define the spatial reference:
 -  Third, provide the GML-conformant uniform resource name (URN)
    encoding of the CRS. The default value uses the OGC namespace and
    comprises of the first two user inputs:
-   urn:ogc:def:crs,crs:EPSG::<crs1>[,crs:EPSG::<crs2>].
+   ``urn:ogc:def:crs,crs:EPSG::<crs1>[,crs:EPSG::<crs2>]``.
 
 More information about the SRID and the URN encoding can be found in
-chapter 2.3.5.
+:numref:`3dcitydb_crs_definition`.
 
 **Step 5 – Enable or disable versioning**
 
@@ -105,10 +105,11 @@ choice.
 The following figure exemplifies the required user input during steps 4
 to 6.
 
-|image58|
+.. figure:: ../media/first_step_CREATE_DB_cli.png
+   :name: first_step_CREATE_DB_cli
+   :width: 5.5in
 
-Figure 52: Example user input when executing CREATE_DB on an Oracle
-database.
+   Example user input when executing CREATE_DB on an Oracle database.
 
 **Step 7 – Check if the setup is correct**
 
@@ -128,7 +129,3 @@ CREATE_DB. Similar to CREATE_DB, you need to provide the license option
 (*Locator* or *Spatial*). Note that the script will **delete all data**
 stored in the 3D City Database schema. The database user will, however,
 not be deleted.
-
-.. |image58| image:: ../media/image69.png
-   :width: 5.43246in
-   :height: 6.01852in

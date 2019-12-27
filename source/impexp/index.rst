@@ -17,6 +17,7 @@ extracting 3D city model data.
    filters/index
    kml-collada-gltf-export
    preferences/index
+   cli
    plugins/index
    
 

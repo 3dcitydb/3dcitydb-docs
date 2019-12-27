@@ -31,9 +31,10 @@ string is printed to the console window after the connection has been
 successfully established as shown below (see also chapter about
 :doc:`Managing connections <../impexp/db-connection>`).
 
-|image59|
+.. figure:: ../media/first_step_3dcityb_version_info.png
+   :name: first_step_3dcityb_version_info
 
-Figure 53: Version information of a 3D City Database.
+   Version information of a 3D City Database.
 
 If the version string does not show up, you are running a v2.x
 instance. Alternatively, the version information can also be queried
@@ -77,7 +78,3 @@ performing an upgrade, as mentioned in the migration chapter.
 During an upgrade check the output messages of the script for errors and
 warnings. The process should finish the message `3D City Database
 upgrade complete`.
-
-.. |image59| image:: ../media/image70.PNG
-   :width: 4.51876in
-   :height: 1.79921in
