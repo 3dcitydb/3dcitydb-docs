@@ -54,7 +54,7 @@ similar rules in the mapping of the object-oriented ADE models onto
 relational models as we used for the (manual) mapping of the CityGML
 datamodel onto the 3DCityDB core schema, the Chair of Geoinformatics at
 TUM developed a new transformation method based on graph transformation
-systems. This method is described in detail in [Yao & Kolbe 2017] and is
+systems. This method is described in detail in [YaKo2017]_ and is
 implemented within the “ADE Manager” plugin for the Importer/Exporter
 software tool.
 
@@ -141,7 +141,7 @@ mouseover and mouseclick as well as hiding, showing, and shadowing them.
 Moreover, the 3DCityDB-Web-Map-Client is able to link the 3D visualization
 model with an online spreadsheet (Google Fusion Table) in the Google Cloud
 and allows viewing and querying the thematic data of every city object
-according to its GMLID. For details see also [Chaturvedi et al. 2015, Yao et al. 2016].
+according to its GMLID. For details see also [YaCK2016]_ and [ChYK2015]_.
 
 Web Feature Service (WFS) 2.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

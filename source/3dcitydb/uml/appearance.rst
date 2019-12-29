@@ -13,9 +13,10 @@ may store its own appearance data. Therefore, the base CityGML classes
 \_\ *CityObject* and *CityModel* contain a relation *appearance* and
 *appearanceMember* respectively.
 
-|image7|
+.. figure:: ../../media/citydb_appearance_model.png
+   :name: citydb_appearance_model
 
-Figure 4: Appearance model
+   Appearance model
 
 Themes are represented by an identifier only. The appearance of a city
 model for a given theme is defined by a set of objects of class
@@ -115,7 +116,3 @@ element. The mapping is defined by associated classes of
 -  *TexCoordGen* when using a common 3x4 transformation matrix from
    world space to texture space, specified by the attribute
    *worldToTexture.*
-
-.. |image7| image:: ../../media/image17.png
-   :width: 5.51695in
-   :height: 6.248in

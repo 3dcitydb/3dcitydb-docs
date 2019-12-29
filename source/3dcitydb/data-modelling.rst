@@ -16,8 +16,8 @@ Simplification compared to CityGML 2.0.0
 
 CityGML is a common information model for 3D urban objects and provides
 a comprehensive and extensible representation of the objects. It is
-explained in detail in the CityGML specification [GKCN08]_, [GKNH12]_
-and [KOLB09]_. An analysis of the previous versions of the 3D City
+explained in detail in the CityGML specification [GKCN2008]_, [GKNH2012]_
+and [Kolb2009]_. An analysis of the previous versions of the 3D City
 Database indicated that for the data collected and processed a less
 complex schema is sufficient. Using a simplified schema usually allows
 improving system performance. Therefore, the first task was related to
@@ -95,22 +95,10 @@ Simplified design of GML geometry classes
 
 Spatial properties of features are represented by objects of GML3’s
 geometry model based on the ISO 19107 standard *Spatial Schema*
-[HERR01]_, representing 3D geometry according to the well-known
-Boundary Representation (B-Rep, cf. [FDFH95]_). Actually [3DCityDB]_ only a subset
+[Herr2001]_, representing 3D geometry according to the well-known
+Boundary Representation (B-Rep, cf. [FVFH1995]_). Actually only a subset
 of the GML3 geometry package is used. Moreover, for 2D and 3D
 surface-based geometry types a simpler but equally powerful model is
 used: These geometries are stored as polygons, which are aggregated to
 *MultiSurfaces*, *CompositeSurfaces*, *TriangulatedSurfaces*, *Solids*,
 *MultiSolids*, as well as *CompositeSolids*.
-
-.. rubric:: References
-
-.. [FDFH95] Foley, J., van Dam, A,. Feiner, S., Hughes, J. (1995): Computer Graphics: Principles and Practice. Addison Wesley, 2nd Ed.
-
-.. [GKCN08] Gröger G., Kolbe, T. H., Czerwinski, A., Nagel C. (2008): OpenGIS® City Geography Markup Language (CityGML) Encoding Standard, Version 1.0.0. Open Geospatial Consortium, Doc. No. 08-007r1: http://portal.opengeospatial.org/files/?artifact_id=28802
-
-.. [GKNH12] Gröger G., Kolbe, T. H., Nagel C., Häfele, K. H. (2012): OpenGIS® City Geography Markup Language (CityGML) Encoding Standard, Version 2.0.0. Open Geospatial Consortium, Doc. No. 12-019: http://portal.opengeospatial.org/files/?artifact_id=28802
-
-.. [HERR01] Herring, J. (2001): *The OpenGIS Abstract Specification, Topic 1: Feature Geometry (ISO 19107 Spatial Schema)*. OGC Document Number 01-101
-
-.. [KOLB09] Kolbe, T. H. (2009): Representing and Exchanging 3D City Models with CityGML. In: Lee, J., Zlatanova, S. (eds.): Proceedings of the 3rd International Workshop on 3D Geo-Information 2008 in Seoul, South Korea. Lecture Notes in Geoinformation & Cartography, Springer Verlag, 2009. Weblink (accessed September 2018): http://mediatum.ub.tum.de/doc/1145752/947446.pdf

@@ -10,7 +10,6 @@
    history
    data-modelling
    uml/index
-   relational-schema
    schema/index
    define-crs
    multi-schema

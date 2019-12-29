@@ -26,7 +26,7 @@ In order to establish a common understanding and interpretation of the
 urban objects and to achieve interoperable access and exchange of
 complete 3D models including the geometric, topologic, visual, and
 semantic data, the Open Geospatial Consortium (OGC) has issued the
-`CityGML standard <https://www.opengeospatial.org/standards/citygml>`_ [KOLB09]_.
+`CityGML standard <https://www.opengeospatial.org/standards/citygml>`_ [Kolb2009]_.
 CityGML defines a feature catalogue and data model for the most relevant
 3D topographic elements like buildings, bridges, tunnels, roads,
 railways, vegetation, water bodies, etc. The data model is mapped to an
@@ -118,10 +118,4 @@ of the Berlin University of Technology and the
 of the University of Bonn.
 
 Some figures and texts are cited from the OpenGIS City Geography Markup
-Language (CityGML) Encoding Standard, Version 2.0.0 [GKNH12]_.
-
-.. rubric:: References
-
-.. [GKNH12] Gröger G., Kolbe, T. H., Nagel C., Häfele, K. H. (2012): OpenGIS® City Geography Markup Language (CityGML) Encoding Standard, Version 2.0.0. Open Geospatial Consortium, Doc. No. 12-019: http://portal.opengeospatial.org/files/?artifact_id=28802
-
-.. [KOLB09] Kolbe, T. H. (2009): Representing and Exchanging 3D City Models with CityGML. In: Lee, J., Zlatanova, S. (eds.): Proceedings of the 3rd International Workshop on 3D Geo-Information 2008 in Seoul, South Korea. Lecture Notes in Geoinformation & Cartography, Springer Verlag, 2009. Weblink (accessed September 2018): http://mediatum.ub.tum.de/doc/1145752/947446.pdf
+Language (CityGML) Encoding Standard, Version 2.0.0 [GKNH2012]_.

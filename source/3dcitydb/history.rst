@@ -5,13 +5,13 @@ Version 1 - 2003 - 2007
 -----------------------
 
 The development of the 3D City Database was always closely related to
-the development of the CityGML standard [Kolbe & Gröger 2003]. It was
+the development of the CityGML standard [KoGr2003]_. It was
 started back in 2003 by *Dr. Kolbe* and *Prof. Plümer* at the *Institute
 for Cartography and Geoinformation at University of Bonn*. In the period
 from November 2003 to December 2005 the official virtual 3D city model
 of Berlin, commissioned by *The Berlin Senate* and *Berlin Partner
 GmbH*, was developed within a pilot project funded by the European Union
-[Plümer et al. 2005, Berlin 3D]. Since then, the model has been playing
+[PGKS2005]_. Since then, the model has been playing
 a central role in the three-dimensional spatial data infrastructure of
 Berlin and opened up a multitude of applications for the public and
 private sector alike. As an example the virtual city model is
@@ -47,7 +47,7 @@ implemented and evaluated in cooperation with 3DGeo GmbH (later bought
 by Autodesk GmbH) in Potsdam. A special database interface for
 LandXPlorer was provided by 3DGeo / Autodesk.** Later on, a first
 version of the Java based CityGML Importer/Exporter was developed
-[Stadler et al. 2009].
+[SNKK2009]_.
 
 **In August 2008, CityGML 1.0.0 became an adopted standard of the Open
 Geospatial Consortium (OGC). In the follow-up project Digitaler
@@ -60,7 +60,7 @@ collaboration with the company virtualcitySYSTEMS (VCS) in Berlin. In
 Excellence Award for Education and Research* from *Oracle USA* for our
 work on 3DCityDB. Also in 2012 3DCityDB was ported to PostgreSQL/PostGIS
 by *Felix Kunde*, a master student from the *University of Potsdam*, who
-did his master thesis in collaboration with *IGG* [Kunde 2013].
+did his master thesis in collaboration with *IGG* [Kund2013]_.
 
 In August 2012, CityGML 2.0.0 became an adopted standard of the Open
 Geospatial Consor­tium (OGC). In September 2012, Prof. Kolbe moved from
