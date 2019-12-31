@@ -61,6 +61,7 @@ accurate storage of time values.
      - | BLOB
      - | BYTEA
 
+.. _citydb_class_affiliation_declaration_chapter:
 
 Explicit declaration of class affiliation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,8 +69,7 @@ Explicit declaration of class affiliation
 In the (meta) table OBJECTCLASS, all class names (attribute CLASSNAME)
 of the schema are managed. The relation of the subclass to its parent
 class is represented via the attribute SUPERCLASS_ID in the subclass as
-a foreign key to the ID of the parent class (see **Fehler! Verweisquelle
-konnte nicht gefunden werden.**).
+a foreign key to the ID of the parent class.
 
 The table OBJECTCLASS is used to efficiently determine the affiliation
 to a class in the superclass tables. In addition, the table CITYOBJECT
@@ -81,7 +81,7 @@ used to store different CityGML features, e.g. THEMATIC_SURFACE (for all
 different *BoundarySurfaces* of a *Building* feature) or
 BUILDING_INSTALLATION (outer or interior) etc. Please consider that
 using CityGML ADEs could lead to additional OBJECTCLASS_IDs in this
-table (please also refer to 2.3.3.1 Metadata Model).
+table (please also refer to :numref:`chapter_citydb_schema_metadata`).
 
 .. list-table::  Contents of the *OBJECTCLASS* table
    :name: citydb_objectclass_table

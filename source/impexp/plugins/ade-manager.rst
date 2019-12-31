@@ -51,7 +51,7 @@ the ADE Manager Plugin should look like the figure below:
 User Interface
 ~~~~~~~~~~~~~~
 
-.. _ade_manager_plugin_registration:
+.. _ade_manager_plugin_registration_chapter:
 
 ADE Registration
 ^^^^^^^^^^^^^^^^
@@ -62,7 +62,7 @@ The first part is mainly used for registering CityGML ADEs into a
 ADE-specific database objects such as feature tables, foreign key
 contstraints, sequences, simple and spatial indexes are added to the
 existing 3DCityDB database schema. Also, the metatdata tables (cf.
-:numref:`schema_metadata_model`) are populated with the meta-information about the
+:numref:`chapter_citydb_schema_metadata`) are populated with the meta-information about the
 registered ADE. To run the ADE registration process, the input files
 required by the ADE Manager Plugin must be strictly organized according
 to the following folder structure.
@@ -315,14 +315,14 @@ the next step, some additional relevant meta-information for the ADE
 must be specified in the panel (cf. [3] in :numref:`ade_manager_plugin_schema_transform_GUI`) and will be
 written into the output schema-mapping file. More details about the
 meaning of the individual metadata attribute are described in
-:numref:`schema_metadata_model`. In the last step, the path for the output files should
+:numref:`chapter_citydb_schema_metadata`. In the last step, the path for the output files should
 be specified and the *Transform* button can be clicked to start the
 transformation process.
 
 The entire transformation process should take just a few seconds, since
 the TestADE has a rather simple structure with only 10 classes and data
 types. The output files are exactly organized according to the specific
-folder structure described in :numref:`ade_manager_plugin_registration`. A full example of the
+folder structure described in :numref:`ade_manager_plugin_registration_chapter`. A full example of the
 output files is located under the path *“test-ade-citydb\resources*\ ”
 which can be directly used as the input folder for performing the ADE
 registration into a 3DCityDB instance.
@@ -389,7 +389,7 @@ complete the ADE registration and database schema creation.
    User interface for checking the status of ADE support of database and Import/Export tool
 
 -  Activate the ADE Manager Plugin and follow the operation steps
-   described in :numref:`ade_manager_plugin_registration`.
+   described in :numref:`ade_manager_plugin_registration_chapter`.
 
 -  Reconnect the TestADE database again. The ADE status panel should be
    updated like the figure below.

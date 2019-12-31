@@ -66,7 +66,7 @@ are three prompts in total to define the spatial reference:
    ``urn:ogc:def:crs,crs:EPSG::<crs1>[,crs:EPSG::<crs2>]``.
 
 More information about the SRID and the URN encoding can be found in
-:numref:`3dcitydb_crs_definition`.
+:numref:`citydb_crs_definition_chapter`.
 
 **Step 5 – Enable or disable versioning**
 

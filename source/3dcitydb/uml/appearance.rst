@@ -1,3 +1,5 @@
+.. _citydb_appearance_model_chapter:
+
 Appearance Model
 ~~~~~~~~~~~~~~~~
 

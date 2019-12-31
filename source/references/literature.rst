@@ -169,10 +169,10 @@ Geoinformationstechnik 2008, Shaker Verlag, Aachen, S. 197-221.
     (accessed September 2018):
     http://mediatum.ub.tum.de/doc/1145748/781842.pdf
 
-Whiteside, A. (2009): *Definition identifier URNs in OGC namespace*,
-Version 1.3. **Open Geospatial Consortium,** OGC® Best Practices\ **,
-Doc. No. 07-092r3, January 15th.
-**\ http://portal.opengeospatial.org/files/?artifact_id=30575
+.. [Whit2009] Whiteside, A. (2009): *Definition identifier URNs in OGC namespace*,
+    Version 1.3. **Open Geospatial Consortium,** OGC® Best Practices\ **,
+    Doc. No. 07-092r3, January 15th.
+    **\ http://portal.opengeospatial.org/files/?artifact_id=30575
 
 | Wilson, T. (2008): *OGC® KML*, OGC® Standard Version 2.2.0. Open
   Geospatial Consortium, Doc. No. 07-147r2, April 14th.

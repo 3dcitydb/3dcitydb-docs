@@ -13,9 +13,10 @@ features, which can be referenced by GML identifiers. For this reason,
 the attributes GMLID and GMLID_CODESPACE were added to the corresponding
 tables.
 
-|image36|
+.. figure:: ../../../media/citydb_schema_appearance.png
+   :name: citydb_schema_appearance
 
-Figure 33: Appearance database schema
+   Appearance database schema
 
 **SURFACE_DATA, TEX_IMAGE, APPEAR_TO_SURFACE_DATA**
 
@@ -30,9 +31,9 @@ the specific object (values: *X3DMaterial*, *Texture* or
 *GeoreferencedTexture*). Materials are specified by the attributes
 X3D_xxx which define its graphic representation. Details on using
 georeferenced textures, such as orientation and reference point, are
-contained in attributes GT_xxx. See chapter 2.2.3 for more information
-on SURFACE_DATA attributes or the CityGML specification [Gröger et al.
-2012, p. 33-45] which explains the texture mapping process in detail.
+contained in attributes GT_xxx. See :numref:`citydb_appearance_model_chapter` for more information
+on SURFACE_DATA attributes or the CityGML specification (cf. [GKNH2012]_, p. 33-45 )
+which explains the texture mapping process in detail.
 
 Raster-based 2D textures are stored in table TEX_IMAGE. The name of the
 corresponding images for example is specified by the attribute
@@ -50,60 +51,81 @@ matrix) which are defined by the CityGML classes
 *\_TextureParameterization*, *TexCoordList*, and *TexCoordGen* are
 stored in the table TEXTUREPARAM.
 
-|BuildingAppearance|
+.. figure:: ../../../media/citydb_schema_example_appearance_texture.png
+   :name: citydb_schema_example_appearance_texture
 
-Figure 34: Simple example explaining texture mapping using texture
-coordinates
+   Simple example explaining texture mapping using texture coordinates
 
-================ ============ ============= ============= ===========
-**TEXTUREPARAM**                                         
-**SURFACE\_**    **IS_TEXTURE **WORLD_TO**  **TEXTURE\_   **SURFACE
-                 \_PARAME                   COORDINATES** \_DATA_ID**
-**GEOMETRY**     TRIZATION**  **\_TEXTURE**              
-                                                         
-**\_ID**                                                 
-**7**            **1**        **NULL**      **GEOMETRY**  **20**
-**…**            **…**        **…**         **…**         **…**
-================ ============ ============= ============= ===========
 
-Table 7: Example for table TEXTUREPARAM
+.. list-table::  Example for table TEXTUREPARAM
+   :name: citydb_schema_example_TEXTUREPARAM_table
+
+   * - | **SURFACE_**
+       | **GEOMETRY_ID**
+     - | **IS_TEXTURE**
+       | **_PARAMETRIZATION**
+     - | **WORLD_TO**
+       | **_TEXTURE**
+     - | **TEXTURE_**
+       | **COORDINATES**
+     - | **SURFACE_**
+       | **DATA_ID**
+   * - | 7
+     - | 1
+     - | NULL
+     - | GEOMETRY
+     - | 20
+   * - | ...
+     - | ...
+     - | ...
+     - | ...
+     - | ...
 
 Texture coordinates are applicable to polygonal surfaces, whose
 boundaries are described by a closed linear ring (last coordinate is
 equal to first). Coordinates are stored with a geometry data type. The
 WORLD_TO_TEXTURE attribute defines a transformation matrix from a
 location in world space to texture space. For more details see the
-CityGML Implementation Specification [Gröger et al. 2012].
+CityGML Implementation Specification [GKNH2012]_.
 
-|LoD1-2|
+.. figure:: ../../../media/citydb_schema_example_building_appearance.png
+   :name: citydb_schema_example_building_appearance
+   :width: 6.5in
 
-Figure 35: Visualisation of a simple building in LoD1 and LoD2 using the
-appearance model. Two themes are defined for the building and the
-surrounding terrain: (a) building in summertime and (b) building in
-wintertime
+   Visualisation of a simple building in LoD1 and LoD2 using the
+    appearance model. Two themes are defined for the building and the
+    surrounding terrain: (a) building in summertime and (b) building in
+    wintertime
 
-Six surface representations are listed in table SURFACE_DATA (cf. Table
-10). First of all, a homogeneous material is defined (ID=1), represented
+Six surface representations are listed in table SURFACE_DATA
+(cf. :numref:`citydb_schema_surface_data_table_figure`).
+First of all, a homogeneous material is defined (ID=1), represented
 by a 3-component (RGB) colour value which will be used for both
 appearances (summer and winter). This also applies to a general side
-façade texture (ID=3, Figure 36 right) which is repeated (wrapped) to
+façade texture (ID=3, :numref:`citydb_schema_images_parameterized_textures` right)
+which is repeated (wrapped) to
 fill the entire surface. For each of the front side, the back side and
 the ground two images are available: parameterized ones for the sides
-(Figure 36 left and middle) and georeferenced ones for the ground and
-the roof surfaces (Figure 38). The information of textures is stored in
+(:numref:`citydb_schema_images_parameterized_textures` left and middle)
+and georeferenced ones for the ground and
+the roof surfaces (:numref:`citydb_schema_images_georeferenced_textures`).
+The information of textures is stored in
 a separate table TEX_IMAGE. The coordinates for mapping the textures to
 the object are stored in table TEXTUREPARAM. For the general side
 texture (SURFACE_DATA_ID=3) five coordinate pairs are needed to define a
 closed ring (here: rectangle). Table SURFACE_GEOMETRY contains the
 information of all geometry parts that form the building and its
-appropriate 3D coordinates (cf. tables on the next page).
+appropriate 3D coordinates.
 
 See the following page for an example of the storage of appearances in
-the city database. Figure 36 and Figure 38 show the images used for
+the city database. :numref:`citydb_schema_images_parameterized_textures`
+and :numref:`citydb_schema_images_georeferenced_textures` show the images used for
 texturing a building in LoD2. In LoD1, a material definition is used to
 define the wall colors of the building.
 
-Table 8 to Table 11 show a combination of tables representing the
+:numref:`citydb_schema_APPEARANCE_table_figure` to
+:numref:`citydb_schema_TEXTUREPARAM_table_figure` show
+a combination of tables representing the
 building’s textures. There are different images available for summer and
 winter resulting in two themes: Summer and Winter. The tuples within the
 tables are color-coded according to their relation to the respective
@@ -115,165 +137,58 @@ theme:
 
 -  Orange: both summer and winter related data
 
-Figure 37 shows the LoD2 representation of summer appearances (theme
-Summer).
+:numref:`citydb_schema_example_lod2Surface_building` shows the LoD2 representation
+of summer appearances (theme Summer).
 
--  
+.. figure:: ../../../media/citydb_schema_example_lod2Surface_building.png
+   :name: citydb_schema_example_lod2Surface_building
+   :width: 4.3in
 
-|image39|
+   Surface geometries for the building in LoD2
 
-============== ========= ========== ================ =================
-**APPEARANCE**                                      
-**ID**         **GMLID** **THEME**  **CITYMODEL_ID** **CITYOBJECT_ID**
-**...**                  **...**    **...**          **...**
-**1**          **App1**  **Summer**                  **1000**
-**2**          **App2**  **Winter**                  **1000**
-**...**                  **...**    **...**          **...**
-============== ========= ========== ================ =================
 
-======================== =================== ======================
-**                                           
-APPEAR_TO_SURFACE_DATA**                     
-**APPEARANCE_ID**        **SURFACE_DATA_ID**  **COMMENTS**
-**1**                    **7**                **LoD1 S**
-**2**                    **7**                **LoD1 W**
-**1**                    **8**                **LoD2 ground/roof S**
-**1**                    **3**                **LoD2 façade S**
-**1**                    **4**                **LoD2 front/back S**
-**2**                    **5**                **LoD2 ground/roof W**
-**2**                    **3**                **LoD2 façade W**
-**2**                    **6**                **LoD2 front/back W**
-======================== =================== ======================
+.. figure:: ../../../media/citydb_schema_images_georeferenced_textures.png
+   :name: citydb_schema_images_georeferenced_textures
 
-Table 8: Excerpt of table APEARANCE
+   Images for georeferenced textures. The image ground_winter.png is assigned to the terrain
+   and the roof surfaces of the building both in LoD1 and
+   LoD2 within the winter theme (a), ground_summer.png
+   within the summer theme (b)
 
-The relation to the building feature is given by the foreign key
-CITYOBJECT_ID
 
-Table 9: APPEAR_TO_SURFACE table
+.. figure:: ../../../media/citydb_schema_images_parameterized_textures.png
+   :name: citydb_schema_images_parameterized_textures
 
-|image40|\ |image41|\ |image42|
+   Images for parameterized textures
 
-| front_back\_
-| summer.png
 
-| front_back\_
-| winter.png
+.. figure:: ../../../media/citydb_schema_APPEARANCE_table_figure.png
+   :name: citydb_schema_APPEARANCE_table_figure
 
-| facade.png
-| summer & winter
+   Excerpt of table APEARANCE, The relation to the building feature is given by the foreign key CITYOBJECT_ID
 
-SURFACE_DATA_ID = 4 SURFACE_DATA_ID = 6 SURFACE_DATA_ID = 3
 
-Figure 36: Images for parameterized textures
+.. figure:: ../../../media/citydb_schema_APPEAR_TO_SURFACE_table_figure.png
+   :name: citydb_schema_APPEAR_TO_SURFACE_table_figure
+   :width: 5.3in
 
-Figure 37: Surface geometries for the building in LoD2 (the IDs for LoD1
-are the same as in Figure 31)
+   APPEAR_TO_SURFACE table
 
-================ ============ ============================= ===================== ================ ================= ========================= ======================
-**SURFACE_DATA**                                                                                                                              
-**ID**           **IS_FRONT** **OBJECTCLASS_ID**            **X3D_DIFFUSE_COLOR** **TEX_IMAGE_ID** **TEX_WRAP_MODE** **GT_ORIENTATION**        **GT_REFERENCE_POINT**
-**7**            **1**        **53 (X3DMaterial)**          **1.0 0.6 0.0**                                                                   
-**3**            **1**        **54 (ParameterizedTexture)**                       **31**           **wrap**                                   
-**4**            **1**        **54**                                              **32**           **none**                                   
-**6**            **1**        **54**                                              **33**           **none**                                   
-**8**            **1**        **55 (GeoreferencedTexture)**                       **34**           **none**          **0.05 0.0 0.0 0.066667** **GEOMETRY**
-**5**            **1**        **55**                                              **35**           **none**          **0.05 0.0 0.0 0.066667** **GEOMETRY**
-================ ============ ============================= ===================== ================ ================= ========================= ======================
 
-============= ================== =========================
-**TEX_IMAGE**                   
-**ID**        **TEX_IMAGE_DATA** **TEX_IMAGE_URI**
-**31**        **BLOB(…)**        **facade.png**
-**32**        **BLOB(…)**        **front_back_summer.png**
-**33**        **BLOB(…)**        **front_back_winter.png**
-**34**        **BLOB(…)**        **ground_summer.png**
-**35**        **BLOB(…)**        **ground_winter.png**
-============= ================== =========================
+.. figure:: ../../../media/citydb_schema_surface_data_table_figure.png
+   :name: citydb_schema_surface_data_table_figure
 
-Table 10: Excerpt of table SURFACE_DATA and table TEX_IMAGE
+   Excerpt of table SURFACE_DATA table
 
-   |image43|
 
-================ ==================== ====================== ======================= ============= ==========================
-**TEXTUREPARAM**                                                                                   
-**SURFACE\_**    **IS_TEXTURE\_**     **WORLD_TO\_**         **TEXTURE_COORDINATES** **SURFACE\_**  C
-                                                                                                    *OMMENTS*
-**GEOMETRY_ID**  **PARA-METRIZATION** **TEXTURE**                                    **DATA_ID**   
-**30**           **0**                **NULL**               **NULL**                **8**          **LoD 2 ground S**
-**16**           **0**                **NULL**               **NULL**                **8**          **LoD 2 roof left S**
-**17**           **0**                **NULL**               **NULL**                **8**          **LoD 2 roof right S**
-**13**           **1**                **NULL**               **GEOMETRY**            **4**          **LoD 2 front S**
-**15**           **1**                **NULL**               **GEOMETRY**            **4**          **LoD 2 back S**
-**12**           **1**                **NULL**               **GEOMETRY**            **3**          **LoD 2 façade left S/W**
-**11**           **1**                **NULL**               **GEOMETRY**            **3**         
-**14**           **1**                **-0.4 0.0 0.0 1.0**   **NULL**                **3**          **LoD 2 façade right S/W**
-                                                                                                   
-                                      **0.0 0.0 0.3333 0.0**                                       
-                                                                                                   
-                                      **0.0 0.0 0.0 1.0**                                          
-**30**           **0**                **NULL**               **NULL**                **5**          **LoD2 ground W**
-**16**           **0**                **NULL**               **NULL**                **5**          **LoD 2 roof left W**
-**17**           **0**                **NULL**               **NULL**                **5**          **LoD 2 roof right W**
-**13**           **1**                **NULL**               **GEOMETRY**            **6**          **LoD 2 front W**
-**15**           **1**                **NULL**               **GEOMETRY**            **6**          **LoD 2 back W**
-**2**            **0**                **NULL**               **NULL**                **7**          **LoD1 walls S/W**
-**10**           **0**                **NULL**               **NULL**                **8**          **LoD1 roof S/W**
-================ ==================== ====================== ======================= ============= ==========================
+.. figure:: ../../../media/citydb_schema_tex_image_table_figure.png
+   :name: citydb_schema_tex_image_table_figure
+   :width: 6.3in
 
-Ground\_
+   Excerpt of table TEX_IMAGE table
 
-winter.png
 
-SURFACE_DATA_ID = 5
+.. figure:: ../../../media/citydb_schema_TEXTUREPARAM_table_figure.png
+   :name: citydb_schema_TEXTUREPARAM_table_figure
 
-|image44|
-
-Table 11: Table TEXTUREPARAM
-
-Ground\_
-
-summer.png
-
-SURFACE_DATA_ID = 8
-
-Figure 38: Images for georeferenced textures (The image
-*round_winter.png* is assigned to the terrain and the roof surfaces of
-the building both in LoD1 and LoD2 within the winter theme (a),
-*ground_summer.png* within the summer theme (b))
-
-.. |image36| image:: ../../media/image46.png
-   :width: 6.29921in
-   :height: 5.33656in
-
-.. |BuildingAppearance| image:: ../../media/image47.png
-   :width: 6.21736in
-   :height: 1.73056in
-
-.. |LoD1-2| image:: ../../media/image48.png
-   :width: 5.03472in
-   :height: 1.99097in
-
-.. |image39| image:: ../../media/image49.png
-   :width: 3.75472in
-   :height: 3.26415in
-
-.. |image40| image:: ../../media/image51.png
-   :width: 0.60417in
-   :height: 0.72917in
-
-.. |image41| image:: ../../media/image52.png
-   :width: 1.575in
-   :height: 0.78056in
-
-.. |image42| image:: ../../media/image53.png
-   :width: 1.58333in
-   :height: 0.79167in
-
-.. |image43| image:: ../../media/image54.png
-   :width: 2.3125in
-   :height: 1.72917in
-
-.. |image44| image:: ../../media/image55.png
-   :width: 2.3125in
-   :height: 1.72917in
+   TEXTUREPARAM Table

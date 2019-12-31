@@ -1,3 +1,5 @@
+.. _citydb_tunnel_model_chapter:
+
 Tunnel Model
 ^^^^^^^^^^^^
 

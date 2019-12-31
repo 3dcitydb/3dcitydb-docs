@@ -33,16 +33,13 @@ by the OBJECTCLASS_ID attribute:
 
 If a CityGML ADE is used that extends any of the named classes above,
 further values for OBJECTCLASS_ID may be added by the ADE manager. Their
-concrete numbers depend on the ADE registration (cf. section 6.3.3.1).
+concrete numbers depend on the ADE registration (cf. :numref:`ade_manager_plugin_registration_chapter`).
 
 Since every \_\ *WaterBoundarySurface* object must have at least one
 associated surface geometry, the foreign keys LODx_SURFACE_ID (with 2 ≤x
 ≤ 4, no *MultiSurface* here) are used to realise these relations.
 
-|image55|
+.. figure:: ../../../media/citydb_schema_waterbody_diagram.png
+   :name: citydb_schema_waterbody_diagram
 
-Figure 49: WaterBody database schema
-
-.. |image55| image:: ../../media/image66.png
-   :width: 6.42634in
-   :height: 5.95858in
+   WaterBody database schema

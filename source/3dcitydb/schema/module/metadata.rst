@@ -1,10 +1,10 @@
-.. _schema_metadata_model:
+.. _chapter_citydb_schema_metadata:
 
 Metadata Model
 ^^^^^^^^^^^^^^
 
 An overview of the relational structure of the *Metadata Module* is
-shown in Figure 28. The table ADE serves as a central registry for all
+shown in :numref:`citydb_schema_metadata_diagram`. The table ADE serves as a central registry for all
 the registered CityGML ADEs each of which corresponds to a table row and
 the relevant ADE metadata attributes are mapped onto the respective
 columns. For example, each registered ADE shall own a globally unique ID
@@ -32,10 +32,10 @@ meta-information is typically helpful for 3DCityDB users to accomplish
 the administration work e.g. searching and cleaning up those ADEs that
 are outdated or registered by certain database users.
 
-|image31|
+.. figure:: ../../../media/citydb_schema_metadata_diagram.png
+   :name: citydb_schema_metadata_diagram
 
-Figure 28: Technical implementation of the 3DCityDB Metadata Module in a
-relational diagram
+   Technical implementation of the 3DCityDB Metadata Module in a relational diagram
 
 A CityGML ADE may consist of multiple application schemas one of which
 should be the root schema referencing the others. Such dependency
@@ -60,8 +60,9 @@ versions, because they can be defined based on both CityGML version
 The table OBJECTCLASS is a central registry for enumerating not only the
 standard CityGML classes but also the classes of the registered ADEs.
 Each class is assigned with a globally unique numeric ID for querying
-and accessing the class-related information. As explained in the section
-2.3.1.2, the ID values ranging from 0 to 113 have already been reserved
+and accessing the class-related information.
+As explained in the :numref:`citydb_class_affiliation_declaration_chapter`,
+the ID values ranging from 0 to 113 have already been reserved
 for the standard CityGML classes. Thus, the ID values of the registered
 ADE classes must be larger than 113. Concerning the situation that more
 additional feature classes might be introduced into the future versions
@@ -98,7 +99,3 @@ the individual aggregation/composition are stored in the two numeric
 columns MIN_OCCURS and MAX_OCCURS. In case of a 0..\* relationship where
 the value of the multiplicity end is unbounded, the value in the column
 MAX_OCCURS shall be set NULL.
-
-.. |image31| image:: ../../media/image41.png
-   :width: 6.29931in
-   :height: 7.53293in

@@ -1,3 +1,5 @@
+.. _citydb_schema_core_model_chapter:
+
 Core Model
 ^^^^^^^^^^
 
@@ -15,11 +17,12 @@ coordinates of the bounding box and define it completely. For backwards
 compatibility reasons (to Oracle 10g), the envelope cannot be stored as
 a volume.
 
-|envelope_basis_3f|
+.. figure:: ../../../media/citydb_envelope_definition.png
+   :name: citydb_envelope_definition
 
-Figure 29: The *CityObject*\ ’s envelope specified by two points with
-minimum and maximum coordinate values (left: black points) is stored as
-a 3D rectangle (right: black polygon using five points)
+   The *CityObject*\ ’s envelope specified by two points with minimum
+   and maximum coordinate values (left: black points) is stored as a
+   3D rectangle (right: black polygon using five points)
 
 In order to identify each object, a unique identifier is essential.
 Therefore, the column GMLID stores the *gml:id* value of every city
@@ -31,7 +34,7 @@ GMLID_CODESPACE should be ensured to be unique for each *CityObject*.
 
 The attributes NAME or NAME_CODESPACE can contain more than one
 *gml:name* proper­ty. In this case they have to be separated by the
-string '--/\-- ' (more details on the following page). The CityGML
+string '-\\-/\\\\-\\-' (more details on the following page). The CityGML
 exporter will then create multiple occurrences of <gml:name> elements.
 
 The attribute OBJECTCLASS_ID provides information on the class
@@ -58,45 +61,87 @@ EXTERNAL_REFERENCE.
 
 **CITYOBJECTGROUP, GROUP_TO_CITYOBJECT**
 
-The aggregation concept described in paragraph 2.1.1 is realized by two
-tables. The n:m relationship between an object group (table
+The n:m relationship between an object group (table
 CITYOBJECTGROUP) consisting of city objects contained in CITYOBJECT is
 realized by the table GROUP_TO_CITYOBJECT, which associates the IDs of
-both tables. Table 2 shows an example, in which two buildings are
+both tables. The following tables shows an example, in which two buildings are
 grouped to a hotel complex.
 
-============================= ========= ============= ================== ====================== ========= =============
-**CITYOBJECTGROUP (excerpt)**                                                                            
-**ID**                        **CLASS** **CLASS\_**   **FUNCTION**       **FUNCTION_CODESPACE** **USAGE** **USAGE\_**
-                                                                                                         
-                                        **CODESPACE**                                                     **CODESPACE**
-**1**                         **NULL**  **NULL**      **Building group** **NULL**               **Hotel** **NULL**
-============================= ========= ============= ================== ====================== ========= =============
+.. list-table::  *Cityobjectgroup* table (excerpt)
+   :name: citydb_cityobject_group_table
 
-======================= ====================== =================
-**GROUP_TO_CITYOBJECT**                       
-**CITYOBJECT_ID**       **CITYOBJECTGROUP_ID** **ROLE**
-**2**                   **1**                  **Main building**
-**4**                   **1**                  **Annex**
-======================= ====================== =================
+   * - | **ID**
+     - | **CLASS**
+     - | **CLASS_**
+       | **CODESPACE**
+     - | **FUNCTION**
+     - | **FUNCTION_**
+       | **CODESPACE**
+     - | **USAGE**
+     - | **USAGE_**
+       | **CODESPACE**
+   * - | 1
+     - | NULL
+     - | NULL
+     - | Building
+       | group
+     - | NULL
+     - | Hotel
+     - | NULL
 
-======================== ================== ============= ============ ============================== ===============
-**CITYOBJECT (excerpt)**                                                                             
-**ID**                   **OBJECTCLASS_ID** **GML_ID**    **ENVELOPE** **CREATION_DATE**              **TERMINATION\_
-                                                                                                      DATE**
-**2**                    **26**             **Build1632** **GEOMETRY** **2015-02-02 09:26:07.441+01** **NULL**
-**4**                    **26**             **Build1633** **GEOMETRY** **2015-02-02 09:26:07.441+01** **NULL**
-**1**                    **23**             **Group1700** **NULL**     **2015-02-02 09:26:07.441+01** **NULL**
-======================== ================== ============= ============ ============================== ===============
+.. list-table::  *GROUP_TO_CITYOBJECT* table
+   :name: citydb_group_to_cityobject_table
 
-Table 2: Cityobjectgroup tables
+   * - | **CITYOBJECT_ID**
+     - | **CITYOBJECTGROUP_ID**
+     - | **ROLE**
+   * - | 2
+     - | 1
+     - | Main building
+   * - | 4
+     - | 1
+     - | Annex
+
+.. list-table::  *Cityobject* table (excerpt)
+   :name: citydb_cityobject_table
+
+   * - | **ID**
+     - | **OBJECTCLASS**
+       | **_ID**
+     - | **GML_ID**
+     - | **ENVELOPE**
+     - | **CREATION**
+       | **_DATE**
+     - | **TERMINATION**
+       | **_DATE**
+   * - | 2
+     - | 26
+     - | Build1632
+     - | GEOMETRY
+     - | 2015-02-02
+       | 09:26:07.441+01
+     - | NULL
+   * - | 4
+     - | 26
+     - | Build1633
+     - | GEOMETRY
+     - | 2015-02-02
+       | 09:26:07.441+01
+     - | NULL
+   * - | 1
+     - | 23
+     - | Group1700
+     - | NULL
+     - | 2015-02-02
+       | 09:26:07.441+01
+     - | NULL
 
 For attributes CLASS, FUNCTION and USAGE there is an additional
 \_CODESPACE column in order to specify the source of code lists used for
 values (e.g. by a globally unique URL). As a CityGML feature like
 *CityObjectGroup* can have multiple instances of attributes *class*,
 *function* and *usage* but only one target column exist in the table,
-values are separated by the string sequence '--/\-- '. The CityGML
+values are separated by the string sequence '-\\-/\\\\-\\-'. The CityGML
 exporter will then create multiple occurrences of corresponding
 elements. Normalization rules were not applied in this case in order to
 avoid many joins when querying all information of building objects.
@@ -109,14 +154,7 @@ bridges and tunnels). They do not appear once in the CITYOBJECT table,
 because they are belonging to the namespace of a certain thematic module
 and should be stored along with other attributes of that feature.
 
-|image33|
+.. figure:: ../../../media/citydb_schema_core.png
+   :name: citydb_schema_core
 
-Figure 30: Database schema of the CityGML core elements
-
-.. |envelope_basis_3f| image:: ../../media/image42.png
-   :width: 4.24528in
-   :height: 2.31241in
-
-.. |image33| image:: ../../media/image43.png
-   :width: 6.29921in
-   :height: 5.52144in
+   Database schema of the CityGML core elements

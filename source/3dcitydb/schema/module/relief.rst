@@ -20,9 +20,10 @@ are derived from CITYOBJECT and receive the same ID as the *CityObject*.
 Table RELIEF_FEAT_TO_REL_COMP represents the interrelationship between
 relief features and relief components.
 
-|image49|
+.. figure:: ../../../media/citydb_schema_relief_diagram.png
+   :name: citydb_schema_relief_diagram
 
-Figure 43: Digital Terrain Model database schema
+   Digital Terrain Model database schema
 
 A raster relief is the only feature in CityGML that can be described by
 a grid coverage. Corresponding database types are SDO_GEORASTER in
@@ -51,19 +52,19 @@ value domains:
 
 **BREAKLINE_RELIEF**
 
--  **BREAK_LINES and RIDGE_OR_VALLEY_LINES**
+-  BREAK_LINES and RIDGE_OR_VALLEY_LINES
 
-   -  **Oracle: MultiLine (GTYPE 3006)**
+   -  Oracle: MultiLine (GTYPE 3006)
 
-   -  **PostGIS: MultiLineString Z**
+   -  PostGIS: MultiLineString Z
 
 **TIN_RELIEF**
 
 -  STOP_LINES and BREAK_LINES
 
-   -  **Oracle: MultiLine (GTYPE 3006)**
+   -  Oracle: MultiLine (GTYPE 3006)
 
-   -  **PostGIS: MultiLineString Z**
+   -  PostGIS: MultiLineString Z
 
 -  RELIEF_POINTS
 
@@ -93,6 +94,3 @@ value domains:
 
    -  PostGIS: *Polygon Z*
 
-.. |image49| image:: ../../media/image60.png
-   :width: 6.1706in
-   :height: 4.68125in

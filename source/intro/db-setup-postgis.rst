@@ -67,7 +67,7 @@ As soon as the database credentials are defined run the CREATE_DB script
 
 Like with the Oracle version, the user is prompted to enter the SRID
 used for the geometry columns, the SRID of the height system and the URN
-encoding of the coordinate reference system to be used (see :numref:`3dcitydb_crs_definition` for more information).
+encoding of the coordinate reference system to be used (see :numref:`citydb_crs_definition_chapter` for more information).
 
 .. note::
    The setup process will terminate immediately if an error occurs.

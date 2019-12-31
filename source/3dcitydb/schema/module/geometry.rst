@@ -1,4 +1,4 @@
-.. _citydb_schema_geometry:
+.. _chapter_citydb_schema_geometry:
 
 Tables for geometry representation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -17,24 +17,40 @@ geometry is stored as attribute IMPLICIT_GEOMETRY. The volumetric
 geometry is stored as attribute SOLID_GEOMETRY and its boundary surfaces
 (outer shell) will be stored as attribute GEOMETRY as well. Any surface
 may have textures or a colour on both sides. Textures are stored within
-the tables which implement the appearance model (cf. chapter 2.2.3).
+the tables which implement the appearance model (cf. :numref:`citydb_appearance_model_chapter`).
 
 The geometry information in the fields GEOMETRY and IMPLICIT_GEOMETRY of
 the table SURFACE_GEOMETRY is limited as follows:
 
-====================================================================================================================================================================== ====================================================================================================================
-**Geometry storage in Surface Geometry – polygonal geometry**                                                                                                         
-**Oracle**                                                                                                                                                             **PostGIS**
--  SDO_GTYPE must have the type *Polygon*, i.e. a polygon with 3D coordinates (SDO_GTYPE = 3003),                                                                      -  **Only POLYGON Z is allowed, i.e.** a polygon with 3D coordinates
-                                                                                                                                                                      
--  SDO_ETYPE must be 1003/2003 with SDO_INTERPRETATION = 1 (i.e. polygon with 3D coordinates in the boundary, bounded just by line segments, possibly including holes) -  Polygons might have holes
-                                                                                                                                                                      
--  In addition Oracle allows the representation of a rectangle by two corner points (SDO_ETYPE=1003/2003, with SDO_INTERPRETATION = 3)                                 -  The IMPLICIT_GEOMETRY column has no SRID defined. Thus, entries in that column will have the SRID 0 automatically
-                                                                                                                                                                      
--  SDO_SRID of implicit geometries can be any SRID Oracle supports. No spatial index is defined on the column by default.                                             
-====================================================================================================================================================================== ====================================================================================================================
+.. list-table::  Storage of polygonal geometry
+   :name: citydb_storage_of_polygonal_geometry_table
 
-Table 3: *Storage of polygonal geometry*
+   * - | **Oracle**
+     - | **PostGIS**
+   * - | - SDO_GTYPE must have the type *Polygon*, i.e. a
+       | polygon with 3D coordinates (SDO_GTYPE = 3003)
+       |
+       | - SDO_ETYPE must be 1003/2003 with
+       | SDO_INTERPRETATION = 1 (i.e. polygon with
+       | 3D coordinates in the boundary, bounded just by
+       | linesegments, possibly including holes)
+       |
+       | - In addition Oracle allows the representation
+       | of a rectangle by two corner points
+       | (SDO_ETYPE=1003/2003,
+       | with SDO_INTERPRETATION = 3)
+       |
+       | - SDO_SRID of implicit geometries can be
+       | any SRID Oracle supports. No spatial index
+       | is defined on the column by default.
+     - | - Only POLYGON Z is allowed, i.e. a polygon
+       | with 3D coordinates
+       |
+       | - Polygons might have holes
+       |
+       | - The IMPLICIT_GEOMETRY column has no
+       | SRID defined. Thus, entries in that column
+       | will have the SRID 0 automatically
 
 A solid is the basis for 3-dimensional geometry. The extent of a solid
 is defined by the boundary surfaces (outer shell). A shell is
@@ -46,31 +62,45 @@ no natural sort order. Like rings, shells are simple. The geometry in
 the field SOLID_GEOMETRY of the table SURFACE_GEOMETRY is limited as
 follows:
 
-=================================================================================================================================================================== =============================================================================================
-**Geometry storage in Surface Geometry – 3D geometry**                                                                                                             
-**Oracle**                                                                                                                                                          **PostGIS**
--  SDO_GTYPE must have the type *Solid*, i.e. a solid with 3D coordinates (SDO_GTYPE = 3008)                                                                        -  **Only POLYHEDRALSURFACE is allowed, i.e.** the outer shell of a solid with 3D coordinates
-                                                                                                                                                                   
--  SDO_ETYPE must be 1007 (simple solid) or 1008 (composite solid).                                                                                                 -  A simple polyhedral surface can be represented by using several polygons as its boundary
-                                                                                                                                                                   
--  A simple solid can be represented by using several polygons as its boundary (SDO_ETYPE=1007, with SDO_INTERPRETATION = 1).                                      
-                                                                                                                                                                   
--  The composite solid can be constructed with a number of simple solids, e.g. a composite solid with 4 simple solids (SDO_ETYPE=1008, with SDO_INTERPRETATION = 4)
-=================================================================================================================================================================== =============================================================================================
+.. list-table::  Storage of 3D geometry
+   :name: citydb_storage_of_3D_geometry_table
 
-Table 4: *Storage of 3D geometry*
+   * - | **Oracle**
+     - | **PostGIS**
+   * - | - SDO_GTYPE must have the type Solid, i.e. a solid
+       | with  3D coordinates (SDO_GTYPE = 3008)
+       |
+       | - SDO_ETYPE  must  be  1007  (simple solid) or
+       | 1008 (composite solid)
+       |
+       | - A simple solid can be represented by using
+       | several polygons as its boundary
+       | (SDO_ETYPE=1007,
+       | with SDO_INTERPRETATION = 1)
+       |
+       | - The composite solid can be constructed with
+       | a number of simple  solids, e.g.  a  composite
+       | solid  with  4  simple  solids (SDO_ETYPE=1008,
+       | with SDO_INTERPRETATION = 4)
+     - | - Only POLYHEDRALSURFACE is allowed, i.e.
+       | the outer shell of a solid with 3D coordinates
+       |
+       | - A simple polyhedral surface can be represented
+       | by using several polygons as its boundary
 
 Surfaces can be aggregated to form a complex of surfaces or the boundary
 of a volumetric object. The aggregation of multiple surfaces, e.g.
-F\ :sub:`1` to F\ :sub:`n`, (IDs 6 to 10 in Figure 31 / Figure 32) is
+F\ :sub:`1` to F\ :sub:`n`, (IDs 6 to 10 in :numref:`citydb_schema_example_geometry_hierarchy` /
+:numref:`citydb_schema_example_lod1solid_building`) is
 realized the way that the newly created surface tuple F\ :sub:`n+1` (ID
-2) is not assigned a geo­metry (cf. Table 5). Instead, the PARENT_ID of
-the surfaces F\ :sub:`1` to F\ :sub:`n` refer to the ID of
+2) is not assigned a geo­metry (cf. :numref:`citydb_aggregation_types_determination_table`).
+Instead, the PARENT_ID of the surfaces F\ :sub:`1` to F\ :sub:`n` refer to the ID of
 F\ :sub:`n+1`.
 
-|image34|
+.. figure:: ../../../media/citydb_schema_example_geometry_hierarchy.png
+   :name: citydb_schema_example_geometry_hierarchy
 
-Figure 31: Geometry hierarchy for the solid geometry shown in Figure 32
+   Geometry hierarchy for the solid geometry shown in :numref:`citydb_schema_example_lod1solid_building`
 
 In addition, a further tuple (ID 1) is introduced, which represent the
 solid and defines the root element of the whole aggregation structure.
@@ -88,26 +118,65 @@ denotes a TriangulatedSurface, IS_SOLID distinguishes between surface
 (e.g. *MultiSolid*, *MultiSurface*) or a composite (e.g.,
 *CompositeSolid*, *CompositeSurface*).
 
-Based on these flags the geometry types listed in 5 can be
+Based on these flags the geometry types listed in
+:numref:`citydb_aggregation_types_determination_table` can be
 distinguished. To distinguish a *MultiSolid* from a *MultiSurface* its
 child elements have to be analysed: In case the child is a *Solid*, the
 geometry can be identified as *MultiSolid*.
 
-============================ =========== =============== ================== ============ ============
-\                            **isSolid** **isComposite** **isTriangulated** **Geometry** **SOLID\_**
-                                                                                        
-                                                                                         **GEOMETRY**
-============================ =========== =============== ================== ============ ============
-Polygon, Triangle, Rectangle                                                GEOMETRY     NULL
-MultiSurface                                                                NULL         NULL
-CompositeSurface                                                            NULL         NULL
-TriangulatedSurface                                                         NULL         NULL
-Solid                                                                       NULL         GEOMETRY
-MultiSolid                                                                  NULL         NULL
-CompositeSolid                                                              NULL         GEOMETRY
-============================ =========== =============== ================== ============ ============
+.. list-table::  Attributes determining aggregation types
+   :name: citydb_aggregation_types_determination_table
 
-Table 5: Attributes determining aggregation types
+   * - |
+     - | **isSolid**
+     - | **isComposite**
+     - | **isTriangulated**
+     - | **Geometry**
+     - | **SOLID_**
+       | **GEOMETRY**
+   * - | Polygon, Triangle,
+       | Rectangle
+     - |
+     - |
+     - |
+     - | GEOMETRY
+     - | NULL
+   * - | MultiSurface
+     - |
+     - |
+     - |
+     - | NULL
+     - | NULL
+   * - | CompositeSurface
+     - |
+     - | ✔
+     - |
+     - | NULL
+     - | NULL
+   * - | TriangulatedSurface
+     - |
+     - |
+     - | ✔
+     - | NULL
+     - | NULL
+   * - | Solid
+     - | ✔
+     - |
+     - |
+     - | NULL
+     - | GEOMETRY
+   * - | MultiSolid
+     - |
+     - |
+     - |
+     - | NULL
+     - | NULL
+   * - | CompositeSolid
+     - | ✔
+     - | ✔
+     - |
+     - | NULL
+     - | GEOMETRY
 
 Aggregated surfaces can be grouped again with other (compound) surfaces,
 by generating a common parent. This way, arbitrary aggregations of
@@ -136,27 +205,92 @@ SURFACE_GEOMETRY_SEQ.
 surfaces which form a volumetric object. In the table it is represented
 by the following rows:
 
-|image35|
+.. figure:: ../../../media/citydb_schema_example_lod1solid_building.png
+   :name: citydb_schema_example_lod1solid_building
 
-Figure 32: LoD 1 building - closed volume bounded by a
-*CompositeSurface* which consists of single polygons
+   LoD 1 building - closed volume bounded by a *CompositeSurface* which consists of single polygons
 
-==================== =============== ============ ========== ========= ============= ========================== ======================
-**SURFACE_GEOMETRY**                                                                                           
-**ID**               **GMLID**       **PARENT\_** **ROOT\_** **IS\_**  **IS\_**      **GEOMETRY**               **SOLID\_**
-                                                                                                               
-                                     **ID**       **ID**     **SOLID** **COMPOSITE**                            **GEOMETRY**
-**1**                **UUID_lod1**   **NULL**     **1**      **1**     **0**         **NULL**                   **GEOMETRY for Solid**
-**2**                **lod1Surface** **1**        **1**      **0**     **1**         **NULL**                   **NULL**
-**3**                **Left1**       **2**        **1**      **0**     **0**         **GEOMETRY for surface 3** **NULL**
-**4**                **Front1**      **2**        **1**      **0**     **0**         **GEOMETRY for surface 4** **NULL**
-**5**                **Right1**      **2**        **1**      **0**     **0**         **GEOMETRY for surface 5** **NULL**
-**6**                **Back1**       **2**        **1**      **0**     **0**         **GEOMETRY for surface 6** **NULL**
-**7**                **Roof1**       **2**        **1**      **0**     **0**         **GEOMETRY for surface 7** **NULL**
-==================== =============== ============ ========== ========= ============= ========================== ======================
+.. list-table::  Excerpt of table SURFACE_GEOMETRY representing the example given in :numref:`citydb_schema_example_lod1solid_building`
+   :name: citydb_example_surface_geometry_table
 
-Table 6: Excerpt of table SURFACE_GEOMETRY representing the example
-given in Figure 32
+   * - | **ID**
+     - | **GMLID**
+     - | **PARENT_**
+       | **ID**
+     - | **ROOT_**
+       | **ID**
+     - | **IS_**
+       | **SOLID**
+     - | **IS_COM**
+       | **POSITE**
+     - | **GEOMETRY**
+     - | **SOLID_**
+       | **GEOMETRY**
+   * - | 1
+     - | UUID
+       | _lod1
+     - | NULL
+     - | 1
+     - | 1
+     - | 0
+     - | NULL
+     - | GEOMETRY
+       | for Solid
+   * - | 2
+     - | lod1
+       | Surface
+     - | 1
+     - | 1
+     - | 0
+     - | 1
+     - | NULL
+     - | NULL
+   * - | 3
+     - | Left1
+     - | 2
+     - | 1
+     - | 0
+     - | 0
+     - | GEOMETRY
+       | for surface 3
+     - | NULL
+   * - | 4
+     - | Front1
+     - | 2
+     - | 1
+     - | 0
+     - | 0
+     - | GEOMETRY
+       | for surface 4
+     - | NULL
+   * - | 5
+     - | Right1
+     - | 2
+     - | 1
+     - | 0
+     - | 0
+     - | GEOMETRY
+       | for surface 5
+     - | NULL
+   * - | 6
+     - | Back1
+     - | 2
+     - | 1
+     - | 0
+     - | 0
+     - | GEOMETRY
+       | for surface 6
+     - | NULL
+   * - | 7
+     - | Roof1
+     - | 2
+     - | 1
+     - | 0
+     - | 0
+     - | GEOMETRY
+       | for surface 7
+     - | NULL
+
 
 In addition, two further attributes are included in SURFACE_GEOMETRY:
 IS_XLINK and IS_REVERSE.
@@ -170,7 +304,7 @@ unique *gml:id* which may be referenced by a GML geometry property
 element through its *xlink:href* attribute. This concept allows for
 avoiding data redundancy. Furthermore, CityGML does not employ the
 built-in topology package of GML3 but rather uses the XLink concept for
-the explicit modelling of topology (see [Gröger et al. 2008], p. 25).
+the explicit modelling of topology (see [GKCN2008]_ p. 25).
 
 Although an XLink can be seen as a pointer to an existing geometry
 object the SURFACE_GEOMETRY table does not offer a foreign key attribute
@@ -315,11 +449,3 @@ used to rebuild *OrientableSurface* in the following way:
 
 Like with the IS_XLINK flag, the Importer/Exporter tool provides a
 reference implementation of the IS_REVERSE flag.
-
-.. |image34| image:: ../../media/image44.png
-   :width: 6.3in
-   :height: 2.99702in
-
-.. |image35| image:: ../../media/image45.png
-   :width: 1.49583in
-   :height: 1.59097in

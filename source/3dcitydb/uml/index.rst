@@ -1,3 +1,5 @@
+.. _chapter_citydb_UML_class_diagram:
+
 UML class diagram
 -----------------
 

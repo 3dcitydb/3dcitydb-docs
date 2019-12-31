@@ -1,3 +1,5 @@
+.. _citydb_sproc_chapter:
+
 Stored procedures and additional features
 =========================================
 
@@ -14,10 +16,11 @@ name has to be included for the Oracle version. With PostgreSQL, the
 ‘citydb_pkg’ schema has not to be specified as prefix since it is put on
 the database *search path* during setup.
 
-|image60|\ |image61|
+.. figure:: ../../media/citydb_graphical_database_clients.png
+   :name: citydb_graphical_database_clients
 
-Figure 54: Graphical database client connected to the 3D City Database
-(left: SQL Developer (Oracle), right: pgAdmin 4 (PostgreSQL)
+   Graphical database client connected to the 3D City Database
+   (left: SQL Developer (Oracle), right: pgAdmin 4 (PostgreSQL)
 
 .. toctree::
    :maxdepth: 1
@@ -31,11 +34,3 @@ Figure 54: Graphical database client connected to the 3D City Database
    citydb-objclass
    citydb-delete
    citydb-envelope
-
-.. |image60| image:: ../../media/image71.png
-   :width: 1.9912in
-   :height: 2.45in
-
-.. |image61| image:: ../../media/image72.png
-   :width: 1.64967in
-   :height: 2.63561in

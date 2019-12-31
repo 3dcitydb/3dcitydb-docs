@@ -18,7 +18,7 @@ whether a tuple represents a *TrafficArea* (value 47) or an
 *AuxiliaryTrafficArea* (value 48) feature. If a CityGML ADE is used that
 extends any of the two classes *TrafficArea* or *AuxiliaryTrafficArea*,
 further values for OBJECTCLASS_ID may be added by the ADE manager. Their
-concrete numbers depend on the ADE registration (cf. section 6.3.3.1).
+concrete numbers depend on the ADE registration (cf. :numref:`ade_manager_plugin_registration_chapter`).
 
 **TRANSPORTATION_COMPLEX**
 
@@ -38,7 +38,7 @@ the subclasses an OBJECTCLASS_ID column is used again:
 
 If a CityGML ADE is used that extends any of the classes named above,
 further values for OBJECTCLASS_ID may be added by the ADE manager. Their
-concrete numbers depend on the ADE registration (cf. section 6.3.3.1).
+concrete numbers depend on the ADE registration (cf. :numref:`ade_manager_plugin_registration_chapter`).
 
 In the coarsest level transportation complexes are modelled by line
 objects. The corresponding column is called LOD0_NETWORK of geometry
@@ -46,10 +46,7 @@ type *MultiCurve* in Oracle and *MultiLineString Z* in PostGIS. Starting
 form LOD1 the representation of object geometry is handled by foreign
 keys LODx_MULTI_SURFACE_ID (with 1 ≤ x ≤ 4).
 
-|image52|
+.. figure:: ../../../media/citydb_schema_transportation_diagram.png
+   :name: citydb_schema_transportation_diagram
 
-Figure 46: Transportation database schema
-
-.. |image52| image:: ../../media/image63.png
-   :width: 5.60014in
-   :height: 5.14783in
+   Transportation database schema

@@ -76,64 +76,43 @@ code block to delete objects based on a query result can look like this:
 
 **Oracle:**
 
-**-- single version**
+.. code:: sql
 
-**DECLARE**
+    -- single version
+    DECLARE
+      deleted_id NUMBER;
+      dummy_ids ID_ARRAY := ID_ARRAY();
+    BEGIN
+      FOR rec IN (SELECT * FROM cityobject WHERE ...) LOOP
+        deleted_id := citydb_delete.del_cityobject(rec.id);
+      END LOOP;
+      dummy_ids := citydb_delete.cleanup_appearances;
+    END;
+    -- array version
+    DECLARE
+      pids ID_ARRAY := ID_ARRAY();
+      deleted_ids ID_ARRAY := ID_ARRAY();
+      dummy_ids ID_ARRAY := ID_ARRAY();
+    BEGIN
+      SELECT id BULK COLLECT INTO pids
+        FROM cityobject WHERE ...;
 
-deleted_id **NUMBER**;
-
-dummy_ids ID_ARRAY := ID_ARRAY();
-
-**BEGIN**
-
-  **FOR** rec **IN** (**SELECT** \* **FROM** cityobject **WHERE** ...)
-**LOOP**
-
-    deleted_id := citydb_delete.del_cityobject(rec.id);
-
-  **END** **LOOP**;
-
-dummy_ids := citydb_delete.cleanup_appearances;
-
-**END**;
-
-**-- array version**
-
-**DECLARE**
-
-pids ID_ARRAY := ID_ARRAY();
-
-deleted_ids ID_ARRAY := ID_ARRAY();
-
-dummy_ids ID_ARRAY := ID_ARRAY();
-
-**BEGIN**
-
-  **SELECT** id **BULK COLLECT INTO** pids
-
-**FROM** cityobject **WHERE** ...;
-
-  deleted_ids := citydb_delete.del_cityobject(pids);
-
-dummy_ids := citydb_delete.cleanup_appearances;
-
-**END**;
+      deleted_ids := citydb_delete.del_cityobject(pids);
+      dummy_ids := citydb_delete.cleanup_appearances;
+    END;
 
 **PostgreSQL:**
 
-**-- single version**
+.. code:: sql
 
-**SELECT** citydb.del_cityobject(id) **FROM** cityobject **WHERE** ... ;
+    -- single version
+    SELECT citydb.del_cityobject(id) FROM cityobject WHERE ... ;
+    SELECT citydb.cleanup_appearances();
 
-**SELECT** citydb.cleanup_appearances();
-
-**-- array version**
-
-**SELECT** citydb.del_cityobject(array_agg(id))
-
-**FROM** cityobject **WHERE** ... ;
-
-**SELECT** citydb.cleanup_appearances();
+    -- array version
+    SELECT citydb.del_cityobject(array_agg(id))
+      FROM cityobject WHERE ... ;
+    SELECT citydb.cleanup_appearances();
 
 Which delete function to use depends on the ratio between the number of
 entries to be deleted and the total count of objects in the database.
@@ -155,28 +134,79 @@ reset.
 The following table only lists functions that differ from each other
 where del_cityobject stands for the general layout of a delete function:
 
-================================================ =========== ============================================================================================================================================================================================
-Function                                         Return Type Explanation
-================================================ =========== ============================================================================================================================================================================================
-**cleanup_appearances** (*only_global*)          ID_ARRAY    Removes unreferenced *Appearences* incl. *SurfaceData* and textures and returns an array of their IDs. Pass 1 (default) to only delete global appearances, or 0 to include local appearances
-**cleanup_schema** (*schema_name*)               void        Truncates most tables and resets sequences in a given 3D City Database schema
-**cleanup_table** (*table_name*)                 ID_ARRAY    Removes entries in given table which are not referenced by any other entities
-**del_cityobject** (NUMBER)                      NUMBER      Removes the *CityObject* with the given ID incl. all references to other tables. The ID value is returned on success
-**del_cityobject** (ID_ARRAY)                    ID_ARRAY    Removes *CityObjects* with the given IDs incl. all references to other tables. An array of IDs of successfully deleted objects is returned
-**del_cityobjects_by_lineage** (*lineage_value*) ID_ARRAY    Removes all *CityObjects* on behalf of a LINEAGE value and returns an array of their IDs
-================================================ =========== ============================================================================================================================================================================================
+.. list-table:: API of CITYDB_DELETE package for Oracle
+   :name: citydb_delete_api_oracle_table
 
-Table 28: API of CITYDB_DELETE package for PostgreSQL
+   * - | **Function**
+     - | **Return Type**
+     - | **Explanation**
+   * - | **cleanup_appearances**
+       | (only_global)
+     - | ID_ARRAY
+     - | Removes unreferenced Appearences incl.
+       | SurfaceData and textures and returns an array of
+       | their IDs. Pass 1 (default) to only delete global
+       | appearances, or 0 to include local appearances
+   * - | **cleanup_schema**
+       | (schema_name)
+     - | void
+     - | Truncates most tables and resets sequences in a
+       | given 3D City Database schema
+   * - | **cleanup_table** (table_name)
+     - | ID_ARRAY
+     - | Removes entries in given table which are not
+       | referenced by any other entities
+   * - | **del_cityobject** (NUMBER)
+     - | NUMBER
+     - | Removes the CityObject with the given ID incl.
+       | all references to other tables. The ID value
+       | is returned on success
+   * - | **del_cityobject** (ID_ARRAY)
+     - | ID_ARRAY
+     - | Removes CityObjects with the given IDs incl.
+       | all references to other tables. An array of
+       | IDs of successfully deleted objects is returned
+   * - | **del_cityobjects_by_lineage**
+       | (lineage_value)
+     - | ID_ARRAY
+     - | Removes all CityObjects on behalf of a LINEAGE
+       | value and returns an array of their IDs
 
-================================================ ============== ==========================================================================================================================================================================================
-Function                                         Return Type    Explanation
-================================================ ============== ==========================================================================================================================================================================================
-**cleanup_appearances** (*only_global*)          SET OF INTEGER Removes unreferenced *Appearences* incl. *SurfaceData* and textures and returns an set of their IDs. Pass 1 (default) to only delete global appearances, or 0 to include local appearances
-**cleanup_schema** (*schema_name*)               void           Truncates most tables cascadingly and resets sequences in a given 3D City Database schema
-**cleanup_table** (table*\_name*)                SET OF INTEGER Removes entries in given table which are not referenced by any other entities
-**del_cityobject** (INTEGER)                     INTEGER        Removes the *CityObject* with the given ID incl. all references to other tables. The ID value is returned on success
-**del_cityobject** (INTEGER[ ])                  SET OF INTEGER Removes *CityObjects* with the given IDs incl. all references to other tables. A set of IDs of successfully deleted objects is returned
-**del_cityobjects_by_lineage** (*lineage_value*) SET OF INTEGER Removes all *CityObjects* on behalf of a LINEAGE value and returns a set of deleted IDs
-================================================ ============== ==========================================================================================================================================================================================
+.. list-table:: API of CITYDB_DELETE package for PostgreSQL
+   :name: citydb_delete_api_postgresql_table
 
-Table 29: API of CITYDB_DELETE package for PostgreSQL
+   * - | **Function**
+     - | **Return Type**
+     - | **Explanation**
+   * - | **cleanup_appearances**
+       | (only_global)
+     - | SET OF INTEGER
+     - | Removes unreferenced Appearences incl.
+       | SurfaceData and textures and returns an array of
+       | their IDs. Pass 1 (default) to only delete global
+       | appearances, or 0 to include local appearances
+   * - | **cleanup_schema**
+       | (schema_name)
+     - | void
+     - | Truncates most tables and resets sequences in a
+       | given 3D City Database schema
+   * - | **cleanup_table** (table_name)
+     - | SET OF INTEGER
+     - | Removes entries in given table which are not
+       | referenced by any other entities
+   * - | **del_cityobject** (INTEGER)
+     - | INTEGER
+     - | Removes the CityObject with the given ID incl.
+       | all references to other tables. The ID value
+       | is returned on success
+   * - | **del_cityobject** ((INTEGER[ ])
+     - | SET OF INTEGER
+     - | Removes CityObjects with the given IDs incl.
+       | all references to other tables. An array of
+       | IDs of successfully deleted objects is returned
+   * - | **del_cityobjects_by_lineage**
+       | (lineage_value)
+     - | SET OF INTEGER
+     - | Removes all CityObjects on behalf of a LINEAGE
+       | value and returns an array of their IDs
+

@@ -1,12 +1,14 @@
 Bridge Model
 ^^^^^^^^^^^^
 
-|image47|
+.. figure:: ../../../media/citydb_schema_bridge_diagram.png
+   :name: citydb_schema_bridge_diagram
 
-Figure 41: Bridge database schema
+   Bridge database schema
 
-The bridge model, described in paragraph 2.2.4.3 at the conceptual
-level, is realised by the tables shown in Figure 41. The relational
+The bridge model, described in paragraph :numref:`citydb_bridge_model_chapter`
+at the conceptual level, is realised by the tables shown
+in :numref:`citydb_schema_bridge_diagram`. The relational
 schema is identical to the building schema for the most parts except for
 the naming. Please, refer to the explanation of the building schema on
 the previous pages for a complete understanding. The main differences to
@@ -49,11 +51,11 @@ the building schema are the following:
 
    If a CityGML ADE is used that extends any of the classes named above,
    further values for OBJECTCLASS_ID may be added by the ADE manager.
-   Their concrete numbers depend on the ADE registration (cf. section
-   6.3.3.1).
+   Their concrete numbers depend on the ADE registration
+   (cf. :numref:`ade_manager_plugin_registration_chapter`).
 
 -  In the BRIDGE_INSTALLATION table external bridge installations can be
-      identified by the OBEJCTCLASS_ID 65 and internal ones by 66.
+   identified by the OBEJCTCLASS_ID 65 and internal ones by 66.
 
 -  The CityGML class *BridgeConstructionElement* is represented by the
    table BRIDGE_CONSTR_ELEMENT. Its schema is analogue to the
@@ -69,10 +71,7 @@ the building schema are the following:
    BRIDGE_OPEN_TO_THEM_SRF link table. If a CityGML ADE is used that
    extends any of the two classes *BridgeDoor* or *BridgeWindow*,
    further values for OBJECTCLASS_ID may be added by the ADE manager.
-   Their concrete numbers depend on the ADE registration (cf. section
-   6.3.3.1). Like openings of building, bridge openings can have
+   Their concrete numbers depend on the ADE registration
+   (cf. :numref:`ade_manager_plugin_registration_chapter`). Like openings of building, bridge openings can have
    addresses assigned to it.
 
-.. |image47| image:: ../../media/image58.png
-   :width: 9.84065in
-   :height: 9.0579in

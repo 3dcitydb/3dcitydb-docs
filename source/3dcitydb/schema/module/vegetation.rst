@@ -1,12 +1,14 @@
 Vegetation Model
 ^^^^^^^^^^^^^^^^
 
-The vegetation model specified in paragraph 2.2.4.10 is realized by the
-tables shown in Figure 48 which correspond largely to the UML model.
+The vegetation model specified in :numref:`citydb_vegetation_model_chapter`
+is realized by the tables shown in :numref:`citydb_schema_vegetation_diagram`
+which correspond largely to the UML model.
 
-|image54|
+.. figure:: ../../../media/citydb_schema_vegetation_diagram.png
+   :name: citydb_schema_vegetation_diagram
 
-Figure 48: Vegetation database schema
+   Vegetation database schema
 
 **SOLITARY_VEGETAT_OBJECT**
 
@@ -34,7 +36,3 @@ geometry is restricted to a *MultiSurface* or (and this is unique for
 *PlantCover* features) a *MultiSolid*, represented respectively by the
 foreign keys LODx_MULTI_SURFACE_ID (with 1 ≤x ≤ 4) and
 LODx_MULTI_SOLID_ID which refer to the SURFACE_GEOMETRY table.
-
-.. |image54| image:: ../../media/image65.png
-   :width: 6.13958in
-   :height: 7.0463in

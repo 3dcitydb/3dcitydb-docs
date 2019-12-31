@@ -21,30 +21,53 @@ is an additional procedure to define spatial metadata for single
 geometry column. All functions are schema-aware and their return type is
 void.
 
-================================================================================================================================ ===================================================================================================================
-Function                                                                                                                         Explanation
-================================================================================================================================ ===================================================================================================================
-**set_column_sdo_metadata** (*geom_column_name*, *dimension*, *srid*, *table_name*, *schema_name*)                               Inserts a new entry in the USER_SDO_GEOM_METADATA view for a given geometry column
-**set_enabled_fkey** (*fkey_name*, *table_name*, BOOLEAN, *schema_name*)                                                         Disables / enables a given foreign key constraint
-**set_enabled_geom_fkeys** (BOOLEAN, *schema_name*)                                                                              Disables / enables all foreign key constraints that reference the SURFACE_GEOMETRY table
-**set_enabled_schema_fkeys** (BOOLEAN, *schema_name*)                                                                            Disables / enables all foreign key constraints within a given user schema
-**set_fkey_delete_rule** (*fkey_name*, *table_name*, *column_name*, *ref_table*, *ref_column*, *on_delete_param*, *schema_name*) Changes the delete rule of a given foreign key constraint
-**set_schema_fkey_delete_rule** (*on_delete_param*, *schema_name*)                                                               Changes the delete rule of all foreign key constraint within a given user schema
-**set_schema_sdo_metadata** (*schema_name*)                                                                                      Inserts new entries in the USER_SDO_GEOM_METADATA view for all geometry columns of a given schema (some expections)
-================================================================================================================================ ===================================================================================================================
+.. list-table::  API of CITYDB_CONSTRAINT package for Oracle
+   :name: citydb_constraint_api_oracle_table
 
-Table 22: API of CITYDB_CONSTRAINT package for Oracle
+   * - | **Function**
+     - | **Explanation**
+   * - | **set_column_sdo_metadata**
+       | (geom_column_name, dimension, srid,
+       | table_name, schema_name)
+     - | Inserts a new entry in the USER_SDO_GEOM_METADATA
+       | view for a given geometry column
+   * - | **set_enabled_fkey** (fkey_name,
+       | table_name, BOOLEAN,
+       | schema_name)
+     - | Disables / enables a given foreign key constraint
+   * - | **set_enabled_geom_fkeys** (BOOLEAN,
+       | schema_name)
+     - | Disables / enables all foreign key constraints that
+       | reference the SURFACE_GEOMETRY table
+   * - | **set_enabled_schema_fkeys** (BOOLEAN,
+       | schema_name)
+     - | Disables / enables all foreign key constraints
+       | within a given user schema
+   * - | **set_fkey_delete_rule** (fkey_name,
+       | table_name, column_name, ref_table,
+       | ref_column, on_delete_param,
+       | schema_name)
+     - | Changes the delete rule of a given foreign key
+       | constraint
+   * - | **set_schema_fkey_delete_rule**
+       | (on_delete_param, schema_name)
+     - | Changes the delete rule of all foreign key
+       | constraint within a given user schema
+   * - | **set_schema_sdo_metadata**
+       | (schema_name)
+     - | Inserts new entries in the USER_SDO_GEOM_METADATA
+       | view for all geometry columns of a given schema
+       | (some expections)
 
 There is only one significant difference in the API in PostgreSQL.
 Instead of specifying the name, table and schema of a foreign key, the
 OID of the corresponding integrity trigger is enough. This is because
 there is no ALTER TABLE command in PostgreSQL to disable foreign keys.
 
-================================================== =========================================================
-Function                                           Explanation
-================================================== =========================================================
-**set_enabled_fkey** (*fkey_trigger_oid*, BOOLEAN) Disables / enables a given foreign key constraint trigger
-================================================== =========================================================
+.. list-table::   Notable difference in the API of CITYDB_CONSTRAINT package for PostgreSQL
+   :name: citydb_constraint_api_postgresql_table
 
-Table 23: Notable difference in the API of CITYDB_CONSTRAINT package for
-PostgreSQL
+   * - | **Function**
+     - | **Explanation**
+   * - | **set_enabled_fkey** (fkey_trigger_oid, BOOLEAN)
+     - | Disables / enables a foreign key constraint trigger

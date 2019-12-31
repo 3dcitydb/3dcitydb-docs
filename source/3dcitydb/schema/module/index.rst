@@ -3,8 +3,9 @@ Database schema
 
 In the following paragraph, the tables of the relational schema are
 displayed graphically and described in detail. The description is based
-on the remarks on UML charts in chapter 2.2. Focus is put on situations
-where the conversion into tables leads to changes in the model.
+on the remarks on UML charts in :numref:`chapter_citydb_UML_class_diagram`.
+Focus is put on situations where the conversion into tables leads to
+changes in the model.
 
 .. toctree::
    :maxdepth: 1
@@ -23,7 +24,7 @@ where the conversion into tables leads to changes in the model.
    tunnel
    vegetation
    water-body
-   sequence
+   sequences
 
 The figures are taken from Oracle JDeveloper, which allows to design
 different diagrams and reuse already defined tables. JDeveloper

@@ -36,7 +36,7 @@ polygons, which are aggregated to *MultiSurfaces*, *CompositeSurfaces*,
 complex representation used for those GML geometry classes in grey
 blocks in Figure 2. Mapping the UML diagram to the relational schema now
 requires only one table (SURFACE_GEOMETRY), which is explained in
-:numref:`citydb_schema_geometry`.
+:numref:`chapter_citydb_schema_geometry`.
 
 .. figure:: ../../media/citydb_geometrical-topographical_model.png
    :name: citydb_geometrical-topographical_model

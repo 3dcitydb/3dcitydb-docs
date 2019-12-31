@@ -1,3 +1,5 @@
+.. _citydb_vegetation_model_chapter:
+
 Vegetation Model
 ^^^^^^^^^^^^^^^^
 

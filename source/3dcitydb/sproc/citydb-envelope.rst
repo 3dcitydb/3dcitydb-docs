@@ -16,7 +16,8 @@ SDO_AGGR_MBR is used which produces a 3D optimized rectangle with only
 two points. The box2envelope function turns this output into a diagonal
 cutting plane through the calculated bounding volume. This surface
 representation follows the definition of the ENVELOPE column of the
-CITYOBJECT table as discussed in chapter 2.3.3.2 (see also Figure 29).
+CITYOBJECT table as discussed in :numref:`citydb_schema_core_model_chapter`
+(see also :numref:`citydb_envelope_definition`).
 All functions in this package return such a geometry.
 
 The CITYDB_ENVELOPE API also allows for updating the ENVELOPE column of
@@ -34,14 +35,44 @@ the ENVELOPE columns of all city objects are updated. To update only
 those ENVELOPE columns having NULL as value, set the *only_if_null*
 parameter to *1*.
 
-============================================================================================== =========== ==============================================================================================================================================================================
-Function                                                                                       Return Type Explanation
-============================================================================================== =========== ==============================================================================================================================================================================
-**box2envelope** (BOX3D)                                                                       GEOMETRY    Takes a BOX3D and returns a 3D polygon that represents a diagonal cutting plane through this box. Under Oracle the input is an optimized 3D rectangle (SDO_INTERPRETATION = 3)
-**env_cityobject** (*cityobject_id, set_envelope*)                                             GEOMETRY    Returns the current envelope representation of the given *CityObject* and optionally updates the ENVELOPE column
-**get_envelope_cityobjects** (*objectclass_id, set_envelope, only_if_null*)                    GEOMETRY    Returns the current envelope representation of all *CityObjects* of given object class and optionally updates the ENVELOPE column with the individual bounding boxes
-**get_envelope_implicit_geometry** (*implicit_rep_id, reference_point, transformation_matrix*) GEOMETRY    Returns the envelope of an implicit geometry which has been transformed based on the passed reference point and transformation matrix
-**update_bounds** (*old_box, new_box*)                                                         GEOMETRY    Takes two GEOMETRY objects to call box2envelope and returns the result. If one side is NULL, the non-empty input is returned.
-============================================================================================== =========== ==============================================================================================================================================================================
+.. list-table:: API of CITYDB_ENVELOPE package for PostgreSQL
+   :name: citydb_envelope_api_postgresql_table
 
-Table 30: API of CITYDB_ENVELOPE package for PostgreSQL
+   * - | **Function**
+     - | **Return Type**
+     - | **Explanation**
+   * - | **box2envelope** (BOX3D)
+     - | GEOMETRY
+     - | Takes a BOX3D and returns a 3D polygon that
+       | represents a diagonal cutting plane through this
+       | box. Under Oracle the input is an optimized 3D
+       | rectangle (SDO_INTERPRETATION = 3)
+   * - | **env_cityobject** (cityobject_id,
+       | set_envelope)
+     - | GEOMETRY
+     - | Returns the current envelope representation of
+       | the given CityObject and optionally updates the
+       | ENVELOPE column
+   * - | **get_envelope_cityobjects**
+       | (objectclass_id, set_envelope,
+       | only_if_null)
+     - | GEOMETRY
+     - | Returns the current envelope representation of
+       | all CityObjects of given object class and
+       | optionally updates the ENVELOPE column with
+       | the individual bounding boxes
+   * - | **get_envelope_implicit_geometry**
+       | (implicit_rep_id, reference_point,
+       | transformation_matrix)
+     - | GEOMETRY
+     - | Returns the envelope of an implicit geometry
+       | which has been transformed based on the
+       | passed reference point and transformation
+       | matrix
+   * - | **update_bounds** (old_box,
+       | new_box)
+     - | GEOMETRY
+     - | Takes two GEOMETRY objects to call
+       | box2envelope and returns the result. If one
+       | side is NULL, the non-empty input is
+       | returned.
