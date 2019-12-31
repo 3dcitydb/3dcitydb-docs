@@ -1,3 +1,5 @@
+.. _first_steps_migration_chapter:
+
 Migration from previous major releases
 --------------------------------------
 

@@ -1,3 +1,5 @@
+.. _impexp_plugin_ade_manager_chapter:
+
 ADE Manager Plugin
 ------------------
 

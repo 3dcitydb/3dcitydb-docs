@@ -1,3 +1,5 @@
+.. _citydb_multiple_database_schemas_chapter:
+
 Working with multiple database schemas
 --------------------------------------
 

@@ -6,7 +6,7 @@ Interfaces
 The 3D City Database Importer/Exporter offers both a graphical user
 interface (GUI) and a command line interface (CLI). The CLI allows for
 embedding the tool in batch processing workflows and third-party
-applications. The usage of the CLI is documented in chapter 5.8.
+applications. The usage of the CLI is documented in :numref:`impexp_cli_chapter`.
 
 To launch the GUI, simply use the starter scripts located in the *bin*
 subfolder of the installation directory of the 3D City Database
@@ -29,11 +29,16 @@ set on the starter script. If not, change to the installation folder and
 enter the following command to make the starter script executable for
 the owner of the file:
 
-chmod u+x 3DCityDB-Importer-Exporter.sh
+.. code::
+
+    chmod u+x 3DCityDB-Importer-Exporter.sh
 
 Afterwards, simply run the software by issuing the following command:
 
-./3DCityDB-Importer-Exporter.sh
+.. code::
+
+    ./3DCityDB-Importer-Exporter.sh
+
 
 .. note::
    With every release, the README.txt file in the installation
@@ -49,7 +54,8 @@ launching the application (e.g., if you want to increase or limit the
 available main memory).
 
 The graphical user interface of the Importer/Exporter is organized into
-four main components as shown in Figure 55. A *menu bar* [1] is located
+four main components as shown in :numref:`impexp_gui_organization_fig`.
+A *menu bar* [1] is located
 either below (Windows, some Linux distributions) or above (Mac, some
 Linux distributions) the title bar. The main application window is
 divided into an *operations window* [2] that renders the user dialogs of
@@ -60,24 +66,24 @@ separate window. At the bottom of the operations window, a *status bar*
 [3] provides information about running processes and database
 connections.
 
-|image63|
+.. figure:: ../media/impexp_gui_organization_fig.png
+   :name: impexp_gui_organization_fig
 
-Figure 55: Organization of the Importer/Exporter GUI.
+   Organization of the Importer/Exporter GUI.
 
 The tab menu on top of the operations window lets you switch between the
 operations of the Importer/Exporter and their user dialogs. The
 following tabs are available:
 
--  Import Import of CityGML models into the database
+-  **Import**: Import of CityGML models into the database
 
--  Export Export of city model data as CityGML
+-  **Export**: Export of city model data as CityGML
 
--  KML/COLLADA/glTF Export Export of city model data in KML, COLLADA or
-      glTF format
+-  **KML/COLLADA/glTF Export**: Export of city model data in KML, COLLADA or glTF format
 
--  Database Database connection settings and operations
+-  **Database**: Database connection settings and operations
 
--  Preferences Preference settings for each operation
+-  **Preferences**: Preference settings for each operation
 
 .. note::
    If you have installed plugins, the tab menu may contain
@@ -90,15 +96,15 @@ The File menu only contains one entry Exit to close the application.
 The Project menu lets a user store and load settings from a config file.
 The separate menu entries provide the following functionality:
 
-========================== ===================================================================================================================================================================================================================================================================================
-*Open Project…*            Load a config file and recover all settings from this file.
-========================== ===================================================================================================================================================================================================================================================================================
-*Save Project*             Save all settings made in the GUI to the default config file.
-*Save Project As…*         Save all settings made in the GUI to a separate config file.
-*Restore Default Settings* Set all settings to default values.
-*Save Project XSD As…*     Save the XML Schema defining the XML structure of config files to a separate file. The XML Schema is helpful in case a user wants to manually edit the config file. Only config files conforming to the XML Schema definition will be successfully loaded by the Importer/Exporter.
-*Recently Used Projects…*  List of recently loaded config files.
-========================== ===================================================================================================================================================================================================================================================================================
+-  **Open Project…**:             Load a config file and recover all settings from this file.
+-  **Save Project**:              Save all settings made in the GUI to the default config file.
+-  **Save Project As…**:          Save all settings made in the GUI to a separate config file.
+-  **Restore Default Settings**:  Set all settings to default values.
+-  **Save Project XSD As…**:      Save the XML Schema defining the XML structure of config files to a separate file.
+   The XML Schema is helpful in case a user wants to manually edit the config file. Only
+   config files conforming to the XML Schema definition will be successfully loaded by the Importer/Exporter.
+-  **Recently Used Projects…**:   List of recently loaded config files.
+
 
 The Importer/Exporter uses one *default config file* per operating
 system user running the Importer/Exporter. All settings made in the GUI
@@ -118,18 +124,11 @@ Using environment variables, the location can be identified dynamically:
 The View menu affects the GUI elements of the Importer/Exporter and
 offers the following entries:
 
-============================= ======================================================================
-*Open map window*             Opens the 2D map window for bounding box selections (cf. chapter 5.7).
-============================= ======================================================================
-*Detach Console*              Renders the console window in a separate application window.
-*Restore default perspective* Restores the GUI to its default settings.
-============================= ======================================================================
+-  **Open map window**:             Opens the 2D map window for bounding box selections (cf. :numref:`impexp_preferences_map_window_chapter`).
+-  **Detach Console**:              Renders the console window in a separate application window.
+-  **Restore default perspective**: Restores the GUI to its default settings.
 
 Finally, the Help menu gives access to an Info dialog and the Read Me
 file shipped with the Importer/Exporter. Amongst other information, the
 Info dialog displays the official *version and build number* of the
 Importer/Exporter.
-
-.. |image63| image:: ../media/image74.png
-   :width: 6.3in
-   :height: 4.07639in

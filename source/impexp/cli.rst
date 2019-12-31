@@ -1,4 +1,4 @@
-.. _impexp_cli:
+.. _impexp_cli_chapter:
 
 Using the command line interface (CLI)
 --------------------------------------

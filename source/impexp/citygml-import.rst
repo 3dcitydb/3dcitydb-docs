@@ -1,3 +1,5 @@
+.. _impexp_citygml_import_chapter:
+
 Importing CityGML files
 -----------------------
 
@@ -7,9 +9,10 @@ CityGML versions are 2.0.0, 1.0.0 and 0.4.0. The CityGML import
 operation is available on the Import tab of the operations window as
 shown below.
 
-|image76|
+.. figure:: ../media/impexp_CityGML_import_dialog_fig.png
+   :name: impexp_CityGML_import_dialog_fig
 
-Figure 66: The CityGML import dialog.
+   The CityGML import dialog.
 
 **Input file selection.** At the top of the Import dialog [1], a list of
 one or more CityGML files to be imported must be provided. Files can be
@@ -53,13 +56,23 @@ filter criteria are combined in a logical AND operation. If no checkbox
 is enabled, no filter criteria are applied and thus all CityGML features
 contained in the input file(s) will be imported.
 
-======================== ============================================================================================================================================================================================================================================================================================================================================================================================================================
--  *Attribute filter*    This filter takes a gml:id and/or a gml:name as parameter [3] and only imports CityGML features having a matching value for the respective attribute. More than one gml:id can be provided in a comma-separated list. Multiple gml:name values are not supported though.
-======================== ============================================================================================================================================================================================================================================================================================================================================================================================================================
--  *Counter filter*      The feature counter filter lets you import a subset of the top-level features based on their position index over all input file(s). Simply provide the lower and upper boundary [4] for the position index to define the subset (both boundary limits are inclusive).
--  *Bounding box filter* This filter takes a 2D bounding box as parameter that is given by the coordinate values of its lower left (*x\ min*, *y\ min*) and upper right corner (*x\ max*, *y\ max*) [5]. The bounding box is evaluated against the gml:boundedBy property of the CityGML input features. You can choose whether features *overlapping* with the provided bounding box are to be imported, or whether features must be *inside* of it.
--  *Feature type filter* With the feature types filter, you can restrict the import to one or more CityGML features types by enabling the corresponding checkboxes [7]. Only features of the chosen type(s) will be imported.
-======================== ============================================================================================================================================================================================================================================================================================================================================================================================================================
+
+-  **Attribute filter**:    This filter takes a gml:id and/or a gml:name as
+   parameter [3] and only imports CityGML features having a matching value for
+   the respective attribute. More than one gml:id can be provided in a comma-separated list.
+   Multiple gml:name values are not supported though.
+-  **Counter filter**:      The feature counter filter lets you import a subset of the
+   top-level features based on their position index over all input file(s). Simply provide the lower and upper
+   boundary [4] for the position index to define the subset (both boundary limits are inclusive).
+-  **Bounding box filter**: This filter takes a 2D bounding box as parameter that is given by the
+   coordinate values of its lower left (*x\ min*, *y\ min*) and upper right corner (*x\ max*, *y\
+   max*) [5]. The bounding box is evaluated against the gml:boundedBy property of the CityGML input features.
+   You can choose whether features *overlapping* with the provided bounding box are to be
+   imported, or whether features must be *inside* of it.
+-  **Feature type filter**: With the feature types filter, you can restrict the import to one or more CityGML
+   features types by enabling the corresponding checkboxes [7]. Only features of the
+   chosen type(s) will be imported.
+
 
 .. note::
    All filters only work on *top-level features* but *not on nested
@@ -69,17 +82,17 @@ For the *bounding box filter*, make sure that you choose a *coordinate
 reference system* from the drop-down choice list that matches the
 provided coordinate values. Otherwise, the spatial filter may not work
 as expected. The coordinate reference system list can be augmented with
-user-defined reference systems (see chapter 5.6.4 for more information).
+user-defined reference systems (see :numref:`impexp_crs_management_chapter` for more information).
 
 The coordinate values of the bounding box filter can either be entered
 manually or chosen interactively in a 2D map window. To open the map
-window, click on the map button
-|C:\devel\java\impexp-oss\resources\jar\resources\img\common\map_select.png|
-[6].
+window, click on the map button |map_select| [6].
 
-|image77|
 
-Figure 67: Bounding box selection using the 2D map window.
+.. figure:: ../media/impexp_bbox_selection_map_window_fig.png
+   :name: impexp_bbox_selection_map_window_fig
+
+   Bounding box selection using the 2D map window.
 
 In the map window, keep the left mouse button clicked while holding the
 ALT key. This lets you draw a bounding box on the map. In order to move
@@ -91,13 +104,10 @@ and carry the coordinate values of the selected area into the
 corresponding fields of the bounding box filter [5]. Click *Cancel* if
 you want to close the map window but skip your selection. A more
 comprehensive guide on how to use the map window is provided in chapter
-5.7.
+:numref:`impexp_preferences_map_window_chapter`.
 
-With the
-|C:\devel\java\impexp-oss\resources\jar\resources\img\common\bbox_copy.png|
-button on the bounding box filter dialog [6], you can copy a bounding
-box to the clipboard, while the
-|C:\devel\java\impexp-oss\resources\jar\resources\img\common\bbox_paste.png|
+With the |bbox_copy| button on the bounding box filter dialog [6], you can copy a bounding
+box to the clipboard, while the |bbox_paste|
 button pastes a bounding box from the clipboard to the input fields of
 the bounding box filter [5] (or use the right-click context menu).
 
@@ -120,24 +130,41 @@ to the console window.
 the CityGML import are available on the Preferences tab of the
 operations window. Make sure to check these settings *before* starting
 the import process. A full documentation of the import preferences is
-available in chapter 5.6.1. The following table provides a summary
-overview.
+available in :numref:`impexp_citygml_import_preferences_chapter`.
+The following table provides a summary overview.
 
-==================== ========================================================================================================================================
-**Preference name**  **Description**
-*Continuation*       **Metadata that is stored for every object in the database such as the data lineage, the updating person or the creationDate property.**
-*gml:id handling*    **Generates UUIDs where gml:ids are missing on input features or replaces all gml:ids with UUIDs.**
-*Address*            **Controls the way in which xAL address fragments are imported into the database.**
-*Appearance*         **Defines whether appearance information is imported.**
-*Geometry*           **Allows for applying an affine transformation to the input geometry.**
-*Indexes*            **Settings for automatically enabling/disabling spatial and normal indexes during imports.**
-*XML validation*     **Performs XML validation automatically and exclude invalid features from being imported.**
-*XSL transformation* **Defines one or more XSLT stylesheets that shall be applied to the city objects in the given order before import.**
-*Import log*         **Creates a list of all successfully imported CityGML top-level features.**
-**Resources**        Allocation of computer resources used in the import operation.
-==================== ========================================================================================================================================
+.. list-table::  Summary overview of the import preferences
+   :name: citygml_import_preferences_summary_table
 
-Table 31: Summery overview of the import preferences.
+   * - | **Preference name**
+     - | **Description**
+   * - | Continuation
+     - | Metadata that is stored for every object in the database such as the data
+       | lineage, the updating person or the creationDate property.
+   * - | gml:id handling
+     - | Generates UUIDs where gml:ids are missing on input features or replaces all
+       | gml:ids with UUIDs.
+   * - | Address
+     - | Controls the way in which xAL address fragments are imported into the
+       | database.
+   * - | Appearance
+     - | Defines whether appearance information is imported.
+   * - | Geometry
+     - | Allows for applying an affine transformation to the input geometry.
+   * - | Indexes
+     - | Settings for automatically enabling/disabling spatial and normal indexes
+       | during imports.
+   * - | XML validation
+     - | Performs XML validation automatically and exclude invalid features from
+       | being imported.
+   * - | XSL transformation
+     - | Defines one or more XSLT stylesheets that shall be applied to the city objects
+       | in the given order before import.
+   * - | Import log
+     - | Creates a list of all successfully imported CityGML top-level features.
+   * - | Resources
+     - | Allocation of computer resources used in the import operation.
+
 
 **CityGML import.** Once all import settings are correct, the *Import*
 button [8] starts the import process. If a database connection has not
@@ -164,22 +191,22 @@ top-level features is printed to the console window.
    transformation during import if this is enough). A possible workaround
    procedure can be realized as follows:
 
-1) Set up a second (temporary) instance of the 3D City Database with an
+   1) Set up a second (temporary) instance of the 3D City Database with an
       internal CRS matching the CRS of the CityGML instance document.
 
-2) Import the dataset into this second 3D City Database instance.
+   2) Import the dataset into this second 3D City Database instance.
 
-3) Export the data from this second instance into the target CRS by
+   3) Export the data from this second instance into the target CRS by
       applying a coordinate transformation (see CityGML export
-      documentation in chapter 5.4).
+      documentation in :numref:`impexp_citygml_export_chapter`).
 
-4) The exported CityGML document now matches the CRS of the target 3D
+   4) The exported CityGML document now matches the CRS of the target 3D
       City Database instance and can be imported into that database. The
       temporary database instance can be dropped.
 
-Alternatively, you can change the reference system in the database to
-the one used by the imported geometries (see the corresponding
-database operation in chapter 5.2.2).
+   Alternatively, you can change the reference system in the database to
+   the one used by the imported geometries (see the corresponding
+   database operation in :numref:`impexp_executing_database_operations_chapter`).
 
 .. note::
    The Importer/Exporter *does not check by any means* whether a
@@ -187,14 +214,15 @@ database operation in chapter 5.2.2).
    Thus, if an import is executed twice on the same dataset, all CityGML
    features contained in the dataset will be imported twice.
 
-.. |image76| image:: ../media/image87.png
-   :width: 4.5748in
-   :height: 6.46937in
-
-.. |image77| image:: ../media/image88.png
-   :width: 6.3in
-   :height: 4.74236in
-
-.. |C:\devel\java\impexp-oss\resources\jar\resources\img\common\bbox_paste.png| image:: ../media/image89.png
+.. |bbox_copy| image:: ../media/bbox_copy.png
    :width: 0.16667in
    :height: 0.16667in
+
+.. |bbox_paste| image:: ../media/bbox_paste.png
+   :width: 0.16667in
+   :height: 0.16667in
+
+.. |map_select| image:: ../media/map_select.png
+   :width: 0.16667in
+   :height: 0.16667in
+

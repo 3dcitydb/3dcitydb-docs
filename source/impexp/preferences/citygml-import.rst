@@ -1,3 +1,5 @@
+.. _impexp_citygml_import_preferences_chapter:
+
 CityGML import preferences
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 

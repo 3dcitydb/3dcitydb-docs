@@ -232,7 +232,7 @@ language.
 Figure 123: General preferences – Language selection.
 
 
-.. _map-window:
+.. _impexp_preferences_map_window_chapter:
 
 Map window for bounding box selections
 --------------------------------------
