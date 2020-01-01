@@ -48,6 +48,8 @@ also work with multiple versions of a city model in separate
 *workspaces*. To change the workspace a user must execute the
 DBMS_WM.GotoWorkspace procedure.
 
+.. _citydb_schema_rw_access_chapter:
+
 Read and write access to a schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

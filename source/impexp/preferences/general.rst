@@ -21,9 +21,10 @@ a promising strategy. For this reason, the information is written to
 *temporary tables* in the database as soon as user-defined memory limits
 are reached.
 
-|image133|
+.. figure:: /media/impexp_preferences_general_cache_fig.png
+   :name: impexp_preferences_general_cache_fig
 
-Figure 118: General preferences – Cache.
+   General preferences – Cache.
 
 Per default, temporary tables are created in the *3D City Database
 instance* itself. The tables are populated during the import and export
@@ -57,9 +58,10 @@ Import and export path
 This preference dialog allows for setting a default path for import and
 export operations.
 
-|image134|
+.. figure:: /media/impexp_preferences_general_path_fig.png
+   :name: impexp_preferences_general_path_fig
 
-Figure 119: General preferences – Import and export path.
+   General preferences – Import and export path.
 
 Simply choose between the last used import/export path (default) or
 browse for a specific folder in your local file system. The selected
@@ -67,7 +69,7 @@ folder will then be used as default path in all dialogs that require an
 input/output file.
 
 
-.. _proxy:
+.. _impexp_preferences_general_proxy_chapter:
 
 Network proxies
 ^^^^^^^^^^^^^^^
@@ -83,15 +85,17 @@ Most computers in corporate environments have no direct internet access
 but must use a proxy server. The preference dialog shown below let you
 configure network proxies.
 
-|image135|
+.. figure:: /media/impexp_preferences_general_network_proxies_fig.png
+   :name: impexp_preferences_general_network_proxies_fig
 
-Figure 120: General preferences – Network proxies.
+   General preferences – Network proxies.
 
 The Importer/Exporter supports *Web (HTTP)*, *Secure web (HTTPS)* and
 *SOCKS* proxies. Usually, configuring a *Web proxy (HTTP)* is enough for
 most tasks, like those mentioned above. However, more sophisticated use
 cases, like uploading cloud documents via an Importer/Exporter extension
-plugin (cf. chapter 6.2) may require *Secure web proxy (HTTPS)* support.
+plugin (cf. :numref:`impexp_plugin_spshg_chapter`)
+may require *Secure web proxy (HTTPS)* support.
 *SOCKS proxy* support should currently only be needed when the
 Importer/Exporter and the database system running the 3D City Database
 reside in different networks.
@@ -118,7 +122,8 @@ In case the computer running the Importer/Exporter is directly connected
 to the internet no proxies need to be configured.
 
 
-.. _api-keys:
+.. _impexp_preferences_general_apiKeys_chapter:
+
 
 API Keys
 ^^^^^^^^
@@ -129,16 +134,18 @@ services are open and free to use, whereas others are more restrictive
 and require passing an API key to use the service. In the API Keys
 preference dialog, you can provide your API keys for different services.
 
-|image136|
+.. figure:: /media/impexp_preferences_general_apikeys_fig.png
+   :name: impexp_preferences_general_apikeys_fig
 
-Figure 121: General preferences – API keys.
+   General preferences – API keys.
 
 The *Google Maps API* services can be used by the Importer/Exporter for
 two different tasks: 1) the *Geocoding API* is used for geocoding
-addresses and address lookups in the map window (cf. chapter 5.7), and
+addresses and address lookups in the map window (cf. :numref:`impexp_preferences_map_window_chapter`), and
 2) the *Maps Elevation API* is used in KML/COLLADA exports for
 retrieving height values from the Google Earth terrain model (cf.
-chapter 5.6.3.4). If you want to use one of these services, then you
+:numref:`impexp_kml_export_terrain_preferences_chapter`).
+If you want to use one of these services, then you
 must enter the corresponding API key in the above dialog. Otherwise the
 services will respond with an error message that will be displayed by
 the Importer/Exporter. Please visit the Google Maps API website if you
@@ -164,20 +171,23 @@ Log messages are always printed to the *console window* and may
 additionally be forwarded to a log file on your local computer. The
 Logging preference dialog is shown below.
 
-|image137|
+.. figure:: /media/impexp_preferences_general_logging_fig.png
+   :name: impexp_preferences_general_logging_fig
 
-Figure 122: General preferences – Logging.
+   General preferences – Logging.
 
-The following four log levels are distinguished (from highest to lowest
-severity):
+The following four log levels are distinguished (from highest to lowest severity):
 
-========== ==================================================================================================================================================================================================================================================
--  *ERROR* An error has occurred (usually an exception). This comprises internal and unexpected failures. Moreover, invalid XML content of CityGML instance documents is reported via this log level. Fatal errors will cause the running operation to abort.
-========== ==================================================================================================================================================================================================================================================
--  *WARN*  An unusual condition has been detected. The operation in progress continues to work but the user should check the warning and take appropriate actions.
--  *INFO*  An interesting piece of information about the current operation that helps to give context to the log, often when processes are starting or stopping.
--  *DEBUG* Additional messages reporting the internal state of the application.
-========== ==================================================================================================================================================================================================================================================
+
+-  **ERROR**: An error has occurred (usually an exception). This comprises internal and unexpected
+   failures. Moreover, invalid XML content of CityGML instance documents is reported via this log level.
+   Fatal errors will cause the running operation to abort.
+-  **WARN**:  An unusual condition has been detected. The operation in progress continues to
+   work but the user should check the warning and take appropriate actions.
+-  **INFO**:  An interesting piece of information about the current operation that helps
+   to give context to the log, often when processes are starting or stopping.
+-  **DEBUG**: Additional messages reporting the internal state of the application.
+
 
 The log level for messages printed to the console window can be chosen
 from a drop-down list in the Console dialog [1]. The log will include
@@ -227,213 +237,7 @@ The Importer/Exporter GUI has support for different languages. Use the
 Language selection preference dialog shown below to pick your favourite
 language.
 
-|image138|
+.. figure:: /media/impexp_preferences_general_language_fig.png
+   :name: impexp_preferences_general_language_fig
 
-Figure 123: General preferences – Language selection.
-
-
-.. _impexp_preferences_map_window_chapter:
-
-Map window for bounding box selections
---------------------------------------
-
-The Importer/Exporter GUI offers a 2D map window that allows the user to
-display the overall bounding box calculated from the city model content
-stored in each 3D City Database instance and to graphically select a
-bounding box filter for data imports and exports.
-
-There are two ways to open the map windows:
-
-1. Choose the entry View Open map window from the menu bar at the top of
-   the application window.
-
-|image139|
-
-2. Click the map button
-   |C:\devel\java\impexp-oss\resources\jar\resources\img\common\map_select.png|
-   on the bounding box dialog available on the Import, Export,
-   KML/COLLADA/glTF Export and Database tabs of the operations window.
-
-|image140|
-
-The 2D map is rendered in a separate application window shown below.
-
-|image141|
-
-Figure 124: 2D map window for bounding box selections.
-
-The map content is provided by the *OpenStreetMap* (OSM) service and is
-subject to the OSM usage and license terms. Make sure your computer has
-internet access to load the map. This might require setting up *network
-proxies* (see chapter 5.6.5.3). Please consult your network
-administrator.
-
-The map offers default mouse controls for panning and zooming. For
-convenience, a geocoding service is included in the map window [1].
-Simply type in an address or a geo location (given by geographic lat/lon
-coordinates separated by a comma) and click the *Go* button. The map
-will automatically zoom to the first match. Further matches are
-available from the drop-down list [1]. The geocoding service uses the
-free *OSM Nominatim* service per default. You can pick the *Goolge
-Geocoding API* as alternative service from the drop-down list in [5].
-Note that the *Goolge Geocoding API* is not free but requires an API key
-that must be entered in the global preferences of the Importer/Exporter
-(cf. chapter 5.6.5.4). Otherwise the service will respond with an error
-message. Independent of the service you choose, make sure that you
-adhere to its terms of use.
-
-To display the result of the geocoding query on Google Maps in your
-default internet browser, simply click the *Show in Google Maps* button
-[6].
-
-A list of usage hints is available at the right top of the map window
-[7]. Please click on the *Show usage hints* link to display this list.
-The map controls are also described in the following.
-
--  *Select bounding box*: Move the mouse while pressing the ALT key and
-   the left mouse button to select a bounding box. The bounding box is
-   displayed in a light magenta color. Once the left mouse button is
-   released, the coordinates of the bounding box are automatically
-   filled in the Bounding Box dialog on left of the map [3]. If you have
-   opened the map window from a bounding box filter dialog, then
-   clicking the *Apply* button on the upper right corner of the window
-   [2] closes the map window and carries the bounding box values to the
-   filter dialog. In addition, the values are copied to the clipboard.
-
--  *Lookup address*: Right-click on the map to bring up a context menu
-   for the geo location at the mouse pointer. From the context menu,
-   choose *Lookup address here*. This will trigger a reverse geocoding
-   query using the geocoding service selected in [5]. The resulting
-   address will be displayed on the left of the window [4]. The
-   |C:\devel\java\impexp\resources\jar\resources\img\map\waypoint_precise.png|
-   icon denotes which location on the map is associated with the
-   address, whereas the
-   |C:\devel\java\impexp\resources\jar\resources\img\map\waypoint_reverse.png|
-   icon shows where you clicked on the map (see Figure 125).
-
--  *Zoom in/out:* Use the mouse wheel or the context menu (right-click).
-
--  *Zoom into selected area:* Move the mouse while pressing the SHIFT
-   key and the left mouse button to select an area. The selected area is
-   displayed in a light grey color. Once the left mouse button is
-   released, the map zooms into the selected area. If the maximum zoom
-   level is reached this action has no further effect.
-
--  *Move map:* Keep the left mouse button pressed to move the map.
-
--  *Center map and zoom in:* Double click the left mouse button to
-   center the map at that position and to increase the current zoom
-   level by one step.
-
--  *Use popup menu for further actions:* Right-click on the map to bring
-   up a context menu offering additional functions such as *Zoom in*,
-   *Zoom out*, *Center map here* and *Lookup address here* (see above).
-   The *Get map bounds* function is equivalent to selecting the visible
-   map content as bounding box. Thus, the map will be shown in light
-   magenta and the map bounds are transferred to the Bounding Box dialog
-   on the left [3].
-
-To close the map, simply click the *Cancel* button in the upper right
-corner [2].
-
-|image144|
-
-Figure 125: Address lookup in the map window.
-
-The coordinates in the map window and of the selected bounding box are
-always given in WGS 84 regardless of the coordinate reference system of
-the 3D City Database instance.
-
-When opening the map window from a bounding box dialog that already
-contains coordinate values (e.g., from a filter dialog on the Import,
-Export or KML/COLLADA/glTF Export tabs or after having calculated the
-entire area of the database content on the Database tab), the map window
-will automatically display this bounding box. If the coordinate values
-of the provided bounding box are not in WGS 84, a transformation to WGS
-84 is required. Since the Importer/Exporter uses functionality of the
-underlying spatial database system for coordinate transformations, a
-connection to the database must have been established beforehand. In
-case there is no active database connection, the following pop-up window
-asks the user for permission to connect to the database.
-
-|image145|
-
-Figure 126: Asking for permission before connecting to a database for
-coordinate transformation.
-
-The *Apply* button on the upper right corner of the map window [2] is a
-shortcut for copying the coordinate values to the clipboard and pasting
-them in the bounding box fields of the calling tab on the operations
-window. Furthermore, coordinate values can now be easily copied from one
-tab to another by simply clicking on the copy button
-|C:\devel\java\impexp\resources\jar\resources\img\common\bbox_copy.png|
-in one of them, say Import tab, with filled *bounding box* values,
-changing to another, say KML/COLLADA/glTF Export tab and clicking on the
-|C:\devel\java\impexp\resources\jar\resources\img\common\bbox_paste.png|
-button there. Previously existing values in the bounding box fields of
-the KML/COLLADA/glTF Export tab (if any) will be overwritten.
-
-
-.. |image133| image:: ../../media/image143.png
-   :width: 3.85827in
-   :height: 2.39568in
-
-.. |image134| image:: ../../media/image144.png
-   :width: 3.85827in
-   :height: 2.84947in
-
-.. |image135| image:: ../../media/image145.png
-   :width: 3.85827in
-   :height: 3.41809in
-
-.. |image136| image:: ../../media/image146.png
-   :width: 3.85827in
-   :height: 2.3825in
-
-.. |image137| image:: ../../media/image147.png
-   :width: 3.85827in
-   :height: 3.62393in
-
-.. |image138| image:: ../../media/image148.png
-   :width: 3.85827in
-   :height: 2.4918in
-
-.. |image139| image:: ../../media/image149.png
-   :width: 2.18518in
-   :height: 0.95872in
-
-.. |image140| image:: ../../media/image150.png
-   :width: 5.28302in
-   :height: 0.83333in
-
-.. |image141| image:: ../../media/image151.png
-   :width: 5.42913in
-   :height: 4.08681in
-
-.. |C:\devel\java\impexp\resources\jar\resources\img\map\waypoint_precise.png| image:: ../../media/image152.png
-   :width: 0.18542in
-   :height: 0.18542in
-
-.. |C:\devel\java\impexp\resources\jar\resources\img\map\waypoint_reverse.png| image:: ../../media/image153.png
-   :width: 0.21003in
-   :height: 0.19468in
-
-.. |image144| image:: ../../media/image154.png
-   :width: 5.42913in
-   :height: 4.0904in
-
-.. |image145| image:: ../../media/image155.png
-   :width: 2.63806in
-   :height: 2.44444in
-
-.. |C:\devel\java\impexp\resources\jar\resources\img\common\bbox_copy.png| image:: ../../media/image79.png
-   :width: 0.16667in
-   :height: 0.16667in
-
-.. |C:\devel\java\impexp\resources\jar\resources\img\common\bbox_paste.png| image:: ../../media/image89.png
-   :width: 0.16667in
-   :height: 0.16667in
-
-.. |image148| image:: ../../media/image156.png
-   :width: 3.85827in
-   :height: 3.17354in
+   General preferences – Language selection.

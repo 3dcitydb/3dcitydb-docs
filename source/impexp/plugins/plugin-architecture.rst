@@ -27,9 +27,10 @@ plugins are automatically detected and loaded with the application.
 
 The current version of the Importer/Exporter is shipped with two free
 and open-source plugins that can be installed during the setup process
-(see chapter 3.2). The *Spreadsheet Generator* *Plugin* allows for
+(see :numref:`first_steps_importer_exporter_installation`).
+The *Spreadsheet Generator* *Plugin* allows for
 exporting attributes of city objects as spreadsheets with user-defined
-formatting, either to a CSV or a Microsoft Excel file (see chapter 6.2).
+formatting, either to a CSV or a Microsoft Excel file (see :numref:`impexp_plugin_spshg_chapter`).
 The *ADE Manager Plugin* automatically transforms CityGML ADEs to
 relational schemas extending the 3DCityDB schema and un-/registers such
 ADE schemas with existing 3DCityDB instances.

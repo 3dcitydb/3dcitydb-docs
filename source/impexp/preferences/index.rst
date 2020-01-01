@@ -37,4 +37,4 @@ are restored from this file upon program start. Thus, changes made to
 the preferences are remembered on restart. Via the Project menu
 available from the menu bar of the Importer/Exporter, the preferences
 can optionally be stored in or loaded from user-defined config files
-(cf. chapter 5.1).
+(cf. :numref:`impexp_interface_chapter`).

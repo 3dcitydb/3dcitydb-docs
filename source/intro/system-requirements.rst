@@ -1,3 +1,5 @@
+.. _first_steps_system_requirements_chapter:
+
 System requirements
 -------------------
 
@@ -61,4 +63,4 @@ The Importer/Exporter runs with 1 GB of main memory per default. This
 setting should be reasonable on most platforms and for most
 import/export procedures. If required, you can *manually* adapt the main
 memory limits in the starter script of the program. Please refer to
-:numref:`impexp_interface` for more details.
+:numref:`impexp_interface_chapter` for more details.

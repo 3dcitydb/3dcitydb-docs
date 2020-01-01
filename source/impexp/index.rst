@@ -13,13 +13,13 @@ extracting 3D city model data.
    db-connection-operations
    citygml-import
    citygml-export
-   filters/index
    kml-collada-gltf-export
    preferences/index
+   map-window
    cli
    plugins/index
 
-Please refer to chapter 3.1 for system requirements and a documentation
+Please refer to :numref:`first_steps_system_requirements_chapter` for system requirements and a documentation
 of the installation procedure.   
 
 |apache_logo|\ The 3D City Database Importer/Exporter is free software under

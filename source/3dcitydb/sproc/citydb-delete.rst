@@ -1,3 +1,5 @@
+.. _citydb_sproc_delete_chapter:
+
 CITYDB_DELETE
 -------------
 

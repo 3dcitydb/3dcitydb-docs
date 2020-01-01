@@ -1,8 +1,8 @@
 Exporting to KML/COLLADA/glTF
 -----------------------------
 
-3D City Database contents can be directly exported in KML [Wilson 2008],
-COLLADA [Barners & Finch 2008], and glTF [Khronos 2016] formats for
+3D City Database contents can be directly exported in KML [Wils2008]_,
+COLLADA [BaFi2008]_, and glTF [Khro2018]_ formats for
 presentation, viewing, and visual inspection in a broad range of
 applications such as Earth browsers like Google Earth, ArcGIS Explorer,
 and Cesium etc.
@@ -20,20 +20,29 @@ export (see the previous chapter). In addition, more fine-grained
 preference settings affecting the KML/COLLADA/glTF export are available
 on the Preferences tab of the operations window. Make sure to check
 these settings before starting the export process. A full documentation
-of the export preferences is available in chapter 5.6.3. The following
+of the export preferences is available in :numref:`impexp_kml_export_preferences_chapter`. The following
 table provides a brief summary overview.
 
-.. table:: Summary overview of the KML/COLLADA/glTF export preferences
-   :name: tab_kml_collada_gltf_export_preferences_
-   :widths: auto
 
-   ================================= ====================================================================================================================================================================================================================================
-   **Preference name**               **Description**
-   *General Preference*              *Some common settings of the exported files*
-   *Rendering Preferences*           *Defines the look of the KML/COLLADA/glTF exports when visualized in the virtual globes (e.g. Cesium, Google Earth, NASA World Wind, ESRI ArcGlobe). Each of the top-level feature categories has its own Rendering settings here*
-   *Information Balloon Preferences* *KML offers the possibility of enriching its placemark elements with information bubbles, so-called balloons. They can be specified here*
-   *Altitude/Terrain Preferences*    *Controls the way through which the exported datasets to be perfectly displayed in the Earth browser*
-   ================================= ====================================================================================================================================================================================================================================
+.. list-table:: Summary overview of the KML/COLLADA/glTF export preferences
+   :name: tab_kml_collada_gltf_export_preferences
+
+   * - | **Preference name**
+     - | **Description**
+   * - | *General Preference*
+     - | Some common settings of the exported files
+   * - | *Rendering Preferences*
+     - | Defines the look of the KML/COLLADA/glTF exports when visualized in the
+       | virtual globes (e.g. Cesium, Google Earth, NASA World Wind, ESRI ArcGlobe).
+       | Each of the top-level feature categories has its own Rendering settings here
+   * - | *Information Balloon*
+       | *Preferences*
+     - | KML offers the possibility of enriching its placemark elements with
+       | information bubbles, so-called balloons. They can be specified here
+   * - | *Altitude/Terrain*
+       | *Preferences*
+     - | Controls the way through which the exported datasets to be
+       | perfectly displayed in the Earth browser
 
 .. figure:: /media/kml_collada_gltf_export_main_gui.png
    :name: pic_kml_collada_gltf_export_main_gui
@@ -118,7 +127,7 @@ to avoid putting all tile files into a single folder which may result in
 significant performance issues at least under MS Windows operating
 systems. 
 
-.. figure:: /media/image98.png
+.. figure:: /media/impexp_kml_export_directory_hierarchy_fig.png
    :name: pic_kml_collada_gltf_export_hierarchical_directory
 
    Example: hierarchical directory structure for export of 2x3 tiles
@@ -165,7 +174,7 @@ will be shown when visualizing the exported dataset in earth browsers.
 -  **COLLADA/glTF**\ *:* shows the detailed geometry in COLLADA and glTF
    formats including support for textures. The Appearance/Theme combo
    box below allows choosing from all possible appearance themes (as
-   defined in the CityGML specification [Gröger et al. 2012])
+   defined in the CityGML specification [GKNH2012]_)
    available in the currently connected 3DCityDB instance. The list is
    workspace- and timestamp sensitive and will be filled on demand when
    clicking on the *fetch* button. Default value is *none*, which
@@ -199,7 +208,7 @@ specifying the selected display form. This applies for both tiled and
 untiled exports.
 
 With the visibility field next to each display form the user can control
-the KML element ``<minLodPixels>``, see [Wilson 2008]: measurement in screen
+the KML element ``<minLodPixels>``, see [Wils2008]_: measurement in screen
 pixels that represents the minimum limit of the visibility range for a
 given <Region>. A ``<Region>`` is in the generated tiled exports equivalent
 to a tile. The ``<maxLodPixels>`` value is identical to the ``<minLodPixels>``
@@ -245,7 +254,7 @@ automatically disabled.
    such, it must be done before the CityGML contents are imported into
    the database at all.
 
-.. figure:: /media/image100.png
+.. figure:: /media/impexp_kml_export_scene_example_fig.png
    :name: pic_kml_collada_gltf_export_citygml_top_level
 
    Example for exported CityGML top-level features (building, bridge, tunnel, water, vegetation, transportation etc.) displayed as KML/COLLADA
@@ -329,8 +338,9 @@ classes. Starting from version 3.0.0 of the 3DCityDB, the
 KML/COLLADA/glTF Exporter has been functionally enhanced with the
 support for exporting point and curve geometry types of
 *GenricCityObject* objects in KML/KMZ format. *GenricCityObject* is a
-feature class defined within the CityGML’s Generics module (see chapter
-2.2.4.6) that allows for modeling and exchanging of 3D city objects
+feature class defined within the CityGML’s Generics module
+(see :numref:`citydb_generic_model_chapter`) that
+allows for modeling and exchanging of 3D city objects
 which are not covered by any other thematic modules of CityGML. The
 geometry of a *GenericCityObject* can be explicitly defined in LOD0-4
 using arbitrary 3D GML geometry object (class *gml:_Geometry*). Thus,
@@ -342,7 +352,7 @@ specification, could be even though modeled using the CityGML’s Generics
 module where each *GenricCityObject* object may represent a node or an
 edge of the network model.
 
-.. figure:: /media/image101.png
+.. figure:: /media/impexp_kml_export_tum_vis_example_fig.png
    :name: pic_kml_collada_gltf_export_tum_vis
 
    Visualization of the network model of the building interior of Technical University Munich (TUM)
@@ -383,7 +393,7 @@ display of 3D models. Disabling of terrain layer is only possible in
 Google Earth Pro. You may need to disable the terrain layer in case that
 the exported models cannot be seen although shown as loaded in Google
 Earth's sidebar, since they are probably buried into the ground (see
-chapter 5.6.3.4).
+:numref:`impexp_kml_export_terrain_preferences_chapter`).
 
 When exporting balloons into individual files (one for each object)
 written together into a *balloon* directory access to local files and
@@ -404,24 +414,25 @@ sent from the based-web frontend.
    Starting with version 7 (and at least up to version 7.1.1.1888)
    Google Earth has changed the way transparent or semi-transparent
    surfaces are rendered. This is especially relevant for visualizations
-   containing highlighting surfaces (explained in chapter 5.6.3.2). When
+   containing highlighting surfaces (explained in
+   :numref:`impexp_kml_export_rendering_preferences_chapter`). When
    viewing KML/COLLADA models in Google Earth it is strongly recommended to
    use Google Earth (Pro) version 7 or higher and switch to the OpenGL
    graphic mode for an optimal viewing experience. Changing the Graphic
    Mode can be achieved by clicking on *Tools*, *Options* entry, *3D View*
    Tab.
 
-.. figure:: /media/image102.png
+.. figure:: /media/impexp_kml_export_googeearth_settings_fig.png
    :name: pic_kml_collada_gltf_export_google_earth_settings
 
    Setting the Graphics Mode in Google Earth
 
-.. figure:: /media/image103.png
+.. figure:: /media/impexp_kml_export_googleearth_directx_fig.png
    :name: pic_kml_collada_gltf_export_directx
 
    KML/COLLADA models rendered with DirectX, highlighting surface borders are noticeable everywhere
 
-.. figure:: /media/image104.png
+.. figure:: /media/impexp_kml_export_googleearth_opengl_fig.png
    :name: pic_kml_collada_gltf_export_opengl
 
    The same scene rendered in OpenGL mode

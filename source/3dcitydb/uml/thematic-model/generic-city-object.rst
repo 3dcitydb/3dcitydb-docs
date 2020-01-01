@@ -1,3 +1,5 @@
+.. _citydb_generic_model_chapter:
+
 Generic Objects and Attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

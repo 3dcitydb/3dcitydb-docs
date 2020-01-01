@@ -13,10 +13,10 @@ References
 Active Server Pages Reference, Microsoft, Weblink (accessed September
 2018): http://msdn.microsoft.com/en-us/library/ms526064.aspx
 
-Barners, M., Finch, E. L. (2008): *COLLADA - Digital Asset Schema
-Release 1.5.0*. The Khronos Group Inc., Sony Computer Entertainment Inc,
-April 2008. http://www.khronos.org/files/collada_spec_1_5.pdf (accessed
-September 2018)
+.. [BaFi2008] Barners, M., Finch, E. L. (2008): *COLLADA - Digital Asset Schema
+    Release 1.5.0*. The Khronos Group Inc., Sony Computer Entertainment Inc,
+    April 2008. http://www.khronos.org/files/collada_spec_1_5.pdf (accessed
+    September 2018)
 
 Berlin 3D City Model, Business Location Center Berlin, Weblink (accessed
 September 2018):
@@ -37,7 +37,7 @@ Infrastructure Engineering (Vol. 30, No. 4). Weblink (accessed September
 
 CityGML Homepage, http://www.citygml.org (accessed September 2018).
 
-Coffman, E.G. Jr., Garey, M. R., Johnson, D.S., Tarjan, R.E. (1980):
+.. [CGJT1980] Coffman, E.G. Jr., Garey, M. R., Johnson, D.S., Tarjan, R.E. (1980):
 *Performance bounds for level-oriented two-dimensional packing
 algorithms*. In: SIAM Journal on Computing 9 (1980), pp. 801–826.
 
@@ -66,8 +66,8 @@ Fernerkundung und Geoinformation e.V., 888-902.
 .. [FVFH1995] Foley, J., van Dam, A,. Feiner, S., Hughes, J. (1995): *Computer
     Graphics: Principles and Practice.* Addison Wesley, 2nd Ed.
 
-glTF - Efficient, Interoperable Transmission of 3D Scenes and Models,
-Khronos, Weblink (accessed September 2018): https://www.khronos.org/gltf
+.. [Khro2018] glTF - Efficient, Interoperable Transmission of 3D Scenes and Models,
+    Khronos, Weblink (accessed September 2018): https://www.khronos.org/gltf
 
 Google Elevation API,
 https://developers.google.com/maps/documentation/elevation/ (accessed
@@ -135,11 +135,11 @@ http://www.3dcitydb.org/3dcitydb/fileadmin/downloaddata/3DCityDB-Documentation-v
     Berlin.* (in german only) Master Thesis, University of Potsdam, Germany,
     URN: urn:nbn:de:kobv:517-opus-63656 (accessed September 2018).
 
-Lodi A., Martello S., Vigo D. (1999): *The Touching Perimeter Algorithm:
+.. [LoMV1999] Lodi A., Martello S., Vigo D. (1999): *The Touching Perimeter Algorithm:
 Heuristic and Metaheuristic Approaches for a Class of Two-Dimensional
 Bin Packing Problems*. In: INFORMS J on Computing: pp. 345-357.
 
-Lodi A., Martello S., Monaci M., (2002): *Two-dimensional packing
+.. [LoMM2002] Lodi A., Martello S., Monaci M., (2002): *Two-dimensional packing
 problems: A survey*. In: European Journal of Operational Research, 141,
 issue 2, pp. 241-252.
 
@@ -174,9 +174,9 @@ Geoinformationstechnik 2008, Shaker Verlag, Aachen, S. 197-221.
     Doc. No. 07-092r3, January 15th.
     **\ http://portal.opengeospatial.org/files/?artifact_id=30575
 
-| Wilson, T. (2008): *OGC® KML*, OGC® Standard Version 2.2.0. Open
-  Geospatial Consortium, Doc. No. 07-147r2, April 14th.
-| http://portal.opengeospatial.org/files/?artifact_id=27810
+.. [Wils2008] Wilson, T. (2008): *OGC® KML*, OGC® Standard Version 2.2.0. Open
+    Geospatial Consortium, Doc. No. 07-147r2, April 14th.
+    http://portal.opengeospatial.org/files/?artifact_id=27810
 
 Weisstein, E. W. (2015): *Affine Transformation*, Wolfram MathWorld,
 Weblink (accessed September 2018):

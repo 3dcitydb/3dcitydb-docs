@@ -1,3 +1,5 @@
+.. _citydb_schema_chapter:
+
 Relational database schema
 --------------------------
 

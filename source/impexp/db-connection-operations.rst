@@ -10,6 +10,7 @@ execute database operations [2].
 
    Database tab.
 
+.. _impexp_database_connection_management_chapter:
 
 Managing and establishing database connections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -13,33 +13,43 @@ assigned to every city object at import time. The metadata is carried to
 columns of the table CITYOBJECT and is therefore accessible in SQL
 queries.
 
-|image96|
+.. figure:: ../../media/impexp_import_preferences_continuation_fig.png
+   :name: impexp_import_preferences_continuation_fig
 
-Figure 80: CityGML import preferences – Continuation.
+   CityGML import preferences – Continuation.
 
 The following metadata can be set:
 
-======================= =========================================================================================================================================================================================================================================================================================================================================================
-**Metadata**            **Description**
-*Data lineage [1]*      **A string value denoting the origin of the data.**
-                       
-                        **(column: LINEAGE; default value: NULL)**
-*Reason for update [1]* **A string value providing the reason for a data update.**
-                       
-                        **(column: REASON_FOR_UPDATE; default value: NULL)**
-*Updating person [2]*   **A string value identifying the person being responsible for importing or updating the city object.**
-                       
-                        **(column: UPDATING_PERSON; default value: name of the database user)**
-*creationDate [3]*      **A timestamp value denoting the date of creation of the city object. If this date is not available from the CityGML feature during import, it may either be set to the import date or be inherited from the parent feature (if available). Alternatively, the user can choose to replace all creation dates from the input files with the import date.**
-                       
-                        **(column: CREATION_DATE; default value: import date)**
-*terminationDate [4]*   **A timestamp value denoting the date of termination of the city object. If this date is not available from the CityGML feature during import, it may either be set to NULL or be inherited from the parent feature (if available). Alternatively, the user can choose to replace all termination dates in the input files with NULL.**
-                       
-                        **(column: TERMINATION_DATE; default value: NULL)**
-======================= =========================================================================================================================================================================================================================================================================================================================================================
 
-Table 38: Metadata stored with every city object in the table
-CITYOBJECT.
+.. list-table:: Metadata stored with every city object in the table CITYOBJECT.
+   :name: impexp_cityobject_metadata_table
+
+   * - | **ADE Metadata**
+     - | **Description**
+   * - | Data lineage [1]
+     - | A string value denoting the origin of the data.
+       | (column: LINEAGE; default value: NULL)
+   * - | Reason for update [1]
+     - | A string value providing the reason for a data update.
+       | (column: REASON_FOR_UPDATE; default value: NULL)
+   * - | Updating person [2]
+     - | A string value identifying the person being responsible for importing
+       | or updating the city object.
+       | (column: UPDATING_PERSON; default value: name of the database user)
+   * - | creationDate [3]
+     - | A timestamp value denoting the date of creation of the city object.
+       | If this date is not available from the CityGML feature during import,
+       | it may either be set to the import date or be inherited from the parent
+       | feature (if available). Alternatively, the user can choose to replace
+       | all creation dates from the input files with the import date.
+       | (column: CREATION_DATE; default value: import date)
+   * - | terminationDate [4]
+     - | A timestamp value denoting the date of termination of the city object.
+       | If this date is not available from the CityGML feature during import,
+       | it may either be set to NULL or be inherited from the parent feature
+       | (if available). Alternatively, the user can choose to replace all termination
+       | dates in the input files with NULL.
+       | (column: TERMINATION_DATE; default value: NULL)
 
 .. note::
    Both *creationDate* and *terminationDate* are CityGML properties
@@ -63,9 +73,10 @@ Unfortunately, gml:id values do not meet the requirement of global
 uniqueness since they are, per definition, optional and only unique
 within the scope of a single dataset.
 
-|image97|
+.. figure:: ../../media/impexp_import_preferences_gmlid_handling_fig.png
+   :name: impexp_import_preferences_gmlid_handling_fig
 
-Figure 81: CityGML import preferences – gml:id handling.
+   CityGML import preferences – gml:id handling.
 
 Per default, the Importer/Exporter assumes that the gml:id values
 associated with the city objects to be imported are globally unique and
@@ -94,7 +105,7 @@ Importer/Exporter does not import a GMLID_CODESPACE value though.
    processes in the first place.
 
 
-.. _address:
+.. _impexp_import_preferences_address_chapter:
 
 Address
 ^^^^^^^
@@ -104,7 +115,7 @@ standard for the representation and exchange of address information. xAL
 provides a flexible and generic framework for encoding address data
 according to arbitrary address schemes. The columns of the ADDRESS table
 of the 3D City Database however only map the most common fields in
-address records (cf. chapter 2.3). Moreover, the Importer/Exporter
+address records (cf. :numref:`_citydb_schema_chapter`). Moreover, the Importer/Exporter
 currently does not support arbitrary xAL fragments but is tailored to
 the parsing of following two xAL templates that are taken from the
 CityGML specification.
@@ -165,8 +176,6 @@ CityGML specification.
      </bldg:address>
    </bldg:Building>
 
-Figure 82: xAL fragments supported by the Importer/Exporter.
-
 If xAL address information in a CityGML instance document does not
 comply with one of the templates (e.g., because of additional or
 completely different entries), the address information will only
@@ -181,15 +190,16 @@ fragment does not affect the filling of the remaining columns of the
 ADDRESS table (STREET, HOUSE_NUMBER, etc.) from the xAL address
 information.
 
-|image98|
+.. figure:: ../../media/impexp_import_preferences_address_fig.png
+   :name: impexp_import_preferences_address_fig
 
-Figure 83: CityGML import preferences – Address.
+   CityGML import preferences – Address.
 
 The symmetrical setting for CityGML exports (i.e., recovering the xAL
-fragment from XAL_SOURCE) is explained in chapter 5.6.2.4.
+fragment from XAL_SOURCE) is explained in :numref:`impexp_preferences_address_chapter`.
 
 
-.. _appearance:
+.. _impexp_import_preferences_appearance_chapter:
 
 Appearance
 ^^^^^^^^^^
@@ -198,9 +208,10 @@ The Appearance preference settings define how appearance information
 (i.e., materials and textures associated with the observable surfaces of
 a city object) is processed at import time.
 
-|image99|
+.. figure:: ../../media/impexp_import_preferences_appearance_fig.png
+   :name: impexp_import_preferences_appearance_fig
 
-Figure 84: CityGML import preferences – Appearance.
+   CityGML import preferences – Appearance.
 
 Per default, all appearance information as well as all related texture
 image files are loaded into the 3D City Database [1]. The
@@ -234,9 +245,10 @@ Before importing the city objects into the 3D City Database, the
 Importer/Exporter can apply an affine coordinate transformation to all
 geometry objects. Per default, this option is disabled though.
 
-|image100|
+.. figure:: ../../media/impexp_import_preferences_geometry_fig.png
+   :name: impexp_import_preferences_geometry_fig
 
-Figure 85: CityGML import preferences – Geometry.
+   CityGML import preferences – Geometry.
 
 An affine transformation is any transformation that preserves
 collinearity (i.e., points initially lying on a line still lie on a line
@@ -274,7 +286,8 @@ In matrix form using homogenous coordinates:
    \end{bmatrix}
 
 The coefficients of this matrix and translation vector can be entered in
-this preferences dialog (cf. Figure 85). The first three columns define
+this preferences dialog (cf. :numref:`impexp_import_preferences_geometry_fig`).
+The first three columns define
 any linear transformation; the fourth column contains the translation
 vector. The affine transformation does neither affect the dimensionality
 nor the associated reference system of the geometry object, but only
@@ -321,9 +334,10 @@ enable and disable spatial and normal indexes in the 3D City Database
 manually (cf. chapter 5.2.2), with this preference settings a default
 index strategy for database imports can be determined.
 
-|image101|
+.. figure:: ../../media/impexp_import_preferences_indexes_fig.png
+   :name: impexp_import_preferences_indexes_fig
 
-Figure 86: CityGML import preferences – Indexes.
+   CityGML import preferences – Indexes.
 
 The dialog differentiates between settings for *spatial indexes* [1] and
 *normal indexes* [2] but offers the same options for each index type.
@@ -363,9 +377,10 @@ be imported into the database can be manually validated against the
 official CityGML XML Schemas. This preference dialog lets a user choose
 to perform XML validation automatically with every database import.
 
-|image102|
+.. figure:: ../../media/impexp_import_preferences_xml_validation_fig.png
+   :name: impexp_import_preferences_xml_validation_fig
 
-Figure 87: CityGML import preferences – XML validation.
+   CityGML import preferences – XML validation.
 
 In general, it is **strongly recommended** to ensure (either manually or
 automatically) that the input files are valid with respect to the
@@ -384,6 +399,7 @@ error per top-level feature and to suppress all subsequent error
 messages.
 
 .. note::
+
    The XML validation in general does not require internet access
    since the CityGML XML schemas are packaged with the Importer/Exporter.
    These internal copies of the official XML schemas will be used to
@@ -392,22 +408,22 @@ messages.
    unknown XML content, which might require internet access. Precisely,
    the following rules apply:
 
--  If an XML element’s namespace is part of the official CityGML 2.0 or
-      1.0 standard, it will be validated against the internal copies of
-      the official CityGML 2.0 or 1.0 schemas (no internet access
-      needed).
+    -  If an XML element’s namespace is part of the official CityGML 2.0 or
+       1.0 standard, it will be validated against the internal copies of
+       the official CityGML 2.0 or 1.0 schemas (no internet access
+       needed).
 
--  If the element’s namespace is unknown, the element will be validated
-      against the schema pointed to by the *xsi:schemaLocation* value on
-      the root element or the element itself. This is necessary when,
-      for instance, the input document contains XML content from a
-      CityGML Application Domain Extension (ADE). Note that loading the
-      schema might require internet access.
+    -  If the element’s namespace is unknown, the element will be validated
+       against the schema pointed to by the *xsi:schemaLocation* value on
+       the root element or the element itself. This is necessary when,
+       for instance, the input document contains XML content from a
+       CityGML Application Domain Extension (ADE). Note that loading the
+       schema might require internet access.
 
--  If the element’s namespace is unknown and the *xsi:schemaLocation*
-      value (provided either on the root element or the element itself)
-      is empty, validation will fail with a hint to the element and the
-      missing schema document.
+    -  If the element’s namespace is unknown and the *xsi:schemaLocation*
+       value (provided either on the root element or the element itself)
+       is empty, validation will fail with a hint to the element and the
+       missing schema document.
 
 
 .. _xsl-transformation:
@@ -422,9 +438,10 @@ stylesheet in your local file system using the *Browse* button. The
 stylesheet will be automatically considered by the import process to
 transform the CityGML data.
 
-|image103|
+.. figure:: ../../media/impexp_import_preferences_xsl_fig.png
+   :name: impexp_import_preferences_xsl_fig
 
-Figure 88: CityGML import preferences – XSL transformation.
+   CityGML import preferences – XSL transformation.
 
 By clicking the *+* and *-* buttons, more than one XSLT stylesheet can
 be fed to the importer. The stylesheets are executed in the given order,
@@ -463,9 +480,10 @@ top-level features were actually loaded into the database during an
 import session, the user can choose to let the Importer/Exporter create
 an *import log*.
 
-|image104|
+.. figure:: ../../media/impexp_import_preferences_log_fig.png
+   :name: impexp_import_preferences_log_fig
 
-Figure 89: CityGML import preferences – Import log.
+   CityGML import preferences – Import log.
 
 Simply enable the checkbox on this settings dialog to activate import
 logs (disabled per default). You additionally must provide a folder
@@ -477,8 +495,9 @@ directory, but this proposal can be overridden.
 To easily relate import logs to different 3D City Database instances
 managed on the Database tab, the Importer/Exporter creates one subfolder
 for each connection entry below the folder provided in the settings
-dialog. The *description text* of the connection entry (cf. chapter
-5.2.1) is used as folder name. Within that subfolder, a separate log
+dialog. The *description text* of the connection entry (cf.
+:numref:`impexp_database_connection_management_chapter`)
+is used as folder name. Within that subfolder, a separate log
 file is created for every input file during an import to that 3D City
 Database connection. The filename includes the date and time of the
 import session according to following pattern:
@@ -488,9 +507,10 @@ imported-features-yyyy_MM_dd-HH_mm_ss_SSS.log
 The import log is a simple CSV file with one record (line) per imported
 top-level feature. The following figure shows an example.
 
-|image105|
+.. figure:: ../../media/impexp_import_log_example_fig.png
+   :name: impexp_import_log_example_fig
 
-Figure 90: Example import log.
+   Example import log.
 
 The first four lines of the import log contain metadata about the
 *version of the Import/Exporter* that was used for the import, the
@@ -516,7 +536,7 @@ The last line of each import log is a footer that contains metadata
 about whether the import was *successfully finished* or *aborted*.
 
 
-.. _resources:
+.. _impexp_import_preferences_resources_chapter:
 
 Resources
 ^^^^^^^^^
@@ -531,9 +551,10 @@ response do not block threads parsing the input document or processing
 the CityGML input features. In a multi-core environment, threads can
 even be executed simultaneously on multiple CPUs or cores.
 
-|image106|
+.. figure:: ../../media/impexp_import_preferences_resources_fig.png
+   :name: impexp_import_preferences_resources_fig
 
-Figure 91: CityGML import preferences – Resources.
+   CityGML import preferences – Resources.
 
 The Resource settings allow for controlling the minimum and maximum
 number of concurrent threads during import [1]. Make sure to enter
@@ -604,47 +625,3 @@ and gml:id caches respectively temporary XLink information (default:
    memory before being submitted to the database. Thus, the
    Importer/Exporter might run out of memory if the batch size is too high.
    After a batch is submitted, the transaction is committed.
-
-.. |image96| image:: ../../media/image106.png
-   :width: 4.44792in
-   :height: 4.08412in
-
-.. |image97| image:: ../../media/image107.png
-   :width: 3.85827in
-   :height: 3.61755in
-
-.. |image98| image:: ../../media/image108.png
-   :width: 3.85827in
-   :height: 3.62563in
-
-.. |image99| image:: ../../media/image109.png
-   :width: 3.89764in
-   :height: 3.09336in
-
-.. |image100| image:: ../../media/image110.png
-   :width: 3.85827in
-   :height: 3.06212in
-
-.. |image101| image:: ../../media/image111.png
-   :width: 3.85827in
-   :height: 3.06212in
-
-.. |image102| image:: ../../media/image112.png
-   :width: 3.85827in
-   :height: 3.06212in
-
-.. |image103| image:: ../../media/image113.png
-   :width: 3.85827in
-   :height: 3.06212in
-
-.. |image104| image:: ../../media/image114.png
-   :width: 4.44882in
-   :height: 2.92076in
-
-.. |image105| image:: ../../media/image115.png
-   :width: 3.92593in
-   :height: 2.72306in
-
-.. |image106| image:: ../../media/image116.png
-   :width: 3.88542in
-   :height: 4.77754in

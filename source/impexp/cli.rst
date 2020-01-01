@@ -15,61 +15,65 @@ Importer/Exporter from a shell environment (or a shell script) is shown
 below. If required, please replace the version number in the file name
 with your current version.
 
-java -jar lib/impexp-client-4.1.0.jar [-options]
+.. code-block:: bash
+
+    java -jar lib/impexp-client-4.1.0.jar [-options]
 
 This command consists of two parts. The first part executes the *Java
-Virtual Machine* (JVM) through the java command. The -jar argument of
+Virtual Machine* (JVM) through the java command. The ``-jar`` argument of
 the JVM is used to denote the path to the Importer/Exporter JAR file
-impexp-client-4.1.0.jar to be executed. After the JAR filename, you must
+*impexp-client-4.1.0.jar* to be executed. After the JAR filename, you must
 provide additional program arguments to trigger a specific operation of
 the Importer/Exporter.
 
 .. note::
    The above command assumes that you have first changed directory
    to the directory where the Importer/Exporter is installed. Otherwise,
-   you must provide the full path to the impexp-client-4.1.0.jar file.
+   you must provide the full path to the *impexp-client-4.1.0.jar* file.
 
 You may add any further JVM arguments to the above command that you
 think are required in your environment. *It is recommended* to at least
-start the JVM with a *minimum amount of main memory* using the -Xms
-argument. For instance, use java -Xms 1g to use 1 GB of your main memory
+start the JVM with a *minimum amount of main memory* using the ``-Xms``
+argument. For instance, use ``java -Xms 1g`` to use 1 GB of your main memory
 for the Importer/Exporter.
 
 To get a list of program arguments offered by the Importer/Exporter, use
 the -help flag and issue the following command:
 
-java -jar lib/impexp-client-4.1.0.jar -help
+.. code-block:: bash
+
+    java -jar lib/impexp-client-4.1.0.jar -help
 
 This will produce an output like shown below.
 
-|image148|
+.. figure:: /media/impexp_cli_help_text_fig.png
+   :name: impexp_cli_help_text_fig
 
-Figure 127: Help text of the command line interface.
+   Help text of the command line interface.
 
 The available program arguments are:
 
-==================== ================================================================================================================================================================================================================================================
-   *-shell*          This argument is mandatory to start the shell version of the Importer/Exporter. If this argument is not provided, then the GUI version is launched per default.
-==================== ================================================================================================================================================================================================================================================
-   *-config*         Provides the path and filename of the config file to be used. If this argument is omitted, the config file in the default path is used instead. Using environment variables, the default path can be identified dynamically (cf. chapter 5.1):
+
+-  *-shell*:          This argument is mandatory to start the shell version of the Importer/Exporter. If this argument is not provided, then the GUI version is launched per default.
+-  *-config*:         Provides the path and filename of the config file to be used. If this argument is omitted, the config file in the default path is used instead. Using environment variables,
+   the default path can be identified dynamically (cf. :numref:`impexp_interface_chapter`):
                     
-                     -  | %HOMEDRIVE%%HOMEPATH%\3dcitydb\\
-                        | importer-exporter\config
-                        | (Windows 7 and higher)
-                    
-                     -  $HOME/3dcitydb/importer-exporter/config (UNIX/Linux, Mac OS families)
-   *-import*         Triggers a CityGML import process. Provide a list of one or more input files separated by semicolons (;) in addition. The list may also contain folders. A folder and all its nested subfolders are recursively scanned for CityGML input files.
-   *-validate*       Triggers a XML Schema validation on the provided list of input files (see import argument).
-   *-export*         Triggers a CityGML export process. Provide the path and name of the output file.
-   *-kmlExport*      Triggers a KML/COLLADA/glTF export process. Provide the path and name of the output file.
-   *-testConnection* Connects to the database using the connection details provided in the config file and exits afterwards. Evaluate the exit code (and optionally the log messages on the console) to check whether the connection was established successfully.
-==================== ================================================================================================================================================================================================================================================
+                     -  ``%HOMEDRIVE%%HOMEPATH%\\3dcitydb\\importer-exporter\\config`` (Windows 7 and higher)
+                     -  ``$HOME/3dcitydb/importer-exporter/config`` (UNIX/Linux, Mac OS families)
+-   *-import*:         Triggers a CityGML import process. Provide a list of one or more input files separated by semicolons (;) in addition. The list may also contain folders. A folder and all its
+    nested subfolders are recursively scanned for CityGML input files.
+-   *-validate*:       Triggers a XML Schema validation on the provided list of input files (see the *import* argument).
+-   *-export*:         Triggers a CityGML export process. Provide the path and name of the output file.
+-   *-kmlExport*:      Triggers a KML/COLLADA/glTF export process. Provide the path and name of the output file.
+-   *-testConnection*: Connects to the database using the connection details provided in the config file and exits afterwards. Evaluate the exit code (and optionally the log messages on the
+    console) to check whether the connection was established successfully.
+
 
 The full range of preferences and settings affecting the different
 import and export operations of the Importer/Exporter **are not
 offered** as separate program arguments. Instead, it is assumed that the
 config file (either the default one or the one provided through the
--config argument) contains all the settings that should be used in a
+*-config* argument) contains all the settings that should be used in a
 specific operation (e.g., the database connection details, filter
 settings for imports and exports, etc.). The config file is encoded as
 XML and hence can be edited by a user manually. However, the recommended
@@ -79,15 +83,15 @@ way to provide valid settings is as follows:
 
 2. Make all your settings in the GUI.
 
-3. Save your settings to a local config file via the Project Save
-   Project As… dialog from the main menu bar.
+3. Save your settings to a local config file via the *Project Save
+   Project As…* dialog from the main menu bar.
 
-4. Feed this config file to the command line interface using the -config
+4. Feed this config file to the command line interface using the *-config*
    argument.
 
 .. note::
    You can also create a config file programmatically in Java. The
-   JAR file impexp-config-4.1.0.jar in the installation directory of the
+   JAR file *impexp-config-4.1.0.jar* in the installation directory of the
    Importer/Exporter contains all the classes required for reading and
    writing a config file. Once you have the JAR file on your classpath, use
-   the class org.citydb.config.ConfigUtil as starting point.
+   the class `org.citydb.config.ConfigUtil` as starting point.

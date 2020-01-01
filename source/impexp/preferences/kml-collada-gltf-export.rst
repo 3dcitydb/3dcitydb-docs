@@ -1,3 +1,5 @@
+.. _impexp_kml_export_preferences_chapter:
+
 KML/COLLADA/glTF export preferences
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -16,7 +18,7 @@ Some common features of the exported files, especially those related to
 tiling options, can be set under the preferences tab, node
 *KML/COLLADA/glTF Export*, subnode *General*.
 
-.. figure:: /media/image125.png
+.. figure:: /media/impexp_kml_export_preferences_general_fig.png
    :name: pic_kml_collada_gltf_preferences_general
 
    General settings for the KML/COLLADA/glTF export  
@@ -224,7 +226,7 @@ only be entered in the callback method name field.
    JSONP* should be deactivated.
 
 
-.. _rendering:
+.. _impexp_kml_export_rendering_preferences_chapter:
 
 Rendering Preferences
 ^^^^^^^^^^^^^^^^^^^^^
@@ -240,7 +242,7 @@ or simpler. An exceptional case is *GenricCityObject* which can be
 exported into point or line geometries, and the corresponding settings
 will be explained at the end of this section.
 
-.. figure:: /media/image126.png
+.. figure:: /media/impexp_kml_export_preferences_rendering_building_fig.png
    :name: pic_kml_collada_gltf_preferences_rendering
 
    Rendering settings for the KML/COLLADA/glTF *Building* export
@@ -333,7 +335,7 @@ effect.
    option *Generate surface normal* by default for all (top-level)
    features if such information is available.
 
-.. figure:: /media/image127.png
+.. figure:: /media/impexp_kml_export_surface_normal_comparison_fig.png
    :name: pic_kml_collada_gltf_preferences_rendering_comparison
 
    Comparison of the different visual effects of the same 
@@ -365,7 +367,7 @@ shared between separate objects.
 
 The texture atlas algorithms address the problem of two-dimensional
 image packing, also known as 'knapsack problem’ in different ways (see
-[Coffman et al. 1980]):
+[CGJT1980]_):
 
 -  **BASIC**\ *:* recursively divides the texture atlas into empty and
    filled regions (see
@@ -379,8 +381,8 @@ image packing, also known as 'knapsack problem’ in different ways (see
    after this one. This keeps the algorithm simple and fast. The items
    may be rotated when being inserted into the texture atlas.
 
--  **TPIM**\ *:* touching perimeter (see [Lodi et al. 1999] and [Lodi et
-   al. 2002]). Sorts images according to non-increasing area and orients
+-  **TPIM**\ *:* touching perimeter (see [LoMV1999]_ and [LoMM2002]_).
+   Sorts images according to non-increasing area and orients
    them horizontally. One item is packed at a time. The first item
    packed is always placed in the bottom-left corner. Each following
    item is packed with its lower edge touching either the bottom of the
@@ -417,7 +419,7 @@ transparent) to 255 (completely opaque).
 
 .. note::
    This setting only takes effect if none of the appearance themes
-   (as defined in the CityGML specification [Gröger et al. 2012]) is
+   (as defined in the CityGML specification [GKNH2012]_) is
    selected or available in the currently connected 3DCityDB instance.
 
 Buildings can be put together in groups into a single model/placemark.
@@ -448,7 +450,7 @@ alpha value of 140 (hard-coded), becoming instantly visible, creating
 this model placemark highlighted feel. The displacement distance for the
 exploded highlighting surfaces can be set here. Default value is 0.75m.
 
-.. figure:: /media/image128.png
+.. figure:: /media/impexp_kml_export_mouseover_highlighting_fig.png
    :name: pic_kml_collada_gltf_preferences_rendering_collada
 
    Object exported in the COLLADA display form being
@@ -476,7 +478,7 @@ the previous section, only the settings within the subnode “\ *Point and
 Curve*\ ” will be explained in the following paragraphs.
 
 
-.. figure:: /media/image129.png
+.. figure:: /media/impexp_kml_export_point_curve_rendering.png
    :name: pic_kml_collada_gltf_preferences_rendering_point
 
    Rendering settings for point and curve geometry exports for *GenericCityObject*
@@ -489,9 +491,11 @@ Possible value may be one of the following options:
    in meters according to the vertical reference system (EGM96 geoid in
    KML).
 
--  **relative**: the altitude is interpreted as a value in meters above the terrain. The absolute height value can be determined by adding the attitude to the elevation of the point.
+-  **relative**: the altitude is interpreted as a value in meters above the terrain.
+   The absolute height value can be determined by adding the attitude to the elevation of the point.
 
--  **clamp to ground**: the altitude will be ignored and the point geometry will be always clamp to the ground regardless of whether the terrain layer is activated or not.
+-  **clamp to ground**: the altitude will be ignored and the point geometry will be
+   always clamp to the ground regardless of whether the terrain layer is activated or not.
 
 Three setting options are available which allow user to choose a more
 appropriate display form for point geometry on the 3D map:
@@ -505,14 +509,17 @@ appropriate display form for point geometry on the 3D map:
    highlighting is enabled, further settings can be made for the
    thickness and color properties of the highlighting geometry.
 
-.. figure:: /media/image130.png
+.. figure:: /media/impexp_kml_export_example_cross_fig.png
    :name: pic_kml_collada_gltf_preferences_cross
 
    An exported point geometry object displayed as a cross-line
 
--  **Icon**: An alternative way for displaying point geometry in the      earth browser is to use the KML’s native point placemark that can      be represented with an icon in a user-defined color. The size of      the icon can be determined with the help of the *Scale* option,      where the default value is 1.0 (no scaling) which can give a      fairly good perception.
+-  **Icon**: An alternative way for displaying point geometry in the earth browser
+   is to use the KML’s native point placemark that can be represented with an icon
+   in a user-defined color. The size of the icon can be determined with the help of the *Scale* option,      where
+   the default value is 1.0 (no scaling) which can give a fairly good perception.
 
-.. figure:: /media/image131.png
+.. figure:: /media/impexp_kml_export_example_icon_fig.png
    :name: pic_kml_collada_gltf_preferences_point
 
    An exported point geometry object displayed as an icon
@@ -524,7 +531,7 @@ appropriate display form for point geometry on the 3D map:
    highlighting effect can also be adjusted to achieve an optimal visual
    effect.
 
-.. figure:: /media/image132.png
+.. figure:: /media/impexp_kml_export_example_cube_fig.png
    :name: pic_kml_collada_gltf_preferences_cube
 
    An exported point geometry object displayed as a small cube
@@ -578,7 +585,7 @@ geometry object can also has its own individual balloon settings. The
 following example is set around *Building* balloons but it applies
 exactly the same for all feature classes.
 
-.. figure:: /media/image133.png
+.. figure:: /media/impexp_kml_export_preferences_balloon_building_fig.png
    :name: pic_kml_collada_gltf_preferences_balloon_building
 
    *Building* Balloon settings
@@ -683,23 +690,32 @@ Special keywords in simple expressions
    ``SPECIAL_KEYWORDS`` (a non-existing table in the 3DCityDB), and the
    column name must be one of the following:
 
+.. list-table::  3DCityDB SPECIAL_KEYWORDS
+   :name: 3dcitydb_special_keywords_table
 
-.. table:: 
-   :widths: auto
-
-   ===========================      =============================================================================================================================
-   ``CENTROID_WGS84``               coordinates of the object’s centroid in WGS84 in the  following order: longitude, latitude, altitude 
-   ``CENTROID_WGS84_LAT``           latitude of the object’s centroid in WGS84
-   ``CENTROID_WGS84_LON``           longitude of the object’s centroid in WGS84
-   ``BBOX_WGS84_LAT_MIN``           minimum latitude value of the object’s envelope   in WGS84
-   ``BBOX_WGS84_LAT_MAX``           maximum latitude value of the object’s envelope   in WGS84
-   ``BBOX_WGS84_LON_MIN``           minimum longitude value of the object’s envelope   in WGS84
-   ``BBOX_WGS84_LON_MAX``           maximum longitude value of the object’s envelope   in WGS84
-   ``BBOX_WGS84_HEIGHT_MIN``        minimum height value of the object’s envelope   in WGS84
-   ``BBOX_WGS84_HEIGHT_MAX``        maximum height value of the object’s envelope   in WGS84
-   ``BBOX_WGS84_LAT_LON``           all four latitude and longitude values of the   object’s envelope in WGS84
-   ``BBOX_WGS84_LON_LAT``           all four longitude and latitude values of the   object’s envelope in WGS84
-   ===========================      =============================================================================================================================
+   * - | ``CENTROID_WGS84``
+     - | coordinates of the object’s centroid in WGS84 in the following order:
+       | longitude, latitude, altitude
+   * - | ``CENTROID_WGS84_LAT``
+     - | latitude of the object’s centroid in WGS84
+   * - | ``CENTROID_WGS84_LON``
+     - | longitude of the object’s centroid in WGS84
+   * - | ``BBOX_WGS84_LAT_MIN``
+     - | minimum latitude value of the object’s envelope in WGS84
+   * - | ``BBOX_WGS84_LAT_MAX``
+     - | maximum latitude value of the object’s envelope in WGS84
+   * - | ``BBOX_WGS84_LON_MIN``
+     - | minimum longitude value of the object’s envelope in WGS84
+   * - | ``BBOX_WGS84_LON_MAX``
+     - | maximum longitude value of the object’s envelope in WGS84
+   * - | ``BBOX_WGS84_HEIGHT_MIN``
+     - | maximum longitude value of the object’s envelope in WGS84
+   * - | ``BBOX_WGS84_HEIGHT_MAX``
+     - | maximum height value of the object’s envelope in WGS84
+   * - | ``BBOX_WGS84_LAT_LON``
+     - | all four latitude and longitude values of the object’s envelope in WGS84
+   * - | ``BBOX_WGS84_LON_LAT``
+     - | all four longitude and latitude values of the object’s envelope in WGS84
 
 -  No aggregation functions or conditions are allowed for
    ``SPECIAL_KEYWORDS``. If present they will be interpreted as part of the
@@ -717,9 +733,11 @@ Examples for simple expressions
 
 * ``<3DCityDB>BUILDING/NAME</3DCityDB>`` returns the content of the NAME column on the BUILDING table for this city object.
 
-* ``<3DCityDB>CITYOBJECT_GENERICATTRIB/ATTRNAME</3DCityDB>`` returns the names of all existing generic attributes for this city object. The names will be separated by commas.
+* ``<3DCityDB>CITYOBJECT_GENERICATTRIB/ATTRNAME</3DCityDB>`` returns the names of all existing generic attributes for this city object.
+  The names will be separated by commas.
 
-* ``<3DCityDB>CITYOBJECT_GENERICATTRIB/REALVAL [ATTRNAME = 'H_Trauf_Min']</3DCityDB>`` returns the value (of the REALVAL column) of the generic attribute with attribute name ``H_Trauf_Min`` for this city object.
+* ``<3DCityDB>CITYOBJECT_GENERICATTRIB/REALVAL [ATTRNAME = 'H_Trauf_Min']</3DCityDB>`` returns the value (of the REALVAL column)
+  of the generic attribute with attribute name ``H_Trauf_Min`` for this city object.
 
 * ``<3DCityDB>APPEARANCE/[COUNT]THEME</3DCityDB>`` returns the number of appearance themes for this city object.
 
@@ -727,8 +745,8 @@ Examples for simple expressions
 
 * ``<3DCityDB>SPECIAL_KEYWORDS/CENTROID_WGS84_LON</3DCityDB>`` returns the *longitude value of this city object’s centroid longitude in WGS84*.
 
-``<3DCityDB>`` simple expressions can be used not only for generating text
-in the balloons, but any valid HTML content, like clickable hyperlinks:
+* ``<3DCityDB>`` simple expressions can be used not only for generating text
+  in the balloons, but any valid HTML content, like clickable hyperlinks:
 
 * ``<a href="<3DCityDB>EXTERNAL_REFERENCE/URI</3DCityDB>"> click here for more information</a>`` returns a hyperlink to the object's external reference
 
@@ -743,9 +761,9 @@ Museum in Berlin:
 
 .. code-block:: xml
 
-   <img src="http://upload.wikimedia.org/wikipedia/commons/d/d1/FrisoaltarPergamo.jpg <http://upload.wikimedia.org/wikipedia/commons/d/d1/FrisoaltarPergamo.jpg>" width=400>
+   <img  src="http://upload.wikimedia.org/wikipedia/commons/d/d1/FrisoaltarPergamo.jpg" width=400>
 
-.. figure:: /media/image134.png
+.. figure:: /media/impexp_kml_export_balloon_embedded_image_fig.png
    :name: pic_kml_collada_gltf_preferences_balloon_generated
 
    Dynamically generated balloon containing an embedded image (image taken from Wikimedia)
@@ -821,12 +839,12 @@ Listing of generic attributes and their values:
             <3DCityDB>END FOREACH</3DCityDB>
       </script>
 
-.. figure:: /media/image135.png
+.. figure:: /media/impexp_kml_export_balloon_dynamic_contents_fig.png
    :name: pic_kml_collada_gltf_preferences_balloon_dynamic
 
    Model placemark with dynamic balloon contents showing the list of generic attributes
 
-.. _altitude:
+.. _impexp_kml_export_terrain_preferences_chapter:
 
 Altitude/Terrain Preferences
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -835,7 +853,7 @@ In order to ensure a perfect display of the exported datasets in the
 Earth browser, some adjustments on the z coordinate for the exported 3D
 objects may be necessary.
 
-.. figure:: /media/image136.png
+.. figure:: /media/impexp_kml_export_preferences_terrain_fig.png
    :name: pic_kml_collada_gltf_preferences_terrain
 
    Altitude/Terrain settings
@@ -889,7 +907,7 @@ objects stored in a 3DCityDB usually have values bigger than 0, so
 choosing this altitude mode will often result in exports hovering over
 the ground.
 
-.. figure:: /media/image137.jpeg
+.. figure:: /media/impexp_kml_export_example_relative_atitude_mode_fig.jpeg
    :name: pic_kml_collada_gltf_preferences_terrain_example
 
    Possible export result with relative altitude mode
@@ -1015,17 +1033,17 @@ manual adjustment of the value in the 3DCityDB is needed. After the
 content of *GE_LoDn_zOffset* has been fine-tuned to a proper value it
 should be persistently stored in the database.
 
-.. figure:: /media/image138.jpeg
+.. figure:: /media/impexp_kml_export_altitude_points_zOffset_fig.jpeg
    :name: pic_kml_collada_gltf_preferences_terrain_example_relative
 
    Points sent to Google's Elevation API for calculation of the zOffset
 
-.. figure:: /media/image139.png
+.. figure:: /media/impexp_kml_export_example_absolute_noOffset_fig.png
    :name: pic_kml_collada_gltf_preferences_terrain_example_absolute_without_grounding
 
    Export with *absolute* altitude mode and *no offset*
 
-.. figure:: /media/image140.jpeg
+.. figure:: /media/impexp_kml_export_example_absolute_grounding_fig.jpeg
    :name: pic_kml_collada_gltf_preferences_terrain_example_absolute_with_grounding
 
    Export with *absolute* altitude mode and use of *GE_LoDn_zOffset*

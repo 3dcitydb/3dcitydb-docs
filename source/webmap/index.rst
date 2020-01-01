@@ -1,3 +1,5 @@
+.. _webmap_chapter:
+
 3DCityDB-Web-Map-Client
 =======================
 

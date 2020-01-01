@@ -5,7 +5,9 @@ Management of user-defined coordinate reference systems
 
 When setting up an instance of the 3D City Database, a coordinate
 reference system (CRS) must be chosen for the entire database (cf.
-chapter 3.3). This CRS is used as default reference system for all
+:numref:`first_step_3dcitydb_installation_oracle` and
+:numref:`first_step_3dcitydb_installation_postgis`).
+This CRS is used as default reference system for all
 spatial objects that are created and stored in the database instance
 (expect implicit geometries) as well as for building spatial indexes and
 performing spatial functions.
@@ -20,9 +22,10 @@ additional reference systems, the Importer/Exporter provides a
 corresponding dialog on the Preferences (*Reference systems* subnode of
 the *Database* preferences node) tab as shown below.
 
-|image131|
+.. figure:: /media/impexp_database_preferences_crs_fig.png
+   :name: impexp_database_preferences_crs_fig
 
-Figure 116: Database preferences – Reference systems.
+   Database preferences – Reference systems.
 
 On top of the preferences page [1], a drop-down list allows for choosing
 a CRS for display and editing from the list of user-defined CRSs. This
@@ -46,9 +49,10 @@ further tabs of the Importer/Exporter. The new CRS is added to the list
 of user-defined CRSs upon clicking the *Apply* button. The following
 screenshot provides an example.
 
-|image132|
+.. figure:: /media/impexp_database_preferences_add_crs_fig.png
+   :name: impexp_database_preferences_add_crs_fig
 
-Figure 117: Adding a new CRS to the list of user-defined CRSs.
+   Adding a new CRS to the list of user-defined CRSs.
 
 The *Copy* button allows for adding a further CRS by copying and editing
 the information of an already existing user-defined CRS. The currently
@@ -94,14 +98,4 @@ and, thus, can be easily imported and added to the list of user-defined
 CRSs. Note that the URN encoding of the predefined CRSs generally lacks
 a height reference system. The height reference therefore must be added
 before using this CRS as target reference system for CityGML exports
-(cf. chapter 5.4 for more details).
-
-.. _general-preferences-1:
-
-.. |image131| image:: ../../media/image141.png
-   :width: 3.94271in
-   :height: 3.5985in
-
-.. |image132| image:: ../../media/image142.png
-   :width: 3.94094in
-   :height: 3.59689in
+(cf. :numref:`impexp_citygml_export_chapter` for more details).

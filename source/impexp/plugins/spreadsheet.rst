@@ -1,3 +1,5 @@
+.. _impexp_plugin_spshg_chapter:
+
 Spreadsheet Generator Plugin (SPSHG)
 ------------------------------------
 
@@ -13,7 +15,6 @@ Docs). All features of spreadsheet programs, like calculation and
 graphing tools, are applicable to the exported data from a 3D City
 Database instance.
 
-
 .. _spreadsheet_plugin_install:
 
 Plugin installation
@@ -24,7 +25,7 @@ with the 3DCityDB Importer/Exporter tool. During the Installation of the
 Import/Export tool, the wizard will ask you if you want to install
 Spreadsheet Generator Plugin like in the following figure:
 
-.. figure:: /media/image157.PNG
+.. figure:: /media/impexp_plugin_spshg_installation_fig.PNG
    :name: pic_plugin_spreadsheet_installation
 
    Installation wizard of the Import/Export tool
@@ -112,7 +113,7 @@ buttons to modify listed columns on the table and their order. By
 pressing the *Save* button, manually created (or adapted) templates will
 be saved in a text file. Path will be specified by the *Save* dialog.
 
-.. figure:: /media/image160.PNG
+.. figure:: /media/impexp_plugin_spshg_new_column_fig.PNG
    :name: pic_plugin_spreadsheet_template
 
    The *New Column* dialog. Fill the *Column's title*, *Column's content* fields and click on the *Insert Column* button to add it to the list of columns. The *Comment* field is optional. When written to a template file its content serves informational purposes only
@@ -155,7 +156,7 @@ Rules for Column's Content field
       "TABLE/[AGGREGATION FUNCTION] COLUMN [CONDITION]"
 
    Aggregation function and condition are optional. Table refers to the
-   underlying 3DCityDB table structure (see Chapter 2.3 for more
+   underlying 3DCityDB table structure (see Chapter :numref:`citydb_schema_chapter` for more
    details).
 
 -  Expressions are not case-sensitive.
@@ -317,7 +318,7 @@ Sample template file:
 
 :numref:`pic_plugin_spreadsheet_table` shows a sample export result.
 
-.. figure:: /media/image161.png
+.. figure:: /media/impexp_plugin_spshg_example_exported_table_fig.png
    :name: pic_plugin_spreadsheet_table
 
    Example of exported data based on sample template presented
@@ -368,7 +369,7 @@ Bounding Box
 Use the bounding box section to select an area of interest from which
 the selected features contained should be exported. Insert lower left
 and upper right coordinates of the bounding box or click on the map
-button to select the area from a map. Please refer to Chapter 5.2.2
+button to select the area from a map. Please refer to :numref:`impexp_executing_database_operations_chapter`
 for more details on the different options for specifying a bounding box.
 
 
@@ -396,7 +397,7 @@ comma (default) for CSV file. Write any arbitrary separator phrase or
 click on the *edit* button (marked by 1 in :numref:`pic_plugin_spreadsheet_output`) to select it from
 a list.
 
-.. figure:: /media/image163.png
+.. figure:: /media/impexp_plugin_spshg_output_panel_fig.png
    :name: pic_plugin_spreadsheet_output
 
    Click on the *CSV File* radio button and write any output
@@ -436,7 +437,7 @@ the corresponding input fields
 After logging in, an **Import new table** dialog window will be
 displayed like in the screenshot below:
 
-.. figure:: /media/image164.png
+.. figure:: /media/impexp_plugin_spshg_fusiontable_choose_file.png
    :name: pic_plugin_spreadsheet_csv_choose_file
 
 Click the **Choose File** button to open a file selection window
@@ -444,7 +445,7 @@ Click the **Choose File** button to open a file selection window
 Navigate to the system path of your created Excel file and select it.
 The following screenshot show an example Excel file.
 
-.. figure:: /media/image165.png
+.. figure:: /media/impexp_plugin_spshg_csv_table.png
    :name: pic_plugin_spreadsheet_csv_table
 
 After selecting the Excel file, click the **Next** button to continue
@@ -452,7 +453,7 @@ After selecting the Excel file, click the **Next** button to continue
 The contents of the selected table is displayed in the dialog window
 (see the screenshot below)
 
-.. figure:: /media/image166.png
+.. figure:: /media/impexp_plugin_spshg_csv_select.png
    :name: pic_plugin_spreadsheet_csv_select
 
 Briefly check the table contents again and then click the **Next**
@@ -462,14 +463,14 @@ In the following dialog window (see the screenshot below), enter a table
 name (for example “\ *Berlin_Buildings_Attributes*\ ”) into the input
 field **Table name** and click the **Finish** button
 
-.. figure:: /media/image167.png
+.. figure:: /media/impexp_plugin_spshg_csv_select_fields.png
    :name: pic_plugin_spreadsheet_csv_select_fields
 
 Now, your Excel file has been successfully uploaded to the Google Cloud
 Service and a Google Fusion Table instance has been created (see the
 screenshot below).
 
-.. figure:: /media/image168.png
+.. figure:: /media/impexp_plugin_spshg_csv_output.png
    :name: pic_plugin_spreadsheet_csv_output
 
 We would like to share our created online spreadsheet with other people.
@@ -479,19 +480,19 @@ by completing the following steps:
 Choose the **File Share…** from the menu bar at the top of the online
 spreadsheet window
 
-.. figure:: /media/image169.png
+.. figure:: /media/impexp_plugin_spshg_csv_share.png
    :name: pic_plugin_spreadsheet_csv_share
 
 In the **Sharing settings** window, click on **Change…** button (see the
 screenshot below)
 
-.. figure:: /media/image170.png
+.. figure:: /media/impexp_plugin_spshg_csv_share_link.png
    :name: pic_plugin_spreadsheet_csv_share_link
 
 In the **Link sharing** window (see the figure below), choose the second
 radio button **On – Anyone with the link**
 
-.. figure:: /media/image171.png
+.. figure:: /media/impexp_plugin_spshg_csv_share_options.png
    :name: pic_plugin_spreadsheet_csv_share_options
 
 Click the **Save** button to save the settings and close the share
@@ -502,8 +503,8 @@ has its URL that can be easily obtained from the address bar of the web
 browser (marked in the screenshot below). With this URL and the first
 column (GMLID) in the table, the attribute information stored in the
 spreadsheet are able to be queried and displayed on the
-3DCityDB-Web-Map-Client when a city object is clicked on (see chapter 8
-for more details).
+3DCityDB-Web-Map-Client when a city object is clicked on
+(see :numref:`webmap_chapter` for more details).
 
-.. figure:: /media/image172.png
+.. figure:: /media/impexp_plugin_spshg_csv_share_results.png
    :name: pic_plugin_spreadsheet_csv_share_results
