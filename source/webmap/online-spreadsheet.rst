@@ -11,7 +11,7 @@ is completely or partly lost in the 3D graphics formats. This issue has
 been considered and solved within the 3D web client by supporting the
 explicit linking of the 3D visualization models with thematic data which
 can be exported using the Spreadsheet Generator Plugin (SPSHG) and
-uploaded to an online spreadsheet (Google Fusion Table [15]_) stored and
+uploaded to an online spreadsheet (`Google Fusion Table <https://fusiontables.google.com/>`_) stored and
 published via the Google Cloud. This strategy can therefore offer the
 possibilities for collaborative and interactive data exploration of
 semantic 3D city models by means of querying the thematic data of the
@@ -22,10 +22,9 @@ illustrated in the following figure.
    :name: pic_3d_web_map_overview
    
    Coupling an online spreadsheet with a 3D visualization model
-   (i.e. a KML/glTF visualization model) in the cloud [Herreruela et al.
-   2012]
+   (i.e. a KML/glTF visualization model) in the cloud [HeNK2012]_
 
-.. figure:: /media/image172.png
+.. figure:: /media/webmap_example_online_spreadsheet_fig.png
    :name: pic_3d_web_map_example_google_fusion
    
    Example of an online spreadsheet (Google Fusion Table)
@@ -57,7 +56,8 @@ the *Add / Configure Layer* button.
    All default parameter values used in the 3D web client were
    chosen accordingly to the standard settings (e.g., the standard
    predefined tile size is 125m x 125m) specified in the preference
-   settings of the KML/COLLADA/glTF Exporter (cf. section 5.6.3.1). The
+   settings of the KML/COLLADA/glTF Exporter
+   (cf. :numref:`impexp_kml_export_preferences_general_chapter`). The
    parameter name with the suffix “(*)” denotes that this parameter is
    mandatory; otherwise it is optional.
 
@@ -68,7 +68,8 @@ the *Add / Configure Layer* button.
    the extended ``Geocoder`` widget [2] allowing to search a 3D object also by
    its gmlId
 
-First of all, the web link of the master JSON file (cf. section 5.5)
+First of all, the web link of the master JSON file
+(cf. :numref:`impexp_kml_export_chapter`)
 holding the relevant meta-information of this data layer has to be
 entered into the input field *URL(*)*. In the input field *Name(*)*, a
 proper layer name must be specified which will be listed at the top of
@@ -80,7 +81,8 @@ user wants to attach thematic data to the KML/glTF visualization model.
 
 The next optional parameter *cityobjectsJsonUrl* holds the URL of the
 JSON file which can be generated automatically by using the
-KML/COLLADA/glTF Exporter (cf. section 5.6.3.1). This JSON file contains
+KML/COLLADA/glTF Exporter (cf. :numref:`impexp_kml_export_preferences_general_chapter`).
+This JSON file contains
 a list of GMLIDs of all 3D objects which were exported and might be
 distributed over different tiles. For every 3D object, it is also stored
 in which tile it is contained together with its envelope represented
@@ -125,7 +127,7 @@ will be loaded and displayed; otherwise it will be hidden from display
 and unloaded. Of course, all data tiles lying outside of the view
 frustum are unloaded and invisible anyway.
 
-.. figure:: /media/image210.png
+.. figure:: /media/webmap_determination_tile_loading_fig.png
    :name: pic_3d_web_map_example_tilesize
 
    Efficient determination of which data tiles should be loaded
@@ -162,8 +164,7 @@ cache. By default, the value of this parameter is set to 200 and can of
 course be increased to achieve a better viewing experience depending on
 the hardware you use.
 
-Usage example
-"""""""""""""
+**Usage example**
 
 In this example, a tiled KML dataset containing around 8000 LoD1
 buildings in the Manhattan district of New York City (NYC) will be
@@ -174,19 +175,15 @@ on the basis of datasets provided by the NYC Open Data Portal [17]_. The
 following parameter values should be entered into the corresponding
 input fields:
 
-.. table::
-   :widths: auto
+-  **url**:                              https://www.3dcitydb.org/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf_collada_MasterJSON.json
+-  **name**:                             NYC_Manhattan_Buildings
+-  **thematicDataUrl**:                 https://www.google.com/fusiontables/DataSource?docid=1iG6_vYe7JGTNAUwFw7TpD8EMO-iQe6gSpa6MJlCF
+-  **cityobjectsJsonUrl**:               https://www.3dcitydb.org/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf.json
+-  **minLodPixels**:                     100
+-  **maxLodPixels**:                     -1
+-  **maxSizeOfCachedTiles**:             200
+-  **maxCountOfVisibleTiles**:           200
 
-   ================================= ====================================================================================================================================================================================================================================
-   **url**                              https://www.3dcitydb.org/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf_collada_MasterJSON.json
-   **name**                             NYC_Manhattan_Buildings
-   **thematicDataUrl**                  https://www.google.com/fusiontables/DataSource?docid=1iG6_vYe7JGTNAUwFw7TpD8EMO-iQe6gSpa6MJlCF
-   **cityobjectsJsonUrl**               https://www.3dcitydb.org/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf.json
-   **minLodPixels**                     100
-   **maxLodPixels**                     -1
-   **maxSizeOfCachedTiles**             200
-   **maxCountOfVisibleTiles**           200
-   ================================= ====================================================================================================================================================================================================================================
 
 After clicking on *Add layer*, a data layer will be loaded into the 3D
 web client and the corresponding layer name *NYC_Manhattan_Buildings*
@@ -218,30 +215,3 @@ following two screenshots)
    Screenshot showing how to remove a KML/glTF data layer from
    the 3D web client
 
-.. |image197| image:: ../media/image203.png
-   :width: 5.21875in
-   :height: 3.42974in
-
-.. |image198| image:: ../media/image172.png
-   :width: 6.11813in
-   :height: 3.94792in
-
-.. |image199| image:: ../media/image209.PNG
-   :width: 6.3in
-   :height: 4.15333in
-
-.. |image200| image:: ../media/image210.png
-   :width: 6.3in
-   :height: 3.976in
-
-.. |image201| image:: ../media/image211.PNG
-   :width: 6.3079in
-   :height: 3.11458in
-
-.. |image202| image:: ../media/image212.PNG
-   :width: 6.30709in
-   :height: 4.35167in
-
-.. |image203| image:: ../media/image213.PNG
-   :width: 6.30625in
-   :height: 3.77083in

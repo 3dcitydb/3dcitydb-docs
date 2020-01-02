@@ -41,23 +41,20 @@ use.
 
 **Usage example:**
 
-In this example, a WMS imagery layer provided by the *Vorarlberg State
-Government*\  [18]_ will be added to and displayed in the 3D web client.
+In this example, a WMS imagery layer provided by the
+`Vorarlberg State Government <http://www.vorarlberg.at/>`_
+will be added to and displayed in the 3D web client.
 The following parameter values should be entered into the corresponding
 input fields:
 
-.. table::
-   :widths: auto
+-  **name**:                            Vorarlberg_Aerial_Photography
+-  **iconUrl**:                         http://cdn.flaggenplatz.de/media/catalog/product/all/4489b.gif
+-  **tootip**:                          Vorarlberg Aerial Photography taken during the winter 2015
+-  **url**:                             http://vogis.cnv.at/mapserver/mapserv
+-  **layers**:                          wi2015_20cm
+-  **additionalParameters**:            map=i_luftbilder_r_wms.map
+-  **proxyUrl**:                        /proxy/
 
-   ================================= ==========================================================================
-    **name**                             Vorarlberg_Aerial_Photography
-    **iconUrl**                         http://cdn.flaggenplatz.de/media/catalog/product/all/4489b.gif
-    **tootip**                          Vorarlberg Aerial Photography taken during the winter 2015
-    **url**                             http://vogis.cnv.at/mapserver/mapserv
-    **layers**                          wi2015_20cm
-    **additionalParameters**            map=i_luftbilder_r_wms.map
-    **proxyUrl**                        /proxy/
-   ================================= ==========================================================================
 
 .. figure:: /media/3d_web_client_wms_gui.png
    :name: 3d_web_client_wms_gui
@@ -73,11 +70,3 @@ state and check the added WMS layer. Clicking on the *Remove WMS layer*
 button [6], the WMS layer will be removed and substituted with the *Bing
 Maps Aerial* that is the first item listed on the *BaseLayerPicker*
 widget.
-
-.. |image204| image:: ../media/image214.PNG
-   :width: 6.30119in
-   :height: 4.14517in
-
-.. |image205| image:: ../media/image215.PNG
-   :width: 6.3026in
-   :height: 4.07502in

@@ -19,13 +19,15 @@ Berlin’s buildings (> 550,000) with textured 3D geometries and many
 thematic attributes in the 3D web client. You can find the link of this
 demo via the following web page:
 
-https://github.com/3dcitydb/3dcitydb-web-map
+.. code-block:: http
+
+    https://github.com/3dcitydb/3dcitydb-web-map
 
 Once the demo was opened in your web browser, you may need to use the
 *Geocoder* widget to zoom the Earth map to the building object with the
 GMLID “\ **BLDG_0003000b0009a940**\ ”.
 
-.. figure:: /media/image218.PNG
+.. figure:: /media/webmap_clicked_object_attribute_table_fig.PNG
     :name: 3d_web_client_dtm_gui_numbers
 
     By clicking on a building object it will automatically be
@@ -42,7 +44,7 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     explore the selected building object in the chosen mapping application
     which will be opened in a new browser window or tab
 
-.. figure:: /media/image220.png
+.. figure:: /media/webmap_dualmaps_fig.png
     :name: 3d_web_client_object_dual_maps
     
     If the option *DualMaps* has been chosen, the selected
@@ -50,7 +52,7 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     different view perspectives, e.g. Google 2D map view, Google Streetview,
     and Bing Maps oblique view
 
-.. figure:: /media/image221.PNG
+.. figure:: /media/webmap_multiple_object_highlighting_fig.PNG
     :name: 3d_web_client_object_group
     
     A group of building objects can be interactively selected by
@@ -85,7 +87,7 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     within the 3D web client by clicking on the button *Create Screenshot*
     or *Print current view*
 
-.. figure:: /media/image226.png
+.. figure:: /media/webmap_screenshot_print_fig.png
     :name: 3d_web_client_object_print_view_options
     
     Once the button *Print current view* has been clicked on, a
@@ -110,46 +112,3 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     sent e.g. by email to friends, colleagues, project partners etc. When
     they open the link, the same scene will open in their browsers.
 
-.. |image208| image:: ../media/image218.PNG
-   :width: 6.29683in
-   :height: 4.6562in
-
-.. |image209| image:: ../media/image219.PNG
-   :width: 6.30338in
-   :height: 4.04884in
-
-.. |image210| image:: ../media/image220.png
-   :width: 6.3in
-   :height: 4.16181in
-
-.. |image211| image:: ../media/image221.PNG
-   :width: 6.3in
-   :height: 4.19333in
-
-.. |image212| image:: ../media/image222.PNG
-   :width: 6.3in
-   :height: 4.2in
-
-.. |image213| image:: ../media/image223.PNG
-   :width: 6.3in
-   :height: 4.20667in
-
-.. |image214| image:: ../media/image224.PNG
-   :width: 6.3in
-   :height: 4.20667in
-
-.. |image215| image:: ../media/image225.PNG
-   :width: 6.3in
-   :height: 4.19333in
-
-.. |image216| image:: ../media/image226.png
-   :width: 6.3in
-   :height: 4.42361in
-
-.. |image217| image:: ../media/image227.PNG
-   :width: 6.29834in
-   :height: 4.20556in
-
-.. |image218| image:: ../media/image228.PNG
-   :width: 6.3in
-   :height: 3.7in

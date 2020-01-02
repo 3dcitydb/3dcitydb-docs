@@ -5,7 +5,9 @@ For convenient use, there is an official web link (see the link below)
 that can be called to directly run the 3D web client on your web
 browser.
 
-https://www.3dcitydb.org/3dcitydb-web-map/1.6.2/3dwebclient/index.html
+.. code-block:: http
+
+    https://www.3dcitydb.org/3dcitydb-web-map/1.6.2/3dwebclient/index.html
 
 .. note::
    The number **1.6.2** in URL denotes the version number of the 3D
@@ -21,12 +23,14 @@ the installation directory of the Import/Export tool within the
 subfolder *3d-web-map-client* or downloaded via the following GitHub
 link:
 
-https://github.com/3dcitydb/3dcitydb-web-map/releases
+.. code-block:: http
+
+    https://github.com/3dcitydb/3dcitydb-web-map/releases
 
 The extracted contents of the zip file should look something like the
 screenshot below.
 
-.. figure:: /media/image192.png
+.. figure:: /media/webmap_content_files_fig.png
    :name: pic_3d_web_map_installation
 
 The 3D web client comes with a lightweight JavaSript-based HTTP server
@@ -36,7 +40,8 @@ this web server, the open source JavaScript runtime environment Node.js
 is required to be installed on your machine. The latest version of
 Node.js can be download via the web link below:
 
-https://nodejs.org/en/
+.. code-block:: http
+    https://nodejs.org/en/
 
 Once the Node.js program has been installed, you need to open a shell
 environment on your operating system and navigate to the folder where
@@ -47,7 +52,7 @@ to launch the server:
 
     node server.js
 
-.. figure:: /media/image193.png
+.. figure:: /media/webmap_cli_running_web_server_fig.png
    :name: pic_3d_web_map_installation_nodejs
    
    Example of running the JavaScript-based web server
@@ -55,9 +60,11 @@ to launch the server:
 Now, the 3D web client is available via the URL below and its user
 interface should look like in the following figure:
 
-http://localhost:8000/3dwebclient/index.html
+.. code-block:: http
 
-.. figure:: /media/image194.png
+    http://localhost:8000/3dwebclient/index.html
+
+.. figure:: /media/webmap_user_interface_fig.png
    :name: pic_3d_web_map_installation_default
    
    User interface of the 3D web client

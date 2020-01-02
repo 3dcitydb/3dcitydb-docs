@@ -8,7 +8,9 @@ addition, the web browser in use must also provide appropriate WebGL
 support. You can visit the following website to check whether your web
 browser supports WebGL or not:
 
-http://get.webgl.org/
+.. code-block:: http
+
+    http://get.webgl.org/
 
 The 3DCityDB-Web-Map-Client has been successfully tested on (but is not
 limited to) the following web browsers under different desktop operating
@@ -34,7 +36,9 @@ If you want to try the 3DCityDB-Web-Map-Client or do not have a
 possibility to install it on your own web server, you can use the
 pre-installed version from the 3DCityDB homepage under the URL
 
-https://www.3dcitydb.org/3dcitydb-web-map/1.6/3dwebclient/index.html
+.. code-block:: http
+
+    https://www.3dcitydb.org/3dcitydb-web-map/1.6/3dwebclient/index.html
 
 This is a stable link and can be used for long-time working demo links.
 If new versions will be released in the future, the old versions remain

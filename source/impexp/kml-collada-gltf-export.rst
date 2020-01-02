@@ -1,3 +1,5 @@
+.. _impexp_kml_export_chapter:
+
 Exporting to KML/COLLADA/glTF
 -----------------------------
 

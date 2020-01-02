@@ -26,7 +26,8 @@ The ``3D Globe`` [1] is a base Cesium widget that allows the user to
 navigate through the Earth map by panning, moving, tilting, and rotating
 the camera perspective using a mouse or touchscreen. In addition, the
 camera perspective can also be controlled by means of the ``Navigation
-Component`` [2] which is an open source Cesium plugin [12]_ and offers the
+Component`` [2] which is an open source
+`Cesium plugin <https://github.com/alberto-acevedo/cesium-navigation>`_ and offers the
 same navigation possibilities that can be achieved with mouse or
 touchscreen. It consists of a group of widgets, namely a ``Navigator``
 widget for controlling the camera perspective, a ``North Arrows`` widget for
@@ -36,11 +37,11 @@ estimating the distance between two points on the ground.
 The ``Cesium Viewer`` provides an especially useful built-in ``Toolkit`` [3]
 containing the widgets like ``Geocoder``, ``HomeButton``, ``GeolocationButton``,
 ``BaseLayerPicker``, and ``NavigationHelpButton``. The view panel of ``Geocoder``
-can be expanded by clicking on the button |image189| to display an input
+can be expanded by clicking on the button |loupe_icon| to display an input
 filed into which the user can enter either an explicit position value in
 the form of “\ *[longitude], [latitude]*\ ” or an address name to search
 a particular location. After pressing the “Enter” key on the keyboard or
-clicking on the button |image190|, the Geocoding process will be
+clicking on the button |loupe_icon|, the Geocoding process will be
 performed using the Bing Maps Locations API according to the entered
 location information. Once the target location has been found, the Earth
 map will be automatically adjusted to the returned location and zoomed
@@ -51,18 +52,18 @@ input field of the ``Geocoder`` can be filled with the text value of
 “11.56786, 48.14900” and the result should look like the following
 figure.
 
-.. figure:: /media/image197.png
+.. figure:: /media/webmap_geocoder_fig.png
    :name: pic_3d_web_map_geocoder
    
    Searching the main building of the Technical University of
    Munich by using the ``Geocoder`` widget
 
-The ``HomeButton`` |image192| helps the user to quickly reset the camera
+The ``HomeButton`` |home_icon| helps the user to quickly reset the camera
 perspective to the default status (cf. :numref:`pic_3d_web_map_installation_default`). In addition, the
-``GeolocationButton`` |image193| provides some geolocation-based features
+``GeolocationButton`` |geolocation_icon| provides some geolocation-based features
 such as flying to the user’s current location on the 3D map and
 displaying the first-person view in real-time on mobile devices, which
-shall be explained in more details in Section 1.
+is explained in more details in :numref:`webmap_mobile_support_chapter`.
 
 In most GIS applications, the term *base layer* (or *basemap*) is
 generally considered as a background layer on the map using, for
@@ -71,9 +72,16 @@ identify the locations and orientations from a certain camera
 perspective. Per default, Cesium comes with a number of selectable
 imagery layers provided by different mapping services, such as Bing
 Maps, OpenStreetMap, ESRI Maps etc. In addition, a terrain layer
-so-called *STK World Terrain*\  [13]_ is available for showing worldwide
-3D elevation data with an average grid resolution of 30 meters. All
-these base layers (imagery and terrain layers) can be controlled by the
+so-called *STK World Terrain*\ is available for showing worldwide
+3D elevation data with an average grid resolution of 30 meters.
+
+.. note::
+
+    Due to changes in Cesium Terms of Service as well as the introduction of the new commercial Cesium ion
+    platform starting from September 1 st 2018, the STK World Terrain layer is replaced by the Cesium World
+    Terrain hosted by Cesium ion (https://cesium.com/content/cesium-world-terrain).
+
+All these base layers (imagery and terrain layers) can be controlled by the
 ``BaseLayerPicker`` widget (cf. the following figure) which has a view panel
 for listing all the available base layers represented by their names and
 respective icons and allows the user to select the desired one. For
@@ -83,7 +91,7 @@ the imagery layer that is currently in use. Similarly, the terrain layer
 can be independently selected and added to the Earth map to overlap with
 the selected imagery layer.
 
-.. figure:: /media/image200.png
+.. figure:: /media/webmap_cesium_baselayerpicker_fig.png
    :name: pic_3d_web_map_baselayer_picker
    
    Per default available base layers listed in the
@@ -93,11 +101,11 @@ The last widget contained within the Cesium ``Toolkit`` [3] (cf. :numref:`pic_3d
 is the so-called ``NavigationHelpButton`` for showing brief instructions on
 how to navigate the Earth map with mouse (typically for desktop and
 laptop PCs) and touchscreen (typically for smart phones and tablet PCs).
-By clicking on the |image195| button, the corresponding view panel (cf.
+By clicking on the |question_mark_icon| button, the corresponding view panel (cf.
 the following figure) will be shown on the upper-right corner of the 3D
 web client.
 
-.. figure:: /media/image202.png
+.. figure:: /media/webmap_navigation_help_fig.png
    :name: pic_3d_web_map_nav
    
    The ``NavigationHelpButton`` widget showing the instructions for
@@ -171,43 +179,24 @@ data server. This server must support CORS (Cross-Origin Resource
 Sharing) to get around the cross-domain restrictions.
 
 .. note::
-   Alternatively, the open specification Cesium 3D Tiles can also
+   Alternatively, the open specification
+   `Cesium 3D Tiles <https://github.com/AnalyticalGraphicsInc/3d-tiles>`_ can also
    be employed to stream massive heterogeneous 3D geospatial
-   datasets [14]_. This is supported in 3DCityDB Web Map Client version
+   datasets. This is supported in 3DCityDB Web Map Client version
    1.6.0 or later.
 
-.. |image188| image:: ../media/image195.png
-   :width: 6.17557in
-   :height: 4.21538in
-
-.. |image189| image:: ../media/image196.png
+.. |loupe_icon| image:: ../media/loupe_icon.png
    :width: 0.18444in
    :height: 0.15678in
 
-.. |image190| image:: ../media/image196.png
-   :width: 0.18444in
-   :height: 0.15678in
-
-.. |image191| image:: ../media/image197.png
-   :width: 4.2128in
-   :height: 2.4564in
-
-.. |image192| image:: ../media/image198.png
+.. |home_icon| image:: ../media/home_icon.png
    :width: 0.18182in
    :height: 0.18768in
 
-.. |image193| image:: ../media/image199.png
+.. |geolocation_icon| image:: ../media/geolocation_icon.png
    :width: 0.18683in
    :height: 0.18898in
 
-.. |image194| image:: ../media/image200.png
-   :width: 6.29498in
-   :height: 5.22917in
-
-.. |image195| image:: ../media/image201.png
+.. |question_mark_icon| image:: ../media/question_mark_icon.png
    :width: 0.15972in
    :height: 0.15972in
-
-.. |image196| image:: ../media/image202.png
-   :width: 6.29774in
-   :height: 3.48542in

@@ -90,7 +90,7 @@ Germany, June 2005, EuroSDR Publications. Weblink (accessed September
     Open Geospatial Consortium, Doc. No. 12-019,
     **\ http://portal.opengeospatial.org/files/?artifact_id=28802
 
-Herreruela, J., Nagel, C., Kolbe, T. H. (2012): *Value-added Services
+.. [HeNK2012] Herreruela, J., Nagel, C., Kolbe, T. H. (2012): *Value-added Services
 for 3D City Models using Cloud Computing.* In: Löwner, M.-O., Hillen,
 F., Wohlfahrt, R. (eds.): Geoinformatik 2012 "Mobilität und Umwelt",
 Proc. of the Conference Geoinformatik 2012, 28.-30. 3. 2012 in

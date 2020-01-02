@@ -1,3 +1,5 @@
+.. _webmap_mobile_support_chapter:
+
 Mobile Support Extension
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -27,21 +29,21 @@ The infobox displayed when a city object (e.g. building) is clicked
 is now displayed in fullscreen with scrollable contents, as
 illustrated in :numref:`3d_web_client_mobile_infobox` below.
 
-.. figure:: /media/image229.PNG
+.. figure:: /media/webmap_mobile_gui_fig.PNG
    :name: 3d_web_client_mobile_gui
    :scale: 50 %
    :align: center
 
    The 3DCityDB Web Map Client on mobile devices
 
-.. figure:: /media/image230.PNG
+.. figure:: /media/webmap_mobile_main_toolbox_fig.PNG
    :name: 3d_web_client_mobile_main_toolbox
    :scale: 50 %
    :align: center
    
    The main toolbox on mobile devices
 
-.. figure:: /media/image231.PNG
+.. figure:: /media/webmap_mobile_infobox_fig.PNG
    :name: 3d_web_client_mobile_infobox
    :scale: 50 %
    :align: center
@@ -64,7 +66,7 @@ user's current location and orientation (see :numref:`3d_web_client_mobile_symbo
    "First-person View" mode: periodically shows the user's current
    orientation and position.
 
-.. figure:: /media/image232.png
+.. figure:: /media/webmap_mobile_symbols_fig.png
    :name: 3d_web_client_mobile_symbols
    :scale: 30 %
    :align: center
@@ -72,7 +74,7 @@ user's current location and orientation (see :numref:`3d_web_client_mobile_symbo
    From left to right, the 3 modes of geolocation-based features: 
    Location snapshot, Real-time orientation tracking and First-person view
 
-.. figure:: /media/image233.PNG
+.. figure:: /media/webmap_mobile_first_person_view_fig.PNG
    :name: 3d_web_client_mobile_first_person_view
    :scale: 50 %
    :align: center
@@ -91,23 +93,3 @@ location.
    HTTPS since Google Chrome 50. Therefore, make sure the client is called
    from a secured page (via SSL/HTTPS). Additionally, permission to
    retrieve current orientation and location must be granted by the user.
-
-.. |image219| image:: ../media/image229.PNG
-   :width: 2.73236in
-   :height: 4.86021in
-
-.. |image220| image:: ../media/image230.PNG
-   :width: 2.87402in
-   :height: 5.11164in
-
-.. |image221| image:: ../media/image231.PNG
-   :width: 2.87402in
-   :height: 5.11219in
-
-.. |image222| image:: ../media/image232.png
-   :width: 3.7037in
-   :height: 1.15434in
-
-.. |image223| image:: ../media/image233.PNG
-   :width: 3.03478in
-   :height: 5.39815in

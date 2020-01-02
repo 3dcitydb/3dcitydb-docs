@@ -9,7 +9,8 @@ simply call it “3D web client”) acting as a web-based front-end for
 high-performance 3D visualization and interactive exploration of
 arbitrarily large semantic 3D city models. The 3D web client has been
 developed based on the Cesium Virtual Globe, which is an open source
-JavaScript library developed by Analytical Graphics, Inc. (AGI) [11]_.
+JavaScript library developed by
+`Analytical Graphics, Inc. (AGI) <https://www.agi.com/>`_.
 It utilizes HTML5 and the Web Graphics Library (WebGL) as its core for
 hardware acceleration and provides cross-platform functionalities like
 displaying 3D graphic contents on the web without the needs of
@@ -41,7 +42,7 @@ the web.
    selection
    mobile-support
 
-.. figure:: /media/image191.png
+.. figure:: /media/webmap_exampe_displaying_citygml_features_fig.png
    :name: pic_3d_web_map_railway
 
    Screenshot showing the example of displaying different

@@ -8,8 +8,7 @@ Balloon, and Altitude/Terrain* – make customization of these exports
 possible. These settings will be explained in the following sections in
 details.
 
-
-.. _general:
+.. _impexp_kml_export_preferences_general_chapter:
 
 General Preferences
 ^^^^^^^^^^^^^^^^^^^
