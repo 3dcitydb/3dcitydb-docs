@@ -16,23 +16,23 @@ servlet container.
 
 Please follow the following installation steps:
 
-**Step 1:** **Install and properly configure your Java servlet container
-**\ Please refer to the documentation of your servlet container for
-hints on installation and configuration. Make sure that the servlet
-container uses Java 8 (or higher) for running web applications.
+| **Step 1: Install and properly configure your Java servlet container**
+| Please refer to the documentation of your servlet container for
+ hints on installation and configuration. Make sure that the servlet
+ container uses Java 8 (or higher) for running web applications.
 
-**Step 2: Install the mandatory JAR libraries in your servlet container
-**\ The WFS service requires mandatory JAR libraries to be available in
-the servlet container. This mainly comprises JDBC libraries for
-connecting to the database system running the 3D City Database instance.
-The libraries are shipped with the distribution package. The list of
-libraries will look like this:
+| **Step 2: Install the mandatory JAR libraries in your servlet container**
+| The WFS service requires mandatory JAR libraries to be available in
+  the servlet container. This mainly comprises JDBC libraries for
+  connecting to the database system running the 3D City Database instance.
+  The libraries are shipped with the distribution package. The list of
+  libraries will look like this:
 
--  ojdbc8-18.3.0.0.jar (Oracle JDBC driver)
+    -  ``ojdbc8-18.3.0.0.jar`` (Oracle JDBC driver)
 
--  postgresql-42.2.5.jar (PostgreSQL JDBC driver)
+    -  ``postgresql-42.2.5.jar`` (PostgreSQL JDBC driver)
 
--  postgis-jdbc-2.3.0.jar (PostGIS JDBC extension)
+    -  ``postgis-jdbc-2.3.0.jar`` (PostGIS JDBC extension)
 
 The libraries must be installed as *shared libs* or *common libs*
 (terminology may differ) in your servlet container. For Apache Tomcat 7
@@ -59,12 +59,12 @@ more information.
    described above, the name of the WAR file will be used as *context path*
    in the URL for accessing the application. For example, if the WFS WAR
    file is named citydb-wfs.war, then the context path of the WFS service
-   will be http://[host][:port]/citydb-wfs/. To pick a different context
+   will be ``http://[host][:port]/citydb-wfs/``. To pick a different context
    path, simply rename the WAR file or change Tomcat’s default behavior.
 
-**Step 4: Configure your servlet container (optional)
-**\ Make sure that your servlet container has enough memory assigned
-(heap space ~ 1GB or more).
+| **Step 4: Configure your servlet container (optional)**
+| Make sure that your servlet container has enough memory assigned
+  (heap space ~ 1GB or more).
 
 .. note::
    You may, for instance, use the Java command-line option -Xms for
@@ -95,7 +95,7 @@ more information.
   deployed WFS application. The WEB-INF directory is typically located
   in the *application* folder, which is generally named after the WAR
   file and itself is a subfolder of the webapps folder in the Tomcat
-  installation directory (see Figure 151).
+  installation directory (see :numref:`wfs_config_file_path_fig`).
 
 .. note::
    The CityGML ADE must also be registered in the 3DCityDB instance

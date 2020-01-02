@@ -4,7 +4,7 @@ Web-based WFS client
 The 3D City Database WFS is shipped with a simple web-based client that
 is mainly meant to test the functionality of the server. The client is
 automatically installed with the server and is available at the
-following URL (cf. chapter 7.4.1.2 for details):
+following URL (cf. :numref:`wfs_service_url_chapter` for details):
 
 .. code-block:: http
 
@@ -13,9 +13,10 @@ following URL (cf. chapter 7.4.1.2 for details):
 The screenshot below shows the user interface of the client rendered in
 a standard web browser.
 
-|image183|
+.. figure:: ../media/wfs_web_client_fig.png
+   :name: wfs_web_client_fig
 
-Figure 152: Web-based WFS client.
+   Web-based WFS client.
 
 The user interface consists of two text fields. A user simply enters the
 XML-encoded operation request that shall be sent to the server into the
@@ -37,8 +38,5 @@ GetFeature request in order to limit the maximum number of features to
 be contained in the response document. Alternatively, you can specify
 the “\ *hits*\ ” value for the *resultType* attribute in order to only
 receive the number of features matching your query instead of the
-features themselves (cf. chapter 7.4.6).
+features themselves (cf. :numref:`wfs_getfeature_operation_chapter`).
 
-.. |image183| image:: ../media/image190.png
-   :width: 5.42953in
-   :height: 4.58446in

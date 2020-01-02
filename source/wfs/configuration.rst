@@ -13,11 +13,12 @@ For example, assume that the WFS web application was deployed under the
 context name citydb-wfs. Then the location of the WEB-INF folder and the
 config.xml file in a default Apache Tomcat installation is shown below.
 
-|image182|
+.. figure:: ../media/wfs_config_file_path_fig.png
+   :name: wfs_config_file_path_fig
 
-Figure 151: Location of the WEB-INF folder and the config.xml file.
+   Location of the WEB-INF folder and the config.xml file.
 
-Open the config.xml file with a text or XML editor of your choice and
+Open the *config.xml* file with a text or XML editor of your choice and
 manually edit the settings. An XML Schema for validating the contents of
 the config.xml file is provided as file config.xsd in the subfolder
 schemas. **After every edit** to the config.xml file, **make sure** that
@@ -32,7 +33,7 @@ discussion of the settings follows this organization in the subsequent
 clauses.
 
 
-.. _database:
+.. _wfs_database_settings_chapter:
 
 Database settings
 ~~~~~~~~~~~~~~~~~
@@ -42,6 +43,8 @@ connecting to the 3D City Database instance the WFS service should give
 access to. The contents of the <database> element are shown below.
 
 .. code-block:: xml
+   :caption: Database settings in the WFS config.xml file.
+   :name: wfs_config_listing
 
    <database>
      <connection
@@ -55,15 +58,13 @@ access to. The contents of the <database> element are shown below.
        <description/>
        <type>PostGIS</type>
        <server/>
-       <port>5432</port>
+       <port>5432</port>li
        <sid/>
        <schema/>
        <user/>
        <password/>
      </connection>
    </database>
-
-Listing 1: Database settings in the WFS config.xml file.
 
 Provide the *type* of the database (Oracle or PostGIS), the *server*
 name (network name or IP address) and *port* number (default: 1521 for
@@ -83,37 +84,131 @@ database server (in this case, you should also carefully configure the
 database itself). The attributes together with their meaning are
 described in the following table.
 
-============================= ==============================================================================================================================================================================================================================================================================================================================================================================================================================
-**Attribute**                 **Description**
-initialSize                   **(int) the initial number of physical connections that are created when the database connection is established (default: 10).**
-maxActive                     **(int) The maximum number of active connections to the database that can be allocated at the same time (default: 100). NOTE – make sure your database is configured to handle this number of parallel active connections.**
-maxIdle                       **(int) The maximum number of connections that should be kept active at all times (default: 50). Idle connections are checked periodically (if enabled) and connections that have been idle for longer than** minEvictableIdleTimeMillis **will be released. (also see** testWhileIdle\ **)**
-minIdle                       **(int) The minimum number of established connections that should be kept active at all times (default: 0). The connection pool can shrink below this number if validation queries fail. (also see** testWhileIdle\ **)**
-maxWait                       **(int) The maximum number of milliseconds that the service will wait (when there are no available connections) for a connection before throwing an exception (default: 30000, i.e. 30 seconds).**
-testOnBorrow                  **(boolean) The indication of whether connections will be validated before being used by the service. If the connections fails to validate, it will be dropped, and the service will attempt to borrow another (default: false). NOTE - for a true value to have any effect, the** validationQuery **parameter must be set to a non-null string. In order to have a more efficient validation, see** validationInterval\ **.**
-testOnReturn                  **(boolean) The indication of whether connections will be validated before being returned to the internal connection pool (default: false). NOTE - for a true value to have any effect, the** validationQuery **parameter must be set to a non-null string.**
-testWhileIdle                 **(boolean) The indication of whether connections will be validated by the idle connections evictor (if any). If a connections fails to validate, it will be dropped (default: false). NOTE - for a true value to have any effect, the** validationQuery **parameter must be set to a non-null string.**
-validationQuery               **(String) The SQL query that will be used to validate connections. If specified, this query does not have to return any data (default: null). Example values are “select 1 from dual” (Oracle) or “select 1” (PostgreSQL).**
-validationClassName           (String) The name of a class which implements the org.apache.tomcat.jdbc.pool.Validator interface and provides a no-arg constructor (may be implicit). If specified, the class will be used to instead of any validation query to validate connections (default: null). NOTE – for a non-null value to have any effect, the class has to be implemented by you as part of the source code of the WFS service. Use with care.
-timeBetweenEvictionRunsMillis (int) The number of milliseconds to sleep between runs of the idle connection validation/cleaner. This value should not be set under 1 second. It dictates how often we check for idle, abandoned connections, and how often we validate idle connections (**default: 30000, i.e. 30 seconds).**
-minEvictableIdleTimeMillis    (int) The minimum amount of time a connection may be idle before it is eligible for eviction (default: 60000, i.e. 60 seconds).
-removeAbandoned               (boolean) Flag to remove abandoned connections if they exceed the removeAbandonedTimout. If set to true a connection is considered abandoned and eligible for removal if it has been in use longer than the removeAbandonedTimeout See also logAbandoned (default: false).
-removeAbandonedTimeout        (int) Timeout in seconds before an abandoned (in use) connection can be removed (default: 60, i.e. 60 seconds). The value should be set to the longest running query.
-logAbandoned                  (boolean) Flag to log stack traces for application code which abandoned a connection. NOTE - this adds overhead for every connection borrow (default: false).
-connectionProperties          (String) The connection properties that will be sent to the JDBC driver when establishing new connections. Format of the string must be [propertyName=property;]\* NOTE - The "user" and "password" properties will be passed explicitly, so they do not need to be included here (default: null).
-initSQL                       (String) A custom query to be run when a connection is first created (default: null).
-validationInterval            (long) To avoid excess validation, only run validation at most at this frequency - time in milliseconds. If a connection is due for validation, but has been validated previously within this interval, it will not be validated again (default: 30000, i.e. 30 seconds).
-jmxEnabled                    (boolean) Register the internal connection pool with JMX or not (default: true).
-fairQueue                     (boolean) Set to true if connection requests should be treated fairly in a true FIFO fashion (default: true)
-abandonWhenPercentageFull     (int) Connections that have been abandoned (timed out) will not get closed and reported up unless the number of connections in use are above the percentage defined by abandonWhenPercentageFull. The value should be between 0-100 (default: 0, which implies that connections are eligible for closure as soon as removeAbandonedTimeout has been reached).
-maxAge                        (long) Time in milliseconds to keep connections alive. When a connection is returned to the internal pool, it will be checked whether now - time-when-connected > maxAge has been reached, and if so, the connection is closed (default: 0, which implies that connections will be left open and no age check will be done).
-suspectTimeout                (int) Timeout value in seconds (default: 0).
-============================= ==============================================================================================================================================================================================================================================================================================================================================================================================================================
+.. list-table::  Optional database connection settings.
+   :name: wfs_database_connection_settings_table
 
-Table 39: Optional database connection settings.
+   * - | **Attribute**
+     - | **Description**
+   * - | initialSize
+     - | (int) the initial number of physical connections that are created
+       | when the database connection is established (default: 10).
+   * - | maxActive
+     - | (int) The maximum number of active connections to the
+       | database that can be allocated at the same time (default: 100).
+       | NOTE – make sure your database is configured to handle this
+       | number of parallel active connections.
+   * - | maxIdle
+     - | (int) The maximum number of connections that should be kept
+       | active at all times (default: 50). Idle connections are checked
+       | periodically (if enabled) and connections that have been idle
+       | for longer than minEvictableIdleTimeMillis will be
+       | released. (also see testWhileIdle)
+   * - | minIdle
+     - | (int) The minimum number of established connections that
+       | should be kept active at all times (default: 0). The connection
+       | pool can shrink below this number if validation queries fail.
+   * - | maxWait
+     - | (int) The maximum number of milliseconds that the service will
+       | wait (when there are no available connections) for a connection
+       | before throwing an exception (default: 30000, i.e. 30 seconds).
+   * - | testOnBorrow
+     - | (boolean) The indication of whether connections will be
+       | validated before being used by the service. If the connections
+       | fails to validate, it will be dropped, and the service will attempt
+       | to borrow another (default: false). NOTE - for a true value to
+       | have any effect, the validationQuery parameter must be set
+       | to a non-null string. In order to have a more efficient
+       | validation, see validationInterval.
+   * - | testOnReturn
+     - | (boolean) The indication of whether connections will be
+       | validated before being returned to the internal connection pool
+       | (default: false). NOTE - for a true value to have any effect, the
+       | validationQuery parameter must be set to a non-null string.
+   * - | testWhileIdle
+     - | (boolean) The indication of whether connections will be
+       | validated by the idle connections evictor (if any). If a
+       | connections fails to validate, it will be dropped (default: false).
+       | NOTE - for a true value to have any effect, the
+       | validationQuery parameter must be set to a non-null string.
+   * - | validationQuery
+     - | (String) The SQL query that will be used to validate
+       | connections. If specified, this query does not have to return
+       | any data (default: null). Example values are “select 1 from
+       | dual” (Oracle) or “select 1” (PostgreSQL).
+   * - | validationClassName
+     - | (String) The name of a class which implements the
+       | org.apache.tomcat.jdbc.pool.Validator interface and
+       | provides a no-arg constructor (may be implicit). If specified,
+       | the class will be used to instead of any validation query to
+       | validate connections (default: null). NOTE – for a non-null
+       | value to have any effect, the class has to be implemented by
+       | you as part of the source code of the WFS service. Use with
+       | care.
+   * - | timeBetweenEvictionRunsMillis
+     - | (int) The number of milliseconds to sleep between runs of the
+       | idle connection validation/cleaner. This value should not be
+       | set under 1 second. It dictates how often we check for idle,
+       | abandoned connections, and how often we validate idle
+       | connections (default: 30000, i.e. 30 seconds).
+   * - | minEvictableIdleTimeMillis
+     - | (int) The minimum amount of time a connection may be idle
+       | before it is eligible for eviction (default: 60000, i.e. 60
+       | seconds).
+   * - | removeAbandoned
+     - | (boolean) Flag to remove abandoned connections if they
+       | exceed the removeAbandonedTimout. If set to true a
+       | connection is considered abandoned and eligible for removal
+       | if it has been in use longer than the
+       | removeAbandonedTimeout See also logAbandoned (default:
+       | false).
+   * - | removeAbandonedTimeout
+     - | (int) Timeout in seconds before an abandoned (in use)
+       | connection can be removed (default: 60, i.e. 60 seconds). The
+       | value should be set to the longest running query.
+   * - | logAbandoned
+     - | (boolean) Flag to log stack traces for application code which
+       | abandoned a connection. NOTE - this adds overhead for
+       | every connection borrow (default: false).
+   * - | connectionProperties
+     - | (String) The connection properties that will be sent to the
+       | JDBC driver when establishing new connections. Format of
+       | the string must be [propertyName=property;]* NOTE - The
+       | "user" and "password" properties will be passed explicitly, so
+       | they do not need to be included here (default: null).
+   * - | initSQL
+     - | (String) A custom query to be run when a connection is first
+       | created (default: null).
+   * - | validationInterval
+     - | (long) To avoid excess validation, only run validation at most
+       | at this frequency - time in milliseconds. If a connection is due
+       | for validation, but has been validated previously within this
+       | interval, it will not be validated again (default: 30000, i.e. 30
+       | seconds).
+   * - | jmxEnabled
+     - | (boolean) Register the internal connection pool with JMX or
+       | not (default: true).
+   * - | fairQueue
+     - | (boolean) Set to true if connection requests should be treated
+       | fairly in a true FIFO fashion (default: true)
+   * - | abandonWhenPercentageFull
+     - | (int) Connections that have been abandoned (timed out) will
+       | not get closed and reported up unless the number of
+       | connections in use are above the percentage defined by
+       | abandonWhenPercentageFull. The value should be between
+       | 0-100 (default: 0, which implies that connections are eligible
+       | for closure as soon as removeAbandonedTimeout has been
+       | reached).
+   * - | maxAge
+     - | (long) Time in milliseconds to keep connections alive. When a
+       | connection is returned to the internal pool, it will be checked
+       | whether now - time-when-connected > maxAge has been
+       | reached, and if so, the connection is closed (default: 0, which
+       | implies that connections will be left open and no age check
+       | will be done).
+   * - | suspectTimeout
+     - | (int) Timeout value in seconds (default: 0).
 
-
-.. _capabilities:
+.. _wfs_capabilities_settings_chapter:
 
 Capabilities settings
 ~~~~~~~~~~~~~~~~~~~~~
@@ -129,13 +224,15 @@ config.xml file using the <owsMetadata> child element of <capabilities>
 *capabilities* document are populated automatically from the config.xml
 file. For example, the set of feature types advertised in the
 <wfs:FeatureTypeList> section is derived from the content of the
-<featureTypes> element (cf. chapter 7.3.3).
+<featureTypes> element (cf. :numref:`wfs_feature_type_settings_chapter`).
 
 Note that the metadata is copied to the *capabilities* document “as is”.
 Thus, the WFS implementation neither performs a consistency check nor
 validates the provided metadata.
 
 .. code-block:: xml
+   :caption: Service metadata settings in the WFS config.xml file.
+   :name: wfs_metadata_settings_listing
 
    <capabilities>
      <owsMetadata>
@@ -151,8 +248,7 @@ validates the provided metadata.
      </owsMetadata>
    </capabilities>
 
-Listing 2: Service metadata settings in the WFS config.xml file.
-
+The operations settings are used to define the
 Service metadata comprises, for example, information about the *service
 itself* that might be useful in machine-to-machine communication or for
 display to a human. Such information is announced through the
@@ -177,7 +273,7 @@ document and therefore can be specified in <owsMetadata>.
    still have issues with correctly handling version 2.0.2.
 
 
-.. _feature-type:
+.. _wfs_feature_type_settings_chapter:
 
 Feature type settings
 ~~~~~~~~~~~~~~~~~~~~~
@@ -193,6 +289,8 @@ available from the WFS service. In addition, a third feature type
 *IndustrialBuilding* coming from a CityGML ADE is advertised.
 
 .. code-block:: xml
+   :caption: Advertised feature types in the WFS config.xml file.
+   :name: wfs_feature_types_config_listing
 
    <featureTypes>
      <featureType>
@@ -219,8 +317,6 @@ available from the WFS service. In addition, a third feature type
      <version isDefault="true">2.0</version>
      <version>1.0</version>
    </featureTypes>
-
-Listing 3: Advertised feature types in the WFS config.xml file.
 
 The <featureTypes> element contains one <featureType> node per feature
 type to be advertised. The feature type is specified through the
@@ -256,7 +352,7 @@ WFS by setting the isDefault attribute to true on one of the elements
 (otherwise, CityGML 2.0 will be the default).
 
 
-.. _operations:
+.. _wfs_operations_settings_chapter:
 
 Operations settings
 ~~~~~~~~~~~~~~~~~~~
@@ -265,6 +361,8 @@ The *operations* settings are used to define the operation-specific
 behavior of the WFS.
 
 .. code-block:: xml
+   :caption: Operations settings in the WFS config.xml file.
+   :name: wfs_operation_settings_config_listing
 
    <operations>
      <requestEncoding>
@@ -279,8 +377,6 @@ behavior of the WFS.
        </outputFormats>
      </GetFeature>
    </operations>
-
-Listing 4: Operations settings in the WFS config.xml file.
 
 The <requestEncoding> element determines whether the WFS shall support
 XML-encoded and/or KVP-encoded requests. The desired method is chosen
@@ -300,7 +396,7 @@ available *output formats* that can be used in encoding the response to
 the client. The value “application/gml+xml; version=3.1” is the default
 and basically means that the response to a *GetFeature* operation will
 be purely XML-encoded (using CityGML as encoding format with the version
-specified in the *feature type* settings, cf. chapter 7.3.3). In
+specified in the *feature type* settings, cf. :numref:`wfs_feature_type_settings_chapter`). In
 addition, the WFS can advertise the output format “application/json”. In
 this case, the response is delivered in CityJSON format. [9]_ CityJSON
 is a JSON-based encoding of a subset of the CityGML data model. The
@@ -323,14 +419,14 @@ that are applied on the CityGML data of a WFS response before sending
 the response to the client.
 
 .. code-block:: xml
+   :caption: Postprocessing settings in the WFS config.xml file.
+   :name: wfs_postprocessing_settings_config_listing
 
    <postProcessing>
      <xslTransformation isEnabled="true">
        <stylesheet>AdV-coordinates-formatter.xsl</stylesheet>
      </xslTransformation>
    </postProcessing>
-
-Listing 5: Postprocessing settings in the WFS config.xml file.
 
 To enable transformations, set the *isEnabled* attribute on the
 <xslTransformation> child element to *true*. In addition, provide one or
@@ -371,6 +467,8 @@ Server settings
 the config.xml file.
 
 .. code-block:: xml
+   :caption: Server settings in the WFS config.xml file.
+   :name: wfs_server_settings_config_listing
 
    <server>
      <externalServiceURL>http://yourserver.org/citydb-wfs</externalServiceURL>
@@ -378,8 +476,6 @@ the config.xml file.
      <waitTimeout>60</waitTimeout>
      <enableCORS>true</enableCORS>
    </server>
-
-Listing 6: Server settings in the WFS config.xml file.
 
 The external service URL of the WFS can be denoted using the
 <externalServiceURL> element. The URL should include the *protocol*
@@ -408,7 +504,8 @@ number of active requests has fallen below the limit.
    Every WFS can only open a maximum number of physical connections
    to the database system running the 3D City Database instance. This upper
    limit is set through the maxActive attribute on the <connection> element
-   (cf. chapter 7.3.1). Since every request may use more than one
+   (cf. :numref:`wfs_database_settings_chapter`).
+   Since every request may use more than one
    connection, make sure that the total number of parallel requests is
    below the maximum number of physical connections.
 
@@ -445,12 +542,12 @@ element let a user choose to store the temporary information in the
 *local file system* instead.
 
 .. code-block:: xml
+   :caption: Cache settings in the WFS config.xml file.
+   :name: wfs_cache_settings_config_listing
 
    <uidCache>
      <mode>local</mode>
    </uidCache>
-
-Listing 7: Cache settings in the WFS config.xml file.
 
 The <mode> property allows for switching between *database* cache
 (default) and *local* cache. Some reasons for using a local, file-based
@@ -474,6 +571,8 @@ The <constraints> element of the config.xml allows for defining
 constraints on dedicated WFS operations.
 
 .. code-block:: xml
+   :caption: Security settings in the WFS config.xml file.
+   :name: wfs_constraints_settings_config_listing
 
    <constraints>
      <countDefault>10</countDefault>
@@ -483,8 +582,6 @@ constraints on dedicated WFS operations.
        <lod>3</lod>
      </lodFilter>
    </constraints>
-
-Listing 8: Security settings in the WFS config.xml file.
 
 The <countDefault> constraint restricts the number of city objects to be
 returned by the WFS to the user-defined value, even if the request is
@@ -555,6 +652,8 @@ element also provides a *logLevel* attribute to define the severity
 level.
 
 .. code-block:: xml
+   :caption: Logging settings in the WFS config.xml file.
+   :name: wfs_logging_settings_config_listing
 
    <logging>
      <console logLevel="info"/>
@@ -563,14 +662,9 @@ level.
      </file>
    </logging>
 
-Listing 9: Logging settings in the WFS config.xml file.
-
 .. note::
    Log messages are continuously written to the same log file. The
    WFS application does not include any mechanism to truncate or rotate the
    log file in case the file size grows over a certain limit. So make sure
    you configure log rotation on your server.
 
-.. |image182| image:: ../media/image189.png
-   :width: 3.95312in
-   :height: 2.75699in
