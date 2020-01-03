@@ -303,8 +303,7 @@ Web Feature Service
 3D Web Map Client
 -----------------
 
--  Introduced geolocation-based features such as the first-person view
-      on mobile devices.
+-  Introduced geolocation-based features such as the first-person view on mobile devices.
 
 -  Support for glTF 2.0.
 

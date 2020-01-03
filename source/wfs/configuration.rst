@@ -398,7 +398,7 @@ and basically means that the response to a *GetFeature* operation will
 be purely XML-encoded (using CityGML as encoding format with the version
 specified in the *feature type* settings, cf. :numref:`wfs_feature_type_settings_chapter`). In
 addition, the WFS can advertise the output format “application/json”. In
-this case, the response is delivered in CityJSON format. [9]_ CityJSON
+this case, the response is delivered in `CityJSON format <http://www.cityjson.org>`_. CityJSON
 is a JSON-based encoding of a subset of the CityGML data model. The
 3DCityDB WFS supports version 0.6 of CityJSON. Note that the format is
 still under development.

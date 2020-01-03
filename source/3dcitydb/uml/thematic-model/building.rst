@@ -61,7 +61,8 @@ also be differentiated semantically by the classes \_\ *BoundarySurface*
 and *BuildingInstallation*. A \_\ *BoundarySurface* is a part of the
 building’s exterior shell with a special function like wall
 (*WallSurface*), roof (*RoofSurface*), ground plate (*GroundSurface*),
-or closing surface (*ClosureSurface*) as shown in Figure 8. Closure
+or closing surface (*ClosureSurface*) as shown
+in :numref:`citydb_building_boundary_surface`. Closure
 surfaces can be used to virtually seal open buildings as for example
 hangars, allowing e.g. volume calculation. The *BuildingInstallation*
 class is used for building elements like balconies, chimneys, dormers,

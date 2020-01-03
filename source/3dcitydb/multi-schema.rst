@@ -10,6 +10,8 @@ manage CityGML ADEs sets the ground for even more experiments. This
 chapter explains how to manage multiple 3D City Databases in separate
 schemas.
 
+.. _citydb_create_address_schemas_chapter:
+
 Create and address database schemas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -112,13 +114,13 @@ Thus, for PostgreSQL these procedures are now part of an instance schema
 such as ‘citydb’ (see also :numref:`citydb_sproc_chapter`). Instead of calling a delete
 function from the central ‘citydb_pkg’ schema like this:
 
-.. code:: sql
+.. code-block:: SQL
 
-    SELECT citydb_pkg.delete_cityobject(1, ‘my_schema’);
+    SELECT citydb_pkg.delete_cityobject(1, 'my_schema');
 
 you now have to schema-qualify the function itself:
 
-.. code:: sql
+.. code-block:: SQL
 
     SELECT my_schema.delete_cityobject(1);
 

@@ -28,7 +28,7 @@ Once the demo was opened in your web browser, you may need to use the
 GMLID “\ **BLDG_0003000b0009a940**\ ”.
 
 .. figure:: /media/webmap_clicked_object_attribute_table_fig.PNG
-    :name: 3d_web_client_dtm_gui_numbers
+    :name: 3d_web_client_clicked_object_attribute_table
 
     By clicking on a building object it will automatically be
     highlighted and its attribute information will be queried from a Google
@@ -111,4 +111,5 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     link can be stored as a browser bookmark or favorite and can also be
     sent e.g. by email to friends, colleagues, project partners etc. When
     they open the link, the same scene will open in their browsers.
+
 

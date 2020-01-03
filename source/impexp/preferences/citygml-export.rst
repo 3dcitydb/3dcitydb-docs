@@ -61,7 +61,7 @@ tab. However, a tile-specific suffix may be appended [1].
 .. figure:: ../../media/impexp_export_preferences_tiling_options_fig.png
    :name: impexp_export_preferences_tiling_options_fig
 
-    CityGML export preferences – Tiling options.
+   CityGML export preferences – Tiling options.
 
 For further traceability, it is possible to attach a generic string
 attribute called *TILE* to each exported CityGML feature, indicating

@@ -35,7 +35,7 @@ XML-based exchange format using OGC’s Geography Markup Language (GML).
 The 3D City Database (3DCityDB) is a free Open Source package consisting
 of a database schema and a set of software tools to import, manage,
 analyse, visualize, and export virtual 3D city models according to the
-CityGML standard. The database schema results from a mapping of the
+CityGML standard [YNKH2018]_. The database schema results from a mapping of the
 object oriented data model of CityGML 2.0 to the relational structure of
 a spatially-enhanced relational database management system (SRDBMS). The
 3DCityDB supports the commercial SRDBMS Oracle (with *Spatial* or

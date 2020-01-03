@@ -41,7 +41,7 @@ the storage of surface-based geometry whereas SURFACE_GEOMETRY is the
 central table.
 
 Since Oracle Spatial 11g the SDO_GEORASTER type supports Oracle
-Workspace Manager. Therefore, the table GRD_COVERAGE_RDT can be
+Workspace Manager (cf. [Murr2010]_). Therefore, the table GRD_COVERAGE_RDT can be
 versioned for history management. However, Oracle Spatial doesn’t allow
 user to version-enable the tables, where *GeoRaster* objects are stored.
 Hence, the table GRID_COVERAGE cannot be versioned using the Oracle

@@ -72,7 +72,8 @@ because of a better performance without dynamic SQL. It is mandatory as
 on the foreign keys**.
 
 The del\_ prefix is used to not exceed 30 characters in Oracle. As
-explained in chapter 3.4, managing different CityGML ADEs in different
+explained in :numref:`citydb_multiple_database_schemas_chapter`,
+managing different CityGML ADEs in different
 schema would require different delete scripts for each schema. A simple
 code block to delete objects based on a query result can look like this:
 

@@ -19,10 +19,10 @@ directory, you can choose the software packages to be installed.
 
 It is recommended to at least select the packages ‘\ *3D City Database*\ ’
 and ‘\ *Documentation’*. The ‘\ *3D City Database*\ ’ package contains all
-:doc:`SQL scripts <3dcitydb-scripts>` that are required for setting
+Shell&SQL scripts that are required for setting
 up an instance of the 3D City Database on your spatial database system.
-Please refer to the step-by-step guide for :doc:`Oracle <db-setup-oracle>`
-or :doc:`PostgreSQL <db-setup-postgis>` on how to use the SQL scripts.
+Please refer to :numref:`3dcitydb_setup_schema_chapter`
+for a step-by-step guide on how to use the scripts.
 The package ‘\ *Sample CityGML and KML/COLLADA datasets*\ ’ contains
 license-free sample data that may be used in first tests.
 

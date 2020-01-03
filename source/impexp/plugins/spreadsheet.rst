@@ -382,8 +382,7 @@ It is possible to export the data in a CSV or XLSX file on the local
 computer, or directly into an online spreadsheet hosted in a cloud
 service.
 
-CSV/XLSX File
-"""""""""""""
+**CSV/XLSX File**
 
 A CSV/XLSX file is supported by most spreadsheet applications. It can be
 easily imported into a local spreadsheet processing program like
@@ -415,8 +414,7 @@ a list.
    SPSHG plugin, and you need to to manually upload the generated CSV/XLSX
    files to the cloud.
 
-Example: Uploading XLSX file to Google Fusion Table
-"""""""""""""""""""""""""""""""""""""""""""""""""""
+**Example: Uploading XLSX file to Google Fusion Table**
 
 Here is a step-by-step guide for uploading a XLSX file to the Google
 Fusion Tables which a cloud-based web application that allows for

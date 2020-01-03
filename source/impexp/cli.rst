@@ -58,7 +58,7 @@ The available program arguments are:
 -  *-config*:         Provides the path and filename of the config file to be used. If this argument is omitted, the config file in the default path is used instead. Using environment variables,
    the default path can be identified dynamically (cf. :numref:`impexp_interface_chapter`):
                     
-                     -  ``%HOMEDRIVE%%HOMEPATH%\\3dcitydb\\importer-exporter\\config`` (Windows 7 and higher)
+                     -  ``%HOMEDRIVE%%HOMEPATH%\3dcitydb\importer-exporter\config`` (Windows 7 and higher)
                      -  ``$HOME/3dcitydb/importer-exporter/config`` (UNIX/Linux, Mac OS families)
 -   *-import*:         Triggers a CityGML import process. Provide a list of one or more input files separated by semicolons (;) in addition. The list may also contain folders. A folder and all its
     nested subfolders are recursively scanned for CityGML input files.

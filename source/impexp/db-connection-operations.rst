@@ -159,7 +159,7 @@ values are presented in the same reference system as specified for the
 how to define and manage user-defined reference systems.
 
 
-By using the map button |map_select|[4],
+By using the map |map_select| button [4],
 the calculated bounding box is rendered in a separate 2D map window
 for visual inspection as shown below. The usage of this map window is
 described in :numref:`impexp_preferences_map_window_chapter`.
@@ -270,8 +270,8 @@ Managing the spatial reference system of the database
 When setting up a 3DCityDB instance, you have to choose a spatial
 reference system (SRS) by picking a spatial reference ID (SRID)
 supported by the database and a corresponding SRS name identifier
-(*gml:srsName*) that is used in CityGML exports (see :numref:`first_step_3dcitydb_installation_oracle`
-and :numref:`first_step_3dcitydb_installation_postgis`).
+(*gml:srsName*) that is used in CityGML exports (see
+and :numref:`3dcitydb_setup_schema_chapter`).
 These settings can be easily changed at any later time using the
 reference system operation.
 

@@ -184,7 +184,7 @@ will be shown when visualizing the exported dataset in earth browsers.
    settings in the preference tab (*KML/COLLADA/glTF Export* node,
    *Rendering* subnode).
 
-.. figure:: /media/image99.png
+.. figure:: /media/impexp_kml_export_displayforms_example.png
    :name: pic_kml_collada_gltf_export_same_building_many_views
 
    Example: The same building displayed as (top down and left to right) footprint, extruded, geometry, COLLADA

@@ -93,9 +93,9 @@ CityGML Implementation Specification [GKNH2012]_.
    :width: 6.5in
 
    Visualisation of a simple building in LoD1 and LoD2 using the
-    appearance model. Two themes are defined for the building and the
-    surrounding terrain: (a) building in summertime and (b) building in
-    wintertime
+   appearance model. Two themes are defined for the building and the
+   surrounding terrain: (a) building in summertime and (b) building in
+   wintertime
 
 Six surface representations are listed in table SURFACE_DATA
 (cf. :numref:`citydb_schema_surface_data_table_figure`).

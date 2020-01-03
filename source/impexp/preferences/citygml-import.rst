@@ -115,7 +115,7 @@ standard for the representation and exchange of address information. xAL
 provides a flexible and generic framework for encoding address data
 according to arbitrary address schemes. The columns of the ADDRESS table
 of the 3D City Database however only map the most common fields in
-address records (cf. :numref:`_citydb_schema_chapter`). Moreover, the Importer/Exporter
+address records (cf. :numref:`citydb_schema_chapter`). Moreover, the Importer/Exporter
 currently does not support arbitrary xAL fragments but is tailored to
 the parsing of following two xAL templates that are taken from the
 CityGML specification.
@@ -250,7 +250,7 @@ geometry objects. Per default, this option is disabled though.
 
    CityGML import preferences – Geometry.
 
-An affine transformation is any transformation that preserves
+An affine transformation (cf. [Weis2015]_) is any transformation that preserves
 collinearity (i.e., points initially lying on a line still lie on a line
 after transformation) and ratios of distances (e.g., the midpoint of a
 line segment remains the midpoint after transformation). It will move
@@ -331,7 +331,8 @@ Indexes
 
 In addition to the Database tab on the operations window, which lets you
 enable and disable spatial and normal indexes in the 3D City Database
-manually (cf. chapter 5.2.2), with this preference settings a default
+manually (cf. :numref:`impexp_executing_database_operations_chapter`),
+with this preference settings a default
 index strategy for database imports can be determined.
 
 .. figure:: ../../media/impexp_import_preferences_indexes_fig.png

@@ -5,8 +5,7 @@ Management of user-defined coordinate reference systems
 
 When setting up an instance of the 3D City Database, a coordinate
 reference system (CRS) must be chosen for the entire database (cf.
-:numref:`first_step_3dcitydb_installation_oracle` and
-:numref:`first_step_3dcitydb_installation_postgis`).
+:numref:`3dcitydb_setup_schema_chapter`).
 This CRS is used as default reference system for all
 spatial objects that are created and stored in the database instance
 (expect implicit geometries) as well as for building spatial indexes and

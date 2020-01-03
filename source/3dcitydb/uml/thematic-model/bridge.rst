@@ -62,8 +62,9 @@ Bridge elements which do not have the size, significance or meaning of a
 *BridgePart* can be modelled either as *BridgeConstructionElement* or as
 *BridgeInstallation*. Elements which are essential from a structural
 point of view are modelled as *BridgeConstructionElement*, for example
-structural elements like pylons, anchorages etc. (cf. Figure 9, Figure
-11). A general classification as well as the intended and actual
+structural elements like pylons, anchorages etc. (cf. :numref:`citydb_example_bridge_parts`
+and :numref:`citydb_example_bridge_construction_element`).
+A general classification as well as the intended and actual
 function of the construction element are represented by the attributes
 *class*, *function*, and *usage*. The visible surfaces of a bridge
 construction element can be semantically classified using the concept of

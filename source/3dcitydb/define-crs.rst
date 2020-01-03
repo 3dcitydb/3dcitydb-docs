@@ -7,8 +7,7 @@ The definition of the CRS of a 3D City Database instance consists of two
 components: 1) a valid *Spatial Reference Identifier* (SRID, typically
 the EPSG code) and 2) an OGC GML conformant *definition identifier* *for
 the CRS*. Both components are defined during the database setup (see
-:numref:`first_step_3dcitydb_installation_oracle` and
-:numref:`first_step_3dcitydb_installation_postgis`) and
+:numref:`3dcitydb_setup_schema_chapter`) and
 are further stored in the table DATABASE_SRS (see :numref:`citydb_schema_metadata_diagram`).
 
 The SRID is an integer value key pointing to spatial reference

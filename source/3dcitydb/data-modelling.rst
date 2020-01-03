@@ -9,7 +9,7 @@ presented in :doc:`database schema <schema/index>` section.
 However, UML diagrams may also form the basis for other implementations
 e.g. for the definition of an exchange format based on XML or GML. The
 UML diagrams of the 3D city model are depicted in
-:doc:`UML sub chapter <uml/index.rst>`.
+:doc:`UML sub chapter <uml/index>`.
 
 Simplification compared to CityGML 2.0.0
 ----------------------------------------
@@ -33,8 +33,9 @@ schema were generated.
 
 .. note::
 
-   All test CityGML datasets (versions 1.0.0 and 2.0.0) from the CityGML
-   homepage (and others) can be stored and managed without restrictions
+   All test CityGML datasets (versions 1.0.0 and 2.0.0) from the
+   `CityGML homepage <http://www.citygml.org>`_
+   (and others) can be stored and managed without restrictions
    with this simplified database schema.
 
 Multiplicities of attributes

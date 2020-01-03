@@ -162,6 +162,8 @@ binding as offered by the 3D City Database WFS.
      - | XML over HTTP POST and KVP over HTTP GET
 
 
+.. _wfs_feature_types_chapter:
+
 CityGML feature types
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -321,7 +323,7 @@ DescribeFeatureType operation
 The DescribeFeatureType operation returns a\ **n XML Schema**
 description of the CityGML feature types **advertised** by the 3D City
 Database WFS instance. Which feature types are offered by the WFS is
-controlled through the config.xml settings file (cf. chapter 7.4.1.4).
+controlled through the config.xml settings file (cf. :numref:`wfs_feature_types_chapter`).
 The XML Schema defines the structure and content of the features
 (thematic and spatial attributes, nested features, etc.) as well as the
 way how features are encoded in responses to GetFeature requests.
@@ -344,7 +346,7 @@ feature type.
 The DescribeFeatureType operations takes the following XML attributes.
 
 .. list-table:: Supported XML attributes of a DescribeFeatureType operation. (O = optional, M = mandatory)
-   :name: wfs_supported_getCapabilities_attributes_table
+   :name: wfs_supported_describeFeatureType_attributes_table
 
    * - | **XML attribute**
      - | **O / M**
@@ -441,7 +443,7 @@ NAMESPACES attribute is therefore obsolet when using the default
 prefixes (see example above).
 
 
-.. _liststoredqueries:
+.. _wfs_ListStoredQueries_operation_chapter:
 
 ListStoredQueries operation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -550,7 +552,8 @@ exemplifies a DescribeStoredQuery request.
    </wfs:DescribeStoredQueries>
 
 The <wfs:StoredQueryId> child element provides the unique identifier of
-the stored query (see ListStoredQuery operation, chapter 7.4.4). By
+the stored query (see ListStoredQuery operation
+in :numref:`wfs_ListStoredQueries_operation_chapter`). By
 providing more than on unique identifier through multiple
 <wfs:StoredQueryId> elements, the descriptions of separate stored
 queries can be requested in a single DescribeStoredQuery operation. If
@@ -722,7 +725,7 @@ The GetFeature operation can be influenced by the following XML
 attributes.
 
 .. list-table:: Supported XML attributes of a GetFeature operation. (O = optional, M = mandatory)
-   :name: wfs_supported_describeStoredQuery_kvp_table
+   :name: wfs_supported_getFeature_attributes_table
 
    * - | **XML attribute**
      - | **O / M**

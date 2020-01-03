@@ -26,14 +26,14 @@ introduced.
 .. toctree::
    :maxdepth: 1
 
-  core
-  building
-  bridge
-  city-furniture
-  generic-city-object
-  land-use
-  relief
-  transportation
-  tunnel
-  vegetation
-  water-body
+   core
+   building
+   bridge
+   city-furniture
+   generic-city-object
+   land-use
+   relief
+   transportation
+   tunnel
+   vegetation
+   water-body

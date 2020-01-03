@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to 3D City Database documentation!
-=========================================
+==========================================
 
 Contents:
 
@@ -22,10 +22,11 @@ Contents:
 
    webmap/index
 
-   references/index
+   appendix/index
+
+   literature
 
    changelog
-   
    
 Indices and tables
 ==================

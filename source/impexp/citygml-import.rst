@@ -28,8 +28,8 @@ be recursively scanned for CityGML files, and every CityGML file found
 will be imported.
 
 The importer supports the following file formats for CityGML datasets:
-1) regular XML files (*.gml, \*.xml), 2) GZIP compressed XML files
-(*.gz, \*.gzip), and 3) ZIP archives (*.zip). ZIP archives are
+1) regular XML files (\*.gml, \*.xml), 2) GZIP compressed XML files
+(\*.gz, \*.gzip), and 3) ZIP archives (\*.zip). ZIP archives are
 recursively scanned for contained XML files. Additional files such as
 texture images will also be imported from the ZIP archive if they are
 correctly referenced from the XML file(s) using relative paths within

@@ -29,7 +29,8 @@ In addition to COLLADA models, the Importer/Exporter can also create
 glTF models for efficient loading and rendering of 3D contents on
 WebGL-enabled web browsers. If the “\ *Create glTF model”* option is
 activated, the Importer/Exporter requires an open source tool called
-COLLADA2glTF [4]_ to convert the exported COLLADA models to glTF models.
+`COLLADA2glTF <https://github.com/KhronosGroup/COLLADA2GLTF/wiki>`_
+to convert the exported COLLADA models to glTF models.
 The COLLADA2glTF tool is available for Windows, Linux, and Mac OS X and
 has been installed together with the Importer/Exporter and located in
 the subfolder *contribs/collada2gltf* of the installation directory. Per
@@ -133,7 +134,7 @@ Envelope.
    are opened with Google Earth (Pro). The Cesium-based 3D web client will
    silently ignore this setting.
 
-Following the KML Specification [Wilson 2008], each KML ``<Region>`` is
+Following the KML Specification [Wils2008]_, each KML ``<Region>`` is
 defined inside a KML ``<NetworkLink>`` and has an associated KML ``<Link>``
 pointing to a file. This implies when this option is chosen a subfolder
 is created for each object exported, identified by the object’s gmlId.
@@ -260,7 +261,7 @@ the transparency of all colors equally: 0 results in transparent
 (invisible) colors, 255 in completely opaque ones. A click on any color
 box opens a color choice dialog.
 
-As defined in the CityGML specification [Gröger et al. 2012] CityGML
+As defined in the CityGML specification [GKNH2012]_ CityGML
 version 2.0.0 allows LoD0 representation (footprint and roofprint
 representations) for buildings and building parts. If LoD0 in the Level
 of Export setting on the main *KML/COLLADA/glTF Export* tab is selected,
@@ -565,7 +566,7 @@ the display form in which the objects is exported.
    directly clickable wherever they are loaded from.
 
 .. note::
-   If you want to use the 3DCityDB-Web-Map-Client (see chapter 8
+   If you want to use the 3DCityDB-Web-Map-Client (see :numref:`webmap_chapter`
    for more details) to visualize the exported datasets (KML/glTF models),
    the options (the both checkboxes shown in :numref:`pic_kml_collada_gltf_preferences_balloon_building`) for creating
    information balloons shall be deactivated, since the
@@ -611,7 +612,7 @@ The balloon contents do not need to be static. They can contain
 references to the data belonging to the city object they relate to.
 These references will be dynamically resolved (i.e.: the actual value
 for the current object will be put in their place) at export time in a
-way similar to how Active Server Pages (ASP) [Microsoft, 2015] work.
+way similar to how `Active Server Pages (ASP) <http://msdn.microsoft.com/en-us/library/ms526064.aspx>`_ work.
 Placeholders embedded in the HTML template, beginning with ``<3DCityDB>``
 and ending with ``</3DCityDB>`` tags, will be replaced in the resulting
 balloon with the dynamically determined value(s). The HTML balloon
@@ -638,7 +639,7 @@ Rules for simple expressions
    the syntax). These expressions represent an alternative coding of a
    SQL select statement: ``SELECT [AGGREGATION FUNCTION] COLUMN FROM TABLE
    [WHERE condition]``. Tables refer to the underlying 3DCityDB table
-   structure (see chapter 2.3.2 for details).
+   structure (see :numref:`citydb_conceptual_database_structure_chapter` for details).
 
 -  Each expression will only return those entries relevant to the city
    object being currently exported. That means an implicit condition
@@ -986,8 +987,9 @@ on Google Earth with enabled terrain layer, the option *Use generic
 attribute "GE_LoDn_zOffset"* shall be selected. Here the
 *GE_LoDn_zOffset* generic attribute value can be automatically
 calculated by the Importer/Exporter if not available. This calculation
-uses data returned by Google's Elevation API [Google Elevation API,
-2015]. After completing the calculation, the results will be stored in
+uses data returned by
+`Google's Elevation API <https://developers.google.com/maps/documentation/elevation/>`_.
+After completing the calculation, the results will be stored in
 the ``CITYOBJECT_GENERICATTRIB`` table of the 3DCityDB for future use.
 
 .. note::
@@ -996,7 +998,8 @@ the ``CITYOBJECT_GENERICATTRIB`` table of the 3DCityDB for future use.
    *Call the Google Elevation API when no data is available* should only be
    enabled when a valid Elevation API key is available. Users can provide
    their own Elevation API key in the general preferences as described in
-   chapter 5.6.5.4. For more details on the Google Maps Platform Terms of
+   :numref:`impexp_preferences_general_apiKeys_chapter`.
+   For more details on the Google Maps Platform Terms of
    Service, please refer to https://cloud.google.com/maps-platform/terms/.
 
 Since city objects may have different geometries for different LoDs, the

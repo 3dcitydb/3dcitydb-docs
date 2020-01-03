@@ -1,3 +1,5 @@
+.. _citydb_conceptual_database_structure_chapter:
+
 Conceptual database structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

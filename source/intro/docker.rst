@@ -1,3 +1,5 @@
+.. _first_steps_docker_chapter:
+
 3DCityDB Docker Images
 ======================
 

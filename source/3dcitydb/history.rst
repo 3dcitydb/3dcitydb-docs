@@ -19,8 +19,8 @@ successfully used for presentation of the business location, its urban
 development combined with application related information to
 politicians, investors, and the public in order to support civic
 participation, provide access to decision-making content, assist in
-policy-formulation, and control implementation processes [Döllner et al.
-2006]. 3DCityDB was key in demonstrating the real world usage of CityGML
+policy-formulation, and control implementation processes [DKLS2006]_.
+3DCityDB was key in demonstrating the real world usage of CityGML
 to the Open Geospatial Consortium on the one hand, and the practical
 usability and versatility of CityGML to the city of Berlin on the other
 hand. This first develop­ment phase was carried out by University of
@@ -32,31 +32,31 @@ Versions 0.2 up to 1.3).
 Version 2 - 2006 - 2014
 -----------------------
 
-Within the framework **Europäische Fonds für regionale Entwicklung
-(**\ EFRE II) the project *Geodatenmanagement in der Berliner Verwaltung
+Within the framework *Europäische Fonds für regionale Entwicklung*
+(EFRE II) the project *Geodatenmanagement in der Berliner Verwaltung
 – Amtliches 3D-Stadtmodell für Berlin* allowed for upgrading the
 official 3D city model based on the former CityGML specification draft
-0.4.0 in the year 2007. **The developments were carried out by the
-Institute for Geodesy und Geoinformation Science (IGG) of the Berlin
-University of Technology (where Kolbe became full professor for
-Geoinformation Science in 2006) on behalf of the Berliner
+0.4.0 in the year 2007. The developments were carried out by the
+*Institute for Geodesy und Geoinformation Science (IGG) of the Berlin
+University of Technology* (where Kolbe became full professor for
+Geoinformation Science in 2006) on behalf of the *Berliner
 Senatsverwaltung für Wirtschaft, Arbeit und Frauen and the Berlin
-Partner GmbH (former** Wirtschaftsförderung Berlin International\ **).
+Partner GmbH* (former Wirtschaftsförderung Berlin International).
 The relational database model (3DCityDB versions 1.4 up to 1.8) was
-implemented and evaluated in cooperation with 3DGeo GmbH (later bought
-by Autodesk GmbH) in Potsdam. A special database interface for
-LandXPlorer was provided by 3DGeo / Autodesk.** Later on, a first
+implemented and evaluated in cooperation with *3DGeo GmbH* (later bought
+by *Autodesk GmbH*) in Potsdam. A special database interface for
+LandXPlorer was provided by 3DGeo / Autodesk. Later on, a first
 version of the Java based CityGML Importer/Exporter was developed
 [SNKK2009]_.
 
-**In August 2008, CityGML 1.0.0 became an adopted standard of the Open
-Geospatial Consortium (OGC). In the follow-up project Digitaler
-Gestaltplan Potsdam starting in 2010 the 3DCityDB version 2 was
+In August 2008, CityGML 1.0.0 became an adopted standard of the Open
+Geospatial Consortium (OGC). In the follow-up project *Digitaler
+Gestaltplan Potsdam* starting in 2010 the 3DCityDB version 2 (cf. [KKNS2009]_ and [NaSt2008]_) was
 developed which brought support for all CityGML 1.0.0 feature types. The
 KML/COLLADA exporter was added as well as a ‘Matching’ plugin. This
-project was carried out by IGG of TU Berlin on behalf of and in
+project was carried out by *IGG of TU Berlin* on behalf of and in
 collaboration with the company virtualcitySYSTEMS (VCS) in Berlin. In
-2012 the developer team at TU Berlin received the** *Oracle Spatial
+2012 the developer team at TU Berlin received the *Oracle Spatial
 Excellence Award for Education and Research* from *Oracle USA* for our
 work on 3DCityDB. Also in 2012 3DCityDB was ported to PostgreSQL/PostGIS
 by *Felix Kunde*, a master student from the *University of Potsdam*, who
@@ -72,7 +72,6 @@ number of years. In this context, the Chair of Geoinformatics at TUM and
 the companies virtualcitySYSTEMS and M.O.S.S. signed an official
 collaboration agreement on the joint further development of 3DCityDB and
 its tools.
-
 
 Version 3 - 2013 - 2018
 -----------------------

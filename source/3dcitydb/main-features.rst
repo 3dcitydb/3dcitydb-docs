@@ -167,7 +167,8 @@ We now provide `Docker <https://www.docker.com/>`_ images for
 
 We also provide a Docker-compose script to launch all three Docker
 containers in a linked way with just a single command. Details are given
-in Section 9 and in the respective `github repositories <https://github.com/tum-gis?q=docker>`_.
+in :numref:`first_steps_docker_chapter` and in the
+respective `github repositories <https://github.com/tum-gis?q=docker>`_.
 Docker is a runtime environment for virtualization. Docker encapsulates
 individual software applications in so-called containers, which are –
 in contrast to virtual machines – light-weight and can be deployed,
@@ -202,7 +203,7 @@ Features inherited from CityGML
    composed of rooms, interior doors, stairs, and furniture. This allows
    among other things to select the floor space of a building, so that
    it can later be used e.g. to derive SmartBuildings or to form 3D
-   solids by extrusion [Döllner et al. 2005]. Buildings can be assigned
+   solids by extrusion [DBBF2005]_. Buildings can be assigned
    addresses that are also stored in the 3D city database. Their
    implemen­tation refers to the OASIS xAL Standard, which maps the
    address formats of the different countries into a unified XML schema.
@@ -227,14 +228,13 @@ Features inherited from CityGML
    GeoRaster data would have to be imported and exported using other
    tools from e.g. Oracle, ESRI, or Safe Software.
 
--  **Support of different kinds of multi-representations**: Levels of
+-  **Support of different kinds of multi-representations: Levels of
    detail, different appearances, (and with Oracle RDBMS only) planning
-   versions and history: Every geoobject as well as the DTM can be
+   versions and history**: Every geoobject as well as the DTM can be
    represented in five different resolution or fidelity steps (Levels of
    Detail, LOD). With increasing LOD, objects do not only obtain a more
    precise and finer geometry, but do also gain a thematic refinement.
-
--  **Different appearance data may be stored for each city object**:
+   Different appearance data may be stored for each city object**:
    Appearance relates to any surface-based theme, e.g. infrared radiation
    or noise pollution, not just visual properties. Consequently, data
    provided by appearances can be used as input for both presentation and
@@ -242,7 +242,7 @@ Features inherited from CityGML
    appearances for an arbitrary number of themes per city model. Each LOD
    of a feature can have individual appearances. Appearances can represent
    – among others – textures and georeferenced textures. All texture images
-   can be stored in the database.
+   can be stored in the database. (cf. [GKSS2005]_)
 
 -  **Representation of generic and prototypical 3D objects:** Generic
    objects enable the storage of 3D geoobjects that are not explicitly

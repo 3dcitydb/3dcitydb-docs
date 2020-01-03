@@ -1,7 +1,8 @@
 Sequences
 ~~~~~~~~~
 
-Figure 50 lists predefined sequences from which multiple users may
+:numref:`citydb_schema_sequences_diagram` lists predefined
+sequences from which multiple users may
 generate unique integers for primary keys automatically. Sequences help
 to coordinate primary keys across multiple rows and tables. For
 instance, the ID values of the BUILDING table are generated from the

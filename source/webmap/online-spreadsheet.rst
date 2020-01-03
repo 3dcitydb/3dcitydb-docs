@@ -169,9 +169,11 @@ the hardware you use.
 In this example, a tiled KML dataset containing around 8000 LoD1
 buildings in the Manhattan district of New York City (NYC) will be
 visualized on the 3D web client. This KML dataset is derived from the
-semantic 3D city model of New York City (NYC) [16]_ which has been
+semantic 3D city model of `New York City (NYC)
+<https://www.gis.bgu.tum.de/en/projects/new-york-city-3d/>`_ which has been
 created by the Chair of Geoinformatics at Technical University of Munich
-on the basis of datasets provided by the NYC Open Data Portal [17]_. The
+on the basis of datasets provided by the
+`NYC Open Data Portal <https://nycopendata.socrata.com/>`_. The
 following parameter values should be entered into the corresponding
 input fields:
 
@@ -183,7 +185,6 @@ input fields:
 -  **maxLodPixels**:                     -1
 -  **maxSizeOfCachedTiles**:             200
 -  **maxCountOfVisibleTiles**:           200
-
 
 After clicking on *Add layer*, a data layer will be loaded into the 3D
 web client and the corresponding layer name *NYC_Manhattan_Buildings*
@@ -205,7 +206,7 @@ layer* button to completely remove it from the 3D web client (cf. the
 following two screenshots)
 
 .. figure:: /media/3d_web_map_layer_box.png
-   :name: pic_3d_web_map_screenshot_kml_gltf
+   :name: pic_3d_web_map_layer_box
    
    Screenshot showing how to hide a KML/glTF data layer
 

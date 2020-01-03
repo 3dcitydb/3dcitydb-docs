@@ -126,6 +126,7 @@ asks the user for permission to connect to the database.
 
 .. figure:: /media/impexp_map_window_coordinate_transformation_fig.png
    :name: impexp_map_window_coordinate_transformation_fig
+   :align: center
 
    Asking for permission before connecting to a database for coordinate transformation.
 

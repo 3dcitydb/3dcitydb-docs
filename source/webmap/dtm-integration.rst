@@ -61,7 +61,7 @@ values should be entered into the corresponding input fields:
 .. figure:: /media/3d_web_client_dtm_gui_numbers.png
    :name: 3d_web_client_dtm_gui_numbers
 
-    Example showing how to add a new terrain layer to the 3D web client
+   Example showing how to add a new terrain layer to the 3D web client
 
 As shown in the figure above, once the parameter settings have been
 completed, the terrain layer can be loaded by clicking on the *Add

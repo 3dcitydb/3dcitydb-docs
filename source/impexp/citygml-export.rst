@@ -19,8 +19,8 @@ can either manually enter the target file or open a file selection
 dialog via the *Browse* button.
 
 The exporter supports the following file formats for writing CityGML
-datasets: 1) regular XML files (*.gml, \*.xml), 2) GZIP compressed XML
-files (*.gz, \*.gzip), and 3) ZIP archives (*.zip). Simply make sure to
+datasets: 1) regular XML files (\*.gml, \*.xml), 2) GZIP compressed XML
+files (\*.gz, \*.gzip), and 3) ZIP archives (\*.zip). Simply make sure to
 add the file extension of the file format of your choice to the name of
 the target file in [1]. When choosing ZIP as target format, then all
 additional files such as texture images are also written into the ZIP
@@ -341,8 +341,8 @@ standards such as *Filter Encoding* (FE) 2.0 and *Web Feature Service*
 
 .. note::
    All XML elements of the query language are defined in the XML
-namespace http://www.3dcitydb.org/importer-exporter/config. Simply
-define this namespace as default namespace on your <query> root element.
+   namespace http://www.3dcitydb.org/importer-exporter/config. Simply
+   define this namespace as default namespace on your <query> root element.
 
 A query expression may contain a *typeNames* parameter, a *projection
 clause*, a *selection clause*, a *counter filter*, an *LoD filter*, an

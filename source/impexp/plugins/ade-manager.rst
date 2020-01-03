@@ -9,8 +9,9 @@ Definition
 The ADE Manager is a plugin for the 3D City Database Importer/Exporter
 and allows to dynamically extend a 3D City Database (3DCityDB) instance
 to facilitate the storage and management of CityGML Application Domain
-Extensions (ADE). It is implemented based on the Open Source Attributed
-Graph Grammar (AGG) [AGG2019]_ transformation engine for realizing the
+Extensions (ADE). It is implemented based on the Open Source
+`Attributed Graph Grammar (AGG) <http://www.user.tu-berlin.de/o.runge/agg>`_
+transformation engine for realizing the
 automatic transformation from an XML application schema (XSD) to a
 compact relational database schema (including tables, indexes, and
 constraints etc.) for a given CityGML ADE. In addition, an XML-based
@@ -99,7 +100,8 @@ ADE datasets. The Importer/Exporter also uses a schema-mapping file for
 mapping the elements of the CityGML XML schemas to tables and columns of
 the 3DCityDB core schema. This mapping file, its XML Schema definition
 as well as a Java API for reading and writing a valid schema-mapping
-files can be found in the Github repository [3DCI2019a]_ .
+files can be found in the
+`Github repository <https://github.com/3dcitydb/importer-exporter/tree/master/impexp-core/src/main/java/org/citydb/database/schema>`_.
 
 Registration of a Test ADE
 """"""""""""""""""""""""""
@@ -115,7 +117,7 @@ ADEs such as the Energy ADE and the UtilityNetwork ADE. A central
 repository containing the TestADE’s UML data model, XML schema
 definition file, database schema, schema-mapping file as well as the
 Java classes for reading and writing ADE datasets is hosted in the
-3DCityDB’s Github website [3DCI2019b]_.
+3DCityDB’s `Github website <https://github.com/3dcitydb/extension-test-ade>`_.
 
 The input SQL and schema-mapping files for ADE registration are located
 under the relative path
@@ -188,7 +190,7 @@ However, a notable issue is that some relevant meta-information about an
 ADE are usually missing in its XML schema, since they cannot be encoded
 using the native syntax of the XML schema and will be lost while
 deriving the XML schema from its ADE’s UML model (e.g. when using a
-transformation tool like ‘ShapeChange’ (cf. [SHAP2019]_). Moreover, some certain
+transformation tool like `ShapeChange <https://shapechange.net/>`_. Moreover, some certain
 kinds of meta-information can even not be represented in the UML model.
 A good model-driven solution for solving this issue is to extend the UML
 model by adding a few specific *taggedValues* (cf. the table below)
@@ -352,8 +354,9 @@ the Import/Export tool with ADE extensions is presented.
    of the Import/Export tool, if the folder does not exist.
 
 -  Download the latest version of the TestADE’s Java extension, database
-   schema, and schema-mapping file from the Github website:
-   https://github.com/3dcitydb/extension-test-ade/releases
+   schema, and schema-mapping file from the
+   `Github website <https://github.com/3dcitydb/extension-test-ade/releases>`_
+
 
 -  Unpack the zip file to a folder e.g. named
    “\ **extension-test-ade**\ ” which shall contain three subfolders
