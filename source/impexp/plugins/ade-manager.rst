@@ -202,14 +202,15 @@ which can be automatically translated and encoded into the
    * - | taggedValue
      - | :code:`topLevel` (true \| false)
    * - | Description
-     - | This taggedValue allows determining whether an ADE feature class is top-level or not
+     - | This taggedValue allows for determining if an ADE feature class is top-level
    * - | Example
        | Of using
        | <xs:annotation>
        | in XML-Schema
      - .. code-block:: XML
 
-        <element name="IndustrialBuilding" substitutionGroup="bldg:_AbstractBuilding"
+        <element name="IndustrialBuilding"
+          substitutionGroup="bldg:_AbstractBuilding"
           type="TestADE:IndustrialBuildingType">
           <annotation>
             <appinfo>
