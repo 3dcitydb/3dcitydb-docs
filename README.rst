@@ -42,7 +42,7 @@ Web Feature Service           4.2.x, 4.1.x, 4.0.0
 .. |tum_logo| image:: source/media/tum_logo.jpeg
    :width: 0.96747in
    :height: 0.50979in
-.. |vcs_logo| image:: source/media/vcs_logo.tiff
+.. |vcs_logo| image:: source/media/vcs_logo.png
    :width: 1.50347in
    :height: 0.71736in
 .. |moss_logo| image:: source/media/moss_logo.png
