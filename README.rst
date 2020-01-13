@@ -3,8 +3,6 @@
 
 **3D City Database for CityGML**
 
-|image0|
-
 Geobasisdaten: © Stadtvermessung Frankfurt am Main
 IDAC Ltd, UK.
 Chair of Geoinformatics, Technische Universität München. Image
@@ -12,15 +10,15 @@ Chair of Geoinformatics, Technische Universität München. Image
       supervised with HTW Dresden
 3D City Model of Berlin © Berlin partner GmbH
 
-|image1|
+|tum_logo|
 
 Chair of Photogrammetry and Remote Sensing & Chair of Cartography, Technische Universität München
 
-|image2|
+|vcs_logo|
 
 virtualcitySYSTEMS GmbH, Berlin, Germany
 
-|image3|
+|moss_logo|
 
 M.O.S.S. Computer Grafik Systeme GmbH, Taufkirchen, Germany
 
@@ -41,15 +39,12 @@ Web Feature Service           4.2.x, 4.1.x, 4.0.0
 ============================= ===================
 
 
-.. |image0| image:: source/media/image1.jpeg
-   :width: 6.76736in
-   :height: 4.18788in
-.. |image1| image:: source/media/image13.jpeg
+.. |tum_logo| image:: source/media/tum_logo.jpeg
    :width: 0.96747in
    :height: 0.50979in
-.. |image2| image:: source/media/image12.tiff
+.. |vcs_logo| image:: source/media/vcs_logo.tiff
    :width: 1.50347in
    :height: 0.71736in
-.. |image3| image:: source/media/image11.png
+.. |moss_logo| image:: source/media/moss_logo.png
    :width: 1.04514in
    :height: 0.85694in
