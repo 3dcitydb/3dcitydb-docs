@@ -316,6 +316,16 @@ command:
 
     CREATE EXTENSION postgis_sfcgal;
 
+.. note::
+   Starting from PostGIS v3, all the raster functionality has been moved
+   to a separate extension ``postgis_raster``. Since the 3DCityDB requires
+   the raster functionality, this extension must be installed if PostGIS 3 or
+   higher version is used.
+
+   .. code:: sql
+
+       CREATE EXTENSION postgis_raster;
+
 **Step 3 – Edit the CONNECTION_DETAILS[.sh \| .bat] script**
 
 Go to the 3dcitydb/postgresql/ShellScrpts directory, choose the folder

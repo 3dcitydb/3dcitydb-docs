@@ -21,8 +21,8 @@ capabilities.
 
 **PostgreSQL**
 
-Supported versions are **PostgreSQL 9.3 or higher** with the **PostGIS
-extension 2.0 or higher**. Please also make sure to always install the
+Supported versions are **PostgreSQL 9.6 or higher** with the **PostGIS
+extension 2.3 or higher**. Please also make sure to always install the
 latest patches and updates.
 
 The SQL scripts to create the database schema are written to be executed
@@ -55,8 +55,8 @@ for your operating system.
 The Importer/Exporter is shipped with a universal installer that will
 guide you through the steps of the setup process. A full installation of
 the Importer/Exporter including documentation and example CityGML files
-requires approx. 505 MB of hard disk space. Installing only the
-mandatory application files will use approx. 350 MB of hard disk space.
+requires approx. 500 MB of hard disk space. Installing only the
+mandatory application files will use approx. 360 MB of hard disk space.
 Installation packages can be selected during the setup process.
 
 The Importer/Exporter runs with 1 GB of main memory per default. This

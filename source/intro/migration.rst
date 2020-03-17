@@ -76,15 +76,16 @@ Before upgrading your 3D City Database, a database backup is highly
 recommended to secure all data. The latter can be easily done using the
 Importer/Exporter tool or by tools provided by Oracle.
 
-**Important:** Please note that the last step in the upgrade process is
-a lengthy one. Altering the internal storage of the envelopes of all
-city objects in a large and/or versioned database may take hours.
-Depending on their initial state, spatial indexes may be disabled and
-re-enabled in the process, adding to the duration as a whole. This
-process MUST NOT be interrupted since it could lead to an inconsistent
-state. Please be patient and remember that backing up all of your data
-before starting any database upgrade is the commonly recommended
-practice.
+.. note::
+    Please note that the last step in the upgrade process is
+    a lengthy one. Altering the internal storage of the envelopes of all
+    city objects in a large and/or versioned database may take hours.
+    Depending on their initial state, spatial indexes may be disabled and
+    re-enabled in the process, adding to the duration as a whole. This
+    process **MUST NOT** be interrupted since it could lead to an inconsistent
+    state. Please be patient and remember that backing up all of your data
+    before starting any database upgrade is the commonly recommended
+    practice.
 
 **Step 2 – Creating a new installation**
 
@@ -205,7 +206,7 @@ DROP_DB_V2 shell script.
    DO NOT execute the DROP_DB script as the old and new instance of
    the 3D City Database are both stored inside the same database
    (new = citydb schema, old = public schema). DROP_DB drops all
-   database schemas where it finds a DATABASE_SRS table, so all you data
+   database schemas where it finds a DATABASE_SRS table, so all your data
    would be lost. Be careful!
 
 V3 to V4 Migration

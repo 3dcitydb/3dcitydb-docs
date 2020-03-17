@@ -47,7 +47,7 @@ Database data model are a thing of the past. An example for setting up a
 
 .. note::
    In the examples above the long commands are broken to several
-   lines for readability using the Bash (\) or CMD (^) line continuation.
+   lines for readability using the Bash (\\) or CMD (^) line continuation.
 
 The ``docker run`` command fetches the most recent version of the Docker
 image from the Docker hub. This image includes a PostgreSQL/PostGIS
