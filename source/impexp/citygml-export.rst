@@ -35,8 +35,7 @@ details on tiled exports are provided below and in
 **Workspace selection.** If the 3D City Database instance is
 version-enabled (Oracle only), the name of the *workspace* and the
 *timestamp* from which the data shall be exported can be specified [2].
-If no workspace is provided, the default workspace is assumed (Oracle:
-*LIVE*).
+If no workspace is provided, the *LIVE* workspace is used by default.
 
 **Coordinate transformation.** In general, coordinate values of geometry
 objects are associated with the coordinate reference system defined for
@@ -48,7 +47,7 @@ list [3]. This list can be augmented with user-defined reference systems
 (cf. :numref:`impexp_crs_management_chapter` for more details). When picking the entry “\ *Same as
 in database*\ ”, no transformation will be applied (default behavior).
 
-**Simple export filters.** Like the import of CityGML datasets, the
+**Simple export filters.** Similar to the import process, the
 export operation supports thematic and spatial filter criteria to
 restrict exports to subsets of the 3D city model content. The checkboxes
 on the left side of the export dialog let you choose between an
@@ -75,7 +74,7 @@ the database will be exported.
    how many levels of nested city objects shall be considered when searching for matching LoD representations.
 -  **Counter filter**: The feature counter filter limits the number of explicitly exported top-level features.
    Simply enter the number of features into the *count* field [4]. The *start index* parameter indicates
-   the index within the result set from which the export shall begin. The index starts with 0. Both
+   the index within the result set from which the export shall begin. The index starts with 0. The
    parameters can be used together or individually.
 -  **Bounding box filter**: The bounding box filter takes the same parameters as on the Import tab.
    It is evaluated against the ENVELOPE column of the CITYOBJECT table. The user can choose whether
@@ -84,6 +83,9 @@ the database will be exported.
    bounding box into a regular grid. The number of rows and columns can be defined by the user. Each
    tile of this grid is exported into its own file. To make sure that every city object is assigned to one tile only,
    the center point of its envelope is checked to be either inside or on the left or top border of the tile.
+-  **Feature type filter**: With the feature types filter, you can restrict the export to one or more
+   features types by enabling the corresponding checkboxes. Only features of the
+   chosen type(s) will be exported.
 
 When exporting 3D city model content to a single CityGML file, the file
 size may quickly grow. Although the Importer/Exporter supports writing
@@ -128,14 +130,14 @@ preferences in chapter :numref:`impexp_preferences_export_tiling_chapter`).
    CityGML import. However, regarding *city object groups* the following
    rules apply:
 
-   1) If only the feature type *CityObjectGroup* is checked, then all city
-   object groups and all their group members (independent of their
-   feature type) are exported.
+   1. If only the feature type *CityObjectGroup* is checked, then all city
+      object groups and all their group members (independent of their
+      feature type) are exported.
 
-   2) If further feature types are selected in addition to
-   *CityObjectGroup*, then only group members matching those feature
-   types are exported. Of course, all features that match the type
-   selection but are not group members are also exported.
+   2. If further feature types are selected in addition to
+      *CityObjectGroup*, then only group members matching those feature
+      types are exported. Of course, all features that match the type
+      selection but are not group members are also exported.
 
 **Advanced XML export query.** The export can also be controlled through
 a more advanced query expression. In addition to the simple filter capabilities
@@ -146,7 +148,7 @@ exported city objects and provides a filter for different appearance
 themes. Operators like the LoD filter or tiling are, of course, also
 available for query expressions.
 
-Query expressions are encoded in XML using a ``<citydb:query>`` element. The
+Query expressions are encoded in XML using a ``<query>`` element. The
 query language used has been developed for the purpose of the 3DCityDB
 but is strongly inspired by and very similar to the OGC Filter Encoding
 2.0 standard and the query expressions used by the OGC Web Feature
@@ -678,26 +680,22 @@ exported, then the following examples are valid XPath expressions:
    generic string attributes of the building
 
 -  ``gen:stringAttribute[@gen:name=’area’]/gen:value`` selects the
-   gen:value of a generic string attribute of name “area”
+   gen:value of a generic string attribute with the name “area”
 
 -  ``bldg:boundedBy/bldg:WallSurface/bldg:lod2MultiSurface`` selects the
    spatial LoD2 representation of the wall surfaces of the building
 
--  ``bldg:boundedBy/bldg:WallSurface[@gml:id=’ID_01’ or
-   gml:name=’wall’]/``
+-  ``bldg:boundedBy/bldg:WallSurface[@gml:id='ID_01' or gml:name='wall']/bldg:opening/bldg:Door/gml:name``
+   selects the gml:name of doors that are associated with wall surfaces having a specific gml:id
+   or gml:name
 
-``bldg:opening/bldg:Door/core:creationDate`` selects the core:creationDate
-of doors that are associated with wall surfaces having a specific gml:id
-or gml:name
-
--  ``bldg:boundedBy/schema-element(bldg:_BoundarySurface)/@gml:id``
-   selects the gml:id attribute of all boundary surfaces of the building
+-  ``bldg:boundedBy/schema-element(bldg:_BoundarySurface)/core:creationDate``
+   selects the core:creationDate attribute of all boundary surfaces of the building
 
 -  ``core:externalReference[core:informationSystem='http://somewhere.de']/core:externalObject/core:name``
-   selects the core:name of the external
-   object in an external reference to a given information system
+   selects the core:name of the external object in an external reference to a given information system
 
--  ``gen:genericAttributeSet[@gen:name=’energy’]/gen:measureAttribute/gen:value``
+-  ``gen:genericAttributeSet[@gen:name='energy']/gen:measureAttribute/gen:value``
    selects the gen:value of all generic measure attributes
    contained in the generic attribute set named “energy”
 

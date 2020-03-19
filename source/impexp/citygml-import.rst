@@ -63,13 +63,13 @@ contained in the input file(s) will be imported.
 -  **Counter filter**: The feature counter filter limits the number of top-level features to be imported.
    Simply enter the number of features into the *count* field [4]. The *start index* parameter indicates
    the index within the input set over all input files from which the import shall begin. The index starts with 0.
-   Both parameters can be used together or individually.
+   The parameters can be used together or individually.
 -  **Bounding box filter**: This filter takes a 2D bounding box as parameter that is given by the
    coordinate values of its lower left (x\ :sub:`min`, y\ :sub:`min`) and upper right corner (x\ :sub:`max`, y\
    :sub:`max`) [5]. The bounding box is evaluated against the gml:boundedBy property of the CityGML input features.
    You can choose whether features *overlapping* with the provided bounding box are to be
    imported, or whether features must be *inside* of it.
--  **Feature type filter**: With the feature types filter, you can restrict the import to one or more CityGML
+-  **Feature type filter**: With the feature types filter, you can restrict the import to one or more
    features types by enabling the corresponding checkboxes [7]. Only features of the
    chosen type(s) will be imported.
 
