@@ -59,13 +59,8 @@ are combined in a logical AND operation. If no checkbox is enabled, no
 filter criteria are applied and thus all CityGML features contained in
 the database will be exported.
 
-The export filters work similar to the ones on the Import tab. Please
-refer to :numref:`impexp_citygml_import_chapter` for a description of the filter settings that are
-common to both operations.
-
-
--  **Attribute filter**: This filter lets you define values for the attributes gml:id, gml:name and
-   citydb:lineage which must be matched by city objects to be exported. More than one gml:id can be
+-  **Attribute filter**: This filter lets you define values for the attributes *gml:id*, *gml:name* and
+   *citydb:lineage*, which must be matched by city objects to be exported. More than one gml:id can be
    provided in a comma-separated list. Multiple gml:name or citydb:lineage values are not supported though.
 -  **SQL filter**: The attribute filter only operates on predefined attributes (see above).
    To overcome this limitation, you can alternatively choose the *SQL Filter* tab and enter an arbitrary
@@ -74,6 +69,14 @@ common to both operations.
    The SQL filter is very powerful as you can access every column of every table in the 3DCityDB and make use
    of all functions and operations offered by the underlying database system to define your filter.
    More information about the SQL filter is provided in chapter :numref:`impexp_sql_queries_chapter`.
+-  **LoD filter**: This filter allows for exporting only specific LoDs of the city objects.
+   The LoD selection can be either AND or OR combined. City objects not having a spatial representation
+   in one (OR) or all (AND) of the selected LoDs will not be exported. The *search depth* parameter specifies
+   how many levels of nested city objects shall be considered when searching for matching LoD representations.
+-  **Counter filter**: The feature counter filter limits the number of explicitly exported top-level features.
+   Simply enter the number of features into the *count* field [4]. The *start index* parameter indicates
+   the index within the result set from which the export shall begin. The index starts with 0. Both
+   parameters can be used together or individually.
 -  **Bounding box filter**: The bounding box filter takes the same parameters as on the Import tab.
    It is evaluated against the ENVELOPE column of the CITYOBJECT table. The user can choose whether
    the bounding box of top-level features only needs to *overlap with* or must be strictly *inside*
@@ -81,10 +84,6 @@ common to both operations.
    bounding box into a regular grid. The number of rows and columns can be defined by the user. Each
    tile of this grid is exported into its own file. To make sure that every city object is assigned to one tile only,
    the center point of its envelope is checked to be either inside or on the left or top border of the tile.
--  **LoD filter**: This filter allows for exporting only specific LoDs of the city objects.
-   The LoD selection can be either AND or OR combined. City objects not having a spatial representation
-   in one (OR) or all (AND) of the selected LoDs will not be exported. The *search depth* parameter specifies
-   how many levels of nested city objects shall be considered when searching for matching LoD representations.
 
 When exporting 3D city model content to a single CityGML file, the file
 size may quickly grow. Although the Importer/Exporter supports writing
@@ -95,7 +94,7 @@ in this case because the contents of each tile are written to separate
 and thus smaller files. The output files are put into subfolders, and
 the names of both the subfolders and the output files can be augmented
 with tile-specific suffixes (see the tiling options of the export
-preferences).
+preferences in chapter :numref:`impexp_preferences_export_tiling_chapter`).
 
 .. note::
    Both the gml:name and the citydb:lineage filter internally use
@@ -105,8 +104,7 @@ preferences).
 
 .. note::
    When choosing a spatial *bounding filter*, make sure that
-   *spatial indexes are enabled* so that filtering can be performed on the
-   database (use the index operation on the Database tab to check the
+   *spatial indexes are enabled* (use the index operation on the Database tab to check the
    status of indexes, cf. :numref:`impexp_executing_database_operations_chapter`).
 
 .. note::
@@ -140,7 +138,7 @@ preferences).
    selection but are not group members are also exported.
 
 **Advanced XML export query.** The export can also be controlled through
-a more advanced query expression. In addition to the filter capabilities
+a more advanced query expression. In addition to the simple filter capabilities
 explained above, a query expression offers logical operators (AND, OR,
 NOT) that combine thematic and spatial filters to complex conditions.
 Moreover, it allows for defining projections on the properties of the
@@ -148,7 +146,7 @@ exported city objects and provides a filter for different appearance
 themes. Operators like the LoD filter or tiling are, of course, also
 available for query expressions.
 
-Query expressions are encoded in XML using a <citydb:query> element. The
+Query expressions are encoded in XML using a ``<citydb:query>`` element. The
 query language used has been developed for the purpose of the 3DCityDB
 but is strongly inspired by and very similar to the OGC Filter Encoding
 2.0 standard and the query expressions used by the OGC Web Feature
@@ -159,7 +157,6 @@ button [6] at the bottom right of the export dialog
 (cf. :numref:`impexp_CityGML_export_dialog_fig`). The
 simple filter settings dialog will be replaced with an XML input field
 like shown below.
-
 
 .. figure:: ../media/impexp_XML_query_dialog_fig.png
    :name: impexp_XML_query_dialog_fig
@@ -186,7 +183,7 @@ External editors might be more comfortable to use and often offer
 additional tools like auto completion. The XML Schema definition of the
 query language (required for validation and auto completion) can be
 exported via “Project Save Project XSD As…” on the main menu of the
-Importer/Exporter (cf. :numref:`impexp_interface_chapter`). Make sure to use a <query> element
+Importer/Exporter (cf. :numref:`impexp_interface_chapter`). Make sure to use a ``<query>`` element
 as root element of the query expression in your external XML editor.
 
 **Export preferences.** In addition to the settings on the Export tab,
@@ -195,7 +192,6 @@ available on the Preferences tab of the operations window. Make sure to
 check these settings before starting the export process. A full
 documentation of the export preferences can be found in :numref:`impexp_citygml_export_preferences_chapter`.
 The following table provides a summary overview.
-
 
 .. list-table::  Summery overview of the export preferences
    :name: citygml_export_preferences_summary_table
@@ -284,9 +280,9 @@ evaluated together with all other filter settings on the Export tab, the
 export operation will automatically make sure that only top-level
 features in accordance with the *feature type filter* are exported. For
 example, the above query might return ID values of buildings, city
-furnitures, windows or traffic surfaces. If, however, only buildings
+furniture, windows or traffic surfaces. If, however, only buildings
 have been chosen in the feature type filter, then all ID values in the
-result set not belonging to buildings will be ignored. This allows for
+result set not belonging to buildings will be ignored. This allows
 writing generic queries that can be reused in different filter
 combinations. Of course, you may also limit the result set to specific
 city objects if you like.
@@ -311,20 +307,21 @@ buildings having at least one door object.
    having
         count(distinct o.id) > 0
 
-*Security note:* Other statements than SELECT such as UPDATE, DELETE or
-DDL commands will be rejected and yield an error message. However, in
-principle, it is possible to create database functions that can be
-invoked with a SELECT statement and that delete or change content in the
-database. An example are the DELETE functions offered by the 3DCityDB
-itself (cf. :numref:`citydb_sproc_delete_chapter`). For this reason, the export operation scans
-the SQL query for these well-known DELETE functions and refuses to
-execute it in case one is found. However, similar functions can also be
-created after setting up the 3DCityDB schema and thus are not known to
-the export operation a priori. If such functions exist and a user of the
-Importer/Exporter shall not be able to accidentically invoke them
-through an SQL query, then it is **strongly recommended** that the user
-may only connect to the 3DCityDB instance via a *read-only user* (cf.
-:numref:`citydb_schema_rw_access_chapter`).
+.. note::
+  Other statements than SELECT such as UPDATE, DELETE or
+  DDL commands will be rejected and yield an error message. However, in
+  principle, it is possible to create database functions that can be
+  invoked with a SELECT statement and that delete or change content in the
+  database. An example are the DELETE functions offered by the 3DCityDB
+  itself (cf. :numref:`citydb_sproc_delete_chapter`). For this reason, the export operation scans
+  the SQL query for these well-known DELETE functions and refuses to
+  execute it in case one is found. However, similar functions can also be
+  created after setting up the 3DCityDB schema and thus are not known to
+  the export operation a priori. If such functions exist and a user of the
+  Importer/Exporter shall not be able to accidentically invoke them
+  through an SQL query, then it is **strongly recommended** that the user
+  may only connect to the 3DCityDB instance via a *read-only user* (cf.
+  :numref:`citydb_schema_rw_access_chapter`).
 
 .. _impexp_xml_queries_chapter:
 
@@ -334,7 +331,7 @@ XML query expressions
 A query expression is an action that directs the export operation to
 search the 3DCityDB for city objects that satisfy some filter expression
 encoded within the query. Query expressions are given in XML using a
-<query> root element. The XML language used is specific to the
+``<query>`` root element. The XML language used is specific to the
 Importer/Exporter and the 3DCityDB but draws many concepts from OGC
 standards such as *Filter Encoding* (FE) 2.0 and *Web Feature Service*
 (WFS) 2.0.
@@ -342,28 +339,45 @@ standards such as *Filter Encoding* (FE) 2.0 and *Web Feature Service*
 .. note::
    All XML elements of the query language are defined in the XML
    namespace http://www.3dcitydb.org/importer-exporter/config. Simply
-   define this namespace as default namespace on your <query> root element.
+   define this namespace as default namespace on your ``<query>`` root element.
 
 A query expression may contain a *typeNames* parameter, a *projection
-clause*, a *selection clause*, a *counter filter*, an *LoD filter*, an
-*appearance filter*, *tiling* options and a *targetSrid* attribute for
+clause*, a *selection clause*, a *sorting clause*, a *counter filter*, an *LoD filter*,
+an *appearance filter*, *tiling* options and a *targetSrid* attribute for
 coordinate transformations.
 
+.. list-table::  Elements of an XML query expression.
+   :name: impexp_query_expression_table
 
--  **<typeNames>**:     Lists the name of one or more feature types to query (*optional*).
--  **<propertyNames>**: Projection clause that identifies a subset of optional feature properties that shall be kept or removed in the target dataset (*optional*).
--  **<filter>**:        Selection clause that specifies criteria that conditionally select city objects from the 3DCityDB (*optional*).
--  **<count>**:         Limits the number of requested city objects that are exported to the target dataset (*optional*).
--  **<lod>**:           Limits the LoDs of the exported city objects to a given subset (*optional*).
--  **<appearance>**:    Limits the appearances of the exported city objects to a given subset (*optional*).
--  **<tiling>**:        Defines a tiling scheme for the export (*optional*).
--  **targetSrid**:      Defines a coordinate transformation *(optional)*.
-
+   * - | **Element**
+     - | **Description**
+   * - | ``<typeNames>``
+     - | Lists the name of one or more feature types to query (*optional*).
+   * - | ``<propertyNames>``
+     - | Projection clause that identifies a subset of optional feature properties that shall be
+       | kept or removed in the target dataset (*optional*).
+   * - | ``<filter>``
+     - | Selection clause that specifies criteria that conditionally select city objects from
+       | the 3DCityDB (*optional*).
+   * - | ``<sortBy>``
+     - | Sorting clause to specify how city objects shall be ordered in the target
+       | dataset (*optional*).
+   * - | ``<limit>``
+     - | Limits the number of requested city objects that are exported to the target dataset
+       | (*optional*).
+   * - | ``<lod>``
+     - | Limits the LoDs of the exported city objects to a given subset (*optional*).
+   * - | ``<appearance>``
+     - | Limits the appearances of the exported city objects to a given subset (*optional*).
+   * - | ``<tiling>``
+     - | Defines a tiling scheme for the export (*optional*).
+   * - | *targetSrid*
+     - | Defines a coordinate transformation *(optional)*.
 
 <typeNames> parameter
 ^^^^^^^^^^^^^^^^^^^^^
 
-The <typeNames> parameter lists the name of one or more feature types to
+The ``<typeNames>`` parameter lists the name of one or more feature types to
 query from the 3DCityDB. Each name is given as *xsd:QName* and must use
 an official XML namespace from CityGML 2.0 or 1.0. Only top-level
 feature types are supported. The CityGML version of the associated XML
@@ -384,7 +398,7 @@ buildings:
 
 If you want to query all feature types, then simply use the name
 *core:_CityObject* of the abstract base type in CityGML, or just skip
-the <typeNames> paramenter.
+the ``<typeNames>`` parameter.
 
 The following table shows all supported top-level feature types together
 with their official CityGML XML namespace(s) and their recommended XML
@@ -468,7 +482,7 @@ prefix.
        | http://www.opengis.net/citygml/cityobjectgroup/1.0
 
 
-In order to simplify typing the <typeNames> parameter, you can skip the
+In order to simplify typing the ``<typeNames>`` parameter, you can skip the
 namespace declaration from the type names. The Importer/Exporter will
 then assume the corresponding CityGML 2.0 namespace, but only if you use
 the recommended XML prefix from the table above. The listing below
@@ -487,14 +501,14 @@ objects from the 3DCityDB.
 <propertyNames> projection clause
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The <propertyNames> parameter identifies a subset of optional feature
+The ``<propertyNames>`` parameter identifies a subset of optional feature
 properties that shall be kept or removed in the target dataset. Property
 projections can be defined for all feature types that are part of the
 export, and thus not just for top-level feature types but also for
 nested feature types.
 
-The <propertyNames> parameter consists of one ore more <context>
-subelements, each of which must define the target feature type through
+The ``<propertyNames>`` parameter consists of one ore more ``<context>``
+child elements, each of which must define the target feature type through
 the *typeName* attribute. A context then lists the name of one ore more
 feature properties and/or generic attributes. The *mode* attribute
 determines the action for these properties: 1) if set to *keep*, then
@@ -525,9 +539,9 @@ generic measure attribute *area* (*mode =* remove).
     </query>
 
 The *typeName* of the target feature type must be given as *xsd:QName*.
-Like for the <typeNames> parameter, the XML namespace declaration can be
+Like for the ``<typeNames>`` parameter, the XML namespace declaration can be
 skipped if XML prefixes from :numref:`impexp_toplevel_feature_types_table`
-are used. Multiple <context> elements for the same *typeName* are not allowed.
+are used. Multiple ``<context>`` elements for the same *typeName* are not allowed.
 
 Each *propertyName* must reference a valid property of the given feature
 type. This includes properties that are defined for the feature type or
@@ -591,21 +605,21 @@ however, still apply to all other city objects besides buildings.
 <filter> selection clause
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The <filter> parameter is used to identify a subset of city objects from
+The ``<filter>`` parameter is used to identify a subset of city objects from
 the 3DCityDB whose property values satisfy a set of logically connected
 predicates. If the property values of a city object satisfy all the
 predicates in a filter, then that city object is part of the export.
 
 Predicates can be expressed both on properties of the top-level feature
-types listed by the <typeNames> parameter and on properties of their
+types listed by the ``<typeNames>`` parameter and on properties of their
 nested feature types. If the predicates are not satisfied, then the
 entire top-level feature is not exported.
 
-If the <typeNames> parameter lists more than one top-level feature type,
+If the ``<typeNames>`` parameter lists more than one top-level feature type,
 then predicates may only be expressed on properties common to all of
 them.
 
-The <filter> parameter supports *comparison operators*, *spatial
+The ``<filter>`` parameter supports *comparison operators*, *spatial
 operators* and *logical operators*. The meaning of the operators is
 identical to the operators defined in the `OGC Filter Encoding (FE) 2.0
 standard <http://docs.opengeospatial.org/is/09-026r2/09-026r2.html>`_,
@@ -641,7 +655,7 @@ full XPath language:
 
 -  The context node is the top-level feature type to be exported. In
    case two or more top-level feature types are listed by the
-   <typeNames> parameter, then the context node is their common parent
+   ``<typeNames>`` parameter, then the context node is their common parent
    type.
 
 -  Each step in the path may include an XPath predicate of the form
@@ -707,34 +721,33 @@ Literals are explicitly stated values that are evaluated against a
 the referenced value.
 
 If the literal value is a geometric value, the value must be encoded
-using one of the geometry types offered by the query language. Support
-for additional geometry encodings like (E)WKT is planned for a future
-version. The following geometry types are available:
+using one of the geometry types offered by the query language.
+The following geometry types are available:
 
--  <envelope>
+-  ``<envelope>``
 
--  <point>
+-  ``<point>``
 
--  <lineString>
+-  ``<lineString>``
 
--  <polygon>
+-  ``<polygon>``
 
--  <multiPoint> (list of <point>s)
+-  ``<multiPoint>`` (list of ``<point>`` elements)
 
--  <multiLineString> (list of <lineString>s)
+-  ``<multiLineString>`` (list of ``<lineString>`` elements)
 
--  <multiPolygon> (list of <polygon>s)
+-  ``<multiPolygon>`` (list of ``<polygon>`` elements)
 
-An <envelope> is defined by its <lowerCorner> and <upperCorner> elements
-that carry the coordinate values. The coordinates of a <point> are
-provided by a <pos> element, whereas <lineString> uses a <posList>
-element. A <polygon> can have one <exterior> and zero or more <interior>
+An ``<envelope>`` is defined by its ``<lowerCorner>`` and ``<upperCorner>`` elements
+that carry the coordinate values. The coordinates of a ``<point>`` are
+provided by a ``<pos>`` element, whereas ``<lineString>`` uses a ``<posList>``
+element. A ``<polygon>`` can have one ``<exterior>`` and zero or more ``<interior>``
 rings. Rings are supposed to be closed meaning that the first and the
 last coordinate tuple in the list must be identical. Interior rings must
 be defined in opposite direction compared to the exterior ring.
 
-The dimension of the points contained in a <posList> as well as in
-<exterior> and <interior> rings can be denoted using the *dimension*
+The dimension of the points contained in a ``<posList>`` as well as in
+``<exterior>`` and ``<interior>`` rings can be denoted using the *dimension*
 attribute. Valid values are *2* (default) or *3*.
 
 Every geometry type offers an optional *srid* attribute to reference an
@@ -788,23 +801,23 @@ A comparison operator is used to form expressions that evaluate the
 mathematical comparison between two arguments. The following binary
 comparisons are supported:
 
--  <propertyIsEqualTo> (=)
+-  ``<propertyIsEqualTo>`` (=)
 
--  <propertyIsLessThan> (<)
+-  ``<propertyIsLessThan>`` (<)
 
--  <propertyIsGreaterThan> (>)
+-  ``<propertyIsGreaterThan>`` (>)
 
--  <propertyIsEqualTo> (=)
+-  ``<propertyIsEqualTo>`` (=)
 
--  <propertyIsLessThanOrEqualTo> (<=)
+-  ``<propertyIsLessThanOrEqualTo>`` (<=)
 
--  <propertyIsGreaterThanOrEqualTo> (>=)
+-  ``<propertyIsGreaterThanOrEqualTo>`` (>=)
 
--  <propertyIsNotEqualTo> (<>)
+-  ``<propertyIsNotEqualTo>`` (<>)
 
 The optional *matchCase* attribute can be used to specify how string
 comparisons should be performed. A value of *true* means that string
-comparisons shall match case (default), *false* means caselessly.
+comparisons shall match case (default), *false* means caseless.
 
 The following example shows how to export all buildings from the
 3DCityDB whose *bldg:measuredHeight* attribute has a values less than
@@ -827,13 +840,13 @@ The following example shows how to export all buildings from the
 Besides these default binary operators, the following additional
 comparison operators are supported:
 
--  <propertyIsLike>
+-  ``<propertyIsLike>``
 
--  <propertyIsNull>
+-  ``<propertyIsNull>``
 
--  <propertyIsBetween>
+-  ``<propertyIsBetween>``
 
-The <propertyIsLike> operator expresses a string comparison with pattern
+The ``<propertyIsLike>`` operator expresses a string comparison with pattern
 matching. A combination of regular characters, the *wildCard* character
 (default: \*), the *singleCharacter* (default: .), and the
 *escapeCharacter* (default: \\) define the pattern. The *wildCard*
@@ -860,10 +873,10 @@ contains the string “main”.
       </filter>
     </query>
 
-The <propertyIsNull> operator tests the specified property to see if it
+The ``<propertyIsNull>`` operator tests the specified property to see if it
 exists for the feature type being evaluated.
 
-The <propertyIsBetween> operator is a compact way of expressing a range
+The ``<propertyIsBetween>`` operator is a compact way of expressing a range
 check. The lower and upper boundary values are inclusive. The operator
 is used below to find all buildings having between 10 and 20 storeys.
 
@@ -890,25 +903,25 @@ Spatial operators
 A spatial operator determines whether its geometric arguments satisfy
 the stated spatial relationship. The following operators are supported:
 
--  <bbox>
+-  ``<bbox>``
 
--  <equals>
+-  ``<equals>``
 
--  <disjoint>
+-  ``<disjoint>``
 
--  <touches>
+-  ``<touches>``
 
--  <within>
+-  ``<within>``
 
--  <overlaps>
+-  ``<overlaps>``
 
--  <intersects>
+-  ``<intersects>``
 
--  <contains>
+-  ``<contains>``
 
--  <dWithin>
+-  ``<dWithin>``
 
--  <beyond>
+-  ``<beyond>``
 
 The semantics of the spatial operators are defined in OGC Filter
 Encoding 2.0, 7.8.3, and in ISO 19125-1:2004, 6.1.14.
@@ -918,7 +931,7 @@ property of the feature type or its nested feature types. If
 *valueReference* is omitted, then the *gml:boundedBy* property is used
 per default.
 
-The listing below exemplifies how to use the <bbox> operator to find all
+The listing below exemplifies how to use the ``<bbox>`` operator to find all
 city objects whose envelope stored in *gml:boundedBy* is not disjoint
 with the given geometry.
 
@@ -985,14 +998,14 @@ Logical operators
 """""""""""""""""
 
 A logical operator can be used to combine one or more conditional
-expressions. The logical operator <and> evaluates to true if all the
-combined expressions evaluate to true. The operator <or> operator
+expressions. The logical operator ``<and>`` evaluates to true if all the
+combined expressions evaluate to true. The operator ``<or>`` operator
 evaluates to true is any of the combined expressions evaluate to true.
-The <not> operator reverses the logical value of an expression. Logical
+The ``<not>`` operator reverses the logical value of an expression. Logical
 operators can contain nested logical operators.
 
-The following <and> filter combines a <propertyIsLessThan> comparison
-and a spatial <dWithin> operator to find all buildings with a
+The following ``<and>`` filter combines a ``<propertyIsLessThan>`` comparison
+and a spatial ``<dWithin>`` operator to find all buildings with a
 *bldg:measuredHeight* less than 50 and within a distance of 80 meters
 from a given point location.
 
@@ -1024,8 +1037,8 @@ from a given point location.
 gml:id filter operator
 """"""""""""""""""""""
 
-The <resourceIds> operator is a compact way of finding city objects
-whose *gml:id* value is contained in the provided list of <id> elements.
+The ``<resourceIds>`` operator is a compact way of finding city objects
+whose *gml:id* value is contained in the provided list of ``<id>`` elements.
 
 The example below exports all buildings whose *gml:id* matches one of
 the values in the list.
@@ -1051,10 +1064,10 @@ the values in the list.
 SQL operator
 """"""""""""
 
-The <sql> operator lets you add arbitrary SQL queries to your filter
+The ``<sql>`` operator lets you add arbitrary SQL queries to your filter
 expression. It can be combined with all other predicates.
 
-The SQL query is provided in the <select> subelement. It must follow the
+The SQL query is provided in the ``<select>`` subelement. It must follow the
 same rules as discussed in chapter :numref:`impexp_sql_queries_chapter`.
 Most importantly, the query shall return a list of id values that reference
 the ID column of the table CITYOBJECT.
@@ -1100,21 +1113,26 @@ must not be replaced with an entity reference.
       </filter>
     </query>
 
+<sortBy> sorting clause
+^^^^^^^^^^^^^^^^^^^^^^^
 
-<count> parameter
-^^^^^^^^^^^^^^^^^
+The ``<sortBy>`` parameter is used to specify a list of property names whose values
+should be used to order the set of city objects that satisfy the query. If no
+sorting clause is provided, the city objects are exported in an arbitrary order.
 
-The <count> parameter limits the number of explicitly requested
-top-level city objects in the export dataset.
+The value of the ``<sortBy>`` parameter is a list of one or more ``<sortProperty>``
+elements, each of which must define a ``<valueReference>`` pointing to the property
+that shall be used for sorting. Only simple thematic attributes of the requested
+top-level feature type or one of its nested feature types are supported. If you specify
+multiple ``<sortProperty>`` elements, the result set is sorted by the first property
+in the list and that sorted result is sorted by the second property, and so on.
 
-The mandatory <upperLimit> element denotes the number of city objects to
-be exported. When combined with the optional <lowerLimit> element, then
-the range of city objects from the *lowerLimit* position to the
-*upperLimit* position in the result set are exported. Note that both
-*lowerLimit* and *upperLimit* are inclusive in this case.
+For each ``<sortProperty>``, the sort order can be defined using the ``<sortOrder>``
+parameter. The value *asc* indicates an ascending sort (default) and *desc* indicates
+a descending sort.
 
-The following query shows how to export at maximum 10 buildings from the
-database, even if more buildings satisfy the query expression.
+The following example illustrates how to sort all buildings according to their
+measured height in descending order.
 
 .. code-block:: xml
 
@@ -1122,33 +1140,62 @@ database, even if more buildings satisfy the query expression.
       <typeNames>
         <typeName>bldg:Building</typeName>
       </typeNames>
-      <count>
-        <upperLimit>10</upperLimit>
-      </count>
+      <sortBy>
+        <sortProperty>
+          <valueReference>bldg:measuredHeight</valueReference>
+          <sortOrder>desc</sortOrder>
+        </sortProperty>
+      </sortBy>
     </query>
 
-The following query would export at maximum 11 buildings (from the
-10\ :sup:`th` to the 20\ :sup:`th` building in the result set). If the
-result set contains less buildings, then the export dataset will, of
-course, also contain less buildings.
+
+<limit> parameter
+^^^^^^^^^^^^^^^^^
+
+The ``<limit>`` parameter limits the number of explicitly requested
+top-level city objects in the export dataset. It offers the elements ``<count>``
+and ``<startIndex>`` that can be used together or individually.
+
+The ``<count>`` parameter indicates the total number of city objects that shall
+be exported from the set of city objects satisfying the query. And ``<startIndex>``
+lets you define the index within this result set from which the export shall begin.
+The index starts with 0, which is also the default value.
+
+The query below shows how to export at maximum 10 buildings from the
+database, even if more buildings satisfy the query.
 
 .. code-block:: xml
 
     <query>
       <typeNames>
-      <typeName>bldg:Building</typeName>
+        <typeName>bldg:Building</typeName>
       </typeNames>
-      <count>
-        <lowerLimit>10</lowerLimit>
-        <upperLimit>20</upperLimit>
-      </count>
+      <limit>
+        <count>10</count>
+      </limit>
+    </query>
+
+The following query exports the next 10 buildings by starting with the 11\ :sup:`th`
+building in the result set. If the result set contains less
+buildings, the export dataset will, of course, also contain less buildings.
+
+.. code-block:: xml
+
+    <query>
+      <typeNames>
+        <typeName>bldg:Building</typeName>
+      </typeNames>
+      <limit>
+        <count>10</count>
+        <startIndex>10</startIndex>
+      </limit>
     </query>
 
 
 <lods> parameter
 ^^^^^^^^^^^^^^^^
 
-The <lods> parameter lists the level of details (LoD) that shall be
+The ``<lods>`` parameter lists the level of details (LoD) that shall be
 exported for the requested feature types.
 
 The LoDs to be exported are given as list of one or more <lod> element
@@ -1171,7 +1218,7 @@ as *bldg:WallSurface* and *bldg:RoofSurface* features that have own LoD
 2 representations. Nevertheless, in this case the *bldg:Building* is
 considered to be represented in LoD 2.
 
-To handle these cases, the <lods> parameter offers the optional
+To handle these cases, the ``<lods>`` parameter offers the optional
 *searchMode* attribute. When set to *all*, then all nested features are
 recursively scanned for having a spatial representation in the provided
 list of LoDs. If an LoD representation is found for any (transitive)
@@ -1215,7 +1262,7 @@ consider this *bldg:RoofSurface* feature.
 
 Per default, *searchMode* is set to *depth* with a *searchDepth* of 1.
 
-The following listing exemplifies the use of the <lods> parameter. In
+The following listing exemplifies the use of the ``<lods>`` parameter. In
 this example, all tunnels shall be exported that have either an LoD 2 or
 LoD 3 representation. LoD representations are also searched on
 sub-features up to a nesting depth of 2.
@@ -1235,19 +1282,19 @@ sub-features up to a nesting depth of 2.
 <appearance> parameter
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The <appearance> parameter filters appearances by their theme. To keep
+The ``<appearance>`` parameter filters appearances by their theme. To keep
 an appearance in the target dataset, the value of its *app:theme*
-attribute simply has to be enumerated using a <theme> subelement. The
-string values must exactly match.
+attribute simply has to be enumerated using a ``<theme>`` subelement. The
+string values must match exactly.
 
 The *app:theme* attribute in CityGML is optional and thus can be null.
-To be able to also express whether appearances having a null theme
-should be exported, the <appearance> parameter offers another subelement
-<nullTheme>, which is of type Boolean. If set to *true*, appearances
+To be able to also express whether appearances having a *null* theme
+should be exported, the ``<appearance>`` parameter offers another subelement
+``<nullTheme>``, which is of type Boolean. If set to *true*, appearances
 with a null theme are exported, otherwise not (default).
 
 The following query exports road features and appearances with theme
-*summer* and *winter*. Since <nullTheme> is set to *false*, appearances
+*summer* and *winter*. Since ``<nullTheme>`` is set to *false*, appearances
 lacking an *app:theme* attribute are not exported.
 
 .. code-block:: xml
@@ -1266,19 +1313,19 @@ lacking an *app:theme* attribute are not exported.
 <tiling> parameter
 ^^^^^^^^^^^^^^^^^^
 
-The <tiling> parameter allows for exporting the requested top-level
+The ``<tiling>`` parameter allows for exporting the requested top-level
 features in tiles. Every tile is exported to its own target file within
 a separate subfolder of the export directory.
 
 Like the tiling settings of the simple GUI-based export filter (cf.
 chapter :numref:`impexp_citygml_export_chapter`),
-the <tiling> parameter requires three mandatory inputs:
-the <extent> of the geographic region that should be tiled and the
-number of <rows> and <columns> into which the region should be evenly
-split. The <extent> must be provided as bounding box using a
-<lowerCorner> and an <upperCorner> element.
+the ``<tiling>`` parameter requires three mandatory inputs:
+the ``<extent>`` of the geographic region that should be tiled and the
+number of ``<rows>`` and ``<columns>`` into which the region should be evenly
+split. The ``<extent>`` must be provided as bounding box using a
+``<lowerCorner>`` and an ``<upperCorner>`` element.
 
-The example below exports all buildings within the provided <extent>
+The example below exports all buildings within the provided ``<extent>``
 into 2x2 tiles.
 
 .. code-block:: xml
@@ -1297,42 +1344,41 @@ into 2x2 tiles.
       </tiling>
     </query>
 
-Besides the mandatory input, the optional <cityGMLTilingOptions> element
+Besides the mandatory input, the optional ``<cityGMLTilingOptions>`` parameter
 can be used to control the names of the subfolders and tile files, and
 whether tile information should be stored as generic attribute. The
 following subelements are supported:
 
--  *<tilePath>* Name of subfolder that is created for each tile
+-  ``<tilePath>`` Name of subfolder that is created for each tile
    (default: *tile*).
 
--  *<tilePathSuffix>* Suffix to append to each <tilePath>. Allowed values
+-  ``<tilePathSuffix>`` Suffix to append to each <tilePath>. Allowed values
    are *row_column* (default), *xMin_yMin*, *xMax_yMin*, *xMin_yMax*,
    *xMax_yMax* and *xMin_yMin_xMax_yMax*.
 
--  *<tileNameSuffix>* Suffix to append to each tile filename. Allowed
+-  ``<tileNameSuffix>`` Suffix to append to each tile filename. Allowed
    values are *none* (default) and *sameAsPath*.
 
--  *<includeTileAsGenericAttribute>* Add a generic attribute named *TILE*
+-  ``<includeTileAsGenericAttribute>`` Add a generic attribute named *TILE*
    to each city object.
 
--  *<genericAttributeValue>* Value for the generic attribute. Allowed
+-  ``<genericAttributeValue>`` Value for the generic attribute. Allowed
    values are identical to those for <tilePathSuffix> (default:
    *xMin_yMin_xMax_yMax)*.
 
-If the <cityGMLTilingOptions> element is not present, then the settings
-defined for the Tiling options export preference
+If the ``<cityGMLTilingOptions>`` element is not present, then the settings
+defined in the export preferences
 (cf. :numref:`impexp_preferences_export_tiling_chapter`) are used instead.
 
 
 *targetSrid* attribute
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The <query> element offers an optional *targetSrid* attribute. If
-*targetSrid* is present, then all exported geometries will be
+The ``<query>`` element offers an optional *targetSrid* attribute. If
+*targetSrid* is provided, all exported geometries will be
 transformed into the target coordinate reference system. The
-*targetSrid* attribute must reference an SRID defined in the underlying
-database. The transformation is performed using corresponding functions
-of the database system.
+*targetSrid* attribute must reference an SRID available in the underlying
+database. The transformation is performed using corresponding database functions.
 
 .. code-block:: xml
 
@@ -1346,7 +1392,7 @@ of the database system.
 Address information
 ^^^^^^^^^^^^^^^^^^^
 
-The 3DCityDB comes with a CityGML ADE that allows to easily use address
+The 3DCityDB comes with a CityGML ADE that allows a simple use of address
 information and metadata columns in XML queries. The following table
 shows the XML namespaces to be used with CityGML version 2.0
 respectively 1.0 and the recommended XML prefix of the 3DCityDB ADE.
@@ -1370,14 +1416,14 @@ address elements (e.g., the street or the city) using an XPath
 expression based on xAL. When importing address information into the
 3DCityDB, the xAL address fragment is parsed and mapped onto the columns
 STREET, HOUSE_NUMBER, PO_BOX, ZIP_CODE, CITY, STATE and COUNTRY of the
-ADDRESS table. Thus, it is preferable and simpler to express filter
+ADDRESS table. Thus, it is much simpler to express filter
 criteria on these columns.
 
 For this reason, the 3DCityDB ADE injects additional properties into the
 *core:Address* feature of CityGML that correspond to the columns of the
 ADDRESS table. By this means, these properties can be used in filter
 expressions. The mapping between ADE properties and columns of the
-ADDRESS table is shown below. Note that the citydb prefix must be
+ADDRESS table is shown below. Note that the *citydb* prefix must be
 associated with the ADE XML namespace (see above). If omitted, the
 CityGML 2.0 namespace is assumed given that the prefix *citydb* is used.
 
@@ -1431,8 +1477,7 @@ value reference in the filter expression.
 3DCityDB metadata
 ^^^^^^^^^^^^^^^^^
 
-The 3DCityDB stores database-specific
-metadata with every city object using the columns
+The 3DCityDB stores database-specific metadata with every city object using the columns
 LAST_MODIFICATION_DATE, UPDATING_PERSON, REASON_FOR_UPDATE and LINEAGE
 of the CITYOBJECT table. In order to make these metadata properties
 available in filter expressions, the 3DCityDB ADE injects them into the
@@ -1487,14 +1532,14 @@ exports that are triggered via this CLI interface. For this purpose, the
 XML query has to be copied into the *config file* that is used for
 running the Importer/Exporter. This can be either the *default config
 file* (cf. :numref:`impexp_citygml_export_chapter`) or a local file that is passed to the CLI using
-the -config command-line parameter.
+the ``-config`` command-line parameter.
 
-Each config file must use a <project> root element associated with the
+Each config file must use a ``<project>`` root element associated with the
 XML namespace http://www.3dcitydb.org/importer-exporter/config. Export
-settings are then provided in the <export> subelement. The <query>
+settings are then provided in the ``<export>`` subelement. The ``<query>``
 element of an XML query expression can simply be copied as child element
-of the <export> element. In addition, the *useSimpleQuery* attribute on
-the <export> element has to be set to *false*.
+of the ``<export>`` element. In addition, the *useSimpleQuery* attribute on
+the ``<export>`` element has to be set to *false*.
 
 The listing below shows an excerpt of a config file using an XML export
 query.

@@ -56,23 +56,22 @@ filter criteria are combined in a logical AND operation. If no checkbox
 is enabled, no filter criteria are applied and thus all CityGML features
 contained in the input file(s) will be imported.
 
-
--  **Attribute filter**:    This filter takes a gml:id and/or a gml:name as
+-  **Attribute filter**: This filter takes a *gml:id* and/or a *gml:name* as
    parameter [3] and only imports CityGML features having a matching value for
    the respective attribute. More than one gml:id can be provided in a comma-separated list.
    Multiple gml:name values are not supported though.
--  **Counter filter**:      The feature counter filter lets you import a subset of the
-   top-level features based on their position index over all input file(s). Simply provide the lower and upper
-   boundary [4] for the position index to define the subset (both boundary limits are inclusive).
+-  **Counter filter**: The feature counter filter limits the number of top-level features to be imported.
+   Simply enter the number of features into the *count* field [4]. The *start index* parameter indicates
+   the index within the input set over all input files from which the import shall begin. The index starts with 0.
+   Both parameters can be used together or individually.
 -  **Bounding box filter**: This filter takes a 2D bounding box as parameter that is given by the
-   coordinate values of its lower left (*x\ min*, *y\ min*) and upper right corner (*x\ max*, *y\
-   max*) [5]. The bounding box is evaluated against the gml:boundedBy property of the CityGML input features.
+   coordinate values of its lower left (x\ :sub:`min`, y\ :sub:`min`) and upper right corner (x\ :sub:`max`, y\
+   :sub:`max`) [5]. The bounding box is evaluated against the gml:boundedBy property of the CityGML input features.
    You can choose whether features *overlapping* with the provided bounding box are to be
    imported, or whether features must be *inside* of it.
 -  **Feature type filter**: With the feature types filter, you can restrict the import to one or more CityGML
    features types by enabling the corresponding checkboxes [7]. Only features of the
    chosen type(s) will be imported.
-
 
 .. note::
    All filters only work on *top-level features* but *not on nested
