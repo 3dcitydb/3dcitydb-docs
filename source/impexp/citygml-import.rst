@@ -38,7 +38,7 @@ the ZIP archive.
 **Workspace selection.** If the 3D City Database instance is
 version-enabled (Oracle only), the name of the *workspace* into which
 the data shall be imported can be specified [2]. If no workspace is
-given, the default workspace is assumed (Oracle: *LIVE*).
+provided, the *LIVE* workspace is used by default.
 
 .. note::
    Importing into version-enabled tables typically takes
@@ -51,7 +51,7 @@ spatial filter criteria to narrow down the set of CityGML top-level
 features that are to be imported from the input files. The checkboxes on
 the left side of the import dialog let you choose between an *attribute
 filter*, a *feature* *counter filter*, a spatial *bounding box filter*
-and a *feature type filter*. If more than one filter is chosen, then the
+and a *feature type filter*. If more than one filter is chosen, the
 filter criteria are combined in a logical AND operation. If no checkbox
 is enabled, no filter criteria are applied and thus all CityGML features
 contained in the input file(s) will be imported.
@@ -62,7 +62,7 @@ contained in the input file(s) will be imported.
    Multiple gml:name values are not supported though.
 -  **Counter filter**: The feature counter filter limits the number of top-level features to be imported.
    Simply enter the number of features into the *count* field [4]. The *start index* parameter indicates
-   the index within the input set over all input files from which the import shall begin. The index starts with 0.
+   the index within the set of all feature over all input files from which the import shall begin. The index starts with 0.
    The parameters can be used together or individually.
 -  **Bounding box filter**: This filter takes a 2D bounding box as parameter that is given by the
    coordinate values of its lower left (x\ :sub:`min`, y\ :sub:`min`) and upper right corner (x\ :sub:`max`, y\

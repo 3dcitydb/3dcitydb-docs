@@ -53,7 +53,7 @@ restrict exports to subsets of the 3D city model content. The checkboxes
 on the left side of the export dialog let you choose between an
 *attribute filter*, an *SQL filter*, an *LoD filter*, a *feature*
 *counter filter*, a spatial *bounding box filter* and a *feature type
-filter* [4]. If more than one filter is chosen, then the filter criteria
+filter* [4]. If more than one filter is chosen, the filter criteria
 are combined in a logical AND operation. If no checkbox is enabled, no
 filter criteria are applied and thus all CityGML features contained in
 the database will be exported.

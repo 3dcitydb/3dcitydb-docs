@@ -24,7 +24,7 @@ Mandatory database connection details comprise the *username* and
 1521 for Oracle; 5432 for PostgreSQL) of the database server, and the
 *database* name (when using Oracle, enter the database SID or service
 name here). The optional *schema* parameter lets you define the database
-schema you which to connect to. Leave it empty to connect to the default
+schema you want to connect to. Leave it empty to connect to the default
 schema. More information on how to work with multiple 3DCityDB schemas
 can be found in :numref:`citydb_multiple_database_schemas_chapter`.
 If you need assistance, ask your database
@@ -113,14 +113,17 @@ The report is printed to the console window.
 
 If the database is version-enabled (Oracle only), the database report
 can be created for the contents of a specific *workspace* [1] at a given
-*timestamp* [2]. If no workspace is specified, the default workspace is
-chosen per default (Oracle: *LIVE*). If the workspace does not exist, a
-corresponding error message is provided. Workspaces are not a feature of
-the 3D City Database but are managed through the *Oracle Workspace
-Manager* tool. Please refer to the Oracle database documentation for
-details. Since PostgreSQL currently does not support workspaces, the
-corresponding input fields are disabled when connecting to a 3D City
-Database running on PostgreSQL.
+*timestamp* [2]. If no workspace is specified, the default *LIVE* workspace is
+chosen per default. If the workspace does not exist, a
+corresponding error message is provided.
+
+.. note::
+  Workspaces are not a feature of
+  the 3D City Database but are managed through the *Oracle Workspace
+  Manager* tool. Please refer to the Oracle database documentation for
+  details. Since PostgreSQL currently does not support workspaces, the
+  corresponding input fields are disabled when connecting to a 3D City
+  Database running on PostgreSQL.
 
 .. _get-bbox:
 
@@ -138,8 +141,8 @@ operations).
 
    Calculating the bounding box for selected feature types.
 
-The coordinate values of the lower left (*x\ min*, *y\ min*) and upper
-right (*x\ max*, *y\ max*) corner of the calculated bounding box are
+The coordinate values of the lower left (x\ :sub:`min`, y\ :sub:`min`) and upper
+right (x\ :sub:`max`, y\ :sub:`max`) corner of the calculated bounding box are
 rendered in the corresponding fields of the dialog [3]. The values are
 also copied to the clipboard of your operating system and can therefore
 easily be pasted into the import and export dialogs. You can also
@@ -148,7 +151,7 @@ manually copy the values to the clipboard by clicking the
 corresponding option from the context menu.
 
 The calculation of the bounding box can be restricted to a specific city
-object type such as Building or WaterBody [1]. Like the generation of a
+object type such as Building or WaterBody [1]. Similar to the generation of a
 database report, the user can request the bounding box for city objects
 living in a specific *workspace* at a given *timestamp* if the database
 is version-enabled (Oracle only). The coordinate values can optionally
@@ -216,27 +219,51 @@ only).
 The index operations only affect the following subset of all indexes
 defined by the 3D City Database schema:
 
--  *Spatial index* on column ENVELOPE of table CITYOBJECT
+.. list-table::  Spatial and normal indexes affected by the index operation
+   :name: impexp_gui_managing_indexes__table
 
--  *Spatial index* on column GEOMETRY of table SURFACE_GEOMETRY
-
--  *Spatial index* on column SOLID_GEOMETRY of table SURFACE_GEOMETRY
-
--  *Normal index* on columns GMLID, GMLID_CODESPACE of table CITYOBJECT
-
--  *Normal index* on column LINEAGE of table CITYOBJECT
-
--  *Normal index* on columns GMLID, GMLID_CODESPACE of table
-   SURFACE_GEOMETRY
-
--  *Normal index* on columns GMLID, GMLID_CODESPACE of table APPEARANCE
-
--  *Normal index* on column THEME of table APPEARANCE
-
--  *Normal index* on columns GMLID, GMLID_CODESPACE of table
-   SURFACE_DATA
-
--  *Normal index* on columns GMLID, GMLID_CODESPACE of table ADDRESS
+   * - | **Index type**
+     - | **Column(s)**
+     - | **Table**
+   * - | Spatial
+     - | ENVELOPE
+     - | CITYOBJECT
+   * - | Spatial
+     - | GEOMETRY
+     - | SURFACE_GEOMETRY
+   * - | Spatial
+     - | SOLID_GEOMETRY
+     - | SURFACE_GEOMETRY
+   * - | Normal
+     - | GMLID, GMLID_CODESPACE
+     - | CITYOBJECT
+   * - | Normal
+     - | LINEAGE
+     - | CITYOBJECT
+   * - | Normal
+     - | CREATION_DATE
+     - | CITYOBJECT
+   * - | Normal
+     - | TERMINATION_DATE
+     - | CITYOBJECT
+   * - | Normal
+     - | LAST_MODIFICATION_DATE
+     - | CITYOBJECT
+   * - | Normal
+     - | GMLID, GMLID_CODESPACE
+     - | SURFACE_GEOMETRY
+   * - | Normal
+     - | GMLID, GMLID_CODESPACE
+     - | APPEARANCE
+   * - | Normal
+     - | THEME
+     - | APPEARANCE
+   * - | Normal
+     - | GMLID, GMLID_CODESPACE
+     - | SURFACE_DATA
+   * - | Normal
+     - | GMLID, GMLID_CODESPACE
+     - | ADDRESS
 
 The result of an index operation is reported in the console window as
 shown below. For instance, :numref:`impexp_gui_indexes_status_report_fig` shows the result of a status query
@@ -253,7 +280,7 @@ corresponding index is enabled.
    before running a CityGML import* on a *big amount of data* and to
    reactive the spatial indexes afterwards. This way the import will
    typically be a lot faster than with spatial indexes enabled. The
-   situation may be different if only a small dataset is to be imported.
+   situation may be different when importing only a small dataset.
 
 .. warning::
    Activating and deactivating indexes can take a long time,
@@ -262,7 +289,7 @@ corresponding index is enabled.
    inconsistent database state.
 
 
-.. _cange-crs:
+.. _change-crs:
 
 Managing the spatial reference system of the database
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
