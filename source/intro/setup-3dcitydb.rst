@@ -83,13 +83,13 @@ script executable for the owner of the file, e.g.:
 
 .. code:: bash
    
-   chmod u+x CREATE_DB.sh
+   $ chmod u+x CREATE_DB.sh
 
 Afterwards, simply run the shell script by typing:
 
 .. code:: bash
    
-   ./CREATE_DB.sh
+   $ ./CREATE_DB.sh
 
 .. note::
    The **database connection details need to be set** in the

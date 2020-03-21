@@ -8,7 +8,7 @@ http://www.3dcitydb.org or from the GitHub
 `release section <https://github.com/3dcitydb/importer-exporter/releases>`_
 and save it to your local file system. The installer is shipped as an
 executable Java Archive (JAR) file. To run the installation wizard,
-simply double-click on the *3DCityDB-Importer-Exporter-4.x.x-Setup.jar*
+simply double-click on the ``3DCityDB-Importer-Exporter-{version}-Setup.jar``
 file. After accepting the license agreement and specifying an installation
 directory, you can choose the software packages to be installed.
 
@@ -17,16 +17,15 @@ directory, you can choose the software packages to be installed.
 
    Installation wizard of Import/Export tool (Step 5).
 
-It is recommended to at least select the packages ‘\ *3D City Database*\ ’
-and ‘\ *Documentation’*. The ‘\ *3D City Database*\ ’ package contains all
-Shell&SQL scripts that are required for setting
+It is recommended to at least select the package *3D City Database*
+that contains all Shell and SQL scripts required for setting
 up an instance of the 3D City Database on your spatial database system.
 Please refer to :numref:`3dcitydb_setup_schema_chapter`
 for a step-by-step guide on how to use the scripts.
-The package ‘\ *Sample CityGML and KML/COLLADA datasets*\ ’ contains
+The package *Sample CityGML and KML/COLLADA datasets* contains
 license-free sample data that may be used in first tests.
 
-The option ‘\ *Plugins*\ ’ allows a user to install plugins for the
+The option *Plugins* installs plugins for the
 Importer/Exporter, which add further functionality to the tool. This
 release is shipped with the
 :doc:`Spreadsheet Generator Plugin <../impexp/plugins/spreadsheet>`
@@ -42,10 +41,10 @@ on top of the open source `Cesium Virtual Globe <https://cesiumjs.org/>`_.
 After successful installation, the contents of all selected installation
 packages are available in the installation directory. To run the
 Importer/Exporter (as :doc:`GUI or CLI <../impexp/interfaces>`), simply
-use the starter script in the *bin* subfolder.
+use the starter script in the ``bin`` subfolder of the installation directory.
 
 .. note::
-   Before the Importer/Exporter can connect to an Oracle/PostgreSQL
+   Before the Importer/Exporter can connect to an Oracle or PostgreSQL
    database, **the 3D City Database schema must have been set up**.
    Please, follow the instructions provided in the next chapter.
 
@@ -83,10 +82,7 @@ The installation directory contains the following subfolders:
      - | Contains all libraries required by the Importer/Exporter
    * - | licence
      - |
-     - | Contains the license documents for Importer/Exporter
-   * - | manual
-     - | **x**
-     - | Contains the documentation for the **3DCityDB and the tools**
+     - | Contains the license files of the Importer/Exporter
    * - | plugins
      - |
      - | Contains plugins of the Importer/Exporter. Plugins only have to be

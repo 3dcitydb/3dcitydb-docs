@@ -28,13 +28,13 @@ set on the starter script. If not, change to the installation folder and
 enter the following command to make the starter script executable for
 the owner of the file:
 
-.. code::
+.. code:: bash
 
    $ chmod u+x 3DCityDB-Importer-Exporter.sh
 
 Afterwards, simply run the software by issuing the following command:
 
-.. code::
+.. code:: bash
 
    $ ./3DCityDB-Importer-Exporter.sh
 
@@ -115,7 +115,8 @@ Using environment variables, the location can be identified dynamically:
 The View menu affects the GUI elements of the Importer/Exporter and
 offers the following entries:
 
-- **Open Map Window**: Opens the 2D map window for bounding box selections (cf. :numref:`impexp_preferences_map_window_chapter`).
+- **Open Map Window**: Opens the 2D map window for bounding box selections
+  (cf. :numref:`impexp_preferences_map_window_chapter`).
 - **Detach Console**: Renders the console window in a separate application window.
 - **Restore default perspective**: Restores the GUI to its default settings.
 

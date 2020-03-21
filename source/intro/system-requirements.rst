@@ -9,21 +9,19 @@ System requirements
 Setting up an instance of the 3D City Database requires a running
 installation of an Oracle or PostgreSQL database server.
 
-**Oracle**
+Oracle
+  Supported version are **Oracle 10g R2 or higher**. The 3D City
+  Database requires spatial data support provided either through the
+  Oracle *Spatial* or *Locator* extension. It is highly recommended to
+  install available patches to avoid unexpected errors and to benefit from
+  the latest functionality. For Oracle 10g R2, at least patch set
+  10.2.0.4.0 is required for using the KML/COLLADA/glTF export
+  capabilities.
 
-Supported version are **Oracle 10g R2** **or higher**. The 3D City
-Database requires spatial data support provided either through the
-Oracle *Spatial* or *Locator* extension. It is highly recommended to
-install available patches to avoid unexpected errors and to benefit from
-the latest functionality. For Oracle 10g R2, at least patch set
-``10.2.0.4.0`` is required for using the KML/COLLADA/glTF export
-capabilities.
-
-**PostgreSQL**
-
-Supported versions are **PostgreSQL 9.6 or higher** with the **PostGIS
-extension 2.3 or higher**. Please also make sure to always install the
-latest patches and updates.
+PostgreSQL
+  Supported versions are **PostgreSQL 9.6 or higher** with the **PostGIS
+  extension 2.3 or higher**. Please also make sure to always install the
+  latest patches and updates.
 
 The SQL scripts to create the database schema are written to be executed
 by the default command-line-based client interface of the DBMS – which
@@ -47,16 +45,16 @@ limited to) the following operating systems:
 -  Ubuntu Linux 9 to 18.
 
 Prior to the setup of the Importer/Exporter tool, the **Java 8 Runtime
-Environment** (or higher) **must be installed on your system**. The
-installation package can be obtained from
-http://www.java.com/en/download. Follow the installation instructions
+Environment** (or higher) **must be installed on your system**. Java
+installation packages can be obtained, for instance, from
+https://adoptopenjdk.net/. Follow the installation instructions
 for your operating system.
 
 The Importer/Exporter is shipped with a universal installer that will
 guide you through the steps of the setup process. A full installation of
-the Importer/Exporter including documentation and example CityGML files
-requires approx. 500 MB of hard disk space. Installing only the
-mandatory application files will use approx. 360 MB of hard disk space.
+the Importer/Exporter including SQL scripts, plugins and example CityGML files
+requires approx. 270 MB of hard disk space. Installing only the
+mandatory application files will use approx. 160 MB of hard disk space.
 Installation packages can be selected during the setup process.
 
 The Importer/Exporter runs with 1 GB of main memory per default. This
