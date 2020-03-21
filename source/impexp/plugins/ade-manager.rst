@@ -204,7 +204,7 @@ which can be automatically translated and encoded into the
    * - | Description
      - | This taggedValue allows for determining if an ADE feature class is top-level
    * - | Example
-       | Of using
+       | of using
        | <xs:annotation>
        | in XML-Schema
      - .. code-block:: XML

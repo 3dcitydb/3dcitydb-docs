@@ -43,7 +43,12 @@ When tiling is enabled, the export operation iterates over all tiles
 within the bounding box and exports the city objects on each tile. Every
 tile is exported to its own file within a separate subfolder of the
 export directory. With the Tiling options preferences, the names of the
-subfolders and tile files can be adapted as shown in :numref:`impexp_export_preferences_tiling_options_fig`.
+subfolders and tile files can be adapted as shown below.
+
+.. figure:: ../../media/impexp_export_preferences_tiling_options_fig.png
+   :name: impexp_export_preferences_tiling_options_fig
+
+   CityGML export preferences – Tiling options.
 
 Each subfolder name consists of a prefix and a tile-specific suffix [1].
 The suffix may contain the row and column number of the tile exported or
@@ -58,16 +63,10 @@ same reference system. The filename of the CityGML instance document
 created in each subfolder corresponds to the one defined on the Export
 tab. However, a tile-specific suffix may be appended [1].
 
-.. figure:: ../../media/impexp_export_preferences_tiling_options_fig.png
-   :name: impexp_export_preferences_tiling_options_fig
-
-   CityGML export preferences – Tiling options.
-
 For further traceability, it is possible to attach a generic string
 attribute called *TILE* to each exported CityGML feature, indicating
 which tile it belongs to [2]. The options for the value of the generic
 attribute are the same as for the suffix of the tile subfolder.
-
 
 .. _cityobjectgroup:
 
@@ -79,7 +78,7 @@ target CityGML dataset (cf. :numref:`impexp_citygml_export_chapter`).
 Group members are always given
 *by reference* (i.e., the *grp:member* property uses an *xlink:href*
 reference to point to the group member in the dataset) and only group
-members satisfying the export filter settings are considered.
+members satisfying the filter settings are export.
 
 .. figure:: ../../media/impexp_export_preferences_cityobjectgroup_fig.png
    :name: impexp_export_preferences_cityobjectgroup_fig
@@ -95,14 +94,13 @@ skipped due to filter settings. Thus, the consistency of the
 resolvable in the final dataset. The benefit of skipping this check is
 that the performance of the CityGML export is increased.
 
-
 .. _impexp_preferences_address_chapter:
 
 Address
 ^^^^^^^
 
-Like the import of xAL address information
-(see :numref:`impexp_import_preferences_address_chapter`), the
+Similar to the import of xAL address information
+(see :numref:`impexp_import_preferences_address_chapter`), a
 user can choose how address information should be exported to a target
 CityGML dataset. The available options of the Address export preferences
 are shown in the figure below.
@@ -112,57 +110,71 @@ are shown in the figure below.
 
    CityGML export preferences – Address.
 
-Address information is exported form the data values in the ADDRESS
-table of the 3D City Database instance. As discussed in :numref:`impexp_import_preferences_address_chapter`,
-these values may however lack data present in the original xAL fragment
-or they may even contain no data at all when the address information
-differs too much from the supported xAL templates. In
-such cases, using the original <xal:AddressDetail> element stored in the
-XAL_SOURCE column is the only means to achieve a lossless reconstruction
-of the initial address data.
+Address data is typically stored in the attributes STREET, HOUSE_NUMBER, etc.
+of the ADDRESS table. As discussed in :numref:`impexp_import_preferences_address_chapter`,
+the original ``<xal:AddressDetails>`` element might have been additionally
+imported into the XAL_SOURCE column. Thus, there are two possible ways to
+reconstruct the address information.
 
-Since importing the original <xal:AddressDetail> fragment into
-XAL_SOURCE does not hinder the population of the remaining columns of
-the ADDRESS table (STREET, HOUSE_NUMBER, etc.), there are two possible
-ways to reconstruct the address contents when exporting from the 3D City
-Database.
-
-1) The default option is to build the xAL address from the columns of
+1. The default option is to build the xAL address from the columns of
    the ADDRESS table *without considering* the XAL_SOURCE column. In
-   this case, the XML encoding of the xAL address follows the first
-   template (cf. :numref:`impexp_import_preferences_address_chapter`).
+   this case, the XML encoding of the xAL address uses the
+   following template:
 
-2) Optionally, the xAL fragment is taken “as is” from the XAL_SOURCE
+   .. code-block:: xml
+
+       <Address>
+         <xalAddress>
+           <xAL:AddressDetails>
+             <xAL:Country>
+               <xAL:CountryName>COUNTRY</xAL:CountryName>
+               <xAL:Locality Type="City">
+                 <xAL:LocalityName>CITY</xAL:LocalityName>
+                 <xal:PostBox>
+                   <xal:PostBoxNumber>PO_BOX</xal:PostBoxNumber>
+                 </xal:PostBox>
+                 <xAL:Thoroughfare Type="Street">
+                   <xAL:ThoroughfareNumber>HOUSE_NUMBER</xAL:ThoroughfareNumber>
+                   <xAL:ThoroughfareName>STREET</xAL:ThoroughfareName>
+                 </xAL:Thoroughfare>
+                 <xAL:PostalCode>
+                   <xAL:PostalCodeNumber>ZIP_CODE</xAL:PostalCodeNumber>
+                 </xAL:PostalCode>
+               </xAL:Locality>
+             </xAL:Country>
+           </xAL:AddressDetails>
+         </xalAddress>
+       </Address>
+
+2. Optionally, the xAL fragment is taken “as is” from the XAL_SOURCE
    column and inserted literally into the target CityGML document. This
    way there will be no loss of information and the address encoding
    will be identical to the original source datasets. Obviously, this
    option requires that the XAL_SOURCE column has been populated during
    import (cf. :numref:`impexp_import_preferences_address_chapter`).
 
-Both options are mutually exclusive, but one can be used as a fallback
-alternative to the other if the first chosen renders no results.
-
+Both options are mutually exclusive, but if the chosen option does
+not provide results, the other option can be used as fallback.
 
 .. _appearance:
 
 Appearance
 ^^^^^^^^^^
 
-The Appearance export preferences are like the settings available for
-importing CityGML (cf. :numref:`impexp_import_preferences_appearance_chapter`).
+The Appearance export preferences control how appearance information of
+city objects is written to the output datasets.
 
 .. figure:: ../../media/impexp_export_preferences_appearance_fig.png
    :name: impexp_export_preferences_appearance_fig
 
    CityGML export preferences – Appearance.
 
-Per default, both appearance information and texture image files
+By default, both appearance information and texture image files
 associated with the city objects in the 3D City Database are exported
 [1]. Alternatively, the user can choose to only export the appearance
-information without storing the texture files or even to not export
-appearances at all.
+information without textures or to drop appearances completely.
 
-When exporting texture files, two additional options *Overwrite existing
+When exporting texture files, the additional options *Overwrite existing
 texture files* and *Generate unique texture filenames* influence the way
 in which texture files are written to the file system [1].
 
@@ -171,9 +183,9 @@ in which texture files are written to the file system [1].
    Before exporting a texture image file into this folder, the
    Importer/Exporter can check whether a file of the same filename
    already exists in this folder. In this case, the existing file will
-   be kept if this option is *not enabled*. Otherwise, and per default,
+   be kept if this option is *not enabled*. Otherwise, and by default,
    there is no check and a texture file of the same name will be
-   overwritten (if it exists).
+   overwritten.
 
 2) *Generate unique texture filenames*:
    Often filenames for texture images are automatically created from a
@@ -181,18 +193,15 @@ in which texture files are written to the file system [1].
    followed by a number incremented by 1 for each new image). It thus
    can happen that two city objects within the same or different
    instance documents are assigned a texture image file of the same
-   name but with different content (e.g., if the texture files are
-   distributed over several folders). In the 3D City Database, texture
+   name but with different content. In the 3D City Database, texture
    images are stored in separate records and thus duplicate filenames
-   are not an issue. When exporting to CityGML however, two texture
+   are not an issue. When exporting to CityGML, however, two texture
    files of the same name might be written to the same target folder,
    in which case one is replaced with the other. This will obviously
    lead to false visualizations and issues in workflows consuming the
    exported CityGML data. For this reason, checking this option
-   (default) will force the export process to generate unique
-   filenames for each texture file based on the primary key value of
-   the TEX_IMAGE table. Therefore, the filename even keeps stable
-   amongst several exports from the 3D City Database.
+   will force the export process to generate unique and stable
+   filenames for each texture file.
 
 The location where to store the texture files can be defined by the user
 [2]. The default option is to pick a folder below the export directory
@@ -202,7 +211,7 @@ be provided. In this case, the same folder will be used in subsequent
 exports from the 3D City Database.
 
 When appearances are chosen to be exported but the *Do not store texture
-files* option [1] is enabled, then appearance information is generated
+files* option [1] is checked, then appearance information is generated
 for the city objects in the CityGML dataset, but the texture files are
 not stored in the file system. However, since the texture path is part
 of the appearance information, the directory settings [2] and whether to
@@ -212,15 +221,14 @@ option is useful, for example, if the texture files have already been
 exported to an absolute directory in a previous run of the export
 operation.
 
-Especially when using Windows, placing a large number of files into the
-same folder might lead to severe time lags when trying to access files
-in this folder or to write new files to this folder. This might
+Especially when running the Importer/Exporter on a Windows machine,
+placing a large number of files into the
+same folder might lead to severe I/O lags. This might
 negatively affect the performance for large exports. For this reason,
 the Importer/Exporter can automatically distribute the texture files
 over additional subfolders that are automatically created. Simply check
 the option *Automatically place texture files in additional subfolders*
 and provide the number of subfolders to be used.
-
 
 .. _impexp_export_preferences_xlinks_chapter:
 
@@ -253,22 +261,19 @@ based on UUID values.
    CityGML export preferences – XLinks.
 
 The user can define the behavior for exporting XLinks differently for
-features [1] and geometries [2]. The settings allow to provide a
+features [1] and geometries [2]. The settings allow providing a
 *prefix* string that will be used when creating new gml:id values
-(default: “\ *UUID\_*\ ”). In addition, the original gml:id may be
-appended to the newly created one. Whereas these settings are available
-for both features and geometries, the user can additionally choose to
-create a CityGML <ExternalReference> element for features that carries
-the original gml:id value and to attach this external reference as
-attribute to the copied feature.
-
+(default: “\ *UUID\_*\ ”) and whether the original gml:id should be
+appended to the newly created one. Only for features, the user can
+additionally choose to store the original gml:id as ``<ExternalReference>``
+property in the copied feature.
 
 .. _xsl-transformation:
 
 XSL Transformation
 ^^^^^^^^^^^^^^^^^^
 
-As available for CityGML imports, you can apply XSLT transformations
+As for CityGML imports, you can apply XSLT transformations
 during the export process to change the resulting CityGML output data.
 Simply check the *Apply XSLT stylesheets* option and point to an XSLT
 stylesheet in your local file system using the *Browse* button. The
@@ -281,26 +286,21 @@ transform the CityGML data before it is written to a file.
    CityGML export preferences – XSL transformation.
 
 By clicking the + and - buttons, more than one XSLT stylesheet can be
-fed to the exporter. The stylesheets are executed in the given order,
+provided to the exporter. The stylesheets are applied in the given order,
 with the output of a stylesheet being the input for its direct
 successor. The Importer/Exporter is shipped with example XSLT
-stylesheets in subfolders below templates/ XSLTransformations in the
+stylesheets in the folder ``templates/XSLTransformations`` of the
 installation directory.
 
 .. note::
-   To be able to handle arbitrarily large exports, the export
-   process reads single top-level features from the database, which are
-   then written to the target file. Each XSLT stylesheet will thus just
-   work on individual top-level features but not on the entire file.
-
-.. note::
-   The output of each XSLT stylesheet must again be a valid CityGML
-   structure.
-
-.. note::
-   Only stylesheets written in the XSLT language version 1.0 are
-   supported.
-
+   - To be able to handle arbitrarily large exports, the export
+     process reads single top-level features from the database, which are
+     then written to the target file. Each XSLT stylesheet will thus just
+     work on individual top-level features but not on the entire file.
+   - The output of each XSLT stylesheet must again be a valid CityGML
+     structure.
+   - Only stylesheets written in the XSLT language version 1.0 are
+     supported.
 
 .. _resources:
 
@@ -326,5 +326,5 @@ The Resource preferences allow for setting the number of *concurrent
 threads* to be used in the export process and for defining the *sizes*
 and *page factors* of the gml:id caches for features and geometries. The
 meaning of the values is identical to the Resource preferences for
-CityGML imports. So please refer to :numref:`impexp_import_preferences_resources_chapter` for more details.
-
+CityGML imports. So, please refer to
+:numref:`impexp_import_preferences_resources_chapter` for more details.

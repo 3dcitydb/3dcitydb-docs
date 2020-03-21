@@ -277,20 +277,14 @@ a manually created template.
 
 -  A column should be specified in one of following forms:
 
--  ``*[Title]*:[*Content]*``
+   -  ``*[Title]*:[*Content]*``
+      ``[Title]`` is the column's title and ``[content]`` is the column's content.
+      In this case, ``[Title]`` is specified by the user.
 
-..
-
-   ``[Title]`` is the column's title and ``[content]`` is the column's content.
-   In this case, ``[Title]`` is specified by the user.
-
--  ``*[Content]*``
-
-..
-
-   In this case, the column's title is not specified by the user. The
-   SPSHG plugin will internally automatically generate a column's title
-   by means of the column's content
+   -  ``*[Content]*``
+      In this case, the column's title is not specified by the user. The
+      SPSHG plugin will internally automatically generate a column's title
+      by means of the column's content.
 
 Example for Template File
 """""""""""""""""""""""""
@@ -300,19 +294,14 @@ Sample template file:
 .. code-block:: text
 
    // This is a template file for the export of tabular data.
-
    // Lines starting with // or ; are comments and will be ignored.
 
    Street:ADDRESS/[FIRST]STREET
-
    Houseno:ADDRESS/[FIRST]HOUSE_NUMBER
-
    City:ADDRESS/[FIRST]CITY
-
    Address:ADDRESS/[FIRST]STREET, ADDRESS/[FIRST]HOUSE_NUMBER[EOL]ADDRESS/[FIRST]CITY
 
    // INVEST
-
    Investment:CITYOBJECT_GENERICATTRIB/REALVAL[ATTRNAME = 'SOLAR_SUM_INVEST'] EUR
 
 

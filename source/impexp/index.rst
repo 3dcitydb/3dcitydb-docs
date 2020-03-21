@@ -5,7 +5,6 @@ The *3D City Database Importer/Exporter* is a Java-based front-end for
 the 3D City Database and allows for high-performance loading and
 extracting 3D city model data.
 
-
 .. toctree::
    :maxdepth: 2
 

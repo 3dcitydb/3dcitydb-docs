@@ -2,9 +2,9 @@ Preferences
 -----------
 
 In addition to the settings on the Import, Export, KML/COLLADA/glTF
-Export and Database tabs of the operations window, more preferences
-affecting the separate operations of the Importer/Exporter are available
-on the Preferences tab shown below.
+Export and Database tabs, more preferences affecting the separate
+operations of the Importer/Exporter are available on the Preferences tab
+shown below.
 
 .. figure:: /media/preferences_main_gui.png
    :name: pic_preferences_main_gui
@@ -23,7 +23,6 @@ the dialog with the following main nodes:
    manage-crs
    general
 
-
 Below these main nodes, further subnodes organize the preferences into
 separate topics. When selecting a node in the tree view, the associated
 settings dialog is displayed on the right side [2]. Changes made to the
@@ -33,8 +32,7 @@ preferences to their previous state or to their default values.
 
 The preferences (including the settings on the separate operation tabs)
 are automatically stored in the config file of the Importer/Exporter and
-are restored from this file upon program start. Thus, changes made to
-the preferences are remembered on restart. Via the Project menu
+are restored from this file upon program start. Via the Project menu
 available from the menu bar of the Importer/Exporter, the preferences
 can optionally be stored in or loaded from user-defined config files
 (cf. :numref:`impexp_interface_chapter`).

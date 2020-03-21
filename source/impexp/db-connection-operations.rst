@@ -86,15 +86,10 @@ Database, the Database tab (cf. [2] in :numref:`impexp_gui_database_tab_fig`) of
 database operations to be executed on that instance:
 
 -  Generating a database report;
-
 -  Calculating/updating the bounding box of selected feature types;
-
 -  Managing indexes on database tables;
-
 -  Managing the spatial reference system of the database; and
-
 -  Displaying supported CityGML ADEs.
-
 
 .. _db-report:
 
@@ -158,8 +153,8 @@ is version-enabled (Oracle only). The coordinate values can optionally
 be transformed into a user-defined coordinate *reference system* that is
 available from the drop-down list [2]. Per default, the coordinate
 values are presented in the same reference system as specified for the
-3D City Database instance during setup. See :numref:`citydb_crs_definition_chapter` for details on
-how to define and manage user-defined reference systems.
+3D City Database instance during setup. See :numref:`citydb_crs_definition_chapter`
+for details on how to define and manage user-defined reference systems.
 
 
 By using the map |map_select| button [4],
@@ -266,9 +261,9 @@ defined by the 3D City Database schema:
      - | ADDRESS
 
 The result of an index operation is reported in the console window as
-shown below. For instance, :numref:`impexp_gui_indexes_status_report_fig` shows the result of a status query
-on both spatial and normal indexes. The status *ON* means that the
-corresponding index is enabled.
+shown below. For instance, :numref:`impexp_gui_indexes_status_report_fig` shows the
+result of a status query on both spatial and normal indexes. The status *ON* means
+that the corresponding index is enabled.
 
 .. figure:: ../media/impexp_gui_indexes_status_report_fig.png
    :name: impexp_gui_indexes_status_report_fig

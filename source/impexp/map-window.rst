@@ -3,25 +3,24 @@
 Map window for bounding box selections
 --------------------------------------
 
-The Importer/Exporter GUI offers a 2D map window that allows the user to
+The Importer/Exporter offers a 2D map window that allows a user to
 display the overall bounding box calculated from the city model content
-stored in each 3D City Database instance and to graphically select a
-bounding box filter for data imports and exports.
+stored in a 3D City Database instance and to graphically select a
+bounding box for data imports and exports.
 
-There are two ways to open the map windows:
+There are two ways to open the map window:
 
-1. Choose the entry *View -> Open map window* from the menu bar at the top of
+1. Choose the entry *View -> Open Map Window* from the menu bar at the top of
    the application window.
 
-.. figure:: /media/impexp_map_window_menu_fig.png
-   :name: impexp_map_window_menu_fig
+   .. figure:: /media/impexp_map_window_menu_fig.png
+      :name: impexp_map_window_menu_fig
 
-2. Click the map button |map_select|
-   on the bounding box dialog available on the *Import*, *Export*,
-   *KML/COLLADA/glTF Export* and *Database* tabs of the operations window.
+2. Click the map button |map_select| on the bounding box dialog that is
+   available for the different import and export operations.
 
-.. figure:: /media/impexp_map_window_component_fig.png
-   :name: impexp_map_window_component_fig
+   .. figure:: /media/impexp_map_window_component_fig.png
+      :name: impexp_map_window_component_fig
 
 The 2D map is rendered in a separate application window shown below.
 
@@ -34,7 +33,7 @@ The map content is provided by the *OpenStreetMap* (OSM) service and is
 subject to the OSM usage and license terms. Make sure your computer has
 internet access to load the map. This might require setting up *network
 proxies* (see :numref:`impexp_preferences_general_proxy_chapter`).
-Please consult your networkadministrator.
+Please consult your network administrator.
 
 The map offers default mouse controls for panning and zooming. For
 convenience, a geocoding service is included in the map window [1].
@@ -42,7 +41,7 @@ Simply type in an address or a geo location (given by geographic lat/lon
 coordinates separated by a comma) and click the *Go* button. The map
 will automatically zoom to the first match. Further matches are
 available from the drop-down list [1]. The geocoding service uses the
-free *OSM Nominatim* service per default. You can pick the *Goolge
+free *OSM Nominatim* service by default. You can pick the *Goolge
 Geocoding API* as alternative service from the drop-down list in [5].
 Note that the *Goolge Geocoding API* is not free but requires an API key
 that must be entered in the global preferences of the Importer/Exporter
@@ -60,8 +59,7 @@ A list of usage hints is available at the right top of the map window
 The map controls are also described in the following.
 
 -  *Select bounding box*: Move the mouse while pressing the ALT key and
-   the left mouse button to select a bounding box. The bounding box is
-   displayed in a light magenta color. Once the left mouse button is
+   the left mouse button to select a bounding box. Once the left mouse button is
    released, the coordinates of the bounding box are automatically
    filled in the Bounding Box dialog on left of the map [3]. If you have
    opened the map window from a bounding box filter dialog, then
@@ -81,8 +79,7 @@ The map controls are also described in the following.
 -  *Zoom in/out:* Use the mouse wheel or the context menu (right-click).
 
 -  *Zoom into selected area:* Move the mouse while pressing the SHIFT
-   key and the left mouse button to select an area. The selected area is
-   displayed in a light grey color. Once the left mouse button is
+   key and the left mouse button to select an area. Once the left mouse button is
    released, the map zooms into the selected area. If the maximum zoom
    level is reached this action has no further effect.
 
@@ -96,9 +93,8 @@ The map controls are also described in the following.
    up a context menu offering additional functions such as *Zoom in*,
    *Zoom out*, *Center map here* and *Lookup address here* (see above).
    The *Get map bounds* function is equivalent to selecting the visible
-   map content as bounding box. Thus, the map will be shown in light
-   magenta and the map bounds are transferred to the Bounding Box dialog
-   on the left [3].
+   map content as bounding box, and the map bounds are transferred to
+   the Bounding Box dialog on the left [3].
 
 To close the map, simply click the *Cancel* button in the upper right
 corner [2].
@@ -113,9 +109,7 @@ always given in WGS 84 regardless of the coordinate reference system of
 the 3D City Database instance.
 
 When opening the map window from a bounding box dialog that already
-contains coordinate values (e.g., from a filter dialog on the Import,
-Export or KML/COLLADA/glTF Export tabs or after having calculated the
-entire area of the database content on the Database tab), the map window
+contains coordinate values, the map window
 will automatically display this bounding box. If the coordinate values
 of the provided bounding box are not in WGS 84, a transformation to WGS
 84 is required. Since the Importer/Exporter uses functionality of the

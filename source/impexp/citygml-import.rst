@@ -190,16 +190,13 @@ top-level features is printed to the console window.
    transformation during import if this is enough). A possible workaround
    procedure can be realized as follows:
 
-   1) Set up a second (temporary) instance of the 3D City Database with an
+   1. Set up a second (temporary) instance of the 3D City Database with an
       internal CRS matching the CRS of the CityGML instance document.
-
-   2) Import the dataset into this second 3D City Database instance.
-
-   3) Export the data from this second instance into the target CRS by
+   2. Import the dataset into this second 3D City Database instance.
+   3. Export the data from this second instance into the target CRS by
       applying a coordinate transformation (see CityGML export
       documentation in :numref:`impexp_citygml_export_chapter`).
-
-   4) The exported CityGML document now matches the CRS of the target 3D
+   4. The exported CityGML document now matches the CRS of the target 3D
       City Database instance and can be imported into that database. The
       temporary database instance can be dropped.
 

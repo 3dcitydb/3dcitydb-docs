@@ -133,7 +133,6 @@ preferences in chapter :numref:`impexp_preferences_export_tiling_chapter`).
    1. If only the feature type *CityObjectGroup* is checked, then all city
       object groups and all their group members (independent of their
       feature type) are exported.
-
    2. If further feature types are selected in addition to
       *CityObjectGroup*, then only group members matching those feature
       types are exported. Of course, all features that match the type
@@ -230,7 +229,6 @@ information is displayed within a separate status window. This status
 window also offers a *Cancel* button that lets a user abort the export
 process. The separate steps of the export process as well as possible
 error messages are reported to the console window.
-
 
 .. _impexp_sql_queries_chapter:
 
@@ -483,7 +481,6 @@ prefix.
      - | http://www.opengis.net/citygml/cityobjectgroup/2.0
        | http://www.opengis.net/citygml/cityobjectgroup/1.0
 
-
 In order to simplify typing the ``<typeNames>`` parameter, you can skip the
 namespace declaration from the type names. The Importer/Exporter will
 then assume the corresponding CityGML 2.0 namespace, but only if you use
@@ -498,7 +495,6 @@ objects from the 3DCityDB.
         <typeName>frn:CityFurniture</typeName>
       </typeNames>
     </query>
-
 
 <propertyNames> projection clause
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -631,7 +627,6 @@ Most expressions are formed using a *valueReference* pointing to a
 property value and a *literal* value that is checked against the
 property value.
 
-
 .. _value:
 
 Value references
@@ -654,21 +649,17 @@ full XPath language:
 
 -  Only the abbreviated form of the child and attribute axis specifier
    is supported.
-
 -  The context node is the top-level feature type to be exported. In
    case two or more top-level feature types are listed by the
    ``<typeNames>`` parameter, then the context node is their common parent
    type.
-
 -  Each step in the path may include an XPath predicate of the form
    “\ *.=value*\ ” or “\ *child=value*\ ”. Equality tests can be
    logically combined using the "and" or "or" operators. Indexes are not
    supported as XPath predicate.
-
 -  The *schema-element()* function is supported. It takes the
    *xsd:QName* of a feature type as parameter. The function selects the
    given feature type and all its subtypes.
-
 -  The last step of the XPath must be a simple thematic attribute or a
    spatial property. Property elements that contain a nested feature are
    not allowed as last step.
@@ -678,23 +669,17 @@ exported, then the following examples are valid XPath expressions:
 
 -  ``gen:stringAttribute/@gen:name`` selects the gen:name attribute of the
    generic string attributes of the building
-
 -  ``gen:stringAttribute[@gen:name=’area’]/gen:value`` selects the
    gen:value of a generic string attribute with the name “area”
-
 -  ``bldg:boundedBy/bldg:WallSurface/bldg:lod2MultiSurface`` selects the
    spatial LoD2 representation of the wall surfaces of the building
-
 -  ``bldg:boundedBy/bldg:WallSurface[@gml:id='ID_01' or gml:name='wall']/bldg:opening/bldg:Door/gml:name``
    selects the gml:name of doors that are associated with wall surfaces having a specific gml:id
    or gml:name
-
 -  ``bldg:boundedBy/schema-element(bldg:_BoundarySurface)/core:creationDate``
    selects the core:creationDate attribute of all boundary surfaces of the building
-
 -  ``core:externalReference[core:informationSystem='http://somewhere.de']/core:externalObject/core:name``
    selects the core:name of the external object in an external reference to a given information system
-
 -  ``gen:genericAttributeSet[@gen:name='energy']/gen:measureAttribute/gen:value``
    selects the gen:value of all generic measure attributes
    contained in the generic attribute set named “energy”
@@ -707,7 +692,6 @@ exported, then the following examples are valid XPath expressions:
    uses a simple ADE that can be used in XPath expressions to evaluate
    address elements such as the street or city name. More information is
    provided in :numref:`impexp_address_filter_chapter`.
-
 
 .. _literals:
 
@@ -723,17 +707,11 @@ using one of the geometry types offered by the query language.
 The following geometry types are available:
 
 -  ``<envelope>``
-
 -  ``<point>``
-
 -  ``<lineString>``
-
 -  ``<polygon>``
-
 -  ``<multiPoint>`` (list of ``<point>`` elements)
-
 -  ``<multiLineString>`` (list of ``<lineString>`` elements)
-
 -  ``<multiPolygon>`` (list of ``<polygon>`` elements)
 
 An ``<envelope>`` is defined by its ``<lowerCorner>`` and ``<upperCorner>`` elements
@@ -755,40 +733,37 @@ associated with the corresponding SRID, which is also used in coordinate
 transformations. If *srid* is not present, then the coordinate tuples
 are assumed to be given in the SRID of the 3DCityDB instance.
 
-A 2D bounding box:
+.. list-table::
 
-.. code-block:: xml
+   * - 2D bounding box
+     - .. code-block:: xml
 
-    <envelope>
-      <lowerCorner>30 10</lowerCorner>
-      <upperCorner>60 20</upperCorner>
-    </envelope>
+        <envelope>
+          <lowerCorner>30 10</lowerCorner>
+          <upperCorner>60 20</upperCorner>
+        </envelope>
 
-A 2D point:
+   * - 2D point
+     - .. code-block:: xml
 
-.. code-block:: xml
+        <point>
+          <pos>30 10</pos>
+        </point>
 
-    <point>
-      <pos>30 10</pos>
-    </point>
+   * - 2D line string given in SRID 4326
+     - .. code-block:: xml
 
-A 2D line string given in SRID 4326:
+        <lineString srid="4326">
+          <posList dimension="2">45.67 88.56 55.56 89.44</posList>
+        </lineString>
 
-.. code-block:: xml
+   * - 2D polygon with hole
+     - .. code-block:: xml
 
-    <lineString srid="4326">
-      <posList dimension="2">45.67 88.56 55.56 89.44</posList>
-    </lineString>
-
-A 2D polygon with hole:
-
-.. code-block:: xml
-
-    <polygon>
-      <exterior>35 10 45 45 15 40 10 20 35 10</exterior>
-      <interior>20 30 35 35 30 20 20 30</interior>
-    </polygon>
-
+        <polygon>
+          <exterior>35 10 45 45 15 40 10 20 35 10</exterior>
+          <interior>20 30 35 35 30 20 20 30</interior>
+        </polygon>
 
 .. _operators:
 
@@ -800,17 +775,11 @@ mathematical comparison between two arguments. The following binary
 comparisons are supported:
 
 -  ``<propertyIsEqualTo>`` (=)
-
 -  ``<propertyIsLessThan>`` (<)
-
 -  ``<propertyIsGreaterThan>`` (>)
-
 -  ``<propertyIsEqualTo>`` (=)
-
 -  ``<propertyIsLessThanOrEqualTo>`` (<=)
-
 -  ``<propertyIsGreaterThanOrEqualTo>`` (>=)
-
 -  ``<propertyIsNotEqualTo>`` (<>)
 
 The optional *matchCase* attribute can be used to specify how string
@@ -839,9 +808,7 @@ Besides these default binary operators, the following additional
 comparison operators are supported:
 
 -  ``<propertyIsLike>``
-
 -  ``<propertyIsNull>``
-
 -  ``<propertyIsBetween>``
 
 The ``<propertyIsLike>`` operator expresses a string comparison with pattern
@@ -902,23 +869,14 @@ A spatial operator determines whether its geometric arguments satisfy
 the stated spatial relationship. The following operators are supported:
 
 -  ``<bbox>``
-
 -  ``<equals>``
-
 -  ``<disjoint>``
-
 -  ``<touches>``
-
 -  ``<within>``
-
 -  ``<overlaps>``
-
 -  ``<intersects>``
-
 -  ``<contains>``
-
 -  ``<dWithin>``
-
 -  ``<beyond>``
 
 The semantics of the spatial operators are defined in OGC Filter
@@ -938,10 +896,10 @@ with the given geometry.
     <query>
       <filter>
         <bbox>
-          <operand>
+          <envelope>
             <lowerCorner>30 10</lowerCorner>
             <upperCorner>60 20</upperCorner>
-          </operand>
+          </envelope>
         </bbox>
       </filter>
     </query>
@@ -1055,7 +1013,6 @@ the values in the list.
         </resourceIds>
       </filter>
     </query>
-
 
 .. _sql:
 
@@ -1349,17 +1306,13 @@ following subelements are supported:
 
 -  ``<tilePath>`` Name of subfolder that is created for each tile
    (default: *tile*).
-
 -  ``<tilePathSuffix>`` Suffix to append to each <tilePath>. Allowed values
    are *row_column* (default), *xMin_yMin*, *xMax_yMin*, *xMin_yMax*,
    *xMax_yMax* and *xMin_yMin_xMax_yMax*.
-
 -  ``<tileNameSuffix>`` Suffix to append to each tile filename. Allowed
    values are *none* (default) and *sameAsPath*.
-
 -  ``<includeTileAsGenericAttribute>`` Add a generic attribute named *TILE*
    to each city object.
-
 -  ``<genericAttributeValue>`` Value for the generic attribute. Allowed
    values are identical to those for <tilePathSuffix> (default:
    *xMin_yMin_xMax_yMax)*.
@@ -1367,7 +1320,6 @@ following subelements are supported:
 If the ``<cityGMLTilingOptions>`` element is not present, then the settings
 defined in the export preferences
 (cf. :numref:`impexp_preferences_export_tiling_chapter`) are used instead.
-
 
 *targetSrid* attribute
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -1383,7 +1335,6 @@ database. The transformation is performed using corresponding database functions
     <query targetSrid="25832">
       …
     </query>
-
 
 .. _impexp_address_filter_chapter:
 

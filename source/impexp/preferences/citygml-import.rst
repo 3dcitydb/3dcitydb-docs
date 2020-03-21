@@ -20,7 +20,6 @@ queries.
 
 The following metadata can be set:
 
-
 .. list-table:: Metadata stored with every city object in the table CITYOBJECT.
    :name: impexp_cityobject_metadata_table
 
@@ -58,7 +57,6 @@ The following metadata can be set:
    therefore not exported to CityGML datasets but is only available in the
    database.
 
-
 .. _gmlid:
 
 gml:id handling
@@ -78,7 +76,7 @@ within the scope of a single dataset.
 
    CityGML import preferences – gml:id handling.
 
-Per default, the Importer/Exporter assumes that the gml:id values
+By default, the Importer/Exporter assumes that the gml:id values
 associated with the city objects to be imported are globally unique and
 therefore imports them “as is” into the database. Only in case a city
 object (or geometry object) lacks a gml:id, a UUID value will be
@@ -95,7 +93,7 @@ In addition to the gml:id, the 3DCityDB allows for storing a second
 GMLID_CODESPACE metadata value. The idea is that the compound value of
 gml:id and GMLID_CODESPACE is globally unique. The user can choose to
 use the file name of the CityGML import file, its complete path or a
-user-defined string as GMLID_CODESPACE. Per default, the
+user-defined string as GMLID_CODESPACE. By default, the
 Importer/Exporter does not import a GMLID_CODESPACE value though.
 
 .. note::
@@ -110,7 +108,7 @@ Importer/Exporter does not import a GMLID_CODESPACE value though.
 Address
 ^^^^^^^
 
-CityGML relies upon the *OASIS Extensible Address Language* (xAL)
+CityGML uses the *OASIS Extensible Address Language* (xAL)
 standard for the representation and exchange of address information. xAL
 provides a flexible and generic framework for encoding address data
 according to arbitrary address schemes. The columns of the ADDRESS table
@@ -122,9 +120,6 @@ CityGML specification.
 
 .. code-block:: xml
 
-   <bldg:Building>
-     …
-     <bldg:address>
        <Address>
          <xalAddress>
            <!-- Bussardweg 7, 76356 Weingarten, Germany -->
@@ -145,11 +140,9 @@ CityGML specification.
            </xAL:AddressDetails>
          </xalAddress>
        </Address>
-     </bldg:address>
-   </bldg:Building>
-   <bldg:Building>
-     …
-     <bldg:address>
+
+.. code-block:: xml
+
        <Address>
          <xalAddress>
            <!-- 46 Brynmaer Road Battersea LONDON, SW11 4EW United Kingdom -->
@@ -173,31 +166,31 @@ CityGML specification.
            </xAL:AddressDetails>
          </xalAddress>
        </Address>
-     </bldg:address>
-   </bldg:Building>
 
 If xAL address information in a CityGML instance document does not
-comply with one of the templates (e.g., because of additional or
+comply with one of these templates (e.g., because of additional or
 completely different entries), the address information will only
 partially be stored in the database (if at all). In order to not lose
-any original address information, the entire <xal:AddressDetail> XML
+any original address information, the entire ``<xal:AddressDetail>`` XML
 fragment can be imported “as is” from the input CityGML file and stored
 in the XAL_SOURCE column of the ADDRESS table in the 3D City Database.
-
 For this purpose, simply check the *Import original <xal:AddressDetail>
-XML* option (this is the default value). Note that the import of the XML
-fragment does not affect the filling of the remaining columns of the
-ADDRESS table (STREET, HOUSE_NUMBER, etc.) from the xAL address
-information.
+XML fragment* option (this is the default value).
 
 .. figure:: ../../media/impexp_import_preferences_address_fig.png
    :name: impexp_import_preferences_address_fig
 
    CityGML import preferences – Address.
 
-The symmetrical setting for CityGML exports (i.e., recovering the xAL
-fragment from XAL_SOURCE) is explained in :numref:`impexp_preferences_address_chapter`.
+See :numref:`impexp_preferences_address_chapter` for how to export the
+xAL fragment from XAL_SOURCE.
 
+.. note::
+
+  The Importer/Exporter always tries and populates the columns of the
+  ADDRESS table (STREET, HOUSE_NUMBER, etc.) from the xAL address information
+  independent of whether the ``<xal:AddressDetail>`` element shall be imported.
+  Thus, the original XML representation is always imported in addition.
 
 .. _impexp_import_preferences_appearance_chapter:
 
@@ -205,15 +198,14 @@ Appearance
 ^^^^^^^^^^
 
 The Appearance preference settings define how appearance information
-(i.e., materials and textures associated with the observable surfaces of
-a city object) is processed at import time.
+of city objects shall be processed at import time.
 
 .. figure:: ../../media/impexp_import_preferences_appearance_fig.png
    :name: impexp_import_preferences_appearance_fig
 
    CityGML import preferences – Appearance.
 
-Per default, all appearance information as well as all related texture
+By default, all appearance information as well as all related texture
 image files are loaded into the 3D City Database [1]. The
 Importer/Exporter will work on both image files located in a relative
 path to the CityGML dataset and image files referenced by a valid URL.
@@ -235,7 +227,6 @@ mandatory in the context of the Appearance module, the user has to
 define a *theme* that shall be used in the conversion process [2]. The
 default value is *rgbTexture.*
 
-
 .. _geometry:
 
 Geometry
@@ -243,7 +234,7 @@ Geometry
 
 Before importing the city objects into the 3D City Database, the
 Importer/Exporter can apply an affine coordinate transformation to all
-geometry objects. Per default, this option is disabled though.
+geometry objects. This option is disabled by default though.
 
 .. figure:: ../../media/impexp_import_preferences_geometry_fig.png
    :name: impexp_import_preferences_geometry_fig
@@ -323,7 +314,6 @@ translation vector:
    0 & 0 & 1 & 0 \\
    \end{bmatrix} \bullet \overrightarrow{p}
 
-
 .. _indexes:
 
 Indexes
@@ -332,8 +322,8 @@ Indexes
 In addition to the Database tab on the operations window, which lets you
 enable and disable spatial and normal indexes in the 3D City Database
 manually (cf. :numref:`impexp_executing_database_operations_chapter`),
-with this preference settings a default
-index strategy for database imports can be determined.
+this preference dialog lets you set a default index strategy for
+database imports.
 
 .. figure:: ../../media/impexp_import_preferences_indexes_fig.png
    :name: impexp_import_preferences_indexes_fig
@@ -345,28 +335,22 @@ The dialog differentiates between settings for *spatial indexes* [1] and
 
 The default setting is to not change the status (i.e., either enabled or
 disabled) of the indexes. This default behavior can be changed so that
-indexes are always disabled before starting and import process. The user
+indexes are always disabled before starting an import process. The user
 can choose whether the indexes shall be automatically reactivated after
 the import has been finished.
-
-.. note::
-   All indexes are *enabled* after setting up a new instance of 3D
-   City Database.
 
 .. note::
    It is *strongly recommended* to *deactivate the spatial indexes
    before running a CityGML import* on a *big amount of data* and to
    reactive the spatial indexes afterwards. This way the import will
    typically be a lot faster than with spatial indexes enabled. The
-   situation may be different if only a small dataset is to be imported.
-   Deactivating normal indexes should however never be required.
+   situation may be different when importing only a small dataset.
 
 .. warning::
    Activating and deactivating indexes can take a long time,
    especially if the database fill level is high. Note that the operation
-   **cannot be aborted** by the user since this could result in an
+   **cannot be aborted** by the user since this would result in an
    inconsistent database state.
-
 
 .. _xml-validation:
 
@@ -389,7 +373,7 @@ CityGML XML schemas. Invalid files might cause the import procedure to
 behave unexpectedly or even to abort abnormally.
 
 If XML validation is chosen to be performed automatically during
-imports, then every invalid top-level feature will be discarded from the
+imports, every invalid top-level feature will be discarded from the
 import. Nevertheless, the import procedure will continue to work on the
 remaining features in the input file(s).
 
@@ -409,18 +393,16 @@ messages.
    unknown XML content, which might require internet access. Precisely,
    the following rules apply:
 
-    -  If an XML element’s namespace is part of the official CityGML 2.0 or
+    -  If the namespace of an XML element is part of the official CityGML 2.0 or
        1.0 standard, it will be validated against the internal copies of
        the official CityGML 2.0 or 1.0 schemas (no internet access
-       needed).
-
+       required).
     -  If the element’s namespace is unknown, the element will be validated
        against the schema pointed to by the *xsi:schemaLocation* value on
        the root element or the element itself. This is necessary when,
        for instance, the input document contains XML content from a
        CityGML Application Domain Extension (ADE). Note that loading the
        schema might require internet access.
-
     -  If the element’s namespace is unknown and the *xsi:schemaLocation*
        value (provided either on the root element or the element itself)
        is empty, validation will fail with a hint to the element and the
@@ -444,27 +426,22 @@ transform the CityGML data.
 
    CityGML import preferences – XSL transformation.
 
-By clicking the *+* and *-* buttons, more than one XSLT stylesheet can
-be fed to the importer. The stylesheets are executed in the given order,
+By clicking the + and - buttons, more than one XSLT stylesheet can
+be provided. The stylesheets are executed in the given order,
 with the output of a stylesheet being the input for its direct
 successor. The Importer/Exporter is shipped with example XSLT
-stylesheets in subfolders below templates/ XSLTransformations in the
+stylesheets in subfolders below ``templates/XSLTransformations`` in the
 installation directory.
 
 .. note::
-   To be able to handle arbitrarily large input files, the importer
-   chunks every CityGML input file into top-level features, which are then
-   imported into the database. Each XSLT stylesheet will hence just work on
-   individual top-level features but not on the entire file.
-
-.. note::
-   The output of each XSLT stylesheet must again be a valid CityGML
-   structure.
-
-.. note::
-   Only stylesheets written in the XSLT language version 1.0 are
-   supported.
-
+   - To be able to handle arbitrarily large input files, the importer
+     chunks every CityGML input file into top-level features, which are then
+     imported into the database. Each XSLT stylesheet will hence just work on
+     individual top-level features but not on the entire file.
+   - The output of each XSLT stylesheet must again be a valid CityGML
+     structure.
+   - Only stylesheets written in the XSLT language version 1.0 are
+     supported.
 
 .. _import-log:
 
@@ -472,10 +449,10 @@ Import log
 ^^^^^^^^^^
 
 A CityGML import process not necessarily works on all CityGML features
-within the provided input file(s). An obvious reason for this is that
-spatial or thematic filters that naturally narrow down the set of
+within the provided input file(s). An obvious reason is that
+spatial or thematic filters naturally narrow down the set of
 imported features. Also, in case the import procedure aborts early
-(either requested by the user or caused by severe import errors), not
+(either requested by the user or caused by severe errors), not
 all input features might have been processed. To understand which
 top-level features were actually loaded into the database during an
 import session, the user can choose to let the Importer/Exporter create
@@ -490,20 +467,18 @@ Simply enable the checkbox on this settings dialog to activate import
 logs (disabled per default). You additionally must provide a folder
 where the import log files will be created in. Either type the folder
 name manually or use the *Browse* button to open a file selection
-dialog. The application proposes to use a folder within your user’s home
-directory, but this proposal can be overridden.
+dialog.
 
 To easily relate import logs to different 3D City Database instances
 managed on the Database tab, the Importer/Exporter creates one subfolder
-for each connection entry below the folder provided in the settings
-dialog. The *description text* of the connection entry (cf.
+for each connection entry. The *description text* of the connection entry (cf.
 :numref:`impexp_database_connection_management_chapter`)
 is used as folder name. Within that subfolder, a separate log
 file is created for every input file during an import to that 3D City
 Database connection. The filename includes the date and time of the
 import session according to following pattern:
 
-imported-features-yyyy_MM_dd-HH_mm_ss_SSS.log
+``imported-features-yyyy_MM_dd-HH_mm_ss_SSS.log``
 
 The import log is a simple CSV file with one record (line) per imported
 top-level feature. The following figure shows an example.
@@ -522,25 +497,34 @@ character in order to mark its content as metadata.
 The first line below the metadata block provides a header for the fields
 of each record. The field names are FEATURE_TYPE, CITYOBJECT_ID, and
 GML_ID_IN_FILE. A single comma separates the fields. The records follow
-the header line. The meaning of the fields is as follows:
+the header line. The meaning of the fields is as follows.
 
--  FEATURE_TYPE An uppercase string representing the type of the
-   imported CityGML feature.
+.. list-table::  Fields of the CSV import log file
+   :name: impexp_import_log_csv_table
 
--  CITYOBJECT_ID The value of the ID column (primary key) of the
-   CITYOBJECT table where the feature was inserted.
-
--  GML_ID_IN_FILE The original gml:id value of the feature in the input
-   file (might differ in database due to import settings).
+   * - | **Field name**
+     - | **Description**
+   * - | FEATURE_TYPE
+     - | An uppercase string representing the type of the imported CityGML feature.
+   * - | CITYOBJECT_ID
+     - | The value of the ID column (primary key) of the CITYOBJECT table where the
+       | feature was inserted.
+   * - | GML_ID_IN_FILE
+     - | The original gml:id value of the feature in the input file (might differ
+       | in database due to import settings).
 
 The last line of each import log is a footer that contains metadata
 about whether the import was *successfully finished* or *aborted*.
-
 
 .. _impexp_import_preferences_resources_chapter:
 
 Resources
 ^^^^^^^^^
+
+.. figure:: ../../media/impexp_import_preferences_resources_fig.png
+   :name: impexp_import_preferences_resources_fig
+
+   CityGML import preferences – Resources.
 
 **Multithreading settings.** The software architecture of the
 Importer/Exporter is based on multithreading. Put simply, the different
@@ -552,50 +536,60 @@ response do not block threads parsing the input document or processing
 the CityGML input features. In a multi-core environment, threads can
 even be executed simultaneously on multiple CPUs or cores.
 
-.. figure:: ../../media/impexp_import_preferences_resources_fig.png
-   :name: impexp_import_preferences_resources_fig
-
-   CityGML import preferences – Resources.
-
 The Resource settings allow for controlling the minimum and maximum
 number of concurrent threads during import [1]. Make sure to enter
 reasonable values depending on your hardware configuration. By default,
 the maximum number is set to the number of available CPUs/cores times
-two. Before starting the import process, the minimum number of threads
-is created. Further threads up to the specified maximum number are only
-created if necessary.
+two.
 
 .. warning::
    A higher number of threads *does not necessarily result in a
    better performance*. In contrast, a too high number of active threads
    faces disadvantages such as thread life-cycle overhead and resource
-   thrashing. Also, note that each thread requires its *own physical
+   thrashing. Also note that each thread requires its *own physical
    connection to the database*. Therefore, your database must be ready to
    handle enough parallel physical connections. Ask you database
    administrator for assistance.
+
+**Batch processing.** In order to optimize database response times,
+multiple database statements are submitted to the database in a single
+request (*batch processing*). This allows for an efficient data
+processing on the database side. The user can influence the number of
+SQL statements in one batch through the settings dialog [2]. The dialog
+differentiates between batch sizes for CityGML features (default: 20)
+and gml:id caches respectively temporary XLink information (default:
+1000 each).
+
+.. note::
+   All database operations within one batch are buffered in main
+   memory before being submitted to the database. Thus, the
+   Importer/Exporter might run out of memory if the batch size is too high.
+   After a batch is submitted, the transaction is committed.
 
 **Cache settings.** The Importer/Exporter employs strategies for parsing
 CityGML datasets of arbitrary file size and for resolving XLink
 references. A naive approach for XLink resolving would read the entire
 CityGML dataset into main memory. However, CityGML datasets quickly
 become too big to fit into main memory. For this reason, the import
-process follows a two-phase strategy: In a first run, features are
+process follows a two-phase strategy:
+
+In a first run, features are
 written to the database neglecting references to remote objects. If a
 feature contains an XLink though, any context information about the
 XLink is written to temporary database tables. This information
 comprises, for instance, the table name and primary key of the
 referencing feature/geometry instance as well as the gml:id of the
-target object.
-
-In addition, while parsing the document, the import process keeps track
+target object. In addition, while parsing the document, the import process keeps track
 of every encountered gml:id as well as the table name and primary key of
 the corresponding object in database. It is important to record this
-information because a priori it cannot be predicted whether or not a
+information because it cannot be predicted a priori whether or not a
 gml:id is referenced by an XLink from somewhere else in the document. In
 order to ensure fast access, the information is cached in memory. If the
 maximum cache size is reached, the cache is paged to temporary database
-tables to prevent memory overflows. In a second run, the temporary
-tables containing the context information about XLinks are revisited and
+tables to prevent memory overflows.
+
+In a second run, the temporary tables containing the context information
+about XLinks are revisited and
 queried. Since the entire CityGML document has been processed at this
 point in time, valid references can be resolved and processed
 accordingly. With the help of the gml:id cache, the referenced objects
@@ -611,18 +605,3 @@ partitions*, default: 10). The Importer/Exporter employs different
 caches for gml:id values of geometries and features [3]. Moreover, a
 third cache is used for handling texture atlases and offers similar
 settings [4].
-
-**Batch settings.** In order to optimize database response times,
-multiple database statements are submitted to the database in a single
-request (*batch processing*). This allows for an efficient data
-processing on the database side. The user can influence the number of
-SQL statements in one batch through the settings dialog [2]. The dialog
-differentiates between batch sizes for CityGML features (default: 20)
-and gml:id caches respectively temporary XLink information (default:
-1000 each).
-
-.. note::
-   All database operations within one batch are buffered in main
-   memory before being submitted to the database. Thus, the
-   Importer/Exporter might run out of memory if the batch size is too high.
-   After a batch is submitted, the transaction is committed.

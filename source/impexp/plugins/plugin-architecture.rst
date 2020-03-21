@@ -1,12 +1,8 @@
 Introduction to the plugin architecture
 ---------------------------------------
 
-The Importer/Exporter offers a plugin architecture that supports the
-modular development and deployment of additional functionalities for
-interacting with the 3D City Database or external datasets. For
-instance, plugins may enable loading or extracting 3D city model content
-using data formats other than CityGML or KML/COLLADA/glTF. Plugins are
-self-contained extensions in that one plugin cannot extend the
+Plugins are extensions that add additional functionality to the
+Importer/Exporter. They are self-contained in that one plugin cannot extend the
 functionality of another plugin. Therefore, plugins can be added
 separately to the Importer/Exporter without interdependencies.
 
@@ -19,9 +15,9 @@ main config file or a plugin-specific config file. Please refer to the
 plugin documentation of your vendor for more information.
 
 Plugin installation is simple. Just get the plugin from your vendor and
-put all plugin files into the plugins subfolder of the Importer/Exporter
+put all plugin files into the ``plugins`` subfolder of the Importer/Exporter
 installation directory. To keep multiple plugins independent from each
-other, it is recommended to create a separate subfolder below plugins
+other, it is recommended to create a separate subfolder below ``plugins``
 for each plugin. When running the Importer/Exporter, the installed
 plugins are automatically detected and loaded with the application.
 
@@ -37,7 +33,7 @@ ADE schemas with existing 3DCityDB instances.
 
 You can also develop your own plugins. For this purpose, the
 Importer/Exporter comes with a *Plugin API* that is available as
-separate JAR file impexp-plugin-api-4.1.0.jar. Simply put the JAR file
+separate JAR file ``impexp-plugin-api-{version}.jar``. Simply put the JAR file
 on your classpath to start plugin development. A comprehensive *Plugin
 API* guide will be offered on the
 `www.3dcitydb.org <http://www.3dcitydb.org>`__ website soon. Moreover,
