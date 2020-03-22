@@ -34,6 +34,6 @@ administrative measures to secure the WFS service and the access to the
 3D City Database.
 
 *WFS clients* connecting to the WFS interface of the 3D City Database
-must support the *OGC WFS standard version 2.0*. Moreover, they should
-be capable of consuming 3D data encoded in CityGML, which is the default
-data format delivered by the WFS server.
+must support the *OGC WFS standard version 2.0*. Moreover, they must
+be capable of consuming 3D data encoded in CityGML or CityJSON, which is
+delivered by the WFS server.

@@ -123,7 +123,7 @@ implementation.
 .. note::
    For Apache Tomcat, the name of the WFS WAR file will be used as
    *context path* in the service URL. For example, if the WAR file is
-   named *citydb-wfs.war*, then the service URL will be
+   named ``citydb-wfs.war``, then the service URL will be
    ``http[s]://[host][:port]/citydb-wfs/wfs``. To pick a different context
    path, simply rename the WAR file or change Tomcat’s default behavior.
 
@@ -136,9 +136,9 @@ and a client. The WFS 2.0 interface standard defines *HTTP GET*, *HTTP
 POST* and *SOAP over HTTP POST* as possible service bindings for WFS 2.0
 implementations.
 
-The 3D City Database WFS implements both the *HTTP POST* and the HTTP
+The 3D City Database WFS implements both the HTTP POST and the HTTP
 GET conformance class. Therefore, a client can choose to send a request
-either XML-encoded using the HTTP method POST (using text/xml as content
+either XML-encoded using the HTTP method POST (using ``text/xml`` as content
 type) or KVP-encoded (key-value-pair) using the HTTP method GET. Note
 that the XML content of POST messages sent to the server must be
 well-formed and valid with respect to the
@@ -160,7 +160,8 @@ binding as offered by the 3D City Database WFS.
      - | XML over HTTP POST and KVP over HTTP GET
    * - | DescribeStoredQuery
      - | XML over HTTP POST and KVP over HTTP GET
-
+   * - | GetFeature
+     - | XML over HTTP POST and KVP over HTTP GET
 
 .. _wfs_feature_types_chapter:
 
@@ -170,74 +171,107 @@ CityGML feature types
 The 3D City Database WFS supports all CityGML *top-level feature types*,
 and corresponding feature instances will be sent to the client upon
 request. If you just want to advertise a subset of the CityGML feature
-types, you can restrict the feature types in the config.xml settings
+types, you can restrict the feature types in the ``config.xml`` settings
 (cf. :numref:`wfs_feature_type_settings_chapter`). In addition to the predefined CityGML feature
 types, the WFS can also support feature types defined in a CityGML ADE.
 This requires a corresponding ADE extension to be installed for the WFS
-and to be registered with the 3DCityDB instance.
+and to be registered with the 3DCityDB instance (cf. :numref:`wfs_installation_chapter`).
 
 .. note::
-   Appearance* properties of CityGML features such as textures or
+   Appearance properties of CityGML features such as textures or
    color information are *currently not supported* by the WFS
    implementation and thus will not be included in a response document.
 
 The supported CityGML feature types together with their official XML
-namespaces (CityGML version 2.0 and 1.0) are listed in the table below.
+namespaces (CityGML version 2.0 and 1.0) and recommended prefixes
+are listed in the table below.
 
-.. list-table::  Supported CityGML top-level feature types together with their XML namespace.
+.. list-table::  Supported CityGML top-level feature types with XML namespaces and prefixes.
    :name: wfs_supported_toplevel_feature_types_table
 
    * - | **Feature type**
      - | **XML namespace**
+     - | **XML prefix**
    * - | Building
      - | http://www.opengis.net/citygml/building/2.0
        | http://www.opengis.net/citygml/building/1.0
+     - | bldg
    * - | Bridge
      - | http://www.opengis.net/citygml/bridge/2.0
+     - | brid
    * - | Tunnel
      - | http://www.opengis.net/citygml/tunnel/2.0
+     - | tun
    * - | TransportationComplex
      - | http://www.opengis.net/citygml/transportation/2.0
        | http://www.opengis.net/citygml/transportation/1.0
+     - | tran
    * - | Road
      - | http://www.opengis.net/citygml/transportation/2.0
        | http://www.opengis.net/citygml/transportation/1.0
+     - | tran
    * - | Track
      - | http://www.opengis.net/citygml/transportation/2.0
        | http://www.opengis.net/citygml/transportation/1.0
+     - | tran
    * - | Road
      - | http://www.opengis.net/citygml/transportation/2.0
        | http://www.opengis.net/citygml/transportation/1.0
+     - | tran
    * - | Square
      - | http://www.opengis.net/citygml/transportation/2.0
        | http://www.opengis.net/citygml/transportation/1.0
+     - | tren
    * - | Railway
      - | http://www.opengis.net/citygml/transportation/2.0
        | http://www.opengis.net/citygml/transportation/1.0
+     - | tran
    * - | CityFurniture
      - | http://www.opengis.net/citygml/cityfurniture/2.0
        | http://www.opengis.net/citygml/cityfurniture/1.0
+     - | frn
    * - | LandUse
      - | http://www.opengis.net/citygml/landuse/2.0
        | http://www.opengis.net/citygml/landuse/1.0
+     - | luse
    * - | WaterBody
      - | http://www.opengis.net/citygml/waterbody/2.0
        | http://www.opengis.net/citygml/waterbody/1.0
+     - | wtr
    * - | PlantCover
      - | http://www.opengis.net/citygml/vegetation/2.0
        | http://www.opengis.net/citygml/vegetation/1.0
+     - | veg
    * - | SolitaryVegetationObject
      - | http://www.opengis.net/citygml/vegetation/2.0
        | http://www.opengis.net/citygml/vegetation/1.0
+     - | veg
    * - | ReliefFeature
      - | http://www.opengis.net/citygml/relief/2.0
        | http://www.opengis.net/citygml/relief/1.0
+     - | dem
    * - | GenericCityObject
      - | http://www.opengis.net/citygml/generics/2.0
        | http://www.opengis.net/citygml/generics/1.0
+     - | gen
    * - | CityObjectGroup
      - | http://www.opengis.net/citygml/cityobjectgroup/2.0
        | http://www.opengis.net/citygml/cityobjectgroup/1.0
+     - | grp
+
+Simply declare the above namespaces in XML-encoded requests using the
+notation ``xmlns:prefix=namspace_uri``. For KVP-encoded requests,
+the ``NAMESPACES`` parameter shall be used to declare any namespaces
+and their prefixes used in the request based on the format
+``xmlns(prefix, escaped_uri)``.
+
+.. note::
+  The 3DCityDB WFS can correctly deal with the default CityGML prefixes
+  in KVP-encoded requests. Thus, if you use one of the default prefixes
+  from above, you can skip the ``NAMESPACES`` parameter. The CityGML
+  version that will be associated with the prefix by the WFS depends
+  on the default CityGML version in your ``config.xml``
+  (cf. :numref:`wfs_feature_type_settings_chapter`).
 
 Exception reports
 ^^^^^^^^^^^^^^^^^
@@ -246,7 +280,6 @@ If the WFS encounters an error while parsing or processing a request, an
 XML document indicating that error is generated and sent to the client
 as exception response. Please refer to the WFS 2.0 specification for the
 structure and syntax of the exception response.
-
 
 .. _getcapabilities:
 
@@ -257,14 +290,12 @@ The GetCapabilities operation generates an XML-encoded service metadata
 document describing the WFS service provided by a server. The
 *capabilities* document contains relevant technical and non-technical
 information about the service and its provider. Its content mainly
-depends on the configuration of the WFS in the config.xml settings file
-(if created dynamically).
+depends on the configuration of the WFS in the ``config.xml`` settings file.
 
 The following XML snippet shows an XML encoding of a GetCapabilities
 operation.
 
 .. code-block:: xml
-   :caption: Example GetCapabilities operation.
    :name: wfs_getCapabilities_example_listing
 
    <?xml version="1.0" encoding="UTF-8"?>
@@ -277,10 +308,10 @@ operation.
 The declaration of the WFS XML namespace http://www.opengis.net/wfs/2.0
 is mandatory to be able to validate the request against the official WFS
 XML Schema definition. The reference to the schema location using the
-xsi:schemaLocation attribute is however optional. It is *recommended*
+``xsi:schemaLocation`` attribute is however optional. It is *recommended*
 though if the XML encoding of the request is created manually by the
 user (and not automatically by a client software) to ensure schema
-validity. Per default, the WFS service will reject invalid requests (see
+validity. By default, the WFS service will reject invalid requests (see
 :numref:`wfs_operations_settings_chapter`).
 
 The following table shows the XML attributes that can be used in the
@@ -298,6 +329,12 @@ GetCapabilities request and are supported by the WFS implementation.
      - | WFS (fixed)
      - | The service attribute indicates the
        | service type. The value “WFS” is fixed.
+   * - | AcceptVersions
+     - | O
+     - |
+     - | Used for version number negotiation
+       | with the WFS server
+       | (cf. OGC Document No. 06-121r3:2009).
 
 As alternative to XML encoding, the GetCapabilities operation may also
 be invoked through a KVP-encoded HTTP GET request.
@@ -309,22 +346,34 @@ be invoked through a KVP-encoded HTTP GET request.
    REQUEST=GetCapabilities&
    ACCEPTVERSIONS=2.0.0,2.0.2
 
-The SERVICE parameter is also mandatory for the KVP-encoded request. In
-addition, the ACCEPTVERSIONS parameter can be used for version number
-negotiation with the WFS server (cf. OGC Document No. 06-121r3:2009,
-:numref:`wfs_capabilities_settings_chapter`).
+The available KVP parameters are listed below.
 
+.. list-table::  Supported KVP parameters of a GetCapabilities operation. (O = optional, M = mandatory)
+   :name: wfs_supported_getCapabilities_parameters_table
+
+   * - | **KVP parameter**
+     - | **O / M**
+     - | **Default value**
+     - | **Description**
+   * - | SERVICE
+     - | M
+     - | WFS (fixed)
+     - | see above
+   * - | ACCEPTVERSIONS
+     - | O
+     - |
+     - | see above
 
 .. _describefeaturetype:
 
 DescribeFeatureType operation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The DescribeFeatureType operation returns a\ **n XML Schema**
-description of the CityGML feature types **advertised** by the 3D City
+The DescribeFeatureType operation returns a schema
+description of the CityGML feature types advertised by the 3D City
 Database WFS instance. Which feature types are offered by the WFS is
-controlled through the config.xml settings file (cf. :numref:`wfs_feature_types_chapter`).
-The XML Schema defines the structure and content of the features
+controlled through the ``config.xml`` settings file (cf. :numref:`wfs_feature_types_chapter`).
+The schema defines the structure and content of the features
 (thematic and spatial attributes, nested features, etc.) as well as the
 way how features are encoded in responses to GetFeature requests.
 
@@ -333,7 +382,6 @@ requesting the XML Schema definition of the CityGML 1.0 *Building*
 feature type.
 
 .. code-block:: xml
-   :caption: Example DescribeFeatureType operation.
    :name: wfs_describeFeatureType_example_listing
 
    <?xml version="1.0" encoding="UTF-8"?>
@@ -368,10 +416,12 @@ The DescribeFeatureType operations takes the following XML attributes.
      - | application/gml+xml;
        | version=3.1
      - | Controls the format of the schema
-       | description. Currently, the default value
-       | is the only option and results in a
-       | CityGML / GML 3.1.1 application
-       | schema.
+       | description. By default, the request
+       | results in a CityGML / GML 3.1.1
+       | application schema. The outputFormat
+       | attribute may also take the value
+       | “application/json”, in which case the
+       | response is a CityJSON schema document.
    * - | handle
      - | O
      - |
@@ -380,14 +430,14 @@ The DescribeFeatureType operations takes the following XML attributes.
        | request that will be used in exception
        | reports.
 
-The <wfs:TypeName> child element of the DescribeFeatureType operation
+The ``<wfs:TypeName>`` child element of the DescribeFeatureType operation
 identifies the feature type for which the XML Schema description is
 requested. Be careful to use the correct spelling of the feature type
 name (as specified by the CityGML standard) and to associate the name
-with the correct CityGML XML namespace. The <wfs:TypeName> element may
+with the correct CityGML XML namespace. The ``<wfs:TypeName>`` element may
 occur multiple times to request schema definitions of several feature
-types in a single DescribeFeatureType operation. If the <wfs:TypeName>
-element is omitted, then the CityGML base schema is returned by the WFS.
+types in a single DescribeFeatureType operation. If the ``<wfs:TypeName>``
+element is omitted, then the complete base schema is returned by the WFS.
 
 The DescribeFeatureType operation can alternatively be invoked through
 HTTP GET with key-value pairs.
@@ -398,7 +448,7 @@ HTTP GET with key-value pairs.
    SERVICE=WFS&
    VERSION=2.0.2&
    REQUEST=DescribeFeatureType&
-   TYPENAME=tran:Road
+   TYPENAME=bldg:Building,tran:Road
 
 The following KVP parameters are supported.
 
@@ -423,7 +473,7 @@ The following KVP parameters are supported.
      - | Used to specify namespaces and their
        | prefixes. The format shall be
        | xmlns(prefix,escaped_url).
-   * - | TYPENAME
+   * - | TYPENAMES
      - | M
      - |
      - | A comma-separated list of feature types
@@ -434,14 +484,11 @@ The following KVP parameters are supported.
        | version=3.1
      - | see above
 
-The TYPENAME attribute lists the feature types to describe. Like an
+The ``TYPENAME`` attribute lists the feature types to describe. Similar to an
 XML-encoded request, both the feature type names and the XML namespaces
 must be correct. XML namespaces and their prefixes can be specified
-using the NAMESPACES attribute. However, the 3DCityDB WFS can correctly
-deal with the default CityGML prefixes. An additional definition via the
-NAMESPACES attribute is therefore obsolet when using the default
-prefixes (see example above).
-
+using the ``NAMESPACES`` attribute. If you use default CityGML prefixes
+though, the ``NAMESPACES`` attribute can be skipped (see :numref:`wfs_feature_types_chapter`).
 
 .. _wfs_ListStoredQueries_operation_chapter:
 
@@ -465,7 +512,6 @@ details of a specific stored query form the WFS server. The following
 listing presents an example ListStoredQuery operation.
 
 .. code-block:: xml
-   :caption: Example ListStoredQuery operation.
    :name: wfs_listStoredQuery_example_listing
 
    <?xml version="1.0" encoding="UTF-8"?>
@@ -531,7 +577,6 @@ ListStoredQueries operation.
      - | 2.0.x
      - | see above
 
-
 .. _describestoredquery:
 
 DescribeStoredQuery operation
@@ -542,7 +587,6 @@ or more stored queries offered by the server. The following listing
 exemplifies a DescribeStoredQuery request.
 
 .. code-block:: xml
-   :caption:  Example DescribeStoredQuery operation.
    :name: wfs_describeStoredQuery_example_listing
 
    <?xml version="1.0" encoding="UTF-8"?>
@@ -551,18 +595,17 @@ exemplifies a DescribeStoredQuery request.
      <wfs:StoredQueryId>http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById</wfs:StoredQueryId>
    </wfs:DescribeStoredQueries>
 
-The <wfs:StoredQueryId> child element provides the unique identifier of
+The ``<wfs:StoredQueryId>`` child element provides the unique identifier of
 the stored query (see ListStoredQuery operation
 in :numref:`wfs_ListStoredQueries_operation_chapter`). By
 providing more than on unique identifier through multiple
-<wfs:StoredQueryId> elements, the descriptions of separate stored
+``<wfs:StoredQueryId>`` elements, the descriptions of separate stored
 queries can be requested in a single DescribeStoredQuery operation. If
-the <wfs:StoredQueryId> element is omitted, a description of all stored
+the ``<wfs:StoredQueryId>`` element is omitted, a description of all stored
 queries available at the WFS server is returned to the client. The above
 request will produce a response similar to the following listing.
 
 .. code-block:: xml
-   :caption:  Example response to a DescribeStoredQuery request.
    :name: wfs_describeStoredQuery_example_response_listing
 
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -598,11 +641,11 @@ matches the id value. For the 3D City Database WFS, the id value is
 evaluated against the gml:id of each feature in the database to find a
 match.
 
-The returnFeatureTypes attribute lists the feature types that may be
+The *returnFeatureTypes* attribute lists the feature types that may be
 returned by a stored query. Note that this string is empty for the the
 GetFeatureById query. Consequently, the query will return a feature
 instance of all advertised feature types if its gml:id matches. The set
-of advertised feature types can be influenced in the config.xml settings
+of advertised feature types can be influenced in the ``config.xml`` settings
 file. The DescribeStoredQuery operation allows the following XML
 attributes.
 
@@ -683,7 +726,6 @@ object that shall be returned by the WFS is passed as parameter to the
 GetFeatureById stored query.
 
 .. code-block:: xml
-   :caption: Example GetFeature operation.
    :name: wfs_getFeature_example_listing
 
    <?xml version="1.0" encoding="UTF-8"?>
@@ -695,30 +737,29 @@ GetFeatureById stored query.
    </wfs:GetFeature>
 
 The WFS will answer the above request with either the CityGML city
-object(s) whose gml:id value matches ID_0815 or with an exception report
+object(s) whose gml:id value matches ``ID_0815`` or with an exception report
 in case no matching city object was found in the 3D City Database.
 
 A single GetFeature operation can also be used to request more than one
 feature.
 
 .. code-block:: xml
-   :caption: Example GetFeature operation requesting for two city objects.
    :name: wfs_getFeature_example_request_two_objects_listing
 
    <?xml version="1.0" encoding="UTF-8"?>
    <wfs:GetFeature service="WFS" version="2.0.0"
     xmlns:wfs="http://www.opengis.net/wfs/2.0">
-     <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
+     <wfs:StoredQuery id="http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById">
        <wfs:Parameter name="id">first gml:id</wfs:Parameter>
      </wfs:StoredQuery>
-     <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
+     <wfs:StoredQuery id="http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById">
        <wfs:Parameter name="id">second gml:id</wfs:Parameter>
      </wfs:StoredQuery>
    </wfs:GetFeature>
 
 If a GetFeature request results in more than one city objects or
 consists of more than one stored query, the response will be wrapped by
-one or more <wfs:FeatureCollection> elements. Please refer to the WFS
+one or more ``<wfs:FeatureCollection>`` elements. Please refer to the WFS
 2.0 specification for details on the encoding of the response document.
 
 The GetFeature operation can be influenced by the following XML
@@ -788,8 +829,7 @@ A KVP-encoded GetFeature request is shown below.
    ID=ID_0815
 
 Note that the last parameter ID in the above request is not a WFS
-parameter but instead is required by the invoked stored query (see also
-:numref:`wfs_getFeature_example_listing`).
+parameter but instead is required by the invoked stored query.
 
 The supported KVP parameters are listed in the following table.
 
@@ -839,4 +879,3 @@ The supported KVP parameters are listed in the following table.
      - | Each parameter of the stored query
        | shall be encoded in KVP as key-value
        | pair.
-

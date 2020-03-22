@@ -2,48 +2,46 @@ Configuring the Web Feature Service
 -----------------------------------
 
 After deploying but before using the WFS service, you need to edit the
-config.xml file to make the service run properly. The config.xml file is
-in the WEB-INF directory of the WFS web application. The WEB-INF is a
+``config.xml`` file to make the service run properly. The ``config.xml`` file is
+in the ``WEB-INF`` directory of the WFS web application. The ``WEB-INF`` is a
 subfolder of the *application* folder, which is generally named after
 the WAR file and itself is a subfolder of the webapps folder in the
 Tomcat installation directory. This may be different if you use another
 servlet container.
 
 For example, assume that the WFS web application was deployed under the
-context name citydb-wfs. Then the location of the WEB-INF folder and the
-config.xml file in a default Apache Tomcat installation is shown below.
+context name ``citydb-wfs``. Then the location of the ``WEB-INF`` folder and the
+``config.xml`` file in a default Apache Tomcat installation is shown below.
 
 .. figure:: ../media/wfs_config_file_path_fig.png
    :name: wfs_config_file_path_fig
 
    Location of the WEB-INF folder and the config.xml file.
 
-Open the *config.xml* file with a text or XML editor of your choice and
+Open the ``config.xml`` file with a text or XML editor of your choice and
 manually edit the settings. An XML Schema for validating the contents of
-the config.xml file is provided as file config.xsd in the subfolder
-schemas. **After every edit** to the config.xml file, **make sure** that
-the config.xml file **validates against this schema** before reloading
+the ``config.xml`` file is provided as file ``config.xsd`` in the subfolder
+``schemas``. **After every edit** to the ``config.xml`` file, **make sure** that
+the it **validates against this schema** before reloading
 the WFS web application. Otherwise, the application might refuse to
 load, or unexpected behavior may occur.
 
-In the config.xml file, the WFS settings are organized into the main XML
-elements <capabilities>, <featureTypes>, <operations>, <postProcessing>,
-<database>, <server>, <uidCache>, <constraints>, and <logging>. The
+In the ``config.xml`` file, the WFS settings are organized into the main XML
+elements ``<capabilities>``, ``<featureTypes>``, ``<operations>``, ``<postProcessing>``,
+``<database>``, ``<server>``, ``<uidCache>``, ``<constraints>``, and ``<logging>``. The
 discussion of the settings follows this organization in the subsequent
 clauses.
-
 
 .. _wfs_database_settings_chapter:
 
 Database settings
 ~~~~~~~~~~~~~~~~~
 
-The *database* settings define the *connection parameters* for
+The *database settings* define the *connection parameters* for
 connecting to the 3D City Database instance the WFS service should give
-access to. The contents of the <database> element are shown below.
+access to. The contents of the ``<database>`` element are shown below.
 
 .. code-block:: xml
-   :caption: Database settings in the WFS config.xml file.
    :name: wfs_config_listing
 
    <database>
@@ -76,7 +74,7 @@ Importer/Exporter. Use the optional *schema* element if you want to
 connect to a schema other than the default schema. The *description* is
 optional and can be left empty.
 
-In addition to these minimum settings, the <connection> element takes
+In addition to these minimum settings, the ``<connection>`` element takes
 *optional attributes* that let you configure the use of physical
 connections to the database server. This is especially important for
 production servers and if more than one WFS service connects to the same
@@ -215,23 +213,23 @@ Capabilities settings
 
 The *capabilities* settings define the contents of the *capabilities*
 document that is returned by the WFS service upon a GetCapabilities
-request. The *capabilities* document is generated dynamically from the
-contents of the config.xml file at request time.
+request.
 
-Only optional *service metadata* must be explicitly specified in the
-config.xml file using the <owsMetadata> child element of <capabilities>
-(see the example listing below). All other sections of the
-*capabilities* document are populated automatically from the config.xml
+The *capabilities* document is generated dynamically from the
+contents of the ``config.xml`` file at request time. Only mandatory and optional
+*service metadata* has to be explicitly specified with the ``<capabilities>``
+element by the user in addition. All other sections of the
+*capabilities* document are populated automatically from the ``config.xml``
 file. For example, the set of feature types advertised in the
-<wfs:FeatureTypeList> section is derived from the content of the
-<featureTypes> element (cf. :numref:`wfs_feature_type_settings_chapter`).
+``<wfs:FeatureTypeList>`` section is derived from the content of the
+``<featureTypes>`` element (cf. :numref:`wfs_feature_type_settings_chapter`).
 
-Note that the metadata is copied to the *capabilities* document “as is”.
-Thus, the WFS implementation neither performs a consistency check nor
-validates the provided metadata.
+.. note::
+  Note that the metadata is copied to the *capabilities* document “as is”.
+  Thus, the WFS implementation neither performs a consistency check nor
+  validates the provided metadata.
 
 .. code-block:: xml
-   :caption: Service metadata settings in the WFS config.xml file.
    :name: wfs_metadata_settings_listing
 
    <capabilities>
@@ -248,30 +246,29 @@ validates the provided metadata.
      </owsMetadata>
    </capabilities>
 
-The operations settings are used to define the
-Service metadata comprises, for example, information about the *service
+Service metadata comprises information about the *service
 itself* that might be useful in machine-to-machine communication or for
 display to a human. Such information is announced through the
-<ows:ServiceIdentifikation> child element. In contrast, the child
-element <ows:ServiceProvider> contains information about the *service
-provider* such as contact information. Please refer to the OGC *Web
-Services Common Specification* (OGC 06-121r3:2009) to get an overview of
-the supported metadata fields that may be included in the *capabilities*
-document and therefore can be specified in <owsMetadata>.
+``<ows:ServiceIdentifikation>`` child element. Mandatory components are
+the service title (``<ows:Title>``), the service type (``<ows:ServiceType>``,
+which may only take the fixed value WFS), and the supported WFS protocol
+versions (``<ows:ServiceTypeVersion>``). The 3DCityDB WFS currently supports
+the protocol versions 2.0.2 and 2.0.0.
 
 .. note::
-   Service metadata is *optional* and therefore does not have to be
-   included in the config.xml file. Simply provide no content for the
-   <capabilities> element or omit it completely. In both cases, the
-   *capabilities* document will nevertheless be generated dynamically.
+  If, for example, the service should
+  only offer the protocol version 2.0.0 to clients, then only this
+  version may be listed as ``<ows:ServiceTypeVersion>``. This is recommended
+  if the software accessing the WFS does only support version 2.0.0
+  (e.g., FME 2018/2019). Invalid values of the ``<ows:ServiceIdentifikation>``
+  element will be overridden with reasonable values at startup of the
+  WFS service.
 
-.. note::
-   The 3DCityDB WFS implementation supports both versions 2.0.0 and
-   2.0.2 of the WFS specification. A list of <ows:ServiceTypeVersion>
-   elements is used to denote which versions are offered to clients. The
-   default config.xml only uses version 2.0.0 because many WFS clients
-   still have issues with correctly handling version 2.0.2.
-
+The child element ``<ows:ServiceProvider>`` contains information about the
+service provider such as contact information. Please refer to the OGC Web
+Services Common Specification (OGC 06-121r3:2009) to get an overview of
+the supported metadata fields that may be included in the capabilities
+document and therefore can be specified in ``<owsMetadata>``.
 
 .. _wfs_feature_type_settings_chapter:
 
@@ -281,15 +278,14 @@ Feature type settings
 With the *feature type* settings, you can control which feature types
 can be queried from the 3D City Database and are served through the WFS
 interface. Every feature type that shall be advertised to a client must
-be explicitly listed in the config.xml file.
+be explicitly listed in the ``config.xml`` file.
 
-An example of the corresponding <featureTypes> XML element is shown
+An example of the corresponding ``<featureTypes>`` XML element is shown
 below. In this example, CityGML *Building* and *Road* objects are
 available from the WFS service. In addition, a third feature type
 *IndustrialBuilding* coming from a CityGML ADE is advertised.
 
 .. code-block:: xml
-   :caption: Advertised feature types in the WFS config.xml file.
    :name: wfs_feature_types_config_listing
 
    <featureTypes>
@@ -318,11 +314,11 @@ available from the WFS service. In addition, a third feature type
      <version>1.0</version>
    </featureTypes>
 
-The <featureTypes> element contains one <featureType> node per feature
+The ``<featureTypes>`` element contains one ``<featureType>`` node per feature
 type to be advertised. The feature type is specified through the
 mandatory *name* property, which can only take values from a fixed list
 that enumerates the names of the CityGML top-level features (cf.
-config.xsd schema file). In addition, the geographic region covered by
+``config.xsd`` schema file). In addition, the geographic region covered by
 all instances of this feature type in the 3D City Database can
 optionally be announced as *bounding box* (lower left and upper right
 corner). The coordinate values must be given in WGS 84.
@@ -333,24 +329,23 @@ corner). The coordinate values must be given in WGS 84.
    document “as is”.
 
 Feature types coming from a CityGML ADE are advertised using the
-<adeFeatureType> element. In contrast to CityGML feature types, the
+``<adeFeatureType>`` element. In contrast to CityGML feature types, the
 *name* property must additionally contain the globally unique XML
 *namespace URI* of the CityGML ADE, and the type name is not restricted
 to a fixed enumeration. Note that a corresponding *ADE extension* must
 be installed for the WFS service, and that the ADE extension must add
 support for the advertised ADE feature type. Otherwise, the ADE feature
 type is ignored. If you do not have ADE extensions, then simply skip the
-<adeFeatureType> element.
+``<adeFeatureType>`` element.
 
 Besides the list of advertised feature types, also the CityGML *version*
 to be used for encoding features in a response to a client’s request has
-to be specified. Use the <version> element for this purpose, which takes
+to be specified. Use the ``<version>`` element for this purpose, which takes
 either 2.0 (for CityGML 2.0) or 1.0 (for CityGML 1.0) as value. If both
-versions shall be supported, simply use two <version> elements. However,
+versions shall be supported, simply use two ``<version>`` elements. However,
 in this case, you should define the *default version* to be used by the
 WFS by setting the isDefault attribute to true on one of the elements
 (otherwise, CityGML 2.0 will be the default).
-
 
 .. _wfs_operations_settings_chapter:
 
@@ -361,7 +356,6 @@ The *operations* settings are used to define the operation-specific
 behavior of the WFS.
 
 .. code-block:: xml
-   :caption: Operations settings in the WFS config.xml file.
    :name: wfs_operation_settings_config_listing
 
    <operations>
@@ -378,10 +372,11 @@ behavior of the WFS.
      </GetFeature>
    </operations>
 
-The <requestEncoding> element determines whether the WFS shall support
+**Request encoding.** The ``<requestEncoding>`` element determines
+whether the WFS shall support
 XML-encoded and/or KVP-encoded requests. The desired method is chosen
-using the <method> child element that accepts the values “KVP”, “XML”
-and “KVP+XML” (default: KVP+XML). When setting the <useXMLValidation>
+using the ``<method>`` child element that accepts the values KVP, XML
+and KVP+XML (default: KVP+XML). When setting the ``<useXMLValidation>``
 child element to true, all XML encoded operation requests sent to the
 WFS are first validated against the WFS and CityGML XML schemas.
 Requests that violate the schemas are not processed but instead a
@@ -390,8 +385,9 @@ validation might take some milliseconds, it is **highly recommended** to
 always set this option to true to avoid unexpected failures due to XML
 issues.
 
-With this version of the WFS interface, the only operation that can be
-further configured is the <GetFeature> operation. You can choose the
+**GetFeature operation.** With this version of the WFS interface, the
+only operation that can be
+further configured is the ``<GetFeature>`` operation. You can choose the
 available *output formats* that can be used in encoding the response to
 the client. The value “application/gml+xml; version=3.1” is the default
 and basically means that the response to a *GetFeature* operation will
@@ -399,15 +395,65 @@ be purely XML-encoded (using CityGML as encoding format with the version
 specified in the *feature type* settings, cf. :numref:`wfs_feature_type_settings_chapter`). In
 addition, the WFS can advertise the output format “application/json”. In
 this case, the response is delivered in `CityJSON format <http://www.cityjson.org>`_. CityJSON
-is a JSON-based encoding of a subset of the CityGML data model. The
-3DCityDB WFS supports version 0.6 of CityJSON. Note that the format is
-still under development.
+is a JSON-based encoding of a subset of the CityGML data model.
 
 .. note::
    The WFS can only advertise the different output formats in the
    *capabilities* document. It is up to the client though to choose one of
    these output formats when requesting feature data from the WFS.
 
+For CityGML, the following additional options are available.
+
+.. list-table::  Output format options for CityGML.
+   :name: wfs_database_citygml_format_options_table
+
+   * - | **Option**
+     - | **Description**
+   * - | ``prettyPrint``
+     - | Formats the XML response document using additional line breaks and indentations
+       | (boolean true / false, default: false).
+
+The CityJSON output format options are presented below.
+
+.. list-table::  Output format options for CityJSON.
+   :name: wfs_database_cityjson_format_options_table
+
+   * - | **Option**
+     - | **Description**
+   * - | ``prettyPrint``
+     - | Formats the JSON response document using additional line breaks and
+       | indentations (boolean true / false, default: false).
+   * - | ``significantDigits``
+     - | Maximum number of digits for vertices (integer, default: 3).
+       | Identical vertices are snapped.
+   * - | ``significantTextureDigits``
+     - | Maximum number of digits for texture coordinates (integer, default: 7).
+       | Identical texture coordinates are snapped.
+   * - | ``transformVertices``
+     - | Apply the CityJSON-specific compression (boolean true / false,
+       | default: false).
+   * - | ``generateCityGMLMetadata``
+     - | Adds an attribute called CityGMLMetadata that contains CityGML-specific
+       | metadata like the data types of generic attributes.
+       | (boolean true / false, default: true).
+
+The options are simply added beneath the corresponding ``<outputFormat>``
+element and are applied to all response documents of the WFS in
+that format. The following snippet illustrates the use of the CityJSON
+format options.
+
+.. code-block:: xml
+   :name: wfs_format_options_listing
+
+   <outputFormat name="application/json">
+     <options>
+       <option name="prettyPrint">true</option>
+       <option name="significantDigits">5</option>
+       <option name="significantTextureDigits">5</option>
+       <option name="transformVertices">true</option>
+       <option name="generateCityGMLMetadata">true</option>
+     </options>
+   </outputFormat>
 
 .. _postprocessing:
 
@@ -419,7 +465,6 @@ that are applied on the CityGML data of a WFS response before sending
 the response to the client.
 
 .. code-block:: xml
-   :caption: Postprocessing settings in the WFS config.xml file.
    :name: wfs_postprocessing_settings_config_listing
 
    <postProcessing>
@@ -429,45 +474,39 @@ the response to the client.
    </postProcessing>
 
 To enable transformations, set the *isEnabled* attribute on the
-<xslTransformation> child element to *true*. In addition, provide one or
-more <stylesheet> elements enumerating the XSLT stylesheets that shall
+``<xslTransformation>`` child element to *true*. In addition, provide one or
+more ``<stylesheet>`` elements enumerating the XSLT stylesheets that shall
 be applied in the transformation. The stylesheets are supposed to be
-stored in the xslt-stylesheets subfolder of the WEB-INF folder of your
-WFS application. Thus, any relative path provided as <stylesheet> will
-be resolved against WEB-INF/xslt-stylesheets/. You may alternatively
+stored in the ``xslt-stylesheets`` subfolder of the ``WEB-INF`` folder of your
+WFS application. Thus, any relative path provided as ``<stylesheet>`` will
+be resolved against ``WEB-INF/xslt-stylesheets/``. You may alternatively
 provide an absolute path pointing to another location in your local file
 system. However, note that the WFS web application must have appropriate
 access rights to this location.
 
 If you provide more than one XSLT stylesheet, then the stylesheets are
-executed in the given sequence of the <stylesheet> elements, with the
+executed in the given sequence of the ``<stylesheet>`` elements, with the
 output of a stylesheet being the input for its direct successor.
 
 .. note::
-   To be able to handle arbitrarily large exports, the WFS process
-   reads single top-level features from the database, which are then
-   written to the response stream. Each XSLT stylesheet will hence just
-   work on individual top-level features but not on the entire response.
-
-.. note::
-   The output of each XSLT stylesheet must again be a valid CityGML
-   structure.
-
-.. note::
-   Only stylesheets written in the XSLT language version 1.0 are
-   supported.
-
+   - To be able to handle arbitrarily large exports, the WFS process
+     reads single top-level features from the database, which are then
+     written to the response stream. Each XSLT stylesheet will hence just
+     work on individual top-level features but not on the entire response.
+   - The output of each XSLT stylesheet must again be a valid CityGML
+     structure.
+   - Only stylesheets written in the XSLT language version 1.0 are
+     supported.
 
 .. _server:
 
 Server settings
 ~~~~~~~~~~~~~~~
 
-*Server-specific* settings are available through the <server> element in
+*Server-specific* settings are available through the ``<server>`` element in
 the config.xml file.
 
 .. code-block:: xml
-   :caption: Server settings in the WFS config.xml file.
    :name: wfs_server_settings_config_listing
 
    <server>
@@ -477,24 +516,25 @@ the config.xml file.
      <enableCORS>true</enableCORS>
    </server>
 
-The external service URL of the WFS can be denoted using the
-<externalServiceURL> element. The URL should include the *protocol*
+**externalServiceURL**. The external service URL of the WFS can be denoted using the
+``<externalServiceURL>`` element. The URL should include the *protocol*
 (typically http or https), the *server name* and the full *context path*
 where the service is available for clients. Also announce the *port* on
 which the service listens if it is not equal to the default port
 associated with the given protocol.
 
 .. note::
-   The service URL is **not configured** through <externalServiceURL>.
+   The service URL is **not configured** through ``<externalServiceURL>``.
    It rather follows from your servlet container settings and network
    access settings (e.g., if your servlet container is behind a reverse
-   proxy). The <externalServiceURL> value is *only used in the
+   proxy). The ``<externalServiceURL>`` value is *only used in the
    capabilities* document and thus announced to a client. Most clients
    rely on the service URL in the *capabilities* document and will send
    requests to this URL. So, make sure that the WFS is available at the
-   <externalServiceURL> provided in the config.xml.
+   ``<externalServiceURL>`` provided in the config.xml.
 
-The <maxParallelRequests> value defines how many requests will be
+**maxParallelRequests**. The ``<maxParallelRequests>`` value defines
+how many requests will be
 handled by the WFS service at the same time (default: 30). If the number
 of parallel requests exceeds the given limit, then new requests are
 blocked until active requests have been fully processed and the total
@@ -503,24 +543,35 @@ number of active requests has fallen below the limit.
 .. note::
    Every WFS can only open a maximum number of physical connections
    to the database system running the 3D City Database instance. This upper
-   limit is set through the maxActive attribute on the <connection> element
+   limit is set through the *maxActive* attribute on the ``<connection>`` element
    (cf. :numref:`wfs_database_settings_chapter`).
    Since every request may use more than one
    connection, make sure that the total number of parallel requests is
    below the maximum number of physical connections.
 
-In case an incoming request is blocked because the maximum number of
-parallel requests has been reached, the <waitTimeout> option lets you
+**waitTimeout**. In case an incoming request is blocked because the maximum number of
+parallel requests has been reached, the ``<waitTimeout>`` option lets you
 specify the maximum time in seconds the WFS service waits for a free
 request slot before sending an error message to the client (default: 60
 seconds).
 
-The flag <enableCORS> (default: *true*) allows for enabling
+**enableCORS**. The flag ``<enableCORS>`` (default: *true*) allows for enabling
 *Cross-Origin Resource Sharing* (CORS). Usually, the
 *Same-Origin-Policy* (SOP) forbids a client to send Cross-Origin
 requests. If CORS is enabled, the WFS server sends the HTTP header
-Access-Control-Allow-Origin with the value \* in the response.
+``Access-Control-Allow-Origin`` with the value ``*`` in the response.
 
+.. note::
+  When enabling CORS support through the WFS service, global settings for the
+  HTTP header ``Access-Control-Allow-Origin`` on the level of the servlet container
+  are overridden. If such global CORS settings are configured for your servlet
+  container, it therefore might be better to deactivate the WFS-based CORS
+  support (set ``<enableCORS>`` to *false*).
+
+  Please refer to the documentation of your servlet container for information
+  about how to enable CORS support on the level of the servlet container. For
+  instance, check this `URL <https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#CORS_Filter>`_
+  for the Apache Tomcat 9.0 documentation.
 
 .. _cache:
 
@@ -534,44 +585,40 @@ must be available. This information is kept in main memory for
 performance. However, when memory limits are reached, the cache is
 written to *temporary tables* in the database.
 
-Per default, temporary tables are created in the *3D City Database
+By default, temporary tables are created in the *3D City Database
 instance* itself. The tables are populated during the export operation
 and are automatically dropped after the operation has finished.
-Alternatively, the *cache* settings available through the <uidCache>
+Alternatively, the *cache* settings available through the ``<uidCache>``
 element let a user choose to store the temporary information in the
 *local file system* instead.
 
 .. code-block:: xml
-   :caption: Cache settings in the WFS config.xml file.
    :name: wfs_cache_settings_config_listing
 
    <uidCache>
      <mode>local</mode>
    </uidCache>
 
-The <mode> property allows for switching between *database* cache
+The ``<mode>`` property allows for switching between *database* cache
 (default) and *local* cache. Some reasons for using a local, file-based
 storage are:
 
 -  The 3D City Database instance is kept clean from any additional
-   (temporary) table.
-
+   table holding temporary process information.
 -  If the Importer/Exporter runs on a different machine than the 3D City
    Database instance, sending temporary information over the network
    might be slow. In such cases, using a local storage might help to
-   increase performance.
-
+   increase performance, especially if fast disk drives are used.
 
 .. _constraints:
 
 Constraints settings
 ~~~~~~~~~~~~~~~~~~~~
 
-The <constraints> element of the config.xml allows for defining
+The ``<constraints>`` element of the ``config.xml`` allows for defining
 constraints on dedicated WFS operations.
 
 .. code-block:: xml
-   :caption: Security settings in the WFS config.xml file.
    :name: wfs_constraints_settings_config_listing
 
    <constraints>
@@ -583,44 +630,44 @@ constraints on dedicated WFS operations.
      </lodFilter>
    </constraints>
 
-The <countDefault> constraint restricts the number of city objects to be
+**countDefault**. The ``<countDefault>`` constraint restricts the
+number of city objects to be
 returned by the WFS to the user-defined value, even if the request is
 satisfied by more city objects in the 3D City Database. The default
 behavior is to return *all* city objects matching a request. If a
 maximum count limit is defined, then this limit is automatically
-advertised in the server’s capabilities document using the CountDefault
+advertised in the server’s capabilities document using the ``CountDefault``
 constraint.
 
-When setting <stripGeometry> to *true* (default: *false*), the WFS will
+**stripGeometry**. When setting ``<stripGeometry>`` to *true*
+(default: *false*), the WFS will
 remove all spatial properties from a city object before returning the
 city object to the client. Thus, the client will not receive any
 geometry values.
 
-The <lodFilter> constraint defines a server-side filter on the LoD
+**lodFilter**. The ``<lodFilter>`` constraint defines a server-side
+filter on the LoD
 representations of the city objects. When using this constraint, city
 objects in a response document will only contain those LoD levels that
-are enumerated using one or more <lod> child elements of <lodFilter>.
+are enumerated using one or more ``<lod>`` child elements of ``<lodFilter>``.
 Further LoD representations of a city object, if any, are automatically
 removed. If a city object satisfies a query but does not have a geometry
 representation in at least one of the specified LoD levels, it will be
 skipped from the response document and thus not returned to the client.
 
 The default behavior of the LoD filter can be adapted using attributes
-on the <lodFilter> element. The *mode* attribute defines whether a city
-object must have a spatial representation in all (“*and*\ ”) or just one
-(“*or*\ ”) of the provided LoD levels. If setting *searchMode* to
-“\ *depth*\ ”, then you can use the additional *searchDepth* attribute
+on the ``<lodFilter>`` element. The *mode* attribute defines whether a city
+object must have a spatial representation in all (*and*) or just one
+(*or*) of the provided LoD levels. If setting *searchMode* to
+*depth*, then you can use the additional *searchDepth* attribute
 to specify how many levels of nested city objects shall be considered
 when searching for matching LoD representations. If *searchMode* is set
-to “\ *all*\ ”, then all nested city objects will be considered.
+to *all*, then all nested city objects will be considered
+(default: *searchMode = depth, searchDepth = 1*).
 
 .. note::
-   The constraint settings in config.xml do not replace a real
-   security layer on user, database or network level. So, it is your
-   responsibility to take any reasonable physical, technical and
-   administrative measures to secure the WFS service and the access to
-   the 3D City Database.
-
+   The more levels you enter for the *searchDepth* attribute, the more
+   complex the resulting SQL queries for the 3DCityDB will get.
 
 .. _logging:
 
@@ -631,13 +678,13 @@ The WFS service logs messages and errors that occur during operations to
 a dedicated log file. Entries in the log file are associated with a
 timestamp, the severity of the event and the IP address of the client
 (if available). Per default, the log is stored in the file
-WEB-INF/wfs.log within the *application folder* of the WFS web
+``WEB-INF/wfs.log`` within the *application folder* of the WFS web
 application.
 
-The <logging> element in the config.xml file is used to adapt these
-default settings. The attribute *logLevel* on the <file> child element
+The ``<logging>`` element in the ``config.xml`` file is used to adapt these
+default settings. The attribute *logLevel* on the ``<file>`` child element
 lets you change the severity level for log messages to *debug*, *info*,
-*warn*, or *error* (default: info). Additionally, you can provide an
+*warn*, or *error* (default: *info*). Additionally, you can provide an
 alternative absolute path and filename where to store the log messages.
 
 .. note::
@@ -647,12 +694,11 @@ alternative absolute path and filename where to store the log messages.
    servlet container for details.
 
 If you want log messages to be additionally printed to the console, then
-simply include the <console> child element as well. The <console>
+simply include the ``<console>`` child element as well. The ``<console>``
 element also provides a *logLevel* attribute to define the severity
 level.
 
 .. code-block:: xml
-   :caption: Logging settings in the WFS config.xml file.
    :name: wfs_logging_settings_config_listing
 
    <logging>
@@ -662,9 +708,8 @@ level.
      </file>
    </logging>
 
-.. note::
+.. warning::
    Log messages are continuously written to the same log file. The
    WFS application does not include any mechanism to truncate or rotate the
    log file in case the file size grows over a certain limit. So make sure
    you configure log rotation on your server.
-
