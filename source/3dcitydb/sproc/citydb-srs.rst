@@ -3,9 +3,9 @@
 CITYDB_SRS
 ----------
 
-The package CITYDB_SRS provides functions and procedures dealing with
+The package ``CITYDB_SRS`` provides functions and procedures dealing with
 the coordinate reference system used for an 3D City Database instance.
-The most essential procedure is change_schema_srid to change the
+The most essential procedure is ``change_schema_srid`` to change the
 reference system for all spatial columns within a database schema. If a
 coordinate transformation is needed because an alternative reference
 system shall be used, the value ‘1’ should be passed to the procedure as
@@ -20,10 +20,10 @@ spatial index for the affected column. Therefore, this operation can
 take a lot of time depending on the size of the table. Note that in
 Oracle, the reference system cannot be changed for another user schema.
 So, there is no *schema_name* parameter. The is also an additional
-function called get_dim(column_name, table_name, schema_name) to fetch
+function called ``get_dim(column_name, table_name, schema_name)`` to fetch
 the dimension of the spatial column which is either 2 or 3.
 
-.. list-table:: API of CITYDB_SRS package for PostgreSQL
+.. list-table:: API of the CITYDB_SRS package for PostgreSQL
    :name: citydb_srs_api_postgresql_table
 
    * - | **Function**

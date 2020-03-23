@@ -1,7 +1,7 @@
 CITYDB_OBJCLASS
 ---------------
 
-The CITYDB_OBJCLASS package only provides two convenience functions to
+The ``CITYDB_OBJCLASS`` package only provides two convenience functions to
 cast between table names and ID values of the OBJECTCLASS table. In
 contrast to the previously introduced packages these functions cannot be
 applied against different database schemas as this would require dynamic

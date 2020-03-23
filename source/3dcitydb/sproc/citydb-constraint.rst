@@ -1,7 +1,7 @@
 CITYDB_CONSTRAINT
 -----------------
 
-The CITYDB_CONSTRAINT packages includes stored procedures to define
+The ``CITYDB_CONSTRAINT`` packages includes stored procedures to define
 constraints or change their behavior. A user can temporarily disable
 certain foreign key relationships between tables, e.g. the numerous
 references to the SURFACE_GEOMETRY table. The constraints are not
@@ -9,9 +9,9 @@ dropped. While it comes at the risk of data inconsistency it can improve
 the performance for bulk write operations such as huge imports or the
 deletion of thousands of city objects.
 
-It is also possible to change the delete rule of foreign keys from ON
-DELETE NO ACTION (use 'a' as input) to ON DELETE SET NULL ('n') or ON
-DELETE CASCADE ('c'). Switching the delete rule will remove and recreate
+It is also possible to change the delete rule of foreign keys from ``ON
+DELETE NO ACTION`` (use 'a' as input) to ``ON DELETE SET NULL`` ('n') or ``ON
+DELETE CASCADE`` ('c'). Switching the delete rule will remove and recreate
 the foreign key constraint. The delete rule does affect the layout of
 automatically generated delete scripts as no explicit code is necessary
 in case of cascading deletes. However, we do not recommend to change the
@@ -21,7 +21,7 @@ is an additional procedure to define spatial metadata for single
 geometry column. All functions are schema-aware and their return type is
 void.
 
-.. list-table::  API of CITYDB_CONSTRAINT package for Oracle
+.. list-table::  API of the CITYDB_CONSTRAINT package for Oracle
    :name: citydb_constraint_api_oracle_table
 
    * - | **Function**
@@ -62,9 +62,9 @@ void.
 There is only one significant difference in the API in PostgreSQL.
 Instead of specifying the name, table and schema of a foreign key, the
 OID of the corresponding integrity trigger is enough. This is because
-there is no ALTER TABLE command in PostgreSQL to disable foreign keys.
+there is no ``ALTER TABLE`` command in PostgreSQL to disable foreign keys.
 
-.. list-table::   Notable difference in the API of CITYDB_CONSTRAINT package for PostgreSQL
+.. list-table::   Notable difference in the API of the CITYDB_CONSTRAINT package for PostgreSQL
    :name: citydb_constraint_api_postgresql_table
 
    * - | **Function**

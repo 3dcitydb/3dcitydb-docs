@@ -6,8 +6,8 @@ using the spatial datatypes provided by a spatially-enhanced relational
 database management system (SRDBMS). Above, external software
 applications and database stored procedures are provided working on this
 database schema. Since only Oracle with the Spatial or Locator licensing
-option (**10G R2 or higher**) and PostgreSQL (**9.3 or higher**) with
-PostGIS extension (**2.0 or higher**) offer comprehensive support for
+option (**10G R2 or higher**) and PostgreSQL (**9.6 or higher**) with
+PostGIS extension (**2.3 or higher**) offer comprehensive support for
 3D spatial data, the 3D City Database schema is being provided for these
 two systems only.
 

@@ -14,7 +14,7 @@ identical name.
 
 The types of the attributes are customized to corresponding database
 (Oracle/PostgreSQL) data types (see :numref:`data_type_mapping_table`). Some attributes of the
-data type date were mapped to TIMESTAMP WITH TIME ZONE to allow a more
+data type date were mapped to ``TIMESTAMP WITH TIME ZONE`` to allow a more
 accurate storage of time values.
 
 .. list-table::  *Data type mapping (excerpt)*

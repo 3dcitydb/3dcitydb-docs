@@ -1,10 +1,10 @@
 CITYDB_STAT
 -----------
 
-The package CITYDB_STAT currently only serves a single purpose: To count
+The package ``CITYDB_STAT`` currently only serves a single purpose: To count
 all entries in all tables and generate a report as an array of string
-values (STRARRAY data type in Oracle, text[] in PostgreSQL). The
-tabulator escape sequence \\t is used to generate a nice looking report
+values (``STRARRAY`` data type in Oracle, ``text[]`` in PostgreSQL). The
+tabulator escape sequence ``\t`` is used to generate a nice looking report
 for the Importer/Exporter.
 
 .. list-table:: API of CITYDB_STAT package for Oracle

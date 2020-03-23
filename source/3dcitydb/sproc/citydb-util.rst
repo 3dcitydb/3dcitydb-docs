@@ -1,19 +1,19 @@
 CITYDB_UTIL
 -----------
 
-The CITYDB_UTIL package can be seen as a container for various single
+The ``CITYDB_UTIL`` package can be seen as a container for various single
 utility functions. If further releases will bring more stored procedures
 with similar functionality some of them will probably be outsourced in
-their own package (like CITYDB_CONSTRAINT in v4.0). Nearly all functions
+their own package (like ``CITYDB_CONSTRAINT`` in v4.0). Nearly all functions
 take the schema name as the last input argument (“schema-aware”).
 Therefore, they can be executed against another user schema in Oracle or
 database schema in PostgreSQL. Note, for the function get_seq_values the
 schema name must be part of the first argument – the sequence name, e.g.
-'my_schema.cityobject_seq'.
+``my_schema.cityobject_seq``.
 
-Here is overview on API of the CITYDB_UTIL package in Oracle:
+Here is overview on API of the ``CITYDB_UTIL`` package in Oracle:
 
-.. list-table::  API of CITYDB_UTIL package for Oracle
+.. list-table::  API of the CITYDB_UTIL package for Oracle
    :name: citydb_util_api_oracle_table
 
    * - | **Function**
@@ -89,11 +89,11 @@ Here is overview on API of the CITYDB_UTIL package in Oracle:
      - | Returns either ‘ON’ or ‘OFF’
 
 The PostgreSQL API includes less functions, as some functionality is
-provided by the PostGIS extension, such as ST_AsGeoJSON, ST_Affine and
-ST_Force2D. Returning multiple variables is always performed with OUT
+provided by the PostGIS extension, such as ``ST_AsGeoJSON``, ``ST_Affine`` and
+``ST_Force2D``. Returning multiple variables is always performed with OUT
 variables.
 
-.. list-table::  API of CITYDB_UTIL package for PostgreSQL
+.. list-table::  API of the CITYDB_UTIL package for PostgreSQL
    :name: citydb_util_api_postgresql_table
 
    * - | **Function**

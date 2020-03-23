@@ -105,7 +105,7 @@ Schema support in stored procedures
 Since v3.0.0, most stored procedures of the 3D City Database offer an
 input argument to specify the schema name against which the operation
 will be executed. The default for Oracle is the schema of the currently
-connected user, for PostgreSQL it is \`citydb`. For v4.0 this parameter
+connected user, for PostgreSQL it is \`citydb`. Since v4.0.0, this parameter
 has been removed for those type of stored procedures that operate on the
 logical level of the database, because managing different ADEs in
 separate schemas can result in a different table structure. E.g. one

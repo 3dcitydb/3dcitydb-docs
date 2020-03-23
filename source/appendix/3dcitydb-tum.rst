@@ -1,3 +1,5 @@
+.. _appendix_3dcitydb_tum_chapter:
+
 3DCityDB @ TU München
 =====================
 

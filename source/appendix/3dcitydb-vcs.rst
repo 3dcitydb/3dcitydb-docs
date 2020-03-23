@@ -1,3 +1,5 @@
+.. _appendix_3dcitydb_vcs_chapter:
+
 3DCityDB @ virtualcitySYSTEMS
 =============================
 

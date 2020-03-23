@@ -89,7 +89,7 @@ the 3DCityDB-Web-Map-Client.
 Version 4 - since 2015
 -----------------------
 
-The work on version 4.0.0 – especially the support of CityGML ADEs –
+The work on version 4 – especially the support of CityGML ADEs –
 began in 2015 in the course of the PhD work of Zhihang Yao. One part of
 his PhD thesis is focusing on the model transformation of CityGML ADEs
 onto spatial relational databases using pattern matching and graph
@@ -109,7 +109,7 @@ Acknowledgements
 
 The 3D City Database project team is grateful and appreciative for the
 financial assistance and support we received from partners that
-contributed to the development of version 4.0 and the work on the ADE
+contributed to the development of version 4 and the work on the ADE
 support.
 
 **Government Technology Agency of Singapore**
@@ -152,114 +152,3 @@ were done in the context of the projects Energy Atlas Berlin, Modeling
 City Systems (MCS), Smart Sustainable Districts (SSD), and Smart
 District Data Infrastructure (SDDI), all financially supported by
 Climate-KIC.
-
-
-List of changes between software versions
------------------------------------------
-
-Notable changes between 4.0 and 3.3
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-New features and functionalities:
-
--  Importer/Exporter 4.2: Reworked Plugin API to support non-GUI
-   plugins.
-
--  Importer/Exporter 4.2: Property projections can now also be defined
-   for abstract feature types.
-
--  Importer/Exporter 4.1: Added support for using SQL and XML queries
-   for CityGML exports to be able express more flexible and complex
-   filter conditions
-
--  Importer/Exporter 4.1: Added support for importing CityGML data from
-   (G)ZIP files and exporting CityGML content to (G)ZIP files
-
--  Importer/Exporter 4.1: OSM Nominatim is now used as default geocoder
-   for the map window. Google Map API services can still be used for the
-   map window and for KML/COLLADA exports but require an API key.
-
--  Management and storage of arbitrary CityGML ADEs with the 3DCityDB,
-   the Importer/Exporter ADE Manager Plugin and the 3DCityDB WFS
-
--  New 3DCityDB Docker images to support continuous integration
-   workflows
-
--  New metadata tables ADE, SCHEMA, SCHEMA_REFERENCING and
-   SCHEMA_TO_OBJECTCLASS for registering CityGML ADEs
-
--  New prefilled metadata table AGGREGATION_INFO that supports the
-   automatic generation of DELETE and ENVELOPE scripts
-
--  New function to create entries in USER_SDO_GEOM_METADATA view
-   (Oracle)
-
--  Function objectclass_id_to_table_name now has a counterpart:
-   table_name_to_objectclass_ids returning an array of objectclass ids
-   (CITYDB_OBJCLASS package in Oracle, part of a data schema in
-   PostgreSQL)
-
--  New database procedures to enable/disable foreign key constraints to
-   speed up bulk write operations (CITYDB_CONSTRAINT package in Oracle,
-   part of the citydb_pkg schema in PostgreSQL)
-
--  New SQL script to create additional data schemas in one database
-   (PostgreSQL)
-
--  New shell and SQL scripts to grant read-only or full read-write
-   access to another schema.
-
--  Importer/Exporter can connect to different database schemas with the
-   same user
-
--  Enabling XSL transformations on CityGML imports and exports as well
-   as WFS responses
-
--  New database operation panel to change the spatial reference system
-   used in the database (incl. optional coordinate transformation)
-
--  New LoD filter for CityGML exports
-
--  3DCityDB WFS allows for exporting into the CityJSON format
-
-Improved and updated features and functionalities:
-
--  Moved interactive prompts from SQL to batch/shell scripts for better
-   setup automation
-
--  Added OBJECTCLASS_ID column to all feature tables to distinguish
-   objects from CityGML ADEs. Also extended OBJECTCLASS table by more
-   feature-specific details and inserted new entries for feature
-   properties such as geometry, generic attributes etc.
-
--  Improved performance on stored procedures by reducing amount of
-   dynamic SQL. Therefore, schema_name parameter has been removed from
-   DELETE and ENVELOPE scripts. Under PostgreSQL these scripts (as well
-   as the INDEX_TABLE) are now part of a data schema such as citydb.
-
--  DELETE and ENVELOPE are now generated automatically in order to deal
-   with schema changes introduced by ADEs. Therefore, the function
-   prefix has been shortened to del\_ and env\_ not hit the character
-   limit under Oracle,
-
--  The CITYDB_DELETE_BY_LINEAGE package has been removed. The only
-   function left is del_cityobjects_by_lineage which is now part of the
-   DELETE package
-
--  Database migration scripts for version 2.1.0 or version 3.3.0 to
-   version 4.0.0
-
--  Switching from Ant to Gradle as the new build system for the
-   Importer/Exporter tools
-
--  Allow import of CityGML files with flat hierarchies between city
-   objects
-
--  Added support for importing gml:MultiGeometry objects containing only
-   polygons
-
--  Added support for exporting to glTF v2.0
-
--  3DCityDB WFS now supports CORS and provides a KVP over HTTP GET
-   endpoint for every operation simplifying the integration with GIS and
-   ETL software such as FME

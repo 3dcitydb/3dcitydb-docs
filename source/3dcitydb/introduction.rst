@@ -105,7 +105,7 @@ Application Domain Extensions (ADEs). ADEs extend the CityGML datamodel
 by domain specific object types, attributes, and relations.
 
 This documentation describes the design and the components of the 3D City
-Database as well as their usage for the new major release 4.0.0 which
+Database as well as their usage for the major release 4 which
 has been developed and implemented by the three partners in development,
 namely the `Chair of Geoinformatics <https://www.gis.bgu.tum.de/en/home/>`_
 at Technische Universität München, `virtualcitySYSTEMS <https://www.virtualcitysystems.de/en/>`_,
