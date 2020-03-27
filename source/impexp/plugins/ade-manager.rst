@@ -276,6 +276,67 @@ which can be automatically translated and encoded into the
           </annotation>
         </element>
 
+.. list-table:: Tagging the LOD level of geometry properties
+
+   * - | taggedValue
+     - | :code:`lod` (Integer value between 0 and 4)
+   * - | Description
+     - | An integer value to denote the LoD representation of the respective
+       | geometry property. If this taggedValue is not provided, the ADE manager
+       | will check, if the property name is prefixed with 'lod' (not case-sensitive)
+       | and the forth character is an integer between 0 and 4. If yes, then this
+       | integer value will be adopted.
+   * - | Example
+       | Of using
+       | <xs:annotation>
+       | in XML-Schema
+     - .. code-block:: XML
+
+        <complexType abstract="true" name="_AbstractBuildingUnitType">
+          <complexContent>
+            <extension base="core:AbstractCityObjectType">
+              <sequence>
+                <element name="footprint" type="gml:MultiSurfacePropertyType">
+                  <annotation>
+                    <appinfo>
+                      <taggedValue tag="lod">0</taggedValue>
+                    </appinfo>
+                  </annotation>
+                </element>
+              </sequence>
+            </extension>
+          </complexContent>
+        </complexType>
+
+.. list-table:: Tagging ignored property elements
+
+   * - | taggedValue
+     - | :code:`ignore` (true \| false)
+   * - | Description
+     - | This taggedValue allows for labeling selected properties, which
+       | shall not be taken into account while deriving the ADE database
+       | schema and schema-mapping file.
+   * - | Example
+       | of using
+       | <xs:annotation>
+       | in XML-Schema
+     - .. code-block:: XML
+
+        <complexType abstract="true" name="_AbstractBuildingUnitType">
+          <complexContent>
+            <extension base="core:AbstractCityObjectType">
+              <sequence>
+                <element name="legacyAttr" type="string">
+                  <annotation>
+                    <appinfo>
+                      <taggedValue tag="ignore">true</taggedValue>
+                    </appinfo>
+                  </annotation>
+                </element>
+              </sequence>
+            </extension>
+          </complexContent>
+        </complexType>
 
 The realization of the model transformation process is mainly based on
 the concept of “\ *Graph Transformation*\ ” and implemented using the
