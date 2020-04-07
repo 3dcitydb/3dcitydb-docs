@@ -270,7 +270,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, '3dcitydb-docs.tex', '3D City Database for CityGML',
-     'Documentation', 'manual'),
+     'Editors:\\and Zhihang Yao,\\and Felix Kunde,\\and Son H. Nguyen,\\and Claus Nagel,\\and Thomas H. Kolbe', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
