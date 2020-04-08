@@ -122,7 +122,7 @@ in CityGML. For every attribute including measure information like
 column is provided to specify the unit of measurement.
 
 Geometry is represented by several foreign keys LOD0_FOOTPRINT_ID,
-LOD0_ROOFPRINT_ID, LODx_MULTI_SURFACE_ID (1≤ x ≤ 4), and LODx_SOLID_ID
+LOD0_ROOFPRINT_ID, LODx_MULTI_SURFACE_ID (1 ≤ x ≤ 4), and LODx_SOLID_ID
 (1 ≤ x ≤ 4) which refer to entries in the SURFACE_GEOMETRY table and
 represent each LoD’s surface geometry.
 

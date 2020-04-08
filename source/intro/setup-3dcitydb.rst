@@ -18,61 +18,38 @@ integration workflows these inputs have been moved to batch (Windows)
 and shell scripts (UNIX/Linux/macOS). The following table provides an
 overview of the different shell scripts:
 
-.. list-table::  Overview of all shell scripts within the 3dcitydb/oracle or 3dcitydb/postgresql folder
+.. table:: Overview of all shell scripts within the 3dcitydb/oracle or 3dcitydb/postgresql folder
+   :widths: 40 10 10 40
 
-   * - | **File**
-     - | **Oracle**
-     - | **PgSQL**
-     - | **Explanation**
-   * - | CONNECTION_DETAILS
-     - | **x**
-     - | **x**
-     - | Sets database credentials
-   * - | CREATE_DB
-     - | **x**
-     - | **x**
-     - | Runs all scripts for creating the
-       | relational schema of a 3DCityDB incl.
-       | database types and functions
-   * - | CREATE_SCHEMA
-     - |
-     - | **x**
-     - | Creates an additional 3DCityDB
-       | instance in a separate schema within the
-       | same database
-   * - | DROP_DB
-     - | **x**
-     - | **x**
-     - | Deletes all elements of the 3DCityDB
-   * - | DROP_SCHEMA
-     - |
-     - | **x**
-     - | Removes a given database schema that
-       | contains a 3DCityDB instance
-   * - | MIGRATION/GRANT_ACCESS_V2
-     - | **x**
-     - | **x**
-     - | Grants access on a 3DCityDB v2 to a
-       | v4 user (only relevant for migration)
-   * - | MIGRATION/MIGRATE_DB
-     - | **x**
-     - | **x**
-     - | Migrate an instance of the 3DCityDB
-       | from v2 or v3 to v4
-   * - | MIGRATION/UPGRADE_DB
-     - | **x**
-     - | **x**
-     - | Upgrade an instance of the 3DCityDB
-       | to the latest v4
-   * - | GRANT_ACCESS
-     - | **x**
-     - | **x**
-     - | Grants read-only of read-write access
-       | on the 3DCityDB for a given user
-   * - | REVOKE_ACCESS
-     - | **x**
-     - | **x**
-     - | Revokes access rights for a given user
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | **File**                  | **Oracle** | **PgSQL** | **Explanation**                                         |
+   +===========================+============+===========+=========================================================+
+   | CONNECTION_DETAILS        | **x**      | **x**     | Sets database credentials                               |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | CREATE_DB                 | **x**      | **x**     | Runs all scripts for creating the relational            |
+   |                           |            |           | schema of a 3DCityDB incl. database types and functions |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | CREATE_SCHEMA             |            | **x**     | Creates an additional 3DCityDB instance in a separate   | 
+   |                           |            |           | schema within the same database                         |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | DROP_DB                   | **x**      | **x**     | Deletes all elements of the 3DCityDB                    |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | DROP_SCHEMA               |            | **x**     | Removes a given database schema that contains a         |
+   |                           |            |           | 3DCityDB instance                                       |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | MIGRATION or              | **x**      | **x**     | Grants access on a 3DCityDB v2 to a v4 user             |
+   | GRANT_ACCESS_V2           |            |           | (only relevant for migration)                           |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | MIGRATION or              | **x**      | **x**     | Migrate an instance of the 3DCityDB from v2 or v3 to v4 |
+   | MIGRATE_DB                |            |           |                                                         |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | MIGRATION or UPGRADE_DB   | **x**      | **x**     | Upgrade an instance of the 3DCityDB to the latest v4    |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | GRANT_ACCESS              | **x**      | **x**     | Grants read-only of read-write access on the            |
+   |                           |            |           | 3DCityDB for a given user                               |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
+   | REVOKE_ACCESS             | **x**      | **x**     | Revokes access rights for a given user                  |
+   +---------------------------+------------+-----------+---------------------------------------------------------+
 
 The batch/shell scripts can be executed on double click. On some
 UNIX/Linux distributions though, you will have to run the .sh scripts
