@@ -12,5 +12,5 @@ see [`16e9b73`](https://github.com/3dcitydb/3dcitydb-docs/commit/16e9b735dc7f707
 see [`23414ad`](https://github.com/3dcitydb/3dcitydb-docs/commit/23414adfba8dd35cff3ec6d285926dc72c58fadd).
 * Unicodes such as `≤` are now displayed correctly. 
 The LaTeX engine was changed to xelatex.
-Build with command `sphinx-build -b latexpdf source build/latex`, 
+Build with command `sphinx-build -M latexpdf source build/latex`, 
 see [`f46330b`](https://github.com/3dcitydb/3dcitydb-docs/commit/f46330bf953ec63fb664dc03cf6f369d1a8a0792).  
