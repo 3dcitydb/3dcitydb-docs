@@ -253,6 +253,9 @@ htmlhelp_basename = '3dcitydb-docsdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
+# Use this to include unicodes in the PDF file
+latex_engine = 'xelatex'
+
 latex_elements = {
      # The paper size ('letterpaper' or 'a4paper').
      #
