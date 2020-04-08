@@ -161,11 +161,6 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # so a file named "default.css" will overwrite the builtin "default.css".
 # https://github.com/readthedocs/sphinx_rtd_theme/issues/117#issuecomment-41506687
 html_static_path = ['_static']
-html_context = {
-    'css_files': [
-        '_static/theme_overrides.css',  # overrides for wide tables in RTD theme
-        ],
-    }
 
 html_css_files = ['custom.css']
 
