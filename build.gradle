@@ -1,0 +1,12 @@
+plugins {
+    id "kr.motd.sphinx" version "2.9.0"
+}
+
+apply plugin: 'base'
+
+sphinx {
+    sourceDirectory = "${projectDir}/source"
+    outputDirectory = project.buildDir
+}
+
+tasks.build.finalizedBy(site)
