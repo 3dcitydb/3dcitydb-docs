@@ -78,11 +78,9 @@ The installation directory contains the following subfolders:
     +---------------------+---------------+-------------------------------------------+
     | **Folder**          | **Optional**  | **Explanation**                           |
     +=====================+===============+===========================================+
-    +                     +               +                                           +
     | 3dcitydb            | **x**         | Contains all shell and SQL scripts        |
     |                     |               | and stored procedures for operating       |
     |                     |               | the 3DCityDB                              |
-    +                     +               +                                           +
     +---------------------+---------------+-------------------------------------------+
     | 3d-web-map-client   | **x**         | Contains a ZIP archive containing         | 
     |                     |               | all files required to install the         |
