@@ -3,7 +3,8 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = python3 -msphinx
+# SPHINXBUILD   = sphinx-build    # original setting, above is for local build with python3
 PAPER         =
 BUILDDIR      = build
 
