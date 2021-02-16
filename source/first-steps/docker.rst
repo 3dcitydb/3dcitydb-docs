@@ -93,6 +93,18 @@ available :ref:`here <impexp_cli_chapter>`.
      -v /local/share/dir:/share \
    3dcitydb/impexp COMMAND OPTS ARGS
 
+Use the ``help`` command to see the CLI documentation and list all available commands:
+
+.. code-block:: bash
+
+   docker run -i -t --name impexp --rm 3dcitydb/impexp:edge-alpine help
+
+Run ``help COMMAND`` to see the CLI documentation for a specific command:
+
+.. code-block:: bash
+
+   docker run -i -t --name impexp --rm 3dcitydb/impexp:edge-alpine help export
+
 For instance, a simple CityGML export looks like this:
 
 .. code-block:: bash
