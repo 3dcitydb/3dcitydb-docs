@@ -4,6 +4,44 @@
 Docker
 ###############################################################################
 
+The 3DCityDB Docker images are based on the official
+`PostgresSQL <https://github.com/docker-library/postgres>`_ and
+`PostGIS <https://github.com/postgis/docker-postgis>`_ Docker images.
+We tried so stick as close as possible to the behavior of the base images and
+add
+
+
+*******************************************************************************
+Image variants and versions
+*******************************************************************************
+
+.. csv-table::
+    :file: image-table.csv
+    :delim: ;
+
+
+.. image:: https://img.shields.io/github/workflow/status/3dcitydb/
+  importer-exporter/docker-build-edge?label=debian&
+  style=flat-square&logo=Docker&logoColor=white
+
+.. image:: https://img.shields.io/docker/image-size/3dcitydb/impexp/
+  edge?label=debian&logo=Docker&logoColor=white&style=flat-square
+
+.. image:: https://img.shields.io/github/workflow/status/3dcitydb/
+  importer-exporter/docker-build-edge-alpine?label=alpine&
+  style=flat-square&logo=Docker&logoColor=white
+
+.. image:: https://img.shields.io/docker/image-size/3dcitydb/impexp/
+  edge-alpine?label=alpine&logo=Docker&logoColor=white&style=flat-square
+
+This repo contains Dockerfiles to create a 3D City Database (3DCityDB) running on a
+PostgreSQL DBMS with PostGIS. To get the 3DCityDB PostGIS Docker images visit the
+tumgis/3dcitydb-postgis DockerHub page.
+
+To get started immediately go to the quick start section.
+
+
+
 .. warning:: THIS PAGE IS WORK IN PROGRESS
 
 
