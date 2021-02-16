@@ -38,80 +38,106 @@ images to get you running in a few seconds.
 For a more comprehensive documentation please visit the individual site of each
 image.
 
+.. note:: Replace the line continuation character  ``\`` with ``^`` for Windows
+   systems.
+
 3DCityDB Docker
 ===============================================================================
 
 To run a PostgreSQL/PostGIS 3DCityDB container the only required settings are
-a database password (``POSTGRES_PASSWORD``) the EPSG code of the coordinate
-reference system (``SRID``) of the 3DCityDB instance. Use the
-`docker run -p <https://docs.docker.com/engine/reference/run/>`_ switch to
-define which port to expose to the host system for connections to the DB.
+a database password (``POSTGRES_PASSWORD``) and the EPSG code of the coordinate
+reference system (``SRID``) of the 3DCityDB instance. Use the ``docker run -p``
+switch to define a port to expose to the host system for database connections.
 
 The detailed documentation for the 3DCityDB Docker image is available
 :doc:`here <../3dcitydb/docker>`.
 
 .. code-block:: bash
-   :caption: 3DCityDB Docker Linux BASH quick start
 
    docker run -d -p 5432:5432 --name cdb \
      -e POSTGRES_PASSWORD=changeMe! \
      -e SRID=25832 \
    3dcitydb/3dcitydb-pg
 
-.. code-block:: bash
-   :caption: 3DCityDB Docker Windows CMD quick start
+A container started with the command above will host a 3DCityDB instance
+configured like this:
 
-   docker run -d -p 5432:5432 --name cdb ^
-     -e POSTGRES_PASSWORD=changeMe! ^
-     -e SRID=25832 ^
-   3dcitydb/3dcitydb-pg
+.. code-block:: text
+
+   CONTAINER NAME    cdb
+   DB HOST           localhost or 127.0.0.1
+   DB PORT           5432
+   DB NAME           postgres
+   DB USER           postgres
+   DB PASSWD         changeMe!
+   DB SRID           25832
+   DB GMLSRSNAME     urn:ogc:def:crs:EPSG::25832
 
 Importer/Exporter Docker
 ===============================================================================
 
-The detailed documentation for the 3DCityDB Importer/Exporter image is
-available here.
+The 3DCityDB Importer/Exporter Docker image exposes the Command Line Interface
+(CLI) of the 3DCityDB Importer/Exporter. For all export or import operations
+a shared folder (``docker run -v``) to exchange data with the host system is
+required. It is recommended to run the container as the currently logged in
+user and group (``docker run -u``) to ensure files are readable/writeable.
+
+The detailed documentation for the 3DCityDB Importer/Exporter Docker image is
+available :doc:`here <../impexp/docker>`, the documentation of the CLI is
+available :ref:`here <impexp_cli_chapter>`.
 
 .. code-block:: bash
-   :caption: Importer/Exporter Docker Linux quick start
 
    docker run -i -t --name impexp --rm \
-    -u $(id -u):$(id -g) \
-    -v /local/share/dir:/share \
-   3dcitydb/importer-exporter COMMAND OPTS ARGS
+     -u $(id -u):$(id -g) \
+     -v /local/share/dir:/share \
+   3dcitydb/impexp COMMAND OPTS ARGS
+
+For instance, a simple CityGML export looks like this:
 
 .. code-block:: bash
-   :caption: Importer/Exporter Docker Windows quick start
 
-   Quick Start code windows
+   docker run -i -t --name impexp --rm \
+     -u $(id -u):$(id -g) \
+     -v /local/share/dir:/share \
+     3dcitydb/impexp \
+       export -H my.citydb.host.de -d postgres -p postgres -u postgres -o /share/out.gml
+
+The exported file will be available on the host system at: ``/local/share/dir/out.gml``.
 
 3D-Web-Map-Client Docker
 ===============================================================================
 
-The detailed documentation for the 3DCityDB 3D-Web-Map-Client Docker image is available here.
+The 3DCityDB 3D-Web-Map-Client Docker image provides an instance of the
+3DCityDB 3D-Web-Map-Client. Use the ``docker run -p`` switch to expose a port
+for connections to the web client.
+
+Currently, the Webclient Docker images are maintained and documented at the
+`TUM-GIS 3D-Web Client Docker repo <https://github.com/tum-gis/3dcitydb-web-map-docker>`_.
+
+.. The detailed documentation for the 3DCityDB 3D-Web-Map-Client Docker image is
+   available :doc:`here <../webmap/docker>`.
 
 .. code-block:: bash
-   :caption: 3D-Web-Map-Client Docker Linux quick start
 
-   Quick Start code Linux
-
-.. code-block:: bash
-   :caption: 3D-Web-Map-Client Docker Windows quick start
-
-   Quick Start code windows
-
+   docker run -d --name 3dwebmap-container -p 80:8000 tumgis/3dcitydb-web-map
 
 Web-Feature-Service (WFS) Docker
 ===============================================================================
 
-The detailed documentation for the 3DCityDB WFS Docker image is available here.
+Currently, the 3DCityDB WFS Docker image is maintained and documented at the
+`TUM-GIS 3DCityDB WFS Docker repo <https://github.com/tum-gis/3dcitydb-wfs-docker>`_.
+
+.. The detailed documentation for the 3DCityDB WFS Docker image is available
+   :doc:`here <../wfs/docker>`.
 
 .. code-block:: bash
-   :caption: WFS Docker Linux quick start
 
-   Quick Start code Linux
-
-.. code-block:: bash
-   :caption: WFS Docker Windows quick start
-
-   Quick Start code windows
+   docker run --name "citydb-wfs-container" -it -p 8080:8080 \
+    -e CITYDB_CONNECTION_TYPE=PostGIS \
+    -e CITYDB_CONNECTION_SERVER=my.citydb.host.de \
+    -e CITYDB_CONNECTION_PORT=5432 \
+    -e CITYDB_CONNECTION_SID=citydb \
+    -e CITYDB_CONNECTION_USER=postgres \
+    -e CITYDB_CONNECTION_PASSWORD=postgres \
+  tumgis/3dcitydb-wfs
