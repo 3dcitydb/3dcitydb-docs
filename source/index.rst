@@ -9,7 +9,7 @@ Welcome to 3D City Database documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :numbered:
 
    intro/index
