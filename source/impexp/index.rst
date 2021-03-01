@@ -1,4 +1,4 @@
-Importer-Exporter
+Importer/Exporter
 =================
 
 The *3D City Database Importer/Exporter* is a Java-based front-end for
