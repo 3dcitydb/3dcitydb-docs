@@ -83,7 +83,6 @@ to pass all required input to the scripts. The SQL scripts are
 organized into the following folders beneath the *SQLScripts* directory:
 
 **SCHEMA**
-
   Includes SQL files for creating the 3D City Database database schema including
   tables, constraints, datatypes, and indexes. The schema scripts are automatically
   generated from the schema modelling tools `pgModeler <https://pgmodeler.io/>`_ (PostgreSQL) and
@@ -91,7 +90,6 @@ organized into the following folders beneath the *SQLScripts* directory:
   (with minor manual edits).
 
 **CITYDB_PKG**
-
   Contains scripts that create database objects and stored procedures
   mainly used by the Importer/Exporter tool. They are written
   in PL/pgSQL (PostgreSQL) and PL/SQL (Oracle) and are grouped by the type of
@@ -100,7 +98,6 @@ organized into the following folders beneath the *SQLScripts* directory:
   chapter.
 
 **UTIL**
-
   This folder assembles different database management utilities:
 
   -  Grant and revoke access rights to and from a 3D City Database instance
@@ -111,7 +108,6 @@ organized into the following folders beneath the *SQLScripts* directory:
   -  Update table statistics for spatial columns (PostgreSQL only)
 
 **MIGRATION**
-
   Provides migration scripts to update a 3DCityDB instance of a previous major
   version to the latest 3DCityDB version (e.g., from version 3.x to 4.x)
   and upgrade scripts for updating 3DCityDB instances of the same major version
