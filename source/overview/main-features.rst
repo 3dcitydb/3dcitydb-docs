@@ -1,30 +1,27 @@
 Main features of 3DCityDB
 -------------------------
 
-CityGML 2.0.0 and 1.0.0 compliant database
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CityGML 2.0 and 1.0 compliant database
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The implementation defines the classes and relations for the most
+The CityGML data model defines classes and relations for the most
 relevant topographic objects in cities and regional models with respect
-to their geometrical, topological, semantical, and appearance properties.
+to their geometrical, topological, semantic, and appearance properties.
 Included are generalization hierarchies between thematic classes,
 aggregations, relations between objects, and spatial properties. These
 thematic information go beyond graphic exchange formats and allow to
 employ virtual 3D city models for sophisticated analysis tasks in
 different application domains.
 
-For the representation of all vector and grid geometry the built-in data
-types provided by the spatially-enhanced relational database management
-systems Oracle Spatial/Locator (10G R2 or higher) or PostgreSQL (9.6 or
-higher) with PostGIS extension (2.3 or higher) are used. This way,
+The 3D City Database maps the CityGML data model to a relational
+database schema and supports the management of CityGML data. For the
+representation of vector and grid-based geometry, the built-in
+data types provided by the spatially-enhanced relational database
+management systems PostgreSQL (9.6 or higher) with PostGIS extension (2.3 or higher)
+and Oracle Spatial/Locator (10g R2 or higher) are used. This way,
 special solutions are avoided and different geoinformation systems,
 CAD/BIM systems, and ETL software systems can directly access (read and
 write) the geometry objects stored in the SRDBMS.
-
-The version and history management employs Oracle’s Workspace Manager
-and, hence, is only available for 3DCityDB instances running on an
-Oracle RDBMS. It is largely transparent to application programs that
-work with the database.
 
 Support for CityGML Application Domain Extensions (ADEs)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,7 +31,7 @@ from diverse domains like energetic, environmental, driving, and
 traffic simulations, as-built building information modeling (as-built
 BIM), asset management, and urban information fusion. In order to store
 and exchange application specific data aligned and integrated with the
-3D city objects, the CityGML datamodel can be extended by new feature
+3D city objects, the CityGML data model can be extended by new feature
 types, attributes, and relations using the CityGML ADE mechanism. ADEs
 are specified as (partial) GML application schemas using the modeling
 language XML Schema. Starting from release 4.0.0 the 3DCityDB database
@@ -48,10 +45,10 @@ developed to automatically derive the relational database schemas for
 arbitrary ADEs from the ADE XML schema files. Since we intended to follow
 similar rules in the mapping of the object-oriented ADE models onto
 relational models as we used for the (manual) mapping of the CityGML
-datamodel onto the 3DCityDB core schema, the Chair of Geoinformatics at
+data model onto the 3DCityDB core schema, the Chair of Geoinformatics at
 TUM developed a new transformation method based on graph transformation
 systems. This method is described in detail in [YaKo2017]_ and is
-implemented within the “ADE Manager” plugin for the Importer/Exporter
+implemented within the “ADE Manager Plugin" for the Importer/Exporter
 software tool.
 
 The ADE Manager performs a sophisticated analysis of the XML schema files
@@ -73,10 +70,10 @@ Importing and exporting CityGML data
 The included Importer/Exporter software tool allows for high performance
 importing and exporting of CityGML datasets according to CityGML versions
 2.0 and 1.0. The tool allows processing of very large datasets (>> 4 GB),
-even if they include XLinks between CityGML features or XLinks to 3D GML
+even if they include XLinks between CityGML features or XLinks to
 geometry objects. The multi-threaded programming exploits multiprocessor
 systems or multikernel CPUs to speed up the processing of complex
-XML-structures, resulting in high performance database access. Objects can
+XML structures, resulting in high performance database access. Objects can
 be filtered during import or export according to spatial regions (bounding
 box), their object IDs, feature types, names, and levels of detail.
 Bounding boxes can be interactively selected using a map window based on
@@ -88,10 +85,23 @@ be automatically distributed in a configurable number of subdirectories in
 order to avoid large directories with millions of files which can render a
 Microsoft Windows operating systems unresponsive. The Importer can also
 validate CityGML files and can be configured to only import valid features.
-It considers CityGML ADE contents, if the ADEs have been registered in the
+It considers CityGML ADE contents if the ADEs have been registered in the
 database and specific Java libraries for reading/writing the ADE contents
 from/into the ADE database tables is provided (see above). The
-Importer/Exporter tool can be run in interactive or batch mode.
+Importer/Exporter tool can be run in both interactive and batch mode.
+
+Importing and exporting CityJSON data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In addition to the CityGML format, the Importer/Exporter also supports
+datasets in CityJSON format. `CityJSON <https://www.cityjson.org/>`_ is a
+JSON-based encoding for storing 3D city models and, thus, offers an
+alternative to the GML/XML encoding of CityGML. It implements a subset of
+the CityGML 2.0 data model. The `CityGML compatibility page <https://www.cityjson.org/citygml-compatibility/>`_
+provides a list of those CityGML 2.0 features that are supported or omitted
+in CityJSON.
+
+CityJSON is a candidate for becoming an OGC Community Standard.
 
 Export to KML, COLLADA and glTF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,15 +115,15 @@ facilitating the visualization of even very large 3D city and landscape
 models. Information balloons for all objects can be configured by the user.
 The exported models are especially suited to be visualized using the
 3DCityDB-Web-Map-Client (see below), an Open Source 3D web viewer that is
-based on the CesiumJS Webglobe framework with many functional extensions.
+based on the CesiumJS web globe framework with many functional extensions.
 
 Spreadsheet export
 ~~~~~~~~~~~~~~~~~~
 
-The *Spreadsheet Generator* (SPSHG) allows exporting thematic data of 3D
+The *Spreadsheet Generator Plugin* (SPSHG) allows exporting thematic data of 3D
 objects into tables in CSV and Microsoft Excel format which can be uploaded
 to a Google Spreadsheet within the Google Document Cloud. For every
-selected geoobject one row is being exported where the first column always
+selected geo-object one row is being exported where the first column always
 contains the GMLID value of the respective object. The further columns can
 be selected by the user. This tool can be used to export attribute data
 from e.g. buildings like the class, function, usage, roof type, address,
@@ -145,8 +155,9 @@ Web Feature Service (WFS) 2.0
 The 3DCityDB comes with an OGC compliant implementation of a basic WFS 2.0
 allowing web-based access to the 3D city objects stored in the database.
 WFS clients can directly connect to this interface and retrieve 3D content
-for a wide variety of purposes. The implementation currently satisfies the
-*Simple WFS* conformance class. The WFS considers CityGML ADE contents, if
+in CityGML and CityJSON format for a wide variety of purposes.
+The implementation currently satisfies the
+*Simple WFS* conformance class. The WFS supports CityGML ADE contents, if
 the ADEs have been registered in the database and specific Java libraries
 for reading/writing the ADE contents from/into the ADE database tables is
 provided (see above). An implementation of a full, transactional WFS is
@@ -172,22 +183,23 @@ in contrast to virtual machines – light-weight and can be deployed,
 started and stopped very quickly and easily. Using our Docker images a
 3DCityDB can be installed by a single command.
 
-Open Source and Platform Independence
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Open Source and Platform Independent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The entire software is freely accessible to the interested public. The
 3DCityDB is licensed under the Apache License, Version 2.0, which
 allows including 3DCityDB in commercial systems. You may obtain a copy
 of the Apache License at http://www.apache.org/licenses/LICENSE-2.0.
 Both the Importer/Exporter tool and the Web Feature Service are
-imple­mented in Java and can be run on different platforms and operating
+implemented in Java and can be run on different platforms and operating
 systems.
 
 
 Features inherited from CityGML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **Complex city object modelling**: The representation of city objects
+**Complex city object modelling**
+   The representation of city objects
    in the 3D city database ranges from coarse models to geometrically
    and semantically fine grained structures. The underlying data model
    is a complete realization of the CityGML data model for the levels of
@@ -202,36 +214,35 @@ Features inherited from CityGML
    it can later be used e.g. to derive SmartBuildings or to form 3D
    solids by extrusion [DBBF2005]_. Buildings can be assigned
    addresses that are also stored in the 3D city database. Their
-   implemen­tation refers to the OASIS xAL Standard, which maps the
+   implementation refers to the OASIS xAL Standard, which maps the
    address formats of the different countries into a unified XML schema.
    In order to model whole complexes of buildings, single buildings can
    be aggregated to form special building groups. The same complex
    modelling applies to the other CityGML feature types like bridges,
    tunnels, transportation and vegetation objects, and water bodies.
 
--  **Complex digital terrain models:** DTMs may be represented in four
+**Complex digital terrain models (DTM)**
+   DTMs may be represented in four
    different ways in CityGML and therefore also in the 3D city database:
    regular grids, triangular irregular networks (TINs), 3D mass points
    and 3D break lines. For every level of detail, a complex DTM
    consisting of any number of DTM components and DTM types can be
    defined. Besides, it is possible to combine certain kinds of DTM
    representations for the same geographic area with each other (e.g.
-   mass points and break lines or grids and break lines). In Oracle
-   Spatial (but not Locator) Grid-based DTMs may be of arbitrary size
-   and are composed from separate tiles to a single overall grid using
-   the Oracle GeoRaster functionality. Please note that the
-   Import/Export tool provides functions to read and write TIN, mass
+   mass points and break lines or grids and break lines). Please note that the
+   Importer/Exporter tool provides functions to read and write TIN, mass
    point, and break line DTM components, but not for raster based DTMs.
    GeoRaster data would have to be imported and exported using other
-   tools from e.g. Oracle, ESRI, or Safe Software.
+   tools from e.g. PostgreSQL, Oracle, ESRI, or Safe Software.
 
--  **Support of different kinds of multi-representations: Levels of
-   detail, different appearances, (and with Oracle RDBMS only) planning
-   versions and history**: Every geoobject as well as the DTM can be
+**Support for five different Levels of Detail (LODs)**
+   Every geo-object as well as the DTM can be
    represented in five different resolution or fidelity steps (Levels of
    Detail, LOD). With increasing LOD, objects do not only obtain a more
    precise and finer geometry, but do also gain a thematic refinement.
-   Different appearance data may be stored for each city object**:
+
+**Support for appearance data**
+   Different appearance data may be stored for each city object.
    Appearance relates to any surface-based theme, e.g. infrared radiation
    or noise pollution, not just visual properties. Consequently, data
    provided by appearances can be used as input for both presentation and
@@ -241,15 +252,15 @@ Features inherited from CityGML
    – among others – textures and georeferenced textures. All texture images
    can be stored in the database. (cf. [GKSS2005]_)
 
--  **Representation of generic and prototypical 3D objects:** Generic
-   objects enable the storage of 3D geoobjects that are not explicitly
+**Representation of generic and prototypical 3D objects**
+   Generic objects enable the storage of 3D geo-objects that are not explicitly
    modelled in CityGML yet, for example dams or city walls, or that are
    available in a proprietary file format only. This way, files from
    other software systems like architecture or computer graphics
    programs can be imported directly into the database (without
    interpretation). However, application systems that would like to use
    these data must be able to interpret the corresponding file formats
-   after retrieving them back from the 3D geodatabase.
+   after retrieving them back from the 3D City Database.
 
    Prototypical objects are used for memory-efficient management of
    objects that occur frequently in the city model and that do not
@@ -262,14 +273,15 @@ Features inherited from CityGML
 
    The geometries (and appearances like textures, colors etc.) of
    generic objects as well as prototypes can be stored either using the
-   geometry datatype of the spatial database management system (Oracle
-   Spatial/Locator or PostGIS) or in proprietary file formats. In the
+   geometry datatype of the spatial database management system (PostgreSQL/PostGIS
+   or Oracle Spatial/Locator) or in proprietary file formats. In the
    latter case a single file may be saved for every object, but the file
    type (MIME type), the coordinate transformation matrix that is needed
    to integrate the object into the world coordinate reference system
    (CRS) and the target CRS have to be specified.
 
--  **Extendable object attribution:** All objects in the 3D geodatabase
+**Extendable object attribution**
+   All objects in the 3D City Database
    can be augmented with an arbitrary number of additional generic
    attributes. This way, it is possible to add further thematic
    information as well as further spatial properties to the objects at
@@ -280,7 +292,7 @@ Features inherited from CityGML
    value. Supported data types are: string; integer and floating-point
    numbers; date; time; binary object (BLOB, e.g. for storing a file);
    geometry object according to the specific geometry data type of
-   Oracle or PostGIS respectively; simple, composite, or aggregate 3D
+   PostGIS and Oracle respectively; simple, composite, or aggregate 3D
    solids or surfaces. Please note that generic attributes of type BLOB
    or geometry are not allowed as generic attributes in CityGML (and
    will, thus, not be exported by the CityGML exporter). However, it may
@@ -288,16 +300,16 @@ Features inherited from CityGML
    objects, for example, to store derived 3D computer graphics
    representations.
 
--  **Free, also recursive grouping of geoobjects:** Geoobjects can be
-   grouped arbitrarily. The aggregates can be named and may also be
+**Free, also recursive grouping of geo-objects**
+   Geo-objects can be grouped arbitrarily. The aggregates can be named and may also be
    provided with an arbitrary number of generic attributes (see above).
    Object groups may also contain object groups, which leads to nested
    aggregations of arbitrary depth. In addition, for every object of an
    aggregation, its role in the group can be specified explicitly
    (qualified association).
 
--  **External references for all geoobjects:** All geoobjects can be
-   provided with an arbitrary number of references to corresponding
+**External references for all geo-objects**
+   All geo-objects can be provided with an arbitrary number of references to corresponding
    objects in external data sources (i.e. hyperlinks / linked data). For
    example, in case of building objects this allows to store e.g. the
    IDs of the corresponding objects in official cadasters, digital
@@ -306,11 +318,12 @@ Features inherited from CityGML
    and the corresponding object ID or URI within that external data
    store or database.
 
--  **Flexible 3D geometries:** The geometry of most 3D objects can be
+**Flexible 3D geometries**
+   The geometry of most 3D objects can be
    represented through the combination of solids and surfaces as well as
    any - also recursive - aggregation of these elements. Each surface
    may has attached different textures and colors on both its front and
    back face. It may also comprise information on transparency.
    Additional geometry types (any geometry type supported by the spatial
-   database management system Oracle Spatial/Locator or PostGIS) can be
-   added to the geoobjects by using generic attributes.
+   database PostgreSQL/PostGIS or Oracle Spatial/Locator) can be
+   added to the geo-objects by using generic attributes.

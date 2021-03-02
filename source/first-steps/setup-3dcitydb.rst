@@ -1,6 +1,6 @@
 .. _3dcitydb_setup_schema_chapter:
 
-Setting up the database schema
+Setting up the 3DCityDB schema
 ------------------------------
 
 The required scripts for setting up the 3D City Database can be found
@@ -284,8 +284,8 @@ script in the same way like CREATE_DB. Simply dropping the schemas
 
 .. _first_step_3dcitydb_installation_oracle:
 
-Installation steps on Oracle databases
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation steps on Oracle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Step 1 - Define a user for the 3D City Database**
 
