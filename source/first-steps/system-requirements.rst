@@ -30,7 +30,7 @@ by the default command-line client of either database system – namely
 include meta commands specific to these clients and would not work
 properly when using a different client software. So please make sure
 **psql** or **SQL*Plus** is installed on the machine from where you want to
-setup the 3D City Database.
+set up the 3D City Database.
 
 Importer/Exporter tool
 ~~~~~~~~~~~~~~~~~~~~~~
