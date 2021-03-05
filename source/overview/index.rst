@@ -28,3 +28,4 @@ of the project. Contributions to the 3D City Database project are always welcome
    main-features
    history
    acknowledgements
+   license

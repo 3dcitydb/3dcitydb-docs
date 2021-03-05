@@ -39,12 +39,3 @@ future releases.
    configuration
    functionality
    wfs-web-client
-
-|apache_logo|\ The 3D City Database Web Feature Service is free software
-under the *Apache License, Version 2.0*. See the LICENSE.txt file
-shipped with the software for more details. For a copy of the Apache
-License, Version 2.0, please visit http://www.apache.org/licenses/.
-
-.. |apache_logo| image:: ../media/apache_logo.png
-   :width: 0.97014in
-   :height: 0.34583in
