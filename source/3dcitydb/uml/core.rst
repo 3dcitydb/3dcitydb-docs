@@ -1,6 +1,6 @@
 .. _citydb_core_model_chapter:
 
-Core Model
+Core model
 ^^^^^^^^^^
 
 The base class of all thematic classes within CityGML’s data model is
@@ -34,7 +34,7 @@ defined using the *Envelope* element. Minimum and maximum coordinate
 values have to be assigned to opposite corners of the feature’s bounding
 box.
 
-.. figure:: ../../../media/citydb_core_model_and_toplevel_classes.png
+.. figure:: ../../media/citydb_core_model_and_toplevel_classes.png
    :name: citydb_core_model_and_toplevel_classes
 
    Core Model and thematic top level classes

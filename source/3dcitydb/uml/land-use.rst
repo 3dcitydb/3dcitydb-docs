@@ -1,4 +1,4 @@
-LandUse Model
+LandUse model
 ^^^^^^^^^^^^^
 
 *LandUse* objects describe areas of the earth’s surface dedicated to a
@@ -13,7 +13,7 @@ and *function* may be used multiple times, storing them in only one
 string requires a single white space as unique separatorRelational
 database schema.
 
-.. figure:: ../../../media/citydb_landuse_model.png
+.. figure:: ../../media/citydb_landuse_model.png
    :name: citydb_landuse_model
 
    *LandUse* model

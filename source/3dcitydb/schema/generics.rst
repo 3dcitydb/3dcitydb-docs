@@ -1,5 +1,5 @@
-Generic Objects and Attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Generics schema
+^^^^^^^^^^^^^^^
 
 3D city models will most likely contain attributes, which are not
 explicitly modelled in CityGML. Moreover, there may be 3D objects that
@@ -15,7 +15,7 @@ representations known from other tables is offered. Explicit
 LODx_IMPLICIT_TRANS-FORMATION) as well as terrain intersection curves
 (LODx_TERRAIN_INTERSECTION) (all with 0 ≤ x ≤ 4).
 
-.. figure:: ../../../media/citydb_schema_generics_diagram.png
+.. figure:: ../../media/citydb_schema_generics_diagram.png
    :name: citydb_schema_generics_diagram
 
    GenericCityObject and generic attributes database schema
@@ -61,16 +61,12 @@ established by the foreign key CITYOBJECT_ID.
    * - | **10**
      - | **Geometry via surfaces in the table SURFACE_GEOMETRY**
 
+.. note::
+  Please note that the binary and geometric data types (incl. geometry
+  via surfaces) are not supported by CityGML and cannot be exported using
+  the CityGML Importer/Exporter tool.
 
-lease note that the binary and geometric data types (incl. geometry
-via surfaces) are not supported by CityGML and cannot be exported using
-the CityGML Import / Export tool! But, if a user wants to add additional
-attributes to thematic tables, he should use the schema of the
-CITYOBJECT_GENERICATTRIB table rather than adding additional columns to
-existing tables, because only in this way the Import / Export tool can
-automatically write them to CityGML.
-
-Moreover, generic attributes can be grouped using the CityGML class
+Generic attributes can also be grouped using the CityGML class
 *genericAttributeSet*. Since *genericAttributeSet* itself is a generic
 attribute, it may also be contained in a generic attribute set
 facilitating a recursive nesting of arbitrary depth. This hierarchy

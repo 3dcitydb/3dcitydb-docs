@@ -1,12 +1,12 @@
 .. _citydb_schema_core_model_chapter:
 
-Core Model
-^^^^^^^^^^
+Core schema
+^^^^^^^^^^^
 
 **CITYOBJECT, CITYOBJECT_SEQ**
 
 All *CityObjects* (and instances of the subclasses like *Buildings*
-etc.) are represented by tuples in the table CITYOBJECT. The fields are
+etc.) are represented by tuples in the root table CITYOBJECT. The fields are
 identical to the attributes of the corresponding UML class, plus
 additional columns for metadata like LAST_MODIFICATION_DATE,
 UPDATING_PERSON, REASON_FOR_UPDATE and LINEAGE.
@@ -17,7 +17,7 @@ coordinates of the bounding box and define it completely. For backwards
 compatibility reasons (to Oracle 10g), the envelope cannot be stored as
 a volume.
 
-.. figure:: ../../../media/citydb_envelope_definition.png
+.. figure:: ../../media/citydb_envelope_definition.png
    :name: citydb_envelope_definition
 
    The *CityObject*\ ’s envelope specified by two points with minimum
@@ -33,17 +33,17 @@ CityGML file containing the object. The combination of GMLID and
 GMLID_CODESPACE should be ensured to be unique for each *CityObject*.
 
 The attributes NAME or NAME_CODESPACE can contain more than one
-*gml:name* proper­ty. In this case they have to be separated by the
-string '-\\-/\\\\-\\-' (more details on the following page). The CityGML
-exporter will then create multiple occurrences of <gml:name> elements.
+*gml:name* property. In this case they have to be separated by the
+string '-\-/\\-\-' (without quotes). The CityGML
+exporter will then create multiple occurrences of ``<gml:name>`` elements.
 
 The attribute OBJECTCLASS_ID provides information on the class
-affiliation of the *CityObject*. This helps to identify the proper
-subclass tables.
+affiliation of the *CityObject* (see :numref:`citydb_class_affiliation_declaration_chapter`).
+This helps, for instance, to identify the proper subclass tables.
 
 The next free ID value for the table CITYOBJECT is provided by the
-database sequence CITYOBJECT_SEQ. This ID is also reused in the separate
-tables for the different thematic features.
+database sequence CITYOBJECT_SEQ. This ID is also reused as foreign key
+in the separate tables of the different thematic features.
 
 **CITYMODEL, CITYMODEL_SEQ**
 
@@ -67,7 +67,7 @@ realized by the table GROUP_TO_CITYOBJECT, which associates the IDs of
 both tables. The following tables shows an example, in which two buildings are
 grouped to a hotel complex.
 
-.. list-table::  *Cityobjectgroup* table (excerpt)
+.. list-table::  *CITYOBJECTGROUP* table (excerpt)
    :name: citydb_cityobject_group_table
 
    * - | **ID**
@@ -102,7 +102,7 @@ grouped to a hotel complex.
      - | 1
      - | Annex
 
-.. list-table::  *Cityobject* table (excerpt)
+.. list-table::  *CITYOBJECT* table (excerpt)
    :name: citydb_cityobject_table
 
    * - | **ID**
@@ -141,7 +141,7 @@ For attributes CLASS, FUNCTION and USAGE there is an additional
 values (e.g. by a globally unique URL). As a CityGML feature like
 *CityObjectGroup* can have multiple instances of attributes *class*,
 *function* and *usage* but only one target column exist in the table,
-values are separated by the string sequence '-\\-/\\\\-\\-'. The CityGML
+values are separated by the string sequence '-\-/\\-\-' (without quotes). The CityGML
 exporter will then create multiple occurrences of corresponding
 elements. Normalization rules were not applied in this case in order to
 avoid many joins when querying all information of building objects.
@@ -154,7 +154,7 @@ bridges and tunnels). They do not appear once in the CITYOBJECT table,
 because they are belonging to the namespace of a certain thematic module
 and should be stored along with other attributes of that feature.
 
-.. figure:: ../../../media/citydb_schema_core.png
+.. figure:: ../../media/citydb_schema_core.png
    :name: citydb_schema_core
 
    Database schema of the CityGML core elements

@@ -1,6 +1,6 @@
 .. _citydb_vegetation_model_chapter:
 
-Vegetation Model
+Vegetation model
 ^^^^^^^^^^^^^^^^
 
 The vegetation model of CityGML distinguishes between solitary
@@ -9,7 +9,7 @@ biotopes like forests or other plant communities. Single vegetation
 objects are modelled by the class *SolitaryVegetationObject*, while for
 areas filled with specific vegetation the class *PlantCover* is used.
 
-.. figure:: ../../../media/citydb_example_vegetation_model.png
+.. figure:: ../../media/citydb_example_vegetation_model.png
    :name: citydb_example_vegetation_model
 
    Image illustrates objects of the vegetation model (from: [GKCN2008]_)
@@ -31,7 +31,7 @@ particular its name (*gml:name)* and an *ExternalReference* to a
 corresponding object in an external information system, which may
 contain botanical information from public environmental agencies.
 
-.. figure:: ../../../media/citydb_vegetation_model.png
+.. figure:: ../../media/citydb_vegetation_model.png
    :name: citydb_vegetation_model
 
    Vegetation Model

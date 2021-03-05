@@ -1,7 +1,7 @@
-Tunnel Model
-^^^^^^^^^^^^
+Tunnel schema
+^^^^^^^^^^^^^
 
-.. figure:: ../../../media/citydb_schema_tunnel_diagram.png
+.. figure:: ../../media/citydb_schema_tunnel_diagram.png
    :name: citydb_schema_tunnel_diagram
 
    Tunnel database schema

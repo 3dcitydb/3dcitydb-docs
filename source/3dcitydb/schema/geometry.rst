@@ -1,22 +1,24 @@
 .. _chapter_citydb_schema_geometry:
 
-Tables for geometry representation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Geometry schema
+^^^^^^^^^^^^^^^
 
 The representation of the geometry stored in table SURFACE_GEOMETRY
-differs substantially from the UML chart explained in the CityGML
-specification; nevertheless, it offers about the same functionality.
+differs substantially from the UML diagram explained in the CityGML
+specification (also see :numref:`citydb_geometric-topological_model`); nevertheless, it offers about the same functionality.
 
 **SURFACE_GEOMETRY, SURFACE_GEOMETRY_SEQ**
 
-In the database schema the geometry consists of planar surfaces which
-correspond each to one entry in the table SURFACE_GEOMETRY. The
-surface-based geometry is stored as attribute GEOMETRY (in each case
-exactly one planar polygon, possibly including holes). The implicit
-geometry is stored as attribute IMPLICIT_GEOMETRY. The volumetric
-geometry is stored as attribute SOLID_GEOMETRY and its boundary surfaces
-(outer shell) will be stored as attribute GEOMETRY as well. Any surface
-may have textures or a colour on both sides. Textures are stored within
+In the database schema, the geometry consists of planar surfaces which
+each correspond to one entry in the table SURFACE_GEOMETRY. The
+surface-based geometry of a feature is stored as attribute GEOMETRY (for every entry
+exactly one planar polygon, possibly including holes). An implicit
+geometry of the feature is stored as attribute IMPLICIT_GEOMETRY. A volumetric
+geometry is stored as attribute SOLID_GEOMETRY for the root entry of the
+geometry hierarchy, whereas its individual polygons that make up the
+shell of the solid are stored as separate entries within the hierarchy using
+the attribute GEOMETRY. Any surface may have textures or a
+colour on both sides. Textures are stored within
 the tables which implement the appearance model (cf. :numref:`citydb_appearance_model_chapter`).
 
 The geometry information in the fields GEOMETRY and IMPLICIT_GEOMETRY of
@@ -53,10 +55,10 @@ the table SURFACE_GEOMETRY is limited as follows:
        | will have the SRID 0 automatically
 
 A solid is the basis for 3-dimensional geometry. The extent of a solid
-is defined by the boundary surfaces (outer shell). A shell is
+is defined by its boundary surfaces (outer shell). A shell is
 represented by a composite surface, where every shell is used to
-represent a single connected component of the boundary of a solid. It
-consists of a composite surface (a list of *OrientableSurfaces*)
+represent a single connected component of the boundary of a solid. The
+composite surface (a list of *OrientableSurfaces*) describing a shell must be
 connected in a topological cycle. Unlike a ring, a shell's elements have
 no natural sort order. Like rings, shells are simple. The geometry in
 the field SOLID_GEOMETRY of the table SURFACE_GEOMETRY is limited as
@@ -67,8 +69,8 @@ follows:
 
    * - | **Oracle**
      - | **PostGIS**
-   * - | - SDO_GTYPE must have the type Solid, i.e. a solid
-       | with  3D coordinates (SDO_GTYPE = 3008)
+   * - | - SDO_GTYPE must have the type Solid, i.e. a
+       | solid with 3D coordinates (SDO_GTYPE = 3008)
        |
        | - SDO_ETYPE  must  be  1007  (simple solid) or
        | 1008 (composite solid)
@@ -78,9 +80,9 @@ follows:
        | (SDO_ETYPE=1007,
        | with SDO_INTERPRETATION = 1)
        |
-       | - The composite solid can be constructed with
-       | a number of simple  solids, e.g.  a  composite
-       | solid  with  4  simple  solids (SDO_ETYPE=1008,
+       | - A composite solid can be constructed with
+       | a number of simple  solids, e.g. a composite
+       | solid with 4 simple solids (SDO_ETYPE=1008,
        | with SDO_INTERPRETATION = 4)
      - | - Only POLYHEDRALSURFACE is allowed, i.e.
        | the outer shell of a solid with 3D coordinates
@@ -88,34 +90,52 @@ follows:
        | - A simple polyhedral surface can be represented
        | by using several polygons as its boundary
 
-Surfaces can be aggregated to form a complex of surfaces or the boundary
-of a volumetric object. The aggregation of multiple surfaces, e.g.
-F\ :sub:`1` to F\ :sub:`n`, (IDs 6 to 10 in :numref:`citydb_schema_example_geometry_hierarchy` /
-:numref:`citydb_schema_example_lod1solid_building`) is
-realized the way that the newly created surface tuple F\ :sub:`n+1` (ID
-2) is not assigned a geo­metry (cf. :numref:`citydb_aggregation_types_determination_table`).
-Instead, the PARENT_ID of the surfaces F\ :sub:`1` to F\ :sub:`n` refer to the ID of
-F\ :sub:`n+1`.
+Surfaces can be aggregated to form a complex of surfaces or a volumetric object.
+For example, assume we want to store a volumetric geometry
+in SURFACE_GEOMETRY as shown in :numref:`citydb_schema_example_geometry_hierarchy`. The separate polygons
+forming the shell of the solid are represented as individual entries in SURFACE_GEOMETRY, and each
+entry uses the attribute GEOMETRY to store the polygon (IDs 6 to 10 in
+:numref:`citydb_schema_example_geometry_hierarchy`).
 
-.. figure:: ../../../media/citydb_schema_example_geometry_hierarchy.png
+Next, we combine these polygons to a composite surface that forms the
+shell of our volumetric geometry. For this purpose, another entry is added to
+SURFACE_GEOMETRY to represent the composite surface (ID 2 in :numref:`citydb_schema_example_geometry_hierarchy`).
+This new entry is **not assigned** a geometry in the GEOMETRY attribute. Instead, the polygons with
+IDs 6 to 10 reference this entry as their parent entry using the
+PARENT_ID attribute. To mark the new entry as composite surface, the IS_COMPOSITE
+flag is set to 1.
+
+As last step, we have to add another entry that represents our final solid (ID 1 in
+:numref:`citydb_schema_example_geometry_hierarchy`). For this entry, the IS_SOLID
+flag is set to 1, and the composite surface (ID 2) references it using the PARENT_ID
+attribute. The new solid entry represents the root of our geometry hierarchy.
+For this reason, every member of the hierarchy (including the root entry itself) must
+reference the ID of the root entry through the ROOT_ID attribute (see
+:numref:`citydb_schema_example_geometry_hierarchy`). For the root entry (and
+only for the root entry) the entire volumetric geometry is stored **in addition**
+as 3D geometry in the attribute SOLID_GEOMETRY, whereas the GEOMETRY attribute
+**is not assigned**.
+
+.. figure:: ../../media/citydb_schema_example_geometry_hierarchy.png
    :name: citydb_schema_example_geometry_hierarchy
 
    Geometry hierarchy for the solid geometry shown in :numref:`citydb_schema_example_lod1solid_building`
 
-In addition, a further tuple (ID 1) is introduced, which represent the
-solid and defines the root element of the whole aggregation structure.
-Each surface references to its root, using the ROOT_ID attribute. This
-information has big influence on the system performance, as it allows to
-avoid recursive queries. If e.g. the retrieval of all surface elements
-forming a specific building is of importance, simply those tuples have
-to be selected which contain the related ROOT_ID. On the downside there
-also follows the limitation that each tuple in SURFACE_GEOMETRY can only
+Storing the ROOT_ID for every member of the aggregation hierarchy
+has a big influence on query performance, as it allows to retrieve
+all members of the hierarchy with a single query (``WHERE ROOT_ID = x``) and, thus, to
+avoid recursive queries. If, for instance, all surface elements
+forming the geometry of a specific building shall be retrieved, then simply
+the foreign key reference to SURFACE_GEOMETRY stored in the BUILDING
+table has to be used as ROOT_ID to query all surface elements belonging to
+the geometry. On the downside, storing the ROOT_ID explicitly
+also faces the limitation that each tuple in SURFACE_GEOMETRY can only
 belong to one aggregate.
 
 Various flags characterise the type of aggregation: IS_TRIANGULATED
 denotes a TriangulatedSurface, IS_SOLID distinguishes between surface
-(0) and solid (1), and IS_COMPOSITE defines whether this is an aggregate
-(e.g. *MultiSolid*, *MultiSurface*) or a composite (e.g.,
+(0) and solid (1), and IS_COMPOSITE defines whether the entry represents an
+aggregate (0, e.g. *MultiSolid*, *MultiSurface*) or a composite (1, e.g.,
 *CompositeSolid*, *CompositeSurface*).
 
 Based on these flags the geometry types listed in
@@ -131,7 +151,7 @@ geometry can be identified as *MultiSolid*.
      - | **isSolid**
      - | **isComposite**
      - | **isTriangulated**
-     - | **Geometry**
+     - | **GEOMETRY**
      - | **SOLID_**
        | **GEOMETRY**
    * - | Polygon, Triangle,
@@ -139,7 +159,7 @@ geometry can be identified as *MultiSolid*.
      - |
      - |
      - |
-     - | GEOMETRY
+     - | ✔
      - | NULL
    * - | MultiSurface
      - |
@@ -149,22 +169,22 @@ geometry can be identified as *MultiSolid*.
      - | NULL
    * - | CompositeSurface
      - |
-     - | ✔
+     - | 1
      - |
      - | NULL
      - | NULL
    * - | TriangulatedSurface
      - |
      - |
-     - | ✔
+     - | 1
      - | NULL
      - | NULL
    * - | Solid
-     - | ✔
+     - | 1
      - |
      - |
      - | NULL
-     - | GEOMETRY
+     - | ✔
    * - | MultiSolid
      - |
      - |
@@ -172,11 +192,11 @@ geometry can be identified as *MultiSolid*.
      - | NULL
      - | NULL
    * - | CompositeSolid
-     - | ✔
-     - | ✔
+     - | 1
+     - | 1
      - |
      - | NULL
-     - | GEOMETRY
+     - | ✔
 
 Aggregated surfaces can be grouped again with other (compound) surfaces,
 by generating a common parent. This way, arbitrary aggregations of
@@ -205,7 +225,7 @@ SURFACE_GEOMETRY_SEQ.
 surfaces which form a volumetric object. In the table it is represented
 by the following rows:
 
-.. figure:: ../../../media/citydb_schema_example_lod1solid_building.png
+.. figure:: ../../media/citydb_schema_example_lod1solid_building.png
    :name: citydb_schema_example_lod1solid_building
 
    LoD 1 building - closed volume bounded by a *CompositeSurface* which consists of single polygons
@@ -345,45 +365,59 @@ However, checking the GMLID of each and every tuple may dramatically
 slow down the export process. For this reason, the IS_XLINK flag of the
 SURFACE_GEOMETRY has been introduced. It may be used to explicitly mark
 just those tuples for which a corresponding check has to be performed.
-The IS_XLINK flag should be used in the following manner. The
-Importer/Exporter provides a corresponding reference implementation.
 
 1. **During import**
+  a. By default, the IS_XLINK flag is set to “0”.
+  b. If existing tuples have to be copied due to an XLink reference,
+     IS_XLINK has to be set for *each and every* copy to either “1”
+     for **global** XLinks or "2" for **local** XLinks. Please note,
+     that this rule comprises all copies of nested tuples.
+  c. Furthermore, IS_XLINK has to be set to “1” or "2" on the original tuple
+     addressed by the XLink reference. If this tuple is the top of an
+     aggregation (sub)hierarchy, IS_XLINK remains “0” for all nested
+     tuples.
 
-a. By default, the IS_XLINK flag is set to “0”.
+.. note::
+  **Local** XLinks reference a geometry within the **same top-level
+  feature**, whereas **global** XLinks reference a geometry
+  from **another top-level feature**.
 
-b. If existing tuples have to be copied due to an XLink reference,
-   IS_XLINK has to be set to “1” for *each and every* copy. Please note,
-   that this rule comprises all copies of nested tuples.
-
-c. Furthermore, IS_XLINK has to be set to “1” on the original tuple
-   addressed by the XLink reference. If this tuple is the top of an
-   aggregation (sub)hierarchy, IS_XLINK remains “0” for all nested
-   tuples.
+  If an import tool cannot tell the difference between local and global
+  references, then the value "1" **shall be used for all IS_XLINK attributes**.
 
 2. **During export**
+  a. The export process just has to keep track of the GMLID values of
+     those geometry tuples where IS_XLINK is set to “1” or "2".
+  b. When it comes to exporting a tuple with IS_XLINK set to “1” or "2", the
+     export process has to check whether it already came across the same
+     GMLID and, thus, can make use of an XLink reference in the instance
+     document.
+  c. For each tuple with IS_XLINK=0 no further action has to be taken.
 
-a. The export process just has to keep track of the GMLID values of
-   those geometry tuples where IS_XLINK is set to “1”.
-
-b. When it comes to exporting a tuple with IS_XLINK set to “1”, the
-   export process has to check whether it already came across the same
-   GMLID and, thus, can make use of an XLink reference in the instance
-   document.
-
-c. For each tuple with IS_XLINK=0 no further action has to be taken.
-
-Especially due to (2c), the IS_XLINK attribute helps to significantly
+Especially due to 2c), the IS_XLINK attribute helps to significantly
 speed up the export process when rebuilding XLink references. Please
 note, that this is the only intended purpose of the IS_XLINK flag.
+
+It also makes a difference whether the IS_XLINK attribute is set to "1" or "2":
+If the export tool comes across a **local** reference (2), the GMLID of this geometry
+tuple only needs to be cached while exporting the top-level feature and
+can be released afterwards. Only **global** references (1) need to be cached
+during the entire export process.
+
+.. note::
+  The Importer/Exporter provides a reference implementation for how to correctly
+  copy referenced geometries and use the IS_XLINK flag. Simply use the tool
+  to import test datasets and to check how the SURFACE_GEOMETRY table is
+  populated.
 
 **IS_REVERSE**
 
 The IS_REVERSE flag is used in the context of *gml:OrientableSurface*
 geometry objects. Generally, an *OrientableSurface* instance cannot be
 represented within the SURFACE_GEOMETRY table since it cannot be encoded
-using the flags IS_SOLID, IS_COMPOSITE, and IS_TRIANGULATED (cf. Table
-5). However, the IS_REVERSE flag is used to encode the information
+using the flags IS_SOLID, IS_COMPOSITE, and IS_TRIANGULATED
+(cf. :numref:`citydb_aggregation_types_determination_table`).
+However, the IS_REVERSE flag is used to encode the information
 provided by an *OrientableSurface* and to rebuild *OrientableSurfaces*
 during data export.
 
@@ -398,29 +432,24 @@ SURFACE_GEOMETRY table. The following rules have to be obeyed in the
 context of *OrientableSurface*:
 
 1. If the orientation of the *OrientableSurface* is “-“, then
-
-a. The direction of the base surface has to be reversed prior to
-   importing it (generally, this means reversing the order of coordinate
-   tuples).
-
-b. The IS_REVERSE flag has to be set to “1” for the corresponding entry
-   in the SURFACE_GEOMETRY table.
-
-c. If the base surface is an aggregate, then steps (a) and (b) have to
-   be recursively applied for all of its surface members.
-
+  a. The direction of the base surface has to be reversed prior to
+     importing it (generally, this means reversing the order of coordinate
+     tuples).
+  b. The IS_REVERSE flag has to be set to “1” for the corresponding entry
+     in the SURFACE_GEOMETRY table.
+  c. If the base surface is an aggregate, then steps a) and b) have to
+     be recursively applied for all of its surface members.
 2. If the *OrientableSurface* is identical to its base surface (i.e., if
    its orientation is “+”), then the base surface can be written to the
    SURFACE_GEOMETRY table without taking any further action. The
    IS_REVERSE flag has to be set to “0” (which is also the default
    value).
-
 3. Please note, that it is not sufficient to just rely on the
-   *gml:orientation* attribute of an *OrientableSurface* in order to
+   *gml:orientation* attribute of an *OrientableSurface* in order to
    determine its orientation since *OrientableSurfaces* may be
    arbitrarily nested.
 
-Flipping the direction of the base surface in step (1a) is essential in
+Flipping the direction of the base surface in step 1a) is essential in
 order to guarantee that the objects stored within the GEOMETRY column
 are always correctly oriented. This enables applications to just access
 the GEOMETRY column without having to interpret further attributes of
@@ -447,5 +476,6 @@ used to rebuild *OrientableSurface* in the following way:
    structures of arbitrary depth this third rule has to be applied
    recursively.
 
-Like with the IS_XLINK flag, the Importer/Exporter tool provides a
-reference implementation of the IS_REVERSE flag.
+.. note::
+  Like with the IS_XLINK flag, the Importer/Exporter tool provides a
+  reference implementation of the IS_REVERSE flag.

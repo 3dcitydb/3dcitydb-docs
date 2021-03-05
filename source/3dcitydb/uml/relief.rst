@@ -1,4 +1,4 @@
-Digital Terrain Model
+Digital terrain model
 ^^^^^^^^^^^^^^^^^^^^^
 
 CityGML includes a very adaptable digital terrain model (DTM) which
@@ -16,7 +16,7 @@ corresponding ISO 19107 or GML classes define these types: breaklines by
 a single *MultiCurve*, TINs by *TriangulatedSurfaces*, mass points by
 *MultiPoint*, and raster by *RectifiedGridCoverage*.
 
-.. figure:: ../../../media/citydb_terrain_model.png
+.. figure:: ../../media/citydb_terrain_model.png
    :name: citydb_terrain_model
 
    UML diagram representing the digital terrain model
@@ -39,11 +39,11 @@ Instead, the high-resolution TINs are used for the representation of the
 terrain in these regions. That means the validity polygons of the TINs
 exactly fit the two holes in the validity polygon of the raster (grid).
 
-.. figure:: ../../../media/citydb_example_relief_components.png
+.. figure:: ../../media/citydb_example_relief_components.png
    :name: citydb_example_relief_components
 
    A relief, consisting of three components and its validity polygons (from: [PGKS2005]_)
 
 In the simplest and most frequent case, the validity polygon of a grid
-corresponds exactly with its Bounding box, i.e. the spatial extent of
+corresponds exactly with its bounding box, i.e. the spatial extent of
 the grid.

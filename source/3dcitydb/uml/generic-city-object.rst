@@ -1,9 +1,9 @@
 .. _citydb_generic_model_chapter:
 
-Generic Objects and Attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Generics model
+^^^^^^^^^^^^^^
 
-The concept of generic objects and attributes has been introduced to
+The concept of generic objects and attributes has been introduced in CityGML to
 facilitate the storage and exchange of 3D objects, which are not covered
 by explicitly modelled classes within CityGML or which requires
 additional attributes. These generic extensions are realised by the
@@ -28,7 +28,7 @@ addition, generic attributes can be grouped using the
 and thus is also realized as generic attribute. Its value is the set of
 contained generic attributes.
 
-.. figure:: ../../../media/citydb_generic_model.png
+.. figure:: ../../media/citydb_generic_model.png
    :name: citydb_generic_model
 
    *GenericCityObject* model

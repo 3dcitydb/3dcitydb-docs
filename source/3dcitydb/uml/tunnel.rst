@@ -1,6 +1,6 @@
 .. _citydb_tunnel_model_chapter:
 
-Tunnel Model
+Tunnel model
 ^^^^^^^^^^^^
 
 The tunnel model is closely related to the building model. It supports
@@ -18,7 +18,7 @@ the year of construction and the year of demolition. In contrast to
 *\_AbstractBuilding*, Address features cannot be assigned to
 *\_AbstractTunnel*.
 
-.. figure:: ../../../media/citydb_example_tunnel_parts.png
+.. figure:: ../../media/citydb_example_tunnel_parts.png
    :name: citydb_example_tunnel_parts
 
    Example of a tunnel modelled with two tunnel parts
@@ -31,7 +31,7 @@ are allowed in each LOD. An object can be represented simultaneously in
 different LODs by providing distinct geometries for the corresponding
 LODs.
 
-.. figure:: ../../../media/citydb_tunnel_model.png
+.. figure:: ../../media/citydb_tunnel_model.png
    :name: citydb_tunnel_model
 
    UML diagram of tunnel model
@@ -57,7 +57,7 @@ used for tunnel elements like outer stairs, strongly affecting the outer
 appearance of a tunnel. A *TunnelInstallation* may have the attributes
 *class*, *function* and *usage*.
 
-.. figure:: ../../../media/citydb_tunnel_boundary_surface.png
+.. figure:: ../../media/citydb_tunnel_boundary_surface.png
    :name: citydb_tunnel_boundary_surface
 
    Different BoundarySurfaces of a tunnel
@@ -72,7 +72,9 @@ presenting the light illumination within a tunnel. The aggregation of
 hollow spaces according to arbitrary, user defined criteria (e.g. for
 defining the hollow spaces corresponding to horizontal or vertical
 sections) is achieved by employing the general grouping concept provided
-by CityGML (cf. :numref:`citydb_core_model_chapter`). Interior installations of a tunnel,
+by CityGML (cf. :numref:`citydb_core_model_chapter`).
+
+Interior installations of a tunnel,
 i.e. objects within a tunnel which (in contrast to furniture) cannot be
 moved, are represented by the class *IntTunnelInstallation*. If an
 installation is attached to a specific hollow space (e.g. lamps,
@@ -85,7 +87,9 @@ occurs only once. The function attribute is intended to express the main
 purpose of the hollow space, e.g. control area, installation space, and
 storage space. The attribute *usage* can be used if the way the object
 is actually used differs from the *function*. Both attributes can occur
-multiple times. The visible surface of a hollow space is represented
+multiple times.
+
+The visible surface of a hollow space is represented
 geometrically as a *Solid* or *MultiSurface*. Semantically, the surface
 can be structured into specialized *\_BoundarySurfaces*, representing
 floor (*FloorSurface*), ceiling (*CeilingSurface*), and interior walls

@@ -1,4 +1,4 @@
-CityFurniture Model
+CityFurniture model
 ^^^^^^^^^^^^^^^^^^^
 
 City furniture objects are immovable objects like lanterns, traffic
@@ -14,7 +14,7 @@ regulation, architecture etc.), and can occur multiple times. The
 attribute *usage* denotes the real purpose of the city object, and can
 occur multiple times as well.
 
-.. figure:: ../../../media/citydb_cityfurniture_model.png
+.. figure:: ../../media/citydb_cityfurniture_model.png
    :name: citydb_cityfurniture_model
 
    City furniture model

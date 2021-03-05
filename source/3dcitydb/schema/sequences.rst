@@ -14,7 +14,7 @@ sequences only.
 The sequence GRID_COVERAGE_RDT_SEQ does not exist in the PostgreSQL
 version as the corresponding table does not exist.
 
-.. figure:: ../../../media/citydb_schema_sequences_diagram.png
+.. figure:: ../../media/citydb_schema_sequences_diagram.png
    :name: citydb_schema_sequences_diagram
 
    Overview of all sequences used in 3DCityDB

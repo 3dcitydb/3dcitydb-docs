@@ -1,4 +1,4 @@
-Transportation Model
+Transportation model
 ^^^^^^^^^^^^^^^^^^^^
 
 The transportation model of CityGML is a multi-functional, multi-scale
@@ -15,7 +15,7 @@ within a virtual 3D city model. The *Road* consists of several
 *TrafficAreas* for the sidewalks, road lanes, parking lots, and of
 *AuxiliaryTrafficAreas* below the raised flower beds.
 
-.. figure:: ../../../media/citydb_lod2_transportation_complex.png
+.. figure:: ../../media/citydb_lod2_transportation_complex.png
    :name: citydb_lod2_transportation_complex
 
    LoD2 representation of a transportation complex (from: [GKCN2008]_)
@@ -27,7 +27,7 @@ traffic usage, like car driving lanes, pedestrian zones and cycle lanes.
 The *AuxiliaryTrafficAreas* are describing further elements of the road,
 like kerbstones, middle lanes, and green areas.
 
-.. figure:: ../../../media/citydb_transportation_model.png
+.. figure:: ../../media/citydb_transportation_model.png
    :name: citydb_transportation_model
 
    UML model for transportation complex
@@ -67,11 +67,3 @@ transport, airplanes, bicycles, or pedestrians and in
 *AuxiliaryTrafficAreas*, which are of minor importance for
 transportation purposes, for example road markings, green spaces or
 flower tubs.
-
-.. |image21| image:: ../../media/image31.png
-   :width: 4.32222in
-   :height: 2.78056in
-
-.. |image22| image:: ../../media/image32.png
-   :width: 6.3in
-   :height: 3.02847in

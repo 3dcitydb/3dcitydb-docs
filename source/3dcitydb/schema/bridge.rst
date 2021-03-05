@@ -1,7 +1,7 @@
-Bridge Model
-^^^^^^^^^^^^
+Bridge schema
+^^^^^^^^^^^^^
 
-.. figure:: ../../../media/citydb_schema_bridge_diagram.png
+.. figure:: ../../media/citydb_schema_bridge_diagram.png
    :name: citydb_schema_bridge_diagram
 
    Bridge database schema

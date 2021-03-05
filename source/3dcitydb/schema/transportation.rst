@@ -1,5 +1,5 @@
-Transportation Model
-^^^^^^^^^^^^^^^^^^^^
+Transportation schema
+^^^^^^^^^^^^^^^^^^^^^
 
 For the realisation of transportation objects two tables are provided:
 TRAFFIC_AREA and TRANSPORTATION_COMPLEX.
@@ -46,7 +46,7 @@ type *MultiCurve* in Oracle and *MultiLineString Z* in PostGIS. Starting
 form LOD1 the representation of object geometry is handled by foreign
 keys LODx_MULTI_SURFACE_ID (with 1 ≤ x ≤ 4).
 
-.. figure:: ../../../media/citydb_schema_transportation_diagram.png
+.. figure:: ../../media/citydb_schema_transportation_diagram.png
    :name: citydb_schema_transportation_diagram
 
    Transportation database schema

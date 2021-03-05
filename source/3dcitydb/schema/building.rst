@@ -1,7 +1,7 @@
-Building Model
-^^^^^^^^^^^^^^
+Building schema
+^^^^^^^^^^^^^^^
 
-.. figure:: ../../../media/citydb_schema_building_diagram.png
+.. figure:: ../../media/citydb_schema_building_diagram.png
    :name: citydb_schema_building_diagram
 
    Building database schema
@@ -220,7 +220,7 @@ represents a *RoofSurface* by setting the OBJECTCLASS_ID attribute to
 the value 33. For its geometry, the tuple references ID 21 in the
 SURFACE_GEOMETRY table via the LOD2_MULTI_SURFACE_ID attribute.
 
-.. figure:: ../../../media/citydb_schema_lod2_building_roof_overhangs.png
+.. figure:: ../../media/citydb_schema_lod2_building_roof_overhangs.png
    :name: citydb_schema_lod2_building_roof_overhangs
 
    LoD2 building with roof overhangs, highlighted in red

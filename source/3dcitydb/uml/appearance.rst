@@ -1,6 +1,6 @@
 .. _citydb_appearance_model_chapter:
 
-Appearance Model
+Appearance model
 ~~~~~~~~~~~~~~~~
 
 Information about a surface’s appearance, i.e. observable properties of

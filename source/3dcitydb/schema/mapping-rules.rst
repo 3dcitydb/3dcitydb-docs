@@ -1,89 +1,101 @@
-Mapping rules, schema conventions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Mapping rules and metadata
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Mapping of classes onto tables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Generally, one or more classes of the UML diagram are mapped onto one
-table; the name of the table is identical to the class name (a leading
-underscore indicating an abstract class is left out). Classes are
-combined into a single table according to the class relations as shown
-in the UML diagrams by using orange coloured boxes. The scalar
-attributes of the classes become columns of the corresponding table with
-identical name.
+In general, every class of the UML diagram is mapped onto a separate
+table; the name of the table is identical to the class name (leading
+underscores indicating abstract classes are omitted). If multiple classes
+are contained in an orange box in the UML diagram though, these classes
+are mapped onto a single table in the relational schema.
 
-The types of the attributes are customized to corresponding database
-(Oracle/PostgreSQL) data types (see :numref:`data_type_mapping_table`). Some attributes of the
-data type date were mapped to ``TIMESTAMP WITH TIME ZONE`` to allow a more
-accurate storage of time values.
+Scalar attributes of the classes become columns of the corresponding table
+with identical name. The types of attributes are customized to corresponding
+data types of the target database systems PostgreSQL/PostGIS and Oracle as
+shown in the following :numref:`data_type_mapping_table`.
 
 .. list-table::  *Data type mapping (excerpt)*
    :name: data_type_mapping_table
 
    * - | **UML**
-     - | **Oracle**
      - | **PostgreSQL / PostGIS**
+     - | **Oracle**
    * - | String, anyURI
-     - | VARCHAR2, CLOB
      - | VARCHAR, TEXT
+     - | VARCHAR2, CLOB
    * - | Integer
+     - | NUMERIC
      - | NUMBER
-     - | NUMERIC
    * - | Double, gml:LengthType
-     - | BINARY_DOUBLE
      - | DOUBLE PRECISION
+     - | BINARY_DOUBLE
    * - | Boolean
-     - | NUMBER(1,0)
      - | NUMERIC
+     - | NUMBER(1,0)
    * - | Date
-     - | DATE
+     - | DATE or
        | TIMESTAMP WITH TIME ZONE
-     - | DATE
+     - | DATE or
        | TIMESTAMP WITH TIME ZONE
-   * - | Primitive Type
+   * - | Complex Types
        | (Color, TransformationMatrix,
        | CodeType etc.)
-     - | VARCHAR2
      - | VARCHAR
+     - | VARCHAR2
    * - | Enumeration
-     - | VARCHAR2
      - | VARCHAR
+     - | VARCHAR2
    * - | GML Geometry,
        | textureCoordinates
-     - | SDO_GEOMETRY
      - | GEOMETRY
+     - | SDO_GEOMETRY
    * - | GML RectifiedGridCoverage
+     - | RASTER
      - | SDO_GEORASTER
        | & SDO_RASTER
-     - | RASTER
    * - | Texture (only reference
        | of type anyURI in CityGML)
-     - | BLOB
      - | BYTEA
+     - | BLOB
 
 .. _citydb_class_affiliation_declaration_chapter:
 
-Explicit declaration of class affiliation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Explicit metadata about feature classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the (meta) table OBJECTCLASS, all class names (attribute CLASSNAME)
-of the schema are managed. The relation of the subclass to its parent
-class is represented via the attribute SUPERCLASS_ID in the subclass as
-a foreign key to the ID of the parent class.
+The central metadata table OBJECTCLASS contains all feature classes supported by the 3D City
+Database. Every CityGML feature class is
+assigned a unique and stable ID in this table. For example, *Building*
+is assigned the ID value 26 and *Bridge* has the value 64. In addition,
+the name of the feature class is stored in the attribute CLASSNAME. The
+name of the table onto which the feature class has been mapped is provided
+by the TABLENAME column.
 
-The table OBJECTCLASS is used to efficiently determine the affiliation
-to a class in the superclass tables. In addition, the table CITYOBJECT
-contains the attribute OBJECTCLASS_ID which refers to the respective
-table OBJECTCLASS. This way, while looking at a tuple in CITYOBJECT, the
-subclass and – if needed – the name of the class can be determined
-directly. This mechanism has also been adopted in other tables that are
-used to store different CityGML features, e.g. THEMATIC_SURFACE (for all
-different *BoundarySurfaces* of a *Building* feature) or
-BUILDING_INSTALLATION (outer or interior) etc. Please consider that
-using CityGML ADEs could lead to additional OBJECTCLASS_IDs in this
-table (please also refer to :numref:`chapter_citydb_schema_metadata`).
+The SUPERCLASS_ID attribute references the direct superclass of the feature class
+and, thus, maps the class hierarchy. The additional BASECLASS_ID attribute
+points to the root class of the hierarchy and can be used to quickly
+understand whether an entry in OBJECTCLASS represents a GML feature type,
+object type or data type without having to traverse the entire class hierarchy.
+If a feature class represents a CityGML top-level feature, the IS_TOPLEVEL
+flag is set to 1 and 0 otherwise.
 
-.. list-table::  Contents of the *OBJECTCLASS* table
+All city objects stored in the 3D City Database are registered in the
+root table CITYOBJECT. This table has an attribute OBJECTCLASS_ID which
+references an entry in OBJECTCLASS. This way, the class of the city object
+can be easily and efficiently identified. If required, its class name, its feature
+table, whether it is a top-level feature, and even its (transitive) superclasses can also be queried.
+In addition to CITYOBJECT, all tables that are used to store CityGML features
+provide an OBJECTCLASS_ID attribute.
+
+.. note::
+  Registering CityGML ADEs in the 3D City Database leads to additional
+  entries in the OBJECTCLASS table for each class defined in the ADE.
+  The OBJECTCLASS table has two more attributes IS_ADE_CLASS and ADE_ID
+  which are used to manage and identify ADE classes. More information is
+  provided in :numref:`citydb_managing_ades_chapter` for more information.
+
+.. list-table::  Excerpt of the *OBJECTCLASS* table
    :name: citydb_objectclass_table
 
    * - | **ID**

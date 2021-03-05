@@ -7,7 +7,7 @@ with similar functionality some of them will probably be outsourced in
 their own package (like ``CITYDB_CONSTRAINT`` in v4.0). Nearly all functions
 take the schema name as the last input argument (“schema-aware”).
 Therefore, they can be executed against another user schema in Oracle or
-database schema in PostgreSQL. Note, for the function get_seq_values the
+database schema in PostgreSQL. Note, for the function *get_seq_values* the
 schema name must be part of the first argument – the sequence name, e.g.
 ``my_schema.cityobject_seq``.
 

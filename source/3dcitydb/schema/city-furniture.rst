@@ -1,11 +1,11 @@
-CityFurniture Model
-^^^^^^^^^^^^^^^^^^^
+CityFurniture schema
+^^^^^^^^^^^^^^^^^^^^
 
 The CityGML feature class CityFurniture and its attributes specified in
 the UML diagram (:numref:`citydb_cityfurniture_model`) are directly mapped the CITY_FURNITURE
 table and its corresponding columns.
 
-.. figure:: ../../../media/citydb_schema_cityfurniture_diagram.png
+.. figure:: ../../media/citydb_schema_cityfurniture_diagram.png
    :name: citydb_schema_cityfurniture_diagram
 
    CityFurniture database schema

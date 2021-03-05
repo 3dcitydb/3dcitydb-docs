@@ -1,6 +1,6 @@
 .. _citydb_bridge_model_chapter:
 
-Bridge Model
+Bridge model
 ^^^^^^^^^^^^
 
 The bridge model was developed in analogy to the building model (cf.
@@ -24,7 +24,7 @@ bridge (function) is given by the attribute usage. Each *Bridge* or
 *BridgePart* feature may be assigned zero or more addresses using the
 address property.
 
-.. figure:: ../../../media/citydb_example_bridge_parts.png
+.. figure:: ../../media/citydb_example_bridge_parts.png
    :name: citydb_example_bridge_parts
 
    Example of bridge consisting of bridge parts
@@ -53,7 +53,7 @@ the thematic classes *RoofSurface*, *WallSurface, GroundSurface,
 OuterCeilingSurface, OuterFloorSurface, ClosureSurface, FloorSurface,
 InteriorWallSurface*, and *CeilingSurface* are derived.
 
-.. figure:: ../../../media/citydb_bridge_boundary_surface.png
+.. figure:: ../../media/citydb_bridge_boundary_surface.png
    :name: citydb_bridge_boundary_surface
 
    Different *BoundarySurfaces* of a bridge
@@ -80,7 +80,7 @@ classification of installations of a bridge. With the attributes
 function and usage, nominal and real functions of the bridge
 installation can be described.
 
-.. figure:: ../../../media/citydb_example_bridge_construction_element.png
+.. figure:: ../../media/citydb_example_bridge_construction_element.png
    :name: citydb_example_bridge_construction_element
 
    Example of bridge consisting of *BridgeConstructionElement* and *BridgeInstallation*
@@ -93,7 +93,7 @@ They are designed in analogy to the classes *Room*,
 and share the same meaning. The bridge interior can only be modelled in
 LOD4.
 
-.. figure:: ../../../media/citydb_bridge_model.png
+.. figure:: ../../media/citydb_bridge_model.png
    :name: citydb_bridge_model
 
    UML diagram of bridge model

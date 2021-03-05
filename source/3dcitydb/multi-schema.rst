@@ -5,7 +5,7 @@ Working with multiple database schemas
 
 Most users rarely work with only one 3D City Database. They maintain
 multiple instances for each data set, for different city projects or
-user groups and probably for various test demos. The new ability to
+user groups and probably for various test demos. The ability to
 manage CityGML ADEs sets the ground for even more experiments. This
 chapter explains how to manage multiple 3D City Databases in separate
 schemas.
@@ -19,8 +19,8 @@ Create and address database schemas
 
 PostgreSQL provides a clustering concept for database schemas that
 allows users to group multiple instances of the 3D City Database. This
-means within one database object a user can create more schemas like in
-the ‘citydb’ schema, that store the table layout of the 3D City
+means within one database object a user can create more schemas like
+the default ‘citydb’ schema, all of which contain the table layout of the 3D City
 Database. They can be regarded as separate namespaces. To address the
 different namespaces, dot notation should be used in queries. Note, if
 tables are not schema-qualified the first namespace in the database
@@ -44,11 +44,16 @@ CREATE_SCHEMA script would not make too much sense. In fact, a new
 instance should be created with a new user and the CREATE_DB script.
 Like with PostgreSQL schemas, it is possible to join tables from
 different user namespaces if sufficient privileges were granted (see
-next section). As another alternative Oracle databases can be set under
+next section).
+
+As another alternative, Oracle databases can be set under
 version control with the Oracle Workspace Manager so that a user can
 also work with multiple versions of a city model in separate
 *workspaces*. To change the workspace a user must execute the
-DBMS_WM.GotoWorkspace procedure.
+DBMS_WM.GotoWorkspace procedure. Versioning can either be enabled
+during setup of the 3D City Database with the CREATE_DB shell script,
+or at any time later by invoking the SQL scripts ENABLE_VERSIONING.sql and
+DISABLE_VERSIONING.sql using a database client such as SQL\*Plus.
 
 .. _citydb_schema_rw_access_chapter:
 
@@ -70,7 +75,7 @@ setting in the GRANT_ACCESS script. Read-only users will be allowed to:
 -  connect to the given database schema and use its objects (tables,
    views, sequences, types etc.),
 
--  export data in both CityGML and KML/COLLADA formats,
+-  export data in CityGML, CityJSON and KML/COLLADA formats,
 
 -  generate database reports, query the index status and calculate
    envelopes.
@@ -89,7 +94,7 @@ however, one user can be the owner of multiple schemas. Still, write
 access can be interesting in a multi-editor scenario.
 
 .. note::
-   Dropping and creating indexes is not possible in PostgreSQL, if
+   Dropping and creating indexes is not possible in PostgreSQL if
    you’re not the owner of the table.
 
 **Revoke access**
@@ -104,8 +109,8 @@ Schema support in stored procedures
 
 Since v3.0.0, most stored procedures of the 3D City Database offer an
 input argument to specify the schema name against which the operation
-will be executed. The default for Oracle is the schema of the currently
-connected user, for PostgreSQL it is \`citydb`. Since v4.0.0, this parameter
+will be executed. The default for PostgreSQL is \`citydb`, for Oracle
+it is the schema of the currently connected user. Since v4.0.0, this parameter
 has been removed for those type of stored procedures that operate on the
 logical level of the database, because managing different ADEs in
 separate schemas can result in a different table structure. E.g. one

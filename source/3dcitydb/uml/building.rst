@@ -11,7 +11,7 @@ three parts – a main house, a garage and an extension. The parts can
 again consist of parts etc. The subclasses *Building* and *BuildingPart*
 of \_\ *AbstractBuilding* enable these modelling options.
 
-.. figure:: ../../../media/citydb_example_building_parts.png
+.. figure:: ../../media/citydb_example_building_parts.png
    :name: citydb_example_building_parts
 
    Example of buildings consisting of one and two building parts [GKCN2008]_
@@ -26,7 +26,7 @@ construction, year of demolition, roof type, measured height, and the
 number and individual heights of all its storeys above and below ground
 (cf. :numref:`citydb_building_model`).
 
-.. figure:: ../../../media/citydb_building_model.png
+.. figure:: ../../media/citydb_building_model.png
    :name: citydb_building_model
 
    UML diagram of *Building* model
@@ -36,8 +36,8 @@ Furthermore, *Addresses* can be assigned to *Buildings* or
 *BuildingParts* as components, because the composition relation is
 inherited. This way a tree-like hierarchy can be created whose root
 object is a *Building* and whose non-root nodes are *BuildingParts*. The
-attribute values are generally filled in the lower hierarchy level,
-because basically every part can have its own construction year and
+attribute values are generally provided for the leaves in the hierarchy level,
+because basically every part can have its own, for instance, construction year and
 function. However, the function can also be defined in the root of the
 hierarchy and therefore span the whole building. The individual
 *BuildingParts* within a *Building* must not penetrate each other and
@@ -46,11 +46,11 @@ must form a coherent object.
 The geometric representation of an \_\ *AbstractBuilding* is
 successively refined from LOD0 to LOD4. Therefore, a single building can
 have multiple spatial representations in different levels of detail at
-the same time by *Solid*, *MultiSurface*, and/or *MultiCurve* (cf.
-:numref:`citydb_building_model`).
+the same time using *Solid*, *MultiSurface*, and/or *MultiCurve* (cf.
+:numref:`citydb_building_model`) geometries.
 
 In LoD0, the building can be represented by horizontal, 3-dimentional
-surfaces describing the footprint and the roof edge. In LoD1, a building
+surfaces describing the footprint and the roofprint. In LoD1, a building
 model consists of a geometric representation of the building volume.
 Optionally, a *MultiCurve* representing the *TerrainIntersectionCurve*
 can be specified. This geometric representation is refined in LoD2 by
@@ -71,7 +71,7 @@ A *BuildingInstallation* is used for the representation of chimneys,
 stairs, balconies etc. and optionally has the attributes *class*,
 *function,* and *usage*.
 
-.. figure:: ../../../media/citydb_building_boundary_surface.png
+.. figure:: ../../media/citydb_building_boundary_surface.png
    :name: citydb_building_boundary_surface
 
    Boundary surfaces

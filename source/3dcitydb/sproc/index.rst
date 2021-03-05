@@ -11,7 +11,7 @@ packages. In the PostgreSQL version, functions are written in PL/pgSQL
 and stored either in their own database schema called ‘citydb_pkg’ or as
 part of an instance schema like ‘citydb’. Many of these functions and
 procedures expose certain tasks on the database side to the
-Importer/Exporter client. When calling stored procedures, the package
+Importer/Exporter tool. When calling stored procedures, the package
 name has to be included for the Oracle version. With PostgreSQL, the
 ‘citydb_pkg’ schema has not to be specified as prefix since it is put on
 the database *search path* during setup.

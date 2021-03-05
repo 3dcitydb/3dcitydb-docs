@@ -1,5 +1,5 @@
-Digital Terrain Model
-^^^^^^^^^^^^^^^^^^^^^
+Digital terrain schema
+^^^^^^^^^^^^^^^^^^^^^^
 
 A tuple in the table RELIEF_FEATURE represents a complex relief object,
 which consists of different relief components. It has an attribute LOD
@@ -20,7 +20,7 @@ are derived from CITYOBJECT and receive the same ID as the *CityObject*.
 Table RELIEF_FEAT_TO_REL_COMP represents the interrelationship between
 relief features and relief components.
 
-.. figure:: ../../../media/citydb_schema_relief_diagram.png
+.. figure:: ../../media/citydb_schema_relief_diagram.png
    :name: citydb_schema_relief_diagram
 
    Digital Terrain Model database schema

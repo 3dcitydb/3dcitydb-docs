@@ -1,5 +1,5 @@
-WaterBody Model
-^^^^^^^^^^^^^^^
+WaterBody schema
+^^^^^^^^^^^^^^^^
 
 **WATERBODY, WATERBOD_TO_WATERBND_SRF**
 
@@ -39,7 +39,7 @@ Since every \_\ *WaterBoundarySurface* object must have at least one
 associated surface geometry, the foreign keys LODx_SURFACE_ID (with 2 ≤x
 ≤ 4, no *MultiSurface* here) are used to realise these relations.
 
-.. figure:: ../../../media/citydb_schema_waterbody_diagram.png
+.. figure:: ../../media/citydb_schema_waterbody_diagram.png
    :name: citydb_schema_waterbody_diagram
 
    WaterBody database schema

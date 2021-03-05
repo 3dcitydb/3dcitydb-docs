@@ -1,5 +1,5 @@
-WaterBodies Model
-^^^^^^^^^^^^^^^^^
+WaterBody model
+^^^^^^^^^^^^^^^
 
 The water bodies model represents the thematic aspects and 3D geometry
 of rivers, canals, lakes, and basins. In LoD 2-4 water bodies are
@@ -13,7 +13,7 @@ water bodies or between water and the end of a modelled region (cf.
 dynamic element may be the *WaterSurface* to represent temporarily
 changing situations of tidal flats.
 
-.. figure:: ../../../media/citydb_waterbody_definitions.png
+.. figure:: ../../media/citydb_waterbody_definitions.png
    :name: citydb_waterbody_definitions
 
    Definition of waterbody attributes (from: [GKNH2012]_)
@@ -39,7 +39,7 @@ of generalisation. Here the rivers are modelled as *MultiCurve* geometry
 and brooks are omitted. Seas, oceans, and lakes with significant extent
 are represented as *MultiSurfaces.* (cf. :numref:`citydb_waterbody_model`)
 
-.. figure:: ../../../media/citydb_waterbody_model.png
+.. figure:: ../../media/citydb_waterbody_model.png
    :name: citydb_waterbody_model
 
    Waterbody model

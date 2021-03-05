@@ -1,11 +1,11 @@
-Vegetation Model
-^^^^^^^^^^^^^^^^
+Vegetation schema
+^^^^^^^^^^^^^^^^^
 
 The vegetation model specified in :numref:`citydb_vegetation_model_chapter`
 is realized by the tables shown in :numref:`citydb_schema_vegetation_diagram`
 which correspond largely to the UML model.
 
-.. figure:: ../../../media/citydb_schema_vegetation_diagram.png
+.. figure:: ../../media/citydb_schema_vegetation_diagram.png
    :name: citydb_schema_vegetation_diagram
 
    Vegetation database schema

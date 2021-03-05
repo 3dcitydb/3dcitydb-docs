@@ -1,5 +1,5 @@
-Appearance Model
-^^^^^^^^^^^^^^^^
+Appearance schema
+^^^^^^^^^^^^^^^^^
 
 **APPEARANCE, APPEARANCE_SEQ**
 
@@ -13,7 +13,7 @@ features, which can be referenced by GML identifiers. For this reason,
 the attributes GMLID and GMLID_CODESPACE were added to the corresponding
 tables.
 
-.. figure:: ../../../media/citydb_schema_appearance.png
+.. figure:: ../../media/citydb_schema_appearance.png
    :name: citydb_schema_appearance
 
    Appearance database schema
@@ -21,11 +21,11 @@ tables.
 **SURFACE_DATA, TEX_IMAGE, APPEAR_TO_SURFACE_DATA**
 
 An appearance is composed of data for each surface geometry object.
-Information on the data types and its appearance are stored in table
+Information on the data types and its appearance are stored in the table
 SURFACE_DATA.
 
 IS_FRONT determines the side a surface data object applies to
-(IS_FRONT=1: front face IS_FRONT=0: back face of a surface data object).
+(IS_FRONT=1: front face IS_FRONT=0: back face of the geometry).
 The OBJECTCLASS_ID column denotes if materials or textures are used for
 the specific object (values: *X3DMaterial*, *Texture* or
 *GeoreferencedTexture*). Materials are specified by the attributes
@@ -46,12 +46,12 @@ appearances and surfaces for different themes.
 
 **TEXTUREPARAM**
 
-Attributes for mapping textures to objects (point list or transformation
+Attributes for mapping textures to geometry objects (point list or transformation
 matrix) which are defined by the CityGML classes
 *\_TextureParameterization*, *TexCoordList*, and *TexCoordGen* are
 stored in the table TEXTUREPARAM.
 
-.. figure:: ../../../media/citydb_schema_example_appearance_texture.png
+.. figure:: ../../media/citydb_schema_example_appearance_texture.png
    :name: citydb_schema_example_appearance_texture
 
    Simple example explaining texture mapping using texture coordinates
@@ -88,7 +88,7 @@ WORLD_TO_TEXTURE attribute defines a transformation matrix from a
 location in world space to texture space. For more details see the
 CityGML Implementation Specification [GKNH2012]_.
 
-.. figure:: ../../../media/citydb_schema_example_building_appearance.png
+.. figure:: ../../media/citydb_schema_example_building_appearance.png
    :name: citydb_schema_example_building_appearance
    :width: 6.5in
 
@@ -140,14 +140,14 @@ theme:
 :numref:`citydb_schema_example_lod2Surface_building` shows the LoD2 representation
 of summer appearances (theme Summer).
 
-.. figure:: ../../../media/citydb_schema_example_lod2Surface_building.png
+.. figure:: ../../media/citydb_schema_example_lod2Surface_building.png
    :name: citydb_schema_example_lod2Surface_building
    :width: 4.3in
 
    Surface geometries for the building in LoD2
 
 
-.. figure:: ../../../media/citydb_schema_images_georeferenced_textures.png
+.. figure:: ../../media/citydb_schema_images_georeferenced_textures.png
    :name: citydb_schema_images_georeferenced_textures
 
    Images for georeferenced textures. The image ground_winter.png is assigned to the terrain
@@ -156,39 +156,39 @@ of summer appearances (theme Summer).
    within the summer theme (b)
 
 
-.. figure:: ../../../media/citydb_schema_images_parameterized_textures.png
+.. figure:: ../../media/citydb_schema_images_parameterized_textures.png
    :name: citydb_schema_images_parameterized_textures
 
    Images for parameterized textures
 
 
-.. figure:: ../../../media/citydb_schema_APPEARANCE_table_figure.png
+.. figure:: ../../media/citydb_schema_APPEARANCE_table_figure.png
    :name: citydb_schema_APPEARANCE_table_figure
 
    Excerpt of table APEARANCE, The relation to the building feature is given by the foreign key CITYOBJECT_ID
 
 
-.. figure:: ../../../media/citydb_schema_APPEAR_TO_SURFACE_table_figure.png
+.. figure:: ../../media/citydb_schema_APPEAR_TO_SURFACE_table_figure.png
    :name: citydb_schema_APPEAR_TO_SURFACE_table_figure
    :width: 5.3in
 
    APPEAR_TO_SURFACE table
 
 
-.. figure:: ../../../media/citydb_schema_surface_data_table_figure.png
+.. figure:: ../../media/citydb_schema_surface_data_table_figure.png
    :name: citydb_schema_surface_data_table_figure
 
    Excerpt of table SURFACE_DATA table
 
 
-.. figure:: ../../../media/citydb_schema_tex_image_table_figure.png
+.. figure:: ../../media/citydb_schema_tex_image_table_figure.png
    :name: citydb_schema_tex_image_table_figure
    :width: 6.3in
 
    Excerpt of table TEX_IMAGE table
 
 
-.. figure:: ../../../media/citydb_schema_TEXTUREPARAM_table_figure.png
+.. figure:: ../../media/citydb_schema_TEXTUREPARAM_table_figure.png
    :name: citydb_schema_TEXTUREPARAM_table_figure
 
    TEXTUREPARAM Table
