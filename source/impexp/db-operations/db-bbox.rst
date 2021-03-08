@@ -66,10 +66,6 @@ objects based on the selection made in [1].
    values are calculated by evaluating all geometries of the city objects
    in all LoDs including implicit geometries.
 
-.. |bbox_copy| image:: ../media/bbox_copy.png
-   :width: 0.16667in
-   :height: 0.16667in
+.. |bbox_copy| image:: /media/bbox_copy.svg
 
-.. |map_select| image:: ../media/map_select.png
-   :width: 0.16667in
-   :height: 0.16667in
+.. |map_select| image:: /media/map_select.svg
