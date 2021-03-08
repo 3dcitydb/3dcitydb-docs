@@ -19,6 +19,7 @@ a volume.
 
 .. figure:: ../../media/citydb_envelope_definition.png
    :name: citydb_envelope_definition
+   :align: center
 
    The *CityObject*\ ’s envelope specified by two points with minimum
    and maximum coordinate values (left: black points) is stored as a
@@ -156,5 +157,6 @@ and should be stored along with other attributes of that feature.
 
 .. figure:: ../../media/citydb_schema_core.png
    :name: citydb_schema_core
+   :align: center
 
    Database schema of the CityGML core elements

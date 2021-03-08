@@ -118,6 +118,7 @@ as 3D geometry in the attribute SOLID_GEOMETRY, whereas the GEOMETRY attribute
 
 .. figure:: ../../media/citydb_schema_example_geometry_hierarchy.png
    :name: citydb_schema_example_geometry_hierarchy
+   :align: center
 
    Geometry hierarchy for the solid geometry shown in :numref:`citydb_schema_example_lod1solid_building`
 
@@ -227,6 +228,7 @@ by the following rows:
 
 .. figure:: ../../media/citydb_schema_example_lod1solid_building.png
    :name: citydb_schema_example_lod1solid_building
+   :align: center
 
    LoD 1 building - closed volume bounded by a *CompositeSurface* which consists of single polygons
 

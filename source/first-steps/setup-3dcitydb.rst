@@ -241,6 +241,7 @@ The following figure exemplifies the user input for the CREATE_DB script.
 
 .. figure:: ../media/first_step_CREATE_DB_cli.png
    :name: first_step_CREATE_DB_cli
+   :align: center
 
    Example user input when executing CREATE_DB for a PostgreSQL database.
 

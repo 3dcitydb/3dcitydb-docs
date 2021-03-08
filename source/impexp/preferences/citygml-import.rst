@@ -15,6 +15,7 @@ queries.
 
 .. figure:: ../../media/impexp_import_preferences_continuation_fig.png
    :name: impexp_import_preferences_continuation_fig
+   :align: center
 
    CityGML import preferences – Continuation.
 
@@ -73,6 +74,7 @@ within the scope of a single dataset.
 
 .. figure:: ../../media/impexp_import_preferences_gmlid_handling_fig.png
    :name: impexp_import_preferences_gmlid_handling_fig
+   :align: center
 
    CityGML import preferences – gml:id handling.
 
@@ -179,6 +181,7 @@ XML fragment* option (this is the default value).
 
 .. figure:: ../../media/impexp_import_preferences_address_fig.png
    :name: impexp_import_preferences_address_fig
+   :align: center
 
    CityGML import preferences – Address.
 
@@ -202,6 +205,7 @@ of city objects shall be processed at import time.
 
 .. figure:: ../../media/impexp_import_preferences_appearance_fig.png
    :name: impexp_import_preferences_appearance_fig
+   :align: center
 
    CityGML import preferences – Appearance.
 
@@ -238,6 +242,7 @@ geometry objects. This option is disabled by default though.
 
 .. figure:: ../../media/impexp_import_preferences_geometry_fig.png
    :name: impexp_import_preferences_geometry_fig
+   :align: center
 
    CityGML import preferences – Geometry.
 
@@ -321,12 +326,13 @@ Indexes
 
 In addition to the Database tab on the operations window, which lets you
 enable and disable spatial and normal indexes in the 3D City Database
-manually (cf. :numref:`impexp_executing_database_operations_chapter`),
+manually (cf. :numref:`impexp-db-indexes`),
 this preference dialog lets you set a default index strategy for
 database imports.
 
 .. figure:: ../../media/impexp_import_preferences_indexes_fig.png
    :name: impexp_import_preferences_indexes_fig
+   :align: center
 
    CityGML import preferences – Indexes.
 
@@ -364,6 +370,7 @@ to perform XML validation automatically with every database import.
 
 .. figure:: ../../media/impexp_import_preferences_xml_validation_fig.png
    :name: impexp_import_preferences_xml_validation_fig
+   :align: center
 
    CityGML import preferences – XML validation.
 
@@ -423,6 +430,7 @@ transform the CityGML data.
 
 .. figure:: ../../media/impexp_import_preferences_xsl_fig.png
    :name: impexp_import_preferences_xsl_fig
+   :align: center
 
    CityGML import preferences – XSL transformation.
 
@@ -460,6 +468,7 @@ an *import log*.
 
 .. figure:: ../../media/impexp_import_preferences_log_fig.png
    :name: impexp_import_preferences_log_fig
+   :align: center
 
    CityGML import preferences – Import log.
 
@@ -485,6 +494,7 @@ top-level feature. The following figure shows an example.
 
 .. figure:: ../../media/impexp_import_log_example_fig.png
    :name: impexp_import_log_example_fig
+   :align: center
 
    Example import log.
 
@@ -523,6 +533,7 @@ Resources
 
 .. figure:: ../../media/impexp_import_preferences_resources_fig.png
    :name: impexp_import_preferences_resources_fig
+   :align: center
 
    CityGML import preferences – Resources.
 

@@ -18,6 +18,7 @@ a single *MultiCurve*, TINs by *TriangulatedSurfaces*, mass points by
 
 .. figure:: ../../media/citydb_terrain_model.png
    :name: citydb_terrain_model
+   :align: center
 
    UML diagram representing the digital terrain model
 
@@ -41,6 +42,7 @@ exactly fit the two holes in the validity polygon of the raster (grid).
 
 .. figure:: ../../media/citydb_example_relief_components.png
    :name: citydb_example_relief_components
+   :align: center
 
    A relief, consisting of three components and its validity polygons (from: [PGKS2005]_)
 

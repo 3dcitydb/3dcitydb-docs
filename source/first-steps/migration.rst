@@ -42,6 +42,7 @@ successfully established as shown below (see also chapter about
 
 .. figure:: ../media/first_step_3dcityb_version_info.png
    :name: first_step_3dcityb_version_info
+   :align: center
 
    Version information of a 3D City Database.
 

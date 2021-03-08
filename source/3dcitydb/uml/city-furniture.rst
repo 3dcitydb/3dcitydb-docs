@@ -16,6 +16,7 @@ occur multiple times as well.
 
 .. figure:: ../../media/citydb_cityfurniture_model.png
    :name: citydb_cityfurniture_model
+   :align: center
 
    City furniture model
 

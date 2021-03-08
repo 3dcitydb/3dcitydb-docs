@@ -22,6 +22,7 @@ are reached.
 
 .. figure:: /media/impexp_preferences_general_cache_fig.png
    :name: impexp_preferences_general_cache_fig
+   :align: center
 
    General preferences – Cache.
 
@@ -54,6 +55,7 @@ export operations.
 
 .. figure:: /media/impexp_preferences_general_path_fig.png
    :name: impexp_preferences_general_path_fig
+   :align: center
 
    General preferences – Import and export path.
 
@@ -81,6 +83,7 @@ configure network proxies.
 
 .. figure:: /media/impexp_preferences_general_network_proxies_fig.png
    :name: impexp_preferences_general_network_proxies_fig
+   :align: center
 
    General preferences – Network proxies.
 
@@ -121,6 +124,7 @@ preference dialog, you can provide your API keys for different services.
 
 .. figure:: /media/impexp_preferences_general_apikeys_fig.png
    :name: impexp_preferences_general_apikeys_fig
+   :align: center
 
    General preferences – API keys.
 
@@ -157,6 +161,7 @@ Logging preference dialog is shown below.
 
 .. figure:: /media/impexp_preferences_general_logging_fig.png
    :name: impexp_preferences_general_logging_fig
+   :align: center
 
    General preferences – Logging.
 
@@ -228,5 +233,6 @@ language.
 
 .. figure:: /media/impexp_preferences_general_language_fig.png
    :name: impexp_preferences_general_language_fig
+   :align: center
 
    General preferences – Language selection.

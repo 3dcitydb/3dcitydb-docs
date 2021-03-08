@@ -15,6 +15,7 @@ changing situations of tidal flats.
 
 .. figure:: ../../media/citydb_waterbody_definitions.png
    :name: citydb_waterbody_definitions
+   :align: center
 
    Definition of waterbody attributes (from: [GKNH2012]_)
 
@@ -41,6 +42,7 @@ are represented as *MultiSurfaces.* (cf. :numref:`citydb_waterbody_model`)
 
 .. figure:: ../../media/citydb_waterbody_model.png
    :name: citydb_waterbody_model
+   :align: center
 
    Waterbody model
 

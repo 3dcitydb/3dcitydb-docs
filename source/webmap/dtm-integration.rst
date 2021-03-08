@@ -31,6 +31,7 @@ Terrain-Layer* button.
 
 .. figure:: /media/3d_web_client_dtm_gui.png
     :name: 3d_web_client_dtm_gui
+   :align: center
 
     The input panel [1] for adding a new terrain layer and the
     BaseLayerPicker widget [2] where the added terrain layers will be listed
@@ -60,6 +61,7 @@ values should be entered into the corresponding input fields:
 
 .. figure:: /media/3d_web_client_dtm_gui_numbers.png
    :name: 3d_web_client_dtm_gui_numbers
+   :align: center
 
    Example showing how to add a new terrain layer to the 3D web client
 

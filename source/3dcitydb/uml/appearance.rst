@@ -17,6 +17,7 @@ may store its own appearance data. Therefore, the base CityGML classes
 
 .. figure:: ../../media/citydb_appearance_model.png
    :name: citydb_appearance_model
+   :align: center
 
    Appearance model
 

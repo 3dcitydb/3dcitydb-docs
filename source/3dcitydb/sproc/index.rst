@@ -18,6 +18,7 @@ the database *search path* during setup.
 
 .. figure:: ../../media/citydb_graphical_database_clients.png
    :name: citydb_graphical_database_clients
+   :align: center
 
    Graphical database client connected to the 3D City Database
    (left: SQL Developer (Oracle), right: pgAdmin 4 (PostgreSQL)

@@ -13,6 +13,7 @@ of \_\ *AbstractBuilding* enable these modelling options.
 
 .. figure:: ../../media/citydb_example_building_parts.png
    :name: citydb_example_building_parts
+   :align: center
 
    Example of buildings consisting of one and two building parts [GKCN2008]_
 
@@ -28,6 +29,7 @@ number and individual heights of all its storeys above and below ground
 
 .. figure:: ../../media/citydb_building_model.png
    :name: citydb_building_model
+   :align: center
 
    UML diagram of *Building* model
 
@@ -73,6 +75,7 @@ stairs, balconies etc. and optionally has the attributes *class*,
 
 .. figure:: ../../media/citydb_building_boundary_surface.png
    :name: citydb_building_boundary_surface
+   :align: center
 
    Boundary surfaces
 

@@ -10,7 +10,8 @@ the following figure) can be expanded and collapsed by clicking on the
 
 .. figure:: /media/3d_web_client_wms.png
    :name: 3d_web_client_wms
-   
+   :align: center
+
    The input panel [1] for adding a new WMS layer and the
    ``BaseLayerPicker`` widget [2] where the added WMS layers will be listed
    together with the per default available imagery layers
@@ -58,6 +59,7 @@ input fields:
 
 .. figure:: /media/3d_web_client_wms_gui.png
    :name: 3d_web_client_wms_gui
+   :align: center
 
    Example showing how to add a new WMS layer to the 3D web client
 

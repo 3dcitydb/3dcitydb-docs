@@ -1,7 +1,7 @@
 .. _webmap_chapter:
 
-3DCityDB-Web-Map-Client
-=======================
+3D Web Map Client
+=================
 
 Starting from version 3.3.0, the 3DCityDB software package comes with a
 software package called **3DCityDB-Web-Map-Client** (in this chapter we
@@ -44,6 +44,7 @@ the web.
 
 .. figure:: /media/webmap_exampe_displaying_citygml_features_fig.png
    :name: pic_3d_web_map_railway
+   :align: center
 
    Screenshot showing the example of displaying different
    CityGML top-level features (building, bridge, tunnel, water, vegetation,

@@ -11,6 +11,7 @@ shown below.
 
 .. figure:: ../media/impexp_CityGML_import_dialog_fig.png
    :name: impexp_CityGML_import_dialog_fig
+   :align: center
 
    The CityGML import dialog.
 
@@ -90,6 +91,7 @@ window, click on the map button |map_select| [6].
 
 .. figure:: ../media/impexp_bbox_selection_map_window_fig.png
    :name: impexp_bbox_selection_map_window_fig
+   :align: center
 
    Bounding box selection using the 2D map window.
 
@@ -202,7 +204,7 @@ top-level features is printed to the console window.
 
    Alternatively, you can change the reference system in the database to
    the one used by the imported geometries (see the corresponding
-   database operation in :numref:`impexp_executing_database_operations_chapter`).
+   database operation in :numref:`change-crs`).
 
 .. note::
    The Importer/Exporter *does not check by any means* whether a

@@ -49,6 +49,7 @@ This will produce an output like shown below.
 
 .. figure:: /media/impexp_cli_help_text_fig.png
    :name: impexp_cli_help_text_fig
+   :align: center
 
    Help text of the command line interface.
 
@@ -66,7 +67,7 @@ The available program arguments are:
      - | Provides the path and filename of the config file to be used. If this argument
        | is omitted, the config file in the default path is used instead. Using environment
        | variables, the default path can be identified dynamically
-       | (cf. :numref:`impexp_interface_chapter`):
+       | (cf. :numref:`impexp_launching_chapter`):
        - ``%HOMEDRIVE%%HOMEPATH%\3dcitydb\importer-exporter\config``
          (Windows 7 and higher)
        - ``$HOME/3dcitydb/importer-exporter/config``

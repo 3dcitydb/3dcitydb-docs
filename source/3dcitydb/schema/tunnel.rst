@@ -3,6 +3,7 @@ Tunnel schema
 
 .. figure:: ../../media/citydb_schema_tunnel_diagram.png
    :name: citydb_schema_tunnel_diagram
+   :align: center
 
    Tunnel database schema
 

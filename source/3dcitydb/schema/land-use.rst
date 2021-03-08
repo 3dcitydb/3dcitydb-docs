@@ -8,5 +8,6 @@ established by the foreign keys LODx_MULTI_SURFACE_ID, where 0 ≤ x ≤ 4.
 
 .. figure:: ../../media/citydb_schema_landuse_diagram.png
    :name: citydb_schema_landuse_diagram
+   :align: center
 
    LandUse database schema

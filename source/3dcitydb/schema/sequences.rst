@@ -16,6 +16,7 @@ version as the corresponding table does not exist.
 
 .. figure:: ../../media/citydb_schema_sequences_diagram.png
    :name: citydb_schema_sequences_diagram
+   :align: center
 
    Overview of all sequences used in 3DCityDB
 

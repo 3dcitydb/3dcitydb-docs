@@ -15,17 +15,20 @@ There are two ways to open the map window:
 
    .. figure:: /media/impexp_map_window_menu_fig.png
       :name: impexp_map_window_menu_fig
+      :align: center
 
 2. Click the map button |map_select| on the bounding box dialog that is
    available for the different import and export operations.
 
    .. figure:: /media/impexp_map_window_component_fig.png
       :name: impexp_map_window_component_fig
+      :align: center
 
 The 2D map is rendered in a separate application window shown below.
 
 .. figure:: /media/impexp_map_window_layout_fig.png
    :name: impexp_map_window_layout_fig
+   :align: center
 
    2D map window for bounding box selections.
 
@@ -101,8 +104,9 @@ corner [2].
 
 .. figure:: /media/impexp_map_window_address_lookup_fig.png
    :name: impexp_map_window_address_lookup_fig
+   :align: center
 
-   Address lookup in the map window.
+  Address lookup in the map window.
 
 The coordinates in the map window and of the selected bounding box are
 always given in WGS 84 regardless of the coordinate reference system of

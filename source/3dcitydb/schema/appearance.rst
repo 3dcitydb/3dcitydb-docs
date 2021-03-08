@@ -15,6 +15,7 @@ tables.
 
 .. figure:: ../../media/citydb_schema_appearance.png
    :name: citydb_schema_appearance
+   :align: center
 
    Appearance database schema
 
@@ -53,6 +54,7 @@ stored in the table TEXTUREPARAM.
 
 .. figure:: ../../media/citydb_schema_example_appearance_texture.png
    :name: citydb_schema_example_appearance_texture
+   :align: center
 
    Simple example explaining texture mapping using texture coordinates
 
@@ -91,6 +93,7 @@ CityGML Implementation Specification [GKNH2012]_.
 .. figure:: ../../media/citydb_schema_example_building_appearance.png
    :name: citydb_schema_example_building_appearance
    :width: 6.5in
+   :align: center
 
    Visualisation of a simple building in LoD1 and LoD2 using the
    appearance model. Two themes are defined for the building and the
@@ -143,12 +146,14 @@ of summer appearances (theme Summer).
 .. figure:: ../../media/citydb_schema_example_lod2Surface_building.png
    :name: citydb_schema_example_lod2Surface_building
    :width: 4.3in
+   :align: center
 
    Surface geometries for the building in LoD2
 
 
 .. figure:: ../../media/citydb_schema_images_georeferenced_textures.png
    :name: citydb_schema_images_georeferenced_textures
+   :align: center
 
    Images for georeferenced textures. The image ground_winter.png is assigned to the terrain
    and the roof surfaces of the building both in LoD1 and
@@ -158,12 +163,14 @@ of summer appearances (theme Summer).
 
 .. figure:: ../../media/citydb_schema_images_parameterized_textures.png
    :name: citydb_schema_images_parameterized_textures
+   :align: center
 
    Images for parameterized textures
 
 
 .. figure:: ../../media/citydb_schema_APPEARANCE_table_figure.png
    :name: citydb_schema_APPEARANCE_table_figure
+   :align: center
 
    Excerpt of table APEARANCE, The relation to the building feature is given by the foreign key CITYOBJECT_ID
 
@@ -171,12 +178,14 @@ of summer appearances (theme Summer).
 .. figure:: ../../media/citydb_schema_APPEAR_TO_SURFACE_table_figure.png
    :name: citydb_schema_APPEAR_TO_SURFACE_table_figure
    :width: 5.3in
+   :align: center
 
    APPEAR_TO_SURFACE table
 
 
 .. figure:: ../../media/citydb_schema_surface_data_table_figure.png
    :name: citydb_schema_surface_data_table_figure
+   :align: center
 
    Excerpt of table SURFACE_DATA table
 
@@ -184,11 +193,13 @@ of summer appearances (theme Summer).
 .. figure:: ../../media/citydb_schema_tex_image_table_figure.png
    :name: citydb_schema_tex_image_table_figure
    :width: 6.3in
+   :align: center
 
    Excerpt of table TEX_IMAGE table
 
 
 .. figure:: ../../media/citydb_schema_TEXTUREPARAM_table_figure.png
    :name: citydb_schema_TEXTUREPARAM_table_figure
+   :align: center
 
    TEXTUREPARAM Table

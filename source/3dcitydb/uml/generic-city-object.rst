@@ -30,6 +30,7 @@ contained generic attributes.
 
 .. figure:: ../../media/citydb_generic_model.png
    :name: citydb_generic_model
+   :align: center
 
    *GenericCityObject* model
 

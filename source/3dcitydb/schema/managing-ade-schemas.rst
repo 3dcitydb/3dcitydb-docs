@@ -30,6 +30,7 @@ The relations between the modules are shown in the following figure.
 
 .. figure:: ../../media/citydb_conceptual_database_structure.png
    :name: citydb_conceptual_database_structure
+   :align: center
 
    New conceptual 3DCityDB database structure for handling CityGML ADEs
 
@@ -94,6 +95,7 @@ are outdated or registered by certain database users.
 
 .. figure:: ../../media/citydb_schema_metadata_diagram.png
    :name: citydb_schema_metadata_diagram
+   :align: center
 
    Technical implementation of the 3DCityDB Metadata Module in a relational diagram
 

@@ -7,6 +7,7 @@ which correspond largely to the UML model.
 
 .. figure:: ../../media/citydb_schema_vegetation_diagram.png
    :name: citydb_schema_vegetation_diagram
+   :align: center
 
    Vegetation database schema
 

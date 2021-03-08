@@ -1,7 +1,9 @@
+.. _impexp_chapter:
+
 Importer/Exporter
 =================
 
-The Importer/Exporter tool is a Java-based front-end for
+The Importer/Exporter tool is a Java-based client for
 the 3D City Database and allows for high-performance loading and
 extracting 3D city model data.
 
@@ -18,15 +20,15 @@ please refer to :numref:`first_steps_system_requirements_chapter` .
 .. toctree::
    :maxdepth: 1
 
-   interfaces
-   db-connection-operations
+   launching
+   gui
+   database
    citygml-import
    citygml-export
    kml-collada-gltf-export
    preferences/index
    map-window
    cli
-   plugins/index
 
 .. hint::
   The Importer/Exporter also serves as reference implementation for the

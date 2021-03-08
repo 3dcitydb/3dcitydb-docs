@@ -15,7 +15,7 @@ within the ‘citydb_pkg’ schema:
 -  construct_normal for a normal B-tree index
 
 The easiest way to take use of this package is by using the
-Importer/Exporter (see :numref:`impexp_executing_database_operations_chapter`),
+Importer/Exporter (see :numref:`impexp-db-indexes`),
 which provides an interface for
 enabling and disabling indexes (ON and OFF). Disabling spatial indexes
 can accelerate some operations such as bulk imports, deletion of many

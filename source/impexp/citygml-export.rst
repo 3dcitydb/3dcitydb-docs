@@ -10,6 +10,7 @@ following figure.
 
 .. figure:: ../media/impexp_CityGML_export_dialog_fig.png
    :name: impexp_CityGML_export_dialog_fig
+   :align: center
 
    The CityGML export dialog.
 
@@ -107,13 +108,13 @@ preferences in chapter :numref:`impexp_preferences_export_tiling_chapter`).
 .. note::
    When choosing a spatial *bounding filter*, make sure that
    *spatial indexes are enabled* (use the index operation on the Database tab to check the
-   status of indexes, cf. :numref:`impexp_executing_database_operations_chapter`).
+   status of indexes, cf. :numref:`impexp-db-indexes`).
 
 .. note::
    If the entire 3D city model stored in the 3DCityDB instance
    shall be exported with tiling enabled, then a bounding box spanning the
    overall area of the model must be provided. This bounding box can be
-   easily calculated on the Database tab (cf. :numref:`impexp_executing_database_operations_chapter`).
+   easily calculated on the Database tab (cf. :numref:`impexp-db-calc-bbox`).
 
 .. note::
    Using the center point of the envelope as criterion for a tiled
@@ -161,6 +162,7 @@ like shown below.
 
 .. figure:: ../media/impexp_XML_query_dialog_fig.png
    :name: impexp_XML_query_dialog_fig
+   :align: center
 
    Input field to enter an XML-based query expression for CityGML exports.
 
@@ -184,7 +186,7 @@ External editors might be more comfortable to use and often offer
 additional tools like auto completion. The XML Schema definition of the
 query language (required for validation and auto completion) can be
 exported via “Project Save Project XSD As…” on the main menu of the
-Importer/Exporter (cf. :numref:`impexp_interface_chapter`). Make sure to use a ``<query>`` element
+Importer/Exporter (cf. :numref:`impexp_gui_chapter`). Make sure to use a ``<query>`` element
 as root element of the query expression in your external XML editor.
 
 **Export preferences.** In addition to the settings on the Export tab,
@@ -241,6 +243,7 @@ corresponding SQL input field.
 
 .. figure:: ../media/impexp_SQL_query_dialog_fig.png
    :name: impexp_SQL_query_dialog_fig
+   :align: center
 
    Input field to enter a SQL query for CityGML exports.
 

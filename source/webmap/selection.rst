@@ -28,7 +28,8 @@ Once the demo was opened in your web browser, you may need to use the
 GMLID “\ **BLDG_0003000b0009a940**\ ”.
 
 .. figure:: /media/webmap_clicked_object_attribute_table_fig.PNG
-    :name: 3d_web_client_clicked_object_attribute_table
+   :name: 3d_web_client_clicked_object_attribute_table
+   :align: center
 
     By clicking on a building object it will automatically be
     highlighted and its attribute information will be queried from a Google
@@ -37,7 +38,8 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
 
 
 .. figure:: /media/3d_web_client_object_external_maps.png
-    :name: 3d_web_client_object_external_maps
+   :name: 3d_web_client_object_external_maps
+   :align: center
 
     By clicking on the dropdown list *Show the selected object
     in External Maps*, the user can select one of the given options to
@@ -45,23 +47,26 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     which will be opened in a new browser window or tab
 
 .. figure:: /media/webmap_dualmaps_fig.png
-    :name: 3d_web_client_object_dual_maps
-    
+   :name: 3d_web_client_object_dual_maps
+   :align: center
+
     If the option *DualMaps* has been chosen, the selected
     building will be shown in a so-called mash-up web application linking
     different view perspectives, e.g. Google 2D map view, Google Streetview,
     and Bing Maps oblique view
 
 .. figure:: /media/webmap_multiple_object_highlighting_fig.PNG
-    :name: 3d_web_client_object_group
-    
+   :name: 3d_web_client_object_group
+   :align: center
+
     A group of building objects can be interactively selected by
     Ctrl-clicking. Deactivating the selection of a certain building object
     can be done by Ctrl-clicking on it again
 
 .. figure:: /media/3d_web_client_object_highlight_and_hide.png
-    :name: 3d_web_client_object_highlight_and_hide
-    
+   :name: 3d_web_client_object_highlight_and_hide
+   :align: center
+
     The selected building objects can be hidden by clicking on
     the button *Hide selected Objects.* The GMLIDs of the selected
     (highlighted) and hidden building objects can be explored by clicking
@@ -69,40 +74,46 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     Object* respectively
 
 .. figure:: /media/3d_web_client_object_show_hidden.png
-    :name: 3d_web_client_object_show_hidden
-    
+   :name: 3d_web_client_object_show_hidden
+   :align: center
+
     The hidden objects can be shown on the 3D web client again
     by clicking on the button *Show Hidden Objects*
 
 .. figure:: /media/3d_web_client_object_clear_highlighting.png
-    :name: 3d_web_client_object_clear_highlighting
+   :name: 3d_web_client_object_clear_highlighting
+   :align: center
 
     The objects selection and along with the highlighting effect
     can be deactivated by clicking on the button *Clear Highlighting*
 
 .. figure:: /media/3d_web_client_object_print_view.png
-    :name: 3d_web_client_object_print_view
+   :name: 3d_web_client_object_print_view
+   :align: center
 
     A screenshot of the current view can be created directly
     within the 3D web client by clicking on the button *Create Screenshot*
     or *Print current view*
 
 .. figure:: /media/webmap_screenshot_print_fig.png
-    :name: 3d_web_client_object_print_view_options
-    
+   :name: 3d_web_client_object_print_view_options
+   :align: center
+
     Once the button *Print current view* has been clicked on, a
     printer settings dialog (differs for different web browsers) will appear
     giving a preview of the screenshot file to be printed
 
 .. figure:: /media/3d_web_client_object_shadow.png
-    :name: 3d_web_client_object_shadow
-    
+   :name: 3d_web_client_object_shadow
+   :align: center
+
     Shadow visualization of the 3D city models can also be
     activated and deactivated by clicking the *Toggle Shadows* button
 
 .. figure:: /media/3d_web_client_object_scene_link.png
-    :name: 3d_web_client_object_scene_link
-    
+   :name: 3d_web_client_object_scene_link
+   :align: center
+
     It is possible to create a scene link saving the current
     status of the 3D web client by clicking on the *Generate Scene Link*
     button. This scene link encodes the information about the title of the
@@ -111,5 +122,3 @@ GMLID “\ **BLDG_0003000b0009a940**\ ”.
     link can be stored as a browser bookmark or favorite and can also be
     sent e.g. by email to friends, colleagues, project partners etc. When
     they open the link, the same scene will open in their browsers.
-
-

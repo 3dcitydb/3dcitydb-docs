@@ -36,6 +36,7 @@ box.
 
 .. figure:: ../../media/citydb_core_model_and_toplevel_classes.png
    :name: citydb_core_model_and_toplevel_classes
+   :align: center
 
    Core Model and thematic top level classes
 

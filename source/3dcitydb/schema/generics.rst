@@ -17,6 +17,7 @@ LODx_IMPLICIT_TRANS-FORMATION) as well as terrain intersection curves
 
 .. figure:: ../../media/citydb_schema_generics_diagram.png
    :name: citydb_schema_generics_diagram
+   :align: center
 
    GenericCityObject and generic attributes database schema
 

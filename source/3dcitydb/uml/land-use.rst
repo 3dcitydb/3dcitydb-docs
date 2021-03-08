@@ -15,6 +15,7 @@ database schema.
 
 .. figure:: ../../media/citydb_landuse_model.png
    :name: citydb_landuse_model
+   :align: center
 
    *LandUse* model
 

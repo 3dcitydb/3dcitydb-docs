@@ -11,6 +11,7 @@ areas filled with specific vegetation the class *PlantCover* is used.
 
 .. figure:: ../../media/citydb_example_vegetation_model.png
    :name: citydb_example_vegetation_model
+   :align: center
 
    Image illustrates objects of the vegetation model (from: [GKCN2008]_)
 
@@ -33,6 +34,7 @@ contain botanical information from public environmental agencies.
 
 .. figure:: ../../media/citydb_vegetation_model.png
    :name: citydb_vegetation_model
+   :align: center
 
    Vegetation Model
 

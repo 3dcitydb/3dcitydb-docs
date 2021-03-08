@@ -15,6 +15,7 @@ context name ``citydb-wfs``. Then the location of the ``WEB-INF`` folder and the
 
 .. figure:: ../media/wfs_config_file_path_fig.png
    :name: wfs_config_file_path_fig
+   :align: center
 
    Location of the WEB-INF folder and the config.xml file.
 

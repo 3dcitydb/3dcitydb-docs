@@ -14,6 +14,7 @@ to a CityGML dataset.
 
 .. figure:: ../../media/impexp_export_preferences_citygml_version_fig.png
    :name: impexp_export_preferences_citygml_version_fig
+   :align: center
 
    CityGML export preferences – CityGML version.
 
@@ -47,6 +48,7 @@ subfolders and tile files can be adapted as shown below.
 
 .. figure:: ../../media/impexp_export_preferences_tiling_options_fig.png
    :name: impexp_export_preferences_tiling_options_fig
+   :align: center
 
    CityGML export preferences – Tiling options.
 
@@ -82,6 +84,7 @@ members satisfying the filter settings are export.
 
 .. figure:: ../../media/impexp_export_preferences_cityobjectgroup_fig.png
    :name: impexp_export_preferences_cityobjectgroup_fig
+   :align: center
 
    CityGML export preferences – CityObjectGroup.
 
@@ -107,6 +110,7 @@ are shown in the figure below.
 
 .. figure:: ../../media/impexp_export_preferences_address_fig.png
    :name: impexp_export_preferences_address_fig
+   :align: center
 
    CityGML export preferences – Address.
 
@@ -166,6 +170,7 @@ city objects is written to the output datasets.
 
 .. figure:: ../../media/impexp_export_preferences_appearance_fig.png
    :name: impexp_export_preferences_appearance_fig
+   :align: center
 
    CityGML export preferences – Appearance.
 
@@ -257,6 +262,7 @@ based on UUID values.
 
 .. figure:: ../../media/impexp_export_preferences_xlinks_fig.png
    :name: impexp_export_preferences_xlinks_fig
+   :align: center
 
    CityGML export preferences – XLinks.
 
@@ -282,6 +288,7 @@ transform the CityGML data before it is written to a file.
 
 .. figure:: ../../media/impexp_export_preferences_xsl_fig.png
    :name: impexp_export_preferences_xsl_fig
+   :align: center
 
    CityGML export preferences – XSL transformation.
 
@@ -319,6 +326,7 @@ size limit is reached.
 
 .. figure:: ../../media/impexp_export_preferences_resources_fig.png
    :name: impexp_export_preferences_resources_fig
+   :align: center
 
    CityGML export preferences – Resources.
 

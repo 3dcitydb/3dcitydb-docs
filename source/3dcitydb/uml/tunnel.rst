@@ -20,6 +20,7 @@ the year of construction and the year of demolition. In contrast to
 
 .. figure:: ../../media/citydb_example_tunnel_parts.png
    :name: citydb_example_tunnel_parts
+   :align: center
 
    Example of a tunnel modelled with two tunnel parts
 
@@ -33,6 +34,7 @@ LODs.
 
 .. figure:: ../../media/citydb_tunnel_model.png
    :name: citydb_tunnel_model
+   :align: center
 
    UML diagram of tunnel model
 
@@ -59,6 +61,7 @@ appearance of a tunnel. A *TunnelInstallation* may have the attributes
 
 .. figure:: ../../media/citydb_tunnel_boundary_surface.png
    :name: citydb_tunnel_boundary_surface
+   :align: center
 
    Different BoundarySurfaces of a tunnel
 

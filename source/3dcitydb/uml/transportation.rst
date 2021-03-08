@@ -17,6 +17,7 @@ within a virtual 3D city model. The *Road* consists of several
 
 .. figure:: ../../media/citydb_lod2_transportation_complex.png
    :name: citydb_lod2_transportation_complex
+   :align: center
 
    LoD2 representation of a transportation complex (from: [GKCN2008]_)
 
@@ -29,6 +30,7 @@ like kerbstones, middle lanes, and green areas.
 
 .. figure:: ../../media/citydb_transportation_model.png
    :name: citydb_transportation_model
+   :align: center
 
    UML model for transportation complex
 

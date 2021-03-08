@@ -26,6 +26,7 @@ address property.
 
 .. figure:: ../../media/citydb_example_bridge_parts.png
    :name: citydb_example_bridge_parts
+   :align: center
 
    Example of bridge consisting of bridge parts
 
@@ -55,6 +56,7 @@ InteriorWallSurface*, and *CeilingSurface* are derived.
 
 .. figure:: ../../media/citydb_bridge_boundary_surface.png
    :name: citydb_bridge_boundary_surface
+   :align: center
 
    Different *BoundarySurfaces* of a bridge
 
@@ -82,6 +84,7 @@ installation can be described.
 
 .. figure:: ../../media/citydb_example_bridge_construction_element.png
    :name: citydb_example_bridge_construction_element
+   :align: center
 
    Example of bridge consisting of *BridgeConstructionElement* and *BridgeInstallation*
 
@@ -95,5 +98,6 @@ LOD4.
 
 .. figure:: ../../media/citydb_bridge_model.png
    :name: citydb_bridge_model
+   :align: center
 
    UML diagram of bridge model

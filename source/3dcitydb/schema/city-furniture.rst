@@ -7,6 +7,7 @@ table and its corresponding columns.
 
 .. figure:: ../../media/citydb_schema_cityfurniture_diagram.png
    :name: citydb_schema_cityfurniture_diagram
+   :align: center
 
    CityFurniture database schema
 

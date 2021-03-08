@@ -20,13 +20,15 @@ illustrated in the following figure.
 
 .. figure:: /media/3d_web_map_overview.png
    :name: pic_3d_web_map_overview
-   
+   :align: center
+
    Coupling an online spreadsheet with a 3D visualization model
    (i.e. a KML/glTF visualization model) in the cloud [HeNK2012]_
 
 .. figure:: /media/webmap_example_online_spreadsheet_fig.png
    :name: pic_3d_web_map_example_google_fusion
-   
+   :align: center
+
    Example of an online spreadsheet (Google Fusion Table)
 
 Similar to the structure of a database table, the first row of the
@@ -63,7 +65,8 @@ the *Add / Configure Layer* button.
 
 .. figure:: /media/3d_web_map_toolbox.png
    :name: pic_3d_web_map_example_toolbox
-   
+   :align: center
+
    The input panel [1] for adding a new KML/glTF data layer and
    the extended ``Geocoder`` widget [2] allowing to search a 3D object also by
    its gmlId
@@ -129,6 +132,7 @@ frustum are unloaded and invisible anyway.
 
 .. figure:: /media/webmap_determination_tile_loading_fig.png
    :name: pic_3d_web_map_example_tilesize
+   :align: center
 
    Efficient determination of which data tiles should be loaded
    according to the user-defined visibility range in screen pixel
@@ -196,7 +200,8 @@ activated) can be changed and applied at any time by clicking on the
 
 .. figure:: /media/3d_web_map_screenshot_kml_gltf.png
    :name: pic_3d_web_map_screenshot_kml_gltf
-   
+   :align: center
+
    Screenshot showing how to add a new KML/glTF data layer into
    the 3D web client
 
@@ -207,12 +212,14 @@ following two screenshots)
 
 .. figure:: /media/3d_web_map_layer_box.png
    :name: pic_3d_web_map_layer_box
-   
+   :align: center
+
    Screenshot showing how to hide a KML/glTF data layer
 
 .. figure:: /media/3d_web_map_layer_remove.png
    :name: 3d_web_map_layer_remove
-   
+   :align: center
+
    Screenshot showing how to remove a KML/glTF data layer from
    the 3D web client
 

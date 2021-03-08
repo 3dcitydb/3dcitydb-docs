@@ -48,6 +48,7 @@ table provides a brief summary overview.
 
 .. figure:: /media/kml_collada_gltf_export_main_gui.png
    :name: pic_kml_collada_gltf_export_main_gui
+   :align: center
 
    The KML/COLLADA/glTF Export tab allowing for exporting KML/COLLADA/glTF models from the 3DCityDB
 
@@ -131,6 +132,7 @@ systems.
 
 .. figure:: /media/impexp_kml_export_directory_hierarchy_fig.png
    :name: pic_kml_collada_gltf_export_hierarchical_directory
+   :align: center
 
    Example: hierarchical directory structure for export of 2x3 tiles
 
@@ -186,6 +188,7 @@ will be shown when visualizing the exported dataset in earth browsers.
 
 .. figure:: /media/impexp_kml_export_displayforms_example.png
    :name: pic_kml_collada_gltf_export_same_building_many_views
+   :align: center
 
    Example: The same building displayed as (top down and left to right) footprint, extruded, geometry, COLLADA
 
@@ -258,6 +261,7 @@ automatically disabled.
 
 .. figure:: /media/impexp_kml_export_scene_example_fig.png
    :name: pic_kml_collada_gltf_export_citygml_top_level
+   :align: center
 
    Example for exported CityGML top-level features (building, bridge, tunnel, water, vegetation, transportation etc.) displayed as KML/COLLADA
 
@@ -356,6 +360,7 @@ edge of the network model.
 
 .. figure:: /media/impexp_kml_export_tum_vis_example_fig.png
    :name: pic_kml_collada_gltf_export_tum_vis
+   :align: center
 
    Visualization of the network model of the building interior of Technical University Munich (TUM)
 
@@ -426,16 +431,19 @@ sent from the based-web frontend.
 
 .. figure:: /media/impexp_kml_export_googeearth_settings_fig.png
    :name: pic_kml_collada_gltf_export_google_earth_settings
+   :align: center
 
    Setting the Graphics Mode in Google Earth
 
 .. figure:: /media/impexp_kml_export_googleearth_directx_fig.png
    :name: pic_kml_collada_gltf_export_directx
+   :align: center
 
    KML/COLLADA models rendered with DirectX, highlighting surface borders are noticeable everywhere
 
 .. figure:: /media/impexp_kml_export_googleearth_opengl_fig.png
    :name: pic_kml_collada_gltf_export_opengl
+   :align: center
 
    The same scene rendered in OpenGL mode
 

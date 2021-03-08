@@ -48,5 +48,6 @@ keys LODx_MULTI_SURFACE_ID (with 1 ≤ x ≤ 4).
 
 .. figure:: ../../media/citydb_schema_transportation_diagram.png
    :name: citydb_schema_transportation_diagram
+   :align: center
 
    Transportation database schema

@@ -32,6 +32,7 @@ optional software packages that should be installed.
 
 .. figure:: ../media/first_step_impexp_installation_wizard.png
    :name: first_step_impexp_installation_wizard
+   :align: center
 
    Installation wizard of Import/Export tool.
 
@@ -60,7 +61,7 @@ After successful installation, the contents of all selected installation
 packages are available from the installation directory. To run the
 Importer/Exporter, simply use the starter script located in the installation
 directory. More information on how to run the
-software in GUI or CLI mode is provided in :numref:`impexp_interface_chapter`.
+software in GUI or CLI mode is provided in :numref:`impexp_chapter`.
 
 .. note::
    Before the Importer/Exporter can be used to connect to a PostgreSQL or

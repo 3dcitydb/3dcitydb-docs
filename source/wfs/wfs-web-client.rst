@@ -15,6 +15,7 @@ a standard web browser.
 
 .. figure:: ../media/wfs_web_client_fig.png
    :name: wfs_web_client_fig
+   :align: center
 
    Web-based WFS client.
 

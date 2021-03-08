@@ -32,6 +32,7 @@ screenshot below.
 
 .. figure:: /media/webmap_content_files_fig.png
    :name: pic_3d_web_map_installation
+   :align: center
 
 The 3D web client comes with a lightweight JavaSript-based HTTP server
 (the file with the name “\ *server*\ ”) that is mainly meant to test the
@@ -55,7 +56,8 @@ to launch the server:
 
 .. figure:: /media/webmap_cli_running_web_server_fig.png
    :name: pic_3d_web_map_installation_nodejs
-   
+   :align: center
+
    Example of running the JavaScript-based web server
 
 Now, the 3D web client is available via the URL below and its user
@@ -67,5 +69,6 @@ interface should look like in the following figure:
 
 .. figure:: /media/webmap_user_interface_fig.png
    :name: pic_3d_web_map_installation_default
-   
+   :align: center
+
    User interface of the 3D web client

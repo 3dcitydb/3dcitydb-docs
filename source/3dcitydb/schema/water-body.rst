@@ -41,5 +41,6 @@ associated surface geometry, the foreign keys LODx_SURFACE_ID (with 2 ≤x
 
 .. figure:: ../../media/citydb_schema_waterbody_diagram.png
    :name: citydb_schema_waterbody_diagram
+   :align: center
 
    WaterBody database schema

@@ -21,6 +21,7 @@ additional reference systems, the Importer/Exporter provides the
 
 .. figure:: /media/impexp_database_preferences_crs_fig.png
    :name: impexp_database_preferences_crs_fig
+   :align: center
 
    Database preferences – Reference systems.
 
@@ -50,6 +51,7 @@ screenshot provides an example.
 
 .. figure:: /media/impexp_database_preferences_add_crs_fig.png
    :name: impexp_database_preferences_add_crs_fig
+   :align: center
 
    Adding a new CRS to the list of user-defined CRSs.
 

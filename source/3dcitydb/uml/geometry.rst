@@ -40,6 +40,7 @@ must be homeomorphic to the corresponding primitive geometry.
 
 .. figure:: ../../media/citydb_aggregated_geometry_types.png
    :name: citydb_aggregated_geometry_types
+   :align: center
 
    Different types of aggregated geometries [GKNH2012]_
 
@@ -56,6 +57,7 @@ can be done with **a single table** (called SURFACE_GEOMETRY, see
 
 .. figure:: ../../media/citydb_geometrical-topographical_model.png
    :name: citydb_geometrical-topographical_model
+   :align: center
 
    Geometric-topological model. For simplification the geometry classes
    in the grey block are substituted by the construct in the orange block
@@ -85,6 +87,7 @@ representation of **scene graphs** in the field of computer graphics
 
 .. figure:: ../../media/citydb_implicit_geometry_model.png
    :name: citydb_implicit_geometry_model
+   :align: center
 
    Implicit geometry model
 

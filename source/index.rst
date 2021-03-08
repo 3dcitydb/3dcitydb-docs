@@ -1,5 +1,5 @@
-Welcome to 3D City Database documentation!
-==========================================
+Welcome to 3D City Database User Manual!
+========================================
 
 Contents:
 
@@ -11,8 +11,9 @@ Contents:
    overview/index
    3dcitydb/index
    impexp/index
-   wfs/index
+   plugins/index
    webmap/index
+   wfs/index
    appendix/index
    literature
    changelog

@@ -22,6 +22,7 @@ relief features and relief components.
 
 .. figure:: ../../media/citydb_schema_relief_diagram.png
    :name: citydb_schema_relief_diagram
+   :align: center
 
    Digital Terrain Model database schema
 

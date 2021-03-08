@@ -3,6 +3,7 @@ Bridge schema
 
 .. figure:: ../../media/citydb_schema_bridge_diagram.png
    :name: citydb_schema_bridge_diagram
+   :align: center
 
    Bridge database schema
 

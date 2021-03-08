@@ -8,6 +8,7 @@ shown below.
 
 .. figure:: /media/preferences_main_gui.png
    :name: pic_preferences_main_gui
+   :align: center
 
    The preferences dialog 
 
@@ -35,4 +36,4 @@ are automatically stored in the config file of the Importer/Exporter and
 are restored from this file upon program start. Via the Project menu
 available from the menu bar of the Importer/Exporter, the preferences
 can optionally be stored in or loaded from user-defined config files
-(cf. :numref:`impexp_interface_chapter`).
+(cf. :numref:`impexp_gui_chapter`).

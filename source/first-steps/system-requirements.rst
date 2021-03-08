@@ -67,8 +67,9 @@ requires approx. 280 MB of hard disk space. Installing only the
 mandatory application files will use approx. 160 MB of hard disk space.
 Installation packages can be selected during the setup process.
 
-The Importer/Exporter runs with 1 GB of main memory per default. This
+The Importer/Exporter runs with 1 GB of main memory per default. The maximum
+available main memory is controlled by JVM default options. This
 setting should be reasonable on most platforms and for most
-import/export procedures. If required, you can *manually* adapt the main
+import/export processes. If required, you can *manually* adapt the main
 memory limits in the starter script of the program or by using environment
-variables. Please refer to :numref:`impexp_interface_chapter` for more details.
+variables. Please refer to :numref:`impexp_launching_chapter` for more details.

@@ -19,6 +19,7 @@ tiling options, can be set under the preferences tab, node
 
 .. figure:: /media/impexp_kml_export_preferences_general_fig.png
    :name: pic_kml_collada_gltf_preferences_general
+   :align: center
 
    General settings for the KML/COLLADA/glTF export  
 
@@ -244,6 +245,7 @@ will be explained at the end of this section.
 
 .. figure:: /media/impexp_kml_export_preferences_rendering_building_fig.png
    :name: pic_kml_collada_gltf_preferences_rendering
+   :align: center
 
    Rendering settings for the KML/COLLADA/glTF *Building* export
 
@@ -337,6 +339,7 @@ effect.
 
 .. figure:: /media/impexp_kml_export_surface_normal_comparison_fig.png
    :name: pic_kml_collada_gltf_preferences_rendering_comparison
+   :align: center
 
    Comparison of the different visual effects of the same 
    3D model with (the left figure) and without (the right figure) 
@@ -452,6 +455,7 @@ exploded highlighting surfaces can be set here. Default value is 0.75m.
 
 .. figure:: /media/impexp_kml_export_mouseover_highlighting_fig.png
    :name: pic_kml_collada_gltf_preferences_rendering_collada
+   :align: center
 
    Object exported in the COLLADA display form being
    highlighted on mouseOver
@@ -480,6 +484,7 @@ Curve*\ ” will be explained in the following paragraphs.
 
 .. figure:: /media/impexp_kml_export_point_curve_rendering.png
    :name: pic_kml_collada_gltf_preferences_rendering_point
+   :align: center
 
    Rendering settings for point and curve geometry exports for *GenericCityObject*
 
@@ -511,6 +516,7 @@ appropriate display form for point geometry on the 3D map:
 
 .. figure:: /media/impexp_kml_export_example_cross_fig.png
    :name: pic_kml_collada_gltf_preferences_cross
+   :align: center
 
    An exported point geometry object displayed as a cross-line
 
@@ -521,6 +527,7 @@ appropriate display form for point geometry on the 3D map:
 
 .. figure:: /media/impexp_kml_export_example_icon_fig.png
    :name: pic_kml_collada_gltf_preferences_point
+   :align: center
 
    An exported point geometry object displayed as an icon
 
@@ -533,6 +540,7 @@ appropriate display form for point geometry on the 3D map:
 
 .. figure:: /media/impexp_kml_export_example_cube_fig.png
    :name: pic_kml_collada_gltf_preferences_cube
+   :align: center
 
    An exported point geometry object displayed as a small cube
 
@@ -587,6 +595,7 @@ exactly the same for all feature classes.
 
 .. figure:: /media/impexp_kml_export_preferences_balloon_building_fig.png
    :name: pic_kml_collada_gltf_preferences_balloon_building
+   :align: center
 
    *Building* Balloon settings
 
@@ -765,6 +774,7 @@ Museum in Berlin:
 
 .. figure:: /media/impexp_kml_export_balloon_embedded_image_fig.png
    :name: pic_kml_collada_gltf_preferences_balloon_generated
+   :align: center
 
    Dynamically generated balloon containing an embedded image (image taken from Wikimedia)
 
@@ -841,6 +851,7 @@ Listing of generic attributes and their values:
 
 .. figure:: /media/impexp_kml_export_balloon_dynamic_contents_fig.png
    :name: pic_kml_collada_gltf_preferences_balloon_dynamic
+   :align: center
 
    Model placemark with dynamic balloon contents showing the list of generic attributes
 
@@ -855,6 +866,7 @@ objects may be necessary.
 
 .. figure:: /media/impexp_kml_export_preferences_terrain_fig.png
    :name: pic_kml_collada_gltf_preferences_terrain
+   :align: center
 
    Altitude/Terrain settings
 
@@ -909,6 +921,7 @@ the ground.
 
 .. figure:: /media/impexp_kml_export_example_relative_atitude_mode_fig.jpeg
    :name: pic_kml_collada_gltf_preferences_terrain_example
+   :align: center
 
    Possible export result with relative altitude mode
 
@@ -1037,16 +1050,19 @@ should be persistently stored in the database.
 
 .. figure:: /media/impexp_kml_export_altitude_points_zOffset_fig.jpeg
    :name: pic_kml_collada_gltf_preferences_terrain_example_relative
+   :align: center
 
    Points sent to Google's Elevation API for calculation of the zOffset
 
 .. figure:: /media/impexp_kml_export_example_absolute_noOffset_fig.png
    :name: pic_kml_collada_gltf_preferences_terrain_example_absolute_without_grounding
+   :align: center
 
    Export with *absolute* altitude mode and *no offset*
 
 .. figure:: /media/impexp_kml_export_example_absolute_grounding_fig.jpeg
    :name: pic_kml_collada_gltf_preferences_terrain_example_absolute_with_grounding
+   :align: center
 
    Export with *absolute* altitude mode and use of *GE_LoDn_zOffset*
 

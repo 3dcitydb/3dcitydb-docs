@@ -3,6 +3,7 @@ Building schema
 
 .. figure:: ../../media/citydb_schema_building_diagram.png
    :name: citydb_schema_building_diagram
+   :align: center
 
    Building database schema
 
@@ -222,6 +223,7 @@ SURFACE_GEOMETRY table via the LOD2_MULTI_SURFACE_ID attribute.
 
 .. figure:: ../../media/citydb_schema_lod2_building_roof_overhangs.png
    :name: citydb_schema_lod2_building_roof_overhangs
+   :align: center
 
    LoD2 building with roof overhangs, highlighted in red
 

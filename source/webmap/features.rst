@@ -19,7 +19,8 @@ explained in more detail below.
 
 .. figure:: /media/3d_web_client_gui.png
    :name: pic_3d_web_map_gui
-   
+   :align: center
+
    Relevant GUI components of the 3D web client
 
 The ``3D Globe`` [1] is a base Cesium widget that allows the user to
@@ -54,7 +55,8 @@ figure.
 
 .. figure:: /media/webmap_geocoder_fig.png
    :name: pic_3d_web_map_geocoder
-   
+   :align: center
+
    Searching the main building of the Technical University of
    Munich by using the ``Geocoder`` widget
 
@@ -93,7 +95,8 @@ the selected imagery layer.
 
 .. figure:: /media/webmap_cesium_baselayerpicker_fig.png
    :name: pic_3d_web_map_baselayer_picker
-   
+   :align: center
+
    Per default available base layers listed in the
    ``BaseLayerPicker`` widget
 
@@ -107,7 +110,8 @@ web client.
 
 .. figure:: /media/webmap_navigation_help_fig.png
    :name: pic_3d_web_map_nav
-   
+   :align: center
+
    The ``NavigationHelpButton`` widget showing the instructions for
    navigating Earth map
 
