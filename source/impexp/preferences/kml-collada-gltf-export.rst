@@ -198,7 +198,6 @@ of any object in the whole KML/COLLADA/glTF export.
          "envelope": [13.411962, 52.51966, 13.41277, 52.520091],
          "tile": [1, 1]
       },
-      ...
       "BLDG_00030009007f8007": {
          "envelope": [13.406815, 52.51559, 13.40714, 52.51578],
          "tile": [0, 0]
@@ -827,7 +826,7 @@ Examples for iterative expressions
 
 Listing of generic attributes and their values:
 
-.. code-block:: javascript
+.. code-block::
 
       <script type="text/javascript">
             function ga_value_as_tooltip(attrname, datatype, strval, intval, realval) {

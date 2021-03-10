@@ -37,8 +37,7 @@ number of the currently installed 3D City Database instance – either
 you can use the Importer/Exporter tool to connect to the 3D City Database
 instance that you want to upgrade. Starting from v3.0.0 the version
 string is printed to the console window after the connection has been
-successfully established as shown below (see also chapter about
-:doc:`Managing connections <../impexp/db-connection-operations>`).
+successfully established as shown below (see also :numref:`impexp_database_connection_management_chapter`).
 
 .. figure:: ../media/first_step_3dcityb_version_info.png
    :name: first_step_3dcityb_version_info
@@ -122,7 +121,7 @@ created parts of the v4 schema because the script does it for you.
 To remove the deprecated parts of your 3D City Database invoke the
 DROP_DB_V2 shell script.
 
-.. warning::
+.. caution::
    DO NOT execute the DROP_DB script from the `ShellScripts/[Windows|Unix]` folder.
    The old and new instances of the 3D City Database are both stored inside the same database
    (new = ``citydb`` schema, old = ``public`` schema). DROP_DB drops all

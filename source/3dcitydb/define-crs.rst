@@ -30,7 +30,8 @@ three-dimensional CRS**.
 
 .. note::
   The CRS definition identifier is used as value for the ``gml:srsName`` attribute
-  on GML geometry elements when exporting data in CityGML format. Software
+  on GML geometry elements when exporting data in CityGML format and as value
+  for the ``"referenceSystem"`` metadata attribute when exporting to CityJSON. Software
   consuming the exported data will rely on this information to be able to automatically
   apply the correct spatial reference. So please make sure that the CRS
   identifier is correct. The identifier is, however, neither required nor
@@ -71,4 +72,4 @@ EPSG-Code: 5783).
   entire 3DCityDB instance to a new CRS.
 
   The Importer/Exporter also offers a convenient way to execute this
-  script via its graphical user interface (see :numref:`change-crs`).
+  script via its graphical user interface (see :numref:`impexp-db-change-crs`).

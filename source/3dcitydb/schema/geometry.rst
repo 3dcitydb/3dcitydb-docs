@@ -369,6 +369,7 @@ SURFACE_GEOMETRY has been introduced. It may be used to explicitly mark
 just those tuples for which a corresponding check has to be performed.
 
 1. **During import**
+
   a. By default, the IS_XLINK flag is set to “0”.
   b. If existing tuples have to be copied due to an XLink reference,
      IS_XLINK has to be set for *each and every* copy to either “1”
@@ -388,6 +389,7 @@ just those tuples for which a corresponding check has to be performed.
   references, then the value "1" **shall be used for all IS_XLINK attributes**.
 
 2. **During export**
+
   a. The export process just has to keep track of the GMLID values of
      those geometry tuples where IS_XLINK is set to “1” or "2".
   b. When it comes to exporting a tuple with IS_XLINK set to “1” or "2", the
@@ -434,6 +436,7 @@ SURFACE_GEOMETRY table. The following rules have to be obeyed in the
 context of *OrientableSurface*:
 
 1. If the orientation of the *OrientableSurface* is “-“, then
+
   a. The direction of the base surface has to be reversed prior to
      importing it (generally, this means reversing the order of coordinate
      tuples).
@@ -441,6 +444,7 @@ context of *OrientableSurface*:
      in the SURFACE_GEOMETRY table.
   c. If the base surface is an aggregate, then steps a) and b) have to
      be recursively applied for all of its surface members.
+
 2. If the *OrientableSurface* is identical to its base surface (i.e., if
    its orientation is “+”), then the base surface can be written to the
    SURFACE_GEOMETRY table without taking any further action. The

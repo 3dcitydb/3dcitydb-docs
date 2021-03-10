@@ -24,7 +24,7 @@ The following figure shows an excerpt of a database report in the
 console window as example.
 
 .. figure:: /media/impexp_gui_database_report_console_fig.png
-   :name: impexp_gui_database_report_fig
+   :name: impexp_gui_database_report_console_fig
    :align: center
 
    Excerpt of a database report printed to the console.

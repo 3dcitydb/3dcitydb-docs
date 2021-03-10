@@ -709,7 +709,7 @@ level.
      </file>
    </logging>
 
-.. warning::
+.. caution::
    Log messages are continuously written to the same log file. The
    WFS application does not include any mechanism to truncate or rotate the
    log file in case the file size grows over a certain limit. So make sure

@@ -47,9 +47,9 @@ license-free sample data that may be used in your first tests.
 The *Plugins* option installs plugins for the
 Importer/Exporter, which add further functionality to the tool. This
 release is shipped with the
-:doc:`Spreadsheet Generator Plugin <../impexp/plugins/spreadsheet>`
+:doc:`Spreadsheet Generator Plugin <../plugins/spreadsheet>`
 and the
-:doc:`ADE Manager Plugin <../impexp/plugins/ade-manager>`.
+:doc:`ADE Manager Plugin <../plugins/ade-manager>`.
 More plugins may be added in future releases.
 
 The :doc:`3D Web Map Client <../webmap/index>` is a web-based

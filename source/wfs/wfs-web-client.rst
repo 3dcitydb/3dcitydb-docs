@@ -6,7 +6,7 @@ is mainly meant to test the functionality of the server. The client is
 automatically installed with the server and is available at the
 following URL (cf. :numref:`wfs_service_url_chapter` for details):
 
-.. code-block:: http
+.. code-block::
 
    http[s]://[host][:port]/[context_path]/wfsclient
 
@@ -26,7 +26,7 @@ forwards the request to the server. As soon as the response document is
 received from the WFS server, it is rendered in the lower text field
 named *WFS Result*.
 
-.. warning::
+.. caution::
    Avoid sending requests through this client that might potentially
    result in a large number of city objects contained in the response
    document. Otherwise the available main memory of the web browser is

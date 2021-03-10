@@ -97,7 +97,7 @@ skipped due to filter settings. Thus, the consistency of the
 resolvable in the final dataset. The benefit of skipping this check is
 that the performance of the CityGML export is increased.
 
-.. _impexp_preferences_address_chapter:
+.. _impexp_export_preferences_address_chapter:
 
 Address
 ^^^^^^^
@@ -160,7 +160,7 @@ reconstruct the address information.
 Both options are mutually exclusive, but if the chosen option does
 not provide results, the other option can be used as fallback.
 
-.. _appearance:
+.. _impexp_export_preferences_appearance_chapter:
 
 Appearance
 ^^^^^^^^^^
@@ -274,7 +274,7 @@ appended to the newly created one. Only for features, the user can
 additionally choose to store the original gml:id as ``<ExternalReference>``
 property in the copied feature.
 
-.. _xsl-transformation:
+.. _impexp_export_preferences_xsl_transformation:
 
 XSL Transformation
 ^^^^^^^^^^^^^^^^^^
@@ -309,7 +309,7 @@ installation directory.
    - Only stylesheets written in the XSLT language version 1.0 are
      supported.
 
-.. _resources:
+.. _impexp_export_preferences_resources_chapter:
 
 Resources
 ^^^^^^^^^

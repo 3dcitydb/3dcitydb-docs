@@ -4,7 +4,7 @@ Managing indexes
 ^^^^^^^^^^^^^^^^
 
 The Importer/Exporter allows the user to manually activate or deactivate
-indexes on predefined tables of the 3D City Database schema, and to
+indexes on predefined tables of the 3D City Database schema and to
 check their status.
 
 .. figure:: /media/impexp_gui_managing_indexes_fig.png
@@ -14,13 +14,17 @@ check their status.
    Managing spatial and normal indexes.
 
 The operation dialog differentiates between *spatial indexes* on
-geometry columns and *normal indexes* on columns with any other datatype
-[1]. The buttons *Activate*, *Deactivate*, and *Status* trigger a
+geometry columns and *normal indexes* on columns with any other datatype.
+The buttons *Activate*, *Deactivate*, and *Status* trigger a
 corresponding database process on spatial indexes only, normal indexes
-only or both index types depending on which checkboxes are selected [1].
-Again, the user can define a *workspace* and *timestamp* on which the
-operation shall be executed if the database is version-enabled (Oracle
-only).
+only or both index types depending on which checkboxes are selected.
+
+The *VACUUM* button is only available for PostgreSQL databases and
+performs a VACUUM ANALYZE operation on the columns of the selected indexes. This maintenance
+operation gathers and updates statistics on the columns to be able to
+choose the most efficient query plans and optimize the speed of query processing.
+Note that for most PostgreSQL databases, VACUUM is already run automatically at
+regular intervals.
 
 The index operations only affect the following subset of all indexes
 defined by the 3D City Database schema:
@@ -71,8 +75,8 @@ defined by the 3D City Database schema:
      - | GMLID, GMLID_CODESPACE
      - | ADDRESS
 
-The result of an index operation is reported in the console window as
-shown below. For instance, :numref:`impexp_gui_indexes_status_report_fig` shows the
+The result of an index operation is reported in the console window.
+For instance, :numref:`impexp_gui_indexes_status_report_fig` shows the
 result of a status query on both spatial and normal indexes. The status *ON* means
 that the corresponding index is enabled.
 
@@ -84,12 +88,12 @@ that the corresponding index is enabled.
 
 .. note::
    It is *strongly recommended* to *deactivate the spatial indexes
-   before running a CityGML import* on a *big amount of data* and to
+   before running a CityGML/CityJSON import* on a *big amount of data* and to
    reactive the spatial indexes afterwards. This way the import will
    typically be a lot faster than with spatial indexes enabled. The
    situation may be different when importing only a small dataset.
 
-.. warning::
+.. caution::
    Activating and deactivating indexes can take a long time,
    especially if the database fill level is high. Note that the operation
    **cannot be aborted** by the user since this would result in an

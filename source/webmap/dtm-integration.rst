@@ -30,12 +30,12 @@ Terrain-Layer* button.
 
 
 .. figure:: /media/3d_web_client_dtm_gui.png
-    :name: 3d_web_client_dtm_gui
+   :name: 3d_web_client_dtm_gui
    :align: center
 
-    The input panel [1] for adding a new terrain layer and the
-    BaseLayerPicker widget [2] where the added terrain layers will be listed
-    together with the per default available base layers
+   The input panel [1] for adding a new terrain layer and the
+   BaseLayerPicker widget [2] where the added terrain layers will be listed
+   together with the per default available base layers
 
 For adding a new terrain layer, the input fields *name(*)*,
 *iconUrl(*)*, and *tooltip(*)* in the input panel [1] have to be filled

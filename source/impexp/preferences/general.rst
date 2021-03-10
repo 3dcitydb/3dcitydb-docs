@@ -5,7 +5,7 @@ In addition to the preference settings that influence the behavior of a
 particular import or export operation, the General node on the Preferences
 tab offers application-wide settings.
 
-.. _cache:
+.. _impexp_general_preferences_cache:
 
 Cache
 ^^^^^
@@ -146,7 +146,7 @@ do not have an API key yet.
    versions of the Importer/Exporter, the services could be used without
    entering an API key.
 
-.. _logging:
+.. _impexp_general_preferences_logging:
 
 Logging
 ^^^^^^^

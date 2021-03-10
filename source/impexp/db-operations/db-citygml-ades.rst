@@ -14,7 +14,7 @@ corresponding dialog.
 
    Table of all supported CityGML ADEs.
 
-The ADE table [1] contains one entry per CityGML ADE. Each entry lists
+The ADE table contains one entry per CityGML ADE. Each entry lists
 the *name* and the *version* of the ADE and indicates whether it is
 supported by the *database* and/or the *Importer/Exporter* (using check
 or cross signs). Database support requires that the ADE has been
@@ -27,15 +27,18 @@ if both conditions are met both fields will contain a check sign. If no
 ADE has been detected upon database connection, the table remains empty.
 
 In the example of :numref:`impexp_gui_ADE_list_fig`, there is only an Importer/Exporter
-extension for an ADE called *TestADE* but the connected 3DCityDB
-instance lacks support for it. TestADE data would therefore not be
+extension for an ADE called *KitEnergyADE* but the connected 3DCityDB
+instance lacks support for it. EnergyADE data would therefore not be
 handled by the Importer/Exporter and thus not stored into the database
 in this scenario.
 
 If you select an entry in the ADE table and click the *Info* button (or
 simply double-click on the entry), metadata about the ADE will be
 displayed in a separate window as shown below. The *Status* field shows
-whether the ADE is fully supported, or some user action is required.
+whether the ADE is fully supported or some user action is required.
+The *Encoding* checkboxes illustrate for which output formats the ADE
+is available. Thus, ADE content will only be exported when choosing a
+supported output format for the export operation (see :numref:`impexp_citygml_export_chapter`).
 
 .. figure:: /media/impexp_ADE_metadata_dialog_fig.png
    :name: impexp_ADE_metadata_dialog_fig

@@ -107,7 +107,7 @@ The *service URL* or service endpoint is the location where the 3D City
 Database WFS can be accessed by a client application over a local
 network or the internet. This URL is typically composed as follows:
 
-.. code-block:: http
+.. code-block::
 
    http[s]://[host][:port]/[context_path]/wfs
 
@@ -339,7 +339,7 @@ GetCapabilities request and are supported by the WFS implementation.
 As alternative to XML encoding, the GetCapabilities operation may also
 be invoked through a KVP-encoded HTTP GET request.
 
-.. code-block:: http
+.. code-block::
 
    http[s]://[host][:port]/[context_path]/wfs?
    SERVICE=WFS&
@@ -442,7 +442,7 @@ element is omitted, then the complete base schema is returned by the WFS.
 The DescribeFeatureType operation can alternatively be invoked through
 HTTP GET with key-value pairs.
 
-.. code-block:: http
+.. code-block::
 
    http[s]://[host][:port]/[context_path]/wfs?
    SERVICE=WFS&
@@ -550,7 +550,7 @@ parameters.
 
 The corresponding KVP-encoded request is shown below.
 
-.. code-block:: http
+.. code-block::
    
    http[s]://[host][:port]/[context_path]/wfs?
    SERVICE=WFS&
@@ -677,7 +677,7 @@ attributes.
 
 A KVP-encoded DescribeStoredQueries request is shown below.
 
-.. code-block:: http
+.. code-block::
    
    http[s]://[host][:port]/[context_path]/wfs?
    SERVICE=WFS&
@@ -819,7 +819,7 @@ attributes.
 
 A KVP-encoded GetFeature request is shown below.
 
-.. code-block:: http
+.. code-block::
  
    http[s]://[host][:port]/[context_path]/wfs?
    SERVICE=WFS&

@@ -1,177 +1,162 @@
 .. _impexp_citygml_import_chapter:
 
-Importing CityGML files
------------------------
+CityGML/CityJSON import
+=======================
+
+.. toctree::
+   :hidden:
+
+   import-filters/attribute
+   import-filters/feature-counter
+   import-filters/bbox
+   import-filters/feature-type
+   import-preferences/index
 
 To load 3D city model content into a 3D City Database instance, the
-Importer/Exporter supports the import of CityGML files. Supported
-CityGML versions are 2.0.0, 1.0.0 and 0.4.0. The CityGML import
-operation is available on the Import tab of the operations window as
-shown below.
+Importer/Exporter supports the import of CityGML and CityJSON files
+on the *Import* tab of the operations window.
 
 .. figure:: ../media/impexp_CityGML_import_dialog_fig.png
    :name: impexp_CityGML_import_dialog_fig
    :align: center
 
-   The CityGML import dialog.
+   The import dialog.
 
-**Input file selection.** At the top of the Import dialog [1], a list of
-one or more CityGML files to be imported must be provided. Files can be
-selected through clicking on the *Browse* button, which opens a regular
-file selection dialog. Alternatively, you can drag&drop files from your
+**Input files and formats**
+
+The list of files to be imported must be provided at the top of the import dialog [1]. Files can be
+selected through clicking on the *Browse* button. Alternatively, you can drag&drop files from your
 preferred file explorer onto the Import tab. If the file list already
-contains entries, the drag&drop operation will replace its content. If
+contains entries, the drag&drop operation will replace them by default. If
 you want to keep the previous entries and only append additional files,
-keep the CTRL key pressed while dropping (on Windows). The *Remove*
-button or DEL key lets you remove selected entries from the input files.
+keep the ``CTRL`` key pressed while dropping (on Windows). The *Remove*
+button or ``DEL`` key lets you remove selected entries from the input files.
 Note that adding folders to the list is also supported. Each folder will
-be recursively scanned for CityGML files, and every CityGML file found
-will be imported.
+be recursively scanned for input files to be imported.
 
-The importer supports the following file formats for CityGML datasets:
-1) regular XML files (\*.gml, \*.xml), 2) GZIP compressed XML files
-(\*.gz, \*.gzip), and 3) ZIP archives (\*.zip). ZIP archives are
-recursively scanned for contained XML files. Additional files such as
-texture images will also be imported from the ZIP archive if they are
-correctly referenced from the XML file(s) using relative paths within
-the ZIP archive.
+The import operation supports the following file formats and extensions:
 
-**Workspace selection.** If the 3D City Database instance is
-version-enabled (Oracle only), the name of the *workspace* into which
-the data shall be imported can be specified [2]. If no workspace is
-provided, the *LIVE* workspace is used by default.
+.. list-table::  *Supported input file formats and extensions*
+   :align: center
+   :name: import_supported_file_formats
 
-.. note::
-   Importing into version-enabled tables typically takes
-   *considerably more time* than importing into non-version-enabled tables.
-   The import time can be reduced if spatial indexes are disabled
-   beforehand.
+   * - | **Format**
+     - | **File extensions**
+   * - | **CityGML versions 2.0, 1.0, and 0.4**
+     - | \*.gml, \*.xml
+   * - | **CityJSON version 1.0.x**
+     - | \*.json, \*.cityjson
+   * - | **GZIP compressed files**
+     - | \*.gz, \*.gzip
+   * - | **ZIP archives**
+     - | \*.zip
 
-**Import filter.** The import dialog allows for setting thematic and
-spatial filter criteria to narrow down the set of CityGML top-level
-features that are to be imported from the input files. The checkboxes on
-the left side of the import dialog let you choose between an *attribute
-filter*, a *feature* *counter filter*, a spatial *bounding box filter*
-and a *feature type filter*. If more than one filter is chosen, the
-filter criteria are combined in a logical AND operation. If no checkbox
-is enabled, no filter criteria are applied and thus all CityGML features
-contained in the input file(s) will be imported.
+The files formats are mainly detected based on the file extension, so please
+make sure to use one of the supported file extensions from :numref:`import_supported_file_formats`.
+ZIP archives are recursively scanned for contained CityGML and CityJSON
+files. Additional files referenced from the CityGML/CityJSON files such as texture images
+will also be imported into the database if the references can be correctly
+resolved during import. This also holds true if the additional files are located inside
+the same ZIP archive as the CityGML/CityJSON files.
 
--  **Attribute filter**: This filter takes a *gml:id* and/or a *gml:name* as
-   parameter [3] and only imports CityGML features having a matching value for
-   the respective attribute. More than one gml:id can be provided in a comma-separated list.
-   Multiple gml:name values are not supported though.
--  **Counter filter**: The feature counter filter limits the number of top-level features to be imported.
-   Simply enter the number of features into the *count* field [4]. The *start index* parameter indicates
-   the index within the set of all feature over all input files from which the import shall begin. The index starts with 0.
-   The parameters can be used together or individually.
--  **Bounding box filter**: This filter takes a 2D bounding box as parameter that is given by the
-   coordinate values of its lower left (x\ :sub:`min`, y\ :sub:`min`) and upper right corner (x\ :sub:`max`, y\
-   :sub:`max`) [5]. The bounding box is evaluated against the gml:boundedBy property of the CityGML input features.
-   You can choose whether features *overlapping* with the provided bounding box are to be
-   imported, or whether features must be *inside* of it.
--  **Feature type filter**: With the feature types filter, you can restrict the import to one or more
-   features types by enabling the corresponding checkboxes [7]. Only features of the
-   chosen type(s) will be imported.
+**Import filters**
+
+The import dialog allows for setting thematic and
+spatial filters to narrow down the set of top-level
+city objects that are to be imported from the input files [2]. The
+following filters are offered and discussed in separate sections of this chapter:
+
+- :numref:`%s <impexp_import_attribute_filter>` :ref:`impexp_import_attribute_filter`
+- :numref:`%s <impexp_import_feature_counter_filter>` :ref:`impexp_import_feature_counter_filter`
+- :numref:`%s <impexp_import_bbox_filter>` :ref:`impexp_import_bbox_filter`
+- :numref:`%s <impexp_import_feature_types_filter>` :ref:`impexp_import_feature_types_filter`
+
+To enable a filter, simply select its checkbox. This will automatically make
+the filter dialog visible. Make sure to provide the mandatory input for the filter
+to work correctly. If more than one filter is enabled, the filters are combined in a
+logical AND operation, i.e. all filter criteria must be fulfilled for a city object to
+be imported. If no checkbox is enabled, no filters are applied and, thus,
+all features contained in the input files will be imported.
 
 .. note::
-   All filters only work on *top-level features* but *not on nested
+   All import filters are only applied to *top-level features* but *not to nested
    sub-features*.
 
-For the *bounding box filter*, make sure that you choose a *coordinate
-reference system* from the drop-down choice list that matches the
-provided coordinate values. Otherwise, the spatial filter may not work
-as expected. The coordinate reference system list can be augmented with
-user-defined reference systems (see :numref:`impexp_crs_management_chapter` for more information).
+**Schema validation**
 
-The coordinate values of the bounding box filter can either be entered
-manually or chosen interactively in a 2D map window. To open the map
-window, click on the map button |map_select| [6].
-
-
-.. figure:: ../media/impexp_bbox_selection_map_window_fig.png
-   :name: impexp_bbox_selection_map_window_fig
-   :align: center
-
-   Bounding box selection using the 2D map window.
-
-In the map window, keep the left mouse button clicked while holding the
-ALT key. This lets you draw a bounding box on the map. In order to move
-the map to a specific location or address, simply enter the location or
-address in the input field on top of the map and click the *Go* button
-or use the map navigation controls. If you are happy with the bounding
-box selection, click the *Apply* button. This will close the map window
-and carry the coordinate values of the selected area into the
-corresponding fields of the bounding box filter [5]. Click *Cancel* if
-you want to close the map window but skip your selection. A more
-comprehensive guide on how to use the map window is provided in chapter
-:numref:`impexp_preferences_map_window_chapter`.
-
-With the |bbox_copy| button on the bounding box filter dialog [6], you can copy a bounding
-box to the clipboard, while the |bbox_paste|
-button pastes a bounding box from the clipboard to the input fields of
-the bounding box filter [5] (or use the right-click context menu).
-
-**XML validation.** Before importing, the CityGML input files can be
-validated against the official CityGML XML schemas. Simply click the
-*Just Validate* button [9] in order to run the validation process.
+Before importing, the input files can be
+validated against the official CityGML XML and CityJSON schemas. Simply click the
+*Just Validate* button [4] in order to run the validation process.
 Filter settings are **not considered** in this process. Note that this
-operation does not require internet access since the XML schemas are
-packaged with the application. The CityGML features are **not imported**
+operation does not require internet access since the schemas are
+packaged with the application. The features from the input files are **not imported**
 into the database during validation. The validation results are printed
 to the console window.
 
 .. note::
-   It is **strongly recommended** that only CityGML files having
-   successfully passed XML validation are imported into the database.
-   Otherwise, errors in the data may lead to unexpected behavior or
-   abnormal termination.
+   It is **strongly recommended** that only input files having
+   successfully passed the validation are imported into the database.
+   Otherwise, errors in the data may lead to unexpected behavior, error
+   messages or even abnormal termination of the import process.
 
-**Import preferences.** More fine-grained preference settings affecting
-the CityGML import are available on the Preferences tab of the
-operations window. Make sure to check these settings *before* starting
+.. note::
+   CityGML ADE schemas are automatically considered in the validation process
+   if the ADE has been correctly registered with the Importer/Exporter (see
+   :numref:`impexp_plugin_ade_manager_chapter` for more details). This way, also
+   ADE data can be checked before importing. CityJSON Extension schemas are, however,
+   not supported by the validation process. Please use an external tool like
+   `cjio <https://github.com/cityjson/cjio/>`_ to validate such datasets.
+
+**Import preferences**
+
+More fine-grained preference settings affecting
+the import operation are available on the *Preferences* tab of the
+operations window [5]. Make sure to check these settings *before* starting
 the import process. A full documentation of the import preferences is
 available in :numref:`impexp_citygml_import_preferences_chapter`.
 The following table provides a summary overview.
 
 .. list-table::  Summary overview of the import preferences
    :name: citygml_import_preferences_summary_table
+   :widths: 30 70
 
    * - | **Preference name**
      - | **Description**
-   * - | Continuation
-     - | Metadata that is stored for every object in the database such as the data
-       | lineage, the updating person or the creationDate property.
-   * - | gml:id handling
-     - | Generates UUIDs where gml:ids are missing on input features or replaces all
-       | gml:ids with UUIDs.
-   * - | Address
-     - | Controls the way in which xAL address fragments are imported into the
-       | database.
-   * - | Appearance
+   * - | :ref:`impexp_import_preference_continuation`
+     - | Metadata that is stored for every object in the database such as the data lineage, the updating person or the creationDate property.
+   * - | :ref:`impexp_import_preferences_identifier`
+     - | Generates UUIDs where object identifiers are missing on input features or replaces all identifiers with UUIDs.
+   * - | :ref:`impexp_import_preferences_appearance_chapter`
      - | Defines whether appearance information is imported.
-   * - | Geometry
+   * - | :ref:`impexp_import_preferences_geometry`
      - | Allows for applying an affine transformation to the input geometry.
-   * - | Indexes
-     - | Settings for automatically enabling/disabling spatial and normal indexes
-       | during imports.
-   * - | XML validation
-     - | Performs XML validation automatically and exclude invalid features from
-       | being imported.
-   * - | XSL transformation
-     - | Defines one or more XSLT stylesheets that shall be applied to the city objects
-       | in the given order before import.
-   * - | Import log
+   * - | :ref:`impexp_import_preferences_address_chapter`
+       | (CityGML only)
+     - | Controls the way in which xAL address fragments are imported into the database.
+   * - | :ref:`impexp_import_preferences_xml_validation`
+       | (CityGML only)
+     - | Performs XML validation automatically and excludes invalid features from being imported.
+   * - | :ref:`impexp_import_preferences_xsl_transformation`
+       | (CityGML only)
+     - | Defines one or more XSLT stylesheets that shall be applied to the city objects in the given order before import.
+   * - | :ref:`impexp_cityjson_import_preferences`
+     - | Defines import options for CityJSON input files.
+   * - | :ref:`impexp_import_preferences_indexes`
+     - | Settings for automatically enabling/disabling spatial and normal
+       | indexes during imports.
+   * - | :ref:`impexp_import_preferences_import_log`
      - | Creates a list of all successfully imported CityGML top-level features.
-   * - | Resources
+   * - | :ref:`impexp_import_preferences_resources_chapter`
      - | Allocation of computer resources used in the import operation.
 
 
-**CityGML import.** Once all import settings are correct, the *Import*
-button [8] starts the import process. If a database connection has not
+**Starting the import process**
+
+Once all import settings are correct, the *Import*
+button [3] starts the import process. If a database connection has not
 been established manually beforehand, the currently selected entry on
-the Database tab is used to connect to the 3D City Database. The
-separate steps of the import process as well as all errors that might
+the *Database* tab is used to connect to the 3D City Database. The
+separate steps of the import process as well as all errors and warnings that might
 occur during the import are reported to the console window, whereas the
 overall progress is shown in a separate status window. The import
 process can be aborted at any time by pressing the *Cancel* button in
@@ -181,6 +166,25 @@ process.
 
 After having completed the import, a summary of the imported CityGML
 top-level features is printed to the console window.
+
+.. caution::
+   The Importer/Exporter **does not check by any means** whether a
+   **top-level feature** from an input file **already exists** in the database.
+   Thus, if an import is executed twice on the same dataset, all CityGML
+   features contained in the dataset will be imported twice.
+
+   One way to avoid duplicate features might be, for instance, to manually
+   set a UNIQUE constraint on the GMLID column of the CITYOBJECT table.
+
+.. hint::
+   To improve the speed of the import operation for *a very large number of features* (bulk imports),
+   the spatial indexes can be disabled before and re-activated after the import.
+   For a smaller number of features though, disabling and enabling the spatial indexes might take
+   longer than the actual import itself. Normal indexes should never be disabled before
+   an import.
+
+   Importing into version-enabled tables under Oracle typically takes
+   *considerably more time* than importing into non-version-enabled tables.
 
 .. note::
    The import operation does **not automatically** **apply** a
@@ -204,23 +208,4 @@ top-level features is printed to the console window.
 
    Alternatively, you can change the reference system in the database to
    the one used by the imported geometries (see the corresponding
-   database operation in :numref:`change-crs`).
-
-.. note::
-   The Importer/Exporter *does not check by any means* whether a
-   *CityGML feature* from an input file *already exists* in the database.
-   Thus, if an import is executed twice on the same dataset, all CityGML
-   features contained in the dataset will be imported twice.
-
-.. |bbox_copy| image:: ../media/bbox_copy.png
-   :width: 0.16667in
-   :height: 0.16667in
-
-.. |bbox_paste| image:: ../media/bbox_paste.png
-   :width: 0.16667in
-   :height: 0.16667in
-
-.. |map_select| image:: ../media/map_select.png
-   :width: 0.16667in
-   :height: 0.16667in
-
+   database operation in :numref:`impexp-db-change-crs`).

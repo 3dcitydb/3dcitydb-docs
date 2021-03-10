@@ -5,9 +5,9 @@ Calculating/updating bounding boxes
 
 This dialog lets you calculate the 2D bounding box of the city objects
 stored in the database. The bounding box is useful, for instance, as
-input to spatial filters in CityGML imports and exports as well as
-KML/COLLADA/glTF exports (see documentation of the corresponding
-operations).
+spatial filter for the different import and export operations of the
+Importer/Exporter (see documentation of the corresponding operations)
+or for use in external tools.
 
 .. figure:: /media/impexp_gui_calc_boundingbox_fig.png
    :name: impexp_gui_calc_boundingbox_fig
@@ -15,25 +15,36 @@ operations).
 
    Calculating the bounding box for selected feature types.
 
-The coordinate values of the lower left (x\ :sub:`min`, y\ :sub:`min`) and upper
-right (x\ :sub:`max`, y\ :sub:`max`) corner of the calculated bounding box are
+First, the *top-level feature type* needs to be selected for which the bounding box
+should be calculated [1]. The default option *core:_CityObject* will operate on all
+city objects in the database, but you can also restrict the calculation to a specific
+type such as bldg:Building or wtr:WaterBody. The bounding box can optionally be
+transformed into a user-defined coordinate *reference system* [2].
+By default, the bounding box is presented in the same reference system as specified for the
+3D City Database instance during setup. See :numref:`citydb_crs_definition_chapter`
+for details on how to define and manage user-defined reference systems.
+
+If your database contains terminated city objects, the optional *Feature Version*
+filter [6] lets you define the version of the city objects that should be used for the
+calculation. The default option *Latest version* will only operate on non-terminated
+objects. With *Valid version*, you can specify that only city objects that were valid
+at a given timestamp or within a given time range should be considered. If you
+want the bounding box to be calculated for all city objects independent of whether they
+are terminated or not, simply disable the filter.
+
+.. note::
+  The *Feature Version* filter works on the CREATION_DATE and TERMINATION_DATE columns
+  of the table CITYOBJECT. More information can be found in :numref:`impexp_citygml_export_chapter`.
+
+To trigger the calculation, press the *Calculate* button. The coordinates
+of the lower left (x\ :sub:`min`, y\ :sub:`min`) and upper
+right (x\ :sub:`max`, y\ :sub:`max`) corner of the resulting bounding box are
 rendered in the corresponding fields of the dialog [3]. The values are
 also copied to the clipboard of your operating system and can therefore
 easily be pasted into the import and export dialogs. You can also
 manually copy the values to the clipboard by clicking the
-|bbox_copy| button [4], or by right-clicking on a data field [3] and choosing the
+|bbox_copy| button [4], or by right-clicking on a text field [3] and choosing the
 corresponding option from the context menu.
-
-The calculation of the bounding box can be restricted to a specific city
-object type such as Building or WaterBody [1]. Similar to the generation of a
-database report, the user can request the bounding box for city objects
-living in a specific *workspace* at a given *timestamp* if the database
-is version-enabled (Oracle only). The coordinate values can optionally
-be transformed into a user-defined coordinate *reference system* that is
-available from the drop-down list [2]. Per default, the coordinate
-values are presented in the same reference system as specified for the
-3D City Database instance during setup. See :numref:`citydb_crs_definition_chapter`
-for details on how to define and manage user-defined reference systems.
 
 By using the map |map_select| button [4],
 the calculated bounding box is rendered in a separate 2D map window
@@ -51,7 +62,7 @@ described in :numref:`impexp_preferences_map_window_chapter`.
 The calculation of the bounding box is based on the values stored in the
 ENVELOPE column of the CITYOBJECT table. If this column is NULL or
 contains an incorrect value (e.g., in case the value could not correctly
-filled during import or the geometry representation of a city object has
+be filled during import or the geometry representation of a city object has
 been changed), then the resulting bounding box will be wrong and
 subsequent operations might not provide the expected result. To fix the
 ENVELOPE values in the database, simply let the Importer/Exporter

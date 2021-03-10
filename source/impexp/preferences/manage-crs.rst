@@ -34,7 +34,7 @@ the currently connected database instance.
 
 .. note::
   The internal CRS cannot be edited in this dialog. If you want
-  to change the internal CRS, then follow the steps in :numref:`change-crs`.
+  to change the internal CRS, then follow the steps in :numref:`impexp-db-change-crs`.
 
 A new user-defined CRS can be added to this list after clicking the
 *New* button. Please provide the database-specific SRID in the

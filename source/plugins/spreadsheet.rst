@@ -368,7 +368,7 @@ button to select the area from a map. Please refer to :numref:`impexp-db-calc-bb
 for more details on the different options for specifying a bounding box.
 
 
-.. _output:
+.. _spreadsheet_output:
 
 Output
 ~~~~~~
