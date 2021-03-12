@@ -3,6 +3,9 @@
 Preferences
 ~~~~~~~~~~~
 
+The import operation can be customized with various different
+preference settings that are presented in this chapter.
+
 .. toctree::
    :maxdepth: 1
 
