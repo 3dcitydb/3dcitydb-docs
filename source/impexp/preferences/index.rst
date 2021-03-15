@@ -18,7 +18,6 @@ the dialog with the following main nodes:
 .. toctree::
    :maxdepth: 1
 
-   citygml-export
    kml-collada-gltf-export
    manage-crs
    general

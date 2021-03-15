@@ -34,7 +34,7 @@ are terminated or not, simply disable the filter.
 
 .. note::
   The *Feature Version* filter works on the CREATION_DATE and TERMINATION_DATE columns
-  of the table CITYOBJECT. More information can be found in :numref:`impexp_citygml_export_chapter`.
+  of the table CITYOBJECT. More information can be found in :numref:`impexp_export_feature_version_filter`.
 
 To trigger the calculation, press the *Calculate* button. The coordinates
 of the lower left (x\ :sub:`min`, y\ :sub:`min`) and upper

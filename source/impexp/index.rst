@@ -23,8 +23,8 @@ please refer to :numref:`first_steps_system_requirements_chapter` .
    launching
    gui
    database
-   citygml-import
-   citygml-export
+   import
+   export
    kml-collada-gltf-export
    preferences/index
    map-window
