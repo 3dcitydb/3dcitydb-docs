@@ -12,9 +12,9 @@ preference settings that are presented in this chapter.
    general
    tiling-options
    cityobjectgroup
-   address
    appearance
    citygml-general
+   address
    xlinks
    xsl-transformation
    cityjson
