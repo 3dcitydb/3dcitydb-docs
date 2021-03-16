@@ -10,37 +10,17 @@ The 3DCityDB Docker images are based on the official
 We tried so stick as close as possible to the behavior of the base images and
 add
 
-
 *******************************************************************************
 Image variants and versions
 *******************************************************************************
 
-.. csv-table::
-    :file: image-table.csv
-    :delim: ;
-
-
-.. image:: https://img.shields.io/github/workflow/status/3dcitydb/
-  importer-exporter/docker-build-edge?label=debian&
-  style=flat-square&logo=Docker&logoColor=white
-
-.. image:: https://img.shields.io/docker/image-size/3dcitydb/impexp/
-  edge?label=debian&logo=Docker&logoColor=white&style=flat-square
-
-.. image:: https://img.shields.io/github/workflow/status/3dcitydb/
-  importer-exporter/docker-build-edge-alpine?label=alpine&
-  style=flat-square&logo=Docker&logoColor=white
-
-.. image:: https://img.shields.io/docker/image-size/3dcitydb/impexp/
-  edge-alpine?label=alpine&logo=Docker&logoColor=white&style=flat-square
-
-This repo contains Dockerfiles to create a 3D City Database (3DCityDB) running on a
-PostgreSQL DBMS with PostGIS. To get the 3DCityDB PostGIS Docker images visit the
-tumgis/3dcitydb-postgis DockerHub page.
-
-To get started immediately go to the quick start section.
-
-
++--------+-------------------------------------------------------------------------------------------------+-------------------------------------------------+
+| Tag    | PostgreSQL/PostGIS                                                                              | Oracle                                          |
++========+===============================================+=================================================+=================================================+
+| edge   | |psql-deb-build-edge| |psql-deb-size-edge|    | |psql-alp-build-edge| |psql-alp-size-edge|      | |ora-deb-build-edge| |ora-deb-size-edge|        |
++--------+-----------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+| v4.1.0 | |psql-deb-build-v4.10| |psql-deb-size-v4.1.0| | |psql-alp-build-v4.1.0| |psql-alp-size-v4.1.0|  | |ora-deb-build-v4.1.0| |ora-deb-size-v4.1.0|    |
++--------+-----------------------------------------------+-------------------------------------------------+-------------------------------------------------+
 
 .. warning:: THIS PAGE IS WORK IN PROGRESS
 
@@ -105,7 +85,36 @@ The ``docker run`` command fetches the most recent version of the Docker
 image from the Docker hub. This image includes a PostgreSQL/PostGIS
 installation. The 3DCityDB schema is being installed and a new and empty
 3DCityDB database is created using the SRID 31468 and GML SRSName
-“urn:adv:crs:DE_DHDN_3GK4*DE_DHN92_NH”. After completion of the command
+*urn:adv:crs:DE_DHDN_3GK4*DE_DHN92_NH*. After completion of the command
 the user can directly start importing a CityGML file into the database
 using the Importer/Exporter tool, which must have been installed
 locally.
+
+
+.. Images ---------------------------------------------------------------------
+
+.. |psql-deb-build-edge| image:: https://img.shields.io/github/workflow/status/
+  3dcitydb/3dcitydb/psql-docker-build-edge?label=debian&
+  style=flat-square&logo=Docker&logoColor=white
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+.. |psql-deb-size-edge| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/edge?label=debian&logo=Docker&logoColor=white&style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+.. |psql-alp-build-edge| image:: https://img.shields.io/github/workflow/status/
+  3dcitydb/3dcitydb/psql-docker-build-edge?label=alpine&
+  style=flat-square&logo=Docker&logoColor=white
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+.. |psql-alp-size-edge| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/edge-alpine?label=alpine&logo=Docker&logoColor=white&
+  style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+.. |ora-deb-build-edge| image:: https://img.shields.io/github/workflow/status/
+  3dcitydb/3dcitydb/oracle-docker-build-edge?label=debian&
+  style=flat-square&logo=Docker&logoColor=white
+
+.. |ora-deb-size-edge| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb/edge?label=debian&logo=Docker&logoColor=white&style=flat-square

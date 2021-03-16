@@ -1,3 +1,0 @@
-Tag;Debian build status; Debian image size; Alpine build status; Alpine image size
-edge;.. image:: https://img.shields.io/github/workflow/status/3dcitydb/importer-exporter/docker-build-edge?label=debian&style=flat-square&logo=Docker&logoColor=white ;.. image:: https://img.shields.io/docker/image-size/3dcitydb/impexp/edge?label=debian&logo=Docker&logoColor=white&style=flat-square ; .. image:: https://img.shields.io/github/workflow/status/3dcitydb/importer-exporter/docker-build-edge-alpine?label=alpine&style=flat-square&logo=Docker&logoColor=white ; .. image:: https://img.shields.io/docker/image-size/3dcitydb/impexp/edge-alpine?label=alpine&logo=Docker&logoColor=white&style=flat-square
-;;;;
