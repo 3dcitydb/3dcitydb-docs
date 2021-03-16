@@ -118,7 +118,7 @@ like shown below.
    :name: impexp_XML_query_dialog_fig
    :align: center
 
-   Input field to enter an XML-based query expression for CityGML exports.
+   Input field to enter an XML-based query expression.
 
 The XML query is entered in [1]. This requires knowledge about the
 structure and the allowed elements of the query language. A

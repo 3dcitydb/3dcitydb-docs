@@ -28,7 +28,7 @@ combined.
    * - | **Minimum LoD**
      - | This is a special version of the *Or* mode that only exports the lowest LoD representation from the matching ones. The exported LoD may therefore differ for each city object.
    * - | **Maximum LoD**
-     - | This is a special version of the *Or* mode that only exports the highest LoD representation that matches the selected LoDs. The exported LoD may therefore differ for each city object.
+     - | This is a special version of the *Or* mode that only exports the highest LoD representation from the matching ones. The exported LoD may therefore differ for each city object.
 
 Many feature types in both CityGML and CityJSON can have nested sub-features. In such
 cases, the top-level feature itself is not required to have a spatial
