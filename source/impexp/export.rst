@@ -218,7 +218,7 @@ process at any time.
 
 .. caution::
   While CityGML files can be written in a streaming fashion (i.e., one top-level feature
-  after the other) that allows for a low memory footprint,
+  after the other), which allows for keeping the memory footprint low,
   large parts of a CityJSON file must be kept in main memory before
   the entire file can be written to the file system.
   In order to avoid memory issues when exporting to CityJSON, it is
