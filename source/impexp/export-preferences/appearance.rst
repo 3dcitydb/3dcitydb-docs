@@ -3,7 +3,7 @@
 Appearance
 ^^^^^^^^^^
 
-The Appearance export preferences control how appearance information of
+The appearance export preferences control how appearance information of
 city objects is written to the output datasets.
 
 .. figure:: /media/impexp_export_preferences_appearance_fig.png
@@ -15,7 +15,7 @@ city objects is written to the output datasets.
 By default, both appearance information and texture image files
 associated with the city objects in the 3D City Database are exported
 [1]. Alternatively, the user can choose to only export the appearance
-information without textures or to drop appearances completely.
+information without textures or to skip appearances completely.
 
 When exporting texture files, the additional options *Overwrite existing
 texture files* and *Generate unique texture filenames* influence the way
@@ -38,24 +38,28 @@ in which texture files are written to the file system [1].
    instance documents are assigned a texture image file of the same
    name but with different content. In the 3D City Database, texture
    images are stored in separate records and thus duplicate filenames
-   are not an issue. When exporting to CityGML, however, two texture
+   are not an issue. When exporting the data, however, two texture
    files of the same name might be written to the same target folder,
    in which case one is replaced with the other. This will obviously
    lead to false visualizations and issues in workflows consuming the
-   exported CityGML data. For this reason, checking this option
+   exported data. For this reason, checking this option
    will force the export process to generate unique and stable
    filenames for each texture file.
 
 The location where to store the texture files can be defined by the user
 [2]. The default option is to pick a folder below the export directory
-and thus relative to the target CityGML file. The default folder name is
-“\ *appearance*\ ”. Instead of a local path, also an absolute path can
+and thus relative to the output file. The default folder name is
+*"appearance"*. Instead of a local path, also an absolute path can
 be provided. In this case, the same folder will be used in subsequent
 exports from the 3D City Database.
 
+.. note::
+  When the data is exported into a ZIP archive, texture files are
+  also stored inside the archive if a local path is chosen.
+
 When appearances are chosen to be exported but the *Do not store texture
 files* option [1] is checked, then appearance information is generated
-for the city objects in the CityGML dataset, but the texture files are
+for the city objects in the output file, but the texture files are
 not stored in the file system. However, since the texture path is part
 of the appearance information, the directory settings [2] and whether to
 generate unique texture filenames [1] still has an impact on the

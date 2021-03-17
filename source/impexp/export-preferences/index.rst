@@ -18,3 +18,4 @@ preference settings that are presented in this chapter.
    xlinks
    xsl-transformation
    cityjson
+   resources

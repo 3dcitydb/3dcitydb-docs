@@ -50,8 +50,9 @@ and cache entries for object identifiers and temporary XLink information
 .. note::
    All database operations within one batch are buffered in main
    memory before being submitted to the database. Thus, the
-   Importer/Exporter might run out of memory if the batch size is too high.
-   After a batch is submitted, the transaction is committed.
+   Importer/Exporter might run out of memory if the batch size is too high
+   (see :numref:`impexp_launching_chapter` for how to increase the available
+   main memory). After a batch is submitted, the transaction is committed.
 
 **Cache settings**
 
@@ -94,3 +95,11 @@ partitions*, default: 10). The Importer/Exporter uses separate
 caches for identifiers of geometries and features [3]. Moreover, a
 third cache is used for handling texture atlases and offers similar
 settings [4].
+
+.. note::
+  By default, the temporary tables for draining the caches are created
+  in the same 3D City Database instance. You can also choose
+  to use a local cache instead (see :numref:`impexp_general_preferences_cache` for more details).
+  However, note that some temporary information must be stored in the
+  database even if you use a local cache to be able to perform JOINs between
+  temporary tables and tables of the 3DCityDB schema.
