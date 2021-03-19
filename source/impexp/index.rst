@@ -25,7 +25,7 @@ please refer to :numref:`first_steps_system_requirements_chapter` .
    database
    import
    export
-   kml-collada-gltf-export
+   export-vis
    preferences/index
    map-window
    cli

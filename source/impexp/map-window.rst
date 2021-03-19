@@ -1,7 +1,7 @@
 .. _impexp_preferences_map_window_chapter:
 
-Map window for bounding box selections
---------------------------------------
+Map window
+----------
 
 The Importer/Exporter offers a 2D map window that allows a user to
 display the overall bounding box calculated from the city model content

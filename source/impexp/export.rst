@@ -70,7 +70,7 @@ in database"*, no coordinate transformation is applied (default behavior).
 **Export filters**
 
 Similar to the import process, the export operation offers thematic and spatial filters to
-restrict an export to a subset of the 3D city model content stored in the database.
+restrict an export to a subset of the 3D city model content stored in the database [3].
 The following filters are available and discussed in separate sections of this chapter:
 
 - :numref:`%s <impexp_export_feature_version_filter>` :ref:`impexp_export_feature_version_filter`
@@ -152,7 +152,7 @@ files of arbitrary size (only limited by the file system of the
 operating system). However, such files might become too large to be processed by
 other applications. *Tiled exports* are useful in this case because the
 export is split into a regular grid of tiles each of which is written
-to its own output file. Every tile only contains a subset of the
+to its own output file. Every tile only contains a subset of all
 city objects to be exported and, thus, the file sizes will be smaller compared
 to a single output file. To enable tiling, you must use a bounding filter
 (see :numref:`impexp_export_bbox_filter`) or a corresponding XML query
@@ -180,7 +180,7 @@ The following table provides a summary overview.
    * - | **Preference name**
      - | **Description**
    * - | :ref:`impexp_preferences_export_general`
-     - | General options like to CityGML version to be used for exports.
+     - | General options like the CityGML version to be used for exports.
    * - | :ref:`impexp_preferences_export_tiling_chapter`
      - | Settings for tiled exports. Requires that tiling is enabled on the bounding box filter.
    * - | :ref:`impexp_preferences_export_cityobjectgroup`

@@ -8,7 +8,7 @@ coordinate values of its lower left (x\ :sub:`min`, y\ :sub:`min`) and upper rig
 :sub:`max`) corner. It is evaluated against the ENVELOPE column of the CITYOBJECT table.
 
 .. figure:: /media/impexp_export_bbox_filter.png
-   :name: impexp_iexport_bbox_filter_fig
+   :name: impexp_export_bbox_filter_fig
    :align: center
 
    Bounding box filter for export operations.
