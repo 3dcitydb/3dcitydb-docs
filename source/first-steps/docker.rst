@@ -16,7 +16,7 @@ tools, program libraries, and files it requires.
 It allows you to get e.g. a 3DCityDB instance up and running in a fews seconds,
 without having to setup a database server or the 3DCityDB database schema.
 
-.. figure:: citydb-docker-term.gif
+.. figure:: ../media/citydb-docker-term.gif
   :width: 100 %
   :alt: 3DCityDB Docker runtime
   :align: center
