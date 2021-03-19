@@ -13,8 +13,9 @@ compared to traditional virtualization environments that emulate an entire
 operating system because they contain only the application and all the
 tools, program libraries, and files it requires.
 
-It allows you to get e.g. a 3DCityDB instance up and running in a fews seconds,
-without having to setup a database server or the 3DCityDB database schema.
+For instance, Docker enables you to get a 3DCityDB instance up and running in
+a fews seconds, without having to setup a database server or the
+3DCityDB database schema, as shown in :numref:`citydb_img_docker_term`.
 
 .. figure:: ../media/citydb-docker-term.gif
   :width: 100 %
@@ -22,7 +23,8 @@ without having to setup a database server or the 3DCityDB database schema.
   :align: center
   :name: citydb_img_docker_term
 
-  Starting a 3DCityDB container and connecting to the database in seconds.
+  Running a 3DCityDB instance using Docker and makeing a connection the
+  ready-to-use database in seconds.
 
 Docker images are available for the following tools of the 3DCityDB software
 suite:
