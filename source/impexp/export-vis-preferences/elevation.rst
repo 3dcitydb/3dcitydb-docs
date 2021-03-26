@@ -3,208 +3,183 @@
 Elevation
 ^^^^^^^^^
 
-In order to ensure a perfect display of the exported datasets in the
-Earth browser, some adjustments on the z coordinate for the exported 3D
-objects may be necessary.
+The *Elevation* preferences dialog offers settings to adapt the
+height values of exported city objects in the resulting visualization models.
+This also has an impact when rendering the models in a viewer.
 
 .. figure:: /media/impexp_kml_export_preferences_terrain_fig.png
    :name: pic_kml_collada_gltf_preferences_terrain
    :align: center
 
-   Altitude/Terrain settings
+   Visualization export preferences – Elevation settings.
 
-Use original z-Coordinates without transformation
-"""""""""""""""""""""""""""""""""""""""""""""""""
+**Altitude mode**
 
-Depending on the spatial database used, the transformation of the
-original coordinates to WGS84 will include transformation of the
-z-coordinates (PostGIS starting from version 2.0 or Oracle starting from version 11g) or not (Oracle 10g). To
-make sure only the planimetric (x,y) and not the z-coordinates are
-transformed this checkbox must be selected. This is useful when the used
-terrain model is different from Google Earth’s and the z-coordinates are
-known to fit perfectly in that terrain model.
+The altitude mode parameter [1] specifies how the height values (altitude)
+of the exported city objects are to be interpreted by a
+viewer or application. It can be set to either *absolute* (default), *relative* or
+*clamp to ground*.
 
-Another positive side-effect of this option is that *GE_LoDn_zOffset*
-attribute values (explained in the following section) calculated for
-Oracle 10g keep being valid when imported into PostGIS starting from version 2.0 or Oracle
-starting from version 11g. Otherwise, when switching database versions and not making use
-of this option, *GE_LoDn_zOffset* values must be recalculated again.
-
-*GE_LoDn_zOffset* attribute values calculated for Oracle 10g are
-consistent for all KML/COLLADA/glTF exports from Oracle 10g. The same
-applies to PostGIS starting from version 2.0 or Oracle starting from version 11g. Only cross-usage
-(calculation in one version, export from the other) creates
-inconsistencies that can be solved by turning z-coordinate
-transformation off.
-
-This setting affects the resulting *GE_LoDn_zOffset* if used when a
-cityobject has none such value yet and is exported in KML/COLLADA for
-the first time, so it is recommended to remember its status
-(z-coordinate transformation on or off) for all future exports.
-
-Altitude mode
-"""""""""""""
-
-Allows the user to choose between *relative* (to the ground),
-interpreting the altitude as a value in meters above the terrain, or
-*absolute*, interpreting the altitude as an absolute height value in
-meters according to the vertical reference system used by the Earth
-browser (e.g., Google Earth uses the EGM96 geoid, whereas Cesium uses
-the WGS84 ellipsoid), or *clamp to ground*, which allows the exported
-objects to be always clamped to ground.
-
-This means, when *relative* altitude mode is chosen, the z-coordinates
-of the exports represent the vertical distance from the digital terrain
-model (DTM) of the Earth browser, which should be 0 for those points on
-the ground (the building's footprint) and higher for the rest (roof
-surfaces, for instance). However, z-coordinate values of the city
-objects stored in a 3DCityDB usually have values bigger than 0, so
-choosing this altitude mode will often result in exports hovering over
-the ground.
-
-.. figure:: /media/impexp_kml_export_example_relative_atitude_mode_fig.jpeg
-   :name: pic_kml_collada_gltf_preferences_terrain_example
+.. list-table::  *Supported altitude modes for city objects*
    :align: center
+   :name: export_vis_elevation_altitude_mode
+   :widths: 20 70
 
-   Possible export result with relative altitude mode
+   * - | **Altitude mode**
+     - | **Description**
+   * - | **absolute**
+     - | The altitude is interpreted as an absolute height value in meters according to the vertical reference system (EGM96 geoid in Google Earth, WGS84 ellipsoid in Cesium).
+   * - | **relative**
+     - | The altitude is interpreted as a value in meters above the terrain. The absolute height value can be determined by adding the terrain elevation.
+   * - | **clamp to ground**
+     - | The altitude will be ignored and the city object will always be clamped to the ground.
 
-When *absolute* altitude mode is chosen, the z-coordinates of the
-exports represent the vertical distance from the vertical datum - the
-ellipsoid or geoid which most closely approximates the Earth curvature,
-regardless of the DTM at that point. This implies, choosing this
-altitude mode may result in buildings sinking into the ground wherever
-the DTM indicates there is a hill or hovering over the ground wherever
-the DTM indicates a dent.
+To pick the right mode, it is important to understand how the height values
+have been derived for the city objects stored in the database.
+Nowadays, absolute height values are more commonly used in the
+creation of 3D city models than relative height values. Either way, the
+chosen method should be consistent for all features in the database.
 
-When the *clamp to ground* altitude mode is chosen, the z-coordinate
-values of the exported objects will be ignored and every surface
-geometry of the KML models will be forced to lie on the surface of the
-ground.
+If you choose an altitude mode that does not fit your height values,
+this might obviously result in city objects flying over or sinking
+into the terrain in a viewer. This effect can, however, also occur if your viewer
+uses another terrain model than the one used for deriving
+the height values for your city objects. In the best case, the viewer
+lets you use your own terrain model for visualization that matches your city objects.
 
-For a proper grounding, the **Altitude offset** setting can additionally
-be used so that a positive or negative offset value can be applied to
-all z-coordinates of the exports, moving the city objects up and down
-along the z-axis until they match the ground.
-
-.. note::
-   Both **Altitude mode** and **Altitude offset** settings will
-   only take effect when the city objects are exported in the *Geometry* or
-   *COLLADA/glTF* display forms. When, for example, the *Footprint* display
-   form is selected, The KML/COLLADA/glTF-Exporter will internally use the
-   *clamp to ground* altitude mode to ensure that the exported geometries
-   will be always clamped to ground regardless of the altitude mode chosen
-   by the user. Likewise, when exporting in the *Extruded* display form,
-   the *relative* altitude model will be internally applied and the height
-   value of the respective city object will be used to represent the
-   relative height above the ground.
-
-Altitude offset
-"""""""""""""""
-
-A value, positive or negative, can be added to the z coordinates of all
-geometries in one export in order to place them higher or lower over the
-earth surface. This offset can be 0 for all exported objects (*no
-offset*), it can be constant for all (*constant*), or it can have an
-individual value for each object to ensure that the bottom of the object
-is placed on the earth surface.
-
-The first option *no offset* implies that the z-coordinates of all
-geometries are kept unchanged at export time if the option *Use original
-z-Coordinates without transformation* is selected. The second option
-*constant* is particularly appropriate for exports of a single city
-ob­ject, allowing some fine-tuning of its position along the z-axis.
-
-When exporting regions - via bounding box settings -, the other two
-options, *Move each object to bottom height 0* and *Use generic
-attribute "GE_LoDn_zOffset"*, are recom­mended.
-
-Once the option *Move each object to bottom height 0* is selected, the
-elevation value of the lowest point for every object will be calculated
-and its inversed value should exactly equal to the zOffset value of the
-respective object. This zOffset value will be used for adjusting the z-
-coordinates of the object to ensure that its lowest point has a height
-of 0 meter. This setting is particularly advisable, since combined with
-the *relative* altitude mode the exported objects can always be properly
-placed on the ground in Google Earth regardless of whether its terrain
-layer is activated or not. However, if the *absolute* altitude is
-chosen, a proper grounding of the objects requires that the terrain
-layer in Google Earth must be deactivated.
+.. caution::
+   The altitude mode setting **is ignored** by the Cesium-based 3D web map client
+   shipped with the 3D City Database (see :numref:`webmap_chapter`).
+   The height values are **always interpreted as absolute values** by
+   this viewer.
 
 .. note::
-   Regardless of the chosen altitude mode, the Cesium-based
-   3DCityDB-Web-Map-Client always interprets the altitude as an absolute
-   height value in meters according to the WGS84 ellipsoid reference
-   system. Thus, the option *Move each object to bottom height 0* can only
-   ensure a proper grounding of the objects on the Cesium Virtual Globe
-   when its WGS84 ellipsoid terrain model (default) is activated.
+   The altitude mode settings will **only be considered**
+   when the city objects are exported in the *Geometry* or
+   *COLLADA/glTF* display forms. When choosing the *Footprint* display
+   form instead, *clamp to ground* is enforced automatically to ensure
+   that the exported footprints are always draped onto the terrain.
+   Likewise, when exporting in the *Extruded* display form,
+   the *relative* mode will be used independent of the
+   choice made in this dialog.
 
-When choosing the *absolute* altitude model and displaying city objects
-on Google Earth with enabled terrain layer, the option *Use generic
-attribute "GE_LoDn_zOffset"* shall be selected. Here the
-*GE_LoDn_zOffset* generic attribute value can be automatically
-calculated by the Importer/Exporter if not available. This calculation
-uses data returned by
-`Google's Elevation API <https://developers.google.com/maps/documentation/elevation/>`_.
-After completing the calculation, the results will be stored in
-the ``CITYOBJECT_GENERICATTRIB`` table of the 3DCityDB for future use.
+In addition to the altitude mode, you can also specify to *use the
+original height values without transformation* in the
+export process. When creating the visualization models, the coordinates of the
+city objects are internally transformed to WGS84, for instance, to be
+used in KML geometries. Depending on the spatial database (PostgreSQL/PostGIS, Oracle)
+and its version used for running the 3DCityDB, this transformation
+will not only affect the x and y coordinates but also the height values.
+If, for instance, the city objects have absolute height values and you use
+a matching terrain in the viewer, then changes to the height values due
+to transformations might again result in flying or sinking city objects.
+With this option enabled (default), the export operation will always
+keep the original height values as stored in the database in the entire process.
+
+**Height offset**
+
+In addition to the altitude mode, a *height offset* [2] can be specified
+that is added to every z coordinate of all geometries that will be exported.
+If you do not want to apply a height offset, simply choose the
+*No offset* option which is also the default value.
+
+The *Constant offset* option lets you define a constant value,
+positive or negative, and every height value is incremented by this
+value. This option is particularly useful when exporting only
+a single city object or in case all height values share a global
+error that can be easily corrected with a constant offset.
+
+When choosing the *Move every object on the globe (zero elevation)* option,
+the lowest point for each city object will be determined and the height
+value of this point will be set to 0. The same offset will then be
+applied to the remaining points of the city object. In contrast to a
+constant offset, this method uses an individual offset for each
+city object. It makes sense to combine this option with the *relative*
+altitude mode.
 
 .. note::
-   Starting from July 2018, an Elevation API key is required in
-   order to enable access to the Google Elevation Service. Thus, the option
-   *Call the Google Elevation API when no data is available* should only be
+   When using Google Earth as viewer, moving every object to
+   zero elevation and combining this with a *relative* altitude mode
+   results in city objects that are perfectly sitting on the ground
+   independent of whether the terrain layer is activated or not.
+
+   For the Cesium-based 3D web map client, this option can be used
+   to render the city objects on the WGS84 ellipsoid. However, as
+   soon as you load a terrain, remember that the height values are
+   interpreted as being absolute (see above) by this viewer.
+   Thus, the city objects will most likely be located under the terrain.
+
+A last option available for choosing a height offset is to
+use the value stored in the generic attribute **GE_LoDn_zOffset** of
+the city object. Since the value can be different for different
+city objects, also this options can be used to adapt the height
+value for each city object individually.
+
+This option is mainly intended to be used with Google Earth as viewer.
+For the terrain model used in Google Earth, an `Elevation API <https://developers.google.com/maps/documentation/elevation/>`_
+is offered by Google that lets you query the height value of the terrain for every
+location on earth. The idea is to use this service to calculate an
+individual offset for each city object so that the city object
+perfectly sits on the Google Earth terrain. For this purpose,
+the terrain height is queried for all points of the city object that
+have the lowest z coordinate value. The offset is then chosen so
+that the city object is moved to the lowest terrain height returned
+for these points. The Elevation API is however only queried, if you
+enable the *Query the Google Elevation API when no data is available*
+option (default: false).
+
+Using the Elevation API service requires internet access and might be time
+consuming if you export a large number of city objects or even
+if you export a smaller scene multiple times. For this reason,
+the export operation automatically stores the determined offset
+as generic attribute *GE_LoDn_zOffset* for every city object in the
+database. Before querying the Elevation API, it will first be checked
+whether this attribute exists. If so, the value of the attribute
+will be directly used as height offset without querying the
+Elevation API again for this city object.
+
+Since city objects may have different geometries with different height values
+in different LoDs, the height offset must be stored for each LoD
+separately. For this purpose, the ``n`` in *GE_LoDn_zOffset* is meant
+as placeholder for the LoD the offset should be applied to. Thus,
+the attribute names stored in the database are actually *GE_LoD1_zOffset*,
+*GE_LoD2_zOffset*, etc.
+
+Storing the height offset as generic attribute with the city object
+also ensures that this information is available when exporting the
+city object in CityGML/CityJSON format and therefore can be consumed by
+other applications or even be transported across 3DCityDB instances.
+Moreover, you can manually adjust the offsets at any time in the database
+or even delete the attribute so that it will be calculated anew
+with the next visualization export.
+
+.. note::
+   Although the *GE_LoDn_zOffset* attribute is mainly intended to be used
+   with Google Earth as viewer and to be automatically populated using the Google Elevation API,
+   it is not restricted to this use case. In contrast, you can also use
+   different data and algorithms to calculate a height offset that is specific
+   to each city object and store your results in *GE_LoDn_zOffset*. The
+   export operation will consider and apply these height offsets just the
+   same if you enable the *Use generic attribute GE_LoDn_zOffset* option.
+   Thus, the way how the *GE_LoDn_zOffset* attribute is populated is irrelevant.
+
+.. caution::
+   Starting from July 2018, the Elevation API cannot be used for free
+   anymore but requires an API key to be able to query the service. Thus, the option
+   *Query the Google Elevation API when no data is available* should only be
    enabled when a valid Elevation API key is available. Users can provide
    their own Elevation API key in the general preferences as described in
    :numref:`impexp_preferences_general_apiKeys_chapter`.
-   For more details on the Google Maps Platform Terms of
-   Service, please refer to https://cloud.google.com/maps-platform/terms/.
+   Please refer to https://cloud.google.com/maps-platform/terms/ for more details
+   on the Google Maps Platform Terms of Service.
 
-Since city objects may have different geometries for different LoDs, the
-anchoring points and their elevation values may also differ for each
-LoD. This explains the need for having *GE_LoD1_zOffset*,
-*GE_LoD2_zOffset,* etc. generic attributes for one single object.
-
-The algorithm used to calculate the individual zOffset for an object
-iterates over the points with the lowest z-coordinate in the object,
-calling Google's elevation API in order to get their elevation. The
-point with the lowest elevation value will be chosen for anchoring the
-object to the ground. The zOffset value results from subtracting the
-point's z-coordinate from the point's elevation value.
-
-When calling Google's elevation API for calculating the zOffset of an
-object a message is shown: "Getting zOffset from Google's elevation
-service for BLDG_0003000e008c4dc4".
-
-Saving the building's height offset in the form of a generic attribute
-ensures this information will be present in every export in CityGML
-format (and therefore at every re-import) and can thus be transported
-across databases. Please note, that not the DTM height value of Google
-Earth will be stored but the difference of the individual building’s
-minimum z value and the value reported by the Google Elevation Service.
-Following this approach further usage restrictions of the Google
-Elevation Service are avoided.
-
-In some unusual cases, even after automatic calculation of the
-*GE_LoDn_zOffset* value the object may still not be perfectly grounded
-to the Earth surface for a number of reasons; e.g. wrong height data of
-the model, or low resolution of the DTM at that area. In those cases a
-manual adjustment of the value in the 3DCityDB is needed. After the
-content of *GE_LoDn_zOffset* has been fine-tuned to a proper value it
-should be persistently stored in the database.
-
-.. figure:: /media/impexp_kml_export_altitude_points_zOffset_fig.jpeg
-   :name: pic_kml_collada_gltf_preferences_terrain_example_relative
-   :align: center
-
-   Points sent to Google's Elevation API for calculation of the zOffset
-
-.. figure:: /media/impexp_kml_export_example_absolute_noOffset_fig.png
-   :name: pic_kml_collada_gltf_preferences_terrain_example_absolute_without_grounding
-   :align: center
-
-   Export with *absolute* altitude mode and *no offset*
-
-.. figure:: /media/impexp_kml_export_example_absolute_grounding_fig.jpeg
-   :name: pic_kml_collada_gltf_preferences_terrain_example_absolute_with_grounding
-   :align: center
-
-   Export with *absolute* altitude mode and use of *GE_LoDn_zOffset*
+.. caution::
+   Be careful if you have already calculated the *GE_LoDn_zOffset* attribute and
+   want to export and re-import your city objects into another 3DCityDB instance.
+   If this target 3DCityDB is running on a different spatial database system or a
+   different version of the same system, applying the height offset from *GE_LoDn_zOffset* might
+   give you different results. The reason is that z coordinates might or might not
+   be changed in coordinate transformation by the different spatial database systems
+   (see discussion above). Results will be consistent in case the target
+   database system is identical our if you always make sure to keep
+   the original height values in the export process.

@@ -72,6 +72,7 @@ software in GUI or CLI mode is provided in :numref:`impexp_chapter`.
 The installation directory contains the following subfolders:
 
 ..  table:: Contents of the installation directory
+    :name: first_step_impexp_installation_directory_contents
     :widths: 25 10 65
     :class: longtable
 

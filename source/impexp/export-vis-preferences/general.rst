@@ -3,183 +3,54 @@
 General
 ^^^^^^^
 
-Some common features of the exported files, especially those related to
-tiling options, can be set under the preferences tab, node
-*KML/COLLADA/glTF Export*, subnode *General*.
+The *General* preferences dialog offers both common and output format-specific
+settings affecting the visualization export.
 
 .. figure:: /media/impexp_kml_export_preferences_general_fig.png
    :name: pic_kml_collada_gltf_preferences_general
    :align: center
 
-   General settings for the KML/COLLADA/glTF export
+   Visualization export preferences – General settings.
 
-Create glTF model
-"""""""""""""""""
+**General options**
 
-In addition to COLLADA models, the Importer/Exporter can also create
-glTF models for efficient loading and rendering of 3D contents on
-WebGL-enabled web browsers. If the “\ *Create glTF model”* option is
-activated, the Importer/Exporter requires an open source tool called
-`COLLADA2glTF <https://github.com/KhronosGroup/COLLADA2GLTF/wiki>`_
-to convert the exported COLLADA models to glTF models.
-The COLLADA2glTF tool is available for Windows, Linux, and Mac OS X and
-has been installed together with the Importer/Exporter and located in
-the subfolder *contribs/collada2gltf* of the installation directory. Per
-default, the relative path (depending on the operating system in use) of
-the COLLADA2glTF tool is proposed in the *Path of the COLLADA2glTF tool*
-text field whose value will be used by the Importer/Exporter to run the
-target executable file. Thus, if you want to use another version of the
-COLLADA2glTF tool, its absolute path has to be manually specified using,
-for example, the *Browse* button to open a file selection dialog.
-Starting with the Importer/Exporter version 4.0.0 however, version 2.1.0
-or later of the COLLADA2glTF tool is required in order to enable support
-for both glTF version 1.0 and 2.0. The pre-installed COLLADA2glTF
-binaries come already in version 2.1.3. It is also possible to just
-export glTF models without COLLADA models by activating the *Do not
-create COLLADA (.dae) files* checkbox.
-
-When exporting a textured city object in glTF, its texture images can
-either be encoded in the Base64 format and embedded into the glTF file,
-or saved as separate image files in the same directory as the glTF file
-having references to them. This can be controlled by the setting *Embed
-textures in glTF (.gltf) files*. In fact, both options have their pros
-and cons: the glTF file without embedded texture images allows client
-applications to realize an incremental loading effect which may give a
-better user experience, since the geometry contents and texture images
-can be loaded and rendered consecutively. However, this will result in a
-large amount of AJAX requests which might possibly impair the overall
-visualization performance especially when a large number of city objects
-are loaded simultaneously. This issue can be avoided by choosing the way
-of embedding the texture images into the glTF file. However, loading of
-the geometries and textures of a city object must be performed within
-one AJAX request that may slightly slow down the speed of the
-visualization of individual city object.
+By default, the export process creates one KML file per display form and
+tile in the ``Tiles`` output folder (see :numref:`impexp_kml_export_chapter`).
+When tiling is disabled, a single KML file is created for each display
+form instead. The file will either contain KML representations of the
+exported top-level features in case of KML-specific display forms,
+or references to COLLADA models in case of the *COLLADA/glTF*
+display form (also see :numref:`export_vis_display_forms`). The COLLADA models will be stored in subfolders relative
+to the KML file. When choosing the option *Write to
+compressed KMZ archive* [1], all files per tile and display form are
+packaged into a single KMZ archive instead. This reduces both
+the overall size of the exported data and the number of output files and,
+thus, helps to minimize loading times when sending the
+visualization data over a network.
 
 .. note::
-   The exported glTF file can be further converted to the so-called
-   *binary glTF* file which is a binary container for glTF models and
-   allows for faster loading and processing 3D objects. However, this
-   conversion process is currently not yet supported by the
-   KML/COLLADA/glTF Exporter and therefore needs to be carried out later
-   using third party tools which can be found on the
-   https://github.com/KhronosGroup/glTF website.
-
-Export in kmz format
-""""""""""""""""""""
-
-Determines in which format single files and tiled exports should be
-written: kmz when selected, kml when not. Whatever format is chosen, the
-main file (so called master file, pointing to all others) will always be
-a kml file, all other files will comply with this setting.
-
-Tests have shown shorter loading times (in Google Earth) for the kml
-format (as opposed to kmz) when loading from the local hard disk. The
-Earth Browser's stability also seems to improve when using the
-uncompressed format. On the other hand, when loading files from a server
-kmz reduces the amount of requests considerably, thus increasing
-performance. Kmz is also recommended for a better overview since kml
-exports may lead to a large number of directories and files.
-
-The *Export in kmz format* and *Create glTF model* options are mutually
-exclusive. A warning message will be displayed when the user trys to
-choose the both.
-
-Show bounding box borders
-"""""""""""""""""""""""""
-
-When exporting a region of interest via the bounding box option in the
-KML/COLLADA/glTF Export tab, this checkbox specifies whether the borders
-of the whole bounding box will be shown or not. The frame of the
-bounding box is four times thicker than the borders of any single tile
-in a tiled export.
-
-Show tile borders
-"""""""""""""""""
-
-Specifies whether the borders of the single tiles in a tiled export will
-be shown or not.
-
-Tile side length for automatic tiling
-"""""""""""""""""""""""""""""""""""""
-
-Applies only to automatically tiled exports and sets the approximate
-square size of the tiles. Since the Bounding Box settings in the
-*KML/COLLADA/glTF Export* tab are the determining factor for the area to
-be exported and have priority over this setting, the resulting tiles may
-not be perfectly square or have exactly the side length fed into this
-field.
-
-Each CityObject in an own region
-""""""""""""""""""""""""""""""""
-
-The visibility of the objects exported can be further fine-tuned by this
-option. While the visibility settings on the main *KML/COLLADA/glTF
-Export* tab apply to the whole area (*no tiling*) or to each tile
-(*automatic*, *manual*) being exported, this checkbox allows to
-individually define a KML <Region> for every single city object. The
-limits of the object’s region are those of the object’s CityGML
-Envelope.
+  The main KML output file specified on the *VIS Export* tab
+  linking all files in the ``Tiles`` output folder (see :numref:`impexp_kml_export_chapter`)
+  is always exported as uncompressed KML file independent of this setting.
 
 .. note::
-   This setting only takes effect when if the export KML/KMZ files
-   are opened with Google Earth (Pro). The Cesium-based 3D web client will
-   silently ignore this setting.
+  The KMZ archive format is only defined for COLLADA models and does not
+  support glTF models. For this reason, the options *Write to compressed KMZ archive*
+  and the *Export in glTF format* [2] are mutually exclusive.
 
-Following the KML Specification [Wils2008]_, each KML ``<Region>`` is
-defined inside a KML ``<NetworkLink>`` and has an associated KML ``<Link>``
-pointing to a file. This implies when this option is chosen a subfolder
-is created for each object exported, identified by the object’s gmlId.
-The object’s subfolder will contain any KML/COLLADA/glTF files needed
-for the visualization of the object in the Earth browser. This folder
-structure (which can contain a large number of subfolders) is required
-for the KML ``<Region>`` visibility mechanism to work.
+With the *Show bounding box* and *Show tile borders* options [1], a user can specify
+whether the bounding box of a) the entire export area and/or
+b) each individual tile should be displayed in the viewer. If enabled,
+a separate KML geometry for each bounding box will be contained in
+the output files.
 
-When active, the parameters affecting the visibility of the object’s KML
-``<Region>`` can be set through the following related fields.
-
-The field *visible from* determines from which size on screen the
-object’s KML ``<Region>`` becomes visible, regardless of the visibility
-value of the containing tile, if any. Since this value is the same for
-every single object and they have all different envelope sizes a good
-average value should be chosen.
-
-The field *view refresh mode* specifies how the KML ``<Link>`` corresponding
-to the KML ``<Region>`` is refreshed when the geographic view changes. May
-be one of the following:
-
--  **never** - ignore changes in the geographic view.
-
--  **onRequest** - refresh the content of the KML ``<Region>`` only when the user explicitly requests it.
-
--  **onStop -** refresh the content of the KML ``<Region>`` *n* seconds after movement stops, where *n* is specified in the field *view refresh time*.
-
--  **onRegion** - refresh the content of the KML ``<Region>`` when it becomes active.
-
-As stated above, the field *view refresh time* specifies how many
-seconds after movement stops the content of the KML ``<Region>`` must be
-refreshed. This field is only active and its value is only applied when
-*view refresh mode* is onStop.
-
-Write JSON file
-"""""""""""""""
-
-After exporting some cityobjects in KML/COLLADA/glTF you may need to
-include them into websites or somehow embed them into HTML. When working
-with tiled exports referring to a specific object inside the
-KML/COLLADA/glTF files can become a hard task if the contents are loaded
-dynamically into the page. It is impossible to tell beforehand which
-tile contains which object. This problem can be solved by using a JSON
-file that is automatically generated when this checkbox is selected.
-
-In the resulting JSON file each exported object is listed, identified by
-its gmlId acting as a key and some additional information is provided:
-the envelope coordinates in CRS WGS84 and the tile, identified by row
-and column, the object belongs to. For untiled exports the tile’s row
-and column values are constantly 0.
-
-This JSON file has the same name as the so-called master file and is
-located in the same folder. Its contents can be used for indexed search
-of any object in the whole KML/COLLADA/glTF export.
+The *Record metadata about exported features in JSON file* option [1] lets you create
+an additional JSON metadata file in the export directory. This file contains the
+*identifier*, the *envelope* (as 2D bounding box in WGS 84) and the *tile*
+(as row and column index) of every top-level feature
+in the visualization export. The JSON file will have the same base name as
+the main output file specified on the *VIS Export* tab (see :numref:`impexp_kml_export_chapter`).
+The following snippet exemplifies the contents of the JSON file.
 
 .. code-block:: json
 
@@ -194,23 +65,234 @@ of any object in the whole KML/COLLADA/glTF export.
       }
    }
 
-The JSON file can automatically be turned into JSONP (JSON with padding)
-by means of adding a function call around the JSON contents. JSONP
-provides a method to request data from a server in a different domain,
-something typically forbidden by web browsers since it is considered a
-cross-site-scripting attack (XSS). Thanks to this minimal addition, the
-JSON file contents can be more easily embedded into webpages or
-interpreted by web kits without breaking any rules. The function call
-name to be added to the original JSON contents is arbitrary and must
-only be entered in the callback method name field.
+This metadata is helpful, for instance, in case a viewer or application
+dynamically loads and unloads tiles and therefore has always just access to
+the features on tiles that are loaded. The metadata file can be
+used as index over all exported features in order to quickly find and access
+features even if their corresponding tile is not loaded.
 
 .. note::
-   Another solution for overcoming the restriction on making
-   cross-domain requests is to make use of the *Cross-Origin Resource
-   Sharing* (CORS) mechanism by enabling the web server to include
-   additional HTTP headers in the response that allows web browsers to
-   access the requested data. When working with the
-   3DCityDB-Web-Map-Client, it is required that the web server storing the
-   KML/COLLADA/glTF datasets must be CORS-enabled. In this case, there is
-   no need anymore to use this JSONP solution and the option *of type
-   JSONP* should be deactivated.
+   Make sure to enable *Cross-Origin Resource Sharing* (CORS) headers
+   if you want to access the metadata file from a web client using a
+   cross-domain request. CORS headers are additional HTTP headers
+   in the response that allow the web client to access the requested data.
+   This must be enabled on the server that hosts the metadata file.
+
+**COLLADA/glTF options**
+
+The *COLLADA/glTF* options [2] only apply to visualization exports in
+COLLADA and glTF format, which are triggered by choosing the *COLLADA/glTF*
+display form on the *VIS Export* tab.
+
+A viewer typically checks for each polygon of a 3D object whether it is "visible" based
+on its face orientation. If not visible, the polygon is skipped from
+the rendering process (so-called *backface culling*) to reduce
+the number of polygons that have to be drawn and,
+thus, to increase the visualization performance. If your data contains
+polygons with a wrong orientation, they will therefore not be shown in the viewer.
+To disable backface culling and force the viewer to render all polygons, enable
+the *Force surfaces to be double sided* option (default: disabled). Be aware that this might
+decrease the visualization performance though.
+
+The option *Generate surface normals* calculates the surface normal
+for each polygon and stores it in the visualization model (default: enabled). Surface normals
+play a central role in shading and for the amount of light the polygon reflects in
+a 3D visualization. The following :numref:`pic_kml_collada_gltf_preferences_rendering_comparison` shows
+a building model visualized with (left) and without surface normals (right).
+When exporting textured models, surface normals often do not increase
+the visual quality. The option may be disabled in this case to reduce
+the output file size.
+
+.. figure:: /media/impexp_kml_export_surface_normal_comparison_fig.png
+   :name: pic_kml_collada_gltf_preferences_rendering_comparison
+   :align: center
+
+   Different shadings of the same 3D object with (left) and without surface normals (right).
+
+When working with textured models, texture images are sometimes larger
+than required for texturing the polygon. Loading massive texture data
+into a viewer may impact the visualization performance, so you should
+especially avoid loading unnecessary texture data. For this purpose,
+the *Crop texture images* option lets you cut the texture images for each polygon
+to the minimum required size during export.
+
+Another option to optimize the visualization performance for textured models
+is to *generate texture atlases* (default: enabled). Instead of exporting one
+texture image file per surface to be textured, a texture atlas groups multiple
+texture images into a single file. This reduces the number of texture image
+files that have to be sent over the network and loaded by the viewer. The export operation
+will always create one or more texture atlases per top-level feature, but the same atlas
+is never shared between different top-level features. The texture atlases can
+be enforced to be power-of-two sized (default: enabled), which might
+be required for a viewer to efficiently manage the texture images.
+
+In general, creating a texture atlas for a set of texture images
+is a combinatorial problem, also known as 'knapsack problem’ (see [CGJT1980]_).
+Different algorithms have been proposed in literature that differ in speed
+and packing efficiency. The export operation offers three different
+algorithms that can be selected in the preferences dialog:
+
+**BASIC**
+  This algorithm recursively divides the texture atlas into empty and
+  filled regions (see http://www.blackpawn.com/texts/lightmaps/default.html). The first
+  item is placed in the top left corner. The remaining empty region is
+  split into two rectangles along the sides of the item. The next item
+  is inserted into one of the free rectangles and the remaining empty
+  space is split again. Doing this in a recursive way builds a binary
+  tree representing the texture atlas. When adding an item, there is no
+  information of the sizes of the items that are going to be packed
+  after this one. This keeps the algorithm simple and fast. The items
+  may be rotated when being inserted into the texture atlas.
+
+**TPIM**
+  The touching perimeter algorithm (TPIM, see [LoMV1999]_ and [LoMM2002]_)
+  sorts images according to non-increasing area and orients
+  them horizontally. One item is packed at a time. The first item
+  packed is always placed in the bottom-left corner. Each following
+  item is packed with its lower edge touching either the bottom of the
+  atlas or the top edge of another item, and with its left edge
+  touching either the left edge of the atlas or the right edge of
+  another item. The choice of the packing position is done by
+  evaluating a score, defined as the percentage of the item perimeter
+  which touches the atlas borders and other items already packed. For
+  each new item, the score is evaluated twice, for the two item
+  orientations, and the highest value is selected.
+
+**TPIM w/o image rotation**
+  Same as TPIM but the rotation of images is not allowed when packing.
+  The score is, thus, evaluated only once since only one orientation is possible.
+  This variant is faster but less efficient compared to TPIM.
+
+From these algorithms, *BASIC* is the fastest (shortest generation time)
+and produces good results, whereas *TPIM* is the most efficient (highest
+ratio of used area of the total atlas size) but also the slowest.
+
+.. caution::
+
+  If you already imported texture atlases into the 3DCityDB, they can, of course, be
+  used "as is" for the visualization export. Simply
+  deactivate both the *Crop texture images* and the *Generate texture atlases* in this case. However,
+  if the original texture atlases were created such that they are
+  shared by more than one top-level feature, they will be exported
+  redundantly for each top-level features and a viewer has to load the same texture atlas
+  multiple times. To avoid this, it is **recommended to both crop** the
+  original texture atlases **and let the exporter generate new
+  texture atlases** from the cropped images.
+
+To *scale texture images* is another means of reducing file size and
+increasing loading time. A scale factor between 0.2 and 0.5 often still
+offers a fairly good image quality while improving the visualization
+performance. The default value is 1.0, which means no scaling. This setting is
+independent from the generation of texture atlases and both can be combined.
+
+Instead of exporting each top-level feature as individual COLLADA and/or glTF model,
+you can also choose to group multiple features into one
+model. Similar to texture atlases, this can help to reduce the number of individual
+models and files to be sent over the network and, thus,
+to improve loading times and visualization performance in the viewer.
+
+.. note::
+  Only the first feature in a group is placed on the terrain
+  model. All other features will receive local coordinates relative to this
+  first feature. This might result in a wrong position on the earth
+  surface if the features in a group are far away from each other.
+
+**Export in glTF format**
+
+In addition to COLLADA models, the Importer/Exporter can also export
+3D contents from the database in glTF format. Technically, the top-level
+features are exported as COLLADA first and then converted to glTF
+using the open source `COLLADA2glTF <https://github.com/KhronosGroup/COLLADA2GLTF/>`_
+converter tool. There is a growing support for glTF models in
+various applications and especially in WebGL-enabled web engines and viewers.
+
+Simply enable the *Export in glTF format* option to let the export operation
+create glTF models. This also makes additional glTF-specific settings
+available in the preferences dialog [3].
+
+The mandatory COLLADA2glTF converter is available for Windows, Linux, and Mac OS X and
+is automatically installed with the Importer/Exporter. It can be found in
+the folder ``contribs/collada2gltf`` within the installation directory
+(see also :numref:`first_step_impexp_installation_directory_contents`).
+By default, this pre-installed converter is used by the export operation. You can choose
+to use another version of the COLLADA2glTF converter, in which case
+you have to provide the path to the executable in the *Converter* text field.
+Note that at least version 2.1 of the converter is required to be able to
+export both in glTF version 1.0 and 2.0.
+
+By default, the glTF models are exported in addition to the COLLADA models.
+If the COLLADA models are not required in your subsequent processes though,
+they can be *deleted after conversion* by enabling the corresponding option
+to reduce the size of the overall export.
+
+When exporting textured models, the texture images can either be exported
+as separate files relative to the glTF model (default) or be *embedded
+in the glTF file*. In the latter case, the base 64 encoded texture data is
+written to the glTF file. Both options have their pros and cons:
+if not embedded, viewers can first load and render the geometry and
+apply the texture images afterwards. This might result in a better
+user experience since content becomes visible quickly. On the other
+hand, all texture images have to be requested and loaded individually
+over the network, which might impair the overall visualization performance.
+
+The exported glTF files can be further converted and compressed to
+*binary glTF* format. This can additionally help to increase loading
+and processing times.
+
+The export operation supports both glTF version 1.0 and 2.0. The current
+version 2.0 of the glTF format is supported by most applications and tools
+and, thus, is used for the export by default. It also offers the possibility
+to *compress the geometry data* using the `Google Draco compression technology <https://github.com/google/draco>`_,
+which significantly reduces the size of the output glTF files. For
+this reasons, the Draco compression is enabled by default but can be
+disabled by the user if required.
+
+**Put every feature in its an own KML region**
+
+With the *Put every feature in its an own KML region* option [4] enabled, an
+individual KML ``<Region>`` is created for each exported top-level feature.
+While the *visible from* settings on the *VIS Export* tab (see :numref:`impexp_kml_export_chapter`)
+only affect the visibility of each tile (or of the entire export area in case tiling
+is disabled), this options allows you to define additional and more fine-grained
+visibility settings that are applied to the KML ``<Region>`` element of each feature.
+The envelope of each top-level feature as stored in the database is used to
+define the spatial extent of this region.
+
+When enabled, the *Visible from* parameter lets you control the visibility of
+each feature. The meaning of this parameter is identical to those on the
+*VIS Export* tab: When the feature is projected onto the screen in the viewer,
+it must occupy an area of the screen that is greater than the number of pixels
+specified here (in square pixels) in order to become visible. Note that
+this value is applied to all features the same.
+
+The field *View refresh mode* specifies how the content of the KML ``<Region>``
+is refreshed when the camera view changes. The following values are defined in KML and
+can be chosen in the preferences dialog:
+
+.. list-table::  *Supported view refresh modes*
+   :align: center
+   :name: export_vis_view_refresh_modes
+   :widths: 20 70
+
+   * - | **Refresh mode**
+     - | **Description**
+   * - | **never**
+     - | Ignore changes in the view.
+   * - | **onRequest**
+     - | Refresh the content only when the user explicitly requests it.
+   * - | **onStop**
+     - | Refresh the content *n* seconds after movement stops, where *n* is specified in the field *View refresh time* parameter.
+   * - | **onRegion (default)**
+     - | Refresh the content when the ``<Region>`` becomes active.
+
+As stated above, the parameter *View refresh time* specifies the number of
+seconds to wait after movement stops before the content of the KML ``<Region>`` is
+refreshed. This field is only active when the *View refresh mode* is set
+to *onStop*.
+
+.. note::
+   The visibility settings per KML ``<Region>`` and top-level feature
+   require that a viewer fully supports this KML mechanism (like,
+   for example, Google Earth). The Cesium-based 3D web map client
+   shipped with the 3D City Database (see :numref:`webmap_chapter`)
+   does not support this mechanism and, thus, silently ignore these settings.

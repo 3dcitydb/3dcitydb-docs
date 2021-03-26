@@ -1,3 +1,5 @@
+.. _citydb_managing_appearance_chapter:
+
 Appearance schema
 ^^^^^^^^^^^^^^^^^
 

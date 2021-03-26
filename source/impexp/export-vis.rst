@@ -13,6 +13,7 @@ Visualization export
    export-vis-filters/bbox
    export-vis-filters/feature-type
    export-vis-preferences/index
+   dynamic-balloon-content/index
    export-vis-preferences/recommendations
 
 In addition to CityGML and CityJSON, 3D city model content stored in a 3D City Database
@@ -120,11 +121,11 @@ All representations have been derived from the LoD2 representation of the buildi
 
    The same building displayed as Footprint, Extruded, Geometry, COLLADA/glTF with textures (from top left to bottom right)
 
-If you want to create a visualization with textures,
-select the *COLLADA/glTF* display form and additionally pick an
+If you want to create a visualization with textures or colors stored
+as appearances in the 3DCityDB, select the *COLLADA/glTF* display form and additionally pick an
 *appearance theme* from the drop-down list in [2] (default: none).
-Click the *Query* button to populate
-this drop-down list with the themes available in the database. If you have
+Click the *Query* button to populate this drop-down list with
+the themes available in the database. If you have
 not established a database connection beforehand, the Importer/Exporter
 will automatically connect to the currently selected database entry on
 the *Database* tab to retrieve the list of appearance themes.

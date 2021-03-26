@@ -3,68 +3,70 @@
 Recommendations
 ===============
 
-General setting recommendations
--------------------------------
+This chapter provides general recommendations and best practices
+for using the visualization export operation of the Importer/Exporter
+and for loading exports with Google Earth and Cesium.
 
-Depending on the quality and complexity of the 3DCityDB data, export
-results may vary greatly in aesthetic and loading performance.
+General settings
+----------------
+
+Depending on the quality and complexity of 3D city model content stored in the 3DCityDB,
+export results may greatly very in visual quality and loading performance.
 Experimenting will be required in most cases for a fine-tuning of the
-export parameters. However, some rules apply for almost all cases:
+export parameters. However, some general rules apply for almost all cases:
 
--     kmz format use is recommended when the files will be accessed over a
-      network and the selected display form is *Footprint*, *Extruded*,
-      or *Geometry.* In case of glTF-export, only kml format is allowed.
+-     Using KMZ as output format is recommended when the files will be accessed over a
+      network and the selected display form is either *Footprint*, *Extruded*,
+      or *Geometry.* When exporting glTF models, writing KMZ files is not supported though.
 
 -     Visibility values for the different display forms should be increased
       in steps of around one third of the tile side length.
 
--     Visibility from 0 pixels (always visible) should be avoided,
+-     Setting *visible from* to 0 pixels (always visible) should be avoided,
       especially for large or complex exports, because otherwise the
-      Earth browser will immediately load all data at once since it all
-      must be visible.
+      viewer will immediately load all data as it must be visible at once.
 
--     Tile side length (whether tiling is *automatic* or *manual*) should
-      be chosen so that the resulting tile files are smaller than 10MB.
-      When single files are bigger than that Google Earth gets
-      unresponsive. For densely urbanized areas, where many placemarks
-      are crimped together a tile side length value between 50 and 100m
-      should be used.
+-     Be careful that tile files do not become too large, otherwise the
+      viewer may become unresponsive. You can influence the tile file size
+      by changing the side length of tiles (whether tiling is *automatic* or *manual*).
+      Tests with Google Earth showed that files should be smaller than 10MB.
+      To meet this limit for crowded areas with many city objects, a tile side length
+      between 50 and 100m seemed to be usable.
 
 -     When not exporting in the *COLLADA/glTF* display form, files will
-      seldom reach this 10MB size, but Earth browser will also become
+      seldomly reach this 10MB limit, but viewers might still become
       unresponsive if the file loaded contains a lot of polygons, so do
-      not use too large tiles for *footprint*, *extruded* or *geometry*
+      not use too large tiles for *Footprint*, *Extruded* and *Geometry*
       exports even if the resulting files are comparatively small.
 
 -     Do not choose too small tile sizes, many of them may become visible
       at the same time and render the tiling advantage useless.
 
 -     Using texture atlas generation when producing *COLLADA/glTF* display
-      form exports always results in faster model loading times.
+      form exports always results in faster loading times.
 
--     From all texture atlas generating algorithms, *BASIC* is the fastest
-      (shortest generation time), *TPIM* the most efficient (highest
-      used area/total atlas size ratio).
+-     From these algorithms, *BASIC* is the fastest (shortest generation time)
+      and produces good results, whereas *TPIM* is the most efficient (highest
+      ratio of used area of the total atlas size) but also the slowest.
 
 -     Texture images can often be scaled down to 0.2 - 0.5 without
       noticeable quality loss. This depends, of course, on the quality
       of the original textures.
 
--     Highlighting puts the same polygons twice in the resulting export
-      files, one for the buildings themselves, one for their
-      highlighting. This has a negative impact on the viewing
-      performance. The more complex the buildings are the worse the
-      impact. When highlighting is enabled for exports based on a
-      CityGML LoD3 or higher Google Earth may become quite slow.
+-     Using a highlight style puts the same polygons twice in the resulting export
+      files, one for the features themselves, one for their
+      highlight geometry. This has a negative impact on the viewing
+      performance. The more complex the city objects are, the worse the
+      impact. When highlighting is enabled for exports based on model in
+      LoD3 or higher, especially Google Earth may become quite slow.
 
--     If you want to use the 3DCityDB-Web-Map-Client to visualize the
-      exported datasets, options for creating highlighting geometries
-      should not be chosen, since the highlighting functionality is
-      already well-supported by the 3DCityDB-Web-Map-Client which
-      requires no extra highlighting geometries.
+-     If you want to use the 3DCityDB web map client to visualize the
+      exported datasets, a highlight style should not be used
+      since object highlighting is supported by the web map client
+      in another way without the need for extra highlight geometries.
 
--     The 3DCityDB-Web-Map-Client allows for on-the-fly activating and
-      deactivating shadow visualization of 3D objects exported in the glTF
+-     The 3DCityDB web map client allows for on-the-fly activating and
+      deactivating shadow visualization for 3D objects exported in the glTF
       format. However, this functionality is currently not available when
       viewing KML models exported in the *Footprint*, *Extruded*, and
       *Geometry* display forms.
@@ -73,30 +75,28 @@ export parameters. However, some rules apply for almost all cases:
       file is applied for all exported objects.
 
 -     When exporting in the *Footprint* or *Extruded* display forms, the
-      *altitude/terrain* settings will be silently ignored by the
-      KML/COLLADA/glTF-Exporter which will instead internally applies the
-      appropriate altitude models to the exported objects to ensure that
-      they will be properly placed on the ground in Earth browsers.
+      *altitude mode* settings will be silently ignored but an appropriate value
+      will be automatically chosen to ensure that the exported objects
+      will be properly placed on the terrain.
       However, when exporting in the *Geometry* or *COLLADA/glTF* display
-      forms, the *altitude/terrain* settings must be properly adapted
-      regarding the Earth browsers to be used.
+      forms, the *altitude mode* settings must be deliberately chosen
+      with regard to the viewer to be used.
 
 -     In most cases, the combination of the *relative* altitude mode with
-      the *Move each object to bottom height* *0* altitude offset allows
-      for a proper grounding and displaying of the objects in Earth
-      browsers. However, when using the Cesium-based
-      3DCityDB-Web-Map-Client, its default WGS84 ellipsoid terrain model
+      the *Move every object on the globe (zero elevation)* option for height offsets allows
+      for properly placing objects on the terrain. However, when using the Cesium-based
+      3DCityDB web map client, its default WGS84 ellipsoid terrain model
       must be activated.
 
--     When using the *absolute* z-coordinates and displaying the exported
-      datasets together with terrain layer in Google Earth, you need to
-      choose the following combination of settings, should you have a
-      valid Goole Elevation API key: *absolute* altitude mode, *generic
-      attribute “GE_LoDn_zOffset”,* and *call Google's elevation API
-      when no data is available*.
+-     When your city objects are stored with absolute height values in the
+      database and you intend to use Google Earth as viewer, you should
+      consider to use the following options (given that you own an API key
+      for the Google Elevation service): 1) *absolute* altitude mode,
+      2) use the *generic attribute GE_LoDn_zOffset* for height offset,
+      and 3) *query the Google Eleveation API".
 
-Loading exported models in Google Earth and Cesium Virtual Globe
-----------------------------------------------------------------
+Loading exports in Google Earth and Cesium
+------------------------------------------
 
 In order to make full use of the features and functionalities provided
 by Google Earth, it is highly recommended to use the enhanced version of
@@ -106,7 +106,7 @@ documentation, like highlighting, can also flawlessly work in the normal
 Google Earth with version 6.0.1 or higher.
 
 Displaying a file in Google Earth can be achieved by opening it through
-the menu ("*File*", "*Open*") or double-clicking on any kml or kmz file
+the menu ("*File*", "*Open*") or double-clicking on any KML or KMZ file
 if these extensions are associated with the program (default option at
 Google Earth's installation time).
 
@@ -128,7 +128,7 @@ Earth's sidebar, since they are probably buried into the ground (see
 :numref:`impexp_kml_export_terrain_preferences_chapter`).
 
 When exporting balloons into individual files (one for each object)
-written together into a *balloon* directory access to local files and
+written together into a *balloons* directory access to local files and
 personal data must be allowed ("*Tools*", "*Options*", "*General*").
 Google Earth will issue a security warning that must be accepted,
 otherwise the contents of the balloons (when in individual files and not
@@ -158,16 +158,16 @@ sent from the based-web frontend.
    :name: pic_kml_collada_gltf_export_google_earth_settings
    :align: center
 
-   Setting the Graphics Mode in Google Earth
+   Setting the Graphics Mode in Google Earth.
 
 .. figure:: /media/impexp_kml_export_googleearth_directx_fig.png
    :name: pic_kml_collada_gltf_export_directx
    :align: center
 
-   KML/COLLADA models rendered with DirectX, highlighting surface borders are noticeable everywhere
+   KML/COLLADA models rendered with DirectX, highlighting surface borders are noticeable everywhere.
 
 .. figure:: /media/impexp_kml_export_googleearth_opengl_fig.png
    :name: pic_kml_collada_gltf_export_opengl
    :align: center
 
-   The same scene rendered in OpenGL mode
+   The same scene rendered in OpenGL mode.
