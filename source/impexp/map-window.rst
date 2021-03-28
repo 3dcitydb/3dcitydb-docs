@@ -41,15 +41,15 @@ Please consult your network administrator.
 The map offers default mouse controls for panning and zooming. For
 convenience, a geocoding service is included in the map window [1].
 Simply type in an address or a geo location (given by geographic lat/lon
-coordinates separated by a comma) and click the *Go* button. The map
+coordinates separated by a comma) and click the search button |map_search|. The map
 will automatically zoom to the first match. Further matches are
-available from the drop-down list [1]. The geocoding service uses the
+available from a drop-down list [1]. The geocoding service uses the
 free *OSM Nominatim* service by default. You can pick the *Goolge
 Geocoding API* as alternative service from the drop-down list in [5].
 Note that the *Goolge Geocoding API* is not free but requires an API key
 that must be entered in the global preferences of the Importer/Exporter
 (cf. :numref:`impexp_preferences_general_apiKeys_chapter`).
-Otherwise the service will respond with an error
+Otherwise, the service will respond with an error
 message. Independent of the service you choose, make sure that you
 adhere to its terms of use.
 
@@ -61,10 +61,10 @@ A list of usage hints is available at the right top of the map window
 [7]. Please click on the *Show usage hints* link to display this list.
 The map controls are also described in the following.
 
--  *Select bounding box*: Move the mouse while pressing the ALT key and
+-  *Select bounding box*: Move the mouse while pressing the ``ALT`` key and
    the left mouse button to select a bounding box. Once the left mouse button is
    released, the coordinates of the bounding box are automatically
-   filled in the Bounding Box dialog on left of the map [3]. If you have
+   filled in the *Bounding box* dialog on left of the map [3]. If you have
    opened the map window from a bounding box filter dialog, then
    clicking the *Apply* button on the upper right corner of the window
    [2] closes the map window and carries the bounding box values to the
@@ -74,14 +74,14 @@ The map controls are also described in the following.
    for the geo location at the mouse pointer. From the context menu,
    choose *Lookup address here*. This will trigger a reverse geocoding
    query using the geocoding service selected in [5]. The resulting
-   address will be displayed on the left of the window [4]. The |waypoint_precise|
+   address will be displayed on the left of the window [4]. The |waypoint|
    icon denotes which location on the map is associated with the
    address, whereas the |waypoint_reverse| icon shows where you clicked on the map
    (see :numref:`impexp_map_window_address_lookup_fig`).
 
 -  *Zoom in/out:* Use the mouse wheel or the context menu (right-click).
 
--  *Zoom into selected area:* Move the mouse while pressing the SHIFT
+-  *Zoom into selected area:* Move the mouse while pressing the ``SHIFT``
    key and the left mouse button to select an area. Once the left mouse button is
    released, the map zooms into the selected area. If the maximum zoom
    level is reached this action has no further effect.
@@ -97,7 +97,7 @@ The map controls are also described in the following.
    *Zoom out*, *Center map here* and *Lookup address here* (see above).
    The *Get map bounds* function is equivalent to selecting the visible
    map content as bounding box, and the map bounds are transferred to
-   the Bounding Box dialog on the left [3].
+   the *Bounding box* dialog on the left [3].
 
 To close the map, simply click the *Cancel* button in the upper right
 corner [2].
@@ -106,7 +106,7 @@ corner [2].
    :name: impexp_map_window_address_lookup_fig
    :align: center
 
-  Address lookup in the map window.
+   Address lookup in the map window.
 
 The coordinates in the map window and of the selected bounding box are
 always given in WGS 84 regardless of the coordinate reference system of
@@ -133,27 +133,23 @@ shortcut for copying the coordinate values to the clipboard and pasting
 them in the bounding box fields of the calling tab on the operations
 window. Furthermore, coordinate values can now be easily copied from one
 tab to another by simply clicking on the copy button |bbox_copy|
-in one of them, say Import tab, with filled *bounding box* values,
-changing to another, say KML/COLLADA/glTF Export tab and clicking on the
+in one of them, say *Import* tab, with filled *bounding box* values,
+changing to another, say *VIS Export* tab and clicking on the
 |bbox_paste| button there. Previously existing values in the bounding box fields of
-the KML/COLLADA/glTF Export tab (if any) will be overwritten.
+the *VIS Export* tab (if any) will be overwritten.
 
-.. |map_select| image:: ../media/map_select.png
-   :width: 0.16667in
-   :height: 0.16667in
+.. |map_search| image:: /media/map_search.svg
 
-.. |waypoint_precise| image:: ../media/waypoint_precise.png
-   :width: 0.18542in
-   :height: 0.18542in
+.. |map_select| image:: /media/map_select.svg
 
-.. |waypoint_reverse| image:: ../media/waypoint_reverse.png
-   :width: 0.21003in
-   :height: 0.19468in
+.. |waypoint| image:: ../media/waypoint.svg
+   :width: 24
+   :height: 24
 
-.. |bbox_copy| image:: ../media/bbox_copy.png
-   :width: 0.16667in
-   :height: 0.16667in
+.. |waypoint_reverse| image:: /media/waypoint_reverse.svg
+   :width: 24
+   :height: 24
 
-.. |bbox_paste| image:: ../media/bbox_paste.png
-   :width: 0.16667in
-   :height: 0.16667in
+.. |bbox_copy| image:: /media/bbox_copy.svg
+
+.. |bbox_paste| image:: /media/bbox_paste.svg
