@@ -25,7 +25,7 @@ such as Earth browsers like Google Earth, ArcGIS Explorer, and Cesium.
    :name: pic_kml_collada_gltf_export_main_gui
    :align: center
 
-   The VIS Export tab allowing for exporting visualization models from the 3DCityDB
+   The VIS Export tab allowing for exporting visualization models from the 3DCityDB.
 
 On the *VIS Export* tab, all parameters required for the export have to be
 entered in a similar fashion like for a CityGML/CityJSON export

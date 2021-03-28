@@ -26,7 +26,7 @@ please refer to :numref:`first_steps_system_requirements_chapter` .
    import
    export
    export-vis
-   preferences/index
+   preferences
    map-window
    cli
 

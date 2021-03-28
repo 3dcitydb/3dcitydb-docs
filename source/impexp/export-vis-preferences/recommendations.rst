@@ -7,8 +7,7 @@ This chapter provides general recommendations and best practices
 for using the visualization export operation of the Importer/Exporter
 and for loading exports with Google Earth and Cesium.
 
-General settings
-----------------
+**General settings**
 
 Depending on the quality and complexity of 3D city model content stored in the 3DCityDB,
 export results may greatly very in visual quality and loading performance.
@@ -95,8 +94,7 @@ export parameters. However, some general rules apply for almost all cases:
       2) use the *generic attribute GE_LoDn_zOffset* for height offset,
       and 3) *query the Google Eleveation API".
 
-Loading exports in Google Earth and Cesium
-------------------------------------------
+**Loading exports in Google Earth and Cesium**
 
 In order to make full use of the features and functionalities provided
 by Google Earth, it is highly recommended to use the enhanced version of
