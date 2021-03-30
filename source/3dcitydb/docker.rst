@@ -40,42 +40,68 @@ the Oracle image versions are based on *Oracle Linux*.
   +--------+-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
 
 
-.. _citydb_docker_usage:
+.. _citydb_docker_config:
 
 *******************************************************************************
 Usage and configuration
 *******************************************************************************
 
-A 3DCityDB is configured using environment variables passed to ``docker run``.
-Following variables are available:
+A 3DCityDB container is configured by settings environment variables inside
+the container. For instance, this can be done using the ``-e VARIABLE=VALUE``
+flag of `docker run <https://docs.docker.com/engine/reference/run/#env-
+environment-variables>`_. The 3DCityDB Docker images introduce the variables
+**SRID**, **HEIGHT_EPSG** and **GMLSRSNAME**. Their behavior is described here.
+Fruthermore, some variables inherited from the base images offer important
+configuration options, they are described below for the
+:ref:`PSQL <citydb_docker_config_psql>` and
+:ref:`Oracle <citydb_docker_config_oracle>` image variants.
+
+.. tip:: All variables besides **POSTGRES_PASSWORD** and **ORACLE_PASSWORD**
+  are optional.
+
+SRID
+  EPSG code for the 3DCityDB instance. If SRID is not set, the 3DCityDB
+  schema will not be setup in the default database and you will end up with
+  a plain PostgreSQL/PostGIS or Oracle container.
+
+HEIGHT_EPSG
+  EPSG code of the height system, omit or use 0 if unknown or SRID is already 3D.
+  This variable is used only for the automatic generation of **GMLSRSNAME**.
+
+GMLSRSNAME
+  If set, the automatically generated GMLSRSNAME from SRID
+  and HEIGHT_EPSG is overwritten. If not set, the variable will be created
+  automatically like this:
+
+  If only SRID is set:: ``GMLSRSNAME="urn:ogc:def:crs:EPSG::$SRID"``
+
+  If SRID and HEIGHT_EPSG are set:
+  ``GMLSRSNAME="urn:ogc:def:crs,crs:EPSG::$SRID,crs:EPSG::$HEIGHT_EPSG"``
+
+.. _citydb_docker_config_psql:
+
+PostgreSQL/PostGIS environment variables
+===============================================================================
 
 POSTGRES_DB
-  Optional: Sets name for the database. IF not set, the DB is named like
-  POSTGRES_USER (default=postgres).
+  Sets name for the default database. IF not set, the default database is named
+  like **POSTGRES_USER** (default=postgres).
 
 POSTGRES_USER
   Sets the database username (default=postgres).
 
 POSTGRES_PASSWORD
-  Mandatory: Sets the password for the database connection.
-
-SRID
-  Optional: EPSG code for the 3DCityDB instance. If SRID is not specified,
-  the 3DCityDB schema will not be setup in the default database.
-
-HEIGHT_EPSG
-  Optional:
-
-GMLSRSNAME
-  Optional: If set, overwrites the automatically generated GMLSRSNAME from SRID
-  and HEIGHT_EPSG.
-
-  If only SRID is set, ``GMLSRSNAME="urn:ogc:def:crs:EPSG::$SRID"``
-
-  If SRID and HEIGHT_EPSG are set, ``GMLSRSNAME="urn:ogc:def:crs,crs:EPSG::$SRID,crs:EPSG::$HEIGHT_EPSG"``
+  **Mandatory:** Sets the password for the database connection.
 
 POSTGIS_SFCGAL
   Optional: It set, PostGIS SFCGAL support is enabled
+
+.. _citydb_docker_config_oracle:
+
+Oracle environment variables
+===============================================================================
+
+
 
 .. code-block:: bash
    :caption: 3DCityDB Docker Linux quick start
