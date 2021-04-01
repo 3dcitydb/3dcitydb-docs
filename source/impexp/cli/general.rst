@@ -142,6 +142,6 @@ the above command in the background.
    Argument files are also a nice way to create templates for different
    purposes. For example, you can specify separate files for different
    logging options such as *"full logging"* (using the ``debug`` log level and an
-   additional log file) and *"minimum logging"* (only "``error`` log level without
+   additional log file) and *"minimum logging"* (only ``error`` log level without
    a log file). Depending on the use case and scenario, you can simply pick
    one or the other, even programmatically.
