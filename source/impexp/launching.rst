@@ -4,7 +4,7 @@ Launching the Importer/Exporter
 -------------------------------
 
 The 3D City Database Importer/Exporter offers both a graphical user
-interface (GUI) and a command line interface (CLI). The CLI allows for
+interface (GUI) and a command-line interface (CLI). The CLI allows for
 embedding the tool in batch processing workflows and third-party
 applications. The usage of the CLI is documented in :numref:`impexp_cli_chapter`.
 

@@ -24,7 +24,7 @@ flexibility for querying content from the 3DCityDB based on your
 filter criteria.
 
 The only mandatory requirement is that the SQL query must return a list
-of database ids of the selected city objects. Put differently, the result
+of database IDs of the selected city objects. Put differently, the result
 set returned by the query may only contain a single column with
 references to the ID column of the CITYOBJECT table. The name of the
 result column can be freely chosen, and the result set may contain

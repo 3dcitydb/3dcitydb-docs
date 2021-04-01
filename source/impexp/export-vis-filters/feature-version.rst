@@ -20,7 +20,7 @@ top-level features should be selected in an export operation.
 The default option *Latest version* will only select those top-level features
 that have not been marked as terminated in the database and, thus, whose
 TERMINATION_DATE is ``null``. When switching to *Valid version*, you can specify that only
-features that were valid at a given timestamp or within a given time range should
+features that were valid at a given timestamp or for a given time range should
 be considered. This is done by evaluating the CREATION_DATE and TERMINATION_DATE
 values in the database against the specified filter values. For example,
 you can use *Valid version* to create a visualization of a past status of your 3D city model

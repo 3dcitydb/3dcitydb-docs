@@ -34,7 +34,7 @@ CityGML version is set to 1.0 here.
 As described in :numref:`impexp_citygml_export_chapter`, the export operation
 supports using compressed output formats like GZIP and ZIP, which helps to keep file
 sizes small. You can choose whether *CityGML* (default) or *CityJSON* shall
-be used for data encoding [1] in this dialog.
+be used for the data encoding [1] in this case.
 
 **Bounding box options**
 

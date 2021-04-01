@@ -15,7 +15,7 @@ specific LoDs of the city objects.
 Simply enable the checkboxes of the LoDs that you want to export
 from the database. If you select more than one LoD, the *Filter mode*
 drop-down list lets you choose how the selected LoDs should be
-combined.
+evaluated.
 
 .. list-table::  Filter modes for combining LoDs
    :name: citygml_export_lod_filter_mode_table
