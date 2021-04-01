@@ -108,7 +108,7 @@ you want to execute.
 
 .. option:: COMMAND
 
-   The name of the ``COMMAND`` to execute. This option is mandatory.
+   The name of the ``COMMAND`` to execute.
 
 .. option:: -c, --config=<file>
 
