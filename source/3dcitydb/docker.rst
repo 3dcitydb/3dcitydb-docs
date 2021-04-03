@@ -4,16 +4,22 @@
 Docker
 ###############################################################################
 
-The 3DCityDB Docker images are available for *PostgresSQL/PostGIS* and *Oracle*.
+The 3DCityDB Docker images are available for *PostgreSQL/PostGIS* and *Oracle*.
 The PostgreSQL/PostGIS version is based on the official
-`PostgresSQL <https://github.com/docker-library/postgres>`_ and
+`PostgreSQL <https://github.com/docker-library/postgres>`_ and
 `PostGIS <https://github.com/postgis/docker-postgis>`_ Docker images.
 The Oracle version is based on the
 *Oracle Database Enterprise Edition* images available from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
+The images described here are available from 3DCityDB versions ``>= v4.1.0``.
+Older images, are available from
+`TUM-GIS 3DCityDB Docker images <https://github.com/tum-gis/
+3dcitydb-docker-postgis>`_.
 
 When designing the images we tried to stay as close as possible to the behavior of
 the base images and the :ref:`3DCityDB Shell scripts <3dcitydb_shell_scripts>`.
+Thus, all configuration options you may be used to from the base images are
+available for the 3DCityDB Docker images as well.
 
 .. _citydb_docker_image_variants:
 
@@ -22,9 +28,31 @@ Image variants and versions
 *******************************************************************************
 
 The images are available in various *variants* and *versions*. The
-PostgresSQL/PostGIS images are available based on *Debian* and *Alpine Linux*,
+PostgreSQL/PostGIS images are available based on *Debian* and *Alpine Linux*,
 the Oracle image versions are based on *Oracle Linux*.
 :numref:`citydb_docker_tbl_images` gives an overview on the available images.
+
+The PostgreSQL/PostGIS images are available from
+`3DCityDB Dockerhub <https://hub.docker.com/r/3dcitydb/3dcitydb-pg>`_ and
+can be pulled like this:
+
+.. code-block:: Shell
+
+  docker pull 3dcitydb/3dcitydb-pg:TAG
+
+The image tags are compose of the *base image version*, the
+*3DCityDB version* and the *image variant*. The base image version is inherited
+from the `PostGIS Docker images <https://hub.docker.com/r/postgis/postgis/tags>`_.
+Debian is the default image variant, where no image varaint is appended to the
+tag. For the Alpine Linux images ``-alpine`` is appended:
+
+.. code-block:: shell
+
+  # Pull 3DCityDB v4.1.0 Debian image
+  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0
+
+  # Pull 3DCityDB v4.1.0 Alpine image
+  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0-alpine
 
 .. table:: 3DCityDB Docker image variants and versions
   :name: citydb_docker_tbl_images
@@ -50,58 +78,96 @@ A 3DCityDB container is configured by settings environment variables inside
 the container. For instance, this can be done using the ``-e VARIABLE=VALUE``
 flag of `docker run <https://docs.docker.com/engine/reference/run/#env-
 environment-variables>`_. The 3DCityDB Docker images introduce the variables
-**SRID**, **HEIGHT_EPSG** and **GMLSRSNAME**. Their behavior is described here.
+:option:`SRID`, :option:`HEIGHT_EPSG` and :option:`GMLSRSNAME`. Their behavior
+is described here.
 Fruthermore, some variables inherited from the base images offer important
 configuration options, they are described below for the
-:ref:`PSQL <citydb_docker_config_psql>` and
+:ref:`PostgreSQL/PostGIS <citydb_docker_config_psql>` and
 :ref:`Oracle <citydb_docker_config_oracle>` image variants.
 
-.. tip:: All variables besides **POSTGRES_PASSWORD** and **ORACLE_PASSWORD**
-  are optional.
+.. tip:: All variables besides :option:`POSTGRES_PASSWORD` and
+  :option:`ORACLE_PASSWORD` are optional.
 
-SRID
-  EPSG code for the 3DCityDB instance. If SRID is not set, the 3DCityDB
-  schema will not be setup in the default database and you will end up with
-  a plain PostgreSQL/PostGIS or Oracle container.
+.. option:: SRID=<EPSG code>
 
-HEIGHT_EPSG
-  EPSG code of the height system, omit or use 0 if unknown or SRID is already 3D.
-  This variable is used only for the automatic generation of **GMLSRSNAME**.
+  EPSG code for the 3DCityDB instance. If :option:`SRID` is not set,
+  the 3DCityDB schema will not be setup in the default database and
+  you will end up with a plain PostgreSQL/PostGIS or Oracle container.
 
-GMLSRSNAME
-  If set, the automatically generated GMLSRSNAME from SRID
-  and HEIGHT_EPSG is overwritten. If not set, the variable will be created
-  automatically like this:
+.. option:: HEIGHT_EPSG=<EPSG code>
 
-  If only SRID is set:: ``GMLSRSNAME="urn:ogc:def:crs:EPSG::$SRID"``
+  EPSG code of the height system, omit or use 0 if unknown or
+  :option:`SRID` is already 3D. This variable is used only for the automatic
+  generation of :option:`GMLSRSNAME`.
 
-  If SRID and HEIGHT_EPSG are set:
-  ``GMLSRSNAME="urn:ogc:def:crs,crs:EPSG::$SRID,crs:EPSG::$HEIGHT_EPSG"``
+.. option:: GMLSRSNAME=<mySrsName>
+
+  If set, the automatically generated :option:`GMLSRSNAME` from :option:`SRID`
+  and :option:`HEIGHT_EPSG` is overwritten. If not set, the variable will
+  be created automatically like this:
+
+  If only :option:`SRID` is set: :option:`GMLSRSNAME` =
+  ``urn:ogc:def:crs:EPSG::SRID``
+
+  If :option:`SRID` and :option:`HEIGHT_EPSG` are set:
+  :option:`GMLSRSNAME` = ``urn:ogc:def:crs,crs:EPSG::SRID,crs:EPSG::HEIGHT_EPSG``
 
 .. _citydb_docker_config_psql:
 
 PostgreSQL/PostGIS environment variables
 ===============================================================================
 
-POSTGRES_DB
-  Sets name for the default database. IF not set, the default database is named
-  like **POSTGRES_USER** (default=postgres).
+The 3DCityDB PostgreSQL/PostGIS Docker images make use of the following
+environment variables inherited from the official
+`PostgreSQL <https://hub.docker.com/_/postgres>`_ and
+`PostGIS <https://hub.docker.com/r/postgis/postgis>`_ Docker images. Refer to
+the documentations of both images for much more configuration options.
 
-POSTGRES_USER
-  Sets the database username (default=postgres).
+.. option:: POSTGRES_DB=<database name>
 
-POSTGRES_PASSWORD
-  **Mandatory:** Sets the password for the database connection.
+  Sets name for the default database. If not set, the default database is named
+  like :option:`POSTGRES_USER`.
 
-POSTGIS_SFCGAL
-  Optional: It set, PostGIS SFCGAL support is enabled
+.. option::  POSTGRES_USER=<username>
+
+  Sets name for the database user, defaults to ``postgres``.
+
+.. option:: POSTGRES_PASSWORD=<password>
+
+  Sets the password for the database connection. This variable is **mandatory**.
+
+.. option:: POSTGIS_SFCGAL=<any value>
+
+  It set, `PostGIS SFCGAL <http://www.sfcgal.org/>`_ support is
+  enabled.
 
 .. _citydb_docker_config_oracle:
 
 Oracle environment variables
 ===============================================================================
 
+.. todo:: Describe environment variables below.
 
+.. option:: DBUSER=<username>
+
+  **Mandatroy:** Sets the name for the database user.
+
+
+.. option:: ORACLE_PWD=<password>
+
+  **Mandatroy:** Sets the password for the database connection.
+
+.. option:: ORACLE_PDB=<???>
+
+  **TODO**
+
+.. option:: DBVERSION=<???>
+
+  **TODO**
+
+.. option:: VERSIONING=<???>
+
+  **TODO**
 
 .. code-block:: bash
    :caption: 3DCityDB Docker Linux quick start
@@ -177,7 +243,7 @@ How to build images
 
 .. _citydb_docker_psql_build:
 
-PostgresSQL/PostGIS
+PostgreSQL/PostGIS
 ===============================================================================
 
 .. _citydb_docker_oracle_build:
