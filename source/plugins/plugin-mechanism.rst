@@ -1,5 +1,5 @@
-Introduction to the plugin architecture
----------------------------------------
+Introduction to the plugin mechanism
+------------------------------------
 
 Plugins are extensions that add additional functionality to the
 Importer/Exporter. They are self-contained in that one plugin cannot extend the
@@ -9,10 +9,12 @@ separately to the Importer/Exporter without interdependencies.
 A plugin may extend the GUI of the Importer/Exporter by providing its
 own user dialog that will be rendered in a separate tab on the
 operations window. In addition, a plugin may add new entries to the main
-menu bar and the preferences dialog. To remember the preference settings
+menu bar and the preferences dialog. To restore plugin-specific settings
 at program startup, a plugin can choose to serialize the settings to the
-main config file or a plugin-specific config file. Please refer to the
-plugin documentation of your vendor for more information.
+main config file or a plugin-specific config file. Besides GUI extensions,
+plugins can also provide functionality that is hooked into the main
+operations of the Importer/Exporter, for instance, to postprocess
+exported top-level features.
 
 Plugin installation is simple. Just get the plugin from your vendor and
 put all plugin files into the ``plugins`` subfolder of the Importer/Exporter
@@ -21,7 +23,7 @@ other, it is recommended to create a separate subfolder below ``plugins``
 for each plugin. When running the Importer/Exporter, the installed
 plugins are automatically detected and loaded with the application.
 
-The current version of the Importer/Exporter is shipped with two free
+The Importer/Exporter is shipped with two free
 and open-source plugins that can be installed during the setup process
 (see :numref:`first_steps_importer_exporter_installation`).
 The *Spreadsheet Generator* *Plugin* allows for

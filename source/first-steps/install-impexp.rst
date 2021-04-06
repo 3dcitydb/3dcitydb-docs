@@ -34,7 +34,7 @@ optional software packages that should be installed.
    :name: first_step_impexp_installation_wizard
    :align: center
 
-   Installation wizard of Import/Export tool.
+   Installation wizard of Importer/Exporter tool.
 
 It is recommended to at least pick the *3D City Database* package
 that contains all shell and SQL scripts required for setting

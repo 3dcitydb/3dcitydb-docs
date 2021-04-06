@@ -1,6 +1,6 @@
 .. _impexp_gui_chapter:
 
-Using the Graphical User Interface (GUI)
+Using the graphical user interface (GUI)
 ----------------------------------------
 
 The graphical user interface of the Importer/Exporter is organized into

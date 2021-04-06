@@ -1,68 +1,20 @@
-.. _impexp_plugin_spshg_chapter:
-
-Spreadsheet Generator Plugin (SPSHG)
-------------------------------------
-
-Definition
-~~~~~~~~~~
-
-By using the SPSHG (Spreadsheet Generator) plugin, it is possible to
-export data from a 3D City Database (3DCityDB) instance into a CSV or a
-Microsoft Excel file. Both types of files can be opened using a
-spreadsheet application (like Microsoft Excel or Open Office Calc) as
-well as uploaded to a web based online spreadsheet service (like Google
-Docs). All features of spreadsheet programs, like calculation and
-graphing tools, are applicable to the exported data from a 3D City
-Database instance.
-
-.. _spreadsheet_plugin_install:
-
-Plugin installation
+Export tabular data
 ~~~~~~~~~~~~~~~~~~~
 
-The SPSHG is an additional component which can be installed together
-with the 3DCityDB Importer/Exporter tool. During the Installation of the
-Import/Export tool, the wizard will ask you if you want to install
-Spreadsheet Generator Plugin like in the following figure:
+The Spreadsheet Generator plugin adds the *Table Export* tab to the
+operations window of the Importer/Exporter as shown below. This
+tab offers gdfgdfgdfg dfgdfg
 
-.. figure:: /media/impexp_plugin_spshg_installation_fig.PNG
-   :name: pic_plugin_spreadsheet_installation
+.. figure:: /media/plugin_spreadsheet_gui.png
+   :name: pic_plugin_spreadsheet_gui
    :align: center
 
-   Installation wizard of the Import/Export tool
+**Output file selection**
 
-If you haven't checked the “Spreadsheet Generator Plugin” box during the
-installation process, it is also possible to install the SPSHG later.
-Following simple steps will guide you through the install process:
 
--  Download the SPSHG plugin zip file from the `official website of the 3D City Database <https://www.3dcitydb.org>`_.
 
--  Open the folder that contains your locally installed instance of the
-   *Importer/Exporter version 3.3.0* (the installation directory).
 
--  Open the *plugins* subfolder. If it is not available, create a new
-   subfolder and name it “plugins”.
-
--  Extract the downloaded SPSHG plugin zip file in the *plugins* folder.
-   As a result a new folder named *spreadsheet_Generator* will be
-   created. The *spreadsheet_Generator* folder will contain all required
-   files and subfolders.
-
--  Run the *Importer/Exporter*. The SPSHG plugin tab should be visible
-   like in the following figure.
-
-.. figure:: /media/plugin_spreadsheet_main_gui.png
-   :name: pic_plugin_spreadsheet_main_gui
-   :align: center
-
-   The SPSHG plugin tab allowing for exporting from the 3DCityDB to a spreadsheet
-
-.. _gui:
-
-User Interface
-~~~~~~~~~~~~~~
-
-Main Parameters 
+Main Parameters
 ^^^^^^^^^^^^^^^^
 
 The SPSHG plugin GUI is divided into three main parts. The upper part,
@@ -78,9 +30,10 @@ lower part. All input data fields of the SPSHG plugin tab will be now
 described in more detail.
 
 
+
 .. _gui-columns:
 
-Columns 
+Columns
 ^^^^^^^^
 
 First of all, the columns of your resulting spreadsheet should be
@@ -320,7 +273,7 @@ Sample template file:
 
 .. _gui-content-source:
 
-Content Source 
+Content Source
 ^^^^^^^^^^^^^^^
 
 In this GUI section, the feature class of city objects and their origin
@@ -354,8 +307,8 @@ PostgreSQL/PostGIS database instance is connected.
    :name: pic_plugin_spreadsheet_content_source
    :align: center
 
-   Click on the *edit* button (marked by 1) to add or remove a 
-   CityGML feature class from the list of features classes 
+   Click on the *edit* button (marked by 1) to add or remove a
+   CityGML feature class from the list of features classes
    (marked by 2)
 
 Bounding Box
@@ -367,11 +320,8 @@ and upper right coordinates of the bounding box or click on the map
 button to select the area from a map. Please refer to :numref:`impexp-db-calc-bbox`
 for more details on the different options for specifying a bounding box.
 
-
-.. _spreadsheet_output:
-
 Output
-~~~~~~
+^^^^^^
 
 It is possible to export the data in a CSV or XLSX file on the local
 computer, or directly into an online spreadsheet hosted in a cloud
@@ -409,105 +359,3 @@ a list.
    functionality “\ *Directly into the Cloud*\ ” has been removed from the
    SPSHG plugin, and you need to to manually upload the generated CSV/XLSX
    files to the cloud.
-
-**Example: Uploading XLSX file to Google Fusion Table**
-
-Here is a step-by-step guide for uploading a XLSX file to the Google
-Fusion Tables which a cloud-based web application that allows for
-storing, showing, and sharing large data tables.
-
-Open a web browser (you can use, for example, Google Chrome or Mozilla
-Firefox\ **, but we recommend not to use Microsoft Internet Explorer**)
-and type the following address into the address bar.
-
-https://www.google.com/fusiontables/data?dsrcid=implicit
-
-When you go to this page, you will be asked to log in by using your
-Google account.
-
-Enter your Email address and the password of your Google account into
-the corresponding input fields
-
-After logging in, an **Import new table** dialog window will be
-displayed like in the screenshot below:
-
-.. figure:: /media/impexp_plugin_spshg_fusiontable_choose_file.png
-   :name: pic_plugin_spreadsheet_csv_choose_file
-   :align: center
-
-Click the **Choose File** button to open a file selection window
-
-Navigate to the system path of your created Excel file and select it.
-The following screenshot show an example Excel file.
-
-.. figure:: /media/impexp_plugin_spshg_csv_table.png
-   :name: pic_plugin_spreadsheet_csv_table
-   :align: center
-
-After selecting the Excel file, click the **Next** button to continue
-
-The contents of the selected table is displayed in the dialog window
-(see the screenshot below)
-
-.. figure:: /media/impexp_plugin_spshg_csv_select.png
-   :name: pic_plugin_spreadsheet_csv_select
-   :align: center
-
-Briefly check the table contents again and then click the **Next**
-button
-
-In the following dialog window (see the screenshot below), enter a table
-name (for example “\ *Berlin_Buildings_Attributes*\ ”) into the input
-field **Table name** and click the **Finish** button
-
-.. figure:: /media/impexp_plugin_spshg_csv_select_fields.png
-   :name: pic_plugin_spreadsheet_csv_select_fields
-   :align: center
-
-Now, your Excel file has been successfully uploaded to the Google Cloud
-Service and a Google Fusion Table instance has been created (see the
-screenshot below).
-
-.. figure:: /media/impexp_plugin_spshg_csv_output.png
-   :name: pic_plugin_spreadsheet_csv_output
-   :align: center
-
-We would like to share our created online spreadsheet with other people.
-Here we need to change the sharing settings of the Google Fusion Table
-by completing the following steps:
-
-Choose the **File Share…** from the menu bar at the top of the online
-spreadsheet window
-
-.. figure:: /media/impexp_plugin_spshg_csv_share.png
-   :name: pic_plugin_spreadsheet_csv_share
-   :align: center
-
-In the **Sharing settings** window, click on **Change…** button (see the
-screenshot below)
-
-.. figure:: /media/impexp_plugin_spshg_csv_share_link.png
-   :name: pic_plugin_spreadsheet_csv_share_link
-   :align: center
-
-In the **Link sharing** window (see the figure below), choose the second
-radio button **On – Anyone with the link**
-
-.. figure:: /media/impexp_plugin_spshg_csv_share_options.png
-   :name: pic_plugin_spreadsheet_csv_share_options
-   :align: center
-
-Click the **Save** button to save the settings and close the share
-settings window
-
-Now, the spreadsheet is being shared and can be accessed by anybody who
-has its URL that can be easily obtained from the address bar of the web
-browser (marked in the screenshot below). With this URL and the first
-column (GMLID) in the table, the attribute information stored in the
-spreadsheet are able to be queried and displayed on the
-3DCityDB-Web-Map-Client when a city object is clicked on
-(see :numref:`webmap_chapter` for more details).
-
-.. figure:: /media/impexp_plugin_spshg_csv_share_results.png
-   :name: pic_plugin_spreadsheet_csv_share_results
-   :align: center
