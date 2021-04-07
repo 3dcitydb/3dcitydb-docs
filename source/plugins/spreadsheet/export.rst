@@ -82,7 +82,7 @@ You can add a new column to the output file by pushing the *Add* button
 next to the table in :numref:`impexp_plugin_spshg_new_template_fig`. This will
 open the following dialog window.
 
-.. figure:: /media/impexp_plugin_spshg_new_column_fig.png
+.. figure:: /media/impexp_plugin_spshg_new_column_fig.PNG
    :name: impexp_plugin_spshg_new_column_fig
    :align: center
 
