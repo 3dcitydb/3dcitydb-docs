@@ -1,8 +1,7 @@
 Development history
 ===================
 
-Version 1 (2003 - 2007)
------------------------
+**Version 1 (2003 - 2007)**
 
 The development of the 3D City Database was always closely related to
 the development of the CityGML standard [KoGr2003]_. It was
@@ -28,8 +27,7 @@ hand. This first development phase was carried out by University of
 Bonn in collaboration with the company *lat/lon GmbH*. Oracle Spatial
 was the only supported SDBMS in 3DCityDB versions 0.2 up to 1.3.
 
-Version 2 (2006 - 2014)
------------------------
+**Version 2 (2006 - 2014)**
 
 Within the framework *Europäische Fonds für regionale Entwicklung*
 (EFRE II) the project *Geodatenmanagement in der Berliner Verwaltung
@@ -72,8 +70,7 @@ the companies Virtual City Systems and M.O.S.S. signed an official
 collaboration agreement on the joint further development of the 3DCityDB and
 its tools.
 
-Version 3 (2013 - 2018)
------------------------
+**Version 3 (2013 - 2018)**
 
 The work on the new major release version 3.0.0 bringing support for CityGML 2.0
 began in 2013 when Dr. Nagel finished his PhD and joined the company VCS. In version
@@ -84,9 +81,7 @@ first price in the 'Best Students Contribution' of the 'Web3D city
 modeling competition' under the annual ACM SIGGRAPH Web3D Conference for
 the 3DCityDB-Web-Map-Client.
 
-
-Version 4 (since 2015)
------------------------
+**Version 4 (since 2015)**
 
 The work on version 4 – especially the support of CityGML ADEs –
 began in 2015 in the course of the PhD work of Zhihang Yao. One part of
@@ -102,8 +97,7 @@ support was added by Bruno Willenborg in 2018. Starting from 2017 all
 partners worked on updating diverse functionalities, scripts,
 documentation, and on testing.
 
-Version 5 (under development)
------------------------------
+**Version 5 (under development)**
 
 The next major version 5 of the 3DCityDB is intended to bring support
 for CityGML 3.0. CityGML 3.0 itself is a major update of the CityGML
