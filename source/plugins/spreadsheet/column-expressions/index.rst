@@ -48,7 +48,7 @@ following rules.
 
 **Examples**
 
-.. code-block::
+.. code-block:: bash
 
    ADDRESS/STREET
 
@@ -68,14 +68,14 @@ If you want to avoid comma-separated lists as return value, you
 can additionally use an aggregation function for the column values
 as shown below.
 
-.. code-block::
+.. code-block:: bash
 
    ADDRESS/[FIRST]STREET
 
 This expression will only return the first STREET value for the
 city object independent of how many addresses the city object has.
 
-.. code-block::
+.. code-block:: bash
 
    ADDRESS/[FIRST]STREET ADDRESS/[FIRST]HOUSE_NUMBER, [EOL] ADDRESS/[FIRST]ZIP_CODE ADDRESS/[FIRST]CITY
 
@@ -88,14 +88,14 @@ given city object might look as follow:
    *Unter den Linden 135,* |br|
    *10623 Berlin*
 
-.. code-block::
+.. code-block:: bash
 
    CITYOBJECT_GENERICATTRIB/ATTRNAME
 
 Return the names of all generic attributes assigned to a city object.
 The names will be returned as comma-separated list.
 
-.. code-block::
+.. code-block:: bash
 
    CITYOBJECT_GENERICATTRIB/REALVAL[ATTRNAME = 'SOLAR_SUM_INVEST'] EUR
 

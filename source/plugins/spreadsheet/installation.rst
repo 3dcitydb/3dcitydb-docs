@@ -6,7 +6,7 @@ When using the GUI-based setup wizard for installation (see :numref:`impexp_gui_
 you can simply select the plugin from the list of available software
 packages as shown below.
 
-.. figure:: /media/impexp_plugin_spshg_installation_fig.png
+.. figure:: /media/impexp_plugin_spshg_installation_fig.PNG
    :name: pic_plugin_spreadsheet_installation
    :align: center
 
