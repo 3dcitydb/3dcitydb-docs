@@ -47,12 +47,12 @@ license-free sample data that may be used in your first tests.
 The *Plugins* option installs plugins for the
 Importer/Exporter, which add further functionality to the tool. This
 release is shipped with the
-:doc:`Spreadsheet Generator Plugin <../plugins/spreadsheet>`
+:ref:`Spreadsheet Generator Plugin <impexp_plugin_spshg_chapter>`
 and the
-:doc:`ADE Manager Plugin <../plugins/ade-manager>`.
+:ref:`ADE Manager Plugin <impexp_plugin_ade_manager_chapter>`.
 More plugins may be added in future releases.
 
-The :doc:`3D Web Map Client <../webmap/index>` is a web-based
+The :ref:`3D Web Map Client <webmap_chapter>` is a web-based
 viewer for 3DCityDB content and provides high-performance 3D visualization
 and interactive exploration of arbitrarily large semantic 3D city models
 on top of the open source `Cesium Virtual Globe <https://cesiumjs.org/>`_.

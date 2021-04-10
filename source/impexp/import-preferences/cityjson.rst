@@ -23,7 +23,7 @@ CityGML ADEs in extra tables that seamlessly integrate with
 the 3DCityDB core schema (see :numref:`citydb_managing_ades_chapter`).
 The mechanisms can also be used for CityJSON Extensions but then
 also requires a Java extension package for the Importer/Exporter
-(see :numref:`extend-impexp`).
+(see :numref:`ade_manager_plugin_impexp_extension_chapter`).
 
 In contrast to CityGML datasets, the Importer/Exporter can parse
 CityJSON Extensions in a more generic way and map new city object
