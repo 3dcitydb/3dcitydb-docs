@@ -14,4 +14,4 @@ using data formats other than CityGML, CityJSON or KML/COLLADA/glTF.
 
    plugin-mechanism
    spreadsheet/index
-   ade-manager
+   ade-manager/index

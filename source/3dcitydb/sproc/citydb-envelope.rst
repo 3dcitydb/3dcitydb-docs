@@ -1,3 +1,5 @@
+.. _citydb_sproc_envelope_chapter:
+
 CITYDB_ENVELOPE
 ---------------
 

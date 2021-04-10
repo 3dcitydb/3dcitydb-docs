@@ -173,7 +173,7 @@ check these settings *before* starting the export process. A full
 documentation of the export preferences is provided in :numref:`impexp_citygml_export_preferences_chapter`.
 The following table provides a summary overview.
 
-.. list-table::  Summery overview of the export preferences
+.. list-table:: Summery overview of the export preferences
    :name: citygml_export_preferences_summary_table
    :widths: 30 70
 

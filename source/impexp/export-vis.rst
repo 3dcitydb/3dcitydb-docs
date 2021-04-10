@@ -81,7 +81,7 @@ display form is generated based on the geometry of the city object in the
 specified LoD and also determines the output format of the corresponding
 visualization models. The following display forms are available:
 
-.. list-table::  *Supported display forms and output formats*
+.. list-table:: *Supported display forms and output formats*
    :align: center
    :name: export_vis_display_forms
    :widths: 20 60 20
