@@ -61,7 +61,7 @@ After successful installation, the contents of all selected installation
 packages are available from the installation directory. To run the
 Importer/Exporter, simply use the starter script located in the installation
 directory. More information on how to run the
-software in GUI or CLI mode is provided in :numref:`impexp_chapter`.
+software in GUI or CLI mode is provided in :numref:`impexp_launching_chapter`.
 
 .. note::
    Before the Importer/Exporter can be used to connect to a PostgreSQL or
