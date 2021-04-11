@@ -81,3 +81,11 @@ can set any other JVM option as well.
 
 Instead of ``JAVA_OPTS`` you can also use ``IMPEXP_OPTS`` as environment variable.
 Both are supported by the Importer/Exporter and evaluated in the launch process.
+
+**Adapting the CLI start script**
+
+The start script ``3DCityDB-Importer-Exporter.[bat|sh]`` is only a wrapper and invokes
+the CLI script ``impexp.[bat|sh]`` of the Importer/Exporter, which
+is located in the ``bin`` folder of the installation directory. To get more fine-grained
+control over the launch process, you can also edit this CLI start script directly.
+Good knowledge in shell scripting is required when doing so.
