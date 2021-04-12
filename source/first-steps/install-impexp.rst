@@ -5,7 +5,7 @@ Installation of the Importer/Exporter
 
 Download the installer ``3DCityDB-Importer-Exporter-{version}-Setup.jar``
 from the GitHub `release section <https://github.com/3dcitydb/importer-exporter/releases>`_
-or from the 3DCityDB website at http://www.3dcitydb.org and save it to your
+or from the 3DCityDB website at https://www.3dcitydb.org and save it to your
 local file system. The installer is shipped as executable Java Archive (JAR)
 file. A setup wizard will guide you through the steps of the installation
 process. The wizard can be run with a graphical user interface (GUI) and as

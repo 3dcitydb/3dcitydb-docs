@@ -13,7 +13,7 @@ following URL (cf. :numref:`wfs_service_url_chapter` for details):
 The screenshot below shows the user interface of the client rendered in
 a standard web browser.
 
-.. figure:: ../media/wfs_web_client_fig.png
+.. figure:: /media/wfs_web_client_fig.png
    :name: wfs_web_client_fig
    :align: center
 

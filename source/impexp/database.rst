@@ -34,7 +34,7 @@ For Oracle databases, you can additionally choose to connect to a specific
 *workspace* in case the database is version-enabled. **All operations**
 of the Importer/Exporter will be executed against this workspace. Please provide the
 name of the workspace and an optional *timestamp*. If no workspace is
-specified, the default *LIVE* workspace is chosen per default. Again,
+specified, the default *LIVE* workspace is chosen by default. Again,
 use the *Query* button to get a list of available workspaces in the database.
 
 .. hint::

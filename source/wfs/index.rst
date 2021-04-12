@@ -24,7 +24,7 @@ The 3D City Database WFS interface is implemented against the latest
 09-025r2) and hence is compliant with ISO 19142:2010. Previous versions
 of the WFS standard are not supported though. The implementation
 currently satisfies the *Simple WFS* conformance class. The development
-of the WFS is led by the company `virtualcitySYSTEMS GmbH <https://www.virtualcitysystems.de>`_
+of the WFS is led by the company `Virtual City Systems <https://vc.systems>`_
 that offers an extended version of the WFS with additional
 functionalities that go beyond the *Simple WFS* class (e.g., thematic
 and spatial filter capabilities and transaction support). This
@@ -36,6 +36,6 @@ future releases.
 
    system-requirements
    installation
-   configuration
-   functionality
+   configuration/index
+   functionality/index
    wfs-web-client

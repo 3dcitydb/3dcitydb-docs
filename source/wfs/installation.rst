@@ -4,9 +4,9 @@ Installation
 ------------
 
 The 3D City Database WFS is shipped as a Java WAR (web archive) file.
-Please download the WFS distribution package from
-http://www.3dcitydb.org/ or from the GitHub
-`release section <https://github.com/3dcitydb/web-feature-service/releases>`_.
+Please download the WFS distribution package from the GitHub
+`release section <https://github.com/3dcitydb/web-feature-service/releases>`_
+or from the 3DCityDB website at https://www.3dcitydb.org.
 Besides the WAR file, the distribution package also contains Java libraries
 that render mandatory dependencies for the WFS service and that must be
 installed as shared libraries in your servlet container.
@@ -28,18 +28,20 @@ Please follow the following installation steps:
 | The WFS service requires mandatory JAR libraries to be available in
   the servlet container. This mainly comprises JDBC libraries for
   connecting to the database system running the 3D City Database instance.
-  The libraries are shipped with the distribution package. The list of
-  libraries will look like this:
+  The libraries are shipped with the distribution package and can be found
+  in the ``lib`` folder. The list of libraries will look like this:
 
     -  ``ojdbc8-19.3.0.0.jar`` (Oracle JDBC driver)
 
-    -  ``postgresql-42.2.10.jar`` (PostgreSQL JDBC driver)
+    -  ``postgresql-42.2.14.jar`` (PostgreSQL JDBC driver)
 
-    -  ``postgis-jdbc-2.3.0.jar`` (PostGIS JDBC extension)
+    -  ``postgis-jdbc-2.5.0.jar`` (PostGIS JDBC extension)
+
+    -  ``postgis-geometry-2.5.0.jar`` (PostGIS geometry extension)
 
 The libraries must be installed as *shared libs* or *common libs*
 (terminology may differ) in your servlet container. For Apache Tomcat 7
-(or higher), this simply means placing the JAR files into the lib folder
+(or higher), this simply means placing the JAR files into the ``lib`` folder
 of the Tomcat installation directory. Afterwards, you need to restart
 Tomcat. Please refer to the documentation of your servlet container for
 more information.
@@ -56,7 +58,7 @@ more information.
 | If your servlet container is correctly set up and configured, simply
   deploy the WAR file to install the WFS web service. Again, the way to
   deploy a WAR file varies for different servlet containers. For Apache
-  Tomcat servers, copy the WAR file into the webapps folder, which, per
+  Tomcat servers, copy the WAR file into the ``webapps`` folder, which, by
   default, is in the installation directory of the Apache Tomcat server.
   This will automatically deploy the application. Alternatively, use the
   web-based Tomcat *manager application* to deploy WAR files on the
@@ -74,11 +76,11 @@ more information.
    path, simply rename the WAR file or change Tomcat’s default behavior.
 
 | **Step 5: Configure the WFS service**
-| The WFS must be configured to meet your needs. For instance, this
+| The WFS must be configured to meet your needs. For example, this
   includes providing connection details for the 3D City Database
   instance and the definition of the feature types that shall be served
   through the interface. These settings must be manually edited in the
-  configuration file ``config.xml`` of the service. Please check the next chapter
+  configuration file ``config.xml`` of the service. Please check :numref:`wfs_configuration_chapter`
   for how to configure the WFS.
 
 .. note::
