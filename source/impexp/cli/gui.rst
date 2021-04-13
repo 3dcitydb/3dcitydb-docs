@@ -15,7 +15,7 @@ GUI command
 
 The only purpose of the ``gui`` command is to launch the graphical user
 interface of the Importer/Exporter. In contrast to the start script
-``3DCityDB-Importer-Exporter.[bat|sh]`` provided in the installation
+``3DCityDB-Importer-Exporter`` provided in the installation
 directory, you can use the global and command-specific options
 in the launch process, for instance, to load a specific config file.
 

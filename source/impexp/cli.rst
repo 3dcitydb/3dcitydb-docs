@@ -29,7 +29,7 @@ is located in the ``bin`` folder within the installation directory of your Impor
 Depending on your platform, it comes in two flavors:
 
 - ``impexp.bat`` (Microsoft Windows family)
-- ``impexp.sh`` (UNIX/Linux/Mac OS family)
+- ``impexp`` (UNIX/Linux/Mac OS family)
 
 .. note::
    For convenience, it is recommended to add the ``impexp`` executable to your path.
@@ -95,7 +95,7 @@ variable ``JAVA_OPTS`` in the launch process of the CLI to provide
 options to the Java Virtual Maching (JVM) that runs the tool. For example,
 you can adapt the amount of main memory that shall be available for the Importer/Exporter.
 Please refer to :numref:`impexp_launching_chapter` for how to use the ``JAVA_OPTS`` variable.
-Export users may also directly adapt the ``impexp.[bat|sh]`` start script.
+Export users may also directly adapt the ``impexp`` start script.
 
 More general functionalities and usage information for the command-line tool are
 discussed in :numref:`impexp_cli_general`.
