@@ -23,8 +23,8 @@ a fews seconds, without having to setup a database server or the
   :align: center
   :name: citydb_img_docker_term
 
-  Running a 3DCityDB instance using Docker and makeing a connection to the
-  ready-to-use database in seconds.
+  Setup a 3DCityDB instance using Docker and establish a connection to the
+  ready-to-use 3DCityDB in seconds.
 
 Docker images are available for the following tools of the 3DCityDB software
 suite:
