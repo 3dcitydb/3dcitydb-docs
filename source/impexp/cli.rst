@@ -31,12 +31,27 @@ Depending on your platform, it comes in two flavors:
 - ``impexp.bat`` (Microsoft Windows family)
 - ``impexp`` (UNIX/Linux/Mac OS family)
 
+The CLI is launched with default options for the Java Virtual Machine (JVM) that
+runs the application. You can override these default options in the launch process by
+using the environment variable ``JAVA_OPTS``. More information is available in
+:numref:`impexp_launching_chapter`.
+
 .. note::
    For convenience, it is recommended to add the ``impexp`` executable to your path.
    Use one of the following commands to do so.
 
    Windows: ``set PATH=C:\path\to\3DCityDB-Importer-Exporter\bin;%PATH%`` |br|
    Linux: ``export PATH=/path/to/3DCityDB-Importer-Exporter/bin:$PATH``
+
+.. note::
+   Instead of using the predefined start script, you can also directly invoke the JAR file
+   ``impexp-client-<version>.jar`` in the ``lib`` folder of the installation
+   directory, which implements the command-line interface. This way, you have full
+   control over the Java runtime and options for executing the CLI. Use the
+   following command as starting point.
+
+   ``java [JVM_OPTIONS] -jar lib/impexp-client-<version>.jar [CLI_OPTIONS]``
+
 
 **Synopsis**
 
