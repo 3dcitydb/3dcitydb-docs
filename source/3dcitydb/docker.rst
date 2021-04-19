@@ -1,8 +1,13 @@
 .. _citydb_docker_chapter:
 
 ###############################################################################
-Docker
+3D City Database using Docker
 ###############################################################################
+
+.. image:: ../media/citydb_docker_logo.png
+  :width: 80 px
+  :align: right
+  :alt: 3D City Datbase on Docker
 
 The 3DCityDB Docker images are available for *PostgreSQL/PostGIS* and *Oracle*.
 The PostgreSQL/PostGIS version is based on the official
@@ -11,7 +16,7 @@ The PostgreSQL/PostGIS version is based on the official
 The Oracle version is based on the
 *Oracle Database Enterprise Edition* images available from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
-The images described here are available from 3DCityDB versions ``>= v4.1.0``.
+The images described here are available for 3DCityDB version ``v4.1.0`` and newer.
 Older images, are available from
 `TUM-GIS 3DCityDB Docker images <https://github.com/tum-gis/
 3dcitydb-docker-postgis>`_.
@@ -29,30 +34,9 @@ Image variants and versions
 
 The images are available in various *variants* and *versions*. The
 PostgreSQL/PostGIS images are available based on *Debian* and *Alpine Linux*,
-the Oracle image versions are based on *Oracle Linux*.
-:numref:`citydb_docker_tbl_images` gives an overview on the available images.
-
-The PostgreSQL/PostGIS images are available from
-`3DCityDB Dockerhub <https://hub.docker.com/r/3dcitydb/3dcitydb-pg>`_ and
-can be pulled like this:
-
-.. code-block:: Shell
-
-  docker pull 3dcitydb/3dcitydb-pg:TAG
-
-The image tags are compose of the *base image version*, the
-*3DCityDB version* and the *image variant*. The base image version is inherited
-from the `PostGIS Docker images <https://hub.docker.com/r/postgis/postgis/tags>`_.
-Debian is the default image variant, where no image varaint is appended to the
-tag. For the Alpine Linux images ``-alpine`` is appended:
-
-.. code-block:: shell
-
-  # Pull 3DCityDB v4.1.0 Debian image
-  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0
-
-  # Pull 3DCityDB v4.1.0 Alpine image
-  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0-alpine
+the Oracles image are based on *Oracle Linux*.
+:numref:`citydb_docker_tbl_images` gives an overview on the available image
+versions.
 
 .. table:: 3DCityDB Docker image variants and versions
   :name: citydb_docker_tbl_images
@@ -67,6 +51,86 @@ tag. For the Alpine Linux images ``-alpine`` is appended:
   | v4.1.0 | |psql-deb-build-v4.1.0| |psql-deb-size-v4.1.0|  | |psql-alp-build-v4.1.0| |psql-alp-size-v4.1.0|  | |ora-deb-build-v4.1.0| |ora-deb-size-v4.1.0|    |
   +--------+-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
 
+.. _citydb_docker_image_pg:
+
+PostgreSQL/PostGIS images
+===============================================================================
+
+The PostgreSQL/PostGIS images are available from
+`3DCityDB Dockerhub <https://hub.docker.com/r/3dcitydb/3dcitydb-pg>`_ and
+can be pulled like this:
+
+.. code-block:: Shell
+
+  docker pull 3dcitydb/3dcitydb-pg:TAG
+
+The image tags are compose of the *base image version*, the
+*3DCityDB version* and the *image variant*:
+
+.. code-block::
+
+  <base image version>-<3DCityDB version>-<image variant>
+
+The base image version is inherited
+from the `PostGIS Docker images <https://hub.docker.com/r/postgis/postgis/tags>`_.
+Debian is the default image variant, where no image varaint is appended to the
+tag. For the Alpine Linux images ``-alpine`` is appended. Currently,
+following base image versions are supported:
+
+.. list-table:: Overview on supported PostgreSQL/PostGIS versions
+  :widths: auto
+  :header-rows: 1
+  :stub-columns: 1
+  :align: center
+  :name: citydb_docker_tbl_pgversions
+
+  * - PostgreSQL/PostGIS version
+    - 2.5
+    - 3.0
+    - 3.1
+  * - 9.5
+    - 9.5-2.5
+    - 9.5-3.0
+    -
+  * - 9.6
+    - 9.6-2.5
+    - 9.6-3.0
+    - 9.6-3.1
+  * - 10
+    - 10-2.5
+    - 10-3.0
+    - 10-3.1
+  * - 11
+    - 11-2.5
+    - 11-3.0
+    - 11-3.1
+  * - 12
+    - 12-2.5
+    - 12-3.0
+    - 12-3.1
+  * - 13
+    -
+    - 13-3.0
+    - 13-3.1
+
+Here are some examples for full image tags:
+
+.. code-block:: shell
+
+  docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-v4.1.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0-alpine
+
+.. _citydb_docker_image_oracle:
+
+Oracle images
+===============================================================================
+
+Due to the current Oracle licensing conditions we cannot offer Oracle images
+in a public repository like `DockerHub <https://hub.docker.com/>`_. However,
+you can easily build the images yourself. A detailed description of how to
+do that is available in :numref:`citydb_docker_oracle_build`.
 
 .. _citydb_docker_config:
 
@@ -139,7 +203,8 @@ the documentations of both images for much more configuration options.
 .. option:: POSTGIS_SFCGAL=<any value>
 
   It set, `PostGIS SFCGAL <http://www.sfcgal.org/>`_ support is
-  enabled.
+  enabled. **Note:** SFCGAL is currently only available in the Debian image variant.
+  Setting the variable on Apline images will have no effect.
 
 .. _citydb_docker_config_oracle:
 
