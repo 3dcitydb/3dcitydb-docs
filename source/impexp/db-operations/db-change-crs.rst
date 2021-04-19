@@ -43,7 +43,7 @@ discard any changes made to the *SRID* and *gml:srsName* fields.
 
 .. note::
    If you just want to use different *gml:srsName* values for
-   different CityGML/CityJSON exports, then instead of changing the identifier in
+   different CityGML exports, then instead of changing the identifier in
    the database before every export it is simpler to create multiple
    user-defined reference systems for the same SRID (cf. :numref:`impexp_crs_management_chapter`) and
    pick one for each export (cf. :numref:`impexp_citygml_export_chapter`).

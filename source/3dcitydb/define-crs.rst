@@ -30,8 +30,7 @@ three-dimensional CRS**.
 
 .. note::
   The CRS definition identifier is used as value for the ``gml:srsName`` attribute
-  on GML geometry elements when exporting data in CityGML format and as value
-  for the ``"referenceSystem"`` metadata attribute when exporting to CityJSON. Software
+  on GML geometry elements when exporting data in CityGML format. Software
   consuming the exported data will rely on this information to be able to automatically
   apply the correct spatial reference. So please make sure that the CRS
   identifier is correct. The identifier is, however, neither required nor
