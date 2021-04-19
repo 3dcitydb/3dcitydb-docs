@@ -7,10 +7,10 @@ browser.
 
 .. code-block::
 
-    https://www.3dcitydb.org/3dcitydb-web-map/1.6.2/3dwebclient/index.html
+    https://www.3dcitydb.org/3dcitydb-web-map/1.9.0/3dwebclient/index.html
 
 .. note::
-   The number **1.6.2** in URL denotes the version number of the 3D
+   The number **1.9.0** in URL denotes the version number of the 3D
    web client. Once the 3D web client has been upgraded in the future, this
    version number will be adapted to conform to the current release of the
    3D web client. Web links pointing to the previous software versions will

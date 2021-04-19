@@ -38,9 +38,9 @@ pre-installed version from the 3DCityDB homepage under the URL
 
 .. code-block::
 
-    https://www.3dcitydb.org/3dcitydb-web-map/1.6/3dwebclient/index.html
+    https://www.3dcitydb.org/3dcitydb-web-map/1.9.0/3dwebclient/index.html
 
 This is a stable link and can be used for long-time working demo links.
 If new versions will be released in the future, the old versions remain
 functional on the server and the new versions will be installed in new
-subfolders (i.e. next to the folder ‘1.6’).
+subfolders (i.e. next to the folder ‘1.9.0’).
