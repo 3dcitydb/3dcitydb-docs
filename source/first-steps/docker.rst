@@ -17,7 +17,7 @@ For instance, Docker enables you to get a 3DCityDB instance up and running in
 a fews seconds, without having to setup a database server or the
 3DCityDB database schema, as shown in :numref:`citydb_img_docker_term`.
 
-.. figure:: ../media/citydb-docker-term.gif
+.. figure:: ../media/citydb_docker_term.gif
   :width: 100 %
   :alt: 3DCityDB Docker runtime
   :align: center
