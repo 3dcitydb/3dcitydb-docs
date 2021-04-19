@@ -265,7 +265,6 @@ while importing KML/glTF models with thematic data:
 +-----------------------------+----------------------------------------------------------------------------------+
 
 -  **More details on** ``cityobjectsJsonUrl``: 
-
    This JSON file contains a list of GMLIDs of all 3D objects which were exported
    and might be distributed over different tiles.
    For every 3D object, it is also stored in which tile it is contained
@@ -283,7 +282,6 @@ while importing KML/glTF models with thematic data:
    and the map view will be adjusted to the returned location and bounding box.
 
 -  **More details on** ``minLodPixels`` **and** ``maxLodPixels``:
-  
    The maximum visibility range can start at ``0`` and end at an infinite value
    expressed as ``-1``. Optionally, the user can directly specify the two parameter
    values within the 3D web client. Otherwise, the parameter values will be
@@ -318,7 +316,6 @@ while importing KML/glTF models with thematic data:
       according to the user-defined visibility range in screen pixel
 
 -  **More details on** ``maxCountOfVisibleTiles``:
-
    Loading massive amounts of data tiles often result in poor performance
    of the 3D web client or even memory overload of the web browser. This
    could happen when, for example, the visibility range (determined by the
@@ -335,7 +332,6 @@ while importing KML/glTF models with thematic data:
    tests.
 
 -  **More details on** ``maxSizeOfCachedTiles``:
-  
    As mentioned before, the 3D web client implements a caching mechanism
    allowing for high-speed reloading of those data tiles that have been
    loaded before and which are stored in the memory of the web browser. In
