@@ -38,15 +38,14 @@ top-level feature. The following figure shows an example.
 
    Example import log.
 
-The first four lines of the import log contain metadata about the
-*version of the Import/Exporter* that was used for the import, the
-*absolute path to the CityGML input file*, the database *connection
-string*, and the *timestamp of the import*. Each metadata line starts
-with the ``#`` character as comment marker.
+The first three lines of the import log contain metadata about the
+*version of the Import/Exporter* that was used for the import,
+the database *connection string*, and the *timestamp of the import*.
+Each metadata line starts with the ``#`` character as comment marker.
 
 The first line below the metadata block provides a header for the fields
-of each record. The field names are FEATURE_TYPE, CITYOBJECT_ID, and
-GMLID_IN_FILE. A single comma separates the fields. The records follow
+of each record. The field names are FEATURE_TYPE, CITYOBJECT_ID, GMLID_IN_FILE,
+and INPUT_FILE. A single comma separates the fields. The records follow
 the header line. The meaning of the fields is as follows.
 
 .. list-table::  Fields of the CSV import log file
@@ -60,7 +59,9 @@ the header line. The meaning of the fields is as follows.
    * - | CITYOBJECT_ID
      - | The value of the ID column (primary key) of the CITYOBJECT table where the feature was inserted.
    * - | GMLID_IN_FILE
-     - | The original gml:id value of the feature in the input file (might differ in database due to import settings).
+     - | The original object identifier of the feature in the input file (might differ in database due to import settings).
+   * - | INPUT_FILE
+     - | The path of the input file from which the feature was imported.
 
 The last line of each import log is a footer that contains metadata
 about whether the import was *successfully finished* or *aborted*.
@@ -72,5 +73,5 @@ about whether the import was *successfully finished* or *aborted*.
   Simply use the ``delete`` command of the Importer/Exporter command-line
   interface for this purpose. You can directly feed CSV files like the import log
   to this command to delete all features listed in the CSV file (see
-  :numref:`impexp_cli_chapter` for more information). This way, you can
+  :numref:`impexp_cli_delete_command` for more information). This way, you can
   ensure a consistent database state even if an import process fails.

@@ -317,13 +317,13 @@ will be deleted from the database.
 .. code-block:: bash
 
    $ impexp delete -H localhost -d citydb_v4 -u citydb_user -p my_password \
-                   -f imported-features.log -I 3
+                   -f imported-features.log -I 2 -C db
 
-Only delete those top-level city objects having an identifier that is contained
+Only delete those top-level city objects having a database ID that is contained
 in the provided delete list ``imported-features.log``.
 The command uses default values for parsing and interpreting
 the delete list except for the index of the column that holds the identifier values,
-which is set to 3.
+which is set to 2, and the type of the identifier, which is set to ``db``.
 
 The above example has been chosen deliberately because it illustrates how
 to use an import log file created by a CityGML/CityJSON import
@@ -335,48 +335,37 @@ The snippet below shows an example.
    :linenos:
 
    #3D City Database Importer/Exporter, version "4.3.0"
-   #Imported top-level features from file: C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
-   #Database connection string: citydb_user@localhost:5432/citydb_v4
-   #Timestamp: 2021-03-12 15:17:50
-   FEATURE_TYPE,CITYOBJECT_ID,GMLID_IN_FILE
-   Building,2,BLDG_00030000001065f4
-   Building,13,BLDG_0003000a000afacf
-   Building,17,BLDG_0003000a000afa94
-   Building,25,BLDG_0003000e009b5355
-   Building,33,BLDG_0003000b003d0d1b
-   Building,45,BLDG_0003000000107172
-   Building,51,BLDG_0003000a000afb14
-   Building,1,BLDG_0003000000106562
-   Building,9,BLDG_0003000a000afb3b
-   Building,21,BLDG_0003000000106543
-   Building,28,BLDG_0003000a0019a1c6
-   Building,36,BLDG_0003000b003d0d16
-   Building,41,BLDG_0003000f000f7460
-   Building,49,BLDG_0003000e0097f53f
-   Building,57,BLDG_0003000000106686
+   #Database connection: citydb_user@localhost:5432/devel
+   #Timestamp: 2021-04-19 21:30:40
+   FEATURE_TYPE,CITYOBJECT_ID,GMLID_IN_FILE,INPUT_FILE
+   Building,532,BLDG_0003000000106562,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,540,BLDG_00030000001065f4,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,552,BLDG_0003000000106543,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,556,BLDG_0003000a000afa94,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,563,BLDG_0003000a0019a1c6,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,533,BLDG_0003000000106686,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,542,BLDG_0003000a000afacf,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,548,BLDG_0003000a000afb3b,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,560,BLDG_0003000e009b5355,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
+   Building,568,BLDG_0003000b003d0d1b,C:\data\citygml\berlin\gasometer\tile_0_0\Gasometer.gml
    #Import successfully finished.
 
-The import log uses a comma ``,`` as delimiter. Lines 1-4 and line 21 are
+The import log uses a comma ``,`` as delimiter. Lines 1-3 and line 15 are
 comments starting with the comment marker ``#`` and should therefore be ignored.
-Line 5 is used as header to provide column names for the subsequent rows.
-The actual content is therefore provided in lines 6-20. Each row consists
-of three columns, and the third column ``GMLID_IN_FILE`` contains the object
-identifiers of the imported top-level features.
+Line 4 is used as header to provide column names for the subsequent rows.
+The actual content is therefore provided in lines 5-14. Each row consists
+of four columns, and the second column ``CITYOBJECT_ID`` contains the database
+ID of the imported top-level features.
 
 As you can see from the above example, the default CSV options of the
 ``delete`` command are already suited to correctly identify the comments, the header, and
 the separate columns of the import log file. As mentioned above, we only
-have to specify the correct column index of the identifier values on the command line.
+have to specify that we want to use database IDs as identifiers and provide
+the correct column index on the command line.
 
 .. note::
-   The second column ``CITYOBJECT_ID`` of the import log file holds the database IDs of the
-   imported city objects. To use the database IDs in the delete process, you have to use
-   ``-I 2`` to specify the second column and ``-C db`` to denote that the identifiers
-   stored in this column are database IDs. **This is even the preferred way for using an import log
-   as delete list** because database IDs are guaranteed to be unique.
-
-
-
-
-
-
+   The third column ``GMLID_IN_FILE`` of the import log file holds the object identifier of the
+   imported city objects. To use this object identifier in the delete process, you just have to use
+   ``-I 3`` to specify the third column and omit the additional ``-C db`` option.
+   **However, be careful when using the** ``GMLID_IN_FILE`` **values because the object identifiers
+   in the database might be different due to import preference settings.**
