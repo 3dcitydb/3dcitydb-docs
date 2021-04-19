@@ -8,9 +8,11 @@ Delete command
 .. code-block:: bash
 
    impexp delete [-hvV] [--ade-extensions=<folder>] [-c=<file>]
-                 [--log-file=<file>] [--log-level=<level>] [-m=<mode>]
-                 [--pid-file=<file>] [--plugins=<folder>] [[-g]] [[[-t=<
-                 [prefix:]name>[,<[prefix:]name>...]]...
+                 [--delete-log=<file>] [--log-file=<file>]
+                 [--log-level=<level>] [-m=<mode>] [--pid-file=<file>]
+                 [--plugins=<folder>] [[-g]] [[--lineage=<lineage>]
+                 [--updating-person=<name>] [--reason-for-update=<reason>]]
+                 [[[-t=<[prefix:]name>[,<[prefix:]name>...]]...
                  [--namespace=<prefix=name>[,<prefix=name>...]]...]
                  [-r=<version> [-R=<timestamp[,timestamp]>]] [-i=<id>[,
                  <id>...] [-i=<id>[,<id>...]]...] [--db-id=<id>[,<id>...]
@@ -41,6 +43,11 @@ the database (see :numref:`impexp_import_preferences_import_log`) can be used as
 delete list. This comes in very handy when you want to "rollback" an import process,
 for instance, because it aborted due to errors.
 
+The top-level city objects affected by the delete operation can optionally be recorded
+in a separate delete log. The delete log is a comma-separated value (CSV) file
+that contains the type name, the database ID and the object identifier of each city object
+as separate records.
+
 A corresponding delete operation is not offered by the graphical user interface.
 
 **General options**
@@ -67,6 +74,11 @@ A corresponding delete operation is not offered by the graphical user interface.
    that would be affected by the delete operation as summary overview
    to the console.
 
+.. option:: --delete-log=<file>
+
+   If you want a delete log to be created for all top-level features deleted from the database,
+   provide the path to the delete log file with this option.
+
 .. option:: -g, --cleanup-global-appearances
 
    Flag to indicate that global appearances should be cleaned up after
@@ -75,6 +87,24 @@ A corresponding delete operation is not offered by the graphical user interface.
    option is set, the delete operation will search the database for global appearances
    that do not reference any city object anymore. Only these appearances
    will be removed from the database.
+
+**Metadata options**
+
+The ``delete`` command allows for specifying metadata that is assigned to every city object
+when ``terminate`` is chosen as delete mode. The values are stored in columns of the table CITYOBJECT.
+
+.. option:: --lineage=<lineage>
+
+   Value to store as lineage of the city objects.
+
+.. option:: --updating-person=<name>
+
+   Name of the user responsible for the delete. By default, the name of the database
+   user is chosen.
+
+.. option:: --reason-for-update=<reason>
+
+   Reason for deleting the data.
 
 **Query and filter options**
 
