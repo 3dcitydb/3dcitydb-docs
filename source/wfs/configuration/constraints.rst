@@ -73,14 +73,31 @@ representation in at least one of the specified LoD levels, it will be
 skipped from the response document and thus not returned to the client.
 
 The default behavior of the LoD filter can be adapted using attributes
-on the ``<lodFilter>`` element. The *mode* attribute defines whether a city
-object must have a spatial representation in all (*and*) or just one
-(*or*) of the provided LoD levels. If setting *searchMode* to
-*depth*, then you can use the additional *searchDepth* attribute
-to specify how many levels of nested city objects shall be considered
-when searching for matching LoD representations. If *searchMode* is set
-to *all*, then all nested city objects will be considered
-(default: *searchMode = depth, searchDepth = 1*).
+on the ``<lodFilter>`` element. The *mode* attribute defines how the
+selected LoDs should be evaluated and can take one of the values shown
+described below.
+
+.. list-table::  Available filter modes
+   :name: wfs_lod_filter_mode_table
+   :widths: 20 70
+
+   * - | **Filter mode**
+     - | **Description**
+   * - | **or**
+     - | City objects having a spatial representation in *at least one* of the selected LoDs will be exported. Additional LoD representations of the city object that do not match the user selection are not exported.
+   * - | **and**
+     - | Only city objects having a spatial representation in *all* of the selected LoDs will be exported. Additional LoD representations of the city object that do not match the user selection are not exported.
+   * - | **minimum**
+     - | This is a special version of the *Or* mode that only exports the lowest LoD representation from the matching ones. The exported LoD may therefore differ for each city object.
+   * - | **maximum**
+     - | This is a special version of the *Or* mode that only exports the highest LoD representation from the matching ones. The exported LoD may therefore differ for each city object.
+
+
+The default *mode* value is *or*. When setting the *searchMode* attribute to *depth*, then you can use the
+additional *searchDepth* attribute to specify how many levels of
+nested city objects shall be considered when searching for matching
+LoD representations. If *searchMode* is set to *all*, then all nested
+city objects will be considered (default: *searchMode = depth, searchDepth = 1*).
 
 .. note::
    The more levels you enter for the *searchDepth* attribute, the more
