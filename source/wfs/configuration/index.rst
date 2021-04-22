@@ -6,12 +6,12 @@ Configuring the WFS
 .. toctree::
    :hidden:
 
-   database
    capabilities
    feature-types
    operations
    constraints
    post-processing
+   database
    server
    logging
 
@@ -35,9 +35,9 @@ context name ``citydb-wfs``. Then the location of the ``WEB-INF`` folder and the
 
 Open the ``config.xml`` file with a text or XML editor of your choice and
 manually edit the settings. In the ``config.xml`` file, the WFS settings are organized into the main XML
-elements ``<database>``, ``<capabilities>``, ``<featureTypes>``, ``<operations>``, ``<constraints>``,
-``<postProcessing>``, ``<server>``, and ``<logging>``. The discussion of the settings follows this
-organization in the subsequent clauses.
+elements ``<capabilities>``, ``<featureTypes>``, ``<operations>``, ``<constraints>``,
+``<postProcessing>``, ``<database>``, ``<server>``, and ``<logging>``. The discussion of the
+settings follows this organization in the subsequent clauses.
 
 .. list-table::  Configuration settings of the WFS service
    :name: wfs_configuration_settings_table
@@ -45,8 +45,6 @@ organization in the subsequent clauses.
 
    * - | **Settings**
      - | **Description**
-   * - | :ref:`wfs_database_settings_chapter`
-     - | Connection details to use for connecting to a 3D City Database instance.
    * - | :ref:`wfs_capabilities_settings_chapter`
      - | Define service metadata that shall be used in the capabilities document of the WFS service.
    * - | :ref:`wfs_feature_type_settings_chapter`
@@ -57,6 +55,8 @@ organization in the subsequent clauses.
      - | General constraints that influence the capabilities of the WFS service and of the advertised operations.
    * - | :ref:`wfs_postprocessing_settings_chapter`
      - | Allow for specifying XSLT transformations to be applied to the CityGML data before sending the response to the client.
+   * - | :ref:`wfs_database_settings_chapter`
+     - | Connection details to use for connecting to a 3D City Database instance.
    * - | :ref:`wfs_server_settings_chapter`
      - | Server-specific options and parameters.
    * - | :ref:`wfs_logging_settings_chapter`
