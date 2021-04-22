@@ -69,3 +69,20 @@ settings follows this organization in the subsequent clauses.
    the it **validates against this schema** before reloading
    the WFS web application. Otherwise, the application might refuse to
    load, or unexpected behavior may occur.
+
+**Environment variables**
+
+In addition to the ``config.xml`` file, the WFS supports the following environment
+variables to configure further settings. The variables must have been set prior to
+starting the service.
+
+.. list-table::  Environment variables supported by the WFS service
+   :name: wfs_supported_env_variables_table
+   :widths: 30 70
+
+   * - | **Environment variable**
+     - | **Description**
+   * - | ``VC_WFS_CONFIG_FILE``
+     - | With this variable, you can specify a configuration file that shall be used instead of the default ``config.xml`` file in the ``WB-INF`` directory when starting the WFS service. The variable must provide the full path to the configuration file. The WFS service must have read access to this file.
+   * - | ``VC_WFS_ADE_EXTENSIONS_PATH``
+     - | Allows for providing an alternative directory where the WFS service shall search for ADE extensions (default: ``ade-extensions`` folder in the ``WEB-INF`` directory). The WFS service must have read access to this directory.
