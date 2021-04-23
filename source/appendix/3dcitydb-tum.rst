@@ -16,8 +16,8 @@ ongoing research projects.
 Interactive Cloud-based 3D Webclient
 ------------------------------------
 
-Besides the Open Source 3DCityDB-Web-Map-Client as described in chapter
-8 the Chair of Geoinformatics has also developed a “Professional
+Besides the Open Source 3DCityDB-Web-Map-Client as described in
+:numref:`webmap_chapter` the Chair of Geoinformatics has also developed a “Professional
 Version” of the interactive 3D web client. This version links 3D
 visualization models exported in KML/glTF from 3DCityDB with table data
 exported using the 3DCityDB Spreadsheet Generator and allows viewing,

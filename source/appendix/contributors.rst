@@ -23,9 +23,9 @@ Active participants in development
        | andreas.donaubauer@tum.de
    * - | Claus Nagel
        | Zhihang Yao
-     - | virtualcitySYSTEMS GmbH, Berlin
-     - | cnagel@virtualcitysystems.de
-       | zyao@virtualcitysystems.de
+     - | Virtual City Systems, Berlin
+     - | cnagel@vc.systems
+       | zyao@vc.systems
    * - | Harald Schulz
        | Philipp Willkomm
        | György Hudra
