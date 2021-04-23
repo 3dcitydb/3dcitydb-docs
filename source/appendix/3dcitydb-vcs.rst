@@ -1,27 +1,37 @@
 .. _appendix_3dcitydb_vcs_chapter:
 
-3DCityDB @ virtualcitySYSTEMS
-=============================
+3DCityDB @ Virtual City Systems
+===============================
 
-`virtualcitySYSTEMS <http://www.virtualcitysystems.de/>`_
+`Virtual City Systems <https://vc.systems/>`_
 has successfully applied the 3D
 City Database in customer projects worldwide and also funded its
 development. With the Open Source database at the core,
-virtualcitySYSTEMS also offers a *3D Spatial Data Infrastructure*
+Virtual City Systems also offers a *3D Spatial Data Infrastructure*
 solution for the *management*, *distribution*, *maintenance* and
-*visualization* of massive 3D geo data (see next page). As leading
-developers of the 3D City Database joined the company,
-virtualcitySYSTEMS now takes an active role in its development.
-Moreover, virtualcitySYSTEMS offers a branded version of the 3D City
-database called the *virtualcityDATABASE* to answer customer demands and
-to provide support and maintenance.
+*visualization* of massive 3D geo data. With core
+developers of the 3D City Database project having joined the company,
+Virtual City Systems now takes a leading role in its development.
+Moreover, Virtual City Systems offers a branded version of the 3D City
+database called the `VC Database <https://vc.systems/en/products/vc-database/>`_
+to answer customer demands and to provide support and maintenance.
 
-virtualcityDATABASE
--------------------
+VC Database
+-----------
 
-The virtualcityDATABASE provides enhanced database functionality as well
+The `VC Database <https://vc.systems/en/products/vc-database/>`_
+provides enhanced database functionality as well
 as plugins for the Importer/Exporter tool that support workflows for
 maintaining and updating the 3D city model content. Main features are:
+
+-  | **Data continuation and object histories**
+   | The VC Database offers tools and additional database structures to manage
+     updates and multiple versions of city objects in the database as well as to
+     automatically track changes of city objects. Both aspects are relevant in the
+     context of the continuation of city objects and entire city models. The VC
+     Database offers the five operations ``Insert``, ``Delete``, ``Terminate``,
+     ``Replace``, and ``Update`` that enable you to easily keep your 3D city model
+     up-to-date and to get access to previous states of the model.
 
 -  | **Integration of additional LoDs against existing city objects in the database**
    | This plugin allows for integrating city objects from an external data
@@ -33,64 +43,56 @@ maintaining and updating the 3D city model content. Main features are:
      attached to the existing objects. Moreover, appearance information
      can be integrated without replacing the geometry.
 
--  | **Deletion of entire city objects or single LoDs representations**
-   | The 3D City Database provides a low-level API for deleting city
-     objects. This API has been extended in the virtualcityDATABASE to
-     also delete single LoDs of city objects. A graphical user dialog
-     realized as a plugin for the Importer/Exporter allows users to easily
-     delete city objects based on comprehensive thematic filter criteria.
-
--  | **Adding material appearances for buildings**
-   | This plugin helps to define constant material information for
-     building surfaces based on thematic properties (e.g., to colorize
-     roofs according to their solar potential).
+-  | **Deletion and termination of city objects**
+   | The VC Database provides a user-friendly Importer/Exporter plugin
+     for deleting and terminating city objects using spatial and thematic
+     filter criteria as well as delete lists.
 
 -  | **Transactional Web Feature Service**
-   | Customers of the virtualcityDATABASE already benefit from an
+   | Customers of the VC Database already benefit from an
      OGC-compliant WFS 2.0 implementation that supports transactions as
      well as comprehensive spatial and thematic queries using the OGC
      Filter Encoding standard.
 
-The virtualcityDATABASE is fully compliant with the 3D City Database. If
-features developed for the virtualcityDATABASE have gained enough
-maturity, virtualcitySYSTEMS will introduce them to the Open Source 3D
+The VC Database is fully compliant with the 3D City Database. If
+features developed for the VC Database have gained enough
+maturity, Virtual City Systems will introduce them to the open source 3D
 City Database project (e.g. the WFS interface).
 
 
-virtualcitySUITE – The 3D City Platform
----------------------------------------
+VC Suite – The Digital Geo-Twin Platform
+----------------------------------------
 
-The virtualcitySUITE is a modular *3D Spatial Data Infrastructure*
+The VC Suite is a modular *3D Spatial Data Infrastructure*
 solution to store, manage, distribute and visualize 3D geo data. Core
-components are the *virtualcityDATABASE* and its OGC WFS interface for
-accessing and editing the data, the *virtualcityWAREHOUSE*, a data
-distribution solution running on FME technology that enables users to
-export 3D city model content from the virtualcityDATABASE into various
+components are the *VC Database* and its OGC WFS interface for
+accessing and editing the data, the `VC Warehouse <https://vc.systems/en/products/vc-warehouse/>`_, a data
+exchange solution running on FME technology that enables users to
+export 3D city model content from the VC Database into various
 industry GIS and CAD formats, and the web-based authoring tool
-*virtualcityPUBLISHER* for creating high-performance 3D web maps. Based
-on the Open Source 3D City Database, the virtualcitySUITE allows for
-building a 3D SDI platform for virtual 3D city models based on open
+`VC Publisher <https://vc.systems/en/products/vc-publisher/>`_
+for creating high-performance 3D web maps. Based
+on the Open Source 3D City Database, the VC Suite allows for
+building a 3D SDI platform for Digital Geo-Twins based on open
 standards and interfaces.
 
-.. figure:: ../media/appendix_virtualcitySUITE_components_fig.png
+.. figure:: /media/appendix_vc_suite_components_fig.png
 
-   Components of the virtualcitySUITE.
+   Components of the VC Suite.
 
-Our 3D web maps offer enhanced GIS functionality beyond pure 3D
-visualization including 3D measurements, real-time shadows, WFS-based
+Our `VC Map <https://vc.systems/en/products/vc-map/>`_ web mapping technology
+offers enhanced GIS functionality beyond pure
+visualization such as measurements, real-time shadows, viewshed analysis, WFS-based
 thematic and spatial queries, POI integration, data exports through a
-virtualcityWAREHOUSE interface, and integration of external WMS and WFS
-data sources as well as pointcloud data and oblique imagery. The 3D web
-maps are based on the Cesium WebGL virtual globe and therefore can be
+VC Warehouse interface, and integration of external data services and sources
+(e.g., WMS, WFS, GeoJSON, vector tiles) as well as meshes, point clouds and oblique imagery.
+The 3D web maps are based on the Cesium WebGL virtual globe and therefore can be
 displayed on modern web browsers and mobile devices such as tablets and
 smartphones without the need for additional plugins.
 
-.. figure:: ../media/appendix_vcmap_berlin_3dcitymodel_fig.png
+.. figure:: /media/appendix_vcmap_berlin_3dcitymodel_fig.png
 
-   The Berlin 3D City Model consisting of more than 500,000
-   fully textured buildings is managed based on our virtualcitySUITE. The
-   Berlin Economic atlas shown above is a 3D web map application that
+   The Berlin 3D City Model is managed based on our VC Suite. The
+   Berlin Economic atlas shown above is a VC Map application that
    displays the entire city model and combines the 3D objects with business
-   and POI information, see http://www.businesslocationcenter.de/wab/maps/main/.
-
-
+   and POI information, see https://www.businesslocationcenter.de/wab/maps/main/#/.
