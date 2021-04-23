@@ -83,6 +83,8 @@ The CityJSON output format options are presented below.
      - | Apply the CityJSON-specific compression (boolean true / false, default: false).
    * - | ``generateCityGMLMetadata``
      - | Adds an attribute called CityGMLMetadata that contains CityGML-specific metadata like the data types of generic attributes (boolean true / false, default: true).
+   * - | ``removeDuplicateChildGeometries``
+     - | CityJSON does not support reusing or referencing geometries. If geometries are reused within a city object in the database (e.g. between a Building and its BuildingInstallation child), they will be duplicate in the CityJSON output. Use this option to remove duplicate geometries from child objects. If the child object does not have any remaining geometry after removing the duplicates, it will be removed as well (boolean true / false, default: false).
 
 The options are simply added beneath the corresponding ``<outputFormat>``
 element and are applied to all response documents of the WFS in
@@ -98,5 +100,6 @@ format options.
        <option name="significantDigits">5</option>
        <option name="transformVertices">true</option>
        <option name="generateCityGMLMetadata">true</option>
+       <option name="removeDuplicateChildGeometries">true</option>
      </options>
    </outputFormat>

@@ -3,17 +3,14 @@
 3DCityDB @ Virtual City Systems
 ===============================
 
-`Virtual City Systems <https://vc.systems/>`_
-has successfully applied the 3D
-City Database in customer projects worldwide and also funded its
-development. With the Open Source database at the core,
-Virtual City Systems also offers a *3D Spatial Data Infrastructure*
+`Virtual City Systems <https://vc.systems/en/>`_
+has successfully employed the 3D City Database in customer projects
+worldwide and also funded its development. With the open source database
+at the core, Virtual City Systems offers a *3D Spatial Data Infrastructure*
 solution for the *management*, *distribution*, *maintenance* and
-*visualization* of massive 3D geo data. With core
-developers of the 3D City Database project having joined the company,
-Virtual City Systems now takes a leading role in its development.
-Moreover, Virtual City Systems offers a branded version of the 3D City
-database called the `VC Database <https://vc.systems/en/products/vc-database/>`_
+*visualization* of massive 3D geo data. Virtual City Systems has a leading
+role in the development of the 3D City Database and offers a
+branded version called `VC Database <https://vc.systems/en/products/vc-database/>`_
 to answer customer demands and to provide support and maintenance.
 
 VC Database
