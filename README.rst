@@ -1,8 +1,8 @@
 3dcitydb-docs
 #############
 
-Documentation on 3D City Database for CityGML
-=============================================
+3D City Database User Manual
+============================
 
 |cover_image|
 
