@@ -1,6 +1,3 @@
-3dcitydb-docs
-#############
-
 3D City Database User Manual
 ============================
 
