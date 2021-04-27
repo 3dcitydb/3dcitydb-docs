@@ -418,6 +418,34 @@ the values in the list.
       </filter>
     </query>
 
+.. _database_id:
+
+Database ID operator
+""""""""""""""""""""
+
+In addition to the object identifier, you can also select city objects
+based on their database ID. The provided ID values are tested against
+the ``ID`` column of the ``CITYOBJECT`` table and only top-level objects
+having a matching ID value are exported.
+
+The following snippet exemplifies the use of the ``<databaseIds>`` filter.
+
+.. code-block:: xml
+
+    <query>
+      <typeNames>
+        <typeName>bldg:Building</typeName>
+      </typeNames>
+      <filter>
+        <databaseIds>
+          <id>1</id>
+          <id>4034</id>
+          <id>12334</id>
+        </databaseIds>
+      </filter>
+    </query>
+
+
 .. _sql:
 
 SQL operator
