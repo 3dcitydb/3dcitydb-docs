@@ -83,7 +83,7 @@ check the respective database documentation for guidance).
 .. note::
    You can also create multiple CRS definitions for the same database SRID
    that only differ in their *gml:srsName* values. This way, you can easily
-   use different *gml:srsName* values for different CityGML/CityJSON exports,
+   use different *gml:srsName* values for different CityGML exports,
    for example, in case specific target applications require a certain
    but different syntax for the *gml:srsName*.
 

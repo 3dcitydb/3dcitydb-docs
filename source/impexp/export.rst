@@ -185,13 +185,14 @@ The following table provides a summary overview.
      - | Settings for tiled exports. Requires that tiling is enabled on the bounding box filter.
    * - | :ref:`impexp_preferences_export_cityobjectgroup`
      - | Defines whether group members are exported by value or by reference.
-   * - | :ref:`impexp_export_preferences_address_chapter`
-     - | Controls the way in which xAL address fragments are exported from the database.
    * - | :ref:`impexp_export_preferences_appearance_chapter`
      - | Defines whether appearance information should be exported.
    * - | :ref:`impexp_export_preferences_citygml_general_chapter`
        | (CityGML only)
      - | General options affecting the CityGML export.
+   * - | :ref:`impexp_export_preferences_address_chapter`
+       | (CityGML only)
+     - | Controls the way in which xAL address fragments are exported from the database.
    * - | :ref:`impexp_export_preferences_xlinks_chapter`
        | (CityGML only)
      - | Controls whether referenced features or geometry objects are exported using XLinks or as deep copies.

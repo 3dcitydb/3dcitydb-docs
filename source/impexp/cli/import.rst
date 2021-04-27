@@ -11,11 +11,14 @@ Import command
                  [--import-log=<file>] [--input-encoding=<encoding>]
                  [--log-file=<file>] [--log-level=<level>]
                  [--pid-file=<file>] [--plugins=<folder>]
-                 [--worker-threads=<threads[,max]>] [[[-t=<[prefix:]name>[,<
-                 [prefix:]name>...]]... [--namespace=<prefix=name>[,
-                 <prefix=name>...]]...] [-i=<id>[,<id>...] [-i=<id>[,
-                 <id>...]]...] [-b=<minx,miny,maxx,maxy[,srid]>
-                 [--bbox-mode=<mode>]] [[--count=<count>]
+                 [--worker-threads=<threads[,max]>]
+                 [[--creation-date=<mode>] [--termination-date=<mode>]
+                 [--lineage=<lineage>] [--updating-person=<name>]
+                 [--reason-for-update=<reason>] [--use-metadata-from-file]]
+                 [[[-t=<[prefix:]name>[,<[prefix:]name>...]]...
+                 [--namespace=<prefix=name>[,<prefix=name>...]]...] [-i=<id>
+                 [,<id>...] [-i=<id>[,<id>...]]...] [-b=<minx,miny,maxx,maxy
+                 [,srid]> [--bbox-mode=<mode>]] [[--count=<count>]
                  [--start-index=<index>]] [[--no-appearance]]]
                  [[-T=<database>] -H=<host> [-P=<port>] -d=<name>
                  [-S=<schema>] -u=<name> [-p[=<password>]]]
@@ -59,6 +62,48 @@ containing these settings.
    minimum and maximum number of threads separated by commas. A general description
    of the multithreaded processing used for the import process is provided in
    :numref:`impexp_import_preferences_resources_chapter`.
+
+**Metadata options**
+
+The ``import`` command allows for specifying metadata that is assigned to every city object
+during import and stored in columns of the table CITYOBJECT.
+
+.. option:: --creation-date=<mode>
+
+   Specifies how to set the `creationDate` attribute for city objects. Allowed values are
+   ``replace`` (default), ``complement`` and ``inherit``. If the creation date
+   is not available from the city object during import, it
+   may either be set to the import date (``complement``) or be inherited from the parent
+   object, if available (``inherit``). Alternatively, the user can choose to replace all
+   creation dates from the input files with the import date (``replace``).
+
+.. option:: --termination-date=<mode>
+
+   Specifies how to set the `terminationDate` attribute for city objects. Allowed values are
+   ``replace`` (default), ``complement`` and ``inherit``.  If the termination date
+   is not available from the city object during import, it
+   may either be set to NULL (``complement``) or be inherited from the parent object, if
+   available (``inherit``). Alternatively, the user can choose to replace all termination
+   dates in the input files with NULL (``replace``).
+
+.. option:: --lineage=<lineage>
+
+   Value to store as lineage of the city objects.
+
+.. option:: --updating-person=<name>
+
+   Name of the user responsible for the import. By default, the name of the database
+   user is chosen.
+
+.. option:: --reason-for-update=<reason>
+
+   Reason for importing the data.
+
+.. option:: --use-metadata-from-file
+
+   Flag to indicate that values for lineage, updating person and reason for update
+   stored for the city objects in the input file should take precedence over the
+   values defined on the command line.
 
 **Import filter options**
 

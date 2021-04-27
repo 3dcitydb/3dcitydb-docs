@@ -21,6 +21,8 @@ evaluated.
    :name: citygml_export_lod_filter_mode_table
    :widths: 20 70
 
+   * - | **Filter mode**
+     - | **Description**
    * - | **Or**
      - | City objects having a spatial representation in *at least one* of the selected LoDs will be exported. Additional LoD representations of the city object that do not match the user selection are not exported.
    * - | **And**

@@ -29,7 +29,12 @@ is located in the ``bin`` folder within the installation directory of your Impor
 Depending on your platform, it comes in two flavors:
 
 - ``impexp.bat`` (Microsoft Windows family)
-- ``impexp.sh`` (UNIX/Linux/Mac OS family)
+- ``impexp`` (UNIX/Linux/Mac OS family)
+
+The CLI is launched with default options for the Java Virtual Machine (JVM) that
+runs the application. You can override these default options in the launch process by
+using the environment variable ``JAVA_OPTS``. More information is available in
+:numref:`impexp_launching_chapter`.
 
 .. note::
    For convenience, it is recommended to add the ``impexp`` executable to your path.
@@ -37,6 +42,16 @@ Depending on your platform, it comes in two flavors:
 
    Windows: ``set PATH=C:\path\to\3DCityDB-Importer-Exporter\bin;%PATH%`` |br|
    Linux: ``export PATH=/path/to/3DCityDB-Importer-Exporter/bin:$PATH``
+
+.. note::
+   Instead of using the predefined start script, you can also directly invoke the JAR file
+   ``impexp-client-<version>.jar`` in the ``lib`` folder of the installation
+   directory, which implements the command-line interface. This way, you have full
+   control over the Java runtime and options for executing the CLI. Use the
+   following command as starting point.
+
+   ``java [JVM_OPTIONS] -jar lib/impexp-client-<version>.jar [CLI_OPTIONS]``
+
 
 **Synopsis**
 
@@ -95,7 +110,7 @@ variable ``JAVA_OPTS`` in the launch process of the CLI to provide
 options to the Java Virtual Maching (JVM) that runs the tool. For example,
 you can adapt the amount of main memory that shall be available for the Importer/Exporter.
 Please refer to :numref:`impexp_launching_chapter` for how to use the ``JAVA_OPTS`` variable.
-Export users may also directly adapt the ``impexp.[bat|sh]`` start script.
+Export users may also directly adapt the ``impexp`` start script.
 
 More general functionalities and usage information for the command-line tool are
 discussed in :numref:`impexp_cli_general`.

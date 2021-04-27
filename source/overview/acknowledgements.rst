@@ -3,8 +3,7 @@ Acknowledgements
 
 The 3D City Database project team is grateful and appreciative for the
 financial assistance and support we received from partners that
-contributed to the development of version 4 and the work on the ADE
-support.
+contributed to the development of the 3D City Database.
 
 **Government Technology Agency of Singapore**
 

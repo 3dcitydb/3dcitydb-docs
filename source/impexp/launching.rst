@@ -15,7 +15,7 @@ chose to create shortcuts during setup. Depending on your platform, one
 of the following starter scripts is provided in the installation directory:
 
 - ``3DCityDB-Importer-Exporter.bat`` (Microsoft Windows family)
-- ``3DCityDB-Importer-Exporter.sh`` (UNIX/Linux/Mac OS family)
+- ``3DCityDB-Importer-Exporter`` (UNIX/Linux/Mac OS family)
 
 On most platforms, double-clicking the starter script or its shortcut
 runs the Importer/Exporter.
@@ -29,13 +29,13 @@ the owner of the file:
 
 .. code:: bash
 
-   $ chmod u+x 3DCityDB-Importer-Exporter.sh
+   $ chmod u+x 3DCityDB-Importer-Exporter
 
 Afterwards, simply run the software by issuing the following command:
 
 .. code:: bash
 
-   $ ./3DCityDB-Importer-Exporter.sh
+   $ ./3DCityDB-Importer-Exporter
 
 .. note::
    With every release, the README.txt file in the installation
@@ -75,7 +75,7 @@ For UNIX/Linux, it looks almost the same:
 
   export JAVA_OPTS="-Xms1G -Xmx8GB"
 
-Simply copy this line into the start script ``3DCityDB-Importer-Exporter.[bat|sh]``
+Simply copy this line into the start script ``3DCityDB-Importer-Exporter``
 and make sure to put it before the last line in this script. Note that you
 can set any other JVM option as well.
 
@@ -84,8 +84,8 @@ Both are supported by the Importer/Exporter and evaluated in the launch process.
 
 **Adapting the CLI start script**
 
-The start script ``3DCityDB-Importer-Exporter.[bat|sh]`` is only a wrapper and invokes
-the CLI script ``impexp.[bat|sh]`` of the Importer/Exporter, which
+The start script ``3DCityDB-Importer-Exporter`` is only a wrapper and invokes
+the CLI script ``impexp`` of the Importer/Exporter, which
 is located in the ``bin`` folder of the installation directory. To get more fine-grained
 control over the launch process, you can also edit this CLI start script directly.
 Good knowledge in shell scripting is required when doing so.

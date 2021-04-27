@@ -93,7 +93,7 @@ The installation directory contains the following subfolders:
     |                     |               | to make them available in the program     |
     +---------------------+---------------+-------------------------------------------+
     | bin                 |               | Contains the platform-specific script     |
-    |                     |               | **impexp.[bat|sh]** that allows you to    |
+    |                     |               | **impexp** that allows you to             |
     |                     |               | run the Importer/Exporter from the        |
     |                     |               | command line                              |
     +---------------------+---------------+-------------------------------------------+
@@ -126,7 +126,7 @@ The installation directory contains the following subfolders:
     |                     |               | the Importer/Exporter                     |
     +---------------------+---------------+-------------------------------------------+
     | 3DCityDB-Importer-  |               | Platform-specific starter script to       |
-    | Exporter.[bat|sh]   |               | launch the Importer/Exporter with a       |
+    | Exporter            |               | launch the Importer/Exporter with a       |
     |                     |               | graphical user interface. For instance,   |
     |                     |               | under Windows, simply double-click this   |
     |                     |               | script to run the program                 |
