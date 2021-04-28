@@ -29,9 +29,8 @@ The following sections cover the installation and use of the plugin.
    export
    cli
 
-.. caution::
-   The *Spreadsheet Generator* plugin does not support CityGML
-   ADE extensions. Thus, even if you have registered an
-   ADE extension with the 3D City Database and the Importer/Exporter,
-   you will not be able to export attribute data of ADE
-   features with this plugin.
+.. note::
+   The *Spreadsheet Generator* plugin also supports exporting **attributes
+   of features defined in a CityGML ADE**. For this purpose, a
+   corresponding ADE extension must have been registered with the
+   3D City Database and the Importer/Exporter.

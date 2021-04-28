@@ -104,6 +104,11 @@ used by the visualization export operation and explained in more detail in :numr
 The expression is dynamically evaluated during export and the value stored
 in the referenced column for a given city object is written to the output file.
 
+.. note::
+   The tree view will also list tables and columns of CityGML ADEs if a
+   corresponding ADE extension has been registered with the
+   3D City Database and the Importer/Exporter.
+
 If a database table contains multiple entries for the same city object,
 then the different values for the chosen column are exported as comma-separated
 list to the output file. If you rather prefer a single value, you can use one
