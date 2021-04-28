@@ -14,7 +14,8 @@ at program startup, a plugin can choose to serialize the settings to the
 main config file or a plugin-specific config file. Besides GUI extensions,
 plugins can also provide functionality that is hooked into the main
 operations of the Importer/Exporter, for instance, to postprocess
-exported top-level features.
+exported top-level features. And they can add their own commands to
+the CLI of the Importer/Exporter to run the plugin from the command line.
 
 Plugin installation is simple. Just get the plugin from your vendor and
 put all plugin files into the ``plugins`` subfolder of the Importer/Exporter
