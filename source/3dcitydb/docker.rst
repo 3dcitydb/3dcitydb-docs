@@ -4,6 +4,12 @@
 3D City Database using Docker
 ###############################################################################
 
+.. _citydb_docker_introduction:
+
+*******************************************************************************
+Introduction
+*******************************************************************************
+
 .. image:: ../media/citydb_docker_logo.png
   :width: 80 px
   :align: right
@@ -25,6 +31,41 @@ When designing the images we tried to stay as close as possible to the behavior 
 the base images and the :ref:`3DCityDB Shell scripts <3dcitydb_shell_scripts>`.
 Thus, all configuration options you may be used to from the base images are
 available for the 3DCityDB Docker images as well.
+
+.. _citydb_docker_synopsis:
+
+*******************************************************************************
+Synopsis
+*******************************************************************************
+
+.. code-block:: bash
+  :name: citydb_docker_code_synopsis_psql
+  :caption: 3DCityDB Docker PostgreSQL/PostGIS synopsis
+
+  docker run --name 3dciytdb -port 5432:5432 -d \
+      -e POSTGRES_PASSDWORD=<theSecretPassword> \
+      -e SRID=<EPSG code> \
+      [-e HEIGHT_EPSG=<EPSG code>] \
+      [-e GMLSRSNAME=<mySrsName>] \
+      [-e POSTGRES_DB=<database name>] \
+      [-e POSTGRES_USER=<username>] \
+      [-e POSTGIS_SFCGAL=<true|false|yes|no>] \
+    3dcitydb/3dcitydb-pg
+
+.. code-block:: bash
+  :name: citydb_docker_code_synopsis_oracle
+  :caption: 3DCityDB Oracle synopsis
+
+  docker run --name 3dciytdb -port 5432:5432 -d \
+      -e ORACLE_USER=<theUserName> \
+      -e ORACLE_PASSDWORD=<theSecretPassword> \
+      -e SRID=<EPSG code> \
+      [-e HEIGHT_EPSG=<EPSG code>] \
+      [-e GMLSRSNAME=<mySrsName>] \
+      [-e ORACLE_PDB=<???>] \
+      [-e DBVERSION=<???>] \
+      [-e VERSIONING=<???>] \
+    3dcitydb/3dcitydb-oracle
 
 .. _citydb_docker_image_variants:
 
@@ -124,6 +165,8 @@ following base image versions are supported:
     - 13-3.0
     - 13-3.1
 
+The full ist of available tags can be found on `DockerHub <https://hub.
+docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated>`_
 Here are some examples for full image tags:
 
 .. code-block:: shell
@@ -156,12 +199,12 @@ environment-variables>`_. The 3DCityDB Docker images introduce the variables
 :option:`SRID`, :option:`HEIGHT_EPSG` and :option:`GMLSRSNAME`. Their behavior
 is described here.
 Fruthermore, some variables inherited from the base images offer important
-configuration options, they are described below for the
+configuration options, they are separately for the
 :ref:`PostgreSQL/PostGIS <citydb_docker_config_psql>` and
 :ref:`Oracle <citydb_docker_config_oracle>` image variants.
 
 .. tip:: All variables besides :option:`POSTGRES_PASSWORD` and
-  :option:`ORACLE_PASSWORD` are optional.
+  :option:`ORACLE_PWD` are optional.
 
 .. option:: SRID=<EPSG code>
 
@@ -337,21 +380,21 @@ Oracle
 .. |psql-deb-build-edge| image:: https://img.shields.io/github/workflow/status/
   3dcitydb/3dcitydb/psql-docker-build-edge?label=Debian&
   style=flat-square&logo=Docker&logoColor=white
-  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
 .. |psql-deb-size-edge| image:: https://img.shields.io/docker/image-size/
   3dcitydb/3dcitydb-pg/edge?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
 .. |psql-alp-build-edge| image:: https://img.shields.io/github/workflow/status/
   3dcitydb/3dcitydb/psql-docker-build-edge?label=Alpine&
   style=flat-square&logo=Docker&logoColor=white
-  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
 .. |psql-alp-size-edge| image:: https://img.shields.io/docker/image-size/
   3dcitydb/3dcitydb-pg/edge-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
 .. |ora-build-edge| image:: https://img.shields.io/github/workflow/status/
   3dcitydb/3dcitydb/oracle-docker-build-edge?label=Oracle%20Linux&
@@ -366,12 +409,12 @@ Oracle
 
 .. |psql-deb-size-latest| image:: https://img.shields.io/docker/image-size/
   3dcitydb/3dcitydb-pg/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
 .. |psql-alp-size-latest| image:: https://img.shields.io/docker/image-size/
   3dcitydb/3dcitydb-pg/latest-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
 
 .. 4.1.0
