@@ -103,6 +103,14 @@ versions.
     - |psql-alp-size-v4.1.0|
     - |ora-size-edge|
 
+The **edge** images are automatically built and published on every push to the
+*master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb>`_
+using the latest stable version of the base images.
+The **latest** and **release** (e.g. ``4.1.0``) image versions  are only built
+when a new release is published on Github. The **latest** tag will point to
+the most recent release version using the latest base image version, e.g.
+``latest = 13-3.1-4.1.0``.
+
 .. _citydb_docker_image_pg:
 
 PostgreSQL/PostGIS images
@@ -117,17 +125,13 @@ can be pulled like this:
   docker pull 3dcitydb/3dcitydb-pg:TAG
 
 The image tags are compose of the *base image version*, the
-*3DCityDB version* and the *image variant*:
-
-.. code-block::
-
-  <base image version>-<3DCityDB version>-<image variant>
-
+*3DCityDB version* and the *image variant*,
+``<base image version>-<3DCityDB version>-<image variant>``.
 The base image version is inherited
 from the `PostGIS Docker images <https://hub.docker.com/r/postgis/postgis/tags>`_.
 Debian is the default image variant, where no image varaint is appended to the
-tag. For the Alpine Linux images ``-alpine`` is appended. Currently,
-following base image versions are supported:
+tag. For the Alpine Linux images ``-alpine`` is appended. Currently supported
+base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
 
 .. list-table:: Overview on supported PostgreSQL/PostGIS versions
   :widths: auto
@@ -254,9 +258,9 @@ the documentations of both images for much more configuration options.
 
   Sets the password for the database connection. This variable is **mandatory**.
 
-.. option:: POSTGIS_SFCGAL=<any value>
+.. option:: POSTGIS_SFCGAL=<true|false|yes|no>
 
-  It set, `PostGIS SFCGAL <http://www.sfcgal.org/>`_ support is
+  If set, `PostGIS SFCGAL <http://www.sfcgal.org/>`_ support is
   enabled. **Note:** SFCGAL is currently only available in the Debian image variant.
   Setting the variable on Apline images will have no effect.
 
@@ -288,92 +292,47 @@ Oracle environment variables
 
   **TODO**
 
-.. code-block:: bash
-   :caption: 3DCityDB Docker Linux quick start
-
-   docker run -i -t -p 5432:5432 --name cdb \
-   -e POSTGRES_DB=citydb \          # Optional: Set name for the DB. IF not set, DB is named like POSTGRES_USER (default=postgres)
-   -e POSTGRES_PASSWORD=postgres \  # Required: Set DB Password
-   -e SRID=25832 \                  # If SRID is not set, no 3DCityDB instance is set up in the container
-   -e HEIGHT_EPSG=7837 \            # Optional: Height EPSG for auto GMLSRSNAME generation
-   -e GMLSRSNAME=EPSG:25832 \       # Optional: Overwrites auto generated GMLSRSNAME from SRID and HEIGHT_EPSG
-   -e POSTGIS_SFCGAL=true \         # Optional: Enable SFCGAL support, only currently available in Debian images, default = false
-   3dcitydb/3dcitydb-pg
-
-   # Behavior GMLSRSNAME
-
-   # only SRID set              GMLSRSNAME="urn:ogc:def:crs:EPSG::$SRID"
-   # SRID and HEIGHT_EPSG set   GMLSRSNAME="urn:ogc:def:crs,crs:EPSG::$SRID,crs:EPSG::$HEIGHT_EPSG"
-   # GMLSRSNAME set             GMLSRSNAME=GMLSRSNAME
-
-
-
-
-
-The Docker Container for 3D City Database is based on the Open Source
-database management system PostgreSQL and the PostGIS extension for
-spatial data. The image is freely available via
-`DockerHub <https://hub.docker.com/u/tumgis/>`_ and can
-be directly downloaded and used. The detailed documentation and source
-code can be found on the GitHub project page (see below). All that is
-needed is a Docker installation on your system. The time-consuming
-installation of a database server, its configuration, the installation
-of a database extension for spatial data and the setup of the 3D City
-Database data model are a thing of the past. An example for setting up a
-3DCityDB using Docker from a command line is given below:
-
-**Windows**
-
-.. code:: bash
-
-    docker run -dit --name citydb-container -p 5432:5432^
-        -e "SRID=31468"^
-        -e "SRSNAME=urn:adv:crs:DE_DHDN_3GK4*DE_DHN92_NH"^
-        tumgis/3dcitydb-postgis
-
-**Linux**
-
-.. code:: bash
-
-    docker run -dit --name citydb-container -p 5432:5432 \
-        -e "SRID=31468" \
-        -e "SRSNAME=urn:adv:crs:DE_DHDN_3GK4*DE_DHN92_NH" \
-        tumgis/3dcitydb-postgis
-
-.. note::
-   In the examples above the long commands are broken to several
-   lines for readability using the Bash (\\) or CMD (^) line continuation.
-
-The ``docker run`` command fetches the most recent version of the Docker
-image from the Docker hub. This image includes a PostgreSQL/PostGIS
-installation. The 3DCityDB schema is being installed and a new and empty
-3DCityDB database is created using the SRID 31468 and GML SRSName
-*urn:adv:crs:DE_DHDN_3GK4*DE_DHN92_NH*. After completion of the command
-the user can directly start importing a CityGML file into the database
-using the Importer/Exporter tool, which must have been installed
-locally.
-
-
 .. _citydb_docker_build:
 
 *******************************************************************************
 How to build images
 *******************************************************************************
 
+.. option:: BASEIMAGE_TAG=<tag of the base image>
+
 .. _citydb_docker_psql_build:
 
 PostgreSQL/PostGIS
 ===============================================================================
+
+
 
 .. _citydb_docker_oracle_build:
 
 Oracle
 ===============================================================================
 
+To build Oracle 3DCityDB Docker images, you need to create an Oracle account
+and accept the licensing conditions first:
 
+1. Visit https://login.oracle.com/mysso/signon.jsp and create an account.
+
+2. Visit https://container-registry.oracle.com and navigate to *Database*.
+   Click the *Continue* button in the right column of the *enterprise* repository.
+   Scroll to the bottom of the license agreement, which should be displayed
+   now and click *accept*.
+
+3. The repository listing should now show a green hook for the enterprise
+   repository, as shown in the example below.
+   |oracle-license|
+
+   If this is the case, you are ready to pull the required base images from
+   Oracle container registry.
 
 
 .. Images ---------------------------------------------------------------------
+
+.. |oracle-license| image:: ../media/citydb_oracle_license.jpg
 
 .. edge
 
