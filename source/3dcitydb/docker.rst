@@ -138,10 +138,10 @@ Here are some examples for full image tags:
 Oracle images
 ===============================================================================
 
-Due to the current Oracle licensing conditions we cannot offer Oracle images
-in a public repository like `DockerHub <https://hub.docker.com/>`_. However,
-you can easily build the images yourself. A detailed description of how to
-do that is available in :numref:`citydb_docker_oracle_build`.
+Due to Oracle licensing conditions we cannot offer Oracle images
+in a public repository like `DockerHub <https://hub.docker.com/>`_ at the
+moment. However, you can easily build the images yourself. A detailed description
+of how to do that is available in :numref:`citydb_docker_oracle_build`.
 
 .. _citydb_docker_config:
 
