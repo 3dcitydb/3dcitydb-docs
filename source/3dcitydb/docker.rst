@@ -298,13 +298,46 @@ Oracle environment variables
 How to build images
 *******************************************************************************
 
+This section describes how to build 3DCityDB Docker images on your own. Both
+the PostgreSQL/PostGIS and Oracle version offer one build argument, that can
+be used to set the tag of the base image that is used.
+
 .. option:: BASEIMAGE_TAG=<tag of the base image>
+
+  Tag of the base image that is used for the build. Available tags are can be
+  found on DockerHub for the `PostgreSQL/PostGIS images <https://registry.hub.
+  docker.com/r/postgis/postgis/tags?page=1&ordering=last_updated>`_ and in
+  the `Oracle container registry <https://container-registry.oracle.com>`_.
+
 
 .. _citydb_docker_psql_build:
 
 PostgreSQL/PostGIS
 ===============================================================================
 
+The PostgreSQL/PostGIS images are build by cloning the 3DCityDB Github repository
+and running `docker build <https://docs.docker.com/engine/reference/commandline
+/build/>`_:
+
+1. Clone 3DCityDB Github repository and navigate to the ``postgresql`` folder in
+   the repo:
+
+   .. code-block:: bash
+
+    git clone https://github.com/3dcitydb/3dcitydb.git
+    cd 3dcitydb/postgresql/
+
+2. Build the Postgresql/PostGIS image using `docker build <https://docs.docker.com
+/engine/reference/commandline/build/>`_:
+
+  .. code-block:: bash
+
+    docker build -t 3dcitydb/3dcitydb-pg .
+
+    # or with a specific base image tag
+    docker build -t 3dcitydb/3dcitydb-oracle \
+        --build-arg BASEIMAGE_TAG=13-3.1 \
+      .
 
 
 .. _citydb_docker_oracle_build:
@@ -351,6 +384,11 @@ and accept the licensing conditions first:
    .. code-block:: bash
 
     docker build -t 3dcitydb/3dcitydb-oracle .
+
+    # or with a specific base image tag
+    docker build -t 3dcitydb/3dcitydb-oracle \
+        --build-arg BASEIMAGE_TAG=19.3.0.0 \
+      .
 
 After the build process has finished, you are ready to use the image
 (see :numref:`citydb_docker_config` and :numref:`citydb_docker_config_oracle`)
