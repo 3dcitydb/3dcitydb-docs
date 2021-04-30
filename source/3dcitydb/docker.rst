@@ -329,6 +329,32 @@ and accept the licensing conditions first:
    If this is the case, you are ready to pull the required base images from
    Oracle container registry.
 
+4. Signin Docker to the Oracle container registry using the account credentials
+   from above using `docker login <https://docs.docker.com/engine/reference
+   /commandline/login/>`_:
+
+   .. code-block:: bash
+
+    docker login container-registry.oracle.com
+
+5. Clone the 3DCityDB repository and navigate to the ``orcle`` folder in the
+   repo:
+
+  .. code-block:: bash
+
+    git clone https://github.com/3dcitydb/3dcitydb.git
+    cd 3dcitydb/oracle/
+
+6. Build the 3DCityDB Oracle image using `docker build <https://docs.docker.com
+   /engine/reference/commandline/build/>`_:
+
+   .. code-block:: bash
+
+    docker build -t 3dcitydb/3dcitydb-oracle .
+
+After the build process has finished, you are ready to use the image
+(see :numref:`citydb_docker_config` and :numref:`citydb_docker_config_oracle`)
+or push it to a **private** Docker repository.
 
 .. Images ---------------------------------------------------------------------
 
