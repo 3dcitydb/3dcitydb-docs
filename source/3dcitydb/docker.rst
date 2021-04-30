@@ -38,18 +38,29 @@ the Oracles image are based on *Oracle Linux*.
 :numref:`citydb_docker_tbl_images` gives an overview on the available image
 versions.
 
-.. table:: 3DCityDB Docker image variants and versions
+.. list-table:: 3DCityDB Docker image variants and versions
+  :widths: auto
+  :header-rows: 1
+  :stub-columns: 1
+  :align: center
   :name: citydb_docker_tbl_images
 
-  +--------+---------------------------------------------------------------------------------------------------+-------------------------------------------------+
-  | Tag    | PostgreSQL/PostGIS                                                                                | Oracle                                          |
-  +========+=================================================+=================================================+=================================================+
-  | edge   | |psql-deb-build-edge| |psql-deb-size-edge|      | |psql-alp-build-edge| |psql-alp-size-edge|      | |ora-build-edge| |ora-size-edge|                |
-  +--------+-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
-  | latest | |psql-deb-build-latest| |psql-deb-size-latest|  | |psql-alp-build-latest| |psql-alp-size-latest|  | |ora-build-latest| |ora-size-edge|              |
-  +--------+-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
-  | v4.1.0 | |psql-deb-build-v4.1.0| |psql-deb-size-v4.1.0|  | |psql-alp-build-v4.1.0| |psql-alp-size-v4.1.0|  | |ora-deb-build-v4.1.0| |ora-deb-size-v4.1.0|    |
-  +--------+-------------------------------------------------+-------------------------------------------------+-------------------------------------------------+
+  * - Tag
+    - PostGIS (Debian)
+    - PostGIS (Alpine)
+    - Oracle
+  * - edge
+    - |psql-deb-build-edge| |psql-deb-size-edge|
+    - |psql-alp-build-edge| |psql-alp-size-edge|
+    - |ora-build-edge| |ora-size-edge|
+  * - latest
+    - |psql-deb-size-latest|
+    - |psql-alp-size-latest|
+    - |ora-size-edge|
+  * - 4.1.0
+    - |psql-deb-size-v4.1.0|
+    - |psql-alp-size-v4.1.0|
+    - |ora-size-edge|
 
 .. _citydb_docker_image_pg:
 
@@ -321,6 +332,8 @@ Oracle
 
 .. Images ---------------------------------------------------------------------
 
+.. edge
+
 .. |psql-deb-build-edge| image:: https://img.shields.io/github/workflow/status/
   3dcitydb/3dcitydb/psql-docker-build-edge?label=Debian&
   style=flat-square&logo=Docker&logoColor=white
@@ -348,3 +361,26 @@ Oracle
 .. |ora-size-edge| image:: https://img.shields.io/static/v1?label=image%20size&message=
   %3E3%20GB&color=blue&style=flat-square&logo=Docker&logoColor=white
   :target: :ref:`citydb_docker_oracle_build`
+
+.. latest
+
+.. |psql-deb-size-latest| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+.. |psql-alp-size-latest| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/latest-alpine?label=image%20size&logo=Docker&logoColor=white&
+  style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+
+.. 4.1.0
+
+.. |psql-deb-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/13-3.1-4.1.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+.. |psql-alp-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/13-3.1-4.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&
+  style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
