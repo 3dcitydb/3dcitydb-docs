@@ -118,7 +118,12 @@ exchanging data between the host system and the container. Use the
   manages volumes and mounts go through the `Docker volume guide <https:
   //docs.docker.com/storage/volumes/>`_.
 
+.. _impexp_docker_user_mgmt:
 
+User management
+===============================================================================
+
+`Docker run -u <https://docs.docker.com/engine/reference/run/#user>`_
 
 .. code-block:: shell
 
