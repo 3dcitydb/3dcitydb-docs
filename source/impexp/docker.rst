@@ -116,9 +116,7 @@ exchanging data between the host system and the container. Use the
   All paths passed to the Importer/Exporter CLI have to be specified from
   the containers perspective. If you are not familiar with how Docker
   manages volumes and mounts go through the `Docker volume guide <https:
-  //docs.docker.com/storage/volumes/>`_.1
-
-
+  //docs.docker.com/storage/volumes/>`_.
 
 
 
@@ -146,9 +144,59 @@ Build own images
 Examples
 *******************************************************************************
 
+For the follow examples we assume that a 3DCityDB instance with the following
+settings is running:
+
+.. code-block:: text
+  :name: impexp_docker_code_exampledb
+  :caption: Example 3DCityDB instance
+
+  HOSTNAME      my.host.de
+  PORT          5432
+  DB TYPE       postgresql
+  DB DBNAME     citydb
+  DB USERNAME   postgres
+  DB PASSWORD   changeMe!
+
+.. _impexp_docker_example_import_citygml:
+
 Importing CityGML
 ===============================================================================
 
+This section provides some examples for importing CityGML datasets. Refer to
+:ref:`impexp_cli_import_command` for a detailed description of the
+Importer/Exporter CLI import command.
+
+Import the CityGML dataset ``/home/me/mydata/bigcity.gml`` on you host system
+into the DB given in :numref:`impexp_docker_code_exampledb`:
+
+.. code-block:: bash
+
+  docker run -i -t --rm --name impexp \
+      -v /home/me/mydata/:/data \
+    3dcitydb/impexp import \
+      -H my.host.de -d citydb -u postgres -p changeMe! \
+      /data/bigcity.gml
+
+Import all CityGML datasets from ``/home/me/mydata/`` on your host system
+into the DB given in :numref:`impexp_docker_code_exampledb`:
+
+.. code-block:: bash
+
+  docker run -i -t --rm --name impexp \
+      -v /home/me/mydata/:/data \
+    3dcitydb/impexp import \
+      -H my.host.de -d citydb -u postgres -p changeMe! \
+      /data/
+
+.. _impexp_docker_example_import_citygml:
+
+Exporting CityGML
+===============================================================================
+
+This section provides some examples for exporting CityGML datasets. Refer to
+:numref:`impexp_cli_export_command` for a detailed description of the
+Importer/Exporter CLI export command.
 
 
 
