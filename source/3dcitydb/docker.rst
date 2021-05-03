@@ -4,12 +4,6 @@
 3D City Database using Docker
 ###############################################################################
 
-.. _citydb_docker_introduction:
-
-*******************************************************************************
-Introduction
-*******************************************************************************
-
 .. image:: ../media/citydb_docker_logo.png
   :width: 80 px
   :align: right
@@ -17,8 +11,8 @@ Introduction
 
 The 3DCityDB Docker images are available for *PostgreSQL/PostGIS* and *Oracle*.
 The PostgreSQL/PostGIS version is based on the official
-`PostgreSQL <https://github.com/docker-library/postgres>`_ and
-`PostGIS <https://github.com/postgis/docker-postgis>`_ Docker images.
+`PostgreSQL <postgres_hub_>`_ and
+`PostGIS <postgis_hub_>`_ Docker images.
 The Oracle version is based on the
 *Oracle Database Enterprise Edition* images available from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
@@ -31,8 +25,6 @@ When designing the images we tried to stay as close as possible to the behavior 
 the base images and the :ref:`3DCityDB Shell scripts <3dcitydb_shell_scripts>`.
 Thus, all configuration options you may be used to from the base images are
 available for the 3DCityDB Docker images as well.
-
-.. _citydb_docker_synopsis:
 
 *******************************************************************************
 Synopsis
@@ -117,7 +109,7 @@ PostgreSQL/PostGIS images
 ===============================================================================
 
 The PostgreSQL/PostGIS images are available from
-`3DCityDB Dockerhub <https://hub.docker.com/r/3dcitydb/3dcitydb-pg>`_ and
+`3DCityDB DockerHub <https://hub.docker.com/r/3dcitydb/3dcitydb-pg>`_ and
 can be pulled like this:
 
 .. code-block:: Shell
@@ -186,7 +178,7 @@ Oracle images
 ===============================================================================
 
 Due to Oracle licensing conditions we cannot offer Oracle images
-in a public repository like `DockerHub <https://hub.docker.com/>`_ at the
+in a public repository like DockerHub at the
 moment. However, you can easily build the images yourself. A detailed description
 of how to do that is available in :numref:`citydb_docker_oracle_build`.
 
@@ -268,8 +260,6 @@ the documentations of both images for much more configuration options.
 
 Oracle environment variables
 ===============================================================================
-
-.. todo:: Describe environment variables below.
 
 .. option:: DBUSER=<username>
 
@@ -393,6 +383,12 @@ and accept the licensing conditions first:
 After the build process has finished, you are ready to use the image
 (see :numref:`citydb_docker_config` and :numref:`citydb_docker_config_oracle`)
 or push it to a **private** Docker repository.
+
+
+.. Links ----------------------------------------------------------------------
+
+.. _postgres_hub: https://github.com/docker-library/postgres/
+.. _postgis_hub: https://github.com/postgis/docker-postgis/
 
 .. Images ---------------------------------------------------------------------
 
