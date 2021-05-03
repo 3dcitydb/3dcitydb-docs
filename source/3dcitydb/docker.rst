@@ -26,9 +26,7 @@ the base images and the :ref:`3DCityDB Shell scripts <3dcitydb_shell_scripts>`.
 Thus, all configuration options you may be used to from the base images are
 available for the 3DCityDB Docker images as well.
 
-*******************************************************************************
-Synopsis
-*******************************************************************************
+.. rubric:: Synopsis
 
 .. code-block:: bash
   :name: citydb_docker_code_synopsis_psql
