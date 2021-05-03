@@ -54,9 +54,9 @@ Synopsis
       -e SRID=<EPSG code> \
       [-e HEIGHT_EPSG=<EPSG code>] \
       [-e GMLSRSNAME=<mySrsName>] \
-      [-e ORACLE_PDB=<???>] \
-      [-e DBVERSION=<???>] \
-      [-e VERSIONING=<???>] \
+      [-e ORACLE_PDB=<pluggable database name>] \
+      [-e DBVERSION=<oracle license option>] \
+      [-e VERSIONING=<version-enabled>] \
     3dcitydb/3dcitydb-oracle
 
 .. _citydb_docker_image_variants:
@@ -263,24 +263,27 @@ Oracle environment variables
 
 .. option:: DBUSER=<username>
 
-  **Mandatroy:** Sets the name for the database user.
-
+  The database user name of the 3DCityDB instance to be created. The default value
+  is 'citydb'.
 
 .. option:: ORACLE_PWD=<password>
 
-  **Mandatroy:** Sets the password for the database connection.
+  The database password of the 3DCityDB instance to be created. This variable is mandatory.
 
-.. option:: ORACLE_PDB=<???>
+.. option:: ORACLE_PDB=<pluggable database name>
 
-  **TODO**
+  set the name of the pluggable database (PDB) that should be used (default: 'ORCLPDB1').
+  Requires Oracle 12c or higher.
 
-.. option:: DBVERSION=<???>
+.. option:: DBVERSION=<oracle license option>
 
-  **TODO**
+  'S' (default value) or 'L' to choose the Oracle Spatial or Locator license option for
+  the 3DCityDB instance to be created.
 
-.. option:: VERSIONING=<???>
+.. option:: VERSIONING=<version-enabled>
 
-  **TODO**
+  'yes' or 'no' (default value) to specify whether the 3DCityDB instance should be versioned-enabled
+  based on the Oracle’s Workspace Manager.
 
 .. _citydb_docker_build:
 
