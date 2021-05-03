@@ -94,7 +94,8 @@ versions.
     - |ora-size-edge|
 
 The **edge** images are automatically built and published on every push to the
-*master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb>`_
+*master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb/
+3dcitydb>`_
 using the latest stable version of the base images.
 The **latest** and **release** (e.g. ``4.1.0``) image versions  are only built
 when a new release is published on Github. The **latest** tag will point to
