@@ -7,7 +7,7 @@
 .. image:: ../media/citydb_docker_logo.png
   :width: 80 px
   :align: right
-  :alt: 3D City Datbase on Docker
+  :alt: 3D City Database on Docker
 
 The 3DCityDB Docker images are available for *PostgreSQL/PostGIS* and *Oracle*.
 The PostgreSQL/PostGIS version is based on the official
@@ -120,7 +120,7 @@ The image tags are compose of the *base image version*, the
 ``<base image version>-<3DCityDB version>-<image variant>``.
 The base image version is inherited
 from the `PostGIS Docker images <https://hub.docker.com/r/postgis/postgis/tags>`_.
-Debian is the default image variant, where no image varaint is appended to the
+Debian is the default image variant, where no image variant is appended to the
 tag. For the Alpine Linux images ``-alpine`` is appended. Currently supported
 base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
 
@@ -193,7 +193,7 @@ flag of `docker run <https://docs.docker.com/engine/reference/run/#env-
 environment-variables>`_. The 3DCityDB Docker images introduce the variables
 :option:`SRID`, :option:`HEIGHT_EPSG` and :option:`GMLSRSNAME`. Their behavior
 is described here.
-Fruthermore, some variables inherited from the base images offer important
+Furthermore, some variables inherited from the base images offer important
 configuration options, they are described separately for the
 :ref:`PostgreSQL/PostGIS <citydb_docker_config_psql>` and
 :ref:`Oracle <citydb_docker_config_oracle>` image variants.
@@ -253,7 +253,7 @@ the documentations of both images for much more configuration options.
 
   If set, `PostGIS SFCGAL <http://www.sfcgal.org/>`_ support is
   enabled. **Note:** SFCGAL is currently only available in the Debian image variant.
-  Setting the variable on Apline images will have no effect.
+  Setting the variable on Alpine images will have no effect.
 
 .. _citydb_docker_config_oracle:
 

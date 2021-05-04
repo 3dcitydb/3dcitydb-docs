@@ -65,7 +65,7 @@ The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
   docker pull 3dcitydb/impexp:TAG
 
 The image *tag* is composed of the Importer/Exporter version and the image
-variant. Debian is the default image variant, where no image varaint is
+variant. Debian is the default image variant, where no image variant is
 appended to the tag. For the Alpine Linux images ``-alpine`` is appended.
 The full list of available tags can be found on `DockerHub <https://hub.
 docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated>`_.
@@ -128,7 +128,7 @@ set correctly.
 For security reasons (see `here <https://docs.docker.com/develop/develop-images
 /dockerfile_best-practices/#user>`_) the Importer/Exporter runs as non-root user
 by default inside the container.
-The default user is named ``impexp`` with user and group identifer (uid, gid)
+The default user is named ``impexp`` with user and group identifier (uid, gid)
 = ``1000``.
 
 .. code-block:: console
