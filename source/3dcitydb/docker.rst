@@ -17,7 +17,7 @@ The Oracle version is based on the
 *Oracle Database Enterprise Edition* images available from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
 The images described here are available for 3DCityDB version ``v4.1.0`` and newer.
-Older images, are available from
+Images for older 3DCityDB versions are available from
 `TUM-GIS 3DCityDB Docker images <https://github.com/tum-gis/
 3dcitydb-docker-postgis>`_.
 
@@ -30,7 +30,7 @@ available for the 3DCityDB Docker images as well.
 
 .. code-block:: bash
   :name: citydb_docker_code_synopsis_psql
-  :caption: 3DCityDB Docker PostgreSQL/PostGIS synopsis
+  :caption: Synopsis 3DCityDB Docker PostgreSQL/PostGIS
 
   docker run --name 3dciytdb -port 5432:5432 -d \
       -e POSTGRES_PASSDWORD=<theSecretPassword> \
@@ -44,7 +44,7 @@ available for the 3DCityDB Docker images as well.
 
 .. code-block:: bash
   :name: citydb_docker_code_synopsis_oracle
-  :caption: 3DCityDB Oracle synopsis
+  :caption: Synopsis 3DCityDB Oracle
 
   docker run --name 3dciytdb -port 5432:5432 -d \
       -e ORACLE_USER=<theUserName> \
@@ -194,7 +194,7 @@ environment-variables>`_. The 3DCityDB Docker images introduce the variables
 :option:`SRID`, :option:`HEIGHT_EPSG` and :option:`GMLSRSNAME`. Their behavior
 is described here.
 Fruthermore, some variables inherited from the base images offer important
-configuration options, they are separately for the
+configuration options, they are described separately for the
 :ref:`PostgreSQL/PostGIS <citydb_docker_config_psql>` and
 :ref:`Oracle <citydb_docker_config_oracle>` image variants.
 
@@ -267,22 +267,23 @@ Oracle environment variables
 
 .. option:: ORACLE_PWD=<password>
 
-  The database password of the 3DCityDB instance to be created. This variable is mandatory.
+  The database password of the 3DCityDB instance to be created. This variable is
+  mandatory.
 
 .. option:: ORACLE_PDB=<pluggable database name>
 
-  set the name of the pluggable database (PDB) that should be used (default: 'ORCLPDB1').
-  Requires Oracle 12c or higher.
+  set the name of the pluggable database (PDB) that should be used (default:
+  'ORCLPDB1'). Requires Oracle 12c or higher.
 
 .. option:: DBVERSION=<oracle license option>
 
-  'S' (default value) or 'L' to choose the Oracle Spatial or Locator license option for
-  the 3DCityDB instance to be created.
+  'S' (default value) or 'L' to choose the Oracle Spatial or Locator license
+  option for the 3DCityDB instance to be created.
 
 .. option:: VERSIONING=<version-enabled>
 
-  'yes' or 'no' (default value) to specify whether the 3DCityDB instance should be versioned-enabled
-  based on the Oracle’s Workspace Manager.
+  'yes' or 'no' (default value) to specify whether the 3DCityDB instance should be
+  versioned-enabled based on the Oracle's Workspace Manager.
 
 .. _citydb_docker_build:
 
@@ -296,7 +297,7 @@ be used to set the tag of the base image that is used.
 
 .. option:: BASEIMAGE_TAG=<tag of the base image>
 
-  Tag of the base image that is used for the build. Available tags are can be
+  Tag of the base image that is used for the build. Available tags can be
   found on DockerHub for the `PostgreSQL/PostGIS images <https://registry.hub.
   docker.com/r/postgis/postgis/tags?page=1&ordering=last_updated>`_ and in
   the `Oracle container registry <https://container-registry.oracle.com>`_.
@@ -362,7 +363,7 @@ and accept the licensing conditions first:
 
     docker login container-registry.oracle.com
 
-5. Clone the 3DCityDB repository and navigate to the ``orcle`` folder in the
+5. Clone the 3DCityDB repository and navigate to the ``oracle`` folder in the
    repo:
 
   .. code-block:: bash
@@ -378,9 +379,9 @@ and accept the licensing conditions first:
     docker build -t 3dcitydb/3dcitydb-oracle .
 
     # or with a specific base image tag
-    docker build -t 3dcitydb/3dcitydb-oracle \
-        --build-arg BASEIMAGE_TAG=19.3.0.0 \
-      .
+    docker build . \
+      -t 3dcitydb/3dcitydb-oracle \
+      --build-arg BASEIMAGE_TAG=19.3.0.0
 
 After the build process has finished, you are ready to use the image
 (see :numref:`citydb_docker_config` and :numref:`citydb_docker_config_oracle`)
