@@ -29,6 +29,7 @@ please refer to :numref:`first_steps_system_requirements_chapter` .
    preferences
    map-window
    cli
+   docker
 
 .. hint::
   The Importer/Exporter also serves as reference implementation for the

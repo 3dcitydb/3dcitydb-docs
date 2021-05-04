@@ -22,3 +22,4 @@ database-side implementation and work with the 3D City Database.
    define-crs
    multi-schema
    sproc/index
+   docker

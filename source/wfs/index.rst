@@ -39,3 +39,4 @@ future releases.
    configuration/index
    functionality/index
    wfs-web-client
+   docker
