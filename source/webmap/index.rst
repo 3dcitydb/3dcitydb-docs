@@ -41,6 +41,7 @@ the web.
    dtm-integration
    selection
    mobile-support
+   docker
 
 .. figure:: /media/webmap_exampe_displaying_citygml_features_fig.png
    :name: pic_3d_web_map_railway
@@ -49,4 +50,3 @@ the web.
    Screenshot showing the example of displaying different
    CityGML top-level features (building, bridge, tunnel, water, vegetation,
    transportation etc.) in glTF format in the 3D web client
-
