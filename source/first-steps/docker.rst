@@ -37,11 +37,11 @@ suite:
 All images are available from
 `3DCityDB DockerHub <https://hub.docker.com/orgs/3dcitydb>`_.
 
-`Docker Compose <https://hub.docker.com/u/tumgis/>`_ files are available
-for orchestrating the individual services. This allows for example,
-that a single command call can be used to create a 3DCityDB linked to a
-3DCityDB WFS, which makes the data from the database accessible via a
-standardized web interface.
+.. `Docker Compose <https://hub.docker.com/u/tumgis/>`_ files are available
+.. for orchestrating the individual services. This allows for example,
+.. that a single command call can be used to create a 3DCityDB linked to a
+.. 3DCityDB WFS, which makes the data from the database accessible via a
+.. standardized web interface.
 
 *******************************************************************************
 Getting started
@@ -104,7 +104,7 @@ available :ref:`here <impexp_cli_chapter>`.
    docker run -i -t --name impexp --rm \
      -u $(id -u):$(id -g) \
      -v /local/share/dir:/share \
-   3dcitydb/impexp COMMAND OPTS ARGS
+   3dcitydb/impexp COMMAND
 
 Use the ``help`` command to see the CLI documentation and list all available commands:
 
