@@ -57,6 +57,13 @@ The **latest** and **release** (e.g. ``4.3.0``) image versions  are only built
 when a new release is published on Github. The **latest** tag will point to
 the most recent release version, e.g. ``latest = 4.3.0``.
 
+.. warning:: The automatic built process of the images is  work in progress
+  at the release time of ``v4.3.0``. This affects the **edge** image, which
+  is currently not guaranteed to be in sync with the code on the
+  *master* branch.  We will remove this warning as soon as this feature
+  is operational. If you require an image including the latest code,
+  build you own image, as described in :numref:`impexp_docker_build`.
+
 The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
 3dcitydb/>`_ and can be pulled like this:
 
@@ -160,6 +167,15 @@ switch.
 *******************************************************************************
 Build own images
 *******************************************************************************
+
+.. warning:: At the release time of
+  `v4.3.0 <https://github.com/3dcitydb/importer-exporter/tree/v4.3.0>`_ of the
+  3DCityDB Importer/Exporter   the Github repo does not jet contain  the
+  ``Dockerfiles`` required for the build process described in this section.
+  For now, please checkout the `docker <https://github.com/3dcitydb/importer-
+  exporter/tree/docker>`_ branch if you want to build images on your own.
+  We will update this warning, when this branch has been merged to *master*
+  and no longer exists.
 
 3DCityDB Importer/Exporter image are easily built on your own. The images
 support two build args:
