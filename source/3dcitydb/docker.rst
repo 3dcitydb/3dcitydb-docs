@@ -468,7 +468,7 @@ that may help to increase database performance.
 .. edge
 
 .. |psql-deb-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/3dcitydb/psql-docker-build-edge?label=Debian&
+  3dcitydb/3dcitydb/psql-docker-build-push-edge?label=Debian&
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
@@ -477,7 +477,7 @@ that may help to increase database performance.
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
 .. |psql-alp-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/3dcitydb/psql-docker-build-edge?label=Alpine&
+  3dcitydb/3dcitydb/psql-docker-build-push-edge?label=Alpine&
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
