@@ -32,7 +32,7 @@ available for the 3DCityDB Docker images as well.
   :name: citydb_docker_code_synopsis_psql
   :caption: Synopsis 3DCityDB Docker PostgreSQL/PostGIS
 
-  docker run --name 3dciytdb -port 5432:5432 -d \
+  docker run --name 3dcitydb -port 5432:5432 -d \
       -e POSTGRES_PASSDWORD=<theSecretPassword> \
       -e SRID=<EPSG code> \
       [-e HEIGHT_EPSG=<EPSG code>] \
@@ -46,7 +46,7 @@ available for the 3DCityDB Docker images as well.
   :name: citydb_docker_code_synopsis_oracle
   :caption: Synopsis 3DCityDB Oracle
 
-  docker run --name 3dciytdb -port 5432:5432 -d \
+  docker run --name 3dcitydb -port 5432:5432 -d \
       -e ORACLE_USER=<theUserName> \
       -e ORACLE_PASSDWORD=<theSecretPassword> \
       -e SRID=<EPSG code> \
