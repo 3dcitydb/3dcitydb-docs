@@ -456,6 +456,49 @@ that may help to increase database performance.
        -c max_parallel_workers=8 \
        -c max_parallel_maintenance_workers=4
 
+*******************************************************************************
+Creating 3DCityDB Docker images including data
+*******************************************************************************
+
+.. note:: This section is currently work-in-progress.
+
+In general, it is not recommended to store data directly inside a Docker image...
+
+
+1. Start a 3DCityDB Docker container.
+
+  .. code-block:: bash
+
+    docker run -d --name citydb \
+      -e "PGDATA=/mydata" \
+      -e "POSTGRES_PASSWORD=changeMe!" \
+      -e "SRID=25832" \
+    3dcitydb/3dcitydb-pg:4.1.0-alpine
+
+2. Import data to the container. For this example we are use the
+   `LoD3 Railway dataset <https://github.com/3dcitydb/importer-exporter/raw/
+   92e08aa306611ee850e065bb542bb3d60791a54f/resources/samples/
+   Railway%20Scene/Railway_Scene_LoD3.zip>`_.
+
+  .. code-block:: bash
+
+    docker run -i -t --rm --name impexp \
+        --link citydb \
+        -v /d/temp:/data \
+      3dcitydb/impexp:edge-alpine import \
+        -H citydb \
+        -d postgres \
+        -u postgres \
+        -p changeMe! \
+        /data/building.gml
+
+3. Stop running 3DCityDB container commit 3DCityDB container to an image
+
+  .. code-block:: bash
+
+    docker stop citydb
+    docker commit citydb 3dcitydb/3dcitydb-pg:4.1.0-alpine-railwayScene_LoD3
+
 .. Links ----------------------------------------------------------------------
 
 .. _postgres_hub: https://github.com/docker-library/postgres/
