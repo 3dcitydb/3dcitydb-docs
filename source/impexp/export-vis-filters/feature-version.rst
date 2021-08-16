@@ -17,13 +17,22 @@ top-level features should be selected in a visualization export operation.
 
    Feature version filter for visualization export operations.
 
-The default option *Latest version* will only select those top-level features
-that have not been marked as terminated in the database and, thus, whose
-TERMINATION_DATE is ``null``. When switching to *Valid version*, you can specify that only
-features that were valid at a given timestamp or for a given time range should
-be considered. This is done by evaluating the CREATION_DATE and TERMINATION_DATE
-values in the database against the specified filter values. For example,
-you can use *Valid version* to create a visualization of a past status of your 3D city model
+The different feature version options available from the drop-down list are described below.
+
+.. list-table:: Overview of the different feature version options
+   :name: vis_export_feature_versions_table
+   :widths: 20 80
+
+   * - | **Feature Version**
+     - | **Description**
+   * - | ``Latest version``
+     - | Selects top-level features that are **not** marked as terminated in the database and, thus, whose TERMINATION_DATE attribute is ``null``.
+   * - | ``Valid version``
+     - | Selects top-level features that were valid *at a given timestamp* or *for a given time range*. The filter is evaluated against the CREATION_DATE and TERMINATION_DATE attributes.
+   * - | ``Terminated version``
+     - | Selects only *terminated* top-level features. You can choose to either select *all* terminated features or only those that were terminated *at a given timestamp*. The filter is evaluated against the TERMINATION_DATE attribute.
+
+For example, you can use *Valid version* to create a visualization of a past status of your 3D city model
 (e.g., at *March 1st, 2018*) and compare it to a visualization of the current version.
 
 .. note::
