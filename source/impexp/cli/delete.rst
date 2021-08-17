@@ -133,19 +133,21 @@ the 3D City Database.
 .. option:: -r, --feature-version=<version>
 
    Specify the version of the top-level features to use for the delete operation. Allowed values are
-   ``latest``, ``at``, ``between``, and ``all``. When choosing ``latest``, only those features that have
-   not been terminated in the database are deleted, whereas ``all`` will delete all features.
-   You can also choose to delete only features that were valid at a given timestamp using ``at``
-   or for a given time range using ``between``. In both cases, the timestamps must be
-   provided using the :option:`--feature-version-timestamp` option.
+   ``latest``, ``at``, ``between``, ``terminated``, ``terminated_at`` and ``all``. When choosing
+   ``latest``, only those features that have not been terminated in the database are deleted,
+   whereas ``all`` will delete all features. You can also choose to delete only features that were
+   valid at a given timestamp using ``at`` or for a given time range using ``between``. Likewise,
+   ``terminated`` will delete all terminated features whereas ``terminated_at`` will select features that
+   were terminated at a given timestamp. In all cases, timestamps must be provided using the
+   :option:`--feature-version-timestamp` option.
 
 .. option:: -R, --feature-version-timestamp=<timestamp[,timestamp]>
 
    One or two timestamps to be used with the :option:`--feature-version` option. A
    timestamp can be given as date in the form ``YYYY-MM-DD`` or as date-time specified as
    ``YYYY-MM-DDThh:mm:ss[(+|-)hh:mm``. The date-time format supports an optional
-   UTC offset. Use one timestamp with the ``at`` value and two timestamps separated by comma
-   with the ``between`` value of the :option:`--feature-version` option.
+   UTC offset. Use one timestamp with the ``at`` and ``terminated_at`` values and two timestamps
+   separated by comma with the ``between`` value of the :option:`--feature-version` option.
 
 .. option:: -i, --resource-id=<id>[,<id>...]
 
