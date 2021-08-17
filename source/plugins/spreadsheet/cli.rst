@@ -8,14 +8,16 @@ Command-line interface
    impexp export-table [-hV] [--ade-extensions=<folder>] [-c=<file>]
                        [-D=<char>] -l=<file> [--log-file=<file>]
                        [--log-level=<level>] -o=<file> [--pid-file=<file>]
-                       [--plugins=<folder>] [[[-t=<[prefix:]name>[,<
-                       [prefix:]name>...]]... [--namespace=<prefix=name>[,
-                       <prefix=name>...]]...] [-r=<version> [-R=<timestamp[,
-                       timestamp]>]] [-i=<id>[,<id>...] [-i=<id>[,
-                       <id>...]]...] [-b=<minx,miny,maxx,maxy[,srid]>]
-                       [-s=<select>]] [[-T=<database>] -H=<host>
-                       [-P=<port>] -d=<name> [-S=<schema>] -u=<name> [-p
-                       [=<password>]]] [@<filename>...]
+                       [--plugins=<folder>] [--use-plugin=<plugin
+                       [=true|false]>[,<plugin[=true|false]>...]]... [[[-t=<
+                       [prefix:]name>[,<[prefix:]name>...]]...
+                       [--namespace=<prefix=name>[,<prefix=name>...]]...]
+                       [[-r=<version>] [-R=<timestamp[,timestamp]>]]
+                       [-i=<id>[,<id>...] [-i=<id>[,<id>...]]...] [-b=<minx,
+                       miny,maxx,maxy[,srid]>] [-s=<select>]]
+                       [[-T=<database>] -H=<host> [-P=<port>] -d=<name>
+                       [-S=<schema>] -u=<name> [-p[=<password>]]]
+                       [@<filename>...]
 
 **Description**
 
@@ -71,20 +73,22 @@ the 3D City Database.
 .. option:: -r, --feature-version=<version>
 
    Specify the version of the top-level features to use for the export. Allowed values are
-   ``latest``, ``at``, ``between``, and ``all``. When choosing ``latest``, only those features that have
-   not been terminated in the database are exported, whereas ``all`` will export all features.
-   You can also choose to export only features that were valid at a given timestamp using ``at``
-   or for a given time range using ``between``. In both cases, the timestamps must be
-   provided using the :option:`--feature-version-timestamp` option. Further details about
-   the feature version filter are available in :numref:`impexp_export_feature_version_filter`.
+   ``latest``, ``at``, ``between``, ``terminated``, ``terminated_at`` and ``all``. When choosing
+   ``latest``, only those features that have not been terminated in the database are exported,
+   whereas ``all`` will export all features. You can also choose to export only features that were
+   valid at a given timestamp using ``at`` or for a given time range using ``between``. Likewise,
+   ``terminated`` will return all terminated features whereas ``terminated_at`` will select features that
+   were terminated at a given timestamp. In all cases, timestamps must be provided using the
+   :option:`--feature-version-timestamp` option. Further details about the feature version filter
+   are available in :numref:`impexp_plugin_spshg_feature_version_filter`.
 
 .. option:: -R, --feature-version-timestamp=<timestamp[,timestamp]>
 
    One or two timestamps to be used with the :option:`--feature-version` option. A
    timestamp can be given as date in the form ``YYYY-MM-DD`` or as date-time specified as
    ``YYYY-MM-DDThh:mm:ss[(+|-)hh:mm``. The date-time format supports an optional
-   UTC offset. Use one timestamp with the ``at`` value and two timestamps separated by comma
-   with the ``between`` value of the :option:`--feature-version` option.
+   UTC offset. Use one timestamp with the ``at`` and ``terminated_at`` values and two timestamps
+   separated by comma with the ``between`` value of the :option:`--feature-version` option.
 
 .. option:: -i, --resource-id=<id>[,<id>...]
 

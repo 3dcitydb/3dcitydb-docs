@@ -10,20 +10,22 @@ Delete command
    impexp delete [-hvV] [--ade-extensions=<folder>] [-c=<file>]
                  [--delete-log=<file>] [--log-file=<file>]
                  [--log-level=<level>] [-m=<mode>] [--pid-file=<file>]
-                 [--plugins=<folder>] [[-g]] [[--lineage=<lineage>]
-                 [--updating-person=<name>] [--reason-for-update=<reason>]]
-                 [[[-t=<[prefix:]name>[,<[prefix:]name>...]]...
-                 [--namespace=<prefix=name>[,<prefix=name>...]]...]
-                 [-r=<version> [-R=<timestamp[,timestamp]>]] [-i=<id>[,
-                 <id>...] [-i=<id>[,<id>...]]...] [--db-id=<id>[,<id>...]
-                 [--db-id=<id>[,<id>...]]...] [-b=<minx,miny,maxx,maxy[,
-                 srid]> [--bbox-mode=<mode>]] [[--count=<count>]
-                 [--start-index=<index>]] [-s=<select>] [-q=<xml>]]
-                 [-f=<file> [--delete-list-encoding=<encoding>] [-n=<name>]
-                 [-I=<index>] [-C=<type>] [--[no-]header] [-D=<string>]
-                 [-Q=<char>] [--quote-escape=<char>] [-M=<char>] [-w]]
-                 [[-T=<database>] -H=<host> [-P=<port>] -d=<name>
-                 [-S=<schema>] -u=<name> [-p[=<password>]]] [@<filename>...]
+                 [--plugins=<folder>] [--use-plugin=<plugin[=true|false]>[,
+                 <plugin[=true|false]>...]]... [[-g]]
+                 [[--lineage=<lineage>] [--updating-person=<name>]
+                 [--reason-for-update=<reason>]] [[[-t=<[prefix:]name>[,<
+                 [prefix:]name>...]]... [--namespace=<prefix=name>[,
+                 <prefix=name>...]]...] [[-r=<version>] [-R=<timestamp[,
+                 timestamp]>]] [-i=<id>[,<id>...] [-i=<id>[,<id>...]]...]
+                 [--db-id=<id>[,<id>...] [--db-id=<id>[,<id>...]]...]
+                 [-b=<minx,miny,maxx,maxy[,srid]> [--bbox-mode=<mode>]]
+                 [[--count=<count>] [--start-index=<index>]] [-s=<select>]
+                 [-q=<xml>]] [-f=<file> [-w] [[-C=<type>] [[-n=<name>]
+                 [-I=<index>] [--[no-]header] [-D=<string>] [-Q=<char>]
+                 [--quote-escape=<char>] [-M=<char>]
+                 [--csv-encoding=<encoding>]]]] [[-T=<database>] -H=<host>
+                 [-P=<port>] -d=<name> [-S=<schema>] -u=<name> [-p
+                 [=<password>]]] [@<filename>...]
 
 **Description**
 

@@ -11,7 +11,8 @@ Import command
                  [--import-log=<file>] [--input-encoding=<encoding>]
                  [--log-file=<file>] [--log-level=<level>]
                  [--pid-file=<file>] [--plugins=<folder>]
-                 [--worker-threads=<threads[,max]>]
+                 [--use-plugin=<plugin[=true|false]>[,<plugin[=true|false]
+                 >...]]... [--worker-threads=<threads[,max]>]
                  [[--creation-date=<mode>] [--termination-date=<mode>]
                  [--lineage=<lineage>] [--updating-person=<name>]
                  [--reason-for-update=<reason>] [--use-metadata-from-file]]
@@ -19,10 +20,12 @@ Import command
                  [--namespace=<prefix=name>[,<prefix=name>...]]...] [-i=<id>
                  [,<id>...] [-i=<id>[,<id>...]]...] [-b=<minx,miny,maxx,maxy
                  [,srid]> [--bbox-mode=<mode>]] [[--count=<count>]
-                 [--start-index=<index>]] [[--no-appearance]]]
-                 [[-T=<database>] -H=<host> [-P=<port>] -d=<name>
-                 [-S=<schema>] -u=<name> [-p[=<password>]]]
-                 [@<filename>...] <file>...
+                 [--start-index=<index>]] [[--no-appearance]]] [-f=<file>
+                 [-m=<mode>] [-w] [[-n=<name>] [-I=<index>] [--[no-]header]
+                 [-D=<string>] [-Q=<char>] [--quote-escape=<char>]
+                 [-M=<char>] [--csv-encoding=<encoding>]]] [[-T=<database>]
+                 -H=<host> [-P=<port>] -d=<name> [-S=<schema>] -u=<name> [-p
+                 [=<password>]]] [@<filename>...] <file>...
 
 **Description**
 

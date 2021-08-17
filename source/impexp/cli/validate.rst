@@ -10,7 +10,8 @@ Validate command
    impexp validate [-hV] [--ade-extensions=<folder>] [-c=<file>]
                    [--log-file=<file>] [--log-level=<level>]
                    [--pid-file=<file>] [--plugins=<folder>]
-                   [@<filename>...] <file>...
+                   [--use-plugin=<plugin[=true|false]>[,<plugin[=true|false]
+                   >...]]... [@<filename>...] <file>...
 
 **Description**
 

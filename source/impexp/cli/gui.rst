@@ -9,7 +9,8 @@ GUI command
 
    impexp gui [-hV] [--no-splash] [--ade-extensions=<folder>] [-c=<file>]
               [--log-file=<file>] [--log-level=<level>] [--pid-file=<file>]
-              [--plugins=<folder>] [@<filename>...]
+              [--plugins=<folder>] [--use-plugin=<plugin[=true|false]>[,
+              <plugin[=true|false]>...]]... [@<filename>...]
 
 **Description**
 

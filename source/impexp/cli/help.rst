@@ -9,7 +9,9 @@ Help command
 
    impexp help [-h] [--ade-extensions=<folder>] [-c=<file>]
                [--log-file=<file>] [--log-level=<level>]
-               [--pid-file=<file>] [--plugins=<folder>] [COMMAND...]
+               [--pid-file=<file>] [--plugins=<folder>]
+               [--use-plugin=<plugin[=true|false]>[,<plugin[=true|false]
+               >...]]... [COMMAND...]
 
 **Description**
 
