@@ -180,8 +180,9 @@ you want to execute.
 
 .. option:: --use-plugin=<plugin[=true|false]>[,<plugin[=true|false]>...]
 
-   Comma-separated list of plugins that shall be enabled (default) or disabled on startup.
-   Use the fully qualified class name of the plugin to uniquely identify it.
+   Comma-separated list of plugins that shall be enabled (default: ``true``) or disabled
+   (``false``) on startup. Use the fully qualified class name of the plugin to uniquely identify it.
+   Disabling unnecessary plugins can increase performance.
 
 .. option:: --ade-extensions=<folder>
 
