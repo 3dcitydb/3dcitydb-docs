@@ -66,12 +66,16 @@ the header line. The meaning of the fields is as follows.
 The last line of each import log is a footer that contains metadata
 about whether the import was *successfully finished* or *aborted*.
 
-.. note::
-  If an import process was aborted by the user or due to
+.. hint::
+  If an import process was aborted by the user or fails due to
   errors, the import log file can also be used to automatically
-  delete the features that were imported until the process terminated.
-  Simply use the ``delete`` command of the Importer/Exporter command-line
-  interface for this purpose. You can directly feed CSV files like the import log
-  to this command to delete all features listed in the CSV file (see
-  :numref:`impexp_cli_delete_command` for more information). This way, you can
-  ensure a consistent database state even if an import process fails.
+  **resume** or **rollback** the import operation. Thus, it
+  helps you to ensure a consistent database state.
+
+  - To **resume** the import, you can use the import log as input for the *import list filter*
+    and set the filter to *skip* all city objects from the list (see
+    :numref:`impexp_import_list_filter`). When you re-run the import with these settings,
+    only the city objects that have not been processed in the first run will be imported.
+  - A **rollback** can be achieved by feeding the import log as delete list to
+    the ``delete`` command of the Importer/Exporter command-line interface (see
+    :numref:`impexp_cli_delete_command`).

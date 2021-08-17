@@ -7,6 +7,7 @@ Import
    :hidden:
 
    import-filters/attribute
+   import-filters/import-list
    import-filters/feature-counter
    import-filters/bbox
    import-filters/feature-type
@@ -51,7 +52,7 @@ The import operation supports the following file formats and extensions:
    * - | **ZIP archives**
      - | \*.zip
 
-The files formats are mainly detected based on the file extension, so please
+The file formats are mainly detected based on the file extension, so please
 make sure to use one of the supported file extensions from :numref:`import_supported_file_formats`.
 ZIP archives are recursively scanned for contained CityGML and CityJSON
 files. Additional files referenced from the CityGML/CityJSON files such as texture images
@@ -76,6 +77,7 @@ city objects that are to be imported from the input files [2]. The
 following filters are offered and discussed in separate sections of this chapter:
 
 - :numref:`%s <impexp_import_attribute_filter>` :ref:`impexp_import_attribute_filter`
+- :numref:`%s <impexp_import_list_filter>` :ref:`impexp_import_list_filter`
 - :numref:`%s <impexp_import_feature_counter_filter>` :ref:`impexp_import_feature_counter_filter`
 - :numref:`%s <impexp_import_bbox_filter>` :ref:`impexp_import_bbox_filter`
 - :numref:`%s <impexp_import_feature_types_filter>` :ref:`impexp_import_feature_types_filter`
