@@ -67,7 +67,7 @@ The last line of each import log is a footer that contains metadata
 about whether the import was *successfully finished* or *aborted*.
 
 .. hint::
-  If an import process was aborted by the user or fails due to
+  If an import process was aborted by the user or failed due to
   errors, the import log file can also be used to automatically
   **resume** or **rollback** the import operation. Thus, it
   helps you to ensure a consistent database state.
