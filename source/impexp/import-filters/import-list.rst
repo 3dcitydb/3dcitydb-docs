@@ -12,7 +12,7 @@ imported or skipped during import.
 
    Import list filter for import operations.
 
-Import lists are simple comma-separated values (CSV) files that contains the
+Import lists are simple comma-separated values (CSV) files that contain the
 identifiers of the city objects to be imported or skipped. Each identifier
 must be put on a separate line (row) of the file, and each line may contain additional
 values (columns) separated by a delimiter (typically a single reserved character such
