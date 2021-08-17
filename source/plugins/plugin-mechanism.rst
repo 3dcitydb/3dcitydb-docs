@@ -1,3 +1,5 @@
+.. _impexp_plugin_mechanism_chapter:
+
 Introduction to the plugin mechanism
 ------------------------------------
 
@@ -22,7 +24,14 @@ put all plugin files into the ``plugins`` subfolder of the Importer/Exporter
 installation directory. To keep multiple plugins independent from each
 other, it is recommended to create a separate subfolder below ``plugins``
 for each plugin. When running the Importer/Exporter, the installed
-plugins are automatically detected and loaded with the application.
+plugins are automatically detected and loaded with the application. Changes
+to the ``plugins`` subfolder require a restart of the Importer/Exporter to
+become effective.
+
+Installed plugins can be enabled or disabled at runtime both using the
+graphical user interface of the Importer/Exporter and on the command line.
+Please refer to :numref:`impexp_general_preferences_plugins` and see :numref:`impexp_cli_chapter`
+for more details.
 
 The Importer/Exporter is shipped with two free
 and open-source plugins that can be installed during the setup process
