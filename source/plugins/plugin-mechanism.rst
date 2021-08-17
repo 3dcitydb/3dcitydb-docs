@@ -30,7 +30,7 @@ become effective.
 
 Installed plugins can be enabled or disabled at runtime both using the
 graphical user interface of the Importer/Exporter and on the command line.
-Please refer to :numref:`impexp_general_preferences_plugins` and see :numref:`impexp_cli_chapter`
+Please refer to :numref:`impexp_preferences_plugins` and see :numref:`impexp_cli_chapter`
 for more details.
 
 The Importer/Exporter is shipped with two free

@@ -1,4 +1,4 @@
-.. _impexp_general_preferences_plugins:
+.. _impexp_preferences_plugins:
 
 Plugins
 ^^^^^^^
