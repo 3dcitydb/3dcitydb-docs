@@ -236,10 +236,14 @@ of the delete list you want to use with the ``delete`` command.
 
    Specify the path to the delete list file to use in the delete operation.
 
-.. option:: --delete-list-encoding=<encoding>
+.. option:: -w, --delete-list-preview
 
-   Define the encoding of the delete list using a IANA-based character encoding name.
-   UTF-8 is assumed as default encoding.
+   Use this option to get a preview of the first few lines of the
+   delete list when applying the provided options for parsing
+   and interpreting the delete list. This preview is very helpful to adapt
+   and specify the delimiter character(s), quoting rules, header
+   information, identifier column name or index, etc. The
+   preview is printed to the console.
 
 .. option:: -n, --id-column-name=<name>
 
@@ -266,7 +270,7 @@ of the delete list you want to use with the ``delete`` command.
 .. option:: --[no-]header
 
    Define whether or not the delete list uses a header line. By default, the
-   delete operations assumes that the first line contains header information.
+   delete operation assumes that the first line contains header information.
 
 .. option:: -D, --delimiter=<string>
 
@@ -293,14 +297,10 @@ of the delete list you want to use with the ``delete`` command.
    thus, will be ignored. The default comment marker is ``#``.
    Only single characters are allowed as value.
 
-.. option:: -w, --delete-list-preview
+.. option:: --csv-encoding=<encoding>
 
-   Use this option to get a preview of the first few lines of the
-   delete list when applying the provided options for parsing
-   and interpreting the delete list. This preview is very helpful to adapt
-   and specify the delimiter character(s), quoting rules, header
-   information, identifier column name or index, etc. The
-   preview is printed to the console.
+   Define the encoding of the delete list using a IANA-based character encoding name.
+   UTF-8 is assumed as default encoding.
 
 .. include:: database-options.rst
 

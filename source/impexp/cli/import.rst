@@ -164,6 +164,82 @@ input file(s).
 
    Flag to indicate that appearances of the features shall not be imported.
 
+**Import list options**
+
+You can also pass an import list to the ``import`` command to control which
+city objects should be imported or skipped during import. Please refer to
+:numref:`impexp_import_list_filter` for a description of the import
+list filter. The following options let you define the layout and reserved characters
+of the import list.
+
+.. option:: -f, --import-list=<file>
+
+   Specify the path to the import list file to use in the import operation.
+
+.. option:: -m, --import-list-mode=<mode>
+
+   Specify the mode of the import list filter. Allowed values are ``import`` and
+   ``skip``. When choosing ``import``, only city objects having an identifier that
+   is contained in the import list will be imported. In ``skip`` mode, matching city objects
+   will not be imported. The default mode is ``import``.
+
+.. option:: -w, --import-list-preview
+
+   Use this option to get a preview of the first few lines of the
+   import list when applying the provided options for parsing
+   and interpreting the import list. This preview is very helpful to adapt
+   and specify the delimiter character(s), quoting rules, header
+   information, identifier column name or index, etc. The
+   preview is printed to the console.
+
+.. option:: -n, --id-column-name=<name>
+
+   Name of the column that holds the identifier value. Using this option only makes
+   sense if the import list contains a header line. Otherwise, use the
+   :option:`--id-column-index` option to specify the column index.
+
+.. option:: -I, --id-column-index=<index>
+
+   Index of the column that holds the identifier value. The first column of a
+   row has the index 1. If this option is omitted, the value of the first column
+   of each row will be used as identifier by default. This option is mutually
+   exclusive with the :option:`--id-column-name` option (only specify one).
+
+.. option:: --[no-]header
+
+   Define whether or not the import list uses a header line. By default, the
+   import operation assumes that the first line contains header information.
+
+.. option:: -D, --delimiter=<string>
+
+   Specify the delimiter used for separating values in the import list.
+   By default, a comma ``,`` is assumed as delimiter. The provided delimiter
+   may consist of more than one character.
+
+.. option:: -Q, --quote=<char>
+
+   The values in the import list may be quoted (i.e., enclosed by a reserved
+   character). This option lets you define the character used as quote (default: ``"``).
+   Only single characters are allowed as value.
+
+.. option:: --quote-escape=<char>
+
+   If the import list contains quoted values, define the character used for
+   escaping embedded quote characters. The default escape character is ``"``.
+   Only single characters are allowed as value.
+
+.. option:: -M, --comment-marker=<char>
+
+   Specify the character used as comment marker in the import list. Any
+   line starting with this comment marker is interpreted as comment and,
+   thus, will be ignored. The default comment marker is ``#``.
+   Only single characters are allowed as value.
+
+.. option:: --csv-encoding=<encoding>
+
+   Define the encoding of the import list using a IANA-based character encoding name.
+   UTF-8 is assumed as default encoding.
+
 .. include:: database-options.rst
 
 **Examples**
@@ -208,3 +284,20 @@ them into a 3DCityDB running on Oracle. Only 10 features will be imported starti
 from the 20th feature in the set. Note that the connection is established with the
 user ``citydb_user`` but the data will be imported into the schema of the user
 ``other_user``. The ``citydb_user`` must therefore have been granted sufficient privileges.
+
+.. code-block:: bash
+
+   $ impexp import -H localhost -d citydb_v4 -p -u citydb_user \
+                   -f imported-features.log -m skip -I 2 \
+                   /my/city/model/files/
+
+Use an import list filter to *skip* all city objects from the input files in ``/my/city/model/files/``
+whose identifier matches a value from the import list ``imported-features.log``.
+The command uses default values for parsing and interpreting the import list except
+for the index of the column that holds the identifier values, which is set to 2.
+
+The above command has been chosen deliberately to illustrate how you can **resume** an
+import operation that was aborted or failed due to errors. Of course, you must have enabled
+import logs for this to work. The import log will contain the identifiers of those city objects
+that were successfully imported before the operation failed. Thus, by using the filter mode ``skip``
+they will be skipped when re-running the import operation with the above command.

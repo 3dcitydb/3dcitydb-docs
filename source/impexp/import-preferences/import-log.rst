@@ -74,7 +74,7 @@ about whether the import was *successfully finished* or *aborted*.
 
   - To **resume** the import, you can use the import log as input for the *import list filter*
     and set the filter to *skip* all city objects from the list (see
-    :numref:`impexp_import_list_filter`). When you re-run the import with these settings,
+    :numref:`impexp_import_list_filter`). When re-running the import with these settings,
     only the city objects that have not been processed in the first run will be imported.
   - A **rollback** can be achieved by feeding the import log as delete list to
     the ``delete`` command of the Importer/Exporter command-line interface (see

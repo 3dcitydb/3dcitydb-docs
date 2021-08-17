@@ -73,9 +73,9 @@ objects are either imported or skipped.
 
 One use case for this filter is when using import logs for the import operation
 (see :numref:`impexp_import_preferences_import_log`).
-Assume you start an import operation on a set of input files and the import fails after
+Assume you start an import operation on a set of input files and the import is aborted or fails after
 a certain amount of features. The import log will contain the identifiers of those city
-objects that were successfully imported before the operation failed. Thus, with this filter,
+objects that were successfully imported before the operation aborted. Thus, with this filter,
 you can easily resume the import after having fixed the issues that caused the failure.
 Since the import log is a CSV file, you can simply use it as import list and set the
 filter mode to *skip objects from the list*. When starting the import operation with
