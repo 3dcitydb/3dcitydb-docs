@@ -45,10 +45,8 @@ relational schemas extending the 3DCityDB schema and un-/registers such
 ADE schemas with existing 3DCityDB instances.
 
 You can also develop your own plugins. For this purpose, the
-Importer/Exporter comes with a *Plugin API* that is available as
-separate JAR file ``impexp-plugin-api-{version}.jar``. Simply put the JAR file
-on your classpath to start plugin development. A comprehensive *Plugin
-API* guide will be offered on the
-`www.3dcitydb.org <http://www.3dcitydb.org>`__ website soon. Moreover,
-the source codes of the *Spreadsheet Generator* *Plugin* and *ADE
+Importer/Exporter comes with a *Plugin API* that is available from
+the JAR file ``impexp-core-{version}.jar``. Simply put this JAR file
+on your classpath to start plugin development.
+The source codes of the *Spreadsheet Generator* *Plugin* and *ADE
 Manager Plugin* can be used as templates for your own developments.
