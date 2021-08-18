@@ -24,9 +24,10 @@ put all plugin files into the ``plugins`` subfolder of the Importer/Exporter
 installation directory. To keep multiple plugins independent from each
 other, it is recommended to create a separate subfolder below ``plugins``
 for each plugin. When running the Importer/Exporter, the installed
-plugins are automatically detected and loaded with the application. Changes
-to the ``plugins`` subfolder require a restart of the Importer/Exporter to
-become effective.
+plugins are automatically detected and loaded with the application. Uninstalling
+a plugin just requires to delete the folder containing all the plugin files
+from the ``plugins`` subfolder. Note that changes to the ``plugins`` subfolder
+require a restart of the Importer/Exporter to become effective.
 
 Installed plugins can be enabled or disabled at runtime both using the
 graphical user interface of the Importer/Exporter and on the command line.

@@ -14,11 +14,11 @@ or disable them. The dialog is only available if at least one plugin has been in
 
    Plugins overview and management.
 
-Simply browse through the list of plugins to display more information about each plugin. This information typically
-comprises the name of the plugin, its version and a brief description of its functionality. Plugin vendors may
-provide additional links to online resources such as the plugin homepage or a user manual. The *technical details*
-section contains implementation details of the plugin, which are useful in case you encounter issues and
-need support from the plugin maintainer.
+The installed plugins are presented in a list view. Simply browse through this list to display more information
+about each plugin. This information typically comprises the name of the plugin, its version and a brief description
+of its functionality. Plugin vendors may provide additional links to online resources such as the plugin homepage
+or a user manual. The *technical details* section contains implementation details of the plugin, which are useful
+in case you encounter issues and need support from the plugin maintainer.
 
 A plugin is enabled or disabled by ticking the checkbox in the list entry. Disabling unnecessary plugins can increase
 the performance of Importer/Exporter operations affected by the plugins.

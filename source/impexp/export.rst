@@ -188,7 +188,7 @@ The following table provides a summary overview.
    * - | :ref:`impexp_export_preferences_appearance_chapter`
      - | Defines whether appearance information should be exported.
    * - | :ref:`impexp_export_preferences_geometry`
-     - | Allows for applying an affine transformation to the output geometry.
+     - | Allows applying an affine transformation to all output geometries.
    * - | :ref:`impexp_export_preferences_citygml_general_chapter`
        | (CityGML only)
      - | General options affecting the CityGML export.
