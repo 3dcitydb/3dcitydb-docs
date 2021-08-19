@@ -7,9 +7,6 @@ The 3D City Database WFS is shipped as a Java WAR (web archive) file.
 Please download the WFS distribution package from the GitHub
 `release section <https://github.com/3dcitydb/web-feature-service/releases>`_
 or from the 3DCityDB website at https://www.3dcitydb.org.
-Besides the WAR file, the distribution package also contains Java libraries
-that render mandatory dependencies for the WFS service and that must be
-installed as shared libraries in your servlet container.
 
 .. note::
    Alternatively, you may build your own WAR file from the `source code <https://github.com/3dcitydb/web-feature-service>`_
@@ -17,36 +14,30 @@ installed as shared libraries in your servlet container.
    Java web applications from source using Gradle. No further documentation
    is provided here.
 
-Please follow the following installation steps:
+Please follow the following installation steps.
 
 | **Step 1: Install and properly configure your Java servlet container**
 | Please refer to the documentation of your servlet container for
- hints on installation and configuration. Make sure that the servlet
- container uses Java 8 (or higher) for running web applications.
+  hints on installation and configuration. Make sure that the servlet
+  container uses Java 8 (or higher) for running web applications.
 
-| **Step 2: Install the mandatory JAR libraries in your servlet container**
-| The WFS service requires mandatory JAR libraries to be available in
-  the servlet container. This mainly comprises JDBC libraries for
-  connecting to the database system running the 3D City Database instance.
-  The libraries are shipped with the distribution package and can be found
-  in the ``lib`` folder. The list of libraries will look like this:
+.. caution::
+   In contrast to previous versions, it is **no longer required** to install specific
+   Java libraries such as JDBC drivers as so-called *shared* or *common libs* in a
+   global context of your servlet container. All libraries required by the WFS are rather
+   **automatically** deployed locally in the ``WEB-INF/lib`` folder of the web application.
+   No further manual steps are needed.
 
-    -  ``ojdbc8-19.3.0.0.jar`` (Oracle JDBC driver)
+   If you update a previous version of the WFS, you can choose to uninstall the global
+   libraries of the previous version unless they are needed by another web application
+   running on your servlet container. For Apache Tomcat 7 (or higher), you can simply delete
+   the JAR files from the ``lib`` folder within the Tomcat installation directory after you have
+   shut down the server. Please refer to the user manual of your previous WFS version to learn
+   which JAR files need to be deleted. Uninstalling the global libraries is optional though
+   and may be skipped. More details on how to manage global libraries can be found in the
+   documentation of your servlet container.
 
-    -  ``postgresql-42.2.14.jar`` (PostgreSQL JDBC driver)
-
-    -  ``postgis-jdbc-2.5.0.jar`` (PostGIS JDBC extension)
-
-    -  ``postgis-geometry-2.5.0.jar`` (PostGIS geometry extension)
-
-The libraries must be installed as *shared libs* or *common libs*
-(terminology may differ) in your servlet container. For Apache Tomcat 7
-(or higher), this simply means placing the JAR files into the ``lib`` folder
-of the Tomcat installation directory. Afterwards, you need to restart
-Tomcat. Please refer to the documentation of your servlet container for
-more information.
-
-| **Step 3: Configure your servlet container (optional)**
+| **Step 2: Configure your servlet container (optional)**
 | Make sure that your servlet container has enough memory assigned
   (heap space ~ 1GB or more).
 
@@ -54,7 +45,7 @@ more information.
   You may, for instance, use the Java command-line option ``-Xms``
   for this purpose.
 
-| **Step 4: Deploy the WFS WAR file on your servlet container**
+| **Step 3: Deploy the WFS WAR file on your servlet container**
 | If your servlet container is correctly set up and configured, simply
   deploy the WAR file to install the WFS web service. Again, the way to
   deploy a WAR file varies for different servlet containers. For Apache
@@ -75,11 +66,11 @@ more information.
    will be ``http://[host][:port]/citydb-wfs/``. To pick a different context
    path, simply rename the WAR file or change Tomcat’s default behavior.
 
-| **Step 5: Configure the WFS service**
+| **Step 4: Configure the WFS service**
 | The WFS must be configured to meet your needs. For example, this
   includes providing connection details for the 3D City Database
   instance and the definition of the feature types that shall be served
-  through the interface. These settings must be manually edited in the
+  through the interface. These settings have to be manually edited in the
   configuration file ``config.xml`` of the service. Please check :numref:`wfs_configuration_chapter`
   for how to configure the WFS.
 
@@ -91,7 +82,7 @@ more information.
    Tomcat, you can simply use the *manager application* to reload web
    applications.
 
-| **Step 6: Install ADE extensions (optional)**
+| **Step 5: Install ADE extensions (optional)**
 | As a last step, you may install additional CityGML *ADE extensions*
   for the WFS. This step is optional and requires a compiled and
   ready-to-use ADE extension package. Simply copy the contents of the

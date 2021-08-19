@@ -3,8 +3,11 @@
 Operations settings
 ~~~~~~~~~~~~~~~~~~~
 
-The *operations* settings are used to define the operation-specific
-behavior of the WFS.
+The *operations* settings are used to define the WFS operations that shall
+be available to clients. The *Simple WFS* conformance class mandates that every WFS
+must at least support the operations *GetCapabilities*, *DescribeFeatureType*, *ListStoredQueries*,
+*DescribeStoredQueries* and the stored query *GetFeatureById*. These operations therefore have
+not to be explicitly listed in the ``<operations>`` element to be offered by the WFS.
 
 .. code-block:: xml
    :name: wfs_operation_settings_config_listing
@@ -14,12 +17,14 @@ behavior of the WFS.
        <method>KVP+XML</method>
        <useXMLValidation>true</useXMLValidation>
      </requestEncoding>
+     <GetPropertyValue isEnabled="true"/>
      <GetFeature>
        <outputFormats>
          <outputFormat name="application/gml+xml; version=3.1"/>
          <outputFormat name="application/json"/>
        </outputFormats>
      </GetFeature>
+     <ManageStoredQueries isEnabled="true"/>
    </operations>
 
 **Request encoding**
@@ -39,9 +44,7 @@ issues.
 
 **GetFeature operation**
 
-With this version of the WFS interface, the
-only operation that can be
-further configured is the ``<GetFeature>`` operation. You can choose the
+For the ``<GetFeature>`` operation, the ``<outputFormats>`` element lets you choose the
 available *output formats* that can be used in encoding the response to
 the client. The value “application/gml+xml; version=3.1” is the default
 and basically means that the response to a *GetFeature* operation will
@@ -58,7 +61,7 @@ is a JSON-based encoding of a subset of the CityGML data model.
 
 For CityGML, the following additional options are available.
 
-.. list-table::  Output format options for CityGML.
+.. list-table::  Output format options for CityGML
    :name: wfs_database_citygml_format_options_table
    :widths: 30 70
 
@@ -69,7 +72,7 @@ For CityGML, the following additional options are available.
 
 The CityJSON output format options are presented below.
 
-.. list-table::  Output format options for CityJSON.
+.. list-table::  Output format options for CityJSON
    :name: wfs_database_cityjson_format_options_table
    :widths: 30 70
 
@@ -79,8 +82,12 @@ The CityJSON output format options are presented below.
      - | Formats the JSON response document using additional line breaks and indentations (boolean true / false, default: false).
    * - | ``significantDigits``
      - | Maximum number of digits for vertices (integer, default: 3). Identical vertices are snapped.
+   * - | ``significantTextureDigits``
+     - | Maximum number of digits for texture coordinates (integer, default: 7). Identical texture coordinates are snapped.
    * - | ``transformVertices``
      - | Apply the CityJSON-specific compression (boolean true / false, default: false).
+   * - | ``addSequenceIdWhenSorting``
+     - | If the response document shall be sorted (by using a *fes:SortBy* expression), then this option allows for adding a sequenceId attribut to each CityJSON object that maps the sorting order. This is required because CityJSON itself does not support sorting (boolean true / false, default: false).
    * - | ``generateCityGMLMetadata``
      - | Adds an attribute called CityGMLMetadata that contains CityGML-specific metadata like the data types of generic attributes (boolean true / false, default: true).
    * - | ``removeDuplicateChildGeometries``
@@ -98,8 +105,28 @@ format options.
      <options>
        <option name="prettyPrint">true</option>
        <option name="significantDigits">5</option>
+       <option name="significantTextureDigits">5</option>
        <option name="transformVertices">true</option>
+       <option name="addSequenceIdWhenSorting">true</option>
        <option name="generateCityGMLMetadata">true</option>
        <option name="removeDuplicateChildGeometries">true</option>
      </options>
    </outputFormat>
+
+**GetPropertyValue operation**
+
+Per default, the *GetPropertyValue* operation is not offered by the WFS service.
+In order to make this operation available to clients, the *isEnabled* attribute
+of the ``<GetPropertyValue>`` element has to be set to true (default: false).
+
+**DescribeFeatureType operation**
+
+The ``<DescribeFeatureType>`` operation lets you define the list of supported ``<outputFormats>``
+similar to the *GetFeature* operation. This way you can enable clients to choose between
+the CityGML XML schemas or the CityJSON JSON schema for describing feature types.
+
+**Manage Stored Queries**
+
+To advertise the operations *CreateStoredQuery* and *DropStoredQuery* for the server-side
+management of stored queries, the element ``<ManageStoredQueries>`` has to be included and its
+attribute *isEnabled* has to be set to true (default: false).

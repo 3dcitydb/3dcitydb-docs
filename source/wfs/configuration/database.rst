@@ -5,13 +5,22 @@ Database settings
 
 The *database settings* define the *connection parameters* for
 connecting to the 3D City Database instance the WFS service should give
-access to. The contents of the ``<database>`` element are shown below.
+access to. Moreover, spatial reference systems (SRS) that shall be supported
+by the WFS server in addition to the reference system of the 3DCityDB
+have to defined here.The contents of the ``<database>`` element are shown below.
 
 .. code-block:: xml
    :name: wfs_config_listing
 
    <database>
-     <connection
+     <referenceSystems>
+       <referenceSystem id="WGS84">
+         <srid>4326</srid>
+         <gmlSrsName>http://www.opengis.net/def/crs/epsg/0/4326</gmlSrsName>
+         <description>WGS 84</description>
+       </referenceSystem>
+     </referenceSystems>
+      <connection
       initialSize="10"
       maxActive="100"
       maxIdle="50"
@@ -31,7 +40,9 @@ access to. The contents of the ``<database>`` element are shown below.
      </connection>
    </database>
 
-Provide the *type* of the database (PostGIS or Oracle), the *server*
+**Connection parameters**
+
+For the ``<connection>`` element, provide the *type* of the database (PostGIS or Oracle), the *server*
 name (network name or IP address) and *port* number (default: 5432 for
 PostgreSQL; 1521 for Oracle) of the database server, the *sid* (when
 using PostgreSQL, enter the database name; for Oracle, enter the database
@@ -46,6 +57,12 @@ to connect to in case your database is version-enabled. All operations
 will then be executed against this workspace. You must provide the ``<name>``
 of the workspace and an optional ``<timestamp>`` as child elements.
 If no workspace is specified, the default *LIVE* workspace is chosen by default.
+
+.. hint::
+   The WFS service can only give access to one database instance. If you want
+   to change this database, you need to adapt the ``config.xml`` file and restart
+   the service afterwards. If you want to realize WFS interfaces for several database
+   instances, you need to deploy the WFS service multiple times.
 
 In addition to these minimum settings, the ``<connection>`` element takes
 *optional attributes* that let you configure the use of physical
@@ -179,3 +196,29 @@ described in the following table.
        | will be done).
    * - | suspectTimeout
      - | (int) Timeout value in seconds (default: 0).
+
+**Schema name**
+
+The optional ``<schema>`` element can be used to define the database schema the WFS
+service shall access for answering requests and executing transactions. For PostgreSQL,
+``<schema>`` has to reference a schema (default: citydb) within the database given by
+the ``<sid>`` parameter of the connection details. Under Oracle, ``<schema>`` refers to
+another user account. The ``<user>`` provided in the connection details therefore requires
+sufficient privileges to access the database tables and objects of the user ``<schema>``.
+The 3DCityDB is shipped with with database scripts to create new schemas under PostgreSQL,
+or to grant read-only access to a different user account under Oracle.
+
+**Spatial reference systems**
+
+Additional spatial reference systems the WFS service should support have to be listed within
+the ``<referenceSystems>`` element. Provide the *srid* (spatial reference ID) of the SRS.
+This value depends on the database system (PostgreSQL/PostGIS or Oracle) running the 3DCityDB.
+Be careful to pick the correct value. In most cases it will match the EPSG code of the SRS.
+The *gmlSrsName* element defines the string identifier of the SRS that has to be used by clients
+in requests. You are not free to pick an arbitrary identifier but should follow the OGC best
+practice for encoding SRS names (see WFS 2.0 specification document for details). The description
+is optional and can be left empty.
+
+.. note::
+   The WFS always supports the SRS of the 3DCityDB per default. Thus, this SRS has not be explicitly
+   defined in the ``config.xml``.

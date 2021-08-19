@@ -52,7 +52,7 @@ optionally be announced as *bounding box* (lower left and upper right
 corner). The coordinate values must be given in WGS 84.
 
 .. note::
-   The bounding box is not automatically checked against or
+   The bounding box is neither automatically checked against nor
    computed from the database, but rather copied to the WFS *capabilities*
    document “as is”.
 
@@ -72,5 +72,5 @@ to be specified. Use the ``<version>`` element for this purpose, which takes
 either 2.0 (for CityGML 2.0) or 1.0 (for CityGML 1.0) as value. If both
 versions shall be supported, simply use two ``<version>`` elements. However,
 in this case, you should define the *default version* to be used by the
-WFS by setting the isDefault attribute to true on one of the elements
+WFS by setting the *isDefault* attribute to true on one of the elements
 (otherwise, CityGML 2.0 will be the default).
