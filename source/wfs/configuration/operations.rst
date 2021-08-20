@@ -10,7 +10,6 @@ must at least support the operations *GetCapabilities*, *DescribeFeatureType*, *
 not to be explicitly listed in the ``<operations>`` element to be offered by the WFS.
 
 .. code-block:: xml
-   :name: wfs_operation_settings_config_listing
 
    <operations>
      <requestEncoding>
@@ -99,7 +98,6 @@ that format. The following snippet illustrates the use of the CityJSON
 format options.
 
 .. code-block:: xml
-   :name: wfs_format_options_listing
 
    <outputFormat name="application/json">
      <options>

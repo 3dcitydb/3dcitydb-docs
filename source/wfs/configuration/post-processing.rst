@@ -11,7 +11,6 @@ that are applied on the CityGML data of a WFS response before sending
 the response to the client.
 
 .. code-block:: xml
-   :name: wfs_postprocessing_settings_config_listing
 
    <postProcessing>
      <xslTransformation isEnabled="true">

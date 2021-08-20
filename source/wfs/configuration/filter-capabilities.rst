@@ -13,7 +13,6 @@ to clients. The following listing shows an example ``<filterCapabilities>`` elem
 all filter operations that are supported by the WFS implementation.
 
 .. code-block:: xml
-   :name: wfs_filter_capabilities_settings_config_listing
 
    <filterCapabilities>
      <scalarCapabilities>

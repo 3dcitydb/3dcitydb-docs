@@ -20,7 +20,6 @@ The service metadata is provided using the <owsMetadata> child element (see the 
 It is copied to the capabilities document “as is” and thus should be consistent and valid.
 
 .. code-block:: xml
-   :name: wfs_metadata_settings_listing
 
    <capabilities>
      <owsMetadata>

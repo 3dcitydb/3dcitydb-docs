@@ -7,7 +7,6 @@ The ``<constraints>`` element of the ``config.xml`` allows for defining
 constraints on dedicated WFS operations.
 
 .. code-block:: xml
-   :name: wfs_constraints_settings_config_listing
 
    <constraints>
      <supportAdHocQueries>true</supportAdHocQueries>
@@ -130,7 +129,8 @@ the metadata properties LINEAGE, UPDATING_PERSON, LAST_MODIFICATION_DATE
 and REASON_FOR_UPDATE of city objects stored in the table CITYOBJECT.
 Since these properties are not defined by CityGML, the WFS uses a
 CityGML Application Domain Extension (ADE) to include the properties
-in the response document.
+in the response document. More information about this 3DCityDB ADE is available
+in :numref:`impexp_xml_query_address_metadata`.
 
 **exportAppearance**
 

@@ -28,7 +28,6 @@ element also provides a *logLevel* attribute to define the severity
 level.
 
 .. code-block:: xml
-   :name: wfs_logging_settings_config_listing
 
    <logging>
      <console logLevel="info"/>

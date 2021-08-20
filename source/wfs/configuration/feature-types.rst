@@ -14,7 +14,6 @@ available from the WFS service. In addition, a third feature type
 *IndustrialBuilding* coming from a CityGML ADE is advertised.
 
 .. code-block:: xml
-   :name: wfs_feature_types_config_listing
 
    <featureTypes>
      <featureType>

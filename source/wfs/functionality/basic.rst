@@ -1,4 +1,4 @@
-.. _basic:
+.. _wfs_basic_functionality_chapter:
 
 Basic functionality
 ~~~~~~~~~~~~~~~~~~~
@@ -8,19 +8,10 @@ WFS operations
 
 The OGC WFS 2.0 interface defines eleven operations that can be invoked
 by a client. A WFS server is not required to offer all operations to
-conform to the standard but may support a subset only. For this purpose,
-the WFS standard defines *conformance classes* named *Simple WFS*,
-*Basic WFS*, *Transactional WFS* and *Locking WFS* that grow in the
-number of mandatory operations. The current version of the 3D City
-Database Web Feature Service implements the *Simple WFS* conformance
-class. Thus, it is *fully OGC conformant* but lacks operations from
-other conformance classes. It is planned to incrementally increase the
-functionality of the WFS in future releases.
+conform to the standard but may support a subset only. The following table
+lists all WFS 2.0 operations and marks those supported by the 3D City Database WFS.
 
-The following table lists all WFS 2.0 operations and marks those
-supported by the 3D City Database WFS.
-
-.. list-table::  Overview of supported WFS 2.0 operations.
+.. list-table::  Overview of supported WFS 2.0 operations
    :name: wfs_supported_operation_overview_table
    :widths: 20 70 10
 
@@ -28,60 +19,37 @@ supported by the 3D City Database WFS.
      - | **Description**
      - | **Supported**
    * - | **GetCapabilities**
-     - | The GetCapabilities operation generates a service
-       | metadata document describing the WFS service
-       | provided by a server.
+     - | The GetCapabilities operation generates a service metadata document describing the WFS service provided by a server.
      - | X
    * - | **DescribeFeatureType**
-     - | The DescribeFeatureType operation returns a
-       | schema description of the CityGML feature types
-       | offered by the WFS instance.
-     - | X
-   * - | **ListStoredQueries**
-     - | The ListStoredQueries operation lists the stored
-       | queries available at the server.
-     - | X
-   * - | **DescribeStoredQuery**
-     - | The DescribeStoredQueries operation provides
-       | detailed metadata about each stored query expression
-       | that the server offers.
+     - | The DescribeFeatureType operation returns a schema description of the CityGML feature types offered by the WFS instance.
      - | X
    * - | **GetFeature**
-     - | The GetFeature operation returns a selection of
-       | CityGML features from the 3D City Database using a
-       | query expression.
+     - | The GetFeature operation returns a selection of CityGML features from the 3D City Database using a query expression.
      - | X
-   * - | GetPropertyValue
-     - | The GetPropertyValue operation allows the value of a
-       | feature property or part of the value of a complex
-       | feature property to be retrieved from the 3D City
-       | Database for a set of features identified using a query
-       | expression.
+   * - | **GetPropertyValue**
+     - | The GetPropertyValue operation allows the value of a feature property or part of the value of a complex feature property to be retrieved from the 3D City Database for a set of features identified using a query expression.
+     - | X
+   * - | **ListStoredQueries**
+     - | The ListStoredQueries operation lists the stored queries available at the server.
+     - | X
+   * - | **DescribeStoredQuery**
+     - | The DescribeStoredQueries operation provides detailed metadata about each stored query expression that the server offers.
+     - | X
+   * - | **CreateStoredQuery**
+     - | A stored query may be created using the CreateStoredQuery operation.
+     - | X
+   * - | **DropStoredQuery**
+     - | The DropStoredQuery operation allows previously created stored queries to be dropped from the system.
+     - | X
+   * - | Transaction
+     - | The Transaction operation is used to describe data transformation operations (i.e., insert, update, replace, delete) to be applied to CityGML feature instances under the control of the web feature service.
      - | --
    * - | LockFeature
-     - | The LockFeature operation is used to expose a long-
-       | term feature locking mechanism to ensure consistency
-       | in data manipulation operations (e.g., update or delete).
+     - | The LockFeature operation is used to expose a long-term feature locking mechanism to ensure consistency in data manipulation operations (e.g., update or delete).
      - | --
    * - | GetFeatureWithLock
-     - | The GetFeatureWithLock operation is functionally
-       | similar to the GetFeature operation except that in
-       | response to a GetFeatureWithLock operation, the
-       | WFS shall also lock the features in the result set.
-     - | --
-   * - | CreateStoredQuery
-     - | A stored query may be created using the
-       | CreateStoredQuery operation.
-     - | --
-   * - | DropStoredQuery
-     - | The DropStoredQuery operation allows previously
-       | created stored queries to be dropped from the system.
-     - | --
-   * - | Transaction
-     - | The Transaction operation is used to describe data
-       | transformation operations (i.e., insert, update, replace,
-       | delete) to be applied to CityGML feature instances
-       | under the control of the web feature service.
+     - | The GetFeatureWithLock operation is functionally similar to the GetFeature operation except that in response to a GetFeatureWithLock operation, the WFS shall also lock the features in the result set.
      - | --
 
 .. _wfs_service_url_chapter:
@@ -102,7 +70,7 @@ configuration. Please ask your network administrator for the *protocol*
 (typically http or https), the *host* name and the *port* of the server.
 The *context path* is typically added to the URL by the servlet
 container. Please refer to the documentation of your servlet container
-for more information. The last component wfs of the URL identifies the
+for more information. The last component ``wfs`` of the URL identifies the
 service and makes sure that requests are routed to the WFS service
 implementation.
 
@@ -125,10 +93,15 @@ implementations.
 The 3D City Database WFS implements both the HTTP POST and the HTTP
 GET conformance class. Therefore, a client can choose to send a request
 either XML-encoded using the HTTP method POST (using ``text/xml`` as content
-type) or KVP-encoded (key-value-pair) using the HTTP method GET. Note
-that the XML content of POST messages sent to the server must be
-well-formed and valid with respect to the
-`WFS 2.0 XML Schema <http://schemas.opengis.net/wfs/2.0/wfs.xsd>`_
+type) or KVP-encoded (key-value-pair) using the HTTP method GET. Use the
+``config.xml`` to determine which method the WFS server should support
+(see :numref:`wfs_operations_settings_chapter`).
+
+.. note::
+   The WFS specification does not define a KVP encoding for all operations.
+   These operations must therefore be XML-encoded and sent to the server through *HTTP POST*.
+   Also note that the XML content of POST messages sent to the server must be well-formed and
+   valid with respect to the `WFS 2.0 XML Schema <http://schemas.opengis.net/wfs/2.0/wfs.xsd>`_
 
 The following table summarizes the operations and the supported service
 binding as offered by the 3D City Database WFS.
@@ -143,11 +116,17 @@ binding as offered by the 3D City Database WFS.
      - | XML over HTTP POST and KVP over HTTP GET
    * - | DescribeFeatureType
      - | XML over HTTP POST and KVP over HTTP GET
+   * - | GetFeature
+     - | XML over HTTP POST and KVP over HTTP GET
+   * - | GetPropertyValue
+     - | XML over HTTP POST and KVP over HTTP GET
    * - | ListStoredQueries
      - | XML over HTTP POST and KVP over HTTP GET
    * - | DescribeStoredQuery
      - | XML over HTTP POST and KVP over HTTP GET
-   * - | GetFeature
+   * - | CreateStoredQuery
+     - | XML over HTTP POST
+   * - | DropStoredQuery
      - | XML over HTTP POST and KVP over HTTP GET
 
 .. _wfs_feature_types_chapter:
@@ -163,11 +142,6 @@ types, you can restrict the feature types in the ``config.xml`` settings
 types, the WFS can also support feature types defined in a CityGML ADE.
 This requires a corresponding ADE extension to be installed for the WFS
 and to be registered with the 3DCityDB instance (cf. :numref:`wfs_installation_chapter`).
-
-.. note::
-   Appearance properties of CityGML features such as textures or
-   color information are *currently not supported* by the WFS
-   implementation and thus will not be included in a response document.
 
 The supported CityGML feature types together with their official XML
 namespaces (CityGML version 2.0 and 1.0) and recommended prefixes

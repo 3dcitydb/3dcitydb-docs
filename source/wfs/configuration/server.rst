@@ -7,7 +7,6 @@ Server settings
 the ``config.xml`` file.
 
 .. code-block:: xml
-   :name: wfs_server_settings_config_listing
 
    <server>
      <externalServiceURL>http://server:port/context-path</externalServiceURL>
@@ -127,7 +126,7 @@ of your WFS service (see :numref:`wfs_installation_chapter` for more details). T
 REST service will be ``http://[host][:port]/citydb-wfs/texture/``. This URL is used in the response
 document to reference texture images in the following way:
 
-.. code-block:: bash
+.. code-block::
 
    http://[host][:port]/vc-wfs/texture/[bucket]/[filename]
 

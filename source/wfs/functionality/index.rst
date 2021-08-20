@@ -14,11 +14,24 @@ about WFS, please refer to the WFS specification document instead (OGC
 Doc. No. 09-025r2).
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    basic
    get-capabilities
    describe-feature-type
+   get-feature
+   get-property-value
    list-stored-queries
    describe-stored-query
-   get-feature
+   create-stored-query
+   drop-stored-query
+
+- :numref:`%s <wfs_basic_functionality_chapter>` :ref:`wfs_basic_functionality_chapter`
+- :numref:`%s <wfs_getcapabilities_operation_chapter>` :ref:`GetCapabilities operation <wfs_getcapabilities_operation_chapter>`
+- :numref:`%s <wfs_describefeaturetype_operation_chapter>` :ref:`DescribeFeatureType operation <wfs_describefeaturetype_operation_chapter>`
+- :numref:`%s <wfs_getfeature_operation_chapter>` :ref:`GetFeature operation <wfs_getfeature_operation_chapter>`
+- :numref:`%s <wfs_getpropertyvalue_operation_chapter>` :ref:`GetPropertyValue operation <wfs_getpropertyvalue_operation_chapter>`
+- :numref:`%s <wfs_ListStoredQueries_operation_chapter>` :ref:`ListStoredQueries operation <wfs_ListStoredQueries_operation_chapter>`
+- :numref:`%s <wfs_describestoredquery_operation_chapter>` :ref:`DescribeStoredQuery operation <wfs_describestoredquery_operation_chapter>`
+- :numref:`%s <wfs_createstoredquery_operation_chapter>` :ref:`CreateStoredQuery operation <wfs_createstoredquery_operation_chapter>`
+- :numref:`%s <wfs_dropstoredquery_operation_chapter>` :ref:`DropStoredQuery operation <wfs_dropstoredquery_operation_chapter>`

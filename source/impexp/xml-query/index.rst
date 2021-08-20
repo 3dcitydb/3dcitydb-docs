@@ -15,8 +15,7 @@ XML query expressions
    appearance
    tiling
    target-srid
-   address
-   metadata
+   addresses-and-metadata
 
 A query expression is an action that directs the export operation to
 search the 3DCityDB for city objects that satisfy some filter expression
@@ -61,11 +60,10 @@ coordinate transformations.
    * - | :ref:`targetSrid <impexp_xml_query_target_srid>`
      - | Defines a coordinate transformation *(optional)*.
 
-In addition, the following chapters discuss how to use address information and 3DCityDB
+In addition, the following chapter discuss how to use address information and 3DCityDB
 metadata in query expressions:
 
-- :numref:`%s <impexp_xml_query_address>` :ref:`impexp_xml_query_address`
-- :numref:`%s <impexp_xml_query_metadata>` :ref:`impexp_xml_query_metadata`
+- :numref:`%s <impexp_xml_query_address_metadata>` :ref:`impexp_xml_query_address_metadata`
 
 .. caution::
   **XML queries are based on the CityGML XML schemas**. For instance,

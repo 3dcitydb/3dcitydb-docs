@@ -10,7 +10,6 @@ by the WFS server in addition to the reference system of the 3DCityDB
 have to defined here.The contents of the ``<database>`` element are shown below.
 
 .. code-block:: xml
-   :name: wfs_config_listing
 
    <database>
      <referenceSystems>
