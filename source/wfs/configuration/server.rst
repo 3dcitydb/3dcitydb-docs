@@ -78,6 +78,13 @@ specify the maximum time in seconds the WFS service waits for a free
 request slot before sending an error message to the client (default: 60
 seconds).
 
+**responseCacheTimeout**
+
+If result paging is enabled for the 3DCityDB WFS (see :numref:`wfs_constraints_settings_chapter`),
+the ``<responseCacheTimeout>`` parameter can be used to define the length of time (in seconds) that
+responses shall be cached for the purpose of paging using the *next* and *previous* URLs in the
+response document (default: 300 seconds).
+
 **enableCORS**
 
 The flag ``<enableCORS>`` (default: *true*) allows for enabling
