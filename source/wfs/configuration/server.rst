@@ -126,7 +126,7 @@ of your WFS service (see :numref:`wfs_installation_chapter` for more details). T
 REST service will be ``http://[host][:port]/citydb-wfs/texture/``. This URL is used in the response
 document to reference texture images in the following way:
 
-.. code-block::
+::
 
    http[s]://[host][:port]/vc-wfs/texture/[bucket]/[filename]
 

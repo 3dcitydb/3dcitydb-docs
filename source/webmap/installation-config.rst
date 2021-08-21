@@ -5,7 +5,7 @@ For convenient use, there is an official web link (see the link below)
 that can be called to directly run the 3D web client on your web
 browser.
 
-.. code-block::
+::
 
     https://www.3dcitydb.org/3dcitydb-web-map/1.9.0/3dwebclient/index.html
 
@@ -23,7 +23,7 @@ the installation directory of the Import/Export tool within the
 subfolder *3d-web-map-client* or downloaded via the following GitHub
 link:
 
-.. code-block::
+::
 
     https://github.com/3dcitydb/3dcitydb-web-map/releases
 
@@ -41,7 +41,7 @@ this web server, the open source JavaScript runtime environment Node.js
 is required to be installed on your machine. The latest version of
 Node.js can be download via the web link below:
 
-.. code-block::
+::
 
     https://nodejs.org/en/
 
@@ -63,7 +63,7 @@ to launch the server:
 Now, the 3D web client is available via the URL below and its user
 interface should look like in the following figure:
 
-.. code-block::
+::
 
     http://localhost:8000/3dwebclient/index.html
 

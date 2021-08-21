@@ -19,7 +19,7 @@ Berlin’s buildings (> 550,000) with textured 3D geometries and many
 thematic attributes in the 3D web client. You can find the link of this
 demo via the following web page:
 
-.. code-block::
+::
 
     https://github.com/3dcitydb/3dcitydb-web-map
 

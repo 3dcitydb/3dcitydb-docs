@@ -199,7 +199,7 @@ with the mouse over the attribute name. This example is also provided
 as template file in the ``templates/balloons`` folder within the installation directory
 of the Importer/Exporter.
 
-.. code-block::
+..
 
       <script type="text/javascript">
             function ga_value_as_tooltip(attrname, datatype, strval, intval, realval) {
