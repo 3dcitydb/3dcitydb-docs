@@ -61,7 +61,7 @@ The *service URL* or service endpoint is the location where the 3D City
 Database WFS can be accessed by a client application over a local
 network or the internet. This URL is typically composed as follows:
 
-.. code-block::
+.. code-block:: bash
 
    http[s]://[host][:port]/[context_path]/wfs
 

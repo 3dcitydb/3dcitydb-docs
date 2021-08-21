@@ -63,7 +63,7 @@ Please follow the following installation steps.
    described above, the name of the WAR file will be used as *context path*
    in the URL for accessing the application. For example, if the WFS WAR
    file is named ``citydb-wfs.war``, then the context path of the WFS service
-   will be ``http://[host][:port]/citydb-wfs/``. To pick a different context
+   will be ``http[s]://[host][:port]/citydb-wfs/``. To pick a different context
    path, simply rename the WAR file or change Tomcat’s default behavior.
 
 | **Step 4: Configure the WFS service**

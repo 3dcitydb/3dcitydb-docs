@@ -128,7 +128,7 @@ document to reference texture images in the following way:
 
 .. code-block::
 
-   http://[host][:port]/vc-wfs/texture/[bucket]/[filename]
+   http[s]://[host][:port]/vc-wfs/texture/[bucket]/[filename]
 
 The ``[bucket]`` path element is an integer value under control of the REST service and is used to
 organize the texture images into separate subfolders. The ``[filename]`` of the texture image is also
