@@ -135,7 +135,7 @@ document to reference texture images in the following way:
 
 ::
 
-   http[s]://[host][:port]/vc-wfs/texture/[bucket]/[filename]
+   http[s]://[host][:port]/citydb-wfs/texture/[bucket]/[filename]
 
 The ``[bucket]`` path element is an integer value under control of the REST service and is used to
 organize the texture images into separate subfolders. The ``[filename]`` of the texture image is also
@@ -153,7 +153,7 @@ texture image.
 
          <app:surfaceDataMember>
            <app:ParameterizedTexture>
-             <app:imageURI>http://some.host.com/vc-wfs/texture/3/tex_2.jpg</app:imageURI>
+             <app:imageURI>http://some.host.com/citydb-wfs/texture/3/tex_2.jpg</app:imageURI>
              …
              </app:target>
          </app:surfaceDataMember>
