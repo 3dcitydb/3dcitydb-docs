@@ -66,10 +66,15 @@ type is ignored. If you do not have ADE extensions, then simply skip the
 ``<adeFeatureType>`` element.
 
 Besides the list of advertised feature types, also the CityGML *version*
-to be used for encoding features in a response to a client’s request has
+that shall be supported for encoding features in a response to a client’s request has
 to be specified. Use the ``<version>`` element for this purpose, which takes
 either 2.0 (for CityGML 2.0) or 1.0 (for CityGML 1.0) as value. If both
 versions shall be supported, simply use two ``<version>`` elements. However,
 in this case, you should define the *default version* to be used by the
 WFS by setting the *isDefault* attribute to true on one of the elements
 (otherwise, CityGML 2.0 will be the default).
+
+.. note::
+   If your ``<featureTypes>`` element contains CityGML or ADE feature types that are not
+   available for the chosen CityGML version, they are automatically
+   removed from the list and are **not advertised** to clients by the WFS server.

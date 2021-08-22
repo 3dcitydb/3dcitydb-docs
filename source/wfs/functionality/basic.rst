@@ -220,19 +220,30 @@ are listed in the table below.
        | http://www.opengis.net/citygml/cityobjectgroup/1.0
      - | grp
 
-Simply declare the above namespaces in XML-encoded requests using the
-notation ``xmlns:prefix=namspace_uri``. For KVP-encoded requests,
-the ``NAMESPACES`` parameter shall be used to declare any namespaces
-and their prefixes used in the request based on the format
+Simply declare the above namespaces in *XML-encoded requests* using the
+notation ``xmlns:prefix=namspace_uri`` and use the feature type name to
+request corresponding features from the WFS. If you pick a CityGML 2.0
+namespace, the response will be encoded in CityGML 2.0. If you rather want
+the response to be encoded in CityGML 1.0, choose a CityGML 1.0 namespace
+instead. Remember to list the CityGML versions to be supported by the WFS in the
+``config.xml`` file (see :numref:`wfs_feature_type_settings_chapter`).
+
+For *KVP-encoded requests*, the ``NAMESPACES`` parameter must be used to declare
+namespaces and their prefixes used in the request based on the format
 ``xmlns(prefix, escaped_uri)``.
 
 .. note::
-  The 3DCityDB WFS can correctly deal with the default CityGML prefixes
-  in KVP-encoded requests. Thus, if you use one of the default prefixes
-  from above, you can skip the ``NAMESPACES`` parameter. The CityGML
-  version that will be associated with the prefix by the WFS depends
-  on the default CityGML version in your ``config.xml``
-  (cf. :numref:`wfs_feature_type_settings_chapter`).
+  The 3DCityDB WFS automatically supports the *default CityGML prefixes*
+  in KVP-encoded requests. Thus, if you pick one of the default prefixes
+  from the list above, you do not have to use the ``NAMESPACES`` parameter.
+
+  The CityGML version that will be associated with the prefix depends
+  on the *default CityGML version* in your ``config.xml``
+  (cf. :numref:`wfs_feature_type_settings_chapter`). If you want to request
+  a specific version instead, you can append a "1" for CityGML 1.0 and a
+  "2" for CityGML 2.0 to the prefix. For example, use the prefix ``bldg2`` to request
+  features in CityGML 2.0. If you do not want to rely on these predefined
+  prefixes, you can always use the ``NAMESPACES parameter`` instead
 
 Exception reports
 ^^^^^^^^^^^^^^^^^
