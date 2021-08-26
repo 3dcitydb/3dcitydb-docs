@@ -250,7 +250,7 @@ into the DB given in :numref:`impexp_docker_code_exampledb`:
 
 .. code-block:: bash
 
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
       3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p changeMe! \
@@ -265,7 +265,7 @@ into the DB given in :numref:`impexp_docker_code_exampledb`:
 
 .. code-block:: bash
 
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
       3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p changeMe! \
@@ -282,7 +282,7 @@ Export all data from the DB given in :numref:`impexp_docker_code_exampledb` to
 
 .. code-block:: bash
 
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
       3dcitydb/impexp export \
       -H my.host.de -d citydb -u postgres -p changeMe! \
