@@ -32,8 +32,8 @@ available for the 3DCityDB Docker images as well.
   :name: citydb_docker_code_synopsis_psql
   :caption: Synopsis 3DCityDB Docker PostgreSQL/PostGIS
 
-  docker run --name 3dcitydb -port 5432:5432 -d \
-      -e POSTGRES_PASSDWORD=<theSecretPassword> \
+  docker run --name 3dciytdb -p 5432:5432 -d \
+      -e POSTGRES_PASSWORD=<theSecretPassword> \
       -e SRID=<EPSG code> \
       [-e HEIGHT_EPSG=<EPSG code>] \
       [-e GMLSRSNAME=<mySrsName>] \
@@ -46,9 +46,9 @@ available for the 3DCityDB Docker images as well.
   :name: citydb_docker_code_synopsis_oracle
   :caption: Synopsis 3DCityDB Oracle
 
-  docker run --name 3dcitydb -port 5432:5432 -d \
+  docker run --name 3dciytdb -p 1521:1521 -d \
       -e ORACLE_USER=<theUserName> \
-      -e ORACLE_PASSDWORD=<theSecretPassword> \
+      -e ORACLE_PASSWORD=<theSecretPassword> \
       -e SRID=<EPSG code> \
       [-e HEIGHT_EPSG=<EPSG code>] \
       [-e GMLSRSNAME=<mySrsName>] \
@@ -387,6 +387,117 @@ After the build process has finished, you are ready to use the image
 (see :numref:`citydb_docker_config` and :numref:`citydb_docker_config_oracle`)
 or push it to a **private** Docker repository.
 
+*******************************************************************************
+Performance tuning for PostgreSQL/PostGIS containers
+*******************************************************************************
+
+PostgreSQL databases offer a wide range of configuration parameters that
+affect database performance and enable e.g. parallelization of queries.
+Database optimization is a complex topic but using `PGTune <https://pgtune.
+leopard.in.ua/#/>`_ you can easily get a set of configuration options,
+that may help to increase database performance.
+
+1. Visit the `PGTune website <https://pgtune.leopard.in.ua/#/>`_, fill in the
+   form and generate a set of parameters for your system. You will get
+   something like this:
+
+   .. code-block:: text
+
+    # DB Version: 13
+    # OS Type: linux
+    # DB Type: mixed
+    # Total Memory (RAM): 8 GB
+    # CPUs num: 8
+    # Connections num: 20
+    # Data Storage: ssd
+
+    max_connections = 20
+    shared_buffers = 2GB
+    effective_cache_size = 6GB
+    maintenance_work_mem = 512MB
+    checkpoint_completion_target = 0.9
+    wal_buffers = 16MB
+    default_statistics_target = 100
+    random_page_cost = 1.1
+    effective_io_concurrency = 200
+    work_mem = 13107kB
+    min_wal_size = 1GB
+    max_wal_size = 4GB
+    max_worker_processes = 8
+    max_parallel_workers_per_gather = 4
+    max_parallel_workers = 8
+    max_parallel_maintenance_workers = 4
+
+2. Pass these configuration parameters to ``postgres`` (see emphasized line)
+   using the  the ``-c`` option when starting your 3DCityDB container with
+   `docker run <https://docs.docker.com/engine/reference/run>`_.
+
+   .. code-block:: bash
+     :emphasize-lines: 4
+
+     docker run -d -i -t --name citydb -p 5432:5342 \
+       -e SRID=25832 \
+       -e POSTGRES_PASSWORD=changeMe! \
+     3dcitydb/3dcitydb-pg postgres \
+       -c max_connections=20 \
+       -c shared_buffers=2GB \
+       -c effective_cache_size=6GB \
+       -c maintenance_work_mem=512MB \
+       -c checkpoint_completion_target=0.9 \
+       -c wal_buffers=16MB \
+       -c default_statistics_target=100 \
+       -c random_page_cost=1.1 \
+       -c effective_io_concurrency=200 \
+       -c work_mem=13107kB \
+       -c min_wal_size=1GB \
+       -c max_wal_size=4GB \
+       -c max_worker_processes=8 \
+       -c max_parallel_workers_per_gather=4 \
+       -c max_parallel_workers=8 \
+       -c max_parallel_maintenance_workers=4
+
+*******************************************************************************
+Creating 3DCityDB Docker images including data
+*******************************************************************************
+
+.. note:: This section is currently work-in-progress.
+
+In general, it is not recommended to store data directly inside a Docker image...
+
+
+1. Start a 3DCityDB Docker container.
+
+  .. code-block:: bash
+
+    docker run -d --name citydb \
+      -e "PGDATA=/mydata" \
+      -e "POSTGRES_PASSWORD=changeMe!" \
+      -e "SRID=25832" \
+    3dcitydb/3dcitydb-pg:4.1.0-alpine
+
+2. Import data to the container. For this example we are use the
+   `LoD3 Railway dataset <https://github.com/3dcitydb/importer-exporter/raw/
+   92e08aa306611ee850e065bb542bb3d60791a54f/resources/samples/
+   Railway%20Scene/Railway_Scene_LoD3.zip>`_.
+
+  .. code-block:: bash
+
+    docker run -i -t --rm --name impexp \
+        --link citydb \
+        -v /d/temp:/data \
+      3dcitydb/impexp:edge-alpine import \
+        -H citydb \
+        -d postgres \
+        -u postgres \
+        -p changeMe! \
+        /data/building.gml
+
+3. Stop running 3DCityDB container commit 3DCityDB container to an image
+
+  .. code-block:: bash
+
+    docker stop citydb
+    docker commit citydb 3dcitydb/3dcitydb-pg:4.1.0-alpine-railwayScene_LoD3
 
 .. Links ----------------------------------------------------------------------
 
@@ -400,7 +511,7 @@ or push it to a **private** Docker repository.
 .. edge
 
 .. |psql-deb-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/3dcitydb/psql-docker-build-edge?label=Debian&
+  3dcitydb/3dcitydb/psql-docker-build-push-edge?label=Debian&
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
@@ -409,7 +520,7 @@ or push it to a **private** Docker repository.
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
 .. |psql-alp-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/3dcitydb/psql-docker-build-edge?label=Alpine&
+  3dcitydb/3dcitydb/psql-docker-build-push-edge?label=Alpine&
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 

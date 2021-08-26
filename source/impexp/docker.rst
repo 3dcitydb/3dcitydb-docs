@@ -75,8 +75,8 @@ Here are some examples for full image tags:
 
   docker pull 3dcitydb/impexp:edge
   docker pull 3dcitydb/impexp:latest-apline
-  docker pull 3dcitydb/4.3.0
-  docker pull 3dcitydb/4.3.0-alpine
+  docker pull 3dcitydb/impexp:4.3.0
+  docker pull 3dcitydb/impexp:4.3.0-alpine
 
 
 *******************************************************************************
@@ -252,13 +252,13 @@ into the DB given in :numref:`impexp_docker_code_exampledb`:
 
   docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-      3dcitydb/impexp import \
+    3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p changeMe! \
       bigcity.gml
 
 .. note:: Since the host directory ``/home/me/mydata/`` is mounted to the default
    working directory ``/data`` inside the container, you can simply
-   reference your input file by its filename without instead of using an absolute path.
+   reference your input file by its filename instead of using an absolute path.
 
 Import all CityGML datasets from ``/home/me/mydata/`` on your host system
 into the DB given in :numref:`impexp_docker_code_exampledb`:
@@ -267,7 +267,7 @@ into the DB given in :numref:`impexp_docker_code_exampledb`:
 
   docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-      3dcitydb/impexp import \
+    3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p changeMe! \
       /data/
 
@@ -284,9 +284,97 @@ Export all data from the DB given in :numref:`impexp_docker_code_exampledb` to
 
   docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-      3dcitydb/impexp export \
+    3dcitydb/impexp export \
       -H my.host.de -d citydb -u postgres -p changeMe! \
       -o output.gml
+
+.. impexp_docker_example_link_citydb
+
+Importer/Exporter Docker combined with 3DCityDB Docker
+===============================================================================
+
+This example shows how to use the 3DCityDB and Importer/Exporter Docker images
+in conjuction. Let's assume we have a CityGML containing a few buildings
+file on our Docker host at: ``/d/temp/buildings.gml``
+
+First, let's bring up a 3DCityDB instance using the
+:ref:`3DCityDB Docker images <citydb_docker_chapter>`.
+As the emphasized line shows, we name the container ``citydb``.
+
+.. code-block:: bash
+  :emphasize-lines: 1
+
+  docker run -d --name citydb \
+      -e POSTGRES_PASSWORD=changeMe! \
+      -e SRID=25832 \
+    3dcitydb/3dcitydb-pg:edge-alpine
+
+The next step is to :ref:`import <impexp_cli_import_command>` our data to
+the 3DCityDB container. Therefore, we need to mount our data directory to
+the container, as shown in line 3.
+The emphasized lines show how to use the container name from the first step
+as hostname by using Docker `legacy container links <https://docs.docker.com/
+network/links/>`_ (``--link``).
+
+.. note:: There are many other networking options to connect Docker containers.
+  Take a look at the Docker `networking overview <https://docs.docker.com/
+  network/>`_ to learn more.
+
+.. code-block:: bash
+  :linenos:
+  :emphasize-lines: 2,5
+
+  docker run -i -t --rm --name impexp \
+      --link citydb \
+      -v /d/temp:/data \
+    3dcitydb/impexp:edge-alpine import \
+      -H citydb \
+      -d postgres \
+      -u postgres \
+      -p changeMe! \
+      /data/building.gml
+
+Now, with our data inside the 3DCityDB, let's use the Importer/Exporter to
+create a :ref:`visualization export <impexp_cli_export_vis_command>`.
+We are going to export all Buildings in LoD 2 as binary glTF with embedded
+textures and draco compression enabled. All Buildings will be translated to
+elevation 0 to fit in a visualization without terrain model.
+
+.. code-block:: bash
+
+  docker run -i -t --rm --name impexp \
+      --link citydb \
+      -v /d/temp:/data \
+    3dcitydb/impexp:edge-alpine export-vis \
+      -H citydb \
+      -d postgres \
+      -u postgres \
+      -p changeMe! \
+      -l 2 \
+      -D collada \
+      -G \
+      --gltf-binary \
+      --gltf-embed-textures \
+      --gltf-draco-compression \
+      -O globe \
+      -o /data/building_glTf.kml
+
+The export file are now available in ``/d/temp``.
+
+.. code-block:: console
+
+  $ ls -lhA /d/temp
+
+  drwxrwxrwx 1 theUser theUser 4.0K May  6 17:51 Tiles/
+  -rwxrwxrwx 1 theUser theUser 1.4K May  6 17:55 building_glTf.kml*
+  -rwxrwxrwx 1 theUser theUser  310 May  6 17:55 building_glTf_collada_MasterJSON.json*
+  -rwxrwxrwx 1 theUser theUser 3.2M May  5 16:25 buildings.gml*
+
+As we are done now, the 3DCityDB container is no longer needed and can be removed:
+
+.. code-block:: bash
+
+  docker rm -f -v citydb
 
 .. Images ---------------------------------------------------------------------
 
