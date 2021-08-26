@@ -75,8 +75,8 @@ Here are some examples for full image tags:
 
   docker pull 3dcitydb/impexp:edge
   docker pull 3dcitydb/impexp:latest-apline
-  docker pull 3dcitydb/4.3.0
-  docker pull 3dcitydb/4.3.0-alpine
+  docker pull 3dcitydb/impexp:4.3.0
+  docker pull 3dcitydb/impexp:4.3.0-alpine
 
 
 *******************************************************************************
@@ -252,13 +252,13 @@ into the DB given in :numref:`impexp_docker_code_exampledb`:
 
   docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-      3dcitydb/impexp import \
+    3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p changeMe! \
       bigcity.gml
 
 .. note:: Since the host directory ``/home/me/mydata/`` is mounted to the default
    working directory ``/data`` inside the container, you can simply
-   reference your input file by its filename without instead of using an absolute path.
+   reference your input file by its filename instead of using an absolute path.
 
 Import all CityGML datasets from ``/home/me/mydata/`` on your host system
 into the DB given in :numref:`impexp_docker_code_exampledb`:
@@ -267,7 +267,7 @@ into the DB given in :numref:`impexp_docker_code_exampledb`:
 
   docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-      3dcitydb/impexp import \
+    3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p changeMe! \
       /data/
 
@@ -284,7 +284,7 @@ Export all data from the DB given in :numref:`impexp_docker_code_exampledb` to
 
   docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-      3dcitydb/impexp export \
+    3dcitydb/impexp export \
       -H my.host.de -d citydb -u postgres -p changeMe! \
       -o output.gml
 
@@ -309,7 +309,7 @@ As the emphasized line shows, we name the container ``citydb``.
       -e SRID=25832 \
     3dcitydb/3dcitydb-pg:edge-alpine
 
-The next step is to :ref:`import <impexp_cli_export_vis_command>` our data to
+The next step is to :ref:`import <impexp_cli_import_command>` our data to
 the 3DCityDB container. Therefore, we need to mount our data directory to
 the container, as shown in line 3.
 The emphasized lines show how to use the container name from the first step
