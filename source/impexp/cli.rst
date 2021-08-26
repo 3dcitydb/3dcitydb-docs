@@ -59,7 +59,8 @@ using the environment variable ``JAVA_OPTS``. More information is available in
 
    impexp [-hV] [--ade-extensions=<folder>] [-c=<file>] [--log-file=<file>]
           [--log-level=<level>] [--pid-file=<file>] [--plugins=<folder>]
-          [@<filename>...] COMMAND
+          [--use-plugin=<plugin[=true|false]>[,<plugin[=true|false]
+          >...]]... [@<filename>...] COMMAND
 
 **Description**
 
@@ -176,6 +177,12 @@ you want to execute.
    Provide an alternative path where to look for Importer/Exporter plugins. By default,
    plugins are searched for in the ``plugins`` folder within the installation directory
    of the Importer/Exporter.
+
+.. option:: --use-plugin=<plugin[=true|false]>[,<plugin[=true|false]>...]
+
+   Comma-separated list of plugins that shall be enabled (default: ``true``) or disabled
+   (``false``) on startup. Use the fully qualified class name of the plugin to uniquely identify it.
+   Disabling unnecessary plugins can increase performance.
 
 .. option:: --ade-extensions=<folder>
 

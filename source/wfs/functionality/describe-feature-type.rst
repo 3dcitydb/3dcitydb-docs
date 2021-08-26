@@ -1,7 +1,7 @@
 .. _wfs_describefeaturetype_operation_chapter:
 
-DescribeFeatureType operation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DescribeFeatureType
+~~~~~~~~~~~~~~~~~~~
 
 The DescribeFeatureType operation returns a schema
 description of the feature types advertised by the 3D City
@@ -16,7 +16,6 @@ requesting the XML Schema definition of the CityGML 1.0 *Building*
 feature type.
 
 .. code-block:: xml
-   :name: wfs_describeFeatureType_example_listing
 
    <?xml version="1.0" encoding="UTF-8"?>
    <wfs:DescribeFeatureType service="WFS" version="2.0.0"
@@ -69,7 +68,8 @@ The ``<wfs:TypeName>`` child element of the DescribeFeatureType operation
 identifies the feature type for which the XML Schema description is
 requested. Be careful to use the correct spelling of the feature type
 name (as specified by the CityGML standard) and to associate the name
-with the correct CityGML XML namespace. The ``<wfs:TypeName>`` element may
+with the correct CityGML XML namespace (see :numref:`wfs_feature_types_chapter`).
+The ``<wfs:TypeName>`` element may
 occur multiple times to request schema definitions of several feature
 types in a single DescribeFeatureType operation. If the ``<wfs:TypeName>``
 element is omitted, then the complete base schema is returned by the WFS.
@@ -109,7 +109,7 @@ The following KVP parameters are supported.
      - | Used to specify namespaces and their
        | prefixes. The format shall be
        | xmlns(prefix,escaped_url).
-   * - | TYPENAMES
+   * - | TYPENAME
      - | M
      - |
      - | A comma-separated list of feature types

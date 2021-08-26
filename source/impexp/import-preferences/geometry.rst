@@ -5,7 +5,7 @@ Geometry
 
 Before importing the city objects into the 3D City Database, the
 Importer/Exporter can apply an affine coordinate transformation to all
-geometry objects. This option is disabled by default though.
+geometry objects. This option is disabled by default.
 
 .. figure:: /media/impexp_import_preferences_geometry_fig.png
    :name: impexp_import_preferences_geometry_fig

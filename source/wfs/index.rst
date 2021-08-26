@@ -19,17 +19,15 @@ retrieval. The WFS interface is platform-independent and
 database-independent, and therefore can be easily used to build
 CityGML-aware applications.
 
-The 3D City Database WFS interface is implemented against the latest
+The 3D City Database WFS interface is implemented against
 *version 2.0* of the OGC Web Feature Service standard (OGC Doc. No.
 09-025r2) and hence is compliant with ISO 19142:2010. Previous versions
-of the WFS standard are not supported though. The implementation
-currently satisfies the *Simple WFS* conformance class. The development
+of the WFS standard are not supported though. The development
 of the WFS is led by the company `Virtual City Systems <https://vc.systems>`_
 that offers an extended version of the WFS with additional
-functionalities that go beyond the *Simple WFS* class (e.g., thematic
-and spatial filter capabilities and transaction support). This
-additional functionality may be fed back to the open source project in
-future releases.
+capabilities such as, for instance, transaction support through insert,
+update, replace and delete operations. This additional functionality
+may be fed back to the open source project in future releases.
 
 .. toctree::
    :maxdepth: 1

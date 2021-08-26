@@ -9,6 +9,7 @@ Configuring the WFS
    capabilities
    feature-types
    operations
+   filter-capabilities
    constraints
    post-processing
    database
@@ -17,9 +18,9 @@ Configuring the WFS
 
 After deploying but before using the WFS service, you need to edit the
 ``config.xml`` file to make the service run properly. The ``config.xml`` file is
-in the ``WEB-INF`` directory of the WFS web application. The ``WEB-INF`` is a
-subfolder of the *application* folder, which is generally named after
-the WAR file and itself is a subfolder of the ``webapps`` folder in the
+located in the ``WEB-INF`` directory of the WFS web application. If you use Apache
+Tomcat, ``WEB-INF`` is a subfolder of the *application* folder, which is generally
+named after the WAR file and itself is a subfolder of the ``webapps`` folder in the
 Tomcat installation directory. This may be different if you use another
 servlet container.
 
@@ -35,9 +36,9 @@ context name ``citydb-wfs``. Then the location of the ``WEB-INF`` folder and the
 
 Open the ``config.xml`` file with a text or XML editor of your choice and
 manually edit the settings. In the ``config.xml`` file, the WFS settings are organized into the main XML
-elements ``<capabilities>``, ``<featureTypes>``, ``<operations>``, ``<constraints>``,
-``<postProcessing>``, ``<database>``, ``<server>``, and ``<logging>``. The discussion of the
-settings follows this organization in the subsequent clauses.
+elements ``<capabilities>``, ``<featureTypes>``, ``<operations>``, ``<filterCapabilities>``,
+``<constraints>``, ``<postProcessing>``, ``<database>``, ``<server>``, and ``<logging>``.
+The discussion of the settings follows this organization in the subsequent clauses.
 
 .. list-table::  Configuration settings of the WFS service
    :name: wfs_configuration_settings_table
@@ -51,6 +52,8 @@ settings follows this organization in the subsequent clauses.
      - | Control which feature types shall be advertised and served by the WFS service.
    * - | :ref:`wfs_operations_settings_chapter`
      - | Define the operation-specific behaviour of the WFS.
+   * - | :ref:`wfs_filter_capabilities_settings_chapter`
+     - | Define the filter operations that shall be supported in queries.
    * - | :ref:`wfs_constraints_settings_chapter`
      - | General constraints that influence the capabilities of the WFS service and of the advertised operations.
    * - | :ref:`wfs_postprocessing_settings_chapter`

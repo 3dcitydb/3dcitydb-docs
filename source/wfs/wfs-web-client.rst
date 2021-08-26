@@ -6,7 +6,7 @@ is mainly meant to test the functionality of the server. The client is
 automatically installed with the server and is available at the
 following URL (cf. :numref:`wfs_service_url_chapter` for details):
 
-.. code-block::
+::
 
    http[s]://[host][:port]/[context_path]/wfsclient
 

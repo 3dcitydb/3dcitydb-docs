@@ -187,6 +187,8 @@ The following table provides a summary overview.
      - | Defines whether group members are exported by value or by reference.
    * - | :ref:`impexp_export_preferences_appearance_chapter`
      - | Defines whether appearance information should be exported.
+   * - | :ref:`impexp_export_preferences_geometry`
+     - | Allows applying an affine transformation to all output geometries.
    * - | :ref:`impexp_export_preferences_citygml_general_chapter`
        | (CityGML only)
      - | General options affecting the CityGML export.

@@ -40,7 +40,7 @@ An identifier for a three-dimensional CRS can, for example, be denoted as compou
 coordinate reference systems according to [Whit2009]_. The general syntax of a
 URN encoding for a compound reference system is as follows:
 
-.. code-block::
+::
 
    urn:ogc:def:crs,crs:authority:version:code,crs:authority:version:code
 
@@ -49,7 +49,7 @@ providing the CRS definition (e.g. EPSG or OGC). The following example
 shows a possible combination of an SRID (here referring to a 2D CRS) and
 CRS URN encoding (3D) to set up an instance of the 3D City Database:
 
-.. code-block::
+::
 
    SRID: 31466
    URN: urn:ogc:def:crs,crs:EPSG:7.7:31466,crs:EPSG:7.7:5783

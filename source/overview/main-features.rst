@@ -156,12 +156,12 @@ The 3DCityDB comes with an OGC compliant implementation of a basic WFS 2.0
 allowing web-based access to the 3D city objects stored in the database.
 WFS clients can directly connect to this interface and retrieve 3D content
 in CityGML and CityJSON format for a wide variety of purposes.
-The implementation currently satisfies the
-*Simple WFS* conformance class. The WFS supports CityGML ADE contents, if
+The WFS supports CityGML ADE contents, if
 the ADEs have been registered in the database and specific Java libraries
 for reading/writing the ADE contents from/into the ADE database tables is
-provided (see above). An implementation of a full, transactional WFS is
-commercially available from one of the development partners, see
+provided (see above). An implementation of a transactional WFS supporting
+the additional operations insert, update, replace and delete for data
+management is commercially available from one of the development partners, see
 :numref:`appendix_3dcitydb_vcs_chapter`.
 
 Docker support

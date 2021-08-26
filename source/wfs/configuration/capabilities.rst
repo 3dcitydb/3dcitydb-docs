@@ -16,13 +16,10 @@ file. For example, the set of feature types advertised in the
 ``<wfs:FeatureTypeList>`` section is derived from the content of the
 ``<featureTypes>`` element (cf. :numref:`wfs_feature_type_settings_chapter`).
 
-.. note::
-  Note that the metadata is copied to the *capabilities* document “as is”.
-  Thus, the WFS implementation neither performs a consistency check nor
-  validates the provided metadata.
+The service metadata is provided using the <owsMetadata> child element (see the example listing below).
+It is copied to the capabilities document “as is” and thus should be consistent and valid.
 
 .. code-block:: xml
-   :name: wfs_metadata_settings_listing
 
    <capabilities>
      <owsMetadata>
@@ -40,7 +37,7 @@ file. For example, the set of feature types advertised in the
 
 Service metadata comprises information about the *service
 itself* that might be useful in machine-to-machine communication or for
-display to a human. Such information is announced through the
+display to a human. This information is announced through the
 ``<ows:ServiceIdentifikation>`` child element. Mandatory components are
 the service title (``<ows:Title>``), the service type (``<ows:ServiceType>``,
 which may only take the fixed value WFS), and the supported WFS protocol
@@ -53,7 +50,7 @@ the protocol versions 2.0.2 and 2.0.0.
   ``<ows:ServiceTypeVersion>`` element for this version. This is recommended
   if the software accessing the WFS does only support version 2.0.0
   (e.g., FME 2018/2019). Invalid values of the ``<ows:ServiceIdentifikation>``
-  element will be overridden with reasonable values at startup of the
+  element will be overridden with reasonable default values at startup of the
   WFS service.
 
 The child element ``<ows:ServiceProvider>`` contains information about the

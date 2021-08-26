@@ -10,20 +10,22 @@ Delete command
    impexp delete [-hvV] [--ade-extensions=<folder>] [-c=<file>]
                  [--delete-log=<file>] [--log-file=<file>]
                  [--log-level=<level>] [-m=<mode>] [--pid-file=<file>]
-                 [--plugins=<folder>] [[-g]] [[--lineage=<lineage>]
-                 [--updating-person=<name>] [--reason-for-update=<reason>]]
-                 [[[-t=<[prefix:]name>[,<[prefix:]name>...]]...
-                 [--namespace=<prefix=name>[,<prefix=name>...]]...]
-                 [-r=<version> [-R=<timestamp[,timestamp]>]] [-i=<id>[,
-                 <id>...] [-i=<id>[,<id>...]]...] [--db-id=<id>[,<id>...]
-                 [--db-id=<id>[,<id>...]]...] [-b=<minx,miny,maxx,maxy[,
-                 srid]> [--bbox-mode=<mode>]] [[--count=<count>]
-                 [--start-index=<index>]] [-s=<select>] [-q=<xml>]]
-                 [-f=<file> [--delete-list-encoding=<encoding>] [-n=<name>]
-                 [-I=<index>] [-C=<type>] [--[no-]header] [-D=<string>]
-                 [-Q=<char>] [--quote-escape=<char>] [-M=<char>] [-w]]
-                 [[-T=<database>] -H=<host> [-P=<port>] -d=<name>
-                 [-S=<schema>] -u=<name> [-p[=<password>]]] [@<filename>...]
+                 [--plugins=<folder>] [--use-plugin=<plugin[=true|false]>[,
+                 <plugin[=true|false]>...]]... [[-g]]
+                 [[--lineage=<lineage>] [--updating-person=<name>]
+                 [--reason-for-update=<reason>]] [[[-t=<[prefix:]name>[,<
+                 [prefix:]name>...]]... [--namespace=<prefix=name>[,
+                 <prefix=name>...]]...] [[-r=<version>] [-R=<timestamp[,
+                 timestamp]>]] [-i=<id>[,<id>...] [-i=<id>[,<id>...]]...]
+                 [--db-id=<id>[,<id>...] [--db-id=<id>[,<id>...]]...]
+                 [-b=<minx,miny,maxx,maxy[,srid]> [--bbox-mode=<mode>]]
+                 [[--count=<count>] [--start-index=<index>]] [-s=<select>]
+                 [-q=<xml>]] [-f=<file> [-w] [[-C=<type>] [[-n=<name>]
+                 [-I=<index>] [--[no-]header] [-D=<string>] [-Q=<char>]
+                 [--quote-escape=<char>] [-M=<char>]
+                 [--csv-encoding=<encoding>]]]] [[-T=<database>] -H=<host>
+                 [-P=<port>] -d=<name> [-S=<schema>] -u=<name> [-p
+                 [=<password>]]] [@<filename>...]
 
 **Description**
 
@@ -131,19 +133,21 @@ the 3D City Database.
 .. option:: -r, --feature-version=<version>
 
    Specify the version of the top-level features to use for the delete operation. Allowed values are
-   ``latest``, ``at``, ``between``, and ``all``. When choosing ``latest``, only those features that have
-   not been terminated in the database are deleted, whereas ``all`` will delete all features.
-   You can also choose to delete only features that were valid at a given timestamp using ``at``
-   or for a given time range using ``between``. In both cases, the timestamps must be
-   provided using the :option:`--feature-version-timestamp` option.
+   ``latest``, ``at``, ``between``, ``terminated``, ``terminated_at`` and ``all``. When choosing
+   ``latest``, only those features that have not been terminated in the database are deleted,
+   whereas ``all`` will delete all features. You can also choose to delete only features that were
+   valid at a given timestamp using ``at`` or for a given time range using ``between``. Likewise,
+   ``terminated`` will delete all terminated features whereas ``terminated_at`` will select features that
+   were terminated at a given timestamp. In all cases, timestamps must be provided using the
+   :option:`--feature-version-timestamp` option.
 
 .. option:: -R, --feature-version-timestamp=<timestamp[,timestamp]>
 
    One or two timestamps to be used with the :option:`--feature-version` option. A
    timestamp can be given as date in the form ``YYYY-MM-DD`` or as date-time specified as
    ``YYYY-MM-DDThh:mm:ss[(+|-)hh:mm``. The date-time format supports an optional
-   UTC offset. Use one timestamp with the ``at`` value and two timestamps separated by comma
-   with the ``between`` value of the :option:`--feature-version` option.
+   UTC offset. Use one timestamp with the ``at`` and ``terminated_at`` values and two timestamps
+   separated by comma with the ``between`` value of the :option:`--feature-version` option.
 
 .. option:: -i, --resource-id=<id>[,<id>...]
 
@@ -232,10 +236,14 @@ of the delete list you want to use with the ``delete`` command.
 
    Specify the path to the delete list file to use in the delete operation.
 
-.. option:: --delete-list-encoding=<encoding>
+.. option:: -w, --delete-list-preview
 
-   Define the encoding of the delete list using a IANA-based character encoding name.
-   UTF-8 is assumed as default encoding.
+   Use this option to get a preview of the first few lines of the
+   delete list when applying the provided options for parsing
+   and interpreting the delete list. This preview is very helpful to adapt
+   and specify the delimiter character(s), quoting rules, header
+   information, identifier column name or index, etc. The
+   preview is printed to the console.
 
 .. option:: -n, --id-column-name=<name>
 
@@ -262,7 +270,7 @@ of the delete list you want to use with the ``delete`` command.
 .. option:: --[no-]header
 
    Define whether or not the delete list uses a header line. By default, the
-   delete operations assumes that the first line contains header information.
+   delete operation assumes that the first line contains header information.
 
 .. option:: -D, --delimiter=<string>
 
@@ -289,14 +297,10 @@ of the delete list you want to use with the ``delete`` command.
    thus, will be ignored. The default comment marker is ``#``.
    Only single characters are allowed as value.
 
-.. option:: -w, --delete-list-preview
+.. option:: --csv-encoding=<encoding>
 
-   Use this option to get a preview of the first few lines of the
-   delete list when applying the provided options for parsing
-   and interpreting the delete list. This preview is very helpful to adapt
-   and specify the delimiter character(s), quoting rules, header
-   information, identifier column name or index, etc. The
-   preview is printed to the console.
+   Define the encoding of the delete list using a IANA-based character encoding name.
+   UTF-8 is assumed as default encoding.
 
 .. include:: database-options.rst
 

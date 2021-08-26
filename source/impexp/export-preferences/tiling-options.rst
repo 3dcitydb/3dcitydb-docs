@@ -23,7 +23,7 @@ The user must always specify just a single output file on the *Export* tab
 even if tiling shall be used (:numref:`impexp_citygml_export_chapter`).
 For example, assume a user has entered the following output file:
 
-.. code-block::
+::
 
    /home/user/my_3d_model/my_city.gml
 
@@ -52,7 +52,7 @@ example). However, you may also decide to append a tile-specific *filename suffi
 **Example:** Based on the example output file from above and assuming default settings,
 the export would create the following folder structure:
 
-.. code-block::
+::
 
    /home/user/my_3d_model/
    ├── tile_0_0/

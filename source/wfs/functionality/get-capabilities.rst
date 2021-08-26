@@ -1,7 +1,7 @@
 .. _wfs_getcapabilities_operation_chapter:
 
-GetCapabilities operation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+GetCapabilities
+~~~~~~~~~~~~~~~
 
 The GetCapabilities operation generates an XML-encoded service metadata
 document describing the WFS service provided by a server. The
@@ -13,7 +13,6 @@ The following XML snippet shows an XML encoding of a GetCapabilities
 operation.
 
 .. code-block:: xml
-   :name: wfs_getCapabilities_example_listing
 
    <?xml version="1.0" encoding="UTF-8"?>
    <wfs:GetCapabilities service="WFS"
@@ -45,14 +44,11 @@ GetCapabilities request and are supported by the WFS implementation.
    * - | service
      - | M
      - | WFS (fixed)
-     - | The service attribute indicates the
-       | service type. The value “WFS” is fixed.
+     - | The service attribute indicates the service type. The value “WFS” is fixed.
    * - | AcceptVersions
      - | O
      - |
-     - | Used for version number negotiation
-       | with the WFS server
-       | (cf. OGC Document No. 06-121r3:2009).
+     - | Used for version number negotiation with the WFS server (cf. OGC Document No. 06-121r3:2009).
 
 As alternative to XML encoding, the GetCapabilities operation may also
 be invoked through a KVP-encoded HTTP GET request.

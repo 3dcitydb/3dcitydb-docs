@@ -16,7 +16,7 @@ The WFS implementation has been successfully deployed and tested on
 **Apache Tomcat 9** (http://tomcat.apache.org/). This is also the
 *recommended* servlet container. *Apache Tomcat 8 and 7* are also
 supported, whereas any previous version of the Apache Tomcat server will
-not work.
+not work due to missing support for the Java Servlet 3.0 / 3.1 technology.
 
 .. note::
    Neither Java nor a servlet container are part of the WFS
@@ -27,11 +27,12 @@ not work.
 *Hardware requirements* for the web server running the WFS depend on the
 intended use and number of concurrent accesses. There are no minimum
 requirements to be met, so make sure your system setup meets your needs.
-Also note that the WFS **does not provide its own security layer**
-(e.g., to limit access to specific networks or users). So, it is your
-responsibility to take any reasonable physical, technical and
-administrative measures to secure the WFS service and the access to the
-3D City Database.
+
+Access to the individual operations of the WFS service can be secured using
+IP- and token-based access control rules. Further security mechanisms are **not
+offered** by the WFS. So, it is your responsibility as service provider to take
+any reasonable physical, technical and administrative measures to secure the WFS
+service and the access to the 3D City Database.
 
 *WFS clients* connecting to the WFS interface of the 3D City Database
 must support the *OGC WFS standard version 2.0*. Moreover, they must

@@ -13,6 +13,7 @@ preference settings that are presented in this chapter.
    tiling-options
    cityobjectgroup
    appearance
+   geometry
    citygml-general
    address
    xlinks

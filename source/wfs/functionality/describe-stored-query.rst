@@ -1,7 +1,7 @@
 .. _wfs_describestoredquery_operation_chapter:
 
-DescribeStoredQuery operation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DescribeStoredQuery
+~~~~~~~~~~~~~~~~~~~
 
 The DescribeStoredQuery operation is used to provide the details of one
 or more stored queries offered by the server. The following listing
@@ -23,8 +23,9 @@ providing more than on unique identifier through multiple
 ``<wfs:StoredQueryId>`` elements, the descriptions of separate stored
 queries can be requested in a single DescribeStoredQuery operation. If
 the ``<wfs:StoredQueryId>`` element is omitted, a description of all stored
-queries available at the WFS server is returned to the client. The above
-request will produce a response similar to the following listing.
+queries available at the WFS server is returned to the client.
+
+The above request will produce a response similar to the following listing.
 
 .. code-block:: xml
    :name: wfs_describeStoredQuery_example_response_listing
@@ -58,7 +59,7 @@ query having the unique identifier
 *http://www.opengis.net/def/query/OGC-WFS/0/GetFeatureById* as shown
 above. This stored query takes a single parameter *id* of type xs:string
 and returns zero or exactly one feature whose resource identifier
-matches the id value. For the 3D City Database WFS, the id value is
+matches the id value. For the 3D City Database WFS, the *id* value is
 evaluated against the gml:id of each feature in the database to find a
 match.
 
@@ -67,8 +68,9 @@ returned by a stored query. Note that this string is empty for the the
 GetFeatureById query. Consequently, the query will return a feature
 instance of all advertised feature types if its gml:id matches. The set
 of advertised feature types can be influenced in the ``config.xml`` settings
-file. The DescribeStoredQuery operation allows the following XML
-attributes.
+file.
+
+The DescribeStoredQuery operation allows the following XML attributes.
 
 .. list-table:: Supported XML attributes of a DescribeStoredQuery operation. (O = optional, M = mandatory)
    :name: wfs_supported_describeStoredQuery_attributes_table

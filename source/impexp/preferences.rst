@@ -4,6 +4,7 @@ Preferences
 .. toctree::
    :hidden:
 
+   preferences/plugins
    preferences/manage-crs
    preferences/cache
    preferences/paths
@@ -49,6 +50,8 @@ The following table provides a summary overview of the available settings.
 
    * - | **Preference name**
      - | **Description**
+   * - | :ref:`impexp_preferences_plugins`
+     - | Overview and management of installed plugins.
    * - | :ref:`impexp_crs_management_chapter`
      - | Management of user-defined coordinate reference systems.
    * - | :ref:`impexp_general_preferences_cache`

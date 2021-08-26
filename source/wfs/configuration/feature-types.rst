@@ -14,7 +14,6 @@ available from the WFS service. In addition, a third feature type
 *IndustrialBuilding* coming from a CityGML ADE is advertised.
 
 .. code-block:: xml
-   :name: wfs_feature_types_config_listing
 
    <featureTypes>
      <featureType>
@@ -52,7 +51,7 @@ optionally be announced as *bounding box* (lower left and upper right
 corner). The coordinate values must be given in WGS 84.
 
 .. note::
-   The bounding box is not automatically checked against or
+   The bounding box is neither automatically checked against nor
    computed from the database, but rather copied to the WFS *capabilities*
    document “as is”.
 
@@ -67,10 +66,15 @@ type is ignored. If you do not have ADE extensions, then simply skip the
 ``<adeFeatureType>`` element.
 
 Besides the list of advertised feature types, also the CityGML *version*
-to be used for encoding features in a response to a client’s request has
+that shall be supported for encoding features in a response to a client’s request has
 to be specified. Use the ``<version>`` element for this purpose, which takes
 either 2.0 (for CityGML 2.0) or 1.0 (for CityGML 1.0) as value. If both
 versions shall be supported, simply use two ``<version>`` elements. However,
 in this case, you should define the *default version* to be used by the
-WFS by setting the isDefault attribute to true on one of the elements
+WFS by setting the *isDefault* attribute to true on one of the elements
 (otherwise, CityGML 2.0 will be the default).
+
+.. note::
+   If your ``<featureTypes>`` element contains CityGML or ADE feature types that are not
+   available for the chosen CityGML version, they are automatically
+   removed from the list and are **not advertised** to clients by the WFS server.

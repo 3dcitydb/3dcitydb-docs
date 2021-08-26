@@ -1,7 +1,7 @@
 .. _wfs_ListStoredQueries_operation_chapter:
 
-ListStoredQueries operation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ListStoredQueries
+~~~~~~~~~~~~~~~~~
 
 Since version 2.0 of the WFS standard, a WFS server is supposed to
 manage predefined and parameterized feature query expressions (so called
@@ -10,7 +10,8 @@ repeatedly invoked by the client using different parameter values.
 Stored queries hide the complexity of the underlying query expression
 from the client since all the client needs to know is the unique
 identifier of the stored query as well as the names and types of the
-parameters in order to invoke the operation.
+parameters in order to invoke the operation. For example, the stored query
+is referenced by its identifier in a GetFeature operation (see :numref:`wfs_getfeature_operation_chapter`)
 
 The ListStoredQuery operation is meant to provide the list of stored
 queries that is offered by the WFS server. The response document

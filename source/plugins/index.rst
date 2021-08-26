@@ -1,4 +1,4 @@
-.. _spreadsheet_plugin_install:
+.. _impexp_plugins_chapter:
 
 Importer/Exporter plugins
 =========================

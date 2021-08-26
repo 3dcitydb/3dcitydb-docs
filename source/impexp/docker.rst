@@ -11,12 +11,12 @@ dockerized applications and workflows. All CLI commands despite the
 .. rubric:: Synopsis
 
 .. code-block:: bash
-  :caption: 3D City Database Importer/Exporter Docker synopsis
   :name: impexp_docker_code_synopsis
 
-  docker run --rm -i -t --name impexp \
+  docker run --rm --name impexp \
+    [-i -t] \
     [-v /my/data/:/data] \
-  3dcitydb/impexp COMMAND
+    3dcitydb/impexp[:TAG] COMMAND
 
 *******************************************************************************
 Image variants and versions
@@ -25,9 +25,9 @@ The Importer/Exporter Docker images are available based on Debian and Alpine
 Linux. The Debian version is based on the `OpenJDK <https://hub.docker.com/_
 /openjdk>`_ images, the Alpine Linux variant is based on the non-official images
 from `AdoptOpenJDK <https://hub.docker.com/r/adoptopenjdk/openjdk11/>`_.
-The images are going to use the latest LTS JDK version available, when a new
-Importer/Exporter version is released. For version 4.3.0, this is JDK 11.0.11 LTS.
-:numref:`impexp_docker_tbl_images` gives an overview on the images available.
+The images are going to use the latest LTS JRE version available at the time a new
+Importer/Exporter version is released. :numref:`impexp_docker_tbl_images` gives
+an overview on the images available.
 
 .. list-table:: 3DCityDB Importer/Exporter Docker image variants and versions
   :widths: auto
@@ -85,31 +85,32 @@ Usage and configuration
 
 The 3DCityDB Importer/Exporter Docker images do not require configuration for
 most use cases and allow the usage of the Importer/Exporter CLI out of the box.
-Simply append the :ref:`Importer/Exporter CLI <impexp_cli_chapter>` command you
-want to use to the `docker run <https://docs.docker.com/engine/reference/
-commandline/run/>`_ command line:
+Simply append the :ref:`Importer/Exporter CLI command <impexp_cli_chapter>` you
+want to execute to the ``docker run`` command line.
 
 .. code-block:: bash
 
-  docker run -i -t --rm --name impexp 3dcitydb/impexp COMMAND
+  docker run --rm --name impexp 3dcitydb/impexp COMMAND
 
 All import and export operations require a mounted directory for
 exchanging data between the host system and the container. Use the
-`docker run <https://docs.docker.com/engine/reference/commandline/run/>`_
-``-v`` or ``--mount`` options to mount a directory or file:
+``-v`` or ``--mount`` options of the ``docker run`` command to mount a
+directory or file.
 
 .. code-block:: bash
 
   # mount /my/data/ on the host system to /data inside the container
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
     -v /my/data/:/data \
-  3dcitydb/impexp COMMAND
+    3dcitydb/impexp COMMAND
 
   # Mount the current working directory on the host system to /data
   # inside the container
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
       -v $(pwd):/data \
-    3dcitydb/impexp COMMAND
+      3dcitydb/impexp COMMAND
+
+.. note:: The default working directory inside the container is ``/data``.
 
 .. tip:: Watch out for **correct paths** when working with mounts!
   All paths passed to the Importer/Exporter CLI have to be specified from
@@ -117,10 +118,26 @@ exchanging data between the host system and the container. Use the
   manages volumes and bind mounts go through the
   `Docker volume guide <https://docs.docker.com/storage/volumes/>`_.
 
-.. _impexp_docker_user_mgmt:
+In order to allocate a console for the container process, you must use ``-i`` ``-t``
+together. This comes in handy, for instance, if you don't want to pass the password for the 3DCityDB
+connection on the command line but rather want to be prompted to enter it
+interactively on the console. You must use the ``-p`` option of the Importer/Exporter CLI
+without a value for this purpose (see :numref:`impexp_cli_chapter`) as shown in
+the example below. Note that the ``-i`` ``-t`` options of the ``docker run`` command
+are often combined and written as ``-it``.
 
-User management and file permissions
-===============================================================================
+.. code-block:: bash
+
+  docker run -it --rm --name impexp \
+      3dcitydb/impexp import \
+      -H my.host.de -d citydb -u postgres -p \
+      bigcity.gml
+
+The ``docker run`` command offers further options to configure the
+container process. Please check the `official reference <https://docs.docker.com/engine/reference/run/>`_
+for more information.
+
+**User management and file permissions**
 
 When exchanging files between the host system and the Importer/Exporter
 container it is import to make sure that files and directories have permissions
@@ -133,36 +150,38 @@ The default user is named ``impexp`` with user and group identifier (uid, gid)
 
 .. code-block:: console
 
-  $ docker run --rm --entrypoint bash -i -t 3dcitydb/impexp \
-    -c "cat /etc/passwd | grep impexp"
+  $ docker run --rm --entrypoint bash 3dcitydb/impexp \
+      -c "cat /etc/passwd | grep impexp"
 
-  impexp:x:1000:1000::/home/impexp:/bin/sh
+  impexp:x:1000:1000::/data:/bin/sh
 
 As 1000 is the default uid/gid for the first user on many Linux
 distributions in most cases you won't notice this, as the user on the
 host system is going to have the same uid/gid as inside the container.
 However, if you are facing file permission issues, you can run the
-Importer/Exporter container as an arbitrary user with the
-`Docker run -u <https://docs.docker.com/engine/reference/run/#user>`_
-switch.
+Importer/Exporter container as another user with the
+``-u`` option of the `docker run`` command. This way you can make sure,
+that the right permissions are set on generated files in the mounted directory.
+
+The following example illustrates how to use the ``-u`` option to pass the
+user ID of your current host's user.
 
 .. code-block:: bash
   :name: impexp_docker_code_uid
-  :caption: Run Importer/Exporter container as current user of host system
 
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
       -u $(id -u):$(id -g) \
       -v /my/data/:/data \
-    3dcitydb/impexp COMMAND
+      3dcitydb/impexp COMMAND
 
 .. _impexp_docker_build:
 
 *******************************************************************************
-Build own images
+Build your own images
 *******************************************************************************
 
-3DCityDB Importer/Exporter image are easily built on your own. The images
-support two build args:
+3DCityDB Importer/Exporter images are easily built on your own. The images
+support two build arguments:
 
 .. option:: BUILDER_IMAGE_TAG=<tag of the builder image>
 
@@ -206,7 +225,7 @@ support two build args:
 Examples
 *******************************************************************************
 
-For the follow examples we assume that a 3DCityDB instance with the following
+For the following examples we assume that a 3DCityDB instance with the following
 settings is running:
 
 .. code-block:: text
@@ -220,10 +239,7 @@ settings is running:
   DB USERNAME   postgres
   DB PASSWORD   changeMe!
 
-.. _impexp_docker_example_import_citygml:
-
-Importing CityGML
-===============================================================================
+**Importing CityGML**
 
 This section provides some examples for importing CityGML datasets. Refer to
 :numref:`impexp_cli_import_command` for a detailed description of the
@@ -234,42 +250,43 @@ into the DB given in :numref:`impexp_docker_code_exampledb`:
 
 .. code-block:: bash
 
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-    3dcitydb/impexp import \
+      3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p changeMe! \
-      /data/bigcity.gml
+      bigcity.gml
+
+.. note:: Since the host directory ``/home/me/mydata/`` is mounted to the default
+   working directory ``/data`` inside the container, you can simply
+   reference your input file by its filename without instead of using an absolute path.
 
 Import all CityGML datasets from ``/home/me/mydata/`` on your host system
 into the DB given in :numref:`impexp_docker_code_exampledb`:
 
 .. code-block:: bash
 
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-    3dcitydb/impexp import \
+      3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p changeMe! \
       /data/
 
-.. _impexp_docker_example_import_citygml:
-
-Exporting CityGML
-===============================================================================
+**Exporting CityGML**
 
 This section provides some examples for exporting CityGML datasets. Refer to
 :numref:`impexp_cli_export_command` for a detailed description of the
 Importer/Exporter CLI export command.
 
-Export all data from the DB given in  :numref:`impexp_docker_code_exampledb` to
+Export all data from the DB given in :numref:`impexp_docker_code_exampledb` to
 ``/home/me/mydata/output.gml``:
 
 .. code-block:: bash
 
-  docker run -i -t --rm --name impexp \
+  docker run --rm --name impexp \
       -v /home/me/mydata/:/data \
-    3dcitydb/impexp export \
+      3dcitydb/impexp export \
       -H my.host.de -d citydb -u postgres -p changeMe! \
-      -o /data/output.gml
+      -o output.gml
 
 .. impexp_docker_example_link_citydb
 

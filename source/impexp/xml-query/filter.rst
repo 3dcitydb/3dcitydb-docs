@@ -91,7 +91,7 @@ exported, then the following examples are valid XPath expressions:
    expressions complex to write. For this reason, the Importer/Exporter
    uses a simple ADE that can be used in XPath expressions to evaluate
    address elements such as the street or city name. More information is
-   provided in :numref:`impexp_xml_query_address`.
+   provided in :numref:`impexp_xml_query_address_metadata`.
 
 .. _literals:
 
