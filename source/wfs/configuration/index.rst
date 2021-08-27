@@ -85,7 +85,7 @@ starting the service.
 
    * - | **Environment variable**
      - | **Description**
-   * - | ``VC_WFS_CONFIG_FILE``
+   * - | ``WFS_CONFIG_FILE``
      - | With this variable, you can specify a configuration file that shall be used instead of the default ``config.xml`` file in the ``WB-INF`` directory when starting the WFS service. The variable must provide the full path to the configuration file. The WFS service must have read access to this file.
-   * - | ``VC_WFS_ADE_EXTENSIONS_PATH``
+   * - | ``WFS_ADE_EXTENSIONS_PATH``
      - | Allows for providing an alternative directory where the WFS service shall search for ADE extensions (default: ``ade-extensions`` folder in the ``WEB-INF`` directory). The WFS service must have read access to this directory.
