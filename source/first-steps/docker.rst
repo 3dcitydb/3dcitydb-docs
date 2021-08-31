@@ -96,14 +96,14 @@ required. It is recommended to run the container as the currently logged in
 user and group (``docker run -u``) to ensure files are readable/writeable.
 
 The detailed documentation for the 3DCityDB Importer/Exporter Docker image is
-available :doc:`here <../impexp/docker>`, the documentation of the CLI is
+available :ref:`here <impexp_docker_chapter>`, the documentation of the CLI is
 available :ref:`here <impexp_cli_chapter>`.
 
 .. code-block:: bash
 
    docker run -i -t --name impexp --rm \
      -u $(id -u):$(id -g) \
-     -v /local/share/dir:/share \
+     -v /local/data/dir:/data \
    3dcitydb/impexp COMMAND
 
 Use the ``help`` command to see the CLI documentation and list all available commands:
@@ -124,11 +124,11 @@ For instance, a simple CityGML export looks like this:
 
    docker run -i -t --name impexp --rm \
      -u $(id -u):$(id -g) \
-     -v /local/share/dir:/share \
+     -v /local/data/dir:/data \
      3dcitydb/impexp \
-       export -H my.citydb.host.de -d postgres -p postgres -u postgres -o /share/out.gml
+       export -H my.citydb.host.de -d postgres -p postgres -u postgres -o out.gml
 
-The exported file will be available on the host system at: ``/local/share/dir/out.gml``.
+The exported file will be available on the host system at: ``/local/data/dir/out.gml``.
 
 3D-Web-Map-Client Docker
 ===============================================================================
