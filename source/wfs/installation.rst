@@ -30,7 +30,7 @@ Please follow the following installation steps.
 
    If you update a previous version of the WFS, you can choose to uninstall the global
    libraries of the previous version unless they are needed by another web application
-   running on your servlet container. For Apache Tomcat 7 (or higher), you can simply delete
+   running on your servlet container. For Apache Tomcat 8 (or higher), you can simply delete
    the JAR files from the ``lib`` folder within the Tomcat installation directory after you have
    shut down the server. Please refer to the user manual of your previous WFS version to learn
    which JAR files need to be deleted. Uninstalling the global libraries is optional though

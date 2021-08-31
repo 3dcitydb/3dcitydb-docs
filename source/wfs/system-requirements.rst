@@ -14,9 +14,15 @@ requirements* have to be met:
 
 The WFS implementation has been successfully deployed and tested on
 **Apache Tomcat 9** (http://tomcat.apache.org/). This is also the
-*recommended* servlet container. *Apache Tomcat 8 and 7* are also
-supported, whereas any previous version of the Apache Tomcat server will
-not work due to missing support for the Java Servlet 3.0 / 3.1 technology.
+*recommended* servlet container. *Apache Tomcat 8* is also
+supported. All previous versions of the Apache Tomcat server have reached
+end of life and are not supported anymore.
+
+.. tip::
+   You cannot directly deploy the 3DCityDB WFS on an Apache Tomcat 10 server as this
+   requires Jakarta EE 9 support. If you stil want to use Tomcat 10, you can however automatically convert
+   the WAR file of the WFS so it runs on Tomcat 10. Simply use the open source
+   `migration tool <https://github.com/apache/tomcat-jakartaee-migration>`_ for this purpose.
 
 .. note::
    Neither Java nor a servlet container are part of the WFS
