@@ -215,7 +215,7 @@ distributions in most cases you won't notice this, as the user on the
 host system is going to have the same uid/gid as inside the container.
 However, if you are facing file permission issues, you can run the
 Importer/Exporter container as another user with the
-``-u`` option of the `docker run`` command. This way you can make sure,
+``-u`` option of the ``docker run`` command. This way you can make sure,
 that the right permissions are set on generated files in the mounted directory.
 
 The following example illustrates how to use the ``-u`` option to pass the
