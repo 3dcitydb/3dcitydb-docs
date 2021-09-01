@@ -155,7 +155,8 @@ Environment variables
 ===============================================================================
 
 The Importer/Exporter Docker images support the following environment variables
-to set the credentials for the connection to a 3DCityDB instance.
+to set the credentials for the connection to a 3DCityDB instance (see also
+:numref:`impexp_cli_environment_variables`).
 
 .. warning::
 
