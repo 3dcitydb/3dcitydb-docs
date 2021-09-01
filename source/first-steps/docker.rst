@@ -43,12 +43,9 @@ All images are available from
 .. 3DCityDB WFS, which makes the data from the database accessible via a
 .. standardized web interface.
 
-*******************************************************************************
-Getting started
-*******************************************************************************
-In this section you will find *quick start* code snippets for all 3DCityDB Docker
+The following sections provide *quick start* code snippets for all 3DCityDB Docker
 images to get you running in a few seconds.
-For a more comprehensive documentation please visit the individual site of each
+For a more comprehensive documentation please visit the individual chapters of each
 image.
 
 .. note:: Replace the line continuation character  ``\`` with ``^`` for Windows

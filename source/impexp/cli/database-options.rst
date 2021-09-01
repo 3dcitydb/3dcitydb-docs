@@ -2,6 +2,7 @@
 
 The following options allow you to define the connection details that
 shall be used for establishing a connection to the 3D City Database.
+You can also use environment variables for this purpose (see :numref:`impexp_cli_environment_variables`).
 
 .. option:: -T, --db-type=<database>
 
