@@ -173,7 +173,7 @@ to set the credentials for the connection to a 3DCityDB instance.
 
 .. option:: CITYDB_PORT=<port>
 
-  Port of the 3DCityDB to connect to. Default is *5432*.
+  Port of the 3DCityDB to connect to. Default is *5432* for PostgreSQL and *1521* for Oracle.
 
 .. option:: CITYDB_NAME=<dbName>
 
