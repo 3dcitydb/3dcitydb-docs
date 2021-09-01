@@ -15,6 +15,7 @@ Using the command-line interface (CLI)
    cli/delete
    cli/validate
    cli/gui
+   cli/environment-variables
    cli/general
 
 In addition to the graphical user interface, the Importer/Exporter also
