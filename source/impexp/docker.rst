@@ -13,9 +13,15 @@ dockerized applications and workflows. All CLI commands despite the
 .. code-block:: bash
   :name: impexp_docker_code_synopsis
 
-  docker run --rm --name impexp \
-    [-i -t] \
-    [-v /my/data/:/data] \
+  docker run --rm --name impexp [-i -t] \
+      [-e CITYDB_TYPE=PostGIS|Oracle] \
+      [-e CITYDB_HOST=the.host.de] \
+      [-e CITYDB_PORT=5432] \
+      [-e CITYDB_NAME=theDBName] \
+      [-e CITYDB_SCHEMA=theCityDBSchemaName] \
+      [-e CITYDB_USERNAME=theUsername] \
+      [-e CITYDB_PASSWORD=theSecretPass] \
+      [-v /my/data/:/data] \
     3dcitydb/impexp[:TAG] COMMAND
 
 *******************************************************************************
