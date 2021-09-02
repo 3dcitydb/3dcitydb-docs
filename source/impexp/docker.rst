@@ -13,9 +13,15 @@ dockerized applications and workflows. All CLI commands despite the
 .. code-block:: bash
   :name: impexp_docker_code_synopsis
 
-  docker run --rm --name impexp \
-    [-i -t] \
-    [-v /my/data/:/data] \
+  docker run --rm --name impexp [-i -t] \
+      [-e CITYDB_TYPE=PostGIS|Oracle] \
+      [-e CITYDB_HOST=the.host.de] \
+      [-e CITYDB_PORT=5432] \
+      [-e CITYDB_NAME=theDBName] \
+      [-e CITYDB_SCHEMA=theCityDBSchemaName] \
+      [-e CITYDB_USERNAME=theUsername] \
+      [-e CITYDB_PASSWORD=theSecretPass] \
+      [-v /my/data/:/data] \
     3dcitydb/impexp[:TAG] COMMAND
 
 *******************************************************************************
@@ -92,6 +98,10 @@ want to execute to the ``docker run`` command line.
 
   docker run --rm --name impexp 3dcitydb/impexp COMMAND
 
+However, the database credentials can be passed to the Importer/Exporter
+container using environment variables as well, as described in
+:numref:`impexp_docker_env_vars_section`.
+
 All import and export operations require a mounted directory for
 exchanging data between the host system and the container. Use the
 ``-v`` or ``--mount`` options of the ``docker run`` command to mount a
@@ -118,13 +128,15 @@ directory or file.
   manages volumes and bind mounts go through the
   `Docker volume guide <https://docs.docker.com/storage/volumes/>`_.
 
-In order to allocate a console for the container process, you must use ``-i`` ``-t``
-together. This comes in handy, for instance, if you don't want to pass the password for the 3DCityDB
-connection on the command line but rather want to be prompted to enter it
-interactively on the console. You must use the ``-p`` option of the Importer/Exporter CLI
-without a value for this purpose (see :numref:`impexp_cli_chapter`) as shown in
-the example below. Note that the ``-i`` ``-t`` options of the ``docker run`` command
-are often combined and written as ``-it``.
+In order to allocate a console for the container process, you must use
+``-i`` ``-t`` together. This comes in handy, for instance, if you don't
+want to pass the password for the 3DCityDB connection on the command
+line but rather want to be prompted to enter it interactively on the console.
+You must use the ``-p`` option of the Importer/Exporter CLI without a
+value for this purpose (see :numref:`impexp_cli_chapter`) as shown in
+the example below.
+Note that the ``-i`` ``-t`` options of the ``docker run`` commandare often
+combined and written as ``-it``.
 
 .. code-block:: bash
 
@@ -134,10 +146,54 @@ are often combined and written as ``-it``.
       bigcity.gml
 
 The ``docker run`` command offers further options to configure the
-container process. Please check the `official reference <https://docs.docker.com/engine/reference/run/>`_
-for more information.
+container process. Please check the `official reference <https://docs.docker.
+com/engine/reference/run/>`_ for more information.
 
-**User management and file permissions**
+.. _impexp_docker_env_vars_section:
+
+Environment variables
+===============================================================================
+
+The Importer/Exporter Docker images support the following environment variables
+to set the credentials for the connection to a 3DCityDB instance (see also
+:numref:`impexp_cli_environment_variables`).
+
+.. warning::
+
+  When running the Importer/Exporter on the command line, the values of these
+  variables will be used as input if a corresponding CLI option is **not** available.
+  Thus, the CLI options always take precedence.
+
+.. option:: CITYDB_TYPE=<postgresql|oracle>
+
+  The type of the 3DCityDB to connect to. *postgresql* is the default.
+
+.. option:: CITYDB_HOST=<hostname or ip>
+
+  Name of the host or IP address on which the 3DCityDB is running.
+
+.. option:: CITYDB_PORT=<port>
+
+  Port of the 3DCityDB to connect to. Default is *5432* for PostgreSQL and *1521* for Oracle.
+
+.. option:: CITYDB_NAME=<dbName>
+
+  Name of the 3DCityDB database to connect to.
+
+.. option:: CITYDB_SCHEMA=<citydb>
+
+  Schema to use when connecting to the 3DCityDB (default: *citydb | username*).
+
+.. option:: CITYDB_USERNAME=<username>
+
+  Username to use when connecting to the 3DCityDB
+
+.. option:: CITYDB_PASSWORD=<thePassword>
+
+  Password to use when connecting to the 3DCityDB
+
+User management and file permissions
+===============================================================================
 
 When exchanging files between the host system and the Importer/Exporter
 container it is import to make sure that files and directories have permissions
@@ -160,7 +216,7 @@ distributions in most cases you won't notice this, as the user on the
 host system is going to have the same uid/gid as inside the container.
 However, if you are facing file permission issues, you can run the
 Importer/Exporter container as another user with the
-``-u`` option of the `docker run`` command. This way you can make sure,
+``-u`` option of the ``docker run`` command. This way you can make sure,
 that the right permissions are set on generated files in the mounted directory.
 
 The following example illustrates how to use the ``-u`` option to pass the
