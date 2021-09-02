@@ -529,7 +529,7 @@ Here is how to create an image with data:
     docker rm -f -v citydbTemp
 
 We have now created a 3DCityDB image that contains data that can e.g. be pushed to a
-Docker registry or exported ar TAR.
+Docker registry or exported as TAR.
 When creating containers from this image, it is not required to specify any configuration
 parameter as you usually would, when creating a fresh 3DCityDB container.
 
@@ -543,25 +543,14 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. code-block:: console
 
-  $ PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c '\dt'
+  $ export PGPASSWORD=postgres
+  $ query='SELECT COUNT(*) FROM citydb.cityobject;'
+  $ psql -h localhost -p 5432 -U postgres -d postgres -c "$query"
 
-                      List of relations
-  Schema |           Name           | Type  |  Owner
-  --------+--------------------------+-------+----------
-  citydb | address                  | table | postgres
-  citydb | address_to_bridge        | table | postgres
-  citydb | address_to_building      | table | postgres
-  citydb | ade                      | table | postgres
-  citydb | aggregation_info         | table | postgres
-  citydb | appear_to_surface_data   | table | postgres
-  citydb | appearance               | table | postgres
-  citydb | breakline_relief         | table | postgres
-  citydb | bridge                   | table | postgres
-  citydb | bridge_constr_element    | table | postgres
-  citydb | bridge_furniture         | table | postgres
- ...
- ...
-
+  count
+  -------
+    231
+  (1 row)
 
 .. Links ----------------------------------------------------------------------
 
