@@ -34,7 +34,8 @@ sys.path.insert(0, os.path.abspath('.'))
 extensions = [
     'sphinx.ext.intersphinx',
     'sphinx_rtd_theme',
-    'sphinx.ext.autosectionlabel'
+    'sphinx.ext.autosectionlabel',
+    'sphinx_copybutton'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -357,3 +358,7 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 numfig = True
 numfig_format = {'figure': 'Fig. %s', 'table': 'Table %s', 'code-block': 'Listing %s'}
+
+# Copybutton config
+copybutton_prompt_text = r">>> |\.\.\. |\$\s*|In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
+copybutton_prompt_is_regexp = True
