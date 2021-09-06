@@ -1,0 +1,20 @@
+
+version: '3'
+
+# Services ####################################################################
+services:
+  # Web Feature Service (WFS) -------------------------------------------------
+  wfs:
+    image: 3dcitydb/wfs
+    # container_name: wfs
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    environment:
+      # CITYDB_TYPE: postgresql|oracle
+      # CITYDB_PORT: 5432
+      # CITYDB_SCHEMA: citydb
+      CITYDB_HOST: citydb
+      CITYDB_NAME: postgres
+      CITYDB_USERNAME: postgres
+      CITYDB_PASSWORD: postgres
