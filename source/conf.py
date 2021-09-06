@@ -362,3 +362,4 @@ numfig_format = {'figure': 'Fig. %s', 'table': 'Table %s', 'code-block': 'Listin
 # Copybutton config
 copybutton_prompt_text = r">>> |\.\.\. |\$\s*|In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
 copybutton_prompt_is_regexp = True
+copybutton_line_continuation_character = "\\"
