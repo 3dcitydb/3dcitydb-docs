@@ -1,11 +1,16 @@
 .. _wfs_docker_chapter:
 
 ###############################################################################
-Web-Feature-Service using Docker
+Web Feature Service using Docker
 ###############################################################################
 
-The 3DCityDB Web-Feature-Service (WFS) Docker images expose the capabilities
+The 3DCityDB Web Feature Service (WFS) Docker image exposes the capabilities
 of the :ref:`wfs_chapter` for dockerized applications and workflows.
+Using the WFS Docker you can expose the features stored in a 3DCityDB instance
+through an `OGC WFS <https://www.ogc.org/standards/wfs>`_ interface offering a
+rich set of features like advanced filter capabilities. For a basic configuration
+just the connection credentials of the 3DCityDB (``CITYDB_*`` variables) have to
+be specified.
 All WFS :ref:`functionalities <wfs_basic_functionality_chapter>` are supported by
 the images.
 
@@ -113,7 +118,7 @@ a WFS ``config.xml`` file.
 The easiest way of using the WFS Docker is to use the default ``config.xml``
 shipped with the container and overwrite the 3DCityDB connection credentials
 and/or the web context path using environment variables.
-The default config file exposes all filter capabilities and feature types and from the
+The default config file exposes all filter capabilities and feature types from the
 connected database to the WFS and should be suitable for most situations.
 
 If you require more specific settings, get a copy of
@@ -173,7 +178,7 @@ the service.
   The URL subpath where the WFS is served. The default setting is ``ROOT``, for
   serving from the web root. **Note:** Nested paths are currently not supported.
   For instance, set ``WFS_CONTEXT_PATH=citydb-wfs`` to serve from
-  ``http[s]://my-domain/wfs-client/``.
+  ``http[s]://my-domain/citydb-wfs/``.
 
 .. option:: WFS_CONFIG_FILE=</path/to/custom/config.xml>
 
@@ -182,7 +187,10 @@ the service.
 
 .. option:: WFS_ADE_EXTENSIONS_PATH=</path/to/ade-extension/>
 
-  Path to ADE extensions.
+  Allows for providing an alternative directory where the WFS service shall
+  search for ADE extensions. Default ade-extensions folder is the *WEB-INF* directory).
+  The WFS service must have read access to this directory. See
+  :ref:`wfs_configuration_chapter` for more.
 
 .. _wfs_docker_build:
 

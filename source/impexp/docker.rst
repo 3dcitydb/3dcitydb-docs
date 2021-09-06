@@ -344,7 +344,7 @@ Export all data from the DB given in :numref:`impexp_docker_code_exampledb` to
       -H my.host.de -d citydb -u postgres -p changeMe! \
       -o output.gml
 
-.. impexp_docker_example_link_citydb
+.. _impexp_docker_example_link_citydb:
 
 Importer/Exporter Docker combined with 3DCityDB Docker
 ===============================================================================
