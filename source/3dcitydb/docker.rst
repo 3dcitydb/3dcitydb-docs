@@ -285,6 +285,24 @@ Oracle environment variables
   'yes' or 'no' (default value) to specify whether the 3DCityDB instance should be
   versioned-enabled based on the Oracle's Workspace Manager.
 
+.. _citydb_docker_compose:
+
+*******************************************************************************
+Docker Compose
+*******************************************************************************
+
+`Docker Compose <https://docs.docker.com/compose/>`_ a tool for defining and
+running multi-container Docker applications. With Compose, you use a YAML file
+to configure your application's services. Then, with a single command, you create
+and start all the services from your configuration. this section contains some
+examples for using the 3DCityDB Docker with Compose.
+
+.. literalinclude:: docker-compose.yml
+  :language: yaml
+  :name: citydb_docker_code_compose_basic
+  :caption: Basic ``docker-compose.yml`` for the 3DCityDB. Optional configurations
+    have been commented out.
+
 .. _citydb_docker_build:
 
 *******************************************************************************
