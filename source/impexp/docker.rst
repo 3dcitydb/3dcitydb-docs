@@ -14,7 +14,7 @@ dockerized applications and workflows. All CLI commands despite the
   :name: impexp_docker_code_synopsis
 
   docker run --rm --name impexp [-i -t] \
-      [-e CITYDB_TYPE=PostGIS|Oracle] \
+      [-e CITYDB_TYPE=postgresql|oracle] \
       [-e CITYDB_HOST=the.host.de] \
       [-e CITYDB_PORT=5432] \
       [-e CITYDB_NAME=theDBName] \

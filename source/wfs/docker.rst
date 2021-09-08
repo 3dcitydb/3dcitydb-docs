@@ -20,7 +20,7 @@ the images.
   :name: wfs_docker_code_synopsis
 
   docker run --name wfs [-d] -p 8080:8080 \
-      [-e CITYDB_TYPE=PostGIS|Oracle] \
+      [-e CITYDB_TYPE=postgresql|oracle] \
       [-e CITYDB_HOST=the.host.de] \
       [-e CITYDB_PORT=thePort] \
       [-e CITYDB_NAME=theDBName] \
