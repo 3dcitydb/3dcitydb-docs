@@ -14,7 +14,7 @@ dockerized applications and workflows. All CLI commands despite the
   :name: impexp_docker_code_synopsis
 
   docker run --rm --name impexp [-i -t] \
-      [-e CITYDB_TYPE=PostGIS|Oracle] \
+      [-e CITYDB_TYPE=postgresql|oracle] \
       [-e CITYDB_HOST=the.host.de] \
       [-e CITYDB_PORT=5432] \
       [-e CITYDB_NAME=theDBName] \
@@ -80,7 +80,7 @@ Here are some examples for full image tags:
 .. code-block:: shell
 
   docker pull 3dcitydb/impexp:edge
-  docker pull 3dcitydb/impexp:latest-apline
+  docker pull 3dcitydb/impexp:latest-alpine
   docker pull 3dcitydb/impexp:4.3.0
   docker pull 3dcitydb/impexp:4.3.0-alpine
 
@@ -135,7 +135,7 @@ line but rather want to be prompted to enter it interactively on the console.
 You must use the ``-p`` option of the Importer/Exporter CLI without a
 value for this purpose (see :numref:`impexp_cli_chapter`) as shown in
 the example below.
-Note that the ``-i`` ``-t`` options of the ``docker run`` commandare often
+Note that the ``-i`` ``-t`` options of the ``docker run`` command are often
 combined and written as ``-it``.
 
 .. code-block:: bash
@@ -344,13 +344,13 @@ Export all data from the DB given in :numref:`impexp_docker_code_exampledb` to
       -H my.host.de -d citydb -u postgres -p changeMe! \
       -o output.gml
 
-.. impexp_docker_example_link_citydb
+.. _impexp_docker_example_link_citydb:
 
 Importer/Exporter Docker combined with 3DCityDB Docker
 ===============================================================================
 
 This example shows how to use the 3DCityDB and Importer/Exporter Docker images
-in conjuction. Let's assume we have a CityGML containing a few buildings
+in conjunction. Let's assume we have a CityGML containing a few buildings
 file on our Docker host at: ``/d/temp/buildings.gml``
 
 First, let's bring up a 3DCityDB instance using the
@@ -363,7 +363,7 @@ As the emphasized line shows, we name the container ``citydb``.
   docker run -d --name citydb \
       -e POSTGRES_PASSWORD=changeMe! \
       -e SRID=25832 \
-    3dcitydb/3dcitydb-pg:edge-alpine
+    3dcitydb/3dcitydb-pg:latest-alpine
 
 The next step is to :ref:`import <impexp_cli_import_command>` our data to
 the 3DCityDB container. Therefore, we need to mount our data directory to
@@ -383,7 +383,7 @@ network/links/>`_ (``--link``).
   docker run -i -t --rm --name impexp \
       --link citydb \
       -v /d/temp:/data \
-    3dcitydb/impexp:edge-alpine import \
+    3dcitydb/impexp:latest-alpine import \
       -H citydb \
       -d postgres \
       -u postgres \
@@ -401,7 +401,7 @@ elevation 0 to fit in a visualization without terrain model.
   docker run -i -t --rm --name impexp \
       --link citydb \
       -v /d/temp:/data \
-    3dcitydb/impexp:edge-alpine export-vis \
+    3dcitydb/impexp:latest-alpine export-vis \
       -H citydb \
       -d postgres \
       -u postgres \
