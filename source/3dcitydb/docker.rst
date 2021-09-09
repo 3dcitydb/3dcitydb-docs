@@ -499,15 +499,18 @@ Here is how to create an image with data:
    To update an image with data, it has to be recreated from scrap using the
    desired/updated base image.
 
-2. Start a 3DCityDB Docker container:
+2. Create a Docker network and start a 3DCityDB Docker container:
 
   .. code-block:: bash
 
+    docker network create citydb-net
+
     docker run -d --name citydbTemp \
+      --network citydb-net \
       -e "PGDATA=/mydata" \
-      -e "POSTGRES_PASSWORD=changeMe!" \
+      -e "POSTGRES_PASSWORD=changeMe" \
       -e "SRID=25832" \
-    3dcitydb/3dcitydb-pg:4.1.0-alpine
+    3dcitydb/3dcitydb-pg:latest-alpine
 
   .. warning:: The database credentials and settings provided in this step
     cannot be changed when later on creating containers from this image!
@@ -516,28 +519,28 @@ Here is how to create an image with data:
     or you won't be able to access the content later.
 
 2. Import data to the container. For this example we are using the
-   `LoD3 Railway dataset <https://github.com/3dcitydb/importer-exporter/raw/
-   92e08aa306611ee850e065bb542bb3d60791a54f/resources/samples/
-   Railway%20Scene/Railway_Scene_LoD3.zip>`_ and the
+   :download:`LoD3 Railway dataset <https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip>` and the
    :ref:`3DCityDB Importer/Exporter Docker image<impexp_docker_chapter>`:
 
   .. code-block:: bash
 
     docker run -i -t --rm --name impexp \
-        --link citydbTemp \
+        --network citydb-net \
         -v /d/temp:/data \
-      3dcitydb/impexp:edge-alpine import \
+      3dcitydb/impexp:latest-alpine import \
         -H citydbTemp \
         -d postgres \
         -u postgres \
-        -p changeMe! \
+        -p changeMe \
         /data/Railway_Scene_LoD3.zip
 
-3. Stop the running 3DCityDB container and commit it to an image:
+3. Stop the running 3DCityDB container, remove the network and commit it
+   to an image:
 
   .. code-block:: bash
 
     docker stop citydbTemp
+    docker network rm citydb-net
     docker commit citydbTemp 3dcitydb/3dcitydb-pg:4.1.0-alpine-railwayScene_LoD3
 
 4. Remove the 3DCityDB container:

@@ -353,15 +353,20 @@ This example shows how to use the 3DCityDB and Importer/Exporter Docker images
 in conjunction. Let's assume we have a CityGML containing a few buildings
 file on our Docker host at: ``/d/temp/buildings.gml``
 
-First, let's bring up a 3DCityDB instance using the
+First, let's bring up a Docker network and a 3DCityDB instance using the
 :ref:`3DCityDB Docker images <citydb_docker_chapter>`.
-As the emphasized line shows, we name the container ``citydb``.
+As the emphasized line shows, we name the container ``citydb``. You can use the
+:download:`LoD3 Railway dataset <https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip>`
+for testing.
 
 .. code-block:: bash
-  :emphasize-lines: 1
+  :emphasize-lines: 3
+
+  docker network create citydb-net
 
   docker run -d --name citydb \
-      -e POSTGRES_PASSWORD=changeMe! \
+      --network citydb-net \
+      -e POSTGRES_PASSWORD=changeMe \
       -e SRID=25832 \
     3dcitydb/3dcitydb-pg:latest-alpine
 
@@ -369,8 +374,7 @@ The next step is to :ref:`import <impexp_cli_import_command>` our data to
 the 3DCityDB container. Therefore, we need to mount our data directory to
 the container, as shown in line 3.
 The emphasized lines show how to use the container name from the first step
-as hostname by using Docker `legacy container links <https://docs.docker.com/
-network/links/>`_ (``--link``).
+as hostname when both containers are attached to the same Docker network.
 
 .. note:: There are many other networking options to connect Docker containers.
   Take a look at the Docker `networking overview <https://docs.docker.com/
@@ -381,13 +385,13 @@ network/links/>`_ (``--link``).
   :emphasize-lines: 2,5
 
   docker run -i -t --rm --name impexp \
-      --link citydb \
+      --network citydb-net \
       -v /d/temp:/data \
     3dcitydb/impexp:latest-alpine import \
       -H citydb \
       -d postgres \
       -u postgres \
-      -p changeMe! \
+      -p changeMe \
       /data/building.gml
 
 Now, with our data inside the 3DCityDB, let's use the Importer/Exporter to
@@ -399,13 +403,13 @@ elevation 0 to fit in a visualization without terrain model.
 .. code-block:: bash
 
   docker run -i -t --rm --name impexp \
-      --link citydb \
+      --network citydb-net \
       -v /d/temp:/data \
     3dcitydb/impexp:latest-alpine export-vis \
       -H citydb \
       -d postgres \
       -u postgres \
-      -p changeMe! \
+      -p changeMe \
       -l 2 \
       -D collada \
       -G \
@@ -426,11 +430,13 @@ The export file are now available in ``/d/temp``.
   -rwxrwxrwx 1 theUser theUser  310 May  6 17:55 building_glTf_collada_MasterJSON.json*
   -rwxrwxrwx 1 theUser theUser 3.2M May  5 16:25 buildings.gml*
 
-As we are done now, the 3DCityDB container is no longer needed and can be removed:
+As we are done now, the 3DCityDB container and the network are no
+longer needed and can be removed:
 
 .. code-block:: bash
 
   docker rm -f -v citydb
+  docker network rm citydb-net
 
 .. Images ---------------------------------------------------------------------
 
