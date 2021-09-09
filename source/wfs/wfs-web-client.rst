@@ -1,3 +1,5 @@
+.. _wfs_web_based_client_chapter:
+
 Web-based WFS client
 --------------------
 
@@ -40,4 +42,3 @@ be contained in the response document. Alternatively, you can specify
 the “\ *hits*\ ” value for the *resultType* attribute in order to only
 receive the number of features matching your query instead of the
 features themselves (cf. :numref:`wfs_getfeature_operation_chapter`).
-

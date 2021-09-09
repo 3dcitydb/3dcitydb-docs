@@ -14,7 +14,7 @@ dockerized applications and workflows. All CLI commands despite the
   :name: impexp_docker_code_synopsis
 
   docker run --rm --name impexp [-i -t] \
-      [-e CITYDB_TYPE=PostGIS|Oracle] \
+      [-e CITYDB_TYPE=postgresql|oracle] \
       [-e CITYDB_HOST=the.host.de] \
       [-e CITYDB_PORT=5432] \
       [-e CITYDB_NAME=theDBName] \
@@ -80,7 +80,7 @@ Here are some examples for full image tags:
 .. code-block:: shell
 
   docker pull 3dcitydb/impexp:edge
-  docker pull 3dcitydb/impexp:latest-apline
+  docker pull 3dcitydb/impexp:latest-alpine
   docker pull 3dcitydb/impexp:4.3.0
   docker pull 3dcitydb/impexp:4.3.0-alpine
 
@@ -135,7 +135,7 @@ line but rather want to be prompted to enter it interactively on the console.
 You must use the ``-p`` option of the Importer/Exporter CLI without a
 value for this purpose (see :numref:`impexp_cli_chapter`) as shown in
 the example below.
-Note that the ``-i`` ``-t`` options of the ``docker run`` commandare often
+Note that the ``-i`` ``-t`` options of the ``docker run`` command are often
 combined and written as ``-it``.
 
 .. code-block:: bash
@@ -344,33 +344,37 @@ Export all data from the DB given in :numref:`impexp_docker_code_exampledb` to
       -H my.host.de -d citydb -u postgres -p changeMe! \
       -o output.gml
 
-.. impexp_docker_example_link_citydb
+.. _impexp_docker_example_link_citydb:
 
 Importer/Exporter Docker combined with 3DCityDB Docker
 ===============================================================================
 
 This example shows how to use the 3DCityDB and Importer/Exporter Docker images
-in conjuction. Let's assume we have a CityGML containing a few buildings
+in conjunction. Let's assume we have a CityGML containing a few buildings
 file on our Docker host at: ``/d/temp/buildings.gml``
 
-First, let's bring up a 3DCityDB instance using the
+First, let's bring up a Docker network and a 3DCityDB instance using the
 :ref:`3DCityDB Docker images <citydb_docker_chapter>`.
-As the emphasized line shows, we name the container ``citydb``.
+As the emphasized line shows, we name the container ``citydb``. You can use the
+:download:`LoD3 Railway dataset <https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip>`
+for testing.
 
 .. code-block:: bash
-  :emphasize-lines: 1
+  :emphasize-lines: 3
+
+  docker network create citydb-net
 
   docker run -d --name citydb \
-      -e POSTGRES_PASSWORD=changeMe! \
+      --network citydb-net \
+      -e POSTGRES_PASSWORD=changeMe \
       -e SRID=25832 \
-    3dcitydb/3dcitydb-pg:edge-alpine
+    3dcitydb/3dcitydb-pg:latest-alpine
 
 The next step is to :ref:`import <impexp_cli_import_command>` our data to
 the 3DCityDB container. Therefore, we need to mount our data directory to
 the container, as shown in line 3.
 The emphasized lines show how to use the container name from the first step
-as hostname by using Docker `legacy container links <https://docs.docker.com/
-network/links/>`_ (``--link``).
+as hostname when both containers are attached to the same Docker network.
 
 .. note:: There are many other networking options to connect Docker containers.
   Take a look at the Docker `networking overview <https://docs.docker.com/
@@ -381,13 +385,13 @@ network/links/>`_ (``--link``).
   :emphasize-lines: 2,5
 
   docker run -i -t --rm --name impexp \
-      --link citydb \
+      --network citydb-net \
       -v /d/temp:/data \
-    3dcitydb/impexp:edge-alpine import \
+    3dcitydb/impexp:latest-alpine import \
       -H citydb \
       -d postgres \
       -u postgres \
-      -p changeMe! \
+      -p changeMe \
       /data/building.gml
 
 Now, with our data inside the 3DCityDB, let's use the Importer/Exporter to
@@ -399,13 +403,13 @@ elevation 0 to fit in a visualization without terrain model.
 .. code-block:: bash
 
   docker run -i -t --rm --name impexp \
-      --link citydb \
+      --network citydb-net \
       -v /d/temp:/data \
-    3dcitydb/impexp:edge-alpine export-vis \
+    3dcitydb/impexp:latest-alpine export-vis \
       -H citydb \
       -d postgres \
       -u postgres \
-      -p changeMe! \
+      -p changeMe \
       -l 2 \
       -D collada \
       -G \
@@ -426,11 +430,13 @@ The export file are now available in ``/d/temp``.
   -rwxrwxrwx 1 theUser theUser  310 May  6 17:55 building_glTf_collada_MasterJSON.json*
   -rwxrwxrwx 1 theUser theUser 3.2M May  5 16:25 buildings.gml*
 
-As we are done now, the 3DCityDB container is no longer needed and can be removed:
+As we are done now, the 3DCityDB container and the network are no
+longer needed and can be removed:
 
 .. code-block:: bash
 
   docker rm -f -v citydb
+  docker network rm citydb-net
 
 .. Images ---------------------------------------------------------------------
 
