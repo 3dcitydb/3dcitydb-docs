@@ -30,9 +30,8 @@ from the ``plugins`` subfolder. Note that changes to the ``plugins`` subfolder
 require a restart of the Importer/Exporter to become effective.
 
 Installed plugins can be enabled or disabled at runtime both using the
-graphical user interface of the Importer/Exporter and on the command line.
-Please refer to :numref:`impexp_preferences_plugins` and see :numref:`impexp_cli_chapter`
-for more details.
+graphical user interface of the Importer/Exporter (see :numref:`impexp_preferences_plugins`)
+and on the command line (see :numref:`impexp_cli_chapter`).
 
 The Importer/Exporter is shipped with two free
 and open-source plugins that can be installed during the setup process
