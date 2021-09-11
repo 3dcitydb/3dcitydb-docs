@@ -144,22 +144,35 @@ Currently, the Webclient Docker images are maintained and documented at the
 
    docker run -d --name 3dwebmap-container -p 80:8000 tumgis/3dcitydb-web-map
 
-Web-Feature-Service (WFS) Docker
+Web Feature Service (WFS) Docker
 ===============================================================================
 
-Currently, the 3DCityDB WFS Docker image is maintained and documented at the
-`TUM-GIS 3DCityDB WFS Docker repo <https://github.com/tum-gis/3dcitydb-wfs-docker>`_.
+The 3DCityDB Web Feature Service (WFS) Docker image exposes the capabilities
+of the :ref:`wfs_chapter` for dockerized applications and workflows.
+Using the WFS Docker you can expose the features stored in a 3DCityDB instance
+through an `OGC WFS <https://www.ogc.org/standards/wfs>`_ interface offering a
+rich set of features like advanced filter capabilities. For a basic configuration
+just the connection credentials of the 3DCityDB (``CITYDB_*`` variables) have to
+be specified.
 
-.. The detailed documentation for the 3DCityDB WFS Docker image is available
-   :doc:`here <../wfs/docker>`.
+All WFS :ref:`functionalities <wfs_basic_functionality_chapter>` are supported by
+the images.
+
+The detailed documentation for the Docker image is available in
+:ref:`wfs_docker_chapter`.
 
 .. code-block:: bash
 
-   docker run --name "citydb-wfs-container" -it -p 8080:8080 \
-    -e CITYDB_CONNECTION_TYPE=PostGIS \
-    -e CITYDB_CONNECTION_SERVER=my.citydb.host.de \
-    -e CITYDB_CONNECTION_PORT=5432 \
-    -e CITYDB_CONNECTION_SID=citydb \
-    -e CITYDB_CONNECTION_USER=postgres \
-    -e CITYDB_CONNECTION_PASSWORD=postgres \
-  tumgis/3dcitydb-wfs
+  docker run --name wfs [-d] -p 8080:8080 \
+      [-e CITYDB_TYPE=PostGIS|Oracle] \
+      [-e CITYDB_HOST=the.host.de] \
+      [-e CITYDB_PORT=5432] \
+      [-e CITYDB_NAME=theDBName] \
+      [-e CITYDB_SCHEMA=theCityDBSchemaName] \
+      [-e CITYDB_USERNAME=theUsername] \
+      [-e CITYDB_PASSWORD=theSecretPass] \
+      [-e WFS_CONTEXT_PATH=wfs-context-path] \
+      [-e WFS_ADE_EXTENSIONS_PATH=/path/to/ade-extensions/] \
+      [-e WFS_CONFIG_FILE=/path/to/config.xml] \
+      [-v /my/data/config.xml:/path/to/config.xml] \
+    3dcitydb/wfs[:TAG]

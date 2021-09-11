@@ -1,3 +1,5 @@
+.. _wfs_chapter:
+
 Web Feature Service
 ===================
 
