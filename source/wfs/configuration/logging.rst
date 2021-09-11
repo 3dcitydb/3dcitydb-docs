@@ -4,17 +4,17 @@ Logging settings
 ~~~~~~~~~~~~~~~~
 
 The WFS service logs messages and errors that occur during operations to
-a dedicated log file. Entries in the log file are associated with a
+a dedicated log file by default. Entries in the log file are associated with a
 timestamp, the severity of the event and the IP address of the client
-(if available). Per default, the log is stored in the file
+(if available). The log is normally stored in the file
 ``WEB-INF/wfs.log`` within the *application folder* of the WFS web
 application.
 
 The ``<logging>`` element in the ``config.xml`` file is used to adapt these
 default settings. The attribute *logLevel* on the ``<file>`` child element
-lets you change the severity level for log messages to *debug*, *info*,
-*warn*, or *error* (default: *info*). Additionally, you can provide an
-alternative absolute path and filename where to store the log messages.
+lets you change the severity level for log messages that shall be recorded in the log file
+to *debug*, *info*, *warn*, or *error* (default: *info*). Additionally, the ``<fileName>``
+element lets you define an alternative absolute path and filename where to store the log file.
 
 .. note::
    A web application typically has limited access to the file
@@ -22,10 +22,15 @@ alternative absolute path and filename where to store the log messages.
    accessible for the WFS web application. Check the documentation of your
    servlet container for details.
 
-If you want log messages to be additionally printed to the console, then
-simply include the ``<console>`` child element as well. The ``<console>``
-element also provides a *logLevel* attribute to define the severity
-level.
+If you want log messages to be printed to the console via ``STDOUT`` and ``STDERR``,
+then simply set the ``<console>`` child element. The ``<console>`` element also provides
+a *logLevel* attribute to define the severity level. You can pick different log levels
+for the console and the log file. Printing log messages to the console is useful,
+for example, when the 3DCityDB WFS is running in a Docker container (see :numref:`wfs_docker_chapter`)
+or a debug environment.
+
+Logging for the 3DCityDB WFS can be configured to either use a log file, or the console,
+or both.
 
 .. code-block:: xml
 
