@@ -260,14 +260,18 @@ via WFS and run some example queries.
 .. note:: A more detailed example on importing data using the 3DCityDB Docker images
   is available :ref:`here <impexp_docker_example_link_citydb>`.
 
-1. Download the dataset, create a folder and put the downloaded file there. In the
-   following we assume the file is at ``/my/data/Railway_Scene_LoD3.zip``.
+1. Download the dataset, create a folder and put the downloaded file in the new folder.
+   In the following we assume the file is at ``/my/data/Railway_Scene_LoD3.zip``.
 
-2. Create a :ref:`3DCityDB Docker <citydb_docker_chapter>` container for our dataset:
+2. Create a `Docker network <https://docs.docker.com/network/>`_ and a
+   :ref:`3DCityDB Docker <citydb_docker_chapter>` container for our dataset:
 
   .. code-block:: bash
 
+    docker network create citydb-net
+
     docker run -d --name citydb \
+      --network citydb-net \
       -e "POSTGRES_PASSWORD=changeMe" \
       -e "SRID=3068" \
     3dcitydb/3dcitydb-pg:latest-alpine
@@ -278,7 +282,7 @@ via WFS and run some example queries.
   .. code-block:: bash
 
     docker run -i -t --rm --name impexp \
-        --link citydb \
+        --network citydb-net \
         -v /my/data:/data \
       3dcitydb/impexp:latest-alpine import \
         -H citydb \
@@ -290,20 +294,25 @@ via WFS and run some example queries.
 
 .. rubric:: WFS configuration and testing
 
-Start a 3DCityDB WFS container. We are going to open port 8080 for the service and
-serve WFS content from ``/citydb-wfs``.
+Start a 3DCityDB WFS container. We are going to expose port 8080 to the host system
+for the service and serve WFS content from ``/citydb-wfs``.
 
 .. code-block:: bash
 
   docker run -d --name wfs \
       -p 8080:8080 \
-      --link citydb \
+      --network citydb-net \
       -e CITYDB_HOST=citydb \
       -e CITYDB_NAME=postgres \
       -e CITYDB_USERNAME=postgres \
       -e CITYDB_PASSWORD=changeMe \
       -e WFS_CONTEXT_PATH=citydb-wfs \
     3dcitydb/wfs:latest-alpine
+
+.. note:: The 3DCityDB, Importer/Exporter and WFS Docker containers are attached to the same
+  Docker network ``citydb-net`` we created in the beginning. Thus, container names (e.g. ``citydb``)
+  can be use as hostnames for communication between the containers. See
+  `Docker network docs <https://docs.docker.com/network/>`_ for more Docker networking options.
 
 Now the WFS should be up and running. Let's check if the service started using
 ``docker logs``:
@@ -424,8 +433,14 @@ The shortened and beautified content of ``building.gml`` looks like this:
   <!-- ... -->
   <!-- ... -->
 
+.. rubric:: Shutdown and cleanup
 
+When the services and network are no longer required, they can be removed:
 
+.. code-block:: bash
+
+  docker rm citydb wfs
+  docker network remove citydb-net
 
 .. Images ---------------------------------------------------------------------
 
