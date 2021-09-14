@@ -3,7 +3,6 @@
 
 The 3DCityDB User Manual is built and hosted on [ReadTheDocs.org](https://readthedocs.org).
 Please use the link below to find the online version of this documentation.
-A PDF version is available here: <https://www.3dcitydb.org/3dcitydb/documentation/>
 
 <br/>
 <p align="center">:arrow_right: https://3dcitydb-docs.readthedocs.io/en/latest/ :arrow_left:</p>
@@ -62,7 +61,8 @@ To build this documentation following tools are required:
 - Sphinx ReadTheDocs Theme: <https://sphinx-rtd-theme.readthedocs.io/en/stable/>
 - Sphinx copybutton: <https://sphinx-copybutton.readthedocs.io/en/latest/>
 
-Run this to install all dependencies in an existing Python environment using [pip](https://packaging.python.org/tutorials/installing-packages/https://packaging.python.org/tutorials/installing-packages/):
+Run this to install all dependencies in an existing Python environment using
+[pip](https://packaging.python.org/tutorials/installing-packages/https://packaging.python.org/tutorials/installing-packages/):
 
 ```python
 pip install -U sphinx
@@ -93,3 +93,8 @@ pip install -U -r source/requirements.txt
       ```
 
 3. The build files are in `build/html`.
+
+## Documentations of previous versions
+
+Documentations of previous versions are available as PDF here:
+<https://www.3dcitydb.org/3dcitydb/documentation/>
