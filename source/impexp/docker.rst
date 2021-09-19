@@ -111,20 +111,20 @@ directory or file.
 
   # mount /my/data/ on the host system to /data inside the container
   docker run --rm --name impexp \
-    -v /my/data/:/data \
+      -v /my/data/:/data \
     3dcitydb/impexp COMMAND
 
   # Mount the current working directory on the host system to /data
   # inside the container
   docker run --rm --name impexp \
       -v $(pwd):/data \
-      3dcitydb/impexp COMMAND
+    3dcitydb/impexp COMMAND
 
 .. note:: The default working directory inside the container is ``/data``.
 
 .. tip:: Watch out for **correct paths** when working with mounts!
   All paths passed to the Importer/Exporter CLI have to be specified from
-  the containers perspective. If you are not familiar with how Docker
+  the container's perspective. If you are not familiar with how Docker
   manages volumes and bind mounts go through the
   `Docker volume guide <https://docs.docker.com/storage/volumes/>`_.
 
@@ -141,7 +141,8 @@ combined and written as ``-it``.
 .. code-block:: bash
 
   docker run -it --rm --name impexp \
-      3dcitydb/impexp import \
+      -v /my/data/:/data \
+    3dcitydb/impexp import \
       -H my.host.de -d citydb -u postgres -p \
       bigcity.gml
 
@@ -228,7 +229,7 @@ user ID of your current host's user.
   docker run --rm --name impexp \
       -u $(id -u):$(id -g) \
       -v /my/data/:/data \
-      3dcitydb/impexp COMMAND
+    3dcitydb/impexp COMMAND
 
 .. _impexp_docker_build:
 

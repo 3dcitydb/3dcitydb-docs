@@ -50,7 +50,7 @@ installation packages are offered and maintained by different vendors.
 The following list provides a non-exhaustive overview of Java distributions
 that are free to download and use:
 
-- `Eclipse Temurin by Adoptium <https://adoptium.net/>`_
+- `Eclipse Temurin <https://adoptium.net/>`_
 - `Amazon Coretto <https://aws.amazon.com/corretto/>`_
 - `OpenJDK <https://openjdk.java.net/>`_
 
