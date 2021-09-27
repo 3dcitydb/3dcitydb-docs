@@ -133,6 +133,8 @@ The following table provides a summary overview.
 
    * - | **Preference name**
      - | **Description**
+   * - | :ref:`impexp_preferences_import_general`
+     - | General options like behaviour in error situations to be used for imports.
    * - | :ref:`impexp_import_preference_continuation`
      - | Metadata that is stored for every object in the database such as the data lineage, the updating person or the creationDate property.
    * - | :ref:`impexp_import_preferences_identifier`

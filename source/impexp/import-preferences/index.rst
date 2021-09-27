@@ -9,6 +9,7 @@ preference settings that are presented in this chapter.
 .. toctree::
    :maxdepth: 1
 
+   general
    continuation
    object-identifier
    appearance
