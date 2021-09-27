@@ -296,7 +296,8 @@ settings is running:
   DB USERNAME   postgres
   DB PASSWORD   changeMe!
 
-**Importing CityGML**
+Importing CityGML
+=================
 
 This section provides some examples for importing CityGML datasets. Refer to
 :numref:`impexp_cli_import_command` for a detailed description of the
@@ -328,7 +329,8 @@ into the DB given in :numref:`impexp_docker_code_exampledb`:
       -H my.host.de -d citydb -u postgres -p changeMe! \
       /data/
 
-**Exporting CityGML**
+Exporting CityGML
+=================
 
 This section provides some examples for exporting CityGML datasets. Refer to
 :numref:`impexp_cli_export_command` for a detailed description of the

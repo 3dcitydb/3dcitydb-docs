@@ -9,7 +9,7 @@ of the :ref:`wfs_chapter` for dockerized applications and workflows.
 Using the WFS Docker you can expose the features stored in a 3DCityDB instance
 through an `OGC WFS <https://www.ogc.org/standards/wfs>`_ interface offering a
 rich set of features like advanced filter capabilities. For a basic configuration
-just the connection credentials of the 3DCityDB (``CITYDB_*`` variables) have to
+just the connection credentials of the 3DCityDB (``CITYDB_*`` environment variables) have to
 be specified.
 All WFS :ref:`functionalities <wfs_basic_functionality_chapter>` are supported by
 the images.
@@ -34,17 +34,18 @@ the images.
     3dcitydb/wfs[:TAG]
 
 When running containers with default settings, the
-:ref:`WFS <_wfs_basic_functionality_chapter>` will listen at:
+:ref:`WFS <_wfs_basic_functionality_chapter>` will listen at following URL.
+Note that the web root is used as context path in this case.
 
 .. code-block:: bash
 
-  http[s]://[host][:port]/[context_path]/wfs
+  http[s]://[host][:port]/wfs
 
 The :ref:`Web-based client <wfs_web_based_client_chapter>` is available here:
 
 .. code-block:: bash
 
-  http[s]://[host][:port]/[context_path]/wfsclient
+  http[s]://[host][:port]/wfsclient
 
 .. _wfs_docker_image_variants:
 
@@ -116,31 +117,25 @@ Usage and configuration
 A 3DCityDB WFS Docker container is configured using environment variables and
 a WFS ``config.xml`` file.
 The easiest way of using the WFS Docker is to use the default ``config.xml``
-shipped with the container and overwrite the 3DCityDB connection credentials
-and/or the web context path using environment variables.
+shipped inside the image and by setting the database connection details
+and/or the web context path through environment variables.
 The default config file exposes all filter capabilities and feature types from the
 connected database to the WFS and should be suitable for most situations.
 
 If you require more specific settings, get a copy of
 :download:`default-config.xml <https://raw.githubusercontent.com/3dcitydb/web-feature-service/master/resources/docker/default-config.xml>`
 and build your own config file (see :ref:`wfs_configuration_chapter`).
-Mount your custom config file to the container on runtime
+Mount your custom config file to the container at runtime
 (see `docker run docs <https://docs.docker.com/engine/reference/run/>`_).
 To apply the custom config file set the :option:`WFS_CONFIG_FILE` option.
 
-.. note:: The environment variables always take precedence over the settings provided
-  in :option:`WFS_CONFIG_FILE`. Thus, you can create custom config files and use them with
-  different databases by overwriting the settings with the environment variables.
+All available environment variables are listed and described below.
 
-.. _wfs_docker_image_usage_env_vars:
-
-Environment variables
-===============================================================================
-
-All environment variables are optional. If you do not provide the database
-connection details via environment variables (``CITYDB_*``), they must be provided
-in :option:`WFS_CONFIG_FILE` file. Otherwise, you will get error messages when starting
-the service.
+.. note:: The environment variables are *optional*. If you do not provide them, make sure that your ``config.xml``
+   file contains all settings (including database connection details) required to run the service. Otherwise, the
+   WFS will throw error messages when starting the container. If you use environment variables though, they
+   **always take precedence** over corresponding settings in the config.xml file. Thus, you can create custom config
+   files and use them with different databases by overwriting the settings with the environment variables.
 
 .. option:: CITYDB_TYPE=<postgresql|oracle>
 
@@ -173,24 +168,24 @@ the service.
 
   Password to use when connecting to the 3DCityDB
 
-.. option:: WFS_CONTEXT_PATH=<wfs-context-path>
-
-  The URL subpath where the WFS is served. The default setting is ``ROOT``, for
-  serving from the web root. **Note:** Nested paths are currently not supported.
-  For instance, set ``WFS_CONTEXT_PATH=citydb-wfs`` to serve from
-  ``http[s]://my-domain/citydb-wfs/``.
-
 .. option:: WFS_CONFIG_FILE=</path/to/custom/config.xml>
 
   Path of the WFS config file to use. See :ref:`above <wfs_docker_image_usage>`
   how to create and use a custom config file.
 
+.. option:: WFS_CONTEXT_PATH=<wfs-context-path>
+
+  The URL subpath where the WFS is served (see :numref:`wfs_service_url_chapter`). The default value is
+  ``ROOT``, for serving from the web root. **Note:** Nested paths are currently not supported.
+  For instance, set ``WFS_CONTEXT_PATH=citydb-wfs`` to serve from
+  ``http[s]://my-domain/citydb-wfs/``.
+
 .. option:: WFS_ADE_EXTENSIONS_PATH=</path/to/ade-extension/>
 
   Allows for providing an alternative directory where the WFS service shall
-  search for ADE extensions. Default ade-extensions folder is the *WEB-INF* directory).
-  The WFS service must have read access to this directory. See
-  :ref:`wfs_configuration_chapter` for more.
+  search for ADE extensions (default: *ade-extensions* folder is the *WEB-INF* directory).
+  The WFS service must have read access to this directory (see
+  :numref:`wfs_configuration_chapter` for more details).
 
 .. _wfs_docker_build:
 
@@ -209,13 +204,21 @@ following build arguments:
 
   Tag of the runtime image, https://hub.docker.com/_/tomcat.
 
+.. option:: DEFAULT_CONFIG=</path/to/default/config.xml>
+
+  Name of the default config file shall that shall be copied into the image and used by default
+  when running a container. The config file must be located inside the *resources/docker* folder
+  (default: `default-config.xml`).
+
 .. option:: TOMCAT_USER=<tomcat>
 
-  Name of the user inside the container. Default UID = 1000.
+  Name of the user running the Tomcat service inside the container (default: *tomcat*).
+  Note that the user is assigned the fixed UID = 1000.
 
-.. option:: TOMCAT_Group=<tomcat>
+.. option:: TOMCAT_GROUP=<tomcat>
 
-  Name of the group inside the container. Default GID = 1000.
+  Name of the group that the user shall be assigned to (default: *tomcat*).
+  Note that the group is assigned the fixed GID = 1000.
 
 .. rubric:: Build process
 
@@ -246,9 +249,6 @@ following build arguments:
 *******************************************************************************
 Examples
 *******************************************************************************
-
-Using the 3DCityDB WFS with Importer/Exporter and 3DCityDB Docker
-===============================================================================
 
 This example shows how to bring up a 3DCityDB WFS with the Importer/Exporter and
 3DCityDB Docker images. In this example we are going to provide the
