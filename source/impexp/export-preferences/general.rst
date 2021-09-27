@@ -31,10 +31,17 @@ CityJSON as encoding format for the export operation and your database contains
 bridges or tunnels, they will not be written to the output file if the
 CityGML version is set to 1.0 here.
 
+The *Cancel export immediately in case of errors* option [1] lets you define how the export
+operation should deal with error situations during database exports. By default, the process
+*fails fast* on errors and thus aborts immediately. Disable this option in case you rather want the
+export operation to continue on errors and complete the export process if possible. The errors
+encountered during the export process are always recorded in the log in both cases.
+
 As described in :numref:`impexp_citygml_export_chapter`, the export operation
 supports using compressed output formats like GZIP and ZIP, which helps to keep file
 sizes small. You can choose whether *CityGML* (default) or *CityJSON* shall
-be used for the data encoding [1] in this case.
+be used as data encoding for compressed formats using the drop-down list offered by this
+preferences dialog [1].
 
 **Bounding box options**
 
