@@ -86,6 +86,12 @@ pip install -U -r source/requirements.txt
       make html
       ```
 
+      **Note:** If `make` is not available on your system, you can get it from
+      packages:
+
+        - Debian based Linux: `apt-get install make` or `apt-get install build-essential`.
+        - Alpine Linux: `apk add make` or `apk add alpine-sdk`.
+
    - Windows:
 
       ```cmd
