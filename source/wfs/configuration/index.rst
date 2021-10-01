@@ -77,7 +77,8 @@ The discussion of the settings follows this organization in the subsequent claus
 
 In addition to the ``config.xml`` file, the WFS supports the following environment
 variables to configure further settings. The variables must have been set prior to
-starting the service.
+starting the service. They **always take precedence** over corresponding settings in the
+``config.xml`` file.
 
 .. list-table::  Environment variables supported by the WFS service
    :name: wfs_supported_env_variables_table
@@ -85,6 +86,20 @@ starting the service.
 
    * - | **Environment variable**
      - | **Description**
+   * - | ``CITYDB_TYPE``
+     - | Used to specify the database system of the 3DCityDB the WFS service shall connect to. Allowed values are *postgresql* for PostgreSQL/PostGIS databases (default) and *oracle* for Oracle Spatial/Locator databases.
+   * - | ``CITYDB_HOST``
+     - | Host name or IP address of the server on which the database is running.
+   * - | ``CITYDB_PORT``
+     - | Port of the database server to connect to. Default value is *5432* for PostgreSQL and *1521* for Oracle, depending on the setting for ``CITYDB_TYPE``.
+   * - | ``CITYDB_NAME``
+     - | Used to specify the name of the 3DCityDB instance to connect to. When connecting to an Oracle database, provide the database SID or service name as value.
+   * - | ``CITYDB_SCHEMA``
+     - | Schema to use when connecting to the database. The defaults are *citydb* for PostgreSQL and the *username* specified through ``CITYDB_USERNAME`` for Oracle, depending on the setting for ``CITYDB_TYPE``.
+   * - | ``CITYDB_USERNAME``
+     - | Connect to the database sever with this user.
+   * - | ``CITYDB_PASSWORD``
+     - | The password to use when connecting to the database server.
    * - | ``WFS_CONFIG_FILE``
      - | With this variable, you can specify a configuration file that shall be used instead of the default ``config.xml`` file in the ``WB-INF`` directory when starting the WFS service. The variable must provide the full path to the configuration file. The WFS service must have read access to this file.
    * - | ``WFS_ADE_EXTENSIONS_PATH``
