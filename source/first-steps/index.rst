@@ -1,12 +1,9 @@
 First steps
 ===========
 
-The 3D City Database (3DCityDB) is a free and open source package consisting
-of a database schema and a set of software tools to import, manage, analyse,
-visualize, and export virtual 3D city models on top of a spatial database system.
-
 This quickstart guide gives step-by-step instructions for setting up
-a 3D City Database instance. Installers for the 3D City Database scripts and tools
+a 3D City Database instance and installing the Importer/Exporter.
+Installers for the 3D City Database scripts and tools
 can be downloaded from the official project website at http://www.3dcitydb.org.
 The source code of the 3D City Database is hosted and maintained on GitHub
 at https://github.com/3dcitydb.

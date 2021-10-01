@@ -1,3 +1,5 @@
+.. _3dcitydb_chapter:
+
 3D City Database
 ================
 
