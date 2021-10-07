@@ -3,6 +3,8 @@
 3D City Database
 ================
 
+.. note:: This is the documentation of the 3D City Database version |3dcitydb_version|.
+
 This chapter gives an in-depth presentation and explanation of the relational schema of
 the 3D City Database. In :numref:`chapter_citydb_UML_class_diagram`, it first discusses
 the database design along the UML data model of CityGML and its mapping and adaptation to

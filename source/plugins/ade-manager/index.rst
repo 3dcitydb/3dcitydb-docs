@@ -3,6 +3,8 @@
 ADE Manager Plugin
 ------------------
 
+.. note:: This is the documentation of the ADE Manager Plugin version |plugin_ade_manager_version|.
+
 The *ADE Manager* plugin allows you to dynamically extend a 3D City Database instance
 to be able to store and manage CityGML Application Domain Extension (ADE) data
 in the database. The plugin uses the open source

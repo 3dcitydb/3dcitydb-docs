@@ -3,6 +3,8 @@
 Importer/Exporter
 =================
 
+.. note:: This is the documentation of the Importer/Exporter version |impexp_version|.
+
 The Importer/Exporter tool is a Java-based client for
 the 3D City Database and allows for high-performance loading and
 extracting 3D city model data.

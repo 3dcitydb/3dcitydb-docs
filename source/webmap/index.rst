@@ -3,6 +3,8 @@
 3D Web Map Client
 =================
 
+.. note:: This is the documentation of the 3D Web Map Client version |webmap_version|.
+
 Starting from version 3.3.0, the 3DCityDB software package comes with a
 software package called **3DCityDB-Web-Map-Client** (in this chapter we
 simply call it “3D web client”) acting as a web-based front-end for

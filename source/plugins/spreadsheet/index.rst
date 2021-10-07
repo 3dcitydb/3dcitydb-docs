@@ -3,6 +3,8 @@
 Spreadsheet Generator Plugin
 ----------------------------
 
+.. note:: This is the documentation of the Spreadsheet Generator Plugin version |plugin_spshg_version|.
+
 The *Spreadsheet Generator* plugin allows you to export attribute data
 of the city objects stored in the 3D City Database in tabular form as
 comma-separated values (CSV) or Microsoft Excel (XLSX) file.

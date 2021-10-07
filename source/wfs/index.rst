@@ -3,6 +3,8 @@
 Web Feature Service
 ===================
 
+.. note:: This is the documentation of the Web Feature Service version |wfs_version|.
+
 The OGC *Web Feature Service* Interface Standard (WFS) provides a
 standardized and open interface for requesting geographic features
 across the web using platform-independent calls. Rather than sharing
