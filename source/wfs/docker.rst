@@ -62,9 +62,9 @@ The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB WFS Github repository <https://
 github.com/3dcitydb/web-feature-service>`_ using the latest stable version of
 the base images.
-The **latest** and **release** (e.g. ``4.4.0``) image versions  are only built
+The **latest** and **release** image versions  are only built
 when a new release is published on Github. The **latest** tag will point to
-the most recent release version, e.g. ``latest = 4.4.0``.
+the most recent release version.
 
 .. list-table:: 3DCityDB WFS Docker image variants and versions
   :widths: auto
@@ -105,8 +105,8 @@ Here are some examples of full image tags:
   docker pull 3dcitydb/wfs:edge
   docker pull 3dcitydb/wfs:edge-alpine
   docker pull 3dcitydb/wfs:latest-alpine
-  docker pull 3dcitydb/wfs:4.4.0
-  docker pull 3dcitydb/wfs:4.4.0-alpine
+  docker pull 3dcitydb/wfs:5.0.0
+  docker pull 3dcitydb/wfs:5.0.0-alpine
 
 .. _wfs_docker_image_usage:
 

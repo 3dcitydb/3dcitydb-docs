@@ -101,10 +101,9 @@ The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb/
 3dcitydb>`_
 using the latest stable version of the base images.
-The **latest** and **release** (e.g. ``4.1.0``) image versions  are only built
+The **latest** and **release** image versions are only built
 when a new release is published on Github. The **latest** tag will point to
-the most recent release version using the latest base image version, e.g.
-``latest = 13-3.1-4.1.0``.
+the most recent release version using the latest base image version.
 
 .. _citydb_docker_image_pg:
 
@@ -174,10 +173,10 @@ Here are some examples for full image tags:
 
 .. code-block:: shell
 
-  docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-v4.1.0
-  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0
-  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0-alpine
-  docker pull 3dcitydb/3dcitydb-pg:13-3.1-v4.1.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-4.2.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.1-4.2.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.1-4.2.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:13-3.1-4.2.0-alpine
 
 .. _citydb_docker_image_oracle:
 
