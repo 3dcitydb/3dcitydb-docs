@@ -163,6 +163,10 @@ base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
     -
     - 13-3.0
     - 13-3.1
+  * - 14
+    -
+    -
+    - 14-3.1
 
 The full list of available tags can be found on `DockerHub <https://hub.
 docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated>`_
