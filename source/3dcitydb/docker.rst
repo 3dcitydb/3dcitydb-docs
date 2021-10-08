@@ -595,11 +595,9 @@ lists the tables of the DB running in the container using ``psql``.
 .. |ora-build-edge| image:: https://img.shields.io/github/workflow/status/
   3dcitydb/3dcitydb/oracle-docker-build-edge?label=Oracle%20Linux&
   style=flat-square&logo=Docker&logoColor=white
-  :target: :ref:`citydb_docker_oracle_build`
 
 .. |ora-size-edge| image:: https://img.shields.io/static/v1?label=image%20size&message=
   %3E3%20GB&color=blue&style=flat-square&logo=Docker&logoColor=white
-  :target: :ref:`citydb_docker_oracle_build`
 
 .. latest
 
