@@ -82,9 +82,9 @@ the most recent release version, e.g. ``latest = 4.4.0``.
   * - latest
     - |deb-size-latest|
     - |alp-size-latest|
-  * - 4.4.0
-    - |deb-size-v4.4.0|
-    - |alp-size-v4.4.0|
+  * - 5.0.0
+    - |deb-size-v5.0.0|
+    - |alp-size-v5.0.0|
 
 The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
 3dcitydb/>`_ and can be pulled like this:
@@ -470,10 +470,12 @@ When the services and network are no longer required, they can be removed:
   3dcitydb/wfs/latest-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
 
-.. |deb-size-v4.4.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/wfs/4.4.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+.. 5.0.0
+
+.. |deb-size-v5.0.0| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/wfs/5.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
 
-.. |alp-size-v4.4.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/wfs/4.4.0-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+.. |alp-size-v5.0.0| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/wfs/5.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
