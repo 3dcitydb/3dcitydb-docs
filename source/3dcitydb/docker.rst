@@ -92,6 +92,10 @@ versions.
     - |psql-deb-size-v4.1.0|
     - |psql-alp-size-v4.1.0|
     - |ora-size-edge|
+  * - 4.2.0
+    - |psql-deb-size-v4.2.0|
+    - |psql-alp-size-v4.2.0|
+    - |ora-size-edge|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb/
@@ -614,5 +618,18 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. |psql-alp-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
   3dcitydb/3dcitydb-pg/13-3.1-4.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&
+  style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+.. 4.2.0
+
+.. |psql-deb-size-v4.2.0| image::
+  https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/13-3.1-4.2.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
+
+.. |psql-alp-size-v4.2.0| image::
+  https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/13-3.1-4.2.0-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
