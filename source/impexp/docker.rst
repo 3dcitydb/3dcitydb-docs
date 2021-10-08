@@ -62,9 +62,9 @@ The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Importer/Exporter Github repository <https://
 github.com/3dcitydb/importer-exporter>`_
 using the latest stable version of the base images.
-The **latest** and **release** (e.g. ``4.3.0``) image versions  are only built
+The **latest** and **release** image versions  are only built
 when a new release is published on Github. The **latest** tag will point to
-the most recent release version, e.g. ``latest = 4.3.0``.
+the most recent release version.
 
 The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
 3dcitydb/>`_ and can be pulled like this:
@@ -84,8 +84,8 @@ Here are some examples for full image tags:
 
   docker pull 3dcitydb/impexp:edge
   docker pull 3dcitydb/impexp:latest-alpine
-  docker pull 3dcitydb/impexp:4.3.0
-  docker pull 3dcitydb/impexp:4.3.0-alpine
+  docker pull 3dcitydb/impexp:5.0.0
+  docker pull 3dcitydb/impexp:5.0.0-alpine
 
 
 *******************************************************************************
