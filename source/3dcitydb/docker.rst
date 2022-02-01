@@ -69,7 +69,7 @@ the Oracles image are based on *Oracle Linux*.
 :numref:`citydb_docker_tbl_images` gives an overview on the available image
 versions.
 
-.. list-table:: 3DCityDB Docker image variants and versions
+.. list-table:: 3DCityDB Docker image variants and versions for PostgreSQL/PostGIS 14-3.2.
   :widths: auto
   :header-rows: 1
   :stub-columns: 1
@@ -127,7 +127,7 @@ Debian is the default image variant, where no image variant is appended to the
 tag. For the Alpine Linux images ``-alpine`` is appended. Currently supported
 base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
 
-.. list-table:: Overview on supported PostgreSQL/PostGIS versions
+.. list-table:: Overview on supported PostgreSQL/PostGIS versions.
   :widths: auto
   :header-rows: 1
   :stub-columns: 1
@@ -138,34 +138,42 @@ base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
     - 2.5
     - 3.0
     - 3.1
+    - 3.2
   * - 9.5
     - 9.5-2.5
     - 9.5-3.0
+    -
     -
   * - 9.6
     - 9.6-2.5
     - 9.6-3.0
     - 9.6-3.1
+    - 9.6-3.2
   * - 10
     - 10-2.5
     - 10-3.0
     - 10-3.1
+    - 10-3.2
   * - 11
     - 11-2.5
     - 11-3.0
     - 11-3.1
+    - 11-3.2
   * - 12
     - 12-2.5
     - 12-3.0
     - 12-3.1
+    - 12-3.2
   * - 13
     -
     - 13-3.0
     - 13-3.1
+    - 13-3.2
   * - 14
     -
     -
     - 14-3.1
+    - 14-3.2
 
 The full list of available tags can be found on `DockerHub <https://hub.
 docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated>`_
@@ -174,9 +182,9 @@ Here are some examples for full image tags:
 .. code-block:: shell
 
   docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-4.2.0
-  docker pull 3dcitydb/3dcitydb-pg:13-3.1-4.2.0
-  docker pull 3dcitydb/3dcitydb-pg:13-3.1-4.2.0-alpine
-  docker pull 3dcitydb/3dcitydb-pg:13-3.1-4.2.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0-alpine
 
 .. _citydb_docker_image_oracle:
 
@@ -336,7 +344,7 @@ and running `docker build <https://docs.docker.com/engine/reference/commandline
 
     # or with a specific base image tag
     docker build -t 3dcitydb/3dcitydb-oracle \
-        --build-arg BASEIMAGE_TAG=13-3.1 \
+        --build-arg BASEIMAGE_TAG=14-3.2 \
       .
 
 
@@ -444,7 +452,7 @@ that may help to increase database performance.
 
      docker run -d -i -t --name citydb -p 5432:5342 \
        -e SRID=25832 \
-       -e POSTGRES_PASSWORD=changeMe! \
+       -e POSTGRES_PASSWORD=changeMe \
      3dcitydb/3dcitydb-pg postgres \
        -c max_connections=20 \
        -c shared_buffers=2GB \
@@ -614,11 +622,11 @@ lists the tables of the DB running in the container using ``psql``.
 .. 4.1.0
 
 .. |psql-deb-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/13-3.1-4.1.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  3dcitydb/3dcitydb-pg/13-3.2-4.1.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
 
 .. |psql-alp-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/13-3.1-4.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&
+  3dcitydb/3dcitydb-pg/13-3.2-4.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
 
@@ -626,11 +634,11 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. |psql-deb-size-v4.2.0| image::
   https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/14-3.1-4.2.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  3dcitydb/3dcitydb-pg/14-3.2-4.2.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
 
 .. |psql-alp-size-v4.2.0| image::
   https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/14-3.1-4.2.0-alpine?label=image%20size&logo=Docker&logoColor=white&
+  3dcitydb/3dcitydb-pg/14-3.2-4.2.0-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
