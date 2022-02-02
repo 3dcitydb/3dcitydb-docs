@@ -56,11 +56,11 @@ details.
 
 .. note::
    With this version of the Importer/Exporter, you will be able to
-   **connect to version 4.1.x to 3.0 instances** of the 3D City Database
+   connect to versions |3dcitydb_version| to 3.0 instances of the 3D City Database
    **but not to any previous or later version**.
    See :numref:`first_steps_migration_chapter` for a guide on how
    to migrate a version 2 and 3 instances of the 3D City Database to the
-   latest version 4.1.
+   latest version |3dcitydb_version|.
 
 **Connection messages**
 

@@ -7,9 +7,9 @@ Export command
 
 .. code-block:: bash
 
-   impexp export [-hV] [--ade-extensions=<folder>] [-c=<file>]
-                 [--compressed-format=<format>] [--log-file=<file>]
-                 [--log-level=<level>] -o=<file>
+   impexp export [-hV] [--[no-]fail-fast] [--ade-extensions=<folder>]
+                 [-c=<file>] [--compressed-format=<format>]
+                 [--log-file=<file>] [--log-level=<level>] -o=<file>
                  [--output-encoding=<encoding>] [--pid-file=<file>]
                  [--plugins=<folder>] [--use-plugin=<plugin[=true|false]>[,
                  <plugin[=true|false]>...]]... [--worker-threads=<threads[,
@@ -23,8 +23,8 @@ Export command
                  <0..4>...] [-l=<0..4>[,<0..4>...]]... [--lod-mode=<mode>]
                  [--lod-search-depth=<0..n|all>]] [[--no-appearance] |
                  -a=<theme>[,<theme>...] [-a=<theme>[,<theme>...]]...]
-                 [-s=<select>] [-q=<xml>]] [[-T=<database>] -H=<host>
-                 [-P=<port>] -d=<name> [-S=<schema>] -u=<name> [-p
+                 [-s=<select>] [-q=<xml>]] [[-T=<database>] [-H=<host>]
+                 [-P=<port>] [-d=<name>] [-S=<schema>] [-u=<name>] [-p
                  [=<password>]]] [@<filename>...]
 
 **Description**
@@ -56,6 +56,11 @@ containing these settings.
 
    For compressed exports using GZIP or ZIP, specify the output format to use for encoding the data.
    Allowed values are ``citygml`` and ``cityjson``.
+
+.. option:: --[no-]fail-fast
+
+   Flag to indicate whether to fail fast on errors and to immediately cancel the export
+   process (default: true).
 
 .. option:: --worker-threads=<threads[,max]>
 

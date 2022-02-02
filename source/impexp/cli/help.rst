@@ -11,7 +11,7 @@ Help command
                [--log-file=<file>] [--log-level=<level>]
                [--pid-file=<file>] [--plugins=<folder>]
                [--use-plugin=<plugin[=true|false]>[,<plugin[=true|false]
-               >...]]... [COMMAND...]
+               >...]]... [@<filename>...] [COMMAND...]
 
 **Description**
 

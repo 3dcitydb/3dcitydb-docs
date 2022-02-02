@@ -10,7 +10,7 @@ imported features. Also, in case the import procedure aborts early
 (either requested by the user or caused by severe errors), not
 all input features might have been processed. To understand which
 top-level features were actually loaded into the database during an
-import session, the user can choose to let the Importer/Exporter create
+import session, a user can choose to let the Importer/Exporter create
 an *import log*.
 
 .. figure:: /media/impexp_import_preferences_log_fig.png
@@ -20,14 +20,25 @@ an *import log*.
    Import preferences – Import log.
 
 Simply enable the checkbox on this settings dialog to activate import
-logs (disabled per default). You additionally must provide a folder
-where the import log files will be created in. Either type the folder
-name manually or use the *Browse* button to open a file selection
-dialog. The timestamp of the import session is used to
-create unique filenames for the log files inside this folder
-according to following pattern:
+logs (disabled per default). You additionally must provide the full path
+to the log file that shall be used to record the imported features. Either type the
+file name manually or use the *Browse* button to open a file selection
+dialog. The following modes for creating the log file are supported:
 
-``imported-features-yyyy_MM_dd-HH_mm_ss_SSS.log``
+1. To ensure that every import operation uses a **unique file name** for the import
+   log, you can choose to let the import process append a timestamp of the form
+   ``yyyy-MM-dd_HH-mm-ss-SSS`` as suffix to the provided file name (default option).
+   This way, every import operation will automatically be recorded in a separate log file.
+   For example, when choosing ``import.log`` as file name, the import log will be
+   stored in:
+
+   ``import-yyyy-MM-dd_HH-mm-ss-SSS.log``
+
+2. When disabling the default option, all import operations are **logged into the same file**.
+   By default, new log entries are *appended* to the end of the file so that entries
+   from previous import operations are not lost. You can alternatively choose to *truncate* the log
+   file before every import operation by checking the corresponding option. Use
+   this option with care.
 
 The import log is a simple CSV file with one record (line) per imported
 top-level feature. The following figure shows an example.
@@ -59,7 +70,7 @@ the header line. The meaning of the fields is as follows.
    * - | CITYOBJECT_ID
      - | The value of the ID column (primary key) of the CITYOBJECT table where the feature was inserted.
    * - | GMLID_IN_FILE
-     - | The original object identifier of the feature in the input file (might differ in database due to import settings).
+     - | The original object identifier of the feature in the input file. Note: the GMLID in the database might differ from the original identifier due to import settings.
    * - | INPUT_FILE
      - | The path of the input file from which the feature was imported.
 

@@ -7,25 +7,26 @@ Import command
 
 .. code-block:: bash
 
-   impexp import [-hV] [--ade-extensions=<folder>] [-c=<file>]
-                 [--import-log=<file>] [--input-encoding=<encoding>]
-                 [--log-file=<file>] [--log-level=<level>]
-                 [--pid-file=<file>] [--plugins=<folder>]
-                 [--use-plugin=<plugin[=true|false]>[,<plugin[=true|false]
-                 >...]]... [--worker-threads=<threads[,max]>]
-                 [[--creation-date=<mode>] [--termination-date=<mode>]
-                 [--lineage=<lineage>] [--updating-person=<name>]
-                 [--reason-for-update=<reason>] [--use-metadata-from-file]]
-                 [[[-t=<[prefix:]name>[,<[prefix:]name>...]]...
-                 [--namespace=<prefix=name>[,<prefix=name>...]]...] [-i=<id>
-                 [,<id>...] [-i=<id>[,<id>...]]...] [-b=<minx,miny,maxx,maxy
-                 [,srid]> [--bbox-mode=<mode>]] [[--count=<count>]
+   impexp import [-hV] [--[no-]fail-fast] [--ade-extensions=<folder>]
+                 [-c=<file>] [--import-log=<file>]
+                 [--input-encoding=<encoding>] [--log-file=<file>]
+                 [--log-level=<level>] [--pid-file=<file>]
+                 [--plugins=<folder>] [--use-plugin=<plugin[=true|false]>[,
+                 <plugin[=true|false]>...]]... [--worker-threads=<threads[,
+                 max]>] [[--creation-date=<mode>]
+                 [--termination-date=<mode>] [--lineage=<lineage>]
+                 [--updating-person=<name>] [--reason-for-update=<reason>]
+                 [--use-metadata-from-file]] [[[-t=<[prefix:]name>[,<
+                 [prefix:]name>...]]... [--namespace=<prefix=name>[,
+                 <prefix=name>...]]...] [-i=<id>[,<id>...] [-i=<id>[,
+                 <id>...]]...] [-b=<minx,miny,maxx,maxy[,srid]>
+                 [--bbox-mode=<mode>]] [[--count=<count>]
                  [--start-index=<index>]] [[--no-appearance]]] [-f=<file>
                  [-m=<mode>] [-w] [[-n=<name>] [-I=<index>] [--[no-]header]
                  [-D=<string>] [-Q=<char>] [--quote-escape=<char>]
                  [-M=<char>] [--csv-encoding=<encoding>]]] [[-T=<database>]
-                 -H=<host> [-P=<port>] -d=<name> [-S=<schema>] -u=<name> [-p
-                 [=<password>]]] [@<filename>...] <file>...
+                 [-H=<host>] [-P=<port>] [-d=<name>] [-S=<schema>]
+                 [-u=<name>] [-p[=<password>]]] [@<filename>...] <file>...
 
 **Description**
 
@@ -56,8 +57,14 @@ containing these settings.
 .. option:: --import-log=<file>
 
    If you want an import log to be created for all top-level features loaded in the database,
-   provide the path to the import log file with this option. More information about the
-   import log can be found in :numref:`impexp_import_preferences_import_log`.
+   provide the path to the import log file with this option. Note that log file will be *truncated*
+   in case it already exists. More information about the import log can be found in
+   :numref:`impexp_import_preferences_import_log`.
+
+.. option:: --[no-]fail-fast
+
+   Flag to indicate whether to fail fast on errors and to immediately cancel the import
+   process (default: true).
 
 .. option:: --worker-threads=<threads[,max]>
 

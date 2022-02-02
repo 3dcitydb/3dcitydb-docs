@@ -23,9 +23,9 @@ Delete command
                  [-q=<xml>]] [-f=<file> [-w] [[-C=<type>] [[-n=<name>]
                  [-I=<index>] [--[no-]header] [-D=<string>] [-Q=<char>]
                  [--quote-escape=<char>] [-M=<char>]
-                 [--csv-encoding=<encoding>]]]] [[-T=<database>] -H=<host>
-                 [-P=<port>] -d=<name> [-S=<schema>] -u=<name> [-p
-                 [=<password>]]] [@<filename>...]
+                 [--csv-encoding=<encoding>]]]] [[-T=<database>]
+                 [-H=<host>] [-P=<port>] [-d=<name>] [-S=<schema>]
+                 [-u=<name>] [-p[=<password>]]] [@<filename>...]
 
 **Description**
 

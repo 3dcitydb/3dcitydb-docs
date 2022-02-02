@@ -35,7 +35,8 @@ following tabs are available:
 .. note::
    If you have installed plugins, the tab menu may contain
    additional entries. Please refer to the documentation of your plugin in
-   this case.
+   this case. The installed plugins can be managed on the *Preferences*
+   tab (cf. :numref:`impexp_preferences_plugins`)
 
 The main menu bar [1] offers the entries File, View, and Help. The **File menu** lets a user
 store and load application settings from a config file and close the application.

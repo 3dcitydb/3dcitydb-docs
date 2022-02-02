@@ -37,6 +37,12 @@ operation should deal with error situations during database exports. By default,
 export operation to continue on errors and complete the export process if possible. The errors
 encountered during the export process are always recorded in the log in both cases.
 
+By default, the export operation first *computes the number top-level objects* [1] matching
+the provided filters on the *Export* tab before starting the export process. This number is
+printed to the log and also used to render a progress bar for the export operation. However,
+computing this number can take a long time on large databases. Thus, this option can be disabled
+so that the export process starts immediately instead.
+
 As described in :numref:`impexp_citygml_export_chapter`, the export operation
 supports using compressed output formats like GZIP and ZIP, which helps to keep file
 sizes small. You can choose whether *CityGML* (default) or *CityJSON* shall

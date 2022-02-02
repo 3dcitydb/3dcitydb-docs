@@ -130,10 +130,14 @@ allowed elements of the query language. The *copy query* button |copy_query_icon
 settings made for the simple filters to an XML query representation.
 The results of both actions can therefore be used as starting
 point for defining your own query expression. The *validate query*
-button |validate_query_icon| [2] performs a validation of the query entered in [1]
+button |validate_query_icon| performs a validation of the query entered in [1]
 and prints the validation report to the console window. Only valid query
-expressions are accepted by the export operation. The *Simpe filter*
-button [3] takes you back to the simple filter dialog.
+expressions are accepted by the export operation. Finally, the *generate SQL*
+button |query_to_sql_icon| translates the XML query to a SQL ``SELECT`` statement
+that you can directly copy and use with a database client. Note that you must
+first connect to a 3DCityDB instance before you can create the SQL expression.
+
+The *Simpe filter* button [3] takes you back to the simple filter dialog.
 
 .. note::
   You can also use an external XML editor to write query expressions.
@@ -234,3 +238,5 @@ process at any time.
 .. |copy_query_icon| image:: /media/copy_query.svg
 
 .. |validate_query_icon| image:: /media/validate_query.svg
+
+.. |query_to_sql_icon| image:: /media/query_to_sql.svg

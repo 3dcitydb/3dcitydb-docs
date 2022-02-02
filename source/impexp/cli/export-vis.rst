@@ -27,8 +27,8 @@ Visualization export command
                      [--gltf-draco-compression] [-m]] [[-A=<mode>]
                      [-O=<number|globe|generic>]
                      [--google-elevation-api=<api-key>]
-                     [--transform-height]] [[-T=<database>] -H=<host>
-                     [-P=<port>] -d=<name> [-S=<schema>] -u=<name> [-p
+                     [--transform-height]] [[-T=<database>] [-H=<host>]
+                     [-P=<port>] [-d=<name>] [-S=<schema>] [-u=<name>] [-p
                      [=<password>]]] [@<filename>...]
 
 **Description**
