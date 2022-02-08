@@ -248,3 +248,8 @@ above before running the upgrade script.
 During the upgrade, check the output messages of the script for errors and
 warnings. The process should finish the message `3D City Database
 upgrade complete`.
+
+.. hint::
+   When using the PostgreSQL version, it is highly recommended to execute the
+   ``VACUUM ANALYZE`` command after an upgrade or migration process in order
+   to increase the overall database performance.
