@@ -69,7 +69,7 @@ the Oracles image are based on *Oracle Linux*.
 :numref:`citydb_docker_tbl_images` gives an overview on the available image
 versions.
 
-.. list-table:: 3DCityDB Docker image variants and versions for PostgreSQL/PostGIS 14-3.2.
+.. list-table:: 3DCityDB Docker image variants and versions for PostgreSQL/PostGIS.
   :widths: auto
   :header-rows: 1
   :stub-columns: 1
@@ -622,11 +622,11 @@ lists the tables of the DB running in the container using ``psql``.
 .. 4.1.0
 
 .. |psql-deb-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/13-3.2-4.1.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  3dcitydb/3dcitydb-pg/13-3.1-4.1.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
 
 .. |psql-alp-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/13-3.2-4.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&
+  3dcitydb/3dcitydb-pg/13-3.1-4.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
 
@@ -634,11 +634,11 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. |psql-deb-size-v4.2.0| image::
   https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/14-3.2-4.2.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  3dcitydb/3dcitydb-pg/14-3.1-4.2.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
 
 .. |psql-alp-size-v4.2.0| image::
   https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/14-3.2-4.2.0-alpine?label=image%20size&logo=Docker&logoColor=white&
+  3dcitydb/3dcitydb-pg/14-3.1-4.2.0-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
