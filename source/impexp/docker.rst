@@ -57,6 +57,9 @@ an overview on the images available.
   * - 5.0.0
     - |deb-size-v5.0.0|
     - |alp-size-v5.0.0|
+  * - 5.1.0
+    - |deb-size-v5.1.0|
+    - |alp-size-v5.1.0|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Importer/Exporter Github repository <https://
@@ -84,8 +87,8 @@ Here are some examples for full image tags:
 
   docker pull 3dcitydb/impexp:edge
   docker pull 3dcitydb/impexp:latest-alpine
-  docker pull 3dcitydb/impexp:5.0.0
-  docker pull 3dcitydb/impexp:5.0.0-alpine
+  docker pull 3dcitydb/impexp:5.1.0
+  docker pull 3dcitydb/impexp:5.1.0-alpine
 
 
 *******************************************************************************
@@ -488,4 +491,13 @@ longer needed and can be removed:
 
 .. |alp-size-v5.0.0| image:: https://img.shields.io/docker/image-size/
   3dcitydb/impexp/5.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
+
+.. 5.1.0
+.. |deb-size-v5.1.0| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/impexp/5.1.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
+
+.. |alp-size-v5.1.0| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/impexp/5.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
