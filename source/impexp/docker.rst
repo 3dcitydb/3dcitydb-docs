@@ -55,8 +55,10 @@ an overview on the images available.
     - |deb-size-v5.0.0|
     - |alp-size-v5.0.0|
 
-.. note:: Minor releases are not listed in this table, please find them on
-  |version-badge-dockerhub| or |version-badge-github|.
+.. note::
+  | Minor releases are not listed in this table.
+  | The latest 3DCityDB Importer/Exporter version is: |version-badge-github|
+  | The latest image version on DockerHub is: |version-badge-dockerhub|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Importer/Exporter Github repository <https://

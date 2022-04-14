@@ -86,8 +86,10 @@ the most recent release version.
     - |deb-size-v5.0.0|
     - |alp-size-v5.0.0|
 
-.. note:: Minor releases are not listed in this table, please find them on
-  |version-badge-dockerhub| or |version-badge-github|.
+.. note::
+  | Minor releases are not listed in this table.
+  | The latest 3DCityDB WFS version is: |version-badge-github|
+  | The latest image version on DockerHub is: |version-badge-dockerhub|
 
 The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
 3dcitydb/>`_ and can be pulled like this:
