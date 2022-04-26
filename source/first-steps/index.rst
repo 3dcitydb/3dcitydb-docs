@@ -3,10 +3,10 @@ First steps
 
 This quickstart guide gives step-by-step instructions for setting up
 a 3D City Database instance and installing the Importer/Exporter.
-Installers for the 3D City Database scripts and tools
-can be downloaded from the official project website at http://www.3dcitydb.org.
-The source code of the 3D City Database is hosted and maintained on GitHub
-at https://github.com/3dcitydb.
+Installers for the 3D City Database components can be downloaded from
+the `official release website <https://github.com/3dcitydb/3dcitydb-suite/releases>`_
+or from the project website at https://www.3dcitydb.org. The source code of
+the 3D City Database is hosted and maintained on GitHub at https://github.com/3dcitydb.
 
 .. toctree::
    :maxdepth: 1
