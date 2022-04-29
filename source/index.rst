@@ -1,5 +1,5 @@
-Welcome to 3D City Database User Manual!
-========================================
+Welcome to the 3D City Database User Manual!
+============================================
 
 The 3D City Database (3DCityDB) is a free and open source package consisting
 of a database schema and a set of software tools to import, export, manage, analyse,
