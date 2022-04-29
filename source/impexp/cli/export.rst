@@ -7,8 +7,9 @@ Export command
 
 .. code-block:: bash
 
-   impexp export [-hV] [--[no-]fail-fast] [--ade-extensions=<folder>]
-                 [-c=<file>] [--compressed-format=<format>]
+   impexp export [-hV] [--[no-]fail-fast] [--replace-ids]
+                 [--ade-extensions=<folder>] [-c=<file>]
+                 [--compressed-format=<format>] [--id-prefix=<prefix>]
                  [--log-file=<file>] [--log-level=<level>] -o=<file>
                  [--output-encoding=<encoding>] [--pid-file=<file>]
                  [--plugins=<folder>] [--use-plugin=<plugin[=true|false]>[,
@@ -56,6 +57,14 @@ containing these settings.
 
    For compressed exports using GZIP or ZIP, specify the output format to use for encoding the data.
    Allowed values are ``citygml`` and ``cityjson``.
+
+.. option:: --replace-ids
+
+   Replace all identifiers of features and geometries with UUID values (default: false).
+
+.. option:: --id-prefix=<prefix>
+
+   The prefix to use for UUID values when replacing object identifiers (default: ``ID_``).
 
 .. option:: --[no-]fail-fast
 

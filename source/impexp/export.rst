@@ -185,6 +185,8 @@ The following table provides a summary overview.
      - | **Description**
    * - | :ref:`impexp_preferences_export_general`
      - | General options like the CityGML version to be used for exports.
+   * - | :ref:`impexp_preferences_export_identifier`
+     - | Replace all object identifiers with UUIDs.
    * - | :ref:`impexp_preferences_export_tiling_chapter`
      - | Settings for tiled exports. Requires that tiling is enabled on the bounding box filter.
    * - | :ref:`impexp_preferences_export_cityobjectgroup`

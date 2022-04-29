@@ -10,6 +10,7 @@ preference settings that are presented in this chapter.
    :maxdepth: 1
 
    general
+   object-identifier
    tiling-options
    cityobjectgroup
    appearance
