@@ -40,9 +40,9 @@ Java 8 and higher. The recommended version for running the Importer/Exporter
 is **Java 11**. The tool has been successfully tested on (but is not
 limited to) the following operating systems:
 
--  Microsoft Windows XP, Vista, 7, 8, 10, 11;
+-  Microsoft Windows 7, 8, 10, 11;
 -  Apple Mac OS X and macOS;
--  Ubuntu Linux 9 to 21.
+-  Ubuntu Linux 9 to 22.
 
 Prior to the setup of the Importer/Exporter tool, a Java Runtime
 Environment (JRE) **must be installed on your system**. Java
@@ -54,7 +54,6 @@ that are free to download and use:
 - `Amazon Coretto <https://aws.amazon.com/corretto/>`_
 - `OpenJDK <https://openjdk.java.net/>`_
 - `Oracle Java 17 LTS <https://www.oracle.com/java/technologies/downloads/>`_
-
 
 Follow the installation instructions for your operating system. Note that
 starting from Java 17 long-term support (LTS) version, `Oracle Java` is
