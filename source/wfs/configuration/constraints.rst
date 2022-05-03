@@ -17,6 +17,7 @@ constraints on dedicated WFS operations.
      <exportCityDBMetadata>false</exportCityDBMetadata>
      <exportAppearance>false</exportAppearance>
      <useResultPaging>true</useResultPaging>
+     <replaceResourceIds prefix="ID_">false</replaceResourceIds>
      <stripGeometry>false</stripGeometry>
      <lodFilter isEnabled="true" mode="or" searchMode="depth" searchDepth="1">
        <lod>1</lod>
@@ -48,6 +49,8 @@ The following tables shows which WFS operation is affected by which constraint.
    * - | ``exportAppearance``
      - | GetPropertyValue, GetFeature
    * - | ``useResultPaging``
+     - | GetPropertyValue, GetFeature
+   * - | ``replaceResourceIds``
      - | GetPropertyValue, GetFeature
    * - | ``stripGeometry``
      - | GetPropertyValue, GetFeature
@@ -158,6 +161,18 @@ server’s capabilities document using the *ImplementsResultPaging* constraint.
 
 .. note::
    Further settings in the context of result paging can be found in :numref:`wfs_server_settings_chapter`.
+
+**replaceResourceIds**
+
+The ``<replaceResourceIds>`` lets you choose to replace the identifiers of all features and
+geometries to be exported with random UUID values (default: *false*). This option can be useful,
+for instance, in case you want to hide your internal object identifiers from WFS clients. The
+optional `prefix` attribute can be used to define a prefix for the UUIDs (default: `ID_`).
+
+.. warning::
+   When enabling this option, the identifiers in the response document differ from those in
+   the database. Thus, a client will not be able to query features by their identifiers as given
+   in the response document.
 
 **stripGeometry**
 
