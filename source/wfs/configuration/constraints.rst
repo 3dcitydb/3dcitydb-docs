@@ -164,14 +164,14 @@ server’s capabilities document using the *ImplementsResultPaging* constraint.
 
 **replaceResourceIds**
 
-The ``<replaceResourceIds>`` lets you choose to replace the identifiers of all features and
+The ``<replaceResourceIds>`` option lets you choose to replace the identifiers of all features and
 geometries to be exported with random UUID values (default: *false*). This option can be useful,
 for instance, in case you want to hide your internal object identifiers from WFS clients. The
 optional `prefix` attribute can be used to define a prefix for the UUIDs (default: `ID_`).
 
 .. warning::
    When enabling this option, the identifiers in the response document differ from those in
-   the database. Thus, a client will not be able to query features by their identifiers as given
+   the database. Thus, a client *will not be able* to query features by their identifiers as given
    in the response document.
 
 **stripGeometry**
