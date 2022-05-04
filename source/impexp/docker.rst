@@ -35,7 +35,7 @@ The images are going to use the latest LTS JRE version available at the time a n
 Importer/Exporter version is released. :numref:`impexp_docker_tbl_images` gives
 an overview on the images available.
 
-.. list-table:: 3DCityDB Importer/Exporter Docker image variants and versions
+.. list-table:: 3DCityDB Importer/Exporter Docker image variants and major versions
   :widths: auto
   :header-rows: 1
   :stub-columns: 1
@@ -51,15 +51,14 @@ an overview on the images available.
   * - latest
     - |deb-size-latest|
     - |alp-size-latest|
-  * - 4.3.0
-    - |deb-size-v4.3.0|
-    - |alp-size-v4.3.0|
   * - 5.0.0
     - |deb-size-v5.0.0|
     - |alp-size-v5.0.0|
-  * - 5.1.0
-    - |deb-size-v5.1.0|
-    - |alp-size-v5.1.0|
+
+.. note::
+  | Minor releases are not listed in this table.
+  | The latest 3DCityDB Importer/Exporter version is: |version-badge-github|
+  | The latest image version on DockerHub is: |version-badge-dockerhub|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Importer/Exporter Github repository <https://
@@ -68,6 +67,8 @@ using the latest stable version of the base images.
 The **latest** and **release** image versions  are only built
 when a new release is published on Github. The **latest** tag will point to
 the most recent release version.
+
+
 
 The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
 3dcitydb/>`_ and can be pulled like this:
@@ -87,8 +88,8 @@ Here are some examples for full image tags:
 
   docker pull 3dcitydb/impexp:edge
   docker pull 3dcitydb/impexp:latest-alpine
-  docker pull 3dcitydb/impexp:5.1.0
-  docker pull 3dcitydb/impexp:5.1.0-alpine
+  docker pull 3dcitydb/impexp:5.0.0
+  docker pull 3dcitydb/impexp:5.0.0-alpine
 
 
 *******************************************************************************
@@ -449,6 +450,16 @@ longer needed and can be removed:
 
 .. Images ---------------------------------------------------------------------
 
+
+.. version badges
+.. |version-badge-github| image:: https://img.shields.io/github/v/release/3dcitydb/importer-exporter?label=Github&logo=github
+  :target: https://github.com/3dcitydb/importer-exporter/releases
+
+.. |version-badge-dockerhub| image:: https://img.shields.io/docker/v/3dcitydb/impexp?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver
+  :target: https://hub.docker.com/r/3dcitydb/impexp/tags
+
+.. edge
+
 .. |deb-build-edge| image:: https://img.shields.io/github/workflow/status/
   3dcitydb/importer-exporter/docker-build-edge?
   style=flat-square&logo=Docker&logoColor=white
@@ -467,21 +478,14 @@ longer needed and can be removed:
   3dcitydb/impexp/edge-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
 
+.. latest
+
 .. |deb-size-latest| image:: https://img.shields.io/docker/image-size/
   3dcitydb/impexp/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
 
 .. |alp-size-latest| image:: https://img.shields.io/docker/image-size/
   3dcitydb/impexp/latest-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
-
-.. 4.3.0
-.. |deb-size-v4.3.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/impexp/4.3.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
-
-.. |alp-size-v4.3.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/impexp/4.3.0-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
 
 .. 5.0.0
@@ -491,13 +495,4 @@ longer needed and can be removed:
 
 .. |alp-size-v5.0.0| image:: https://img.shields.io/docker/image-size/
   3dcitydb/impexp/5.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
-
-.. 5.1.0
-.. |deb-size-v5.1.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/impexp/5.1.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
-
-.. |alp-size-v5.1.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/impexp/5.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated

@@ -34,7 +34,7 @@ the images.
     3dcitydb/wfs[:TAG]
 
 When running containers with default settings, the
-:ref:`WFS <_wfs_basic_functionality_chapter>` will listen at following URL.
+:ref:`WFS <wfs_basic_functionality_chapter>` will listen at following URL.
 Note that the web root is used as context path in this case.
 
 .. code-block:: bash
@@ -85,6 +85,11 @@ the most recent release version.
   * - 5.0.0
     - |deb-size-v5.0.0|
     - |alp-size-v5.0.0|
+
+.. note::
+  | Minor releases are not listed in this table.
+  | The latest 3DCityDB WFS version is: |version-badge-github|
+  | The latest image version on DockerHub is: |version-badge-dockerhub|
 
 The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
 3dcitydb/>`_ and can be pulled like this:
@@ -444,6 +449,16 @@ When the services and network are no longer required, they can be removed:
 
 .. Images ---------------------------------------------------------------------
 
+.. version badges
+
+.. |version-badge-github| image:: https://img.shields.io/github/v/release/3dcitydb/web-feature-service?label=Github&logo=github
+  :target: https://github.com/3dcitydb/web-feature-service/releases
+
+.. |version-badge-dockerhub| image:: https://img.shields.io/docker/v/3dcitydb/wfs?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver
+  :target: https://hub.docker.com/r/3dcitydb/wfs/tags
+
+.. edge
+
 .. |deb-build-edge| image:: https://img.shields.io/github/workflow/status/
   3dcitydb/web-feature-service/docker-build-edge?
   style=flat-square&logo=Docker&logoColor=white
@@ -461,6 +476,8 @@ When the services and network are no longer required, they can be removed:
 .. |alp-size-edge| image:: https://img.shields.io/docker/image-size/
   3dcitydb/wfs/edge-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
+
+.. latest
 
 .. |deb-size-latest| image:: https://img.shields.io/docker/image-size/
   3dcitydb/wfs/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square

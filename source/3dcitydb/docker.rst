@@ -88,14 +88,15 @@ versions.
     - |psql-deb-size-latest|
     - |psql-alp-size-latest|
     - |ora-size-edge|
-  * - 4.1.0
-    - |psql-deb-size-v4.1.0|
-    - |psql-alp-size-v4.1.0|
+  * - 4.0.0
+    - |psql-deb-size-v4.0.0|
+    - |psql-alp-size-v4.0.0|
     - |ora-size-edge|
-  * - 4.2.0
-    - |psql-deb-size-v4.2.0|
-    - |psql-alp-size-v4.2.0|
-    - |ora-size-edge|
+
+.. note::
+  | Minor releases are not listed in this table.
+  | The latest 3DCityDB version is: |version-badge-github|
+  | The latest image version on DockerHub is: |version-badge-dockerhub|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb/
@@ -347,7 +348,6 @@ and running `docker build <https://docs.docker.com/engine/reference/commandline
         --build-arg BASEIMAGE_TAG=14-3.2 \
       .
 
-
 .. _citydb_docker_oracle_build:
 
 Oracle
@@ -577,6 +577,16 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. Images ---------------------------------------------------------------------
 
+.. version badges
+
+.. |version-badge-github| image:: https://img.shields.io/github/v/release/3dcitydb/3dcitydb?label=Github&logo=github
+  :target: https://github.com/3dcitydb/3dcitydb/releases
+
+.. |version-badge-dockerhub| image:: https://img.shields.io/docker/v/3dcitydb/3dcitydb-pg?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver
+  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags
+
+.. Oracle license
+
 .. |oracle-license| image:: ../media/citydb_oracle_license.jpg
 
 .. edge
@@ -618,27 +628,13 @@ lists the tables of the DB running in the container using ``psql``.
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
+.. 4.0.0
 
-.. 4.1.0
-
-.. |psql-deb-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/13-3.1-4.1.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+.. |psql-deb-size-v4.0.0| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/14-3.2-4.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
 
-.. |psql-alp-size-v4.1.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/13-3.1-4.1.0-alpine?label=image%20size&logo=Docker&logoColor=white&
-  style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
-
-.. 4.2.0
-
-.. |psql-deb-size-v4.2.0| image::
-  https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/14-3.1-4.2.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
-
-.. |psql-alp-size-v4.2.0| image::
-  https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/14-3.1-4.2.0-alpine?label=image%20size&logo=Docker&logoColor=white&
+.. |psql-alp-size-v4.0.0| image:: https://img.shields.io/docker/image-size/
+  3dcitydb/3dcitydb-pg/14-3.2-4.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
