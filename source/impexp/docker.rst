@@ -30,8 +30,8 @@ Image variants and versions
 The Importer/Exporter Docker images are available based on Debian and Alpine
 Linux. The Debian version is based on the `OpenJDK <https://hub.docker.com/_
 /openjdk>`_ images, the Alpine Linux variant is based on the non-official images
-from `AdoptOpenJDK <https://hub.docker.com/r/adoptopenjdk/openjdk11/>`_.
-The images are going to use the latest LTS JRE version available at the time a new
+from `Liberica OpenJDK Alpine <https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine>`_.
+The images are going to use the latest LTS version available at the time a new
 Importer/Exporter version is released. :numref:`impexp_docker_tbl_images` gives
 an overview on the images available.
 
@@ -67,8 +67,6 @@ using the latest stable version of the base images.
 The **latest** and **release** image versions  are only built
 when a new release is published on Github. The **latest** tag will point to
 the most recent release version.
-
-
 
 The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
 3dcitydb/>`_ and can be pulled like this:
@@ -449,7 +447,6 @@ longer needed and can be removed:
   docker network rm citydb-net
 
 .. Images ---------------------------------------------------------------------
-
 
 .. version badges
 .. |version-badge-github| image:: https://img.shields.io/github/v/release/3dcitydb/importer-exporter?label=Github&logo=github
