@@ -23,8 +23,8 @@ be flexibly adapted as shown below.
 .. note::
   You can always just provide a **single output file** on the *Export* tab
   even if tiling shall be used (:numref:`impexp_citygml_export_chapter`).
-  The *tiling options* then allow you to define unique a subdirectory and/or filename
-  for each tile based on specified output file.
+  The *tiling options* then allow you to define a unique subdirectory and/or filename
+  for each tile based on the specified output file.
 
 For example, assume a user has entered the following output file:
 
