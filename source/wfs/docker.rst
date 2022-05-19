@@ -58,6 +58,10 @@ docker.com/_/tomcat>`_ and are available as Debian and Alpine
 Linux variants. :numref:`wfs_docker_tbl_images` gives an overview on the images
 available. Currently, Tomcat 9 images are used as base images for the WFS.
 
+.. warning:: The official Tomcat 9 Alpine base images currently uses Java 8, which is
+  no longer maintained. Therefore, for security reasons, this image should not be used
+  in production.
+
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB WFS Github repository <https://
 github.com/3dcitydb/web-feature-service>`_ using the latest stable version of
