@@ -12,6 +12,9 @@ packages as shown below.
 
    Installation wizard of the Importer/Exporter tool.
 
+.. important::
+   Please note that the ADE Manager Plugin may not work with Java 17 or later versions.
+
 If you have not installed the plugin together with the Importer/Exporter,
 it is also possible to install it at any later time with the following steps:
 
