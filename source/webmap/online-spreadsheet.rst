@@ -212,7 +212,7 @@ while importing KML/glTF models with thematic data:
 || ``URL(*)``                 || The web link of the master JSON file (cf. :numref:`impexp_kml_export_chapter`) |
 ||                            || holding the relevant meta-information of the data layer to be imported.        |
 ||                            || Locally stored files can also be published using the same directory as         |
-||                            || the web client (please refer to `installation_config`_).                       |
+||                            || the web client (please refer to :numref:`installation_config`).                |
 +-----------------------------+---------------------------------------------------------------------------------+
 || ``Name(*)``                || A proper layer name must be specified which will be listed at the top of       |
 ||                            || the input panel (in the top left corner of the screen) once the KML/glTF       |

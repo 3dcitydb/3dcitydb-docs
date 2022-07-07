@@ -77,11 +77,12 @@ interface should look like in the following figure:
 
 .. note::
    Other files and directories can also be published using the NodeJS server. 
-   For instance, a a KML file named ``Samples.kml`` stored in the directory 
+   For instance, a KML file named ``Samples.kml`` stored in the directory 
    ``3dcitydb-web-map/3dwebclient/`` can be accessed using the following URL:
 
    ::
 
         http://localhost:8000/3dwebclient/Samples.kml
 
-   This can then be imported into the web client similarly to other online resources as explained in `enrich_thematic_data`_.
+   This can then be imported into the web client similarly to other online 
+   resources as explained in :numref:`enrich_thematic_data`.
