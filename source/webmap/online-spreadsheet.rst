@@ -211,6 +211,8 @@ while importing KML/glTF models with thematic data:
 +-----------------------------+---------------------------------------------------------------------------------+
 || ``URL(*)``                 || The web link of the master JSON file (cf. :numref:`impexp_kml_export_chapter`) |
 ||                            || holding the relevant meta-information of the data layer to be imported.        |
+||                            || Locally stored files can also be published using the same directory as         |
+||                            || the web client (please refer to `installation_config`_).                       |
 +-----------------------------+---------------------------------------------------------------------------------+
 || ``Name(*)``                || A proper layer name must be specified which will be listed at the top of       |
 ||                            || the input panel (in the top left corner of the screen) once the KML/glTF       |
@@ -243,7 +245,7 @@ while importing KML/glTF models with thematic data:
 ||                            || must be publicly available. For Google Spreadsheets, please refer to           |
 ||                            || `Google Support <https://support.google.com/docs/answer/9331169?hl=en#6.1>`_   |
 ||                            || to learn how to share documents online. For the structure of these tables,     |
-||                            || please refer to  :ref:`structure_of_thematic_tables`.                          |
+||                            || please refer to :ref:`structure_of_thematic_tables`.                           |
 +-----------------------------+---------------------------------------------------------------------------------+
 || ``> Thematic Data Source`` || The thematic data source type, currently supports:                             |
 ||                            || ``Google Sheets API``,                                                         |
