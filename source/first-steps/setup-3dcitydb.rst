@@ -278,6 +278,170 @@ and ``public`` (required for PostGIS elements).
 
    The search path will be updated upon the next login, not within the
    same session.
+script in the same way like CREATE_DB. Simply dropping the schemas
+‘citydb’ and ‘citydb_pkg’ in a cascading way will also do the job.
+
+.. _first_step_3dcitydb_installation_polardb_pg:
+
+Installation steps on PolarDB for PostgreSQL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`PolarDB for PostgreSQL <https://github.com/ApsaraDB/PolarDB-for-PostgreSQL>`_ 
+(hereafter simplified as PolarDB) is a cloud 
+native database service independently developed by Alibaba Cloud.
+PolarDB is highly compatible with PostgreSQL and it's spatial extnesion Ganos
+is highly compatiable with PostGIS. The installation steps on PolarDB are
+similar to that on PostgreSQL.
+
+**Step 1 - Create an empty PolarDB database**
+
+Choose a superuser or a user with the CREATEDB privilege to create a new
+database on the PolarDB server (e.g. 'citydb_v4'). Choose or create a
+user as owner of this new database who will also set up the 3D City
+Database schema. In the following steps, this user is called 'citydb_user'.
+If you want to set up the schema with a user who is not the database owner,
+you have to grant this user proper permissions.
+
+Connect to the database and type
+
+.. code:: sql
+
+    CREATE DATABASE citydb_v4 OWNER citydb_user;
+
+or use a graphical database client such as *pgAdmin* that is shipped
+with PostgreSQL. Please check the *pgAdmin* documentation for more
+details.
+
+**Step 2 – Add the Ganos extension**
+
+The 3D City Database requires the Ganos extension to be added to the
+database. This can **only be done as superuser**. The extension is added
+with the following command (or, alternatively, using *pgAdmin*):
+
+.. code:: sql
+
+    CREATE EXTENSION ganos_geometry CASCADE;
+    CREATE EXTENSION ganos_raster CASCADE;
+
+Some 3D operations such as extrusion or volume calculation are only
+available through the **SFCGAL** backend. This extension is
+optional and only needed if you want to use the additional functionality:
+
+.. code:: sql
+
+    CREATE EXTENSION ganos_geometry_sfcgal CASCADE;
+
+**Step 3 – Edit the CONNECTION_DETAILS[.sh \| .bat] script**
+
+Go to the 3dcitydb/postgresql/ShellScripts directory, choose the folder
+corresponding to your operating system and open the file named
+CONNECTION_DETAILS with a text editor. There are five variables that
+will be used to connect to the DBMS. If **psql** is already registered
+in your system path, you do not have to set the directory for the PGBIN
+variable. The other parameters should be obvious to PostgreSQL users.
+Here is an example how the complete CONNECTION_DETAILS can look like
+under Windows:
+
+.. code:: bash
+
+   set PGBIN=C:\Program Files\PostgreSQL\13\bin  ::Directory containing the psql binary
+   set PGHOST=localhost                          ::Name of the database server
+   set PGPORT=5432                               ::Port of the database server
+   set CITYDB=citydb_v4                          ::Name of the 3DCityDB database to connect to
+   set PGUSER=citydb_user                        ::Database user to connect with
+
+**Step 4 - Execute the CREATE_DB script**
+
+As soon as the database credentials are defined, run the CREATE_DB script. Is is
+located in the same folder as CONNECTION_DETAILS (see also :numref:`3dcitydb_shell_scripts`).
+
+**Step 5 – Specify the coordinate reference system**
+
+After executing the CREATE_DB script, the user is prompted for the
+coordinate reference system (CRS) to be used in the 3D City Database.
+You have to enter the Ganos specific SRID (spatial reference ID) of the
+CRS which – in most cases – resembles the EPSG code of the CRS. There
+are three prompts in total to define the spatial reference:
+
+-  First, specify the SRID to be used for the geometry columns of the
+   database. Unlike previous version of the 3D City Database there is no
+   default CRS defined.
+
+-  Second, specify the SRID of the height system if no true 3D CRS is
+   used for the data. This can be regarded as metadata and has no effect
+   on the geometry columns in the database. The default value is 0 –
+   which means “not set”.
+
+-  Third, provide the GML compliant uniform resource name (URN)
+   encoding of the CRS. The default value uses the OGC namespace and
+   comprises of the first two user inputs:
+   ``urn:ogc:def:crs,crs:EPSG::<crs1>[,crs:EPSG::<crs2>]``.
+
+More information about the SRID and the URN encoding can be found in
+:numref:`citydb_crs_definition_chapter`.
+
+.. note::
+   The setup process will terminate immediately if an error occurs during
+   the setup process. Reasons might be:
+
+-  The user executing CREATE_DB script is neither a superuser nor the owner
+   of the specified database (or does not own privileges to create
+   objects in that database);
+
+-  The Ganos extension has not been installed; or
+
+-  Parts of the 3D City Database do already exist because of a previous
+   setup attempt. Therefore, make sure that the schemas ``citydb`` and
+   ``citydb_pkg`` do not exist in the database when setting up the 3D City
+   Database.
+
+After a series of log messages reporting the creation the 3DCityDB
+schema and stored procedures, the chosen reference system is applied to the spatial columns
+(expect for those that will store data with local coordinate systems).
+This takes some seconds. The setup process is successfully completed
+when ‘Done’ is printed to the console.
+
+The following figure exemplifies the user input for the CREATE_DB script.
+
+.. figure:: ../media/first_step_CREATE_DB_cli.png
+   :name: first_step_CREATE_DB_cli
+   :align: center
+
+   Example user input when executing CREATE_DB for a PolarDB database.
+
+**Step 5 – Check if the setup is correct**
+
+The 3D City Database is stored in a separate PolarDB schema called
+``citydb``. The stored procedures are written to a separate PolarDB
+schema called ``citydb_pkg``. Usually, different schemas have to be
+addressed in every query via dot notation, e.g.
+
+.. code:: sql
+
+    SELECT * FROM citydb.building;
+
+Fortunately, this can be avoided when the corresponding schemas are on
+the database **search path**. The search path is **automatically
+adapted** during the setup. Execute the command
+
+.. code:: sql
+
+    SHOW search_path;
+
+to check if the search path contains the schemas ``citydb``, ``citydb_pkg``
+and ``public`` (required for PostGIS elements).
+
+.. note::
+   When using the created 3D City Database as a template database
+   for new databases, the search path information is not transferred and
+   thus has to be set again for the new database, e.g.:
+
+   .. code:: sql
+
+       ALTER DATABASE new_citydb_v4 SET search_path TO citydb, citydb_pkg, public;
+
+   The search path will be updated upon the next login, not within the
+   same session.
 
 To drop the 3D City Database with all data, execute the DROP_DB
 script in the same way like CREATE_DB. Simply dropping the schemas
