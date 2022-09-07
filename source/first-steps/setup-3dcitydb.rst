@@ -279,7 +279,7 @@ and ``public`` (required for PostGIS elements).
    The search path will be updated upon the next login, not within the
    same session.
 
-To drop the 3D City Database with all data, execute the DROP_DB   
+To drop the 3D City Database with all data, execute the DROP_DB
 script in the same way like CREATE_DB. Simply dropping the schemas
 ‘citydb’ and ‘citydb_pkg’ in a cascading way will also do the job.
 
