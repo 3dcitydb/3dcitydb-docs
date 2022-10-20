@@ -72,7 +72,7 @@ objects are either imported or skipped.
 **Example use case**
 
 One use case for this filter is when using import logs for the import operation
-(see :numref:`impexp_import_preferences_import_log`).
+(see :numref:`impexp_import_preferences_import_logs`).
 Assume you start an import operation on a set of input files and the import is aborted or fails after
 a certain amount of features. The import log will contain the identifiers of those city
 objects that were successfully imported before the operation aborted. Thus, with this filter,

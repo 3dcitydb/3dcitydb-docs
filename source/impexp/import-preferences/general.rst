@@ -17,7 +17,7 @@ invalid data violating the CityGML or CityJSON schemas, missing external resourc
 or invalid geometries. The default behaviour of the import operation is to *fail fast* on errors and to immediately
 cancel the import process. This way, invalid top-level city objects will not be imported into your
 database. If your import aborts due to errors, you can use the import log to resume or rollback the import operation
-(see :numref:`impexp_import_preferences_import_log` for more details).
+(see :numref:`impexp_import_preferences_import_logs` for more details).
 
 You can disable the fail fast behaviour by unchecking the *Cancel import immediately in case of errors* option
 offered by this preferences dialog. When doing so, errors encountered during the import process are still recorded

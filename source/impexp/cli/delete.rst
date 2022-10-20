@@ -41,7 +41,7 @@ features to be deleted. In addition, you can also use a delete list. Delete list
 are CSV files that contain a list of identifiers (and possibly further data). Each city object in the database
 whose identifier matches an entry in the delete list will be deleted. For example,
 the import log file created when importing CityGML/CityJSON files into
-the database (see :numref:`impexp_import_preferences_import_log`) can be used as
+the database (see :numref:`impexp_import_preferences_import_logs`) can be used as
 delete list. This comes in very handy when you want to "rollback" an import process,
 for instance, because it aborted due to errors.
 
@@ -362,7 +362,7 @@ which is set to 2, and the type of the identifier, which is set to ``db``.
 The above example has been chosen deliberately because it illustrates how
 to use an import log file created by a CityGML/CityJSON import
 operation as delete list for the ``delete`` command. The general layout
-and content of an import log file is discussed in :numref:`impexp_import_preferences_import_log`.
+and content of an import log file is discussed in :numref:`impexp_import_preferences_import_logs`.
 The snippet below shows an example.
 
 .. code-block:: bash

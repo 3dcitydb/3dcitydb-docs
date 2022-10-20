@@ -19,5 +19,5 @@ preference settings that are presented in this chapter.
    xsl-transformation
    cityjson
    indexes
-   import-log
+   import-logs
    resources

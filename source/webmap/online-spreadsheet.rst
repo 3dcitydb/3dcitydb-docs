@@ -149,6 +149,7 @@ The response from PostgREST service is encoded in JSON with the following struct
       The ``gmlids`` here can be duplicated in other records, 
       but the combination of the first two columns must be unique.
       ::
+
          [
             { "gmlid" : "id1", "attribute" : "value_name", "value" : "value" },
             { "gmlid" : "id2", "attribute" : "value_name", "value" : "value" },

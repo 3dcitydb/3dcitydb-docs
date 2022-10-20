@@ -26,7 +26,7 @@ If XML validation is chosen to be performed automatically during
 imports, every invalid top-level feature will be discarded from the
 import. Nevertheless, the import procedure will continue to work on the
 remaining features in the input file(s). To track which features have
-been imported, you can enable the import log (see :numref:`impexp_import_preferences_import_log`).
+been imported, you can enable the import log (see :numref:`impexp_import_preferences_import_logs`).
 
 Validation errors are printed to the console window. Often, error
 messages quickly become lengthy and confusing. To keep the console

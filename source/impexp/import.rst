@@ -69,11 +69,38 @@ the same ZIP archive as the CityGML/CityJSON files.
   You can also increase the available memory for the Importer/Exporter
   application (see :numref:`impexp_launching_chapter`).
 
+**Import modes**
+
+After selecting the input files, you can set the *Import mode* [2] for the import operation. The import mode
+specifies how to handle conflicting *top-level city objects* and to avoid duplicate objects in the database. For each
+top-level city object to be imported, its identifier (i.e., `gml:id` in CityGML) is queried in the database to
+check whether a city object with identical identifier already exists in the database. If the search does not yield a
+result, the city object is directly imported. If, however, a duplicate/conflicting city object is found in the
+database, you can choose between the following strategies to resolve the conflict:
+
+1. **Import all** (default): All top-level city objects are imported into the database, regardless of whether this
+   results in duplicate objects. The identifiers from the input files are not looked up in the database in this mode.
+2. **Skip existing**: The top-level city object from the input file is skipped and not imported. Thus, the
+   object in the database takes precedence.
+3. **Delete existing**: The top-level city object from the input file takes precedence and overwrites the duplicate
+   object in the database. For this purpose, the duplicate object in the database is first *physically deleted* before
+   importing the object from the input file.
+4. **Terminate existing**: Same as 3) except that the duplicate object is only *terminated* and, thus, remains in the
+   database.
+
+.. hint::
+  The *skip existing* mode also allows you to easily **resume** a previous import process
+  that was canceled manually or due to errors.
+
+.. note::
+  The duplicate check is only based on the object identifier (`gml:id`). No further checks are performed.
+  Only the top-level city objects from the input files are tested but not their nested child features.
+
 **Import filters**
 
 The import dialog allows for setting thematic and
 spatial filters to narrow down the set of top-level
-city objects that are to be imported from the input files [2]. The
+city objects that are to be imported from the input files [3]. The
 following filters are offered and discussed in separate sections of this chapter:
 
 - :numref:`%s <impexp_import_attribute_filter>` :ref:`impexp_import_attribute_filter`
@@ -90,14 +117,14 @@ be imported. If no checkbox is enabled, no filters are applied and, thus,
 all features contained in the input files will be imported.
 
 .. note::
-   All import filters are only applied to *top-level features* but *not to nested
-   sub-features*.
+   All import filters are only applied to *top-level city objects* but *not to nested
+   child features*.
 
 **Schema validation**
 
 Before importing, the input files can be
 validated against the official CityGML XML and CityJSON schemas. Simply click the
-*Just Validate* button [4] in order to run the validation process.
+*Just Validate* button [5] in order to run the validation process.
 Filter settings are **not considered** in this process. Note that this
 operation does not require internet access since the schemas are
 packaged with the application. The features from the input files are **not imported**
@@ -122,7 +149,7 @@ to the console window.
 
 More fine-grained preference settings affecting
 the import operation are available on the *Preferences* tab of the
-operations window [5]. Make sure to check these settings *before* starting
+operations window [6]. Make sure to check these settings *before* starting
 the import process. A full documentation of the import preferences is
 provided in :numref:`impexp_citygml_import_preferences_chapter`.
 The following table provides a summary overview.
@@ -157,8 +184,8 @@ The following table provides a summary overview.
    * - | :ref:`impexp_import_preferences_indexes`
      - | Settings for automatically enabling/disabling spatial and normal
        | indexes during imports.
-   * - | :ref:`impexp_import_preferences_import_log`
-     - | Creates a list of all successfully imported CityGML top-level features.
+   * - | :ref:`impexp_import_preferences_import_logs`
+     - | Additional log files for recording successfully imported top-level features and duplicate objects.
    * - | :ref:`impexp_import_preferences_resources_chapter`
      - | Allocation of computer resources used in the import operation.
 
@@ -166,7 +193,7 @@ The following table provides a summary overview.
 **Starting the import process**
 
 Once all import settings are correct, the *Import*
-button [3] starts the import process. If a database connection has not
+button [4] starts the import process. If a database connection has not
 been established manually beforehand, the currently selected entry on
 the *Database* tab is used to connect to the 3D City Database. The
 separate steps of the import process as well as all errors and warnings that might

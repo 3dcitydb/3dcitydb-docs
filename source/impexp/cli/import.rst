@@ -8,9 +8,9 @@ Import command
 .. code-block:: bash
 
    impexp import [-hV] [--[no-]fail-fast] [--ade-extensions=<folder>]
-                 [-c=<file>] [--import-log=<file>]
+                 [-c=<file>] [--duplicate-log=<file>] [--import-log=<file>]
                  [--input-encoding=<encoding>] [--log-file=<file>]
-                 [--log-level=<level>] [--pid-file=<file>]
+                 [--log-level=<level>] [-o=<mode>] [--pid-file=<file>]
                  [--plugins=<folder>] [--use-plugin=<plugin[=true|false]>[,
                  <plugin[=true|false]>...]]... [--worker-threads=<threads[,
                  max]>] [[--creation-date=<mode>]
@@ -21,12 +21,13 @@ Import command
                  <prefix=name>...]]...] [-i=<id>[,<id>...] [-i=<id>[,
                  <id>...]]...] [-b=<minx,miny,maxx,maxy[,srid]>
                  [--bbox-mode=<mode>]] [[--count=<count>]
-                 [--start-index=<index>]] [[--no-appearance]]] [-f=<file>
-                 [-m=<mode>] [-w] [[-n=<name>] [-I=<index>] [--[no-]header]
-                 [-D=<string>] [-Q=<char>] [--quote-escape=<char>]
-                 [-M=<char>] [--csv-encoding=<encoding>]]] [[-T=<database>]
-                 [-H=<host>] [-P=<port>] [-d=<name>] [-S=<schema>]
-                 [-u=<name>] [-p[=<password>]]] [@<filename>...] <file>...
+                 [--start-index=<index>]] [[--no-appearance]]] [-f=<file>[,
+                 <file>...] [-f=<file>[,<file>...]]... [-m=<mode>] [-w]
+                 [[-n=<name>] [-I=<index>] [--[no-]header] [-D=<string>]
+                 [-Q=<char>] [--quote-escape=<char>] [-M=<char>]
+                 [--csv-encoding=<encoding>]]] [[-T=<database>] [-H=<host>]
+                 [-P=<port>] [-d=<name>] [-S=<schema>] [-u=<name>] [-p
+                 [=<password>]]] [@<filename>...] <file>...
 
 **Description**
 
@@ -54,12 +55,33 @@ containing these settings.
    parsed from the XML declaration at the beginning of the dataset if present. Provide an official
    IANA-based character encoding name. The default value is UTF-8.
 
+.. option:: -o, --import-mode=<mode>
+
+   Defines the mode for handling conflicting top-level city objects and for avoiding duplicate objects in
+   the database. Allowed values are ``import_all`` (default), ``skip``, ``delete``, and ``terminate``.
+   With ``import_all``, all top-level city objects from the input file(s) are imported, regardless of whether
+   this results in duplicate objects. For the other modes, the object identifier of each top-level city object
+   to be imported is queried in the database to check whether a city object with identical identifier already
+   exists in the database. If no duplicate is found, the city object is directly imported. Otherwise, ``skip``
+   means that the city object from the input file is skipped and not imported. Thus, the object in the database
+   takes precedence. With ``delete``, the city object from the input file takes precedence and overwrites the
+   duplicate object in the database. For this purpose, the duplicate is first *physically deleted* before
+   importing the object from the input file. When choosing ``terminate`` instead of ``delete``, the duplicate
+   object is only *terminated*.
+
 .. option:: --import-log=<file>
 
    If you want an import log to be created for all top-level features loaded in the database,
-   provide the path to the import log file with this option. Note that log file will be *truncated*
+   provide the path to the import log file with this option. Note that the log file will be *truncated*
    in case it already exists. More information about the import log can be found in
-   :numref:`impexp_import_preferences_import_log`.
+   :numref:`impexp_import_preferences_import_logs`.
+
+.. option:: --duplicate-log=<file>
+
+   This option lets you create a duplicate log that records all objects in the database sharing an
+   identical identifier with a top-level city object from the input file(s). Note that the log file will be
+   *truncated* in case it already exists. More information about the duplicate log can be found in
+   :numref:`impexp_import_preferences_import_logs`.
 
 .. option:: --[no-]fail-fast
 
@@ -273,13 +295,17 @@ the user will be prompted for the password.
 .. code-block:: bash
 
    $ impexp import -H localhost -d citydb_v4 -p -u citydb_user \
+                   -o delete
                    -b 13.3508824,52.4799281,13.3578297,52.4862805,4326 \
                    --bbox-mode=within my_city.gml
 
 Import all city objects from the ``my_city.gml`` file that are ``within`` the provided
 bounding box. The coordinates of the bounding box are given in WGS84. For
 this reason, the fifth value ``4326`` of the :option:`-b` option denotes the SRID
-that is used by the target database for the WGS84 reference system.
+that is used by the target database for the WGS84 reference system. The import operation uses
+``delete`` as import mode. Thus, the identifiers of the top-level city objects from ``my_city.gml``
+satisfying the bounding box filter are queried in the database. If objects sharing the same identifier
+are found in the database, they are first deleted before importing the city objects from ``my_city.gml``.
 
 .. code-block:: bash
 

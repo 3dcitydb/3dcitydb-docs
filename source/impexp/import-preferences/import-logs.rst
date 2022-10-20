@@ -1,7 +1,19 @@
-.. _impexp_import_preferences_import_log:
+.. _impexp_import_preferences_import_logs:
 
-Import log
-^^^^^^^^^^
+Import logs
+^^^^^^^^^^^
+
+This preference settings allow you to create additional log files during an import operation that record
+the successfully imported top-level city objects (*import log*) or provide a list of the duplicate objects found in
+the database (*duplicate log*).
+
+.. figure:: /media/impexp_import_preferences_logs_fig.png
+   :name: impexp_import_preferences_logs_fig
+   :align: center
+
+   Import preferences – Import logs.
+
+**Import log**
 
 An import process not necessarily works on all top-level features
 contained in the provided input file(s). An obvious reason is that
@@ -13,13 +25,7 @@ top-level features were actually loaded into the database during an
 import session, a user can choose to let the Importer/Exporter create
 an *import log*.
 
-.. figure:: /media/impexp_import_preferences_log_fig.png
-   :name: impexp_import_preferences_log_fig
-   :align: center
-
-   Import preferences – Import log.
-
-Simply enable the checkbox on this settings dialog to activate import
+Simply enable the *Record imported top-level features in log file* checkbox on this settings dialog to activate import
 logs (disabled per default). You additionally must provide the full path
 to the log file that shall be used to record the imported features. Either type the
 file name manually or use the *Browse* button to open a file selection
@@ -66,7 +72,7 @@ the header line. The meaning of the fields is as follows.
    * - | **Field name**
      - | **Description**
    * - | FEATURE_TYPE
-     - | An string representing the typename of the imported CityGML feature.
+     - | A string representing the type of the imported top-level feature.
    * - | CITYOBJECT_ID
      - | The value of the ID column (primary key) of the CITYOBJECT table where the feature was inserted.
    * - | GMLID_IN_FILE
@@ -90,3 +96,47 @@ about whether the import was *successfully finished* or *aborted*.
   - A **rollback** can be achieved by feeding the import log as delete list to
     the ``delete`` command of the Importer/Exporter command-line interface (see
     :numref:`impexp_cli_delete_command`).
+
+**Duplicate log**
+
+In addition to the list of successfully imported features, you can let the import operation *record
+already existing top-level features* in a separate log file. If enabled, this so-called *duplicate log* will list
+all city objects in the database having an identical identifier with a top-level city object from the input
+file(s) that are used in the import process.
+
+Simply provide a file or directory where the duplicate log should be stored. In case of a directory, the
+Importer/Exporter will choose a unique file name for every import operation based on the following pattern:
+
+``duplicate-features-yyyy-MM-dd_HH-mm-ss-SSS.log``
+
+If you provide the file name for the log file instead, this log file will be used by the Importer/Exporter for all
+import operations. In contrast to the import log, the duplicate log **always gets truncated** when a new import
+operation is started.
+
+Just like the import log, the duplicate log is a simple CSV file with one record per duplicate object. The layout
+of the CSV file is almost identical to the import log and shown in the figure below.
+
+.. figure:: /media/impexp_duplicate_log_example_fig.png
+   :name: impexp_duplicate_log_example_fig
+   :align: center
+
+   Example duplicate log.
+
+The following table explains the meaning of the fields in the duplicate log.
+
+.. list-table::  Fields of the CSV duplicate log file
+   :name: impexp_duplicate_log_csv_table
+   :widths: 30 70
+
+   * - | **Field name**
+     - | **Description**
+   * - | CITYOBJECT_ID
+     - | The value of the ID column (primary key) of the CITYOBJECT table where the duplicate object is stored.
+   * - | GMLID
+     - | The duplicate object identifier that is shared by the object in the database and the top-level city object from the input file.
+   * - | FEATURE_TYPE_IN_DB
+     - | A string representing the type of the duplicate object in the database.
+   * - | FEATURE_TYPE_IN_FILE
+     - | A string representing the type of the top-level city object from the input file.
+   * - | INPUT_FILE
+     - | The path of the input file for which duplicates were found in the database.
