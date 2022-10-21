@@ -20,8 +20,9 @@ Delete command
                  [--db-id=<id>[,<id>...] [--db-id=<id>[,<id>...]]...]
                  [-b=<minx,miny,maxx,maxy[,srid]> [--bbox-mode=<mode>]]
                  [[--count=<count>] [--start-index=<index>]] [-s=<select>]
-                 [-q=<xml>]] [-f=<file> [-w] [[-C=<type>] [[-n=<name>]
-                 [-I=<index>] [--[no-]header] [-D=<string>] [-Q=<char>]
+                 [-q=<xml>]] [-f=<file>[,<file>...] [-f=<file>[,
+                 <file>...]]... [-w] [[-C=<type>] [[-n=<name>] [-I=<index>]
+                 [--[no-]header] [-D=<string>] [-Q=<char>]
                  [--quote-escape=<char>] [-M=<char>]
                  [--csv-encoding=<encoding>]]]] [[-T=<database>]
                  [-H=<host>] [-P=<port>] [-d=<name>] [-S=<schema>]
@@ -230,11 +231,13 @@ line is used as header.
    ...
 
 The following options let you define the layout and reserved characters
-of the delete list you want to use with the ``delete`` command.
+of the delete list you want to use with the ``delete`` command. You can provide
+one or more CSV files as input for the delete list. If more than one file is
+specified, make sure all of them have the same layout and structure.
 
-.. option:: -f, --delete-list=<file>
+.. option:: -f, --delete-list=<file>[,<file>...]
 
-   Specify the path to the delete list file to use in the delete operation.
+   One or more CSV files to use as delete list for the delete operation.
 
 .. option:: -w, --delete-list-preview
 
@@ -243,7 +246,8 @@ of the delete list you want to use with the ``delete`` command.
    and interpreting the delete list. This preview is very helpful to adapt
    and specify the delimiter character(s), quoting rules, header
    information, identifier column name or index, etc. The
-   preview is printed to the console.
+   preview is printed to the console. If more than one CSV file has been
+   specified for the delete list, the preview is generated for the first file only.
 
 .. option:: -n, --id-column-name=<name>
 

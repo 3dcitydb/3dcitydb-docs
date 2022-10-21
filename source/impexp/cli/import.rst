@@ -199,11 +199,13 @@ You can also pass an import list to the ``import`` command to control which
 city objects should be imported or skipped during import. Please refer to
 :numref:`impexp_import_list_filter` for a description of the import
 list filter. The following options let you define the layout and reserved characters
-of the import list.
+of the import list. You can provide one or more CSV files as input for the
+import list. If more than one file is specified, make sure all of them have the
+same layout and structure.
 
-.. option:: -f, --import-list=<file>
+.. option:: -f, --import-list=<file>[,<file>...]
 
-   Specify the path to the import list file to use in the import operation.
+   One or more CSV files to use as import list for the import operation.
 
 .. option:: -m, --import-list-mode=<mode>
 
@@ -219,7 +221,8 @@ of the import list.
    and interpreting the import list. This preview is very helpful to adapt
    and specify the delimiter character(s), quoting rules, header
    information, identifier column name or index, etc. The
-   preview is printed to the console.
+   preview is printed to the console. If more than one CSV file has been
+   specified for the import list, the preview is generated for the first file only.
 
 .. option:: -n, --id-column-name=<name>
 
@@ -334,3 +337,9 @@ import operation that was aborted or failed due to errors. Of course, you must h
 import logs for this to work. The import log will contain the identifiers of those city objects
 that were successfully imported before the operation failed. Thus, by using the filter mode ``skip``
 they will be skipped when re-running the import operation with the above command.
+
+.. hint::
+  Starting from version 5.3.0, a previous import can more easily be **resumed** using the
+  new **import modes** of the import operation. Simply restart the import operation
+  using the same input file(s) and set :option:`--import-mode` to ``skip``. In this case,
+  no import log is required.

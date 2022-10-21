@@ -36,19 +36,28 @@ The first line is used as header.
    ID_0818
    ...
 
-To use an import list, simply provide the full path to the CSV file. The further input fields of
-the dialog define the structure and content of the CSV file so that the identifiers
-can be correctly parsed from the file and used in the import operation. For this
+To use an import list, simply provide the full path to your CSV file. Use the *Browse* button
+or drag&drop your CSV file into the input field. You can also specify
+more than one CSV file. In this case, all of them define the import list.
+
+The further input fields of the dialog define the structure and content of the CSV file(s) so that the identifiers
+can be correctly parsed from the file(s) and used in the import operation. For this
 purpose, you can specify the delimiter used for separating values in the import list
 (by default, a comma is assumed as delimiter). If the values in the import list are
 quoted, you can also define the character used as quote (typically double quotes
 are used). And the character used as comment marker as well as the encoding of
-the import list can be specified.
+the import list can be specified. If you use more than one CSV file as input, the
+settings are applied to all of them. So, make sure that the CSV files have the same
+layout and structure.
 
 Use the *Preview* button to get a preview of the first few lines of the import list
-when applying the provided options for parsing and interpreting the import list.
+when applying the provided options for parsing and interpreting the CSV file(s).
 This preview shows the contents of the import list in tabular form and is printed
-to the console window. It is very helpful to adapt and specify the delimiter
+to the console window. You can select one or more CSV file from the list of input files if you
+want the preview to be generated for a specific file or set of files. If no CSV file
+has been selected, the preview is shown for the first CSV file in the list.
+
+The preview is very helpful to adapt and specify the delimiter
 character(s), quoting rules and comment marker. The preview should only show
 the lines containing identifiers, but no header line or comments.
 To identify the column which holds the identifiers in the file, you can either type
@@ -81,3 +90,10 @@ Since the import log is a CSV file, you can simply use it as import list and set
 filter mode to *skip objects from the list*. When starting the import operation with
 these settings again, only those city objects will be imported from the input files that
 have not been processed in the first run.
+
+.. hint::
+  Starting from version 5.3.0, a previous import can more easily be **resumed** using the
+  new **import modes** of the import operation. Simply restart the import operation
+  using the same input file(s) and choose *Skip existing* as import mode
+  (see :numref:`impexp_citygml_import_chapter` for more information). In this case,
+  no import log is required.

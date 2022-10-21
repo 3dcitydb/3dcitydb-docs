@@ -97,6 +97,13 @@ about whether the import was *successfully finished* or *aborted*.
     the ``delete`` command of the Importer/Exporter command-line interface (see
     :numref:`impexp_cli_delete_command`).
 
+.. hint::
+  Starting from version 5.3.0, a previous import can more easily be **resumed** using the
+  new **import modes** of the import operation. Simply restart the import operation
+  using the same input file(s) and choose *Skip existing* as import mode
+  (see :numref:`impexp_citygml_import_chapter` for more information). In this case,
+  no import log is required.
+
 **Duplicate log**
 
 In addition to the list of successfully imported features, you can let the import operation *record
