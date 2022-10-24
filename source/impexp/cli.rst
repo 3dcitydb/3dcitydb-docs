@@ -188,7 +188,7 @@ you want to execute.
 .. option:: --ade-extensions=<folder>
 
    Provide an alternative path where to look for ADE extensions. By default,
-   ADE extensions are searched for in the ``plugins`` folder within the installation directory
+   ADE extensions are searched for in the ``ade-extensions`` folder within the installation directory
    of the Importer/Exporter.
 
 .. option:: @<filename>...
