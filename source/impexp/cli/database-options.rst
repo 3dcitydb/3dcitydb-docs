@@ -38,7 +38,8 @@ You can also use environment variables for this purpose (see :numref:`impexp_cli
 
    Specify the password to use when connecting to the 3DCityDB database server. You can either
    provide the password as value for this option or leave the value empty to be prompted
-   to enter the password on the console before connecting to the database. If you skip this option completely,
+   to enter the password on the console before connecting to the database. The password prompt will timeout
+   after 60 seconds if no password is provided. If you skip this option completely,
    the ``impexp`` tool will try to connect to the database without a password. If the database
    server requires password authentication and a password is not available by other means,
    the connection attempt will fail in this case.
