@@ -283,6 +283,38 @@ To drop the 3D City Database with all data, execute the DROP_DB
 script in the same way like CREATE_DB. Simply dropping the schemas
 ‘citydb’ and ‘citydb_pkg’ in a cascading way will also do the job.
 
+.. _first_step_3dcitydb_installation_polardb_pg:
+
+Installation steps on PolarDB for PostgreSQL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`PolarDB for PostgreSQL <https://github.com/ApsaraDB/PolarDB-for-PostgreSQL>`_ 
+(hereafter simplified as PolarDB) is a cloud 
+native database service independently developed by Alibaba Cloud.
+PolarDB is highly compatible with PostgreSQL and it's spatial extension Ganos
+is highly compatible with PostGIS. The installation steps on PolarDB are
+similar to that on PostgreSQL. The only difference is step 2, where the Ganos
+extensions should be added instead of PostGIS extension.
+
+**Step 2 – Add the Ganos extension**
+
+The 3D City Database requires the Ganos extension to be added to the
+database. This can **only be done as superuser**. The extension is added
+with the following command (or, alternatively, using *pgAdmin*):
+
+.. code:: sql
+
+    CREATE EXTENSION ganos_geometry CASCADE;
+    CREATE EXTENSION ganos_raster CASCADE;
+
+Some 3D operations such as extrusion or volume calculation are only
+available through the **SFCGAL** backend. This extension is
+optional and only needed if you want to use the additional functionality:
+
+.. code:: sql
+
+    CREATE EXTENSION ganos_geometry_sfcgal CASCADE;
+
 .. _first_step_3dcitydb_installation_oracle:
 
 Installation steps on Oracle
