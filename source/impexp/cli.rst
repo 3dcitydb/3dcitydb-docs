@@ -51,7 +51,7 @@ using the environment variable ``JAVA_OPTS``. More information is available in
    control over the Java runtime and options for executing the CLI. Use the
    following command as starting point.
 
-   ``java [JVM_OPTIONS] -jar lib/impexp-client-<version>.jar [CLI_OPTIONS]``
+   ``java [JVM_OPTIONS] -jar lib/impexp-client-cli-<version>.jar [CLI_OPTIONS]``
 
 
 **Synopsis**
