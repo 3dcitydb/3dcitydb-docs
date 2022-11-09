@@ -68,6 +68,8 @@ For CityGML, the following additional options are available.
      - | **Description**
    * - | ``prettyPrint``
      - | Formats the XML response document using additional line breaks and indentations (boolean true / false, default: false).
+   * - | ``convertGlobalAppearances``
+     - | Convert global appearances to local ones on-the-fly during export (boolean true / false, default: false).  Global appearances typically affect more than one city object and must therefore be placed separately from the city objects within the <wfs:additionalObjects> element of the response document. When this option is enabled, the export operation dissolves the global appearances and stores the appearance information as property of each city object to which it belongs. The <wfs:additionalObjects> element is therefore no longer required.
 
 The CityJSON output format options are presented below.
 
@@ -86,7 +88,7 @@ The CityJSON output format options are presented below.
    * - | ``transformVertices``
      - | Apply the CityJSON-specific compression (boolean true / false, default: false).
    * - | ``addSequenceIdWhenSorting``
-     - | If the response document shall be sorted (by using a *fes:SortBy* expression), then this option allows for adding a sequenceId attribut to each CityJSON object that maps the sorting order. This is required because CityJSON itself does not support sorting (boolean true / false, default: false).
+     - | If the response document shall be sorted (by using a *fes:SortBy* expression), then this option allows for adding a sequenceId attribute to each CityJSON object that maps the sorting order. This is required because CityJSON itself does not support sorting (boolean true / false, default: false).
    * - | ``generateCityGMLMetadata``
      - | Adds an attribute called CityGMLMetadata that contains CityGML-specific metadata like the data types of generic attributes (boolean true / false, default: true).
    * - | ``removeDuplicateChildGeometries``
