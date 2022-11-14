@@ -196,10 +196,10 @@ Here are some examples for full image tags:
 
 .. code-block:: shell
 
-  docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-4.2.0
-  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0
-  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0-alpine
-  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-4.4.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.4.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.4.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:15-3.3-4.4.0-alpine
 
 .. _citydb_docker_image_oracle:
 
