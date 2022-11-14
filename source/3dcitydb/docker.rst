@@ -16,7 +16,7 @@ The PostgreSQL/PostGIS version is based on the official
 The Oracle version is based on the
 *Oracle Database Enterprise Edition* images available from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
-The images described here are available for 3DCityDB version ``v4.1.0`` and newer.
+The images described here are available for 3DCityDB version ``v4.0.0`` and newer.
 Images for older 3DCityDB versions are available from
 `TUM-GIS 3DCityDB Docker images <https://github.com/tum-gis/
 3dcitydb-docker-postgis>`_.
@@ -140,9 +140,11 @@ base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
     - 3.0
     - 3.1
     - 3.2
+    - 3.3
   * - 9.5
     - 9.5-2.5
     - 9.5-3.0
+    -
     -
     -
   * - 9.6
@@ -150,31 +152,43 @@ base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
     - 9.6-3.0
     - 9.6-3.1
     - 9.6-3.2
+    -
   * - 10
     - 10-2.5
     - 10-3.0
     - 10-3.1
     - 10-3.2
+    -
   * - 11
     - 11-2.5
     - 11-3.0
     - 11-3.1
     - 11-3.2
+    - 11-3.3
   * - 12
     - 12-2.5
     - 12-3.0
     - 12-3.1
     - 12-3.2
+    - 12-3.3
   * - 13
     -
     - 13-3.0
     - 13-3.1
     - 13-3.2
+    - 13-3.3
   * - 14
     -
     -
     - 14-3.1
     - 14-3.2
+    - 14-3.3
+  * - 15
+    -
+    -
+    -
+    -
+    - 15-3.3
 
 The full list of available tags can be found on `DockerHub <https://hub.
 docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated>`_
@@ -182,10 +196,10 @@ Here are some examples for full image tags:
 
 .. code-block:: shell
 
-  docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-4.2.0
-  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0
-  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0-alpine
-  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.2.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-4.4.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.4.0
+  docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.4.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:15-3.3-4.4.0-alpine
 
 .. _citydb_docker_image_oracle:
 
