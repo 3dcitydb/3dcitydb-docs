@@ -16,7 +16,7 @@ The PostgreSQL/PostGIS version is based on the official
 The Oracle version is based on the
 *Oracle Database Enterprise Edition* images available from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
-The images described here are available for 3DCityDB version ``v4.1.0`` and newer.
+The images described here are available for 3DCityDB version ``v4.0.0`` and newer.
 Images for older 3DCityDB versions are available from
 `TUM-GIS 3DCityDB Docker images <https://github.com/tum-gis/
 3dcitydb-docker-postgis>`_.
