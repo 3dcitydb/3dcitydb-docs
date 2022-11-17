@@ -28,7 +28,7 @@ relief features and relief components.
 
 A raster relief is the only feature in CityGML that can be described by
 a grid coverage. Corresponding database types are SDO_GEORASTER in
-Oracle Spatial 11g or higher (not available in Oracle Locator) and
+Oracle Spatial 11g or higher and
 RASTER in PostGIS 2.0 or higher. In Oracle for each table that stores
 SDO_GEORASTER an additional table of type SDO_RASTER is mandatory
 (raster data table = RDT). It stores the metadata of the SDO_GEORASTER.

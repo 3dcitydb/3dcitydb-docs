@@ -305,11 +305,6 @@ Oracle environment variables
   set the name of the pluggable database (PDB) that should be used (default:
   'ORCLPDB1'). Requires Oracle 12c or higher.
 
-.. option:: DBVERSION=<oracle license option>
-
-  'S' (default value) or 'L' to choose the Oracle Spatial or Locator license
-  option for the 3DCityDB instance to be created.
-
 .. option:: VERSIONING=<version-enabled>
 
   'yes' or 'no' (default value) to specify whether the 3DCityDB instance should be

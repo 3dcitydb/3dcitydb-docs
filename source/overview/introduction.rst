@@ -39,8 +39,8 @@ CityGML standard [YNKH2018]_. The database schema results from a mapping of the
 object oriented data model of CityGML 2.0 to the relational structure of
 a spatially-enhanced relational database management system (SRDBMS). The
 3DCityDB supports the open source SRDBMS PostgreSQL (with
-*PostGIS* extension) and the commercial SRDBMS Oracle (with *Spatial* or
-*Locator* license options). The 3DCityDB makes use of the
+*PostGIS* extension) and the commercial SRDBMS Oracle (with *Spatial* capabilities).
+The 3DCityDB makes use of the
 specific representation and processing capabilities of the SRDBMS
 regarding the spatial data elements. It can handle also very large
 models in multiple levels of details consisting of millions of 3D

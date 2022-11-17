@@ -18,7 +18,7 @@ database schema and supports the management of CityGML data. For the
 representation of vector and grid-based geometry, the built-in
 data types provided by the spatially-enhanced relational database
 management systems PostgreSQL (9.6 or higher) with PostGIS extension (2.3 or higher)
-and Oracle Spatial/Locator (10g R2 or higher) are used. This way,
+and Oracle Spatial (19c or higher) are used. This way,
 special solutions are avoided and different geoinformation systems,
 CAD/BIM systems, and ETL software systems can directly access (read and
 write) the geometry objects stored in the SRDBMS.
@@ -274,7 +274,7 @@ Features inherited from CityGML
    The geometries (and appearances like textures, colors etc.) of
    generic objects as well as prototypes can be stored either using the
    geometry datatype of the spatial database management system (PostgreSQL/PostGIS
-   or Oracle Spatial/Locator) or in proprietary file formats. In the
+   or Oracle Spatial) or in proprietary file formats. In the
    latter case a single file may be saved for every object, but the file
    type (MIME type), the coordinate transformation matrix that is needed
    to integrate the object into the world coordinate reference system
@@ -325,5 +325,5 @@ Features inherited from CityGML
    may has attached different textures and colors on both its front and
    back face. It may also comprise information on transparency.
    Additional geometry types (any geometry type supported by the spatial
-   database PostgreSQL/PostGIS or Oracle Spatial/Locator) can be
+   database PostgreSQL/PostGIS or Oracle Spatial) can be
    added to the geo-objects by using generic attributes.

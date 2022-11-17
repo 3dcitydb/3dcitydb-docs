@@ -10,7 +10,7 @@ standard rather than to seal it in proprietary data silos.
 
 The 3D City Database and all bundled tools are free and open source software.
 The database schema is available for the open source database PostgreSQL/PostGIS
-and the commercial Oracle Spatial/Locator Database solution. Both database systems
+and the commercial Oracle Spatial Database solution. Both database systems
 are highly optimized, de-facto industry standards for storing and querying
 3D spatial data. The geometry data types and spatial functions offered by both systems
 follow common OGC and GIS standards. This way the data stored in the 3D City Database

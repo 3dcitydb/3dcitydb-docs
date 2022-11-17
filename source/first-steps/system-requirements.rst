@@ -16,13 +16,8 @@ PostgreSQL
   latest patches and updates.
 
 Oracle
-  Supported versions are **Oracle 10g R2 and higher**. The 3D City
-  Database requires spatial data support provided either through the
-  Oracle *Spatial* or *Locator* extension. It is highly recommended to
-  install available patches to avoid unexpected errors and to benefit from
-  the latest functionality. For Oracle 10g R2, at least patch set
-  10.2.0.4.0 is required for using the KML/COLLADA/glTF export
-  capabilities.
+  Supported versions are **Oracle 19c and higher**, since the previous versions
+  have reached the End-of-Life support from Oracle in July 2022.
 
 The SQL scripts for creating the 3DCityDB schema are written to be executed
 by the default command-line client of either database system – namely
