@@ -8,7 +8,7 @@ You can also use environment variables for this purpose (see :numref:`impexp_cli
 
    Specify the database system used for running the 3DCityDB. Allowed values are
    ``postgresql`` for PostgreSQL/PostGIS databases (default), and ``oracle``
-   for Oracle Spatial/Locator databases.
+   for Oracle Spatial databases.
 
 .. option:: -H, --db-host=<host>
 

@@ -87,7 +87,7 @@ starting the service. They **always take precedence** over corresponding setting
    * - | **Environment variable**
      - | **Description**
    * - | ``CITYDB_TYPE``
-     - | Used to specify the database system of the 3DCityDB the WFS service shall connect to. Allowed values are *postgresql* for PostgreSQL/PostGIS databases (default) and *oracle* for Oracle Spatial/Locator databases.
+     - | Used to specify the database system of the 3DCityDB the WFS service shall connect to. Allowed values are *postgresql* for PostgreSQL/PostGIS databases (default) and *oracle* for Oracle Spatial databases.
    * - | ``CITYDB_HOST``
      - | Host name or IP address of the server on which the database is running.
    * - | ``CITYDB_PORT``

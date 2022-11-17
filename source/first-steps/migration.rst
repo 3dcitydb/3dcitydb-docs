@@ -184,14 +184,7 @@ there are no duplicate texture URIs used for different images, or enter 'n'
 to skip the texture storage optimization. See Step 2
 in the description of the PostgreSQL migration for more details.
 
-**Step 6 – Choose Spatial or Locator license option**
-
-With the last input parameter you specify the database license running
-on your Oracle server, like you have done when setting up the v4
-instance of the 3D City Database. Choose ‘S’ for Spatial (which will
-additionally migrate raster data) and ‘L’ for Locator.
-
-**Step 7 – Check if the setup is correct**
+**Step 6 – Check if the setup is correct**
 
 The script temporary disables databases indexes and foreign key
 constraints and creates an additional package with migration procedures
@@ -211,7 +204,7 @@ Database (done with the previous version of the Import/Export tool).
 
 -  exports look correct inside a viewer application.
 
-**Step 8 – Drop the deprecated v2.x schema**
+**Step 7 – Drop the deprecated v2.x schema**
 
 If the migration was successful, the v2.x user simply has to invoke
 the DROP_DB (of version 2.x) to drop the deprecated schema. Deleting the

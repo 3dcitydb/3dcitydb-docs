@@ -324,7 +324,7 @@ Installation steps on Oracle
 
 A dedicated database user should be created for your work with the 3D
 City Database. This user must have the roles CONNECT and RESOURCE
-assigned and must own the privileges CREATE SEQUENCE and CREATE TABLE.
+assigned and must own the privileges CREATE SEQUENCE, CREATE TABLE, and CREATE TRIGGER.
 
 .. note::
    The privileges CREATE SEQUENCE and CREATE TABLE are required for
@@ -378,28 +378,15 @@ in general, insert, update, delete and index operations on
 version-enabled tables *take considerably more time* than on tables
 without versioning support.
 
-**Step 6 – Choose Spatial or Locator license option**
-
-You can set up a 3D City Database instance on an Oracle database with
-*Spatial* or *Locator* support. Since *Locator* differs from *Spatial*
-with respect to the available spatial data types, you need to specify
-which license option is valid for your Oracle installation. Simply enter
-‘L’ for *Locator* or ‘S’ for *Spatial* (default value) to make your
-choice.
-
 .. note::
-   Since *Locator* lacks the GeoRaster data type, the 3D City
-   Database tables for storing raster reliefs (RASTER_RELIEF,
-   GRID_COVERAGE, GRID_COVERAGE_RDT) are not created when choosing Locator.
-
-.. note::
-   Several spatial operations and functionalities that are
-   available in Oracle *Spatial* are not covered by the *Locator* license
-   even though they might be available from your Oracle installation. It
-   is the **responsibility of the database user** to observe the Oracle
-   license option. Choosing *Locator* or *Spatial* when setting up the 3D
-   City Database does neither affect the license option nor the users’
-   responsibility.
+   Starting from 3DCityDB version 4.4, you don't have to choose the
+   *Spatial* or *Locator* license option anymore, because the Oracle
+   *Locator* license has been deprecated and all Spatial capabilities
+   are available with both Enterprise Edition and Standard Edition 19c.
+   Consequently, the 3D City Database tables for storing raster reliefs
+   (RASTER_RELIEF, GRID_COVERAGE, GRID_COVERAGE_RDT) will always be created.
+   Also, all spatial operations and functionalities can be used without
+   needing to care about the license restrictions.
 
 **Step 7 – Check if the setup is correct**
 
@@ -415,7 +402,6 @@ amount of data stored in the 3D City Database instance.
 
 Last but not least, the schema and stored procedures of the 3D City
 Database can be dropped with the DROP_DB script, which is executed like
-CREATE_DB. Similar to CREATE_DB, you need to provide the license option
-(*Locator* or *Spatial*). Note that the script will **delete all data**
+CREATE_DB. Note that the script will **delete all data**
 stored in the 3D City Database schema. The database user will, however,
 not be deleted.
