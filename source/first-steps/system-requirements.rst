@@ -16,7 +16,7 @@ PostgreSQL
   latest patches and updates.
 
 Oracle
-  Supported versions are Oracle 19c and higher. Previous versions of the
+  Supported versions are **Oracle 19c and higher**. Previous versions of the
   Oracle Database have reached end-of-life in July 2022 and are therefore
   no longer supported by the 3DCityDB.
 
