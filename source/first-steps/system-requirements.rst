@@ -21,7 +21,7 @@ PostgreSQL with PostGIS extension
 
 Oracle
   Supported versions are **Oracle 19c and higher**. Make sure to check the
-  `Oracle lifetime support policy <https://www.oracle.com/us/assets/lifetime-support-technology-069183.pdf/>`_
+  `Oracle lifetime support policy <https://www.oracle.com/support/lifetime-support/resources.html>`_
   to find out which Oracle versions are actively maintained or have reached end-of-life.
 
 PolarDB for PostgreSQL with Ganos extension
