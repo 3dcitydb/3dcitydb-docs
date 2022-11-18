@@ -206,7 +206,7 @@ Here are some examples for full image tags:
 Oracle images
 ===============================================================================
 
-Due to Oracle licensing conditions we cannot offer Oracle images
+Due to Oracle licensing conditions we cannot offer 3DCityDB images based on Oracle
 in a public repository like DockerHub at the
 moment. However, you can easily build the images yourself. A detailed description
 of how to do that is available in :numref:`citydb_docker_oracle_build`.
@@ -362,8 +362,20 @@ and running `docker build <https://docs.docker.com/engine/reference/commandline
 Oracle
 ===============================================================================
 
-To build Oracle 3DCityDB Docker images, you need to create an Oracle account
-and accept the licensing conditions first:
+To build 3DCityDB Docker images for Oracle, you first need a Docker image for
+the Oracle database. You can either build the Oracle image yourself using the
+Dockerfiles and guidelines provided in the `Oracle GitHub repository <https://github.com/oracle/docker-images>`_.
+Alternatively, you can download a pre-built Oracle database image from the
+`Oracle Container registry <https://container-registry.oracle.com>`_.
+
+.. note::
+  The Oracle database is a commercial product and is subject to license terms
+  and conditions of use. Make sure you observe these terms and conditions before
+  building and using an Oracle database image.
+
+The following steps illustrate how to build a 3DCityDB image based on a pre-built
+Oracle database image from the Oracle Container registry. You need to create
+an Oracle account and accept the licensing conditions first.
 
 1. Visit https://login.oracle.com/mysso/signon.jsp and create an account.
 
