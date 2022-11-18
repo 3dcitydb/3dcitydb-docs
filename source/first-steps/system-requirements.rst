@@ -7,20 +7,34 @@ System requirements
 ~~~~~~~~~~~~~~~~
 
 Setting up an instance of the 3D City Database requires an existing
-installation of a `PostgreSQL <https://www.postgresql.org/>`_  or
-`Oracle <https://www.oracle.com/database/>`_ database.
+installation of a `PostgreSQL <https://www.postgresql.org/>`_,
+`Oracle <https://www.oracle.com/database/>`_, or
+`PolarDB <https://www.alibabacloud.com/de/product/polardb>`_ database.
 
-PostgreSQL
-  Supported versions are **PostgreSQL 9.6 and higher** with the **PostGIS
-  extension 2.3 and higher**. Please also make sure to always install the
-  latest patches and updates.
+PostgreSQL with PostGIS extension
+  Supported versions are **PostgreSQL 11 and higher** with **PostGIS 2.5 and higher**.
+  Make sure to check the `PostgreSQL versioning policy <https://www.postgresql.org/support/versioning/>`_
+  to find out which PostgreSQL versions are actively maintained or have reached end-of-life.
+  The `PostGIS support matrix <https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS>`_
+  shows which versions of PostgreSQL are supported by which versions of PostGIS
+  and whether a specific PostGIS version has reached end-of-life.
 
 Oracle
-  Supported versions are **Oracle 19c and higher**. Previous versions of the
-  Oracle Database have reached end-of-life in July 2022 and are therefore
-  no longer supported by the 3DCityDB.
+  Supported versions are **Oracle 19c and higher**. Make sure to check the
+  `Oracle lifetime support policy <https://www.oracle.com/support/lifetime-support/resources.html>`_
+  to find out which Oracle versions are actively maintained or have reached end-of-life.
 
-The SQL scripts for creating the 3DCityDB schema are written to be executed
+PolarDB for PostgreSQL with Ganos extension
+  Supported versions are **PolarDB 1.1 and higher** with **Ganos 4.6 and higher**. Make
+  sure to check the `PolarDB documentation <https://www.alibabacloud.com/de/product/polardb/>`_
+  to find out which PolarDB and Ganos versions are actively maintained or have reached end-of-life.
+
+.. note::
+  It is recommended that you always install the latest patches, minor releases, and
+  security updates for your database system. Database versions that have reached
+  end-of-life are no longer supported by the 3D City Database.
+
+The SQL scripts for creating the 3D City Database schema are written to be executed
 by the default command-line client of either database system – namely
 **psql** for PostgreSQL and **SQL*Plus** for Oracle. The scripts
 include meta commands specific to these clients and would not work
