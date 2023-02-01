@@ -463,13 +463,13 @@ When the services and network are no longer required, they can be removed:
 
 .. edge
 
-.. |deb-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/web-feature-service/docker-build-edge?
+.. |deb-build-edge| image:: https://img.shields.io/github/actions/workflow/status/
+  3dcitydb/web-feature-service/docker-build-edge.yml?
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
 
-.. |alp-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/web-feature-service/docker-build-edge-alpine?
+.. |alp-build-edge| image:: https://img.shields.io/github/actions/workflow/status/
+  3dcitydb/web-feature-service/docker-build-edge-alpine.yml?
    style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
 
