@@ -18,6 +18,7 @@ preference settings that are presented in this chapter.
    citygml-general
    address
    xlinks
+   xml-namespaces
    xsl-transformation
    cityjson
    resources
