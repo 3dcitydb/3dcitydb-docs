@@ -43,19 +43,27 @@ printed to the log and also used to render a progress bar for the export operati
 computing this number can take a long time on large databases. Thus, this option can be disabled
 so that the export process starts immediately instead.
 
+For every city object in the database, a bounding box can be stored in the
+ENVELOPE column of the CITYOBJECT table. However, when exporting data, only the
+bounding boxes of *top-level objects* [1] are written to the dataset by default.
+You can change this default behaviour and choose to export bounding boxes *for all
+objects* or even to *not export object bounding boxes* at all instead.
+
 As described in :numref:`impexp_citygml_export_chapter`, the export operation
 supports using compressed output formats like GZIP and ZIP, which helps to keep file
 sizes small. You can choose whether *CityGML* (default) or *CityJSON* shall
 be used as data encoding for compressed formats using the drop-down list offered by this
 preferences dialog [1].
 
-**Bounding box options**
+**Dataset metadata**
 
-For every city object in the database, a bounding box can be stored in the
-ENVELOPE column of the CITYOBJECT table. However, when exporting data, only the
-bounding boxes of *top-level objects* [2] are written to the dataset by default.
-You can change this default behaviour and choose to export bounding boxes *for all
-objects* or even to *not export object bounding boxes* at all instead.
+The metadata attributes ``name`` and ``description`` of the output datasets can be specified as free text or using
+tokens, which are described in the section (:numref:`impexp_preferences_export_tiling_chapter`) in details.
+The following rules of using the tokens are applied:
+
+* ``row/column``: If tiling is enabled, row and column are taken from the active tile. Otherwise both are set to 0.
+* ``minx/miny/maxx/maxy``: If the option is enabled to calculate the bounding box for the entire dataset, the values
+  are taken from this bounding box. Otherwise, they are set to 0.0.
 
 In addition, a bounding box embracing all top-level features in the output file can be
 written to the dataset. Simply enable the corresponding option shown in
