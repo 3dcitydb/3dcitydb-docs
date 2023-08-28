@@ -89,7 +89,6 @@ Here are some examples for full image tags:
   docker pull 3dcitydb/impexp:5.0.0
   docker pull 3dcitydb/impexp:5.0.0-alpine
 
-
 *******************************************************************************
 Usage and configuration
 *******************************************************************************
@@ -457,13 +456,13 @@ longer needed and can be removed:
 
 .. edge
 
-.. |deb-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/importer-exporter/docker-build-edge?
+.. |deb-build-edge| image:: https://img.shields.io/github/actions/workflow/status/
+  3dcitydb/importer-exporter/docker-build-edge.yml?
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
 
-.. |alp-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/importer-exporter/docker-build-edge-alpine?
+.. |alp-build-edge| image:: https://img.shields.io/github/actions/workflow/status/
+  3dcitydb/importer-exporter/docker-build-edge-alpine.yml?
    style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated
 

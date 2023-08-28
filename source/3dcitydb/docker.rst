@@ -612,8 +612,8 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. edge
 
-.. |psql-deb-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/3dcitydb/psql-docker-build-push-edge?label=Debian&
+.. |psql-deb-build-edge| image:: https://img.shields.io/github/actions/workflow/status/
+  3dcitydb/3dcitydb/psql-docker-build-push-edge.yml?label=Debian&
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
@@ -621,8 +621,8 @@ lists the tables of the DB running in the container using ``psql``.
   3dcitydb/3dcitydb-pg/edge?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
-.. |psql-alp-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/3dcitydb/psql-docker-build-push-edge?label=Alpine&
+.. |psql-alp-build-edge| image:: https://img.shields.io/github/actions/workflow/status/
+  3dcitydb/3dcitydb/psql-docker-build-push-edge.yml?label=Alpine&
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
@@ -631,8 +631,8 @@ lists the tables of the DB running in the container using ``psql``.
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated
 
-.. |ora-build-edge| image:: https://img.shields.io/github/workflow/status/
-  3dcitydb/3dcitydb/oracle-docker-build-edge?label=Oracle%20Linux&
+.. |ora-build-edge| image:: https://img.shields.io/github/actions/workflow/status/
+  3dcitydb/3dcitydb/oracle-docker-build-edge.yml?label=Oracle%20Linux&
   style=flat-square&logo=Docker&logoColor=white
 
 .. |ora-size-edge| image:: https://img.shields.io/static/v1?label=image%20size&message=
