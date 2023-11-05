@@ -97,6 +97,7 @@ versions.
   | Minor releases are not listed in this table.
   | The latest 3DCityDB version is: |version-badge-github|
   | The latest image version on DockerHub is: |version-badge-dockerhub|
+  | The latest image version on DockerHub is: |version-badge-ghcr|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb/
@@ -113,11 +114,12 @@ PostgreSQL/PostGIS images
 
 The PostgreSQL/PostGIS images are available from
 `3DCityDB DockerHub <https://hub.docker.com/r/3dcitydb/3dcitydb-pg>`_ and
-can be pulled like this:
+`Github container registry <https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg>`_.
 
 .. code-block:: Shell
 
-  docker pull 3dcitydb/3dcitydb-pg:TAG
+  docker pull 3dcitydb/3dcitydb-pg[:TAG]
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg[:TAG]
 
 The image tags are compose of the *base image version*, the
 *3DCityDB version* and the *image variant*,
@@ -127,6 +129,8 @@ from the `PostGIS Docker images <https://hub.docker.com/r/postgis/postgis/tags>`
 Debian is the default image variant, where no image variant is appended to the
 tag. For the Alpine Linux images ``-alpine`` is appended. Currently supported
 base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
+
+.. note:: Depending on the
 
 .. list-table:: Overview on supported PostgreSQL/PostGIS versions.
   :widths: auto
@@ -178,9 +182,9 @@ base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
     - 16-3.3
     - 16-3.4
 
-
-The full list of available tags can be found on `DockerHub <https://hub.
-docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated>`_
+The full list of available images can be found on `DockerHub <https://hub.
+docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated>`_ or
+`Github <https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg>`_.
 Here are some examples for full image tags:
 
 .. code-block:: shell
@@ -189,6 +193,11 @@ Here are some examples for full image tags:
   docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.4.0
   docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.4.0-alpine
   docker pull 3dcitydb/3dcitydb-pg:16-3.4-4.4.0-alpine
+
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg:9.5-2.5-4.4.0
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg:13-3.2-4.4.0
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg:13-3.2-4.4.0-alpine
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg:16-3.4-4.4.0-alpine
 
 .. _citydb_docker_image_oracle:
 
@@ -594,6 +603,9 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. |version-badge-dockerhub| image:: https://img.shields.io/docker/v/3dcitydb/3dcitydb-pg?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags
+
+.. |version-badge-ghcr| image:: https://ghcr-badge.egpl.dev/3dcitydb/3dcitydb-pg/latest_tag?trim=major&label=latest
+  :target: https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg
 
 .. Oracle license
 
