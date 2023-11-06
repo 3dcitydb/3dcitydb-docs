@@ -23,7 +23,7 @@ Images for older 3DCityDB versions are available from
 
 When designing the images we tried to stay as close as possible to the behavior of
 the base images and the :ref:`3DCityDB Shell scripts <3dcitydb_shell_scripts>`.
-Thus, all configuration options you may be used to from the base images are
+Thus, all configuration options you may be used to from the base images, are
 available for the 3DCityDB Docker images as well.
 
 .. rubric:: Synopsis
@@ -280,8 +280,10 @@ the documentations of both images for much more configuration options.
 .. option:: POSTGIS_SFCGAL=<true|false|yes|no>
 
   If set, `PostGIS SFCGAL <http://www.sfcgal.org/>`_ support is
-  enabled. **Note:** SFCGAL is currently only available in the Debian image variant.
-  Setting the variable on Alpine images will have no effect.
+  enabled. **Note:** SFCGAL may not be available in some older
+  Alpine based images (PostgresSQL ``< v12``). Refer to the
+  `official PostGIS Docker docs <https://hub.docker.com/r/postgis/postgis>`_ for more details.
+  Setting the variable on those images will have no effect.
 
 .. _citydb_docker_config_oracle:
 
