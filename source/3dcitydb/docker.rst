@@ -11,8 +11,8 @@
 
 The 3DCityDB Docker images are available for *PostgreSQL/PostGIS* and *Oracle*.
 The PostgreSQL/PostGIS version is based on the official
-`PostgreSQL <postgres_hub_>`_ and
-`PostGIS <postgis_hub_>`_ Docker images.
+`PostgreSQL <postgres_github_>`_ and
+`PostGIS <postgis_github_>`_ Docker images.
 The Oracle version is based on the
 *Oracle Database Enterprise Edition* images available from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
@@ -260,29 +260,29 @@ PostgreSQL/PostGIS environment variables
 
 The 3DCityDB PostgreSQL/PostGIS Docker images make use of the following
 environment variables inherited from the official
-`PostgreSQL <https://hub.docker.com/_/postgres>`_ and
-`PostGIS <https://hub.docker.com/r/postgis/postgis>`_ Docker images. Refer to
+`PostgreSQL <postgres_dockerhub_>`_ and
+`PostGIS <postgis_dockerhub_>`_ Docker images. Refer to
 the documentations of both images for much more configuration options.
 
 .. option:: POSTGRES_DB=<database name>
 
-  Sets name for the default database. If not set, the default database is named
+  Set name for the default database. If not set, the default database is named
   like :option:`POSTGRES_USER`.
 
 .. option::  POSTGRES_USER=<username>
 
-  Sets name for the database user, defaults to ``postgres``.
+  Set name for the database user, defaults to ``postgres``.
 
 .. option:: POSTGRES_PASSWORD=<password>
 
-  Sets the password for the database connection. This variable is **mandatory**.
+  Set the password for the database connection. This variable is **mandatory**.
 
 .. option:: POSTGIS_SFCGAL=<true|false|yes|no>
 
   If set, `PostGIS SFCGAL <http://www.sfcgal.org/>`_ support is
   enabled. **Note:** SFCGAL may not be available in some older
   Alpine based images (PostgresSQL ``< v12``). Refer to the
-  `official PostGIS Docker docs <https://hub.docker.com/r/postgis/postgis>`_ for more details.
+  `official PostGIS Docker docs <postgis_dockerhub_>`_ for more details.
   Setting the variable on those images will have no effect.
 
 .. _citydb_docker_config_oracle:
@@ -327,7 +327,6 @@ be used to set the tag of the base image that is used.
   docker.com/r/postgis/postgis/tags?page=1&ordering=last_updated>`_ and in
   the `Oracle container registry <https://container-registry.oracle.com>`_.
 
-
 .. _citydb_docker_psql_build:
 
 PostgreSQL/PostGIS
@@ -353,8 +352,8 @@ and running `docker build <https://docs.docker.com/engine/reference/commandline
     docker build -t 3dcitydb/3dcitydb-pg .
 
     # or with a specific base image tag
-    docker build -t 3dcitydb/3dcitydb-oracle \
-        --build-arg BASEIMAGE_TAG=14-3.2 \
+    docker build -t 3dcitydb/3dcitydb-pg \
+        --build-arg BASEIMAGE_TAG=16-3.4 \
       .
 
 .. _citydb_docker_oracle_build:
@@ -364,7 +363,8 @@ Oracle
 
 To build 3DCityDB Docker images for Oracle, you first need a Docker image for
 the Oracle database. You can either build the Oracle image yourself using the
-Dockerfiles and guidelines provided in the `Oracle GitHub repository <https://github.com/oracle/docker-images>`_.
+Dockerfiles and guidelines provided in the
+`Oracle GitHub repository <https://github.com/oracle/docker-images>`_.
 Alternatively, you can download a pre-built Oracle database image from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
 
@@ -593,8 +593,10 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. Links ----------------------------------------------------------------------
 
-.. _postgres_hub: https://github.com/docker-library/postgres/
-.. _postgis_hub: https://github.com/postgis/docker-postgis/
+.. _postgres_github: https://github.com/docker-library/postgres/
+.. _postgis_github: https://github.com/postgis/docker-postgis/
+.. _postgres_dockerhub: https://hub.docker.com/_/postgres
+.. _postgis_dockerhub: https://registry.hub.docker.com/r/postgis/postgis/
 
 .. Images ---------------------------------------------------------------------
 
