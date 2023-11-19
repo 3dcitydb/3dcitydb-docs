@@ -11,8 +11,8 @@
 
 The 3DCityDB Docker images are available for *PostgreSQL/PostGIS* and *Oracle*.
 The PostgreSQL/PostGIS version is based on the official
-`PostgreSQL <postgres_hub_>`_ and
-`PostGIS <postgis_hub_>`_ Docker images.
+`PostgreSQL <postgres_github_>`_ and
+`PostGIS <postgis_github_>`_ Docker images.
 The Oracle version is based on the
 *Oracle Database Enterprise Edition* images available from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
@@ -23,7 +23,7 @@ Images for older 3DCityDB versions are available from
 
 When designing the images we tried to stay as close as possible to the behavior of
 the base images and the :ref:`3DCityDB Shell scripts <3dcitydb_shell_scripts>`.
-Thus, all configuration options you may be used to from the base images are
+Thus, all configuration options you may be used to from the base images, are
 available for the 3DCityDB Docker images as well.
 
 .. rubric:: Synopsis
@@ -97,6 +97,7 @@ versions.
   | Minor releases are not listed in this table.
   | The latest 3DCityDB version is: |version-badge-github|
   | The latest image version on DockerHub is: |version-badge-dockerhub|
+  | The latest image version on DockerHub is: |version-badge-ghcr|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb/
@@ -113,11 +114,12 @@ PostgreSQL/PostGIS images
 
 The PostgreSQL/PostGIS images are available from
 `3DCityDB DockerHub <https://hub.docker.com/r/3dcitydb/3dcitydb-pg>`_ and
-can be pulled like this:
+`Github container registry <https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg>`_.
 
 .. code-block:: Shell
 
-  docker pull 3dcitydb/3dcitydb-pg:TAG
+  docker pull 3dcitydb/3dcitydb-pg[:TAG]
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg[:TAG]
 
 The image tags are compose of the *base image version*, the
 *3DCityDB version* and the *image variant*,
@@ -127,6 +129,8 @@ from the `PostGIS Docker images <https://hub.docker.com/r/postgis/postgis/tags>`
 Debian is the default image variant, where no image variant is appended to the
 tag. For the Alpine Linux images ``-alpine`` is appended. Currently supported
 base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
+
+.. note:: Depending on the
 
 .. list-table:: Overview on supported PostgreSQL/PostGIS versions.
   :widths: auto
@@ -141,57 +145,46 @@ base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
     - 3.1
     - 3.2
     - 3.3
-  * - 9.5
-    - 9.5-2.5
-    - 9.5-3.0
-    -
-    -
-    -
-  * - 9.6
-    - 9.6-2.5
-    - 9.6-3.0
-    - 9.6-3.1
-    - 9.6-3.2
-    -
-  * - 10
-    - 10-2.5
-    - 10-3.0
-    - 10-3.1
-    - 10-3.2
-    -
-  * - 11
-    - 11-2.5
-    - 11-3.0
-    - 11-3.1
-    - 11-3.2
-    - 11-3.3
+    - 3.4
   * - 12
     - 12-2.5
     - 12-3.0
     - 12-3.1
     - 12-3.2
     - 12-3.3
+    - 12-3.4
   * - 13
     -
     - 13-3.0
     - 13-3.1
     - 13-3.2
     - 13-3.3
+    - 13-3.4
   * - 14
     -
     -
     - 14-3.1
     - 14-3.2
     - 14-3.3
+    - 14.3.4
   * - 15
     -
     -
     -
     -
     - 15-3.3
+    - 15-3.4
+  * - 16
+    -
+    -
+    -
+    -
+    - 16-3.3
+    - 16-3.4
 
-The full list of available tags can be found on `DockerHub <https://hub.
-docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated>`_
+The full list of available images can be found on `DockerHub <https://hub.
+docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated>`_ or
+`Github <https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg>`_.
 Here are some examples for full image tags:
 
 .. code-block:: shell
@@ -199,7 +192,12 @@ Here are some examples for full image tags:
   docker pull 3dcitydb/3dcitydb-pg:9.5-2.5-4.4.0
   docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.4.0
   docker pull 3dcitydb/3dcitydb-pg:13-3.2-4.4.0-alpine
-  docker pull 3dcitydb/3dcitydb-pg:15-3.3-4.4.0-alpine
+  docker pull 3dcitydb/3dcitydb-pg:16-3.4-4.4.0-alpine
+
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg:9.5-2.5-4.4.0
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg:13-3.2-4.4.0
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg:13-3.2-4.4.0-alpine
+  docker pull ghcr.io/3dcitydb/3dcitydb-pg:16-3.4-4.4.0-alpine
 
 .. _citydb_docker_image_oracle:
 
@@ -262,28 +260,30 @@ PostgreSQL/PostGIS environment variables
 
 The 3DCityDB PostgreSQL/PostGIS Docker images make use of the following
 environment variables inherited from the official
-`PostgreSQL <https://hub.docker.com/_/postgres>`_ and
-`PostGIS <https://hub.docker.com/r/postgis/postgis>`_ Docker images. Refer to
+`PostgreSQL <postgres_dockerhub_>`_ and
+`PostGIS <postgis_dockerhub_>`_ Docker images. Refer to
 the documentations of both images for much more configuration options.
 
 .. option:: POSTGRES_DB=<database name>
 
-  Sets name for the default database. If not set, the default database is named
+  Set name for the default database. If not set, the default database is named
   like :option:`POSTGRES_USER`.
 
 .. option::  POSTGRES_USER=<username>
 
-  Sets name for the database user, defaults to ``postgres``.
+  Set name for the database user, defaults to ``postgres``.
 
 .. option:: POSTGRES_PASSWORD=<password>
 
-  Sets the password for the database connection. This variable is **mandatory**.
+  Set the password for the database connection. This variable is **mandatory**.
 
 .. option:: POSTGIS_SFCGAL=<true|false|yes|no>
 
   If set, `PostGIS SFCGAL <http://www.sfcgal.org/>`_ support is
-  enabled. **Note:** SFCGAL is currently only available in the Debian image variant.
-  Setting the variable on Alpine images will have no effect.
+  enabled. **Note:** SFCGAL may not be available in some older
+  Alpine based images (PostgresSQL ``< v12``). Refer to the
+  `official PostGIS Docker docs <postgis_dockerhub_>`_ for more details.
+  Setting the variable on those images will have no effect.
 
 .. _citydb_docker_config_oracle:
 
@@ -327,7 +327,6 @@ be used to set the tag of the base image that is used.
   docker.com/r/postgis/postgis/tags?page=1&ordering=last_updated>`_ and in
   the `Oracle container registry <https://container-registry.oracle.com>`_.
 
-
 .. _citydb_docker_psql_build:
 
 PostgreSQL/PostGIS
@@ -353,8 +352,8 @@ and running `docker build <https://docs.docker.com/engine/reference/commandline
     docker build -t 3dcitydb/3dcitydb-pg .
 
     # or with a specific base image tag
-    docker build -t 3dcitydb/3dcitydb-oracle \
-        --build-arg BASEIMAGE_TAG=14-3.2 \
+    docker build -t 3dcitydb/3dcitydb-pg \
+        --build-arg BASEIMAGE_TAG=16-3.4 \
       .
 
 .. _citydb_docker_oracle_build:
@@ -364,7 +363,8 @@ Oracle
 
 To build 3DCityDB Docker images for Oracle, you first need a Docker image for
 the Oracle database. You can either build the Oracle image yourself using the
-Dockerfiles and guidelines provided in the `Oracle GitHub repository <https://github.com/oracle/docker-images>`_.
+Dockerfiles and guidelines provided in the
+`Oracle GitHub repository <https://github.com/oracle/docker-images>`_.
 Alternatively, you can download a pre-built Oracle database image from the
 `Oracle Container registry <https://container-registry.oracle.com>`_.
 
@@ -593,8 +593,10 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. Links ----------------------------------------------------------------------
 
-.. _postgres_hub: https://github.com/docker-library/postgres/
-.. _postgis_hub: https://github.com/postgis/docker-postgis/
+.. _postgres_github: https://github.com/docker-library/postgres/
+.. _postgis_github: https://github.com/postgis/docker-postgis/
+.. _postgres_dockerhub: https://hub.docker.com/_/postgres
+.. _postgis_dockerhub: https://registry.hub.docker.com/r/postgis/postgis/
 
 .. Images ---------------------------------------------------------------------
 
@@ -605,6 +607,9 @@ lists the tables of the DB running in the container using ``psql``.
 
 .. |version-badge-dockerhub| image:: https://img.shields.io/docker/v/3dcitydb/3dcitydb-pg?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags
+
+.. |version-badge-ghcr| image:: https://ghcr-badge.egpl.dev/3dcitydb/3dcitydb-pg/latest_tag?trim=major&label=latest
+  :target: https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg
 
 .. Oracle license
 
