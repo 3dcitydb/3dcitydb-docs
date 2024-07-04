@@ -1,5 +1,5 @@
 .. |3dcitydb_version| replace:: 4.4
-.. |impexp_version| replace:: 5.3
+.. |impexp_version| replace:: 5.4
 .. |webmap_version| replace:: 1.9
 .. |wfs_version| replace:: 5.3
 .. |plugin_spshg_version| replace:: 4.2
