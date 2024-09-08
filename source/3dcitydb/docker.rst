@@ -97,7 +97,7 @@ versions.
   | Minor releases are not listed in this table.
   | The latest 3DCityDB version is: |version-badge-github|
   | The latest image version on DockerHub is: |version-badge-dockerhub|
-  | The latest image version on DockerHub is: |version-badge-ghcr|
+  | The latest image version on Github  is: |version-badge-ghcr|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb/
@@ -130,7 +130,15 @@ Debian is the default image variant, where no image variant is appended to the
 tag. For the Alpine Linux images ``-alpine`` is appended. Currently supported
 base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
 
-.. note:: Depending on the
+.. warning:: Depending on the base image variant and version, different
+  versions of PostGIS dependencies (e.g. geos, gdal, proj, sfcgal)
+  are shipped in the  base images. Make sure to check the
+  `official PostGIS Docker <https://hub.docker.com/r/postgis/postgis>`_
+  page for details, if you have specific version requirements.
+
+  As of 2024-09 the **recommended version** with latest dependencies
+  (geos=3.12.2, gdal=3.9.1, proj=9.4, and sfcgal=1.5.1) is:
+  ``latest-alpine`` or ``16-3.4-4.4.0-alpine``.
 
 .. list-table:: Overview on supported PostgreSQL/PostGIS versions.
   :widths: auto
@@ -166,7 +174,7 @@ base image versions are listed in :numref:`citydb_docker_tbl_pgversions`.
     - 14-3.1
     - 14-3.2
     - 14-3.3
-    - 14.3.4
+    - 14-3.4
   * - 15
     -
     -
@@ -657,10 +665,10 @@ lists the tables of the DB running in the container using ``psql``.
 .. 4.0.0
 
 .. |psql-deb-size-v4.0.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/14-3.2-4.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
+  3dcitydb/3dcitydb-pg/14-3.4-4.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
 
 .. |psql-alp-size-v4.0.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/3dcitydb-pg/14-3.2-4.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&
+  3dcitydb/3dcitydb-pg/14-3.4-4.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&
   style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg
