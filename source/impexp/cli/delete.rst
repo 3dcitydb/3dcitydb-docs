@@ -7,14 +7,15 @@ Delete command
 
 .. code-block:: bash
 
-   impexp delete [-hvV] [--ade-extensions=<folder>] [-c=<file>]
+   impexp delete [-ahvV] [--ade-extensions=<folder>] [-c=<file>]
                  [--delete-log=<file>] [--log-file=<file>]
                  [--log-level=<level>] [-m=<mode>] [--pid-file=<file>]
                  [--plugins=<folder>] [--use-plugin=<plugin[=true|false]>[,
                  <plugin[=true|false]>...]]... [[-g]]
                  [[--lineage=<lineage>] [--updating-person=<name>]
-                 [--reason-for-update=<reason>]] [[[-t=<[prefix:]name>[,<
-                 [prefix:]name>...]]... [--namespace=<prefix=name>[,
+                 [--reason-for-update=<reason>]] [[-t=<[prefix:]name>[,<
+                 [prefix:]name>...] [-t=<[prefix:]name>[,<[prefix:]
+                 name>...]]... [--namespace=<prefix=name>[,
                  <prefix=name>...]]...] [[-r=<version>] [-R=<timestamp[,
                  timestamp]>]] [-i=<id>[,<id>...] [-i=<id>[,<id>...]]...]
                  [--db-id=<id>[,<id>...] [--db-id=<id>[,<id>...]]...]
@@ -76,6 +77,15 @@ A corresponding delete operation is not offered by the graphical user interface.
    The delete operation will print the number and types of features
    that would be affected by the delete operation as summary overview
    to the console.
+
+.. option:: -a, --auto-commit
+
+   The default behavior of the delete operation is to delete all or nothing. An advantage of this
+   approach is that no top-level feature gets deleted in case of errors or if the process is aborted
+   by the user. However, too many deletes in one transaction might cause the transaction to become
+   too large and let the database fail. When enabling the :option:`--auto-commit` option, every top-level
+   feature is directly deleted/terminated in the database. This prevents the transaction from becoming
+   too large but rollbacks are no longer possible.
 
 .. option:: --delete-log=<file>
 
