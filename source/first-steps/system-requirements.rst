@@ -63,7 +63,7 @@ that are free to download and use:
 - `Eclipse Temurin <https://adoptium.net/>`_
 - `Amazon Coretto <https://aws.amazon.com/corretto/>`_
 - `OpenJDK <https://openjdk.org/>`_
-- `Oracle Java 17 LTS <https://www.oracle.com/java/technologies/downloads/>`_
+- `Oracle Java <https://www.oracle.com/java/technologies/downloads/>`_
 
 Follow the installation instructions for your operating system. Note that
 starting from Java 17 long-term support (LTS) version, `Oracle Java` is
