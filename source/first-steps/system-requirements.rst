@@ -12,7 +12,7 @@ installation of a `PostgreSQL <https://www.postgresql.org/>`_,
 `PolarDB <https://www.alibabacloud.com/de/product/polardb>`_ database.
 
 PostgreSQL with PostGIS extension
-  Supported versions are **PostgreSQL 11 and higher** with **PostGIS 2.5 and higher**.
+  Supported versions are **PostgreSQL 12 and higher** with **PostGIS 3.0 and higher**.
   Make sure to check the `PostgreSQL versioning policy <https://www.postgresql.org/support/versioning/>`_
   to find out which PostgreSQL versions are actively maintained or have reached end-of-life.
   The `PostGIS support matrix <https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS>`_
@@ -46,13 +46,13 @@ Importer/Exporter tool
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The Importer/Exporter tool can run on any platform providing support for
-Java 8 and higher. The recommended version for running the Importer/Exporter
-is **Java 11**. The tool has been successfully tested on (but is not
+Java 11 and higher. The recommended version for running the Importer/Exporter
+is **Java 17**. The tool has been successfully tested on (but is not
 limited to) the following operating systems:
 
 -  Microsoft Windows 7, 8, 10, 11;
 -  Apple Mac OS X and macOS;
--  Ubuntu Linux 9 to 22.
+-  Ubuntu Linux 9 to 24.
 
 Prior to the setup of the Importer/Exporter tool, a Java Runtime
 Environment (JRE) **must be installed on your system**. Java
@@ -62,7 +62,7 @@ that are free to download and use:
 
 - `Eclipse Temurin <https://adoptium.net/>`_
 - `Amazon Coretto <https://aws.amazon.com/corretto/>`_
-- `OpenJDK <https://openjdk.java.net/>`_
+- `OpenJDK <https://openjdk.org/>`_
 - `Oracle Java 17 LTS <https://www.oracle.com/java/technologies/downloads/>`_
 
 Follow the installation instructions for your operating system. Note that

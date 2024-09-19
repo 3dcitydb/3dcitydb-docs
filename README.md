@@ -5,7 +5,7 @@ The 3DCityDB User Manual is built and hosted on [ReadTheDocs.org](https://readth
 Please use the link below to find the online version of this documentation.
 
 <br/>
-<p align="center">:arrow_right: https://3dcitydb-docs.readthedocs.io/en/latest/ :arrow_left:</p>
+<p align="center">:arrow_right: http://3dcitydb-docs.rtfd.io/ :arrow_left:</p>
 <br/>
 
 ![cover_image](source/media/cover_image.png)
