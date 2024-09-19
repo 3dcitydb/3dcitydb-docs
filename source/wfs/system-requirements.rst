@@ -8,8 +8,7 @@ requirements* have to be met:
 
 -  **Java servlet container** supporting the **Java Servlet 3.1 / 3.0**
    (or higher) specification
--  **Java 11** Runtime Environment (Java 7 or earlier versions are not
-   supported)
+-  **Java 11** Runtime Environment
 -  **3D City Database version 3.1** (or higher)
 
 The WFS implementation has been successfully deployed and tested on
