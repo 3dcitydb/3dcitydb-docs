@@ -1,7 +1,7 @@
 .. _enrich_thematic_data:
 
-Enriching KML/glTF models with thematic data 
-------------------------------------------------
+Enriching visualization models with thematic data 
+-------------------------------------------------
 
 As mentioned before, the 3D web client extends the Cesium Virtual Globe
 to support efficient displaying, caching, dynamic loading and unloading
@@ -13,7 +13,8 @@ is completely or partly lost in the 3D graphics formats. This issue has
 been considered and solved within the 3D web client by supporting the
 explicit linking of the 3D visualization models with their thematic data,
 which can be achieved using (1) a Google Spreadsheet stored in the cloud, 
-or (2) PostgREST, a  RESTful API for PostgreSQL.
+(2) PostgREST, a RESTful API for PostgreSQL, (3) OGC Feature API, 
+or (4) existing thematic data already embedded within the datasets.
 
 Storing thematic data in Google Spreadsheets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -79,9 +80,9 @@ and a PostgreSQL database with a RESTful API enabled (`PostgREST <https://postgr
 Data fetched from Google Sheets API and PostgREST can be displayed on the infobox 
 as thematic data when a city object is clicked. 
 Please refer to :numref:`import_kml_gltf_with_thematic_data` for a brief tutorial 
-as how to import KML/glTF models with thematic data in the 3D web client.
+as how to import visualization models with thematic data in the 3D web client.
 
-In addition to the two new supported data sources, 
+Based on the two new supported relational data sources, 
 it is now also possible to choose their ``tableType`` 
 between ``All object attributes in one row`` (horizontal) 
 and ``One row per object attribute`` (vertical), where:
@@ -178,10 +179,54 @@ The response from PostgREST service is encoded in JSON with the following struct
    therefore does not require exporting and deploying the 3D visualization
    models again.
 
+Retrieving thematic data using OGC Feature API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OGC Feature API enables access to geospatial features 
+available on the web. Like PostgREST, data can be queried using 
+``HTTP GET`` requests. Paremeters and query conditions can be incorporated 
+as strings into the request, such as:
+::
+   GET /collections/buildings/items?bbox=min_x,min_y,max_x,max_y
+
+The query results are feature collections 
+that can be in many formats, such as HTML, `GeoJSON <https://geojson.org/>`_ 
+or `GML <https://www.ogc.org/standard/gml>`_. 
+For more information on the documentation and development of the
+OGC Feature API, please refer to its `GitHub repository <https://github.com/opengeospatial/ogcapi-features>`_.
+
+Starting from version ``2.0.0``, the 3D web client also supports `OGC Feature API <https://ogcapi.ogc.org/features/>`_
+as another thematic data source. This API can be applied to any visualization 
+datasets, as long as the identifiers of their objects match those accessible 
+via the API.
+
+.. note::
+   Due to the different implementation of the API across regions and countries, 
+   the current version `2.0.0` provides some examples for handling the OGC Feature API 
+   implementations provided by the German states of Hamburg and North Rhine-Westphalia.
+
+Retrieving thematic data already embedded within visualization datasets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Many visualization datasets, such as KML, GeoJSON, Cesium 3D Tiles and 
+Indexed 3D Scene Layers (I3S) allow for incorporating thematic data 
+within their structure. Starting from version `2.0.0`, the 3D web client 
+is capable of retrieving such data embedded within the above mentioned
+types of visualization datasets.
+
+.. note::
+   Due to the inconsistent **labelling of object identifiers** in Cesium 3D Tiles 
+   from various providers, the following approach was used for querying in version `2.0.0`:
+  * Different identifier names are considered, 
+    such as `gml:id`, `gml_id`, `gmlid`, `gml-id`, `id`, etc., 
+    regardless of whether the letters are given in uppercase or lowercase.
+  * The same also applies to the column name of the identifiers in PostgreSQL/PostgREST 
+    and Google Spreadsheets (not embedded), as long as the column names are valid.
+
 .. _import_kml_gltf_with_thematic_data:
 
-Importing KML/glTF models with thematic data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Importing visualization models with thematic data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to add a KML/glTF data layer along with its linked thematic data 
 to the 3D web client, the parameters must be properly

@@ -12,7 +12,7 @@ of geocoding service, switching between different viewing modes (2D,
 commonly useful for a variety of GIS applications. In addition, starting
 from version 1.6.0, the web client provides better support for mobile
 devices, such as a more compact GUI layout as well as the ability to
-interact with the web map in first-person view based on the user’s
+interact with the web map in first-person view based on the user's
 location in real-time. All these functionalities along with the enhanced
 features and functionalities developed for the 3D web client are
 explained in more detail below.
@@ -23,11 +23,11 @@ explained in more detail below.
 
    Relevant GUI components of the 3D web client
 
-The ``3D Globe`` [1] is a base Cesium widget that allows the user to
+The ``3D Globe`` (1) is a base Cesium widget that allows the user to
 navigate through the Earth map by panning, moving, tilting, and rotating
 the camera perspective using a mouse or touchscreen. In addition, the
 camera perspective can also be controlled by means of the ``Navigation
-Component`` [2] which is an open source
+Component`` (2) which is an open source
 `Cesium plugin <https://github.com/alberto-acevedo/cesium-navigation>`_ and offers the
 same navigation possibilities that can be achieved with mouse or
 touchscreen. It consists of a group of widgets, namely a ``Navigator``
@@ -35,13 +35,13 @@ widget for controlling the camera perspective, a ``North Arrows`` widget for
 orienting the Earth map towards the north, and a Scale Bar for
 estimating the distance between two points on the ground.
 
-The ``Cesium Viewer`` provides an especially useful built-in ``Toolkit`` [3]
-containing the widgets like ``Geocoder``, ``HomeButton``, ``GeolocationButton``,
+The ``Cesium Viewer`` provides an especially useful built-in ``Toolkit`` (3)
+containing the widgets like (from left to right) ``Geocoder``, ``HomeButton``, ``GeolocationButton``,
 ``BaseLayerPicker``, and ``NavigationHelpButton``. The view panel of ``Geocoder``
 can be expanded by clicking on the button |loupe_icon| to display an input
 filed into which the user can enter either an explicit position value in
-the form of “\ *[longitude], [latitude]*\ ” or an address name to search
-a particular location. After pressing the “Enter” key on the keyboard or
+the form of "*[longitude], [latitude]*" or an address name to search
+a particular location. After pressing the "Enter" key on the keyboard or
 clicking on the button |loupe_icon|, the Geocoding process will be
 performed using the Bing Maps Locations API according to the entered
 location information. Once the target location has been found, the Earth
@@ -50,7 +50,7 @@ to the bounding box with the best fit with the camera perspective. For
 example, if you want to search the position (longitude = 11.56786,
 Latitude = 48.14900) where the Technical University of Munich is, the
 input field of the ``Geocoder`` can be filled with the text value of
-“11.56786, 48.14900” and the result should look like the following
+``11.56786, 48.14900`` and the result should look like the following
 figure.
 
 .. figure:: /media/webmap_geocoder_fig.png
@@ -100,7 +100,7 @@ the selected imagery layer.
    Per default available base layers listed in the
    ``BaseLayerPicker`` widget
 
-The last widget contained within the Cesium ``Toolkit`` [3] (cf. :numref:`pic_3d_web_map_gui`)
+The right-most widget contained within the Cesium ``Toolkit`` (cf. :numref:`pic_3d_web_map_gui`)
 is the so-called ``NavigationHelpButton`` for showing brief instructions on
 how to navigate the Earth map with mouse (typically for desktop and
 laptop PCs) and touchscreen (typically for smart phones and tablet PCs).
@@ -115,7 +115,7 @@ web client.
    The ``NavigationHelpButton`` widget showing the instructions for
    navigating Earth map
 
-The next widget is the so-called ``CreditContainer`` [4] (cf. :numref:`pic_3d_web_map_gui`)
+The next component is the so-called ``CreditContainer`` (4) (cf. :numref:`pic_3d_web_map_gui`)
 which displays a collection of credits with respect to the software and
 data providers that have been involved in the development and use of the
 3D web client. These credits mainly include the mapping services
@@ -126,7 +126,7 @@ their icons, descriptions, and hyperlinks referencing to their
 respective homepages.
 
 The majority of the functionalities specially provided by the 3D web
-client are controlled by the ``Toolbox`` widget [5] (cf. :numref:`pic_3d_web_map_gui`) which
+client are controlled by the ``Toolbox`` widget (5) (cf. :numref:`pic_3d_web_map_gui`) which
 is an extended module based on the ``Cesium Viewer`` for integrating and
 controlling the user-provided data in different formats, namely KML/glTF
 modes, thematic data (online spreadsheet), Web Map Service (WMS) data,
@@ -146,11 +146,11 @@ with oblique view, Google Streetview, and a combined version (DualMaps).
    be selected as the default imagery and Nominatim shall be activated as
    the default geocoder. For more information, please refer to:
 
-    -  https://cesium.com/legal/terms-of-service/
+    -  https://cesium.com/legal/terms-of-service
 
-    -  https://www.microsoft.com/en-us/maps/product/terms
+    -  https://www.microsoft.com/en-us/maps/bing-maps/product
 
-    -  https://www.openstreetmap.org/copyright/en
+    -  https://www.openstreetmap.org/copyright
 
 The visualization of the 3D city model with large data size often result
 in significant performance issue in most 3D web applications. In order
@@ -170,11 +170,14 @@ an earlier computation to be temporarily stored in a cache, from which
 the data tiles can be loaded and rendered much faster than reloading
 them again from the remote server. Of course, a larger number of cached
 data tiles will consume more memory and may cause a memory overflow of
-the web browser. In order to avoid this, the 3D web client provides a
-so-called ``Status Indicator`` widget [6] (cf. :numref:`pic_3d_web_map_gui`) which can display
-the real-time status of the amount of showed and cached data tiles and
-can be used to help the user to conveniently monitor and control the
-memory consumed by the 3D web client.
+the web browser. 
+
+..
+   _In order to avoid this, the 3D web client provides a
+   so-called ``Status Indicator`` widget [6] (cf. :numref:`pic_3d_web_map_gui`) which can display
+   the real-time status of the amount of showed and cached data tiles and
+   can be used to help the user to conveniently monitor and control the
+   memory consumed by the 3D web client.
 
 While streaming the tiled 3D visualization models, each data tile
 requires at least an asynchronous HTTP (Hypertext Transfer Protocol)
@@ -184,10 +187,10 @@ Sharing) to get around the cross-domain restrictions.
 
 .. note::
    Alternatively, the open specification
-   `Cesium 3D Tiles <https://github.com/AnalyticalGraphicsInc/3d-tiles>`_ can also
+   `Cesium 3D Tiles <https://github.com/CesiumGS/3d-tiles>`_ can also
    be employed to stream massive heterogeneous 3D geospatial
    datasets. This is supported in 3DCityDB Web Map Client version
-   1.6.0 or later.
+   ``1.6.0`` or later.
 
 .. |loupe_icon| image:: ../media/loupe_icon.png
    :width: 0.18444in
