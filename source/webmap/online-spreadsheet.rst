@@ -433,13 +433,13 @@ input fields:
 **Layer configuration:**
 
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``Type``                        | `COLLADA/KML/glTF`                                                                                                                                   |
+| ``Type``                        | ``COLLADA/KML/glTF``                                                                                                                                 |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``URL``                         | https://www.3dcitydb.net/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf_collada_MasterJSON.json        |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``Name``                        | NYC Buildings                                                                                                                                        |
+| ``Name``                        | ``NYC Buildings``                                                                                                                                    |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``glTF version``                | 1.0                                                                                                                                                  |
+| ``glTF version``                | ``1.0``                                                                                                                                              |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 **Thematic data configuration:**
@@ -469,6 +469,9 @@ activated) can be changed and applied at any time by clicking on the
 
    Screenshot showing how to add a new KML/glTF data layer into
    the 3D web client
+
+.. note:: 
+   For your convenience, this example is readily available for access `here <https://www.3dcitydb.net/3dcitydb-web-map/2.0.0/3dwebclient/index.html?t=3DCityDB-Web-Map-Client&s=false&ts=0&la=40.75834&lo=-73.985261&h=261.586&hd=10.7&p=-56.89&r=0&l_0=u%3Dhttps%253A%252F%252Fwww.3dcitydb.net%252F3dcitydb%252Ffileadmin%252Fpublic%252F3dwebclientprojects%252FNYC-Model-20170501%252FBuilding_gltf%252FBuilding_gltf_collada_MasterJSON.json%26n%3DNYC%2520Buildings%26ld%3DCOLLADA%252FKML%252FglTF%26lp%3Dfalse%26lc%3Dfalse%26gv%3D1.0%26a%3Dtrue%26tdu%3Dhttps%253A%252F%252Fdocs.google.com%252Fspreadsheets%252Fd%252F1DbkMUSYW_YlE48MUxH5fak56uaCL8QXNrBgEr0gfuCY%26ds%3DGoogleSheets%26tt%3DHorizontal%26gc%3D%26il%3D125%26al%3D1.7976931348623157e%252B308%26ac%3D200%26av%3D200%26msse%3D16&sw=showOnStart%3Dfalse>`_.
 
 Users are also able to control the visibility of the selected data
 layers by deactivating the checkbox in front of the layer's name
