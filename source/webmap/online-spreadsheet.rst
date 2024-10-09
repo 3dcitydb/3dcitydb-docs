@@ -217,22 +217,46 @@ types of visualization datasets.
 .. note::
    Due to the inconsistent **labelling of object identifiers** in Cesium 3D Tiles 
    from various providers, the following approach was used for querying in version `2.0.0`:
-  * Different identifier names are considered, 
-    such as `gml:id`, `gml_id`, `gmlid`, `gml-id`, `id`, etc., 
-    regardless of whether the letters are given in uppercase or lowercase.
-  * The same also applies to the column name of the identifiers in PostgreSQL/PostgREST 
-    and Google Spreadsheets (not embedded), as long as the column names are valid.
+
+   * Different identifier names are considered, 
+     such as `gml:id`, `gml_id`, `gmlid`, `gml-id`, `id`, etc., 
+     regardless of whether the letters are given in uppercase or lowercase.
+   * The same also applies to the column name of the identifiers in PostgreSQL/PostgREST 
+     and Google Spreadsheets (not embedded), as long as the column names are valid.
 
 .. _import_kml_gltf_with_thematic_data:
 
 Importing visualization models with thematic data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to add a KML/glTF data layer along with its linked thematic data 
+The 3D web client supports the following type of visualization layers:
+
+* COLLADA/KML/glTF
+* GeoJSON
+* Cesium 3D Tiles
+* Indexed 3D Scene Layers (I3S)
+
+For each visualization layer, the 3D web client supports the following thematic data sources:
+
+* Google Spreadsheets (vertical or horizontal layout)
+* PostgreSQL/PostgREST (vertical or horizontal layout)
+* Embedded
+
+As a result, there are **20 possible configurations** 
+to define a single visualization layer with its thematic data.
+
+In order to add a visualization layer along with its linked thematic data 
 to the 3D web client, the parameters must be properly
-specified (some of which are optional) on the corresponding input panel
+specified on the corresponding input panel
 (cf. :numref:`pic_3d_web_map_example_toolbox`) which can be expanded and collapsed by clicking on
 the ``Add / Configure Layer`` button in the top left corner of the screen.
+The following image shows a COLLADA/KML/glTF layer with Google Spreadsheets as thematic data.
+
+.. figure:: /media/3d_web_map_toolbox.png
+   :name: pic_3d_web_map_example_toolbox
+   :align: center
+
+   The input panel for adding a new KML/glTF layer with Google Spreadsheets thematic data in the 3DCityDB Web Map Client
 
 .. note::
    All default parameter values used in the 3D web client were
@@ -243,80 +267,40 @@ the ``Add / Configure Layer`` button in the top left corner of the screen.
    parameter name with the suffix ``(*)`` denotes that this parameter is
    mandatory; otherwise it is optional.
 
-.. figure:: /media/3d_web_map_toolbox.png
-   :name: pic_3d_web_map_example_toolbox
-   :align: center
+Layer information
+=================
 
-   The input panel for adding a new KML/glTF layer with thematic data in the 3DCityDB Web Map Client
+Depending on the selected layer type, a list of parameters are required. 
+The following table provides a quick overview of all these parameters
+while importing 3D models. 
+Please note that while the table contains the description of all parameters,
+only a few of them are displayed or required for a selected layer type.
 
-The following information can/should be provided 
-while importing KML/glTF models with thematic data:
-
-+-----------------------------+---------------------------------------------------------------------------------+
-| **Property**                | **Description**                                                                 |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``URL(*)``                 || The web link of the master JSON file (cf. :numref:`impexp_kml_export_chapter`) |
-||                            || holding the relevant meta-information of the data layer to be imported.        |
-||                            || Locally stored files can also be published using the same directory as         |
-||                            || the web client (please refer to :numref:`installation_config`).                |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``Name(*)``                || A proper layer name must be specified which will be listed at the top of       |
-||                            || the input panel (in the top left corner of the screen) once the KML/glTF       |
-||                            || data layer has been successfully loaded into the 3D web client.                |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``Layer data type``        || The type of models to be imported, currently supports:                         |
-||                            || ``COLLADA/KML/glTF`` and ``Cesium 3D Tiles`` datasets.                         |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``Load via proxy``         || *(Only for KML datasets) (Only on 3DCityDB websites)*                          |
-||                            || Specify if the KML datasets should be loaded using                             |
-||                            || the built-in proxy server hosted in the 3DCityDB server.                       |
-||                            || This can be used for remote KML datasets hosted on servers                     |
-||                            || that do not allow Cross-Origin Resource Sharing (CORS).                        |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``KML clamp to ground``    || *(Only for KML datasets)*                                                      |
-||                            || Specify if the KML models should be clamped to the ground on the globe.        |
-||                            || This is useful when the KML dataset does not have correct heights              |
-||                            || and thus may be hidden under the terrain.                                      |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``glTF version``           || *(Only for glTF datasets)*                                                     |
-||                            || The version of the glTF models being imported. Currently supports:             |
-||                            || ``2.0`` (latest), ``1.0`` and ``0.8``.                                         |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``thematicDataUrl``        || The URL of the thematic data source. This could be a Google Spreadsheets       |
-||                            || e.g. with the following structure                                              |
-||                            || ``https://docs.google.com/spreadsheets/d/<spreadsheet_id>``                    |
-||                            || or a table/view published by PostgREST                                         |
-||                            || e.g. with the following structure                                              |
-||                            || ``https://example.com:3000/<table_name>``. Please note that the shared table   |
-||                            || must be publicly available. For Google Spreadsheets, please refer to           |
-||                            || `Google Support <https://support.google.com/docs/answer/9331169?hl=en#6.1>`_   |
-||                            || to learn how to share documents online. For the structure of these tables,     |
-||                            || please refer to :ref:`structure_of_thematic_tables`.                           |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``> Thematic Data Source`` || The thematic data source type, currently supports:                             |
-||                            || ``Google Sheets API``,                                                         |
-||                            || ``PostgreSQL REST API`` and                                                    |
-||                            || ``KML Documents`` as data source.                                              |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``> Table type``           || The type of tables containing thematic data, currently supports:               |
-||                            || ``All object attributes in one row`` (horizontal) and                          |
-||                            || ``One row per object attribute`` (vertical).                                   |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``cityobjectsJsonUrl``     || The URL of the JSON file which can be generated automatically by using the     |
-||                            || KML/COLLADA/glTF Exporter                                                      |
-||                            || (cf. :numref:`impexp_kml_export_preferences_general_chapter`).                 |
-||                            || For more information please refer to explantation below this table.            |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``minLodPixels`` and       || The minimum and maximum limit of the visibility range for each data layer      |
-|| ``maxLodPixels``           || to control the dynamic loading and unloading of the data tiles.                |
-||                            || For more information please refer to explantation below this table.            |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``maxCountOfVisibleTiles`` || The maximum number of allowed visible data tiles.                              |
-||                            || For more information please refer to explantation below this table.            |
-+-----------------------------+---------------------------------------------------------------------------------+
-|| ``maxCountOfVisibleTiles`` || The maximum allowable cache size expressed as a number of data tiles.          |
-||                            || For more information please refer to explantation below this table.            |
-+-----------------------------+---------------------------------------------------------------------------------+
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Property**                          | **Description**                                                                                                                                                                                                                                                                                                                                                    |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``Type``                              | The type of models to be imported, currently supports: ``COLLADA/KML/glTF``, ``GeoJSON```, ``Cesium 3D Tiles`` and ``Indexed 3D Scene Layers (I3S)``.                                                                                                                                                                                                              |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``URL (*)``                           | The dataset location. For example, a KML/glTF dataset can be given as a web link to the master JSON file (cf. :numref:`impexp_kml_export_chapter`), holding the relevant meta-information of the data layer to be imported. Locally stored files can also be published using the same directory as the web client (please refer to :numref:`installation_config`). |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``Name (*)``                          | A proper layer name must be specified which will be listed at the top of the input panel (in the top left corner of the screen) once the visualization layer has been successfully loaded into the 3D web client.                                                                                                                                                  |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``glTF version``                      | (Only for glTF datasets) The version of the glTF models being imported. Currently supports: ``2.0`` (latest), ``1.0`` and ``0.8``.                                                                                                                                                                                                                                 |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``cityobjectsJsonUrl``                | (Only for glTF datasets) The URL of the JSON file which can be generated automatically by using the KML/COLLADA/glTF Exporter (cf. :numref:`impexp_kml_export_preferences_general_chapter`). For more information please refer to explantation below this table.                                                                                                   |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``minLodPixels`` and ``maxLodPixels`` | (Only for glTF datasets) The minimum and maximum limit of the visibility range for each data layer to control the dynamic loading and unloading of the data tiles. For more information please refer to explantation below this table.                                                                                                                             |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``maxCountOfVisibleTiles``            | (Only for glTF datasets)The maximum number of allowed visible data tiles. For more information please refer to explantation below this table.                                                                                                                                                                                                                      |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``maxSizeOfCachedTiles``              | (Only for glTF datasets) The maximum allowable cache size expressed as a number of data tiles. For more information please refer to explantation below this table.                                                                                                                                                                                                 |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``MaximumScreenSpaceError``           | (Only for Cesium 3D Tiles und Indexed 3D Scene Layers) The maximum screen space error used to drive level of detail refinement.                                                                                                                                                                                                                                    |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``Load via proxy``                    | (Only for KML and GeoJSON datasets; only in client hosted by 3DCityDB) Specify if the KML datasets should be loaded using the built-in proxy server hosted in the 3DCityDB server. This can be used for remote KML datasets hosted on servers that do not allow Cross-Origin Resource Sharing (CORS).                                                              |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``Clamp to ground``                   | (Only for KML and GeoJSON datasets) Specify if the KML models should be clamped to the ground on the globe. This is useful when the KML dataset does not have correct heights and thus may be hidden under the terrain.                                                                                                                                            |
++---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 -  **More details on** ``cityobjectsJsonUrl``: 
    This JSON file contains a list of GMLIDs of all 3D objects which were exported
@@ -400,48 +384,79 @@ while importing KML/glTF models with thematic data:
    course be increased to achieve a better viewing experience depending on
    the hardware you use.
 
-**Usage example**
+Thematic data configuration
+===========================
+
+Like the visualization datasets, some parameters are required for defining
+a linked thematic data source, as described in the tabled below.
+
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``Type``            | The thematic data source type, currently supports: ``Google Sheets API``, ``PostgreSQL REST API``, ``OGC Feature API``, and ``Embedded`` as data source.                                                                 |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``URL``             | (Only for Google Sheets API, PostgreSQL REST API and OGC Feature API) The location of the thematic data source on the web.                                                                                               |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``Table structure`` | (Only for Google Sheets API and PostgreSQL REST API) The type of tables containing thematic data, currently supports: ``All object attributes in one row`` (horizontal) and ``One row per object attribute`` (vertical). |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+The ``URL`` of the thematic data source can be a Google Spreadsheets 
+(e.g., with the following structure ``https://docs.google.com/spreadsheets/d/<spreadsheet_id>``)
+or a table/view published by PostgREST
+(e.g., with the following structure ``https://example.com:3000/<table_name>``).
+Please note that the shared table must be publicly available. 
+For Google Spreadsheets, please refer to `Google Support <https://support.google.com/docs/answer/9331169?hl=en#6.1>`_
+to learn how to share documents online. For the structure of these tables,
+please refer to :ref:`structure_of_thematic_tables`.
+
+In ``horizontal`` tables, each row represents an object with known attributes.
+The number of attributes across all objects must be the same.
+
+On the other hand, ``vertical`` tables only have three columns representing
+each object's identifier, an attribute name and its value.
+Thus, each row represents an attribute of an object and 
+there may exist multiple rows having the same object identifiers.
+
+Usage example
+=============
 
 In this example, a tiled KML/glTF dataset of
 buildings in the Manhattan district of New York City (NYC) will be
 visualized on the 3D web client. This dataset is derived from the
 semantic 3D city model of `New York City (NYC)
-<https://www.lrg.tum.de/gis/projekte/new-york-city-3d/>`_ which has been
+<https://www.asg.ed.tum.de/gis/projekte/new-york-city-3d>`_ which has been
 created by the Chair of Geoinformatics at Technical University of Munich
 on the basis of datasets provided by the
-`NYC Open Data Portal <https://nycopendata.socrata.com/>`_. 
+`NYC Open Data Portal <https://opendata.cityofnewyork.us>`_. 
 
 The following parameter values should be entered into the corresponding
 input fields:
 
+**Layer configuration:**
+
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``url``                         | http://www.3dcitydb.net/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf_collada_MasterJSON.json         |
+| ``Type``                        | `COLLADA/KML/glTF`                                                                                                                                   |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``name``                        | Buildings                                                                                                                                            |
+| ``URL``                         | https://www.3dcitydb.net/3dcitydb/fileadmin/public/3dwebclientprojects/NYC-Model-20170501/Building_gltf/Building_gltf_collada_MasterJSON.json        |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``Layer data type``             | COLLADA/KML/glTF                                                                                                                                     |
+| ``Name``                        | NYC Buildings                                                                                                                                        |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``glTF version``                | 1.0                                                                                                                                                  |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``thematicDataUrl``             | https://docs.google.com/spreadsheets/d/1DbkMUSYW_YlE48MUxH5fak56uaCL8QXNrBgEr0gfuCY                                                                  |
+
+**Thematic data configuration:**
+
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``> Thematiic Data Source``     | Google Sheets API                                                                                                                                    |
+| ``Type``                        | `Google Sheets API`                                                                                                                                  |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``> Table Type``                | All object attributes in one row                                                                                                                     |
+| ``URL``                         | https://docs.google.com/spreadsheets/d/1DbkMUSYW_YlE48MUxH5fak56uaCL8QXNrBgEr0gfuCY                                                                  |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cityobjectsJsonUrl``          |                                                                                                                                                      |
-+---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``minLodPixels``                | 125                                                                                                                                                  |
-+---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``maxLodPixels``                | -1 or 1.7976931348623157e+308                                                                                                                        |
-+---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``maxCountOfVisibleTiles``      | 200                                                                                                                                                  |
-+---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``maxSizeOfCachedTiles``        | 200                                                                                                                                                  |
+| ``Table structure``             | `All object attributes in one row`(horizontal)                                                                                                       |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+All remaining optional parameters can be left empty 
+and the 3D web client will fill them with default values.
+
 After clicking on ``Add layer``, a data layer will be loaded into the 3D
-web client and the corresponding layer name ``Buldings``
+web client and the corresponding layer name ``NYC Buldings``
 will be listed above the input panel. The Earth map can be zoomed to the
 extent of the loaded data layer by double-clicking on the layer name.
 The parameter values of the data layer (its radio button must be
