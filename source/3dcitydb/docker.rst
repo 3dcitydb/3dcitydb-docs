@@ -96,8 +96,7 @@ versions.
 .. note::
   | Minor releases are not listed in this table.
   | The latest 3DCityDB version is: |version-badge-github|
-  | The latest image version on DockerHub is: |version-badge-dockerhub|
-  | The latest image version on Github  is: |version-badge-ghcr|
+  | The latest image version is: |version-badge-dockerhub|
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB Github repository <https://github.com/3dcitydb/
@@ -616,8 +615,9 @@ lists the tables of the DB running in the container using ``psql``.
 .. |version-badge-dockerhub| image:: https://img.shields.io/docker/v/3dcitydb/3dcitydb-pg?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver
   :target: https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags
 
-.. |version-badge-ghcr| image:: https://ghcr-badge.egpl.dev/3dcitydb/3dcitydb-pg/latest_tag?trim=major&label=latest
-  :target: https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg
+.. Disabled for now, as semver sorting is not working correctly
+.. .. |version-badge-ghcr| image:: https://ghcr-badge.egpl.dev/3dcitydb/3dcitydb-pg/latest_tag?trim=major&label=latest
+..   :target: https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg
 
 .. Oracle license
 
