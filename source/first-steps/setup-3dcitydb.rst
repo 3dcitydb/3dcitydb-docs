@@ -334,14 +334,14 @@ assigned and must own the privileges CREATE SEQUENCE, CREATE TABLE, and CREATE T
 Below is a simple example for creating a new database user 'citydb_v4'. Make sure to replace the dummy password
 'my_password' or pick another authentication method.
 
- .. code:: sql
+.. code:: sql
 
-     CREATE USER citydb_v4 IDENTIFIED BY my_password;
-     GRANT CONNECT, RESOURCE TO citydb_v4;
-     GRANT CREATE TABLE TO citydb_v4;
-     GRANT CREATE SEQUENCE TO citydb_v4;
-     GRANT CREATE TRIGGER TO citydb_v4;
-     GRANT UNLIMITED TABLESPACE TO citydb_v4;
+    CREATE USER citydb_v4 IDENTIFIED BY my_password;
+    GRANT CONNECT, RESOURCE TO citydb_v4;
+    GRANT CREATE TABLE TO citydb_v4;
+    GRANT CREATE SEQUENCE TO citydb_v4;
+    GRANT CREATE TRIGGER TO citydb_v4;
+    GRANT UNLIMITED TABLESPACE TO citydb_v4;
 
 **Step 2 – Edit the CONNECTION_DETAILS[.sh \| .bat] script**
 
