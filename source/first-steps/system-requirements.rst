@@ -12,7 +12,7 @@ installation of a `PostgreSQL <https://www.postgresql.org/>`_,
 `PolarDB <https://www.alibabacloud.com/de/product/polardb>`_ database.
 
 PostgreSQL with PostGIS extension
-  Supported versions are **PostgreSQL 12 and higher** with **PostGIS 3.0 and higher**.
+  Supported versions are **PostgreSQL 13 and higher** with **PostGIS 3.0 and higher**.
   Make sure to check the `PostgreSQL versioning policy <https://www.postgresql.org/support/versioning/>`_
   to find out which PostgreSQL versions are actively maintained or have reached end-of-life.
   The `PostGIS support matrix <https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS>`_
