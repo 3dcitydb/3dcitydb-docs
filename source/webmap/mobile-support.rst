@@ -1,9 +1,9 @@
 .. _webmap_mobile_support_chapter:
 
-Mobile Support Extension
+Mobile support extension
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Starting from version 1.6.0, the 3DCityDB-Web-Map-Client is equipped
+Starting from version ``1.6.0``, the 3DCityDB-Web-Map-Client is equipped
 with an extension that provides better support for mobile devices. The
 extension comes with a built-in mobile detector, which can automatically
 detect and adjust the client's behaviors accordingly to whether the 3D
@@ -53,39 +53,30 @@ illustrated in :numref:`3d_web_client_mobile_infobox` below.
 **Geolocation-based features**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The web client contains a new GPS button (located on the top right
+The web client contains a new geolocation button (located on the top right
 corner in the view toolbar) providing new functionalities involving
-user's current location and orientation (see :numref:`3d_web_client_mobile_symbols` and :numref:`3d_web_client_mobile_first_person_view`). Namely:
+user's current location and orientation. These are described as follows:
 
-*  Location "snapshot" (single-click): shows the user's current position and orientation.
+.. |3d_web_client_gps_main| image:: /media/GPS_main.png
+   :height: 50px
 
-*  Real-time Orientation Tracking (double-click): periodically shows the
-   user's current orientation with fixed location.
+.. |3d_web_client_gps_single| image:: /media/GPS_single.png
+   :height: 50px
 
-*  Real-time Compass Tracking + Position (triple-click) or the
-   "First-person View" mode: periodically shows the user's current
-   orientation and position.
+.. |3d_web_client_gps_on_ori| image:: /media/GPS_on_ori.png
+   :height: 50px
 
-.. figure:: /media/webmap_mobile_symbols_fig.png
-   :name: 3d_web_client_mobile_symbols
-   :scale: 30 %
-   :align: center
+.. |3d_web_client_gps_on_pos_ori| image:: /media/GPS_on_pos_ori.png
+   :height: 50px
 
-   From left to right, the 3 modes of geolocation-based features: 
-   Location snapshot, Real-time orientation tracking and First-person view
+.. |3d_web_client_gps_off| image:: /media/GPS_off.png
+   :height: 50px
 
-.. figure:: /media/webmap_mobile_first_person_view_fig.PNG
-   :name: 3d_web_client_mobile_first_person_view
-   :scale: 50 %
-   :align: center
-   
-   Real-time orientation tracking and First-person View on
-   mobile devices
-
-To disable real-time tracking, simply either click on the button
-again to return to "snapshot" mode or hold the button for 1 second,
-the camera will then ascend to a higher altitude of the current
-location.
+* |3d_web_client_gps_main| Main geolocation button by default (before activation)
+* |3d_web_client_gps_single| A single "snapshot" of the device's current position and orientation
+* |3d_web_client_gps_on_ori| Live-tracking of the device's orientation with fixed position
+* |3d_web_client_gps_on_pos_ori| Live-tracking of the device's orientation and position (first-person view)
+* |3d_web_client_gps_off| Option to disable the live-tracking functions / first-person view
 
 .. note::
    The mobile extension makes use of the Geolocation API and the

@@ -9,10 +9,10 @@ browser.
 
 ::
 
-    https://www.3dcitydb.org/3dcitydb-web-map/1.9.0/3dwebclient/index.html
+    https://www.3dcitydb.org/3dcitydb-web-map/2.0.0/3dwebclient/index.html
 
 .. note::
-   The number **1.9.0** in URL denotes the version number of the 3D
+   The number **2.0.0** in URL denotes the version number of the 3D
    web client. Once the 3D web client has been upgraded in the future, this
    version number will be adapted to conform to the current release of the
    3D web client. Web links pointing to the previous software versions will
@@ -37,7 +37,7 @@ screenshot below.
    :align: center
 
 The 3D web client comes with a lightweight JavaSript-based HTTP server
-(the file with the name “\ *server*\ ”) that is mainly meant to test the
+(the file with the name "*server*") that is mainly meant to test the
 functionality of the 3D web client on your local machine. For running
 this web server, the open source JavaScript runtime environment Node.js
 is required to be installed on your machine. The latest version of
@@ -45,7 +45,7 @@ Node.js can be download via the web link below:
 
 ::
 
-    https://nodejs.org/en/
+    https://nodejs.org
 
 Once the Node.js program has been installed, you need to open a shell
 environment on your operating system and navigate to the folder where
