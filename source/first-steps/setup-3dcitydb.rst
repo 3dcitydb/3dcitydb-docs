@@ -331,6 +331,18 @@ assigned and must own the privileges CREATE SEQUENCE, CREATE TABLE, and CREATE T
    enabling and disabling spatial indexes. It is *not sufficient* to
    inherit these privileges through a role.
 
+Below is a simple example for creating a new database user 'citydb_v4'. Make sure to replace the dummy password
+'my_password' or pick another authentication method.
+
+ .. code:: sql
+
+     CREATE USER citydb_v4 IDENTIFIED BY my_password;
+     GRANT CONNECT, RESOURCE TO citydb_v4;
+     GRANT CREATE TABLE TO citydb_v4;
+     GRANT CREATE SEQUENCE TO citydb_v4;
+     GRANT CREATE TRIGGER TO citydb_v4;
+     GRANT UNLIMITED TABLESPACE TO citydb_v4;
+
 **Step 2 – Edit the CONNECTION_DETAILS[.sh \| .bat] script**
 
 Go to the 3dcitydb/oracle/ShellScripts directory, choose the folder
@@ -347,7 +359,7 @@ look like under Windows:
     set SQLPLUSBIN= C:\\Oracle\\instantclient_11_2 ::Directory containing the SQL*Plus binary
     set HOST=localhost                             ::Name of the database server
     set PORT=1521                                  ::Port of the database server
-    set SID=orcl                                   ::SID of the 3DCityDB database to connect to
+    set SID=orcl                                   ::SID or service name to connect to
     set USERNAME=citydb_v4                         ::Database user to connect with
 
 .. note::
