@@ -1,0 +1,78 @@
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    #docs-notice {
+      background: #fff4cc; /* soft amber */
+      color: #333;
+      text-align: center;
+      padding: 15px 40px 15px 15px;
+      font-weight: normal;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      border-bottom: 1px solid #e0c97f;
+    }
+    #docs-notice h2 {
+      margin: 0.2em 0;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #444;
+    }
+    #docs-notice p {
+      margin: 0.4em 0;
+      font-size: 1em;
+    }
+    #docs-notice a {
+      color: #2980B9; /* RTD link blue */
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    #docs-notice code {
+      background: #f0f0f0;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    #docs-notice .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #666;
+    }
+    #docs-notice .close-btn:hover {
+      color: #000;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div id="docs-notice" style="display:none;">
+    <span class="close-btn" onclick="dismissNotice()">✖</span>
+    <h2>⚠️   3D City Database v5 released!   ⚠️</h2>
+    <p>
+      This is the documentation for 3DCityDB <code>&lt;= v4.x.x</code>, now in maintenance mode.
+      The new <code>v5</code> adds CityGML 3.0 support, new features, and updated tools.
+      <br>👉 See the <a href="https://docs.3dcitydb.net/compatibility/">compatibility guide</a> and explore the
+      🚀   <a href="https://docs.3dcitydb.net/">3DCityDB v5 documentation</a>.   🚀
+    </p>
+  </div>
+
+  <script>
+    function dismissNotice() {
+      document.getElementById('docs-notice').style.display = 'none';
+      sessionStorage.setItem('docsNoticeDismissed', 'true');
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      if (!sessionStorage.getItem('docsNoticeDismissed')) {
+        document.getElementById('docs-notice').style.display = 'block';
+      }
+    });
+  </script>
+
+  {{ super() }}
+{% endblock %}
