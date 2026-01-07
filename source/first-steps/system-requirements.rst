@@ -12,7 +12,7 @@ installation of a `PostgreSQL <https://www.postgresql.org/>`_,
 `PolarDB <https://www.alibabacloud.com/de/product/polardb>`_ database.
 
 PostgreSQL with PostGIS extension
-  Supported versions are **PostgreSQL 13 and higher** with **PostGIS 3.0 and higher**.
+  Supported versions are **PostgreSQL 14 and higher** with **PostGIS 3.1 and higher**.
   Make sure to check the `PostgreSQL versioning policy <https://www.postgresql.org/support/versioning/>`_
   to find out which PostgreSQL versions are actively maintained or have reached end-of-life.
   The `PostGIS support matrix <https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS>`_
@@ -50,9 +50,9 @@ Java 11 and higher. The recommended version for running the Importer/Exporter
 is **Java 17**. The tool has been successfully tested on (but is not
 limited to) the following operating systems:
 
--  Microsoft Windows 7, 8, 10, 11;
+-  Microsoft Windows 10, 11;
 -  Apple Mac OS X and macOS;
--  Ubuntu Linux 9 to 24.
+-  Ubuntu Linux 24, 25.
 
 Prior to the setup of the Importer/Exporter tool, a Java Runtime
 Environment (JRE) **must be installed on your system**. Java
