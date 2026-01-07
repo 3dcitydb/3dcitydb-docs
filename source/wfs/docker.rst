@@ -53,14 +53,9 @@ The :ref:`Web-based client <wfs_web_based_client_chapter>` is available here:
 Image variants and versions
 *******************************************************************************
 
-The WFS Docker images are based on the official `Apache Tomcat images <https://hub.
-docker.com/_/tomcat>`_ and are available as Debian and Alpine
-Linux variants. :numref:`wfs_docker_tbl_images` gives an overview on the images
+The WFS Docker image is based on the official `Apache Tomcat images <https://hub.
+docker.com/_/tomcat>`_ . :numref:`wfs_docker_tbl_images` gives an overview on the images
 available. Currently, Tomcat 9 images are used as base images for the WFS.
-
-.. warning:: The official Tomcat 9 Alpine base images currently uses Java 8, which is
-  no longer maintained. Therefore, for security reasons, this image should not be used
-  in production.
 
 The **edge** images are automatically built and published on every push to the
 *master* branch of the `3DCityDB WFS Github repository <https://
@@ -79,16 +74,12 @@ the most recent release version.
 
   * - Tag
     - Debian
-    - Alpine
   * - edge
     - |deb-build-edge| |deb-size-edge|
-    - |alp-build-edge| |alp-size-edge|
   * - latest
     - |deb-size-latest|
-    - |alp-size-latest|
   * - 5.0.0
     - |deb-size-v5.0.0|
-    - |alp-size-v5.0.0|
 
 .. note::
   | Minor releases are not listed in this table.
@@ -102,9 +93,7 @@ The images are available on `3DCityDB DockerHub <https://hub.docker.com/r/
 
   docker pull 3dcitydb/wfs:TAG
 
-The image *tag* is composed of the WFS version and the image
-variant. Debian is the default image variant, where no image variant is
-appended to the tag. For the Alpine Linux images ``-alpine`` is appended.
+The image *tag* represents the WFS version.
 The full list of available tags can be found on `DockerHub <https://hub.
 docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated>`_.
 Here are some examples of full image tags:
@@ -112,10 +101,8 @@ Here are some examples of full image tags:
 .. code-block:: shell
 
   docker pull 3dcitydb/wfs:edge
-  docker pull 3dcitydb/wfs:edge-alpine
-  docker pull 3dcitydb/wfs:latest-alpine
+  docker pull 3dcitydb/wfs:latest
   docker pull 3dcitydb/wfs:5.0.0
-  docker pull 3dcitydb/wfs:5.0.0-alpine
 
 .. _wfs_docker_image_usage:
 
@@ -205,11 +192,11 @@ Build your own images
 3DCityDB WFS images can easily be built on your own. The images support the
 following build arguments:
 
-.. option:: BUILDER_IMAGE_TAG=<11.0.12-jdk-slim'>
+.. option:: BUILDER_IMAGE_TAG=<21-jdk-noble'>
 
-  Tag of the builder base image, https://hub.docker.com/_/openjdk.
+  Tag of the builder base image, https://hub.docker.com/_/eclipse-temurin.
 
-.. option:: RUNTIME_IMAGE_TAG=<9-alpine>
+.. option:: RUNTIME_IMAGE_TAG=<9-jdk21-temurin-noble>
 
   Tag of the runtime image, https://hub.docker.com/_/tomcat.
 
@@ -218,16 +205,6 @@ following build arguments:
   Name of the default config file shall that shall be copied into the image and used by default
   when running a container. The config file must be located inside the *resources/docker* folder
   (default: `default-config.xml`).
-
-.. option:: TOMCAT_USER=<tomcat>
-
-  Name of the user running the Tomcat service inside the container (default: *tomcat*).
-  Note that the user is assigned the fixed UID = 1000.
-
-.. option:: TOMCAT_GROUP=<tomcat>
-
-  Name of the group that the user shall be assigned to (default: *tomcat*).
-  Note that the group is assigned the fixed GID = 1000.
 
 .. rubric:: Build process
 
@@ -244,14 +221,8 @@ following build arguments:
 
   .. code-block:: bash
 
-    # Debian variant
     docker build . \
       -t 3dcitydb/wfs:edge
-
-    # Alpine variant
-    docker build . \
-      -t 3dcitydb/wfs:edge-alpine \
-      -f Dockerfile.alpine
 
 .. _wfs_docker_examples:
 
@@ -283,7 +254,7 @@ via WFS and run some example queries.
       --network citydb-net \
       -e "POSTGRES_PASSWORD=changeMe" \
       -e "SRID=3068" \
-    3dcitydb/3dcitydb-pg:latest-alpine
+    3dcitydb/3dcitydb-pg:latest
 
 3. Import the dataset using the
    :ref:`3DCityDB Importer/Exporter Docker <impexp_docker_chapter>`:
@@ -316,7 +287,7 @@ for the service and serve WFS content from ``/citydb-wfs``.
       -e CITYDB_USERNAME=postgres \
       -e CITYDB_PASSWORD=changeMe \
       -e WFS_CONTEXT_PATH=citydb-wfs \
-    3dcitydb/wfs:latest-alpine
+    3dcitydb/wfs:latest
 
 .. note:: The 3DCityDB, Importer/Exporter and WFS Docker containers are attached to the same
   Docker network ``citydb-net`` we created in the beginning. Thus, container names (e.g. ``citydb``)
@@ -468,17 +439,8 @@ When the services and network are no longer required, they can be removed:
   style=flat-square&logo=Docker&logoColor=white
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
 
-.. |alp-build-edge| image:: https://img.shields.io/github/actions/workflow/status/
-  3dcitydb/web-feature-service/docker-build-edge-alpine.yml?
-   style=flat-square&logo=Docker&logoColor=white
-  :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
-
 .. |deb-size-edge| image:: https://img.shields.io/docker/image-size/
   3dcitydb/wfs/edge?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
-
-.. |alp-size-edge| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/wfs/edge-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
 
 .. latest
@@ -487,16 +449,8 @@ When the services and network are no longer required, they can be removed:
   3dcitydb/wfs/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
 
-.. |alp-size-latest| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/wfs/latest-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
-
 .. 5.0.0
 
 .. |deb-size-v5.0.0| image:: https://img.shields.io/docker/image-size/
   3dcitydb/wfs/5.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square
-  :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
-
-.. |alp-size-v5.0.0| image:: https://img.shields.io/docker/image-size/
-  3dcitydb/wfs/5.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&style=flat-square
   :target: https://hub.docker.com/r/3dcitydb/wfs/tags?page=1&ordering=last_updated
