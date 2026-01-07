@@ -192,7 +192,7 @@ Build your own images
 3DCityDB WFS images can easily be built on your own. The images support the
 following build arguments:
 
-.. option:: BUILDER_IMAGE_TAG=<21-jdk-noble'>
+.. option:: BUILDER_IMAGE_TAG=<21-jdk-noble>
 
   Tag of the builder base image, https://hub.docker.com/_/eclipse-temurin.
 
